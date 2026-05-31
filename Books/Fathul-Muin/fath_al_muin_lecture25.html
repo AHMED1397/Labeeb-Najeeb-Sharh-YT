@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf') format('truetype'); font-weight: normal; }
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf') format('truetype'); font-weight: bold; }
+@font-face { font-family: 'NotoNaskh'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf') format('truetype'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+
+body {
+  font-family: 'NotoNaskh', 'Amiri', serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #1a1a2e;
+  direction: rtl;
+  background: #fff;
+  text-align: justify;
+}
+
+/* ===== COVER HEADER (تابع style) ===== */
+.cover-header {
+  background: #1a5632;
+  color: white;
+  padding: 20px 14px;
+  text-align: center;
+  margin: 0 0 12px 0;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px);
+  border-bottom: 4px solid #c8a951;
+}
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 6px; border: none; font-family: 'Amiri', serif; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.9; margin: 4px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.92; margin: 6px 0 2px 0; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .creator { font-size: 11pt; opacity: 0.85; margin-top: 2px; }
+.cover-header .series { font-size: 11pt; opacity: 0.8; margin-top: 4px; }
+
+/* ===== TABLE OF CONTENTS ===== */
+.toc {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 0 0 12px 0;
+}
+.toc-title { font-family: 'Amiri', serif; font-size: 14pt; color: #1a5632; text-align: center; margin-bottom: 6px; border-bottom: 2px solid #c8a951; padding-bottom: 4px; }
+.toc-item { font-size: 10pt; padding: 2px 0; border-bottom: 1px dotted #ccc; display: flex; justify-content: space-between; }
+
+/* ===== SECTION HEADINGS ===== */
+h2.section-title { font-family: 'Amiri', serif; font-size: 20px; font-weight: bold; color: #0d7c3e; border-bottom: 2px solid #0d7c3e; padding-bottom: 5px; margin: 18px 0 10px; }
+h3.sub-title { font-family: 'Amiri', serif; font-size: 17px; font-weight: bold; color: #0a5c2e; margin: 14px 0 8px; padding-right: 10px; border-right: 4px solid #0d7c3e; }
+
+p { margin: 5px 0; text-align: justify; }
+
+/* ===== CONTENT BOXES ===== */
+.definition-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-right: 4px solid #0d7c3e; padding: 10px 14px; margin: 10px 0; border-radius: 6px; }
+.rule-box { background: #fefce8; border: 1px solid #fde68a; border-right: 4px solid #d97706; padding: 10px 14px; margin: 10px 0; border-radius: 6px; }
+.exception-box { background: #fff7ed; border: 1px solid #fed7aa; border-right: 4px solid #ea580c; padding: 10px 14px; margin: 10px 0; border-radius: 6px; }
+.evidence-box { background: #eff6ff; border: 1px solid #bfdbfe; border-right: 4px solid #2563eb; padding: 10px 14px; margin: 10px 0; border-radius: 6px; }
+.issue-box { background: #fdf2f8; border: 1px solid #fbcfe8; border-right: 4px solid #db2777; padding: 10px 14px; margin: 10px 0; border-radius: 6px; }
+.comparison-box { background: #f5f3ff; border: 1px solid #ddd6fe; border-right: 4px solid #7c3aed; padding: 10px 14px; margin: 10px 0; border-radius: 6px; }
+.note-box { background: #f0f9ff; border: 1px solid #bae6fd; border-right: 4px solid #0284c7; padding: 10px 14px; margin: 10px 0; border-radius: 6px; }
+.key-rule { background: #dcfce7; border: 2px solid #16a34a; padding: 10px 14px; margin: 10px 0; border-radius: 8px; text-align: center; font-weight: bold; font-size: 15px; }
+.poetry-box { background: #f9f5ec; border: 2px solid #c8a951; border-radius: 8px; padding: 10px 16px; margin: 10px 0; text-align: center; page-break-inside: avoid; }
+.poetry { font-family: 'Amiri', serif; font-size: 13pt; color: #1a5632; line-height: 2.2; }
+
+.box-label { font-family: 'Amiri', serif; font-weight: bold; font-size: 13px; margin-bottom: 4px; display: inline-block; padding: 1px 8px; border-radius: 4px; color: #fff; }
+.label-def { background: #0d7c3e; }
+.label-rule { background: #d97706; }
+.label-exc { background: #ea580c; }
+.label-ev { background: #2563eb; }
+.label-issue { background: #db2777; }
+.label-comp { background: #7c3aed; }
+.label-note { background: #0284c7; }
+
+/* ===== TABLES ===== */
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 13px; table-layout: fixed; }
+th { background: #0d7c3e; color: #fff; padding: 6px 8px; font-family: 'Amiri', serif; font-weight: bold; text-align: center; }
+td { padding: 5px 8px; border: 1px solid #d1d5db; text-align: center; vertical-align: top; }
+tr:nth-child(even) { background: #f0fdf4; }
+tr:nth-child(odd) { background: #fff; }
+
+/* ===== CLASSIFICATION TREE ===== */
+.tree-container { margin: 12px 0; text-align: center; }
+.tree-root { display: inline-block; background: linear-gradient(135deg, #0d7c3e, #0a5c2e); color: #fff; padding: 6px 18px; border-radius: 8px; font-family: 'Amiri', serif; font-weight: bold; font-size: 15px; }
+.tree-branches { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px; }
+.tree-branch { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 6px 12px; min-width: 80px; text-align: center; }
+.tree-branch-num { font-family: 'Amiri', serif; font-weight: bold; color: #0d7c3e; font-size: 14px; }
+.tree-branch-label { font-size: 12px; color: #374151; }
+
+/* ===== COMPARISON GRID ===== */
+.compare-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.compare-card { flex: 1; min-width: 140px; border-radius: 8px; padding: 8px 10px; text-align: center; }
+.compare-card-green { background: #dcfce7; border: 1px solid #86efac; }
+.compare-card-red { background: #fef2f2; border: 1px solid #fca5a5; }
+.compare-card-yellow { background: #fefce8; border: 1px solid #fde68a; }
+.compare-card-title { font-family: 'Amiri', serif; font-weight: bold; font-size: 14px; margin-bottom: 4px; }
+.compare-card-body { font-size: 12px; }
+
+/* ===== FLOW DIAGRAM ===== */
+.flow-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px; margin: 8px 0; }
+.flow-box { background: #0d7c3e; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-family: 'Amiri', serif; font-weight: bold; text-align: center; }
+.flow-arrow { font-size: 16px; color: #0d7c3e; font-weight: bold; }
+.flow-result { padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; text-align: center; }
+.flow-pure { background: #dcfce7; border: 1px solid #86efac; color: #166534; }
+.flow-impure { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+.flow-excused { background: #fefce8; border: 1px solid #fde68a; color: #92400e; }
+
+/* ===== INLINE HIGHLIGHTS ===== */
+.highlight-green { background: #dcfce7; padding: 1px 4px; border-radius: 3px; }
+.highlight-gold { background: #fefce8; padding: 1px 4px; border-radius: 3px; }
+.highlight-red { background: #fef2f2; padding: 1px 4px; border-radius: 3px; }
+
+.verse-ref { font-family: 'Amiri', serif; font-size: 14px; color: #1e40af; text-align: center; margin: 6px 0; }
+
+.excused-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.excused-item { background: #fefce8; border: 1px solid #fde68a; border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.excused-num { display: inline-block; background: #d97706; color: #fff; width: 22px; height: 22px; border-radius: 50%; text-align: center; line-height: 22px; font-family: 'Amiri', serif; font-weight: bold; font-size: 12px; margin-left: 6px; }
+</style>
+</head>
+<body>
+
+<!-- ===== COVER HEADER (تابع) ===== -->
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس الخامس والعشرون — النجاسات (تابع)</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="creator">تنسيق: أحمد بن إرشاد</div>
+  <div class="series">الزباد · ميتة الميتة · المسكر · الخمر والتخليل · ما يطهر بالاستحالة</div>
+</div>
+
+<!-- ===== TABLE OF CONTENTS ===== -->
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. الزباد طاهر</span><span>١</span></div>
+  <div class="toc-item"><span>٢. العفو عن قليل شعر الزباد — الجامد والمائع</span><span>١</span></div>
+  <div class="toc-item"><span>٣. جرة البعير وألحاقها</span><span>٢</span></div>
+  <div class="toc-item"><span>٤. العفو عما اتصل بأفواه الصبيان والمجانين</span><span>٣</span></div>
+  <div class="toc-item"><span>٥. ضابط الميتات: جميع الميتات نجسة إلا ثلاثة</span><span>٤</span></div>
+  <div class="toc-item"><span>٦. ميتة ما لا نفس له سائلة — خلاف القفال والجمهور</span><span>٥</span></div>
+  <div class="toc-item"><span>٧. شعر الميتة وعظمها وقرنها</span><span>٦</span></div>
+  <div class="toc-item"><span>٨. استثناءات الميتة الأربعة الأخرى</span><span>٦</span></div>
+  <div class="toc-item"><span>٩. دود المأكول والسمك المملح (الفسيخ)</span><span>٧</span></div>
+  <div class="toc-item"><span>١٠. المسكر المائع نجس</span><span>٨</span></div>
+  <div class="toc-item"><span>١١. الخمر والنبيذ — فرق لغوي وشرعي</span><span>٩</span></div>
+  <div class="toc-item"><span>١٢. المسكر الجامد — طاهر لكن حرام</span><span>٩</span></div>
+  <div class="toc-item"><span>١٣. تطهر الخمر بالتخليل</span><span>١٠</span></div>
+  <div class="toc-item"><span>١٤. خمر الكافر وخمر المسلم</span><span>١١</span></div>
+  <div class="toc-item"><span>١٥. تفصيلات التخليل — ثلاثة آراء</span><span>١٢</span></div>
+  <div class="toc-item"><span>١٦. ما يطهر بالاستحالة — شيئان فقط</span><span>١٣</span></div>
+</div>
+
+<!-- ===== 1. الزباد ===== -->
+<h2 class="section-title">١. الزباد طاهر</h2>
+
+<div class="definition-box">
+  <span class="box-label label-def">تعريف الزباد</span>
+  <p><b>الزباد</b> (بتخفيف الباء أو تشديدها: زَباد أو زَبّاد): مادة جامدة كالياغورت، لها رائحة كالمسك، غالية الثمن جداً. يستعمل في الطيب ونحوه.</p>
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>والزباد طاهر</b> — قال المصنف والزباد طاهر. وقد اختلف في مصدره:</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">القول الأول: ابن حجر</div>
+    <div class="compare-card-body">الزباد <b>لبن حيوان بحري مأكول</b><br>لأن لبن ما يوكل لحمه طاهر كما مرّ في الدرس الماضي</div>
+  </div>
+  <div class="compare-card compare-card-yellow">
+    <div class="compare-card-title">القول الثاني: ابن حجر الهيتمي</div>
+    <div class="compare-card-body">الزباد <b>عرق سنور بري</b><br>وسؤر كل حيوان طاهر طاهر — والسنور البري طاهر ما لم يأكل لحماً</div>
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">قول المختصين</span>
+  <p>يقول المختصون إن الزباد عبارة عن <b>كيس (غدة) ينشأ بين منطقة الشرج ومنطقة الأنثيين</b> في الحيوان. فالصياد إما أن يمسك الحيوان ويأخذ هذا الكيس، أو يصطاده ثم يأخذه. وعلى هذا القول أيضاً يكون طاهراً لأنه من حيوان مأكول بحري.</p>
+</div>
+
+<!-- ===== 2. العفو عن قليل شعر الزباد ===== -->
+<h2 class="section-title">٢. العفو عن قليل شعر الزباد — الجامد والمائع</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>ويُعفى عن قليل شعر كالثلاث</b> — أي يُعفى عن ثلاث شعرات تقع في الزباد. وقال بعض المحشّين: والأربع والخمس أيضاً يعفى عنها.</p>
+</div>
+
+<div class="issue-box">
+  <span class="box-label label-issue">الإشكال: أين يُقدَّر القليل؟</span>
+  <p><b>ولم يبيّنوا أن المراد القليل في المأخوذ للاستعمال أو في الإناء المأخوذ منه.</b> يعني: هل المقصود ثلاث شعرات فيما أخذته للاستعمال فقط؟ أم ثلاث شعرات في جميع الإناء؟</p>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">تفصيل ابن حجر — فرق بين الجامد والمائع</span>
+  <p><b>الذي يتجه الأول إن كان جامداً</b> — أي العبرة بما أُخذ للاستعمال لا بجميع الإناء. لأن العبرة في الجامد بمحل النجاسة فقط:</p>
+</div>
+
+<table>
+  <tr>
+    <th>حالة الزباد</th>
+    <th>ضابط العفو</th>
+    <th>التفصيل</th>
+  </tr>
+  <tr>
+    <td><b>جامد</b></td>
+    <td>يعفى عن الثلاث في <b>ما أُخذ للاستعمال</b> لا في جميع الإناء</td>
+    <td>فإن كثرت الشعرات في محل واحد لم يُعفَ عنه. وإن كانت في محال متعددة (أخذت ثلاثاً ثم ثلاثاً ثم ثلاثاً) عُفي عنه في كل مرة</td>
+  </tr>
+  <tr>
+    <td><b>مائع (سائل)</b></td>
+    <td>يعفى عن الثلاث في <b>جميعه</b> لأن جميعه كالشيء الواحد</td>
+    <td>فلو وجد فيه أكثر من ثلاث فلا يُعفى عنه. ولا نظر للمأخوذ وحده في المائع</td>
+  </tr>
+</table>
+
+<div class="key-rule">
+  الجامد: العبرة بالمأخوذ للاستعمال — المائع: العبرة بجميعه
+</div>
+
+<!-- ===== 3. جرة البعير ===== -->
+<h2 class="section-title">٣. جرة البعير وألحاقها</h2>
+
+<div class="definition-box">
+  <span class="box-label label-def">الجرة</span>
+  <p><b>الجرة:</b> ما يخرجه البعير (أو نحوه) من بطنه (معدته) ليأكله ثانية. وهذا يحصل في الإبل والبقر وغيرها من الحيوانات المجترة.</p>
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم — نقل المحب الطبري عن ابن الصبّاج</span>
+  <p><b>ونقل المحب الطبري عن ابن الصبّاج واعتمده أنه يعفى عن جرة بعير ونحوه فلا يُنجّس ما شرب منه.</b> أي أن البعير إذا أخرج طعامه من معدته ثم شرب من ماء، فإن هذا الماء لا يتنجّس — لأنه يُعفى عن جرة البعير.</p>
+</div>
+
+<h3 class="sub-title">إلحاق ولد البقر والضأن</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>وألحق به فم ما يجتر من ولد البقر والضأن إذا التقم أخلاف أمه.</b> أي إذا كان العجل الصغير يخرج طعاماً من معدته إلى فمه (تجتر) ثم رضع من أخلاف (حلمات ثدي) أمه — فإن أخلاف الأم تتنجّس لكن <b>يُعفى عن ذلك</b>. فلا يلزم غسل المكان قبل الحلب.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">تعريف الأخلاف</span>
+  <p><b>الأخلاف:</b> حلمات ثدي الحيوان (البقرة، الشاة). وهي المواضع التي يخرج منها اللبن. فإذا رضع منها ولد يجتر وكان فمه متنجساً بالجرة، تنجّست الأخلاف لكن يُعفى عنه.</p>
+</div>
+
+<!-- ===== 4. العفو عن أفواه الصبيان والمجانين ===== -->
+<h2 class="section-title">٤. العفو عما اتصل بأفواه الصبيان والمجانين</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">قول ابن الصلاح</span>
+  <p><b>وقال ابن الصلاح: يُعفى عما اتصل به شيء من أفواه الصبيان مع تحقق النجاسة.</b> أي إذا تنجّس فم الصبي بالقيء مثلاً ثم رضع من ثدي أمه — يُعفى عن تنجّس الثدي. وذلك <b>لمشقة الاحتراز</b>.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">ترجمة ابن الصلاح</span>
+  <p><b>ابن الصلاح:</b> إمام كبير من أئمة الفقه والحديث، صاحب مقدمة ابن الصلاح في علم الاصطلاح. وقد كان إمامه في الفقه أكثر من إمامته في الحديث. له حاشية على الوسيط للغزالي، وفتاوى مشهورة، وكتاب في طبقات فقهاء الشافعية، وشرح على الورقات في أصول الفقه.</p>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">إلحاق المجانين</span>
+  <p><b>وألحق غيره (غير ابن الصلاح) بهم (بالصبيان) الأفواه المجانين مع تحقق النجاسة في أفواههم.</b> فالمجنون كالصبي في مشقة الاحتراز عن نجاسة فمه. وقوّاه الزركشي (محمد بن عبد الله بن بهادر الزركشي، توفي سنة 794 هـ، إمام كبير له تصانيف في الفقه وأصوله وعلوم القرآن).</p>
+</div>
+
+<!-- ===== 5. ضابط الميتات ===== -->
+<h2 class="section-title">٥. ضابط الميتات: جميع الميتات نجسة إلا ثلاثة</h2>
+
+<div class="key-rule">
+  جميع الميتات نجسة إلا ثلاثة: الآدمي، السمك، الجراد
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الضابط عند الشافعية</span>
+  <p><b>وكميتة</b> — أي والميتة نجسة. والضابط عند فقهاء الشافعية أن الميتة نجسة من جميع الحيوانات إلا ثلاثة:</p>
+</div>
+
+<div class="tree-container">
+  <div class="tree-root">الميتات النجسة — ثلاثة استثناءات</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">١</div>
+      <div class="tree-branch-label"><b>الآدمي</b><br>مسلماً أو كافراً<br>حياً أو ميتاً</div>
+    </div>
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">٢</div>
+      <div class="tree-branch-label"><b>السمك</b><br>ما لا يعيش إلا في الماء<br>ولو على غير صورته المعهودة</div>
+    </div>
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">٣</div>
+      <div class="tree-branch-label"><b>الجراد</b><br>ميتته طاهرة</div>
+    </div>
+  </div>
+</div>
+
+<h3 class="sub-title">تفصيل الاستثناءات</h3>
+
+<table>
+  <tr>
+    <th>الاستثناء</th>
+    <th>البيان</th>
+    <th>الدليل</th>
+  </tr>
+  <tr>
+    <td><b>الآدمي</b></td>
+    <td>مسلماً كان أو كافراً، حياً أو ميتاً — ميتته طاهرة. أما قوله تعالى {إنما المشركون نجس} فالنجاسة فيه نجاسة اعتقاد لا نجاسة بدن</td>
+    <td>قوله تعالى: <span class="verse-ref">{ولقد كرّمنا بني آدم}</span> — قضية التكريم ألا يُحكم بنجاستهم بالموت</td>
+  </tr>
+  <tr>
+    <td><b>السمك</b></td>
+    <td>ما لا يعيش إلا في الماء، ولو كان على غير صورة السمك المعهودة. فإذا أُخرج من الماء مات — ميتته طاهرة</td>
+    <td>حديث: <i>"أُحلّت لنا ميتتان: السمك والجراد"</i></td>
+  </tr>
+  <tr>
+    <td><b>الجراد</b></td>
+    <td>ميتته طاهرة مطلقاً</td>
+    <td>الحديث السابق</td>
+  </tr>
+</table>
+
+<div class="issue-box">
+  <span class="box-label label-issue">مسألة: ميتة الجن والملائكة</span>
+  <p><b>ميتة الجن:</b> طاهرة — لأنهم مكلفون مؤمنون وكافرون وهم على صورة الآدمي في التكليف، فيلحقون بالآدمي.</p>
+  <p><b>ميتة الملائكة:</b> طاهرة — بالأولوية فإنهم أطهر من الآدمي.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">مسألة معاصرة: السمك على غير الصورة المعهودة</span>
+  <p>بعض الأسماك في بلاد إندونيسيا تكون على صورة الثعبان — تعيش في الماء المليء بالطين والتراب. إذا أُخرجت من الماء ماتت. وقد أفتى بعض علماء مكة بتحريمها لصورتها. فألّف بعض علماء إندونيسيا رسالة يردّ عليهم وبيّن أنها لا تعيش إلا في الماء فميتتها طاهرة، وإن لم تكن على صورة السمك المعهودة.</p>
+</div>
+
+<!-- ===== 6. ميتة ما لا نفس له سائلة ===== -->
+<h2 class="section-title">٦. ميتة ما لا نفس له سائلة — خلاف القفال والجمهور</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">قول الشافعية (المعتمد)</span>
+  <p><b>وكميتة ولو نحو ذباب مما لا نفس له سائلة</b> — أي ميتة الذباب ونحوه (النمل، النحل، البعوض) نجسة، لأنها ليست من المستثنيات الثلاثة. <b>الميتة نجسة وإن لم يسل دمها.</b></p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">الشافعية (المعتمد)</div>
+    <div class="compare-card-body">ميتة ما لا نفس له سائلة <b>نجسة</b><br>لكن يُعفى عنها بتفاصيل<br><b>من مفردات المذهب</b></div>
+  </div>
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">القفال والجمهور (أبو حنيفة ومالك وأحمد)</div>
+    <div class="compare-card-body">ميتة ما لا نفس له سائلة <b>طاهرة</b><br>لأنه لا يوجد فيها دم يعفنه</div>
+  </div>
+</div>
+
+<div class="exception-box">
+  <span class="box-label label-exc">فتوى ابن حجر العسقلاني</span>
+  <p><b>أفتى الحافظ ابن حجر العسقلاني بصحة الصلاة إذا حمل المصلي ميتة ذباب</b> إذا كان في محل يشقّ الاحتراز منه — كمن يصلّي بين الأشجار أو في موسم الأمطار فتسقط عليه حشرات ميتة. وهذا من باب العفو عن ما يشقّ الاحتراز عنه.</p>
+</div>
+
+<!-- ===== 7. شعر الميتة وعظمها وقرنها ===== -->
+<h2 class="section-title">٧. شعر الميتة وعظمها وقرنها</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">حكم الشافعية</span>
+  <p><b>وكذا شعرها وعظمها وقرنها</b> — أي شعر الميتة وعظمها وقرنها كلها نجسة. فالميتة بكل أجزائها (شعراً وعظماً وقرناً ولحماً ودمًا) نجسة.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">الشافعية والجمهور</div>
+    <div class="compare-card-body">عظام الميتة <b>نجسة</b> مطلقاً<br>سواء كان عليها دسم أو لا</div>
+  </div>
+  <div class="compare-card compare-card-yellow">
+    <div class="compare-card-title">أبو حنيفة</div>
+    <div class="compare-card-body">عظام الميتة <b>طاهرة</b> بشرط<br>ألا يكون عليها دسم (بقايا لحم)</div>
+  </div>
+</div>
+
+<!-- ===== 8. استثناءات الميتة الأخرى ===== -->
+<h2 class="section-title">٨. استثناءات الميتة الأربعة الأخرى</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">استثناء رابع: صيد لم تُدرك ذكاته</span>
+  <p><b>وغير صيد لم تُدرك ذكاته</b> — أي ميتة الصيد الذي لم تُدرك ذكاته طاهرة. مثال: أرسلت سهمك أو كلبك على أرنب فوصلت إليه وقد مات — ميتته طاهرة.</p>
+  <p><b>مفهومه:</b> لو أدركته حياً ولم تُذكّه حتى مات — فهو نجس. لأنك أدركت ذكاته فلم تقم بها.</p>
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">استثناء خامس: جنين مذكّاة مات بذكاتها</span>
+  <p><b>وجنين مذكّاة مات بذكاتها</b> — أي إذا ذبحت شاة حاملاً فمات الجنين بسبب تذكية أمه — فهو طاهر. لقول النبي صلى الله عليه وسلم: <i>"ذكاة الجنين ذكاة أمه"</i>.</p>
+  <p><b>مفهومه:</b> لو ذكّيت الأم فخرج الجنين حياً ثم مات بلا تذكية — فهو نجس.</p>
+</div>
+
+<div class="tree-container">
+  <div class="tree-root">الخمسة المستثناة من نجاسة الميتة</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">١</div>
+      <div class="tree-branch-label">الآدمي</div>
+    </div>
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">٢</div>
+      <div class="tree-branch-label">السمك</div>
+    </div>
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">٣</div>
+      <div class="tree-branch-label">الجراد</div>
+    </div>
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">٤</div>
+      <div class="tree-branch-label">صيد لم تُدرك ذكاته</div>
+    </div>
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">٥</div>
+      <div class="tree-branch-label">جنين مذكّاة مات بذكاتها</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 9. دود المأكول والسمك المملح ===== -->
+<h2 class="section-title">٩. دود المأكول والسمك المملح (الفسيخ)</h2>
+
+<h3 class="sub-title">دود المأكول</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>ويحل أكل دود مأكول معه</b> — أي الدود الموجود في المأكول (كالسوس في التمر، أو الدود في الفاكهة أو الخل) يحل أكله إذا شقّ إخراجه. <b>ولا يجب غسل نحو الفم منه.</b> والقاعدة: "التابع تابع" — يثبت تابعاً ما لا يثبت استقلالاً.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">عُرف حضرموت</span>
+  <p>عندنا في حضرموت يقولون: "سوس التمر تمر" — أي أن سوس التمر له حكم التمر يجوز أكله. وهذا تطبيق لقاعدة "التابع تابع".</p>
+</div>
+
+<h3 class="sub-title">السمك المملح (الفسيخ)</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">قول القمولي في الجواهر</span>
+  <p><b>ونقل القمولي في الجواهر عن الأصحاب: لا يجوز أكل سمك مملح ولم يُنزع ما في جوفه.</b> أي من المستقذرات (الدم والروث). وظاهره لا فرق بين كبيره وصغيره.</p>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">تفصيل الشيخان (الرافعي والنووي)</span>
+  <p><b>لكن ذكر الشيخان (الرافعي والنووي) جواز أكل الصغير مع ما في جوفه لعسر تنقيته.</b> فالسمك الصغير (الذي يُبلع مرة واحدة) يجوز أكله دون تنظيف جوفه. أما الكبير فيجب تنظيف جوفه.</p>
+</div>
+
+<div class="exception-box">
+  <span class="box-label label-exc">تحريم الفسيخ — البيجرمي</span>
+  <p><b>الفسيخ:</b> سمك كبار يُجفّفونهم بالملح والبهارات <b>دون فتح بطونهم أو إخراج ما فيها</b>، ويحفظونه أسابيع ثم يأكلونه. صرّح البيجرمي في حاشية شرح المنهج: <b>أكل الفسيخ حرام</b> لأن ما في جوفه نجس لا يمكن تطهيره بعد هذا. وهذا خلاف ما اشتهر على الألسنة.</p>
+</div>
+
+<table>
+  <tr>
+    <th>نوع السمك</th>
+    <th>الحكم</th>
+    <th>السبب</th>
+  </tr>
+  <tr>
+    <td><b>السمك الكبير المملح</b> (لم يُنزع ما في جوفه)</td>
+    <td><span class="highlight-red">حرام</span></td>
+    <td>ما في جوفه نجس (دم وروث ومستقذرات)</td>
+  </tr>
+  <tr>
+    <td><b>السمك الصغير</b></td>
+    <td><span class="highlight-green">يجوز</span></td>
+    <td>لعسر تنقية ما فيه، وإذا قُلي بالزيت لا يُنجسه</td>
+  </tr>
+  <tr>
+    <td><b>اللحم الظاهر البعيد عن البطن</b></td>
+    <td><span class="highlight-green">يجوز</span> (إذا لم يصل إليه دم)</td>
+    <td>الدم إذا وصل من سمكة أخرى يكون نجساً ولا يمكن غسله</td>
+  </tr>
+</table>
+
+<!-- ===== 10. المسكر المائع ===== -->
+<h2 class="section-title">١٠. المسكر المائع نجس</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>وكمسكر</b> — أي ومن النجاسات المسكر إذا كان مائعاً (سائلاً). <b>أي صالح للإسكار، فدخلت القطرة من المسكر.</b> أي حتى قطرة واحدة من المسكر نجسة لأنها صالحة للإسكار إذا اجتمعت مع أخواتها.</p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p>قوله تعالى: <span class="verse-ref">{يا أيها الذين آمنوا إنما الخمر والميسر والأنصاب والأزلام رجس من عمل الشيطان}</span> [المائدة: 90]</p>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">معنى "رجس" — نجاسة حسية ومعنوية</span>
+  <p><b>رجس:</b> لها معنيان في الآية:</p>
+  <p><b>في الخمر:</b> نجاسة حسية (نجاسة عينية) — فالخمر عينها نجسة.</p>
+  <p><b>في غير الخمر</b> (الميسر والأنصاب والأزلام): نجاسة معنوية — أي خبث وقذر معنوي لا حسّي.</p>
+  <p>وهل يجوز استعمال الكلمة بمعنيين في مكان واحد؟ قال الإمام الشافعي: <b>نعم يجوز</b>، وهذا من أمثلة هذا المبحث الأصولي.</p>
+</div>
+
+<div class="key-rule">
+  لا يلزم من الطهارة الحلّ، ولا يلزم من النجاسة التحريم<br>
+  فالشيء قد يكون طاهراً لكنه حرام، وقد يكون نجساً لكنه حلال
+</div>
+
+<!-- ===== 11. الخمر والنبيذ ===== -->
+<h2 class="section-title">١١. الخمر والنبيذ — فرق لغوي وشرعي</h2>
+
+<table>
+  <tr>
+    <th>المسكر</th>
+    <th>لغةً</th>
+    <th>شرعاً</th>
+  </tr>
+  <tr>
+    <td><b>الخمر</b></td>
+    <td>المتخذ من <b>العنب</b> فقط (عند الشافعية). وقال مالك وأحمد: كل مسكر يسمى خمراً لغةً</td>
+    <td rowspan="2"><b>كل مسكر</b> — سواء صنع من عنب أو تمر أو فواكه. جاء في صحيح مسلم: <i>"كل مسكر خمر"</i></td>
+  </tr>
+  <tr>
+    <td><b>النبيذ</b></td>
+    <td>المتخذ من <b>غير العنب</b> (كالتمر والزبيب ونحوهما)</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه</span>
+  <p>قوله المصنف "وهي المتخذة من العنب" و"ونبيذ وهو المتخذ من غيره" — هذا <b>بيان لغوي</b> لا شرعي. أما شرعاً فالخمر كل مسكر سواء صنع من عنب أو من غيره.</p>
+</div>
+
+<!-- ===== 12. المسكر الجامد ===== -->
+<h2 class="section-title">١٢. المسكر الجامد — طاهر لكن حرام</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>وخرج بالمائع نحو البنج والحشيش وقوزة الطيب والزعفران</b> — هذه كلها جامدة (صلبة) ليست مائعة، فحكمها:</p>
+</div>
+
+<table>
+  <tr>
+    <th>المادة</th>
+    <th>حكم الطهارة</th>
+    <th>حكم التناول</th>
+  </tr>
+  <tr>
+    <td><b>البنج</b> (مخدّر طبي)</td>
+    <td><span class="highlight-green">طاهر</span></td>
+    <td>يحرم تناول القدر المسكر</td>
+  </tr>
+  <tr>
+    <td><b>الحشيش</b></td>
+    <td><span class="highlight-green">طاهر</span></td>
+    <td>يحرم تناوله مطلقاً</td>
+  </tr>
+  <tr>
+    <td><b>قوزة الطيب</b></td>
+    <td><span class="highlight-green">طاهر</span></td>
+    <td>يحرم القدر المسكر، ويجوز القدر غير المسكر</td>
+  </tr>
+  <tr>
+    <td><b>الزعفران</b></td>
+    <td><span class="highlight-green">طاهر</span></td>
+    <td>يحرم القدر المسكر، ويجوز القدر غير المسكر</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">قوزة الطيب</span>
+  <p><b>قوزة الطيب:</b> قوزة صغيرة تُكسر بحجر أو مطرقة، لها رائحة جميلة تُوضع مع بعض الأطعمة والشاي. وقد تسكر إذا أُكثر منها. نقل ابن حجر كلام المذاهب الأربعة في تحريم القدر المسكر منها. أما القدر غير المسكر (كالقليل) فجائز.</p>
+</div>
+
+<!-- ===== 13. تطهر الخمر بالتخليل ===== -->
+<h2 class="section-title">١٣. تطهر الخمر بالتخليل</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الضابط العام</span>
+  <p><b>وتطهر خمر تخلّلت بنفسها</b> — أي من غير مصاحبة عين أجنبية لها. وإن لم تؤثر في التخليل (كحصات). فالخمر إذا تخلّلت بنفسها صارت خلاًّ طاهراً.</p>
+</div>
+
+<table>
+  <tr>
+    <th>كيف تخلّلت الخمر</th>
+    <th>الحكم</th>
+    <th>التفصيل</th>
+  </tr>
+  <tr>
+    <td><b>تخلّلت بنفسها</b> (بلا عين أجنبية)</td>
+    <td><span class="highlight-green">تطهر</span></td>
+    <td>ولو نُقلت من ظل إلى شمس، ولو غُليت (أُوقد تحتها نار)</td>
+  </tr>
+  <tr>
+    <td><b>تخلّلت بوضع شيء فيها</b> (طاهر أو نجس)</td>
+    <td><span class="highlight-red">لا تطهر</span></td>
+    <td>سواء أسرع ذلك التخليل (كالبصل والخبز المحرق) أو لم يُسرّع (كحصات) — إلا إذا كانت عيناً طاهرة نُزعت قبل التخلل ولم يتحلل منها شيء</td>
+  </tr>
+</table>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الدنّ يتبع الخمر في الطهارة</span>
+  <p><b>ويتبعها في الطهارة الدنّ</b> — أي إناء الخمر (الدنّ) يطهر إذا طهرت الخمر بالتخليل. <b>وإن تشرب منها</b> (أي وإن تشرب الإناء من الخمر كالإناء الطيني). <b>أو غلت فيه</b> — أي ارتفعت الخمر بالغليان في الإناء ثم نزلت.</p>
+</div>
+
+<h3 class="sub-title">مسألة: ارتفعت بفعل فاعل بلا غليان</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>أما إذا ارتفعت بلا غليان بل بفعل فاعل فلا تطهر.</b> أي لو حرك الإنسان الإناء فارتتفعت الخمر إلى جدرانه ثم نزلت — لا تطهر، لأن المكان تنجّس فأعاد تنجيس الخل بعد التخليل.</p>
+</div>
+
+<div class="issue-box">
+  <span class="box-label label-issue">ماذا لو صُبّت خمر أخرى لتغطية المرتفع؟</span>
+  <p>لو ارتفعت الخمر بفعل فاعل ثم صُبّت خمر جديدة لغمر المكان الذي ارتفعت إليه — فهل تطهر؟</p>
+</div>
+
+<table>
+  <tr>
+    <th>الرأي</th>
+    <th>القائل</th>
+    <th>التفصيل</th>
+  </tr>
+  <tr>
+    <td><b>لا تطهر مطلقاً</b></td>
+    <td>ابن حجر (الفتح الجواد)</td>
+    <td>سواء غُمر المرتفع قبل الجفاف أو بعده — لا تطهر</td>
+  </tr>
+  <tr>
+    <td><b>تطهر مطلقاً</b></td>
+    <td>الخطيب الشربيني (مغني المحتاج)</td>
+    <td>سواء غُمر قبل الجفاف أو بعده — تطهر</td>
+  </tr>
+  <tr>
+    <td><b>تطهر إن غُمر قبل الجفاف لا بعده</b></td>
+    <td>ابن زياد (شيخ المصنف)</td>
+    <td>تفصيل: إن غُمر المرتفع قبل أن يجف تطهر، وإن غُمر بعد الجفاف لا تطهر</td>
+  </tr>
+</table>
+
+<!-- ===== 14. خمر الكافر والمسلم ===== -->
+<h2 class="section-title">١٤. خمر الكافر وخمر المسلم</h2>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-yellow">
+    <div class="compare-card-title">خمر الكافر</div>
+    <div class="compare-card-body"><b>محترمة</b> مطلقاً<br>لا يجوز التعرض لها بإراقتها<br>لأن الكفار لا يعتقدون تحريمها</div>
+  </div>
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">خمر المسلم بقصد الخمرية</div>
+    <div class="compare-card-body"><b>غير محترمة</b><br>يجب إراقتها فوراً<br>لقصد صاحبها أن تكون خمراً</div>
+  </div>
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">خمر المسلم بقصد الخلّية</div>
+    <div class="compare-card-body"><b>محترمة</b><br>لا يجوز التعرض لها<br>لقصد صاحبها أن تكون خلاًّ</div>
+  </div>
+</div>
+
+<div class="key-rule">
+  إذا تغيّر القصد تغيّر الحكم — إنما الأعمال بالنيات
+</div>
+
+<!-- ===== 15. تفصيلات التخليل ===== -->
+<h2 class="section-title">١٥. تفصيلات التخليل — مسألة ابن زياد</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">مسألة: صبّ خمر في إناء ثم خمر أخرى</span>
+  <p><b>قال ابن زياد:</b> لو صُبّت خمر في إناء ثم أُخرجت منه، وصُبّ فيه خمر أخرى بعد جفاف الإناء وقبل غسله — <b>لم تطهر</b> وإن تخلّلت. لأن الإناء لم يُغسل فلاقى الخمر الجديدة بقايا الخمر القديمة (عين أجنبية).</p>
+  <p><b>ولو نُقلت</b> الخمر الجديدة <b>إلى إناء آخر</b> قبل التخلل — <b>لا تطهر أيضاً</b>، لأنها خالطتها العين الأجنبية في الإناء الأول.</p>
+</div>
+
+<div class="flow-row">
+  <div class="flow-box">صُبّت خمر في إناء</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">أُخرجت وجفّ الإناء بلا غسل</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">صُبّت خمر جديدة</div>
+</div>
+<div class="flow-row">
+  <div class="flow-box">تخلّلت في الإناء نفسه</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-impure">لا تطهر</div>
+</div>
+<div class="flow-row">
+  <div class="flow-box">نُقلت إلى إناء آخر ثم تخلّلت</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-impure">لا تطهر أيضاً</div>
+</div>
+
+<h3 class="sub-title">الدليل على التخلل: الحموضة</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الضابط</span>
+  <p><b>والدليل على كون الخمر خلاً: الحموضة في طعمها.</b> أي إذا صارت الخمر فيها حموضة فقد أصبحت خلاًّ. <b>وإن لم توجد نهاية الحموضة</b> — أي وإن لم تكن الحموضة قوية بل في بدايتها، فهذا دليل على أنها أصبحت خلاًّ. <b>وإن قذفت بالزبد</b> — أي وإن ألقت الرغوة (الزبد)، فلا يضر ذلك.</p>
+</div>
+
+<!-- ===== 16. ما يطهر بالاستحالة ===== -->
+<h2 class="section-title">١٦. ما يطهر بالاستحالة — شيئان فقط</h2>
+
+<div class="key-rule">
+  عند الشافعية: لا يطهر شيء من النجاسات بنفسه (بالاستحالة) إلا شيئان فقط
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">١. الخمر إذا تخلّلت</div>
+    <div class="compare-card-body">الخمر النجسة تطهر<br>إذا صارت خلاًّ بالتخليل<br>بنفسها (بلا عين أجنبية)</div>
+  </div>
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">٢. جلد الميتة إذا دُبغ</div>
+    <div class="compare-card-body">جلد النجس بالموت يطهر<br>إذا دُبغ الدباغة الشرعية<br>(سيأتي تفصيله في الدرس القادم)</div>
+  </div>
+</div>
+
+<div class="exception-box">
+  <span class="box-label label-exc">ما عدا ذلك لا يطهر بالاستحالة</span>
+  <p>لو وُضعت شاة ميتة أو كلب في كوم ملح وجئت بعد سنتين فصار ملحاً — <b>يكون نجساً</b> وإن تغيّر إلى شيء آخر. فالاستحالة لا تطهّر عند الشافعية إلا في الخبر والجلد فقط.</p>
+</div>
+
+<!-- ===== ملخص الدرس ===== -->
+<h2 class="section-title">ملخص الدرس</h2>
+
+<table>
+  <tr>
+    <th>#</th>
+    <th>الموضوع</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td>١</td>
+    <td>الزباد</td>
+    <td>طاهر — لبن حيوان بحري مأكول أو عرق سنور بري</td>
+  </tr>
+  <tr>
+    <td>٢</td>
+    <td>العفو عن شعر الزباد</td>
+    <td>جامد: في المأخوذ للاستعمال — مائع: في جميعه</td>
+  </tr>
+  <tr>
+    <td>٣</td>
+    <td>جرة البعير</td>
+    <td>يعفى عنها — لا تُنجّس ما شرب منه</td>
+  </tr>
+  <tr>
+    <td>٤</td>
+    <td>أفواه الصبيان والمجانين</td>
+    <td>يعفى عما اتصل بها لمشقة الاحتراز</td>
+  </tr>
+  <tr>
+    <td>٥</td>
+    <td>ضابط الميتات</td>
+    <td>جميع الميتات نجسة إلا ثلاثة: الآدمي، السمك، الجراد</td>
+  </tr>
+  <tr>
+    <td>٦</td>
+    <td>ميتة ما لا نفس له سائلة</td>
+    <td>نجسة عند الشافعية — طاهرة عند الجمهور</td>
+  </tr>
+  <tr>
+    <td>٧</td>
+    <td>استثناءات أخرى</td>
+    <td>صيد لم تُدرك ذكاته + جنين مذكّاة مات بذكاتها</td>
+  </tr>
+  <tr>
+    <td>٨</td>
+    <td>السمك المملح (الفسيخ)</td>
+    <td>حرام إذا لم يُنزع ما في جوفه — يجوز الصغير</td>
+  </tr>
+  <tr>
+    <td>٩</td>
+    <td>المسكر المائع</td>
+    <td>نجس — المسكر الجامد: طاهر لكن حرام</td>
+  </tr>
+  <tr>
+    <td>١٠</td>
+    <td>الخمر والنبيذ</td>
+    <td>فرق لغوي لا شرعي — شرعاً كل مسكر خمر</td>
+  </tr>
+  <tr>
+    <td>١١</td>
+    <td>تطهر الخمر بالتخليل</td>
+    <td>بنفسها تطهر — بعين أجنبية لا تطهر</td>
+  </tr>
+  <tr>
+    <td>١٢</td>
+    <td>ما يطهر بالاستحالة</td>
+    <td>شيئان فقط: الخمر إذا تخلّلت + جلد الميتة إذا دُبغ</td>
+  </tr>
+</table>
+
+</body>
+</html>

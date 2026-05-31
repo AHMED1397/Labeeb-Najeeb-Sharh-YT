@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf') format('truetype'); font-weight: normal; }
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf') format('truetype'); font-weight: bold; }
+@font-face { font-family: 'NotoNaskh'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf') format('truetype'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+
+body {
+  font-family: 'NotoNaskh', 'Amiri', serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #1a1a2e;
+  direction: rtl;
+  background: #fff;
+  text-align: justify;
+}
+
+.cover-header {
+  background: #1a5632;
+  color: white;
+  padding: 20px 14px;
+  text-align: center;
+  margin: 0 0 12px 0;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px);
+  border-bottom: 4px solid #c8a951;
+}
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 6px; border: none; font-family: 'Amiri', serif; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.9; margin: 4px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.92; margin: 6px 0 2px 0; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .creator { font-size: 11pt; opacity: 0.85; margin-top: 2px; }
+.cover-header .series { font-size: 11pt; opacity: 0.8; margin-top: 4px; }
+
+.toc {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 0 0 12px 0;
+}
+.toc-title {
+  font-family: 'Amiri', serif;
+  font-size: 14pt;
+  color: #1a5632;
+  text-align: center;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #c8a951;
+  padding-bottom: 4px;
+}
+.toc-item {
+  font-size: 10pt;
+  padding: 2px 0;
+  border-bottom: 1px dotted #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+h2.section-title {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0d7c3e;
+  border-bottom: 2px solid #0d7c3e;
+  padding-bottom: 5px;
+  margin: 18px 0 10px;
+}
+
+h3.sub-title {
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: #0a5c2e;
+  margin: 14px 0 8px;
+  padding-right: 10px;
+  border-right: 4px solid #0d7c3e;
+}
+
+h4.minor-title {
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #166534;
+  margin: 10px 0 6px;
+}
+
+p { margin: 5px 0; text-align: justify; }
+
+.definition-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-right: 4px solid #0d7c3e;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.rule-box {
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-right: 4px solid #d97706;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.exception-box {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-right: 4px solid #ea580c;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.evidence-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-right: 4px solid #2563eb;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.issue-box {
+  background: #fdf2f8;
+  border: 1px solid #fbcfe8;
+  border-right: 4px solid #db2777;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.comparison-box {
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  border-right: 4px solid #7c3aed;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.note-box {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-right: 4px solid #0284c7;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.poetry-box {
+  background: #faf5ff;
+  border: 1px solid #e9d5ff;
+  border-right: 4px solid #9333ea;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+  text-align: center;
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  line-height: 2.2;
+}
+
+.key-rule {
+  background: #dcfce7;
+  border: 2px solid #16a34a;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.box-label {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 4px;
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.label-def { background: #0d7c3e; }
+.label-rule { background: #d97706; }
+.label-exc { background: #ea580c; }
+.label-ev { background: #2563eb; }
+.label-issue { background: #db2777; }
+.label-comp { background: #7c3aed; }
+.label-note { background: #0284c7; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 13px;
+  table-layout: fixed;
+}
+
+th {
+  background: #0d7c3e;
+  color: #fff;
+  padding: 6px 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+td {
+  padding: 5px 8px;
+  border: 1px solid #d1d5db;
+  text-align: center;
+  vertical-align: top;
+}
+
+tr:nth-child(even) { background: #f0fdf4; }
+tr:nth-child(odd) { background: #fff; }
+
+.tree-container { margin: 12px 0; text-align: center; }
+.tree-root {
+  display: inline-block;
+  background: linear-gradient(135deg, #0d7c3e, #0a5c2e);
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+.tree-branches { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px; }
+.tree-branch {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  min-width: 80px;
+  text-align: center;
+}
+.tree-branch-num { font-family: 'Amiri', serif; font-weight: bold; color: #0d7c3e; font-size: 14px; }
+.tree-branch-label { font-size: 12px; color: #374151; }
+
+.compare-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.compare-card { flex: 1; min-width: 140px; border-radius: 8px; padding: 8px 10px; text-align: center; }
+.compare-card-green { background: #dcfce7; border: 1px solid #86efac; }
+.compare-card-red { background: #fef2f2; border: 1px solid #fca5a5; }
+.compare-card-gold { background: #fefce8; border: 1px solid #fde68a; }
+.compare-card-blue { background: #eff6ff; border: 1px solid #bfdbfe; }
+.compare-card-title { font-family: 'Amiri', serif; font-weight: bold; font-size: 14px; margin-bottom: 4px; }
+.compare-card-body { font-size: 12px; }
+
+.flow-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px; margin: 8px 0; }
+.flow-box { background: #0d7c3e; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-family: 'Amiri', serif; font-weight: bold; text-align: center; }
+.flow-arrow { font-size: 16px; color: #0d7c3e; font-weight: bold; }
+.flow-result { padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; text-align: center; }
+.flow-pure { background: #dcfce7; border: 1px solid #86efac; color: #166534; }
+.flow-impure { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+.flow-excused { background: #fefce8; border: 1px solid #fde68a; color: #92400e; }
+
+.highlight-green { background: #dcfce7; padding: 1px 4px; border-radius: 3px; }
+.highlight-gold { background: #fefce8; padding: 1px 4px; border-radius: 3px; }
+.highlight-red { background: #fef2f2; padding: 1px 4px; border-radius: 3px; }
+
+.verse-ref { font-family: 'Amiri', serif; font-size: 14px; color: #1e40af; text-align: center; margin: 6px 0; }
+.hadith-ref { font-family: 'Amiri', serif; font-size: 13px; color: #166534; text-align: center; margin: 6px 0; }
+
+.condition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.condition-item { border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.condition-num {
+  display: inline-block; background: #0d7c3e; color: #fff; min-width: 24px; height: 24px;
+  border-radius: 50%; text-align: center; line-height: 24px; font-family: 'Amiri', serif;
+  font-weight: bold; font-size: 12px; margin-left: 6px;
+}
+
+ul { margin: 4px 0; padding-right: 20px; }
+li { margin: 2px 0; }
+</style>
+</head>
+<body>
+
+<!-- ===== COVER HEADER (تابع) ===== -->
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس الرابع والأربعون — تابع أركان الصلاة: أحكام القنوت والسجود</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="creator">تنسيق: أحمد بن إرشاد</div>
+  <div class="series">عدم تعيّن كلمات القنوت · قنوت النازلة · رفع اليدين · الجهر والإسرار · تخصيص الإمام نفسه بالدعاء · الركن السابع: السجود</div>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. عدم تعيّن كلمات القنوت وما يجزئ عنها</span></div>
+  <div class="toc-item"><span>٢. قنوت النازلة: مواضعه وأسبابه</span></div>
+  <div class="toc-item"><span>٣. ما لا يُسنّ فيه القنوت: النفل والمنذورة</span></div>
+  <div class="toc-item"><span>٤. رفع اليدين في القنوت وهيئاته</span></div>
+  <div class="toc-item"><span>٥. مسح الوجه بعد الدعاء</span></div>
+  <div class="toc-item"><span>٦. كراهة رفع الخطيب يديه حالة الدعاء</span></div>
+  <div class="toc-item"><span>٧. شرح دعاء القنوت المأثور ومعانيه</span></div>
+  <div class="toc-item"><span>٨. الصلاة على النبيّ ﷺ في القنوت</span></div>
+  <div class="toc-item"><span>٩. الزيادة في القنوت وقنوت عمر رضي الله عنه</span></div>
+  <div class="toc-item"><span>١٠. الجهر والإسرار بالقنوت: تصنيف شامل</span></div>
+  <div class="toc-item"><span>١١. تأمين المأموم وأقوال الفقهاء في الثناء</span></div>
+  <div class="toc-item"><span>١٢. كراهة تخصيص الإمام نفسه بالدعاء</span></div>
+  <div class="toc-item"><span>١٣. الركن السابع: السجود مرّتين في كلّ ركعة</span></div>
+  <div class="toc-item"><span>١٤. السجود على المحمول وغير المحمول</span></div>
+  <div class="toc-item"><span>١٥. السجود على يد غيره والمنديل بيده</span></div>
+</div>
+
+<!-- ===== 1. عدم تعيّن كلمات القنوت ===== -->
+<h2 class="section-title">١. عدم تعيّن كلمات القنوت وما يجزئ عنها</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ولا يتعيّن كلمات القنوت فيجزئ عنها آية تضمّنت دعاءً إن قصده كآخر البقرة، وكذا دعاء محض ولو غير مأثور</b></p>
+</div>
+
+<p>كان الكلام في آخر الدرس الماضي حول أحكام القنوت. والمصنّف رحمه الله تعالى ذكر القنوت ثمّ قال: «ولا يتعيّن كلمات القنوت». معلوم أنّ القنوت في الصبح وفي الوتر في النصف الثاني من رمضان عند الشافعية سنّة مؤكّدة، إذا ترك عمداً أو سهواً فإنّه يجبر بسجود السهو.</p>
+
+<p>يقول المصنّف: إنّ كلمات القنوت التي مرّ ذكرها — اللهم اهدني في من هديت وعافني في من عافيت وتولّني في من تولّيت — لا تتعيّن في حصول السنّة. فالقنوت يحصل بأيّ دعاء، لو دعا بأيّ دعاء يحصل القنوت.</p>
+
+<div class="key-rule">
+  محلّ عدم التعيّن: إذا لم يبدأ بدعاء القنوت المأثور<br>
+  أمّا إذا شرع بدعاء القنوت المأثور فيتعيّن عليه إكماله<br>
+  ولو ترك كلمة من المأثور سجد للسهو
+</div>
+
+<h3 class="sub-title">ما يجزئ عن كلمات القنوت</h3>
+
+<table>
+  <tr>
+    <th>النوع</th>
+    <th>البيان</th>
+    <th>الشرط</th>
+    <th>المثال</th>
+  </tr>
+  <tr>
+    <td><b>آية تضمّنت دعاءً</b></td>
+    <td>آية قرآنية فيها دعاء يجزئ أن يقنوت بها</td>
+    <td>أن يقصد الدعاء لا التلاوة</td>
+    <td>ربّنا لا تؤاخذنا إن نسينا أو أخطأنا (آخر البقرة)<br>وقنا عذاب النار</td>
+  </tr>
+  <tr>
+    <td><b>دعاء محض ولو غير مأثور</b></td>
+    <td>دعاء خالص ليس من القرآن</td>
+    <td>أن يكون دعاءً خالصاً</td>
+    <td>ربّ اغفر لي، ربّ ارحمني</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه مهمّ</span>
+  <p><b>لو قرأ الآية قاصداً التلاوة لا الدعاء:</b> لا تجزئ عن القنوت. ويُكره أصلاً أن يقرأ القرآن في غير القيام: في الركوع، وفي الاعتدال، وفي السجود، وفي التشهّد.</p>
+</div>
+
+<h3 class="sub-title">خلاف بين ابن حجر والرملي في الدعاء المحض</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف في المذهب</span>
+  <p><b>العلامة ابن حجر:</b> يجزئ دعاء محض (خالص) ولو لم يكن معه ثناء. فلو قال «ربّ اغفر لي» يجزئ.</p>
+  <p><b>العلامة الرملي:</b> لا يجزئ الدعاء الخالص وحده، بل لابدّ من دعاء وثناء. فلابدّ أن يقول مثلاً: «ربّ اغفر لي يا غفور» أو «ربّ ارحمني يا رحيم». لأنّ دعاء القنوت المأثور قد اجتمع فيه الدعاء والثناء.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">ابن حجر</div>
+    <div class="compare-card-body">يجزئ الدعاء المحض<br>مثل: ربّ اغفر لي<br>دون الحاجة للثناء</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">الرملي</div>
+    <div class="compare-card-body">لا يجزئ الدعاء وحده<br>لابدّ من دعاء وثناء<br>مثل: ربّ اغفر لي يا غفور</div>
+  </div>
+</div>
+
+<h3 class="sub-title">مسألة: القنوت للنازلة — هل يُفتتح بالمأثور؟</h3>
+
+<div class="issue-box">
+  <span class="box-label label-issue">مسألة مهمّة</span>
+  <p>هل إذا دعا الناس في قنوت النازلة يبدأون بدعاء القنوت المأثور «اللهم اهدني في من هديت...» ثمّ يسألون الله رفع النازلة؟ أم يأتون مباشرة بدعاء رفع النازلة؟</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">ابن حجر الهيتمي (التحفة)</div>
+    <div class="compare-card-body">الذي يتجه أنّ القانت لنازلة<br>يأتي بقنوت الصبح المأثور<br><b>ثمّ يختم بسؤال رفع تلك النازلة</b></div>
+  </div>
+  <div class="compare-card compare-card-blue">
+    <div class="compare-card-title">الحافظ ابن حجر العسقلاني</div>
+    <div class="compare-card-body">في رسالته «بذل الماعون في أحاديث الطعون»:<br>المسلمون إذا قنتوا للنازلة<br><b>يدعون برفع تلك النازلة مباشرة</b><br>دون ذكر القنوت المأثور</div>
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">اعتمد هذا الرأي</span>
+  <p>اعتمد الحافظ ابن حجر العسقلاني بعض الفقهاء الشافعية من اليمن ومنهم شيخ المصنّف العلاّمة ابن زياد، الذي يقول: إذا قنت الناس للنازلة فإنّهم يسألون الله رفع النازلة مباشرة دون ذكر القنوت المأثور.</p>
+</div>
+
+<div class="key-rule">
+  الأمر في هذا واسع<br>
+  لو ذكر القنوت المأثور ثمّ ختم بسؤال النازلة — فحسن<br>
+  ولو اقتصر على سؤال رفع النازلة — فحسن أيضاً<br>
+  لا إشكال في الأمر هذا أو هذا
+</div>
+
+<!-- ===== 2. قنوت النازلة ===== -->
+<h2 class="section-title">٢. قنوت النازلة: مواضعه وأسبابه</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وبسائر مكتوبة من الخمس في اعتدال الركعة الأخيرة ولو مسبوقاً قنط مع إمامه لنازلة بالمسلمين ولو واحداً</b></p>
+</div>
+
+<p>ذكر المصنّف رحمه الله تعالى أنّ مواضع القنوت: الموضع الأوّل في صلاة الصبح، والموضع الثاني في الوتر في النصف الأخير من رمضان. وهناك قنوت آخر يُعرف بقنوت النازلة — إذا حصلت نازلة للمسلمين.</p>
+
+<p>قوله «وبسائر» المراد بكلمة سائر هنا: أي باقي، أي في باقي الصلوات. فيكون قنوت النازلة في صلاة الصبح ويكون أيضاً في باقي الصلوات: الظهر والعصر والمغرب والعشاء. و«مكتوبة» قيد أخرج به النوافل.</p>
+
+<h3 class="sub-title">أسباب قنوت النازلة</h3>
+
+<div class="tree-container">
+  <div class="tree-root">قنوت النازلة</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a;">
+      <div class="tree-branch-num">الخوف</div>
+      <div class="tree-branch-label">ولو من عدوّ مسلم باغ</div>
+    </div>
+    <div class="tree-branch" style="background: #f0f9ff; border: 1px solid #bae6fd;">
+      <div class="tree-branch-num">القحط</div>
+      <div class="tree-branch-label">قلة المطر وكثرة الجفاف</div>
+    </div>
+    <div class="tree-branch" style="background: #fef2f2; border-color: #fca5a5;">
+      <div class="tree-branch-num">الوباء</div>
+      <div class="tree-branch-label">انتشار المرض</div>
+    </div>
+    <div class="tree-branch" style="background: #f0fdf4; border-color: #86efac;">
+      <div class="tree-branch-num">نزول المطر المهلك</div>
+      <div class="tree-branch-label">الفيضانات وتهدّم العمران<br>والزرع</div>
+    </div>
+  </div>
+</div>
+
+<h3 class="sub-title">قوله «ولو واحداً»</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">بيان</span>
+  <p>قوله «بالمسلمين» ليس المراد أنّ النازلة تصيب جميع المسلمين، بل حتّى لو نزلت ببعضهم كأن نزلت بواحد من المسلمين لكنّ هذا الواحد نفعه متعدّي. مثل: أسر العالم أو أسر الشجاع من قادة المسلمين.</p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p><b>للاتباع:</b> لأنّ النبيّ صلّى الله عليه وسلّم قانت يدعو على أقوام من المشركين ويدعو لجماعة من المستضعفين من المسلمين — كما في الصحيح.</p>
+</div>
+
+<h3 class="sub-title">المسبوق وقنوت النازلة</h3>
+
+<div class="note-box">
+  <span class="box-label label-note">حكم المسبوق</span>
+  <p>«ولو مسبوقاً قنط مع إمامه» — أي ولو كان مسبوقاً قنط مع إمامه، فإنّه يقنط أيضاً في اعتداله في الركعة الأخيرة. فإذا أدرك الإمام في الركعة الأخيرة وقنط الإمام للنازلة، فإنّه يقنط أيضاً.</p>
+</div>
+
+<!-- ===== 3. ما لا يسن فيه القنوت ===== -->
+<h2 class="section-title">٣. ما لا يُسنّ فيه القنوت: النفل والمنذورة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وخرج بالمكتوبة النفل ولو عيداً والمنذورة فلا يسنّ فيهما</b></p>
+</div>
+
+<p>قوله «مكتوبة» أخرج به النوافل. فالنوافل لا يُسنّ فيها قنوت النازلة حتّى ولو كانت هذه النوافل ممّا يُسنّ فيها الجماعة.</p>
+
+<table>
+  <tr>
+    <th>الصلاة</th>
+    <th>يُسنّ فيها الجماعة</th>
+    <th>يُسنّ فيها قنوت النازلة</th>
+    <th>يُكره القنوت فيها</th>
+  </tr>
+  <tr>
+    <td><b>صلاة العيد</b></td>
+    <td><span class="highlight-green">نعم</span></td>
+    <td><span class="highlight-red">لا</span></td>
+    <td><span class="highlight-green">لا يكره</span></td>
+  </tr>
+  <tr>
+    <td><b>صلاة الخسوف والكسوف</b></td>
+    <td><span class="highlight-green">نعم</span></td>
+    <td><span class="highlight-red">لا</span></td>
+    <td>—</td>
+  </tr>
+  <tr>
+    <td><b>صلاة الاستسقاء</b></td>
+    <td><span class="highlight-green">نعم</span></td>
+    <td><span class="highlight-red">لا</span></td>
+    <td><span class="highlight-green">لا يكره</span></td>
+  </tr>
+  <tr>
+    <td><b>المنذورة</b></td>
+    <td>—</td>
+    <td><span class="highlight-red">لا</span></td>
+    <td>—</td>
+  </tr>
+  <tr>
+    <td><b>صلاة الجنازة</b></td>
+    <td>—</td>
+    <td><span class="highlight-red">لا</span></td>
+    <td><span class="highlight-red">يُكره</span> مبنية على التخفيف</td>
+  </tr>
+</table>
+
+<div class="key-rule">
+  خرج بالمكتوبة: النفل ولو عيداً والمنذورة<br>
+  فلا يُسنّ القنوت فيهما — لكن لا يُكره أيضاً<br>
+  ويُكره في صلاة الجنازة مطلقاً (لأنّها مبنية على التخفيف)
+</div>
+
+<!-- ===== 4. رفع اليدين ===== -->
+<h2 class="section-title">٤. رفع اليدين في القنوت وهيئاته</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>رافعاً يديه حذو منكبيه ولو حال الثناء كسائر الأدعية للاتّباع</b></p>
+</div>
+
+<p>حين القنوت يرفع يديه حذو منكبيه بهذا الشكل، لكن يُلصقهما ببعضهما. و«ولو حال الثناء» أي أنّه يرفع يديه حتّى عند الثناء. فإذا وصل الإمام إلى قوله «فإنّك تقضي ولا يُقضى عليك» — وهو ثناء لا دعاء — تبقى رافعاً ليدك.</p>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p><b>للاتّباع:</b> لأنّ ذلك ثبت بإسناد صحيح عن أمير المؤمنين عمر بن الخطاب رضي الله عنه أنّه قانت وجهر بالدعاء ورفع يديه — في سنن البيهقي.</p>
+</div>
+
+<h3 class="sub-title">هيئة اليد عند الدعاء</h3>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">دعاء لتحصيل شيء</div>
+    <div class="compare-card-body">يجعل <b>بطن كفّيه إلى السماء</b><br>لأنّ هذه هيئة السائل<br>مثال: اللهم ارزقني</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">دعاء لرفع بلاء</div>
+    <div class="compare-card-body">يجعل <b>ظهر كفّيه إلى السماء</b><br>كما فعل النبيّ ﷺ في الاستسقاء<br>مثال: اللهم ارفع عنّا الوباء</div>
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">ملاحظة</span>
+  <p>إذا ألصق يديه فإنّه حينئذ سيكون نظره إلى يديه ولا يتمكّن من النظر إلى موضع السجود. أمّا إذا فرّقهما فإنّه سينظر إلى موضع السجود.</p>
+</div>
+
+<!-- ===== 5. مسح الوجه بعد الدعاء ===== -->
+<h2 class="section-title">٥. مسح الوجه بعد الدعاء</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>بعد الدعاء لا يُسنّ له أن يمسح وجهه إذا كان في الصلاة.</b> أمّا خارج الصلاة فقد ورد في حديث أنّ النبيّ صلّى الله عليه وسلّم كان إذا دعا مسح وجهه بيديه بعد الدعاء.</p>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف في المذهب</span>
+  <p><b>الإمام النووي</b> في بعض كتبه يقول: لا يُسنّ مسح الوجه بعد الدعاء. وأظنّه في المجموع.</p>
+  <p>أمّا في كتابه التحقيق — وهو من أواخر كتبه — يقول: إنّه يُسنّ.</p>
+  <p><b>المعتمد في المذهب:</b> أنّه يُسنّ مسح الوجه بعد الدعاء خارج الصلاة.</p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p>حديث حسّنه الحافظ ابن حجر في بلوغ المرام: أنّ النبيّ صلّى الله عليه وسلّم كان يمسح وجهه بيديه بعد الدعاء.</p>
+</div>
+
+<div class="key-rule">
+  مسح الوجه بعد الدعاء:<br>
+  <b>في الصلاة:</b> لا يُسنّ<br>
+  <b>خارج الصلاة:</b> يُسنّ (المعتمد في المذهب)
+</div>
+
+<!-- ===== 6. كراهة رفع الخطيب ===== -->
+<h2 class="section-title">٦. كراهة رفع الخطيب يديه حالة الدعاء</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويُكره الرفع لخطيب حالة الدعاء</b></p>
+</div>
+
+<p>يُكره للخطيب أن يرفع يديه حالة الدعاء إلّا في الاستسقاء. فخطيب الاستسقاء إذا خطب يُسنّ له أن يرفع يديه اقتداءً بفعل النبيّ صلّى الله عليه وسلّم كما ثبت في الصحيح.</p>
+
+<table>
+  <tr>
+    <th>الحالة</th>
+    <th>الحكم</th>
+    <th>الدليل</th>
+  </tr>
+  <tr>
+    <td><b>خطيب الجمعة يرفع يديه في الدعاء</b></td>
+    <td><span class="highlight-red">يُكره</span></td>
+    <td>النهي الوارد عن رفع الخطيب يديه</td>
+  </tr>
+  <tr>
+    <td><b>خطيب الاستسقاء يرفع يديه</b></td>
+    <td><span class="highlight-green">يُسنّ</span></td>
+    <td>فعل النبيّ ﷺ الثابت في الصحيح</td>
+  </tr>
+  <tr>
+    <td><b>المستمعون لخطبة الجمعة يرفعون أيديهم</b></td>
+    <td><span class="highlight-green">يُستحبّ</span></td>
+    <td>أفتى بذلك ابن حجر</td>
+  </tr>
+</table>
+
+<!-- ===== 7. شرح دعاء القنوت المأثور ===== -->
+<h2 class="section-title">٧. شرح دعاء القنوت المأثور ومعانيه</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>بنحو اللهم اهدني في من هديت... إلى آخره</b> — أي يدعو بدعاء القنوت الذي علّمه النبيّ صلّى الله عليه وسلّم للحسن بن عليّ رضي الله تعالى عنهما.</p>
+</div>
+
+<h3 class="sub-title">تفسير كلمات الدعاء</h3>
+
+<table>
+  <tr>
+    <th>العبارة</th>
+    <th>المعنى</th>
+    <th>النوع</th>
+  </tr>
+  <tr>
+    <td><b>اللهم اهدني في من هديت</b></td>
+    <td>اجعلني في زمرة المهديين</td>
+    <td><span class="highlight-green">دعاء</span></td>
+  </tr>
+  <tr>
+    <td><b>وعافني في من عافيت</b></td>
+    <td>اجعلني في زمرة المعافَين</td>
+    <td><span class="highlight-green">دعاء</span></td>
+  </tr>
+  <tr>
+    <td><b>وتولّني في من تولّيت</b></td>
+    <td>معهم لأنّك درجت في سلكهم — أي اجعلني ممّن تولّيتهم</td>
+    <td><span class="highlight-green">دعاء</span></td>
+  </tr>
+  <tr>
+    <td><b>وبارك لي فيما أعطيت</b></td>
+    <td>قد يُعطي الله العبد أشياء كثيرة لكن يُنزع منها البركة فلا ينتفع</td>
+    <td><span class="highlight-green">دعاء</span></td>
+  </tr>
+  <tr>
+    <td><b>وقني شرّ ما قضيت</b></td>
+    <td>احفظني من شرّ ما قضيت به</td>
+    <td><span class="highlight-green">دعاء</span></td>
+  </tr>
+  <tr>
+    <td><b>إنّك تقضي ولا يُقضى عليك</b></td>
+    <td>أنت الحاكم لا يُحكم عليك</td>
+    <td><span class="highlight-gold">ثناء</span></td>
+  </tr>
+  <tr>
+    <td><b>وإنّه لا يذلّ من واليت</b></td>
+    <td>لا يذلّ من واليته وتولّيته</td>
+    <td><span class="highlight-gold">ثناء</span></td>
+  </tr>
+  <tr>
+    <td><b>ولا يُعزّ من عاديت</b></td>
+    <td>لا يعزّ من عاديته</td>
+    <td><span class="highlight-gold">ثناء</span></td>
+  </tr>
+  <tr>
+    <td><b>تبارك ربّنا وتعالى</b></td>
+    <td>عظُم وتقدّس</td>
+    <td><span class="highlight-gold">ثناء</span></td>
+  </tr>
+  <tr>
+    <td><b>فلك الحمد على ما قضيت</b></td>
+    <td>الحمد لك على قضائك كلّه</td>
+    <td><span class="highlight-gold">ثناء</span></td>
+  </tr>
+  <tr>
+    <td><b>أستغفرك وأتوب إليك</b></td>
+    <td>طلب المغفرة والعودة إلى الله</td>
+    <td><span class="highlight-green">دعاء</span></td>
+  </tr>
+</table>
+
+<div class="key-rule">
+  القسمة في دعاء القنوت:<br>
+  <b>من «اللهم اهدني» إلى «وقني شرّ ما قضيت»:</b> دعاء<br>
+  <b>من «فإنّك تقضي» إلى «فلك الحمد على ما قضيت»:</b> ثناء<br>
+  <b>«أستغفرك وأتوب إليك»:</b> دعاء
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">فضل هذا الدعاء</span>
+  <p>كما يقول الإمام النووي رحمه الله: هو من جوامع الدعاء. ويكفيك أن تعلم أنّ هذا الدعاء علّمه النبيّ صلّى الله عليه وسلّم للحسن — حفيد النبيّ عليه الصلاة والسلام وسيد شباب أهل الجنّة — فخصّه بهذا الدعاء.</p>
+  <p>و«وبارك لي فيما أعطيت» مهمّ جدّاً: قد يُعطيك الله القليل لكن مع البركة يكون كثيراً. <b>قليل مبارك خير من كثير لا بركة فيه.</b></p>
+</div>
+
+<!-- ===== 8. الصلاة على النبي ===== -->
+<h2 class="section-title">٨. الصلاة على النبيّ ﷺ في القنوت</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وتُسنّ آخره</b> — أي وتُسنّ آخر القنوت الصلاة والسلام على النبيّ صلّى الله عليه وسلّم وعلى آله. <b>ولا تُسنّ أوّله</b> — أي لا يُسنّ أن يصلّي على النبيّ في أوّل القنوت، إنّما يُسنّ ذلك في آخره.</p>
+</div>
+
+<div class="flow-row">
+  <div class="flow-box">دعاء القنوت</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box" style="background: #d97706;">الصلاة على النبيّ ﷺ (آخر القنوت)</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-pure">يؤمّن المأموم ويبقى رافعاً يديه</div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه مهمّ</span>
+  <p>الصلاة على النبيّ ﷺ في آخر القنوت هي من الدعاء، فيُسنّ فيها التأمين ويبقى المأموم رافعاً يديه. فما نراه أحياناً من بعض المصلين أنّه إذا قال الإمام «وصلّى اللهم وسلّم على سيدنا محمّد» ينزلون أيديهم — هذا غير صحيح. ينبغي أن يبقى رافعاً ليده لأنّ هذا دعاء.</p>
+</div>
+
+<!-- ===== 9. الزيادة في القنوت ===== -->
+<h2 class="section-title">٩. الزيادة في القنوت وقنوت عمر رضي الله عنه</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويزيد فيه من جرى من منفرد وإمام محصورين رضوا بالتطويل</b></p>
+</div>
+
+<p>بعد دعاء القنوت المأثور، يزيد المنفرد وكذلك من كان إماماً لقوم محصورين راضين بالتطويل. أمّا من كان إماماً لقوم غير محصورين أو كان إماماً لقوم محصورين لكن لم يرضوا بالتطويل، فإنّه لا يزيد.</p>
+
+<table>
+  <tr>
+    <th>الحالة</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td><b>المنفرد</b></td>
+    <td><span class="highlight-green">يزيد</span></td>
+  </tr>
+  <tr>
+    <td><b>إمام لقوم محصورين راضين بالتطويل</b></td>
+    <td><span class="highlight-green">يزيد</span></td>
+  </tr>
+  <tr>
+    <td><b>إمام لقوم غير محصورين</b></td>
+    <td><span class="highlight-red">لا يزيد</span></td>
+  </tr>
+  <tr>
+    <td><b>إمام لقوم محصورين لم يرضوا بالتطويل</b></td>
+    <td><span class="highlight-red">لا يزيد</span></td>
+  </tr>
+</table>
+
+<h3 class="sub-title">قنوت عمر رضي الله عنه</h3>
+
+<div class="poetry-box">
+  <span class="box-label label-def" style="background: #9333ea;">قنوت عمر</span>
+  <p>اللهمّ إنّا نستعينك ونستغفرك ونستهديك ونؤمن بك ونتوكّل عليك<br>
+  ونثني عليك الخير كلّه نشكرك ولا نكفرك<br>
+  ونخلع ونترك من يفجرك<br>
+  اللهمّ إيّاك نعبد ولك نصلّي ونسجد وإليك نسعى ونحفد<br>
+  نرجو رحمتك ونخشى عذابك إنّ عذابك الجدّ بالكفّار ملحق</p>
+</div>
+
+<p>«نحفد» بمعنى نُسرع. و«ملحق» بكسر اللام. وهذا قنوت كان عمر رضي الله عنه يقنط به في الصبح.</p>
+
+<h3 class="sub-title">أيّهما مقدّم: قنوت الحسن أم قنوت عمر؟</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ولمّا كان قنوت الصبح المذكور أوّلاً ثابتاً عن النبيّ صلّى الله عليه وسلّم قدّم على هذا</b></p>
+</div>
+
+<p>لما كان قنوت الصبح المذكور أوّلاً — يعني «اللهم اهدني في من هديت» — مرفوعاً إلى النبيّ صلّى الله عليه وسلّم، كان مقدّماً على قنوت عمر. فلو أراد أحد الدعائين فقط اقتصر على الأوّل (دعاء الحسن المأثور عن النبيّ ﷺ).</p>
+
+<div class="key-rule">
+  لو أراد أحدهما فقط فالأولى: دعاء القنوت المأثور عن النبيّ ﷺ<br>
+  لأنّه مرفوع إلى النبيّ صلّى الله عليه وسلّم فهو مقدّم على قنوت عمر
+</div>
+
+<!-- ===== 10. الجهر والإسرار ===== -->
+<h2 class="section-title">١٠. الجهر والإسرار بالقنوت: تصنيف شامل</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وجهر به أي القنوت ندباً إمام ولو في السرّية، لا مأموم لم يسمعه، ومنفرد يُسرّ به مطلقاً</b></p>
+</div>
+
+<p>«وجهر به أي القنوتي» — بكسر التاء لأنّه بدل من الضمير «به». وليس «القنوتو» بضمّ التاء. هذا هو الصواب.</p>
+
+<div class="tree-container">
+  <div class="tree-root">الجهر والإسرار في القنوت</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">الإمام</div>
+      <div class="tree-branch-label"><b>يجهر مطلقاً</b><br>سواء صلاة سرّية أو جهريّة<br>سواء قنوت راتب أو نازلة</div>
+    </div>
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a;">
+      <div class="tree-branch-num">المأموم السامع</div>
+      <div class="tree-branch-label">في الدعاء: <b>يؤمّن جهراً</b><br>في الثناء: <b>يشارك سرّاً</b><br>في الصلاة على النبيّ: <b>يؤمّن جهراً</b></div>
+    </div>
+    <div class="tree-branch" style="background: #fef2f2; border-color: #fca5a5;">
+      <div class="tree-branch-num">المأموم غير السامع</div>
+      <div class="tree-branch-label"><b>يقنط سرّاً</b><br>أو سمع صوتاً لا يفهمه</div>
+    </div>
+    <div class="tree-branch" style="background: #f0f9ff; border: 1px solid #bae6fd;">
+      <div class="tree-branch-num">المنفرد</div>
+      <div class="tree-branch-label">ابن حجر: <b>يُسرّ مطلقاً</b><br>الرملي: يُفرّق بين راتب ونازلة<br>في نازلة يُسنّ له الجهر</div>
+    </div>
+  </div>
+</div>
+
+<h3 class="sub-title">التفصيل الكامل</h3>
+
+<table>
+  <tr>
+    <th>المصلّي</th>
+    <th>الحالة</th>
+    <th>الحكم</th>
+    <th>التفصيل</th>
+  </tr>
+  <tr>
+    <td rowspan="2"><b>الإمام</b></td>
+    <td>مطلقاً</td>
+    <td><span class="highlight-green">يجهر</span></td>
+    <td>سواء كانت الصلاة سرّية أو جهريّة، وسواء كان القنوت راتباً أو نازلة</td>
+  </tr>
+  <tr>
+    <td>ولو في السرّية</td>
+    <td><span class="highlight-green">يجهر</span></td>
+    <td>لثبوته عن عمر رضي الله عنه في سنن البيهقي</td>
+  </tr>
+  <tr>
+    <td rowspan="2"><b>المأموم</b></td>
+    <td>سمع قنوت إمامه</td>
+    <td>—</td>
+    <td>في الدعاء: يؤمّن جهراً · في الثناء: يشارك سرّاً</td>
+  </tr>
+  <tr>
+    <td>لم يسمع أو سمع صوتاً لا يفهمه</td>
+    <td><span class="highlight-gold">يقنط سرّاً</span></td>
+    <td>يقنط بنفسه سرّاً</td>
+  </tr>
+  <tr>
+    <td rowspan="2"><b>المنفرد</b></td>
+    <td>عند ابن حجر</td>
+    <td><span class="highlight-gold">يُسرّ مطلقاً</span></td>
+    <td>سواء قنوت صبح أو وتر أو نازلة</td>
+  </tr>
+  <tr>
+    <td>عند الرملي</td>
+    <td><span class="highlight-green">يُفرّق</span></td>
+    <td>راتب: يُسرّ · نازلة: يُسنّ الجهر</td>
+  </tr>
+</table>
+
+<div class="key-rule">
+  تصنيف الجهر والإسرار بالقنوت:<br>
+  <b>الإمام:</b> يجهر مطلقاً (سرّية أو جهريّة، راتب أو نازلة)<br>
+  <b>المأموم السامع:</b> الدعاء يؤمّن جهراً · الثناء يشارك سرّاً<br>
+  <b>المأموم غير السامع:</b> يقنط سرّاً<br>
+  <b>المنفرد:</b> يُسرّ مطلقاً (ابن حجر) / يُفرّق (الرملي)
+</div>
+
+<!-- ===== 11. تأمين المأموم ===== -->
+<h2 class="section-title">١١. تأمين المأموم وأقوال الفقهاء في الثناء</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وأمّن جهراً مأموم سمع قنوت إمامه للدعاء منه ومن الدعاء الصلاة على النبيّ صلّى الله عليه وسلّم فيؤمِن لها على الأوجه</b></p>
+</div>
+
+<h3 class="sub-title">موقف المأموم السامع</h3>
+
+<table>
+  <tr>
+    <th>القسم</th>
+    <th>الموضع</th>
+    <th>ماذا يفعل المأموم</th>
+  </tr>
+  <tr>
+    <td><b>الدعاء</b></td>
+    <td>اللهم اهدنا في من هديت... وقنا شرّ ما قضيت</td>
+    <td><span class="highlight-green">يؤمّن جهراً</span> — يقول آمين</td>
+  </tr>
+  <tr>
+    <td><b>الصلاة على النبيّ</b></td>
+    <td>وصلّى اللهم وسلّم على سيدنا محمّد</td>
+    <td><span class="highlight-green">يؤمّن جهراً</span> ويبقى رافعاً يديه</td>
+  </tr>
+  <tr>
+    <td><b>الثناء</b></td>
+    <td>فإنّك تقضي ولا يُقضى عليك... فلك الحمد على ما قضيت</td>
+    <td>يرى أقوال الفقهاء أدناه</td>
+  </tr>
+</table>
+
+<h3 class="sub-title">أقوال الفقهاء في موقف المأموم عند الثناء</h3>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">١</span>
+    <b>يقول سرّاً:</b> يشارك الإمام سرّاً فيقول مثل ما يقول: «فإنّك تقضي ولا يُقضى عليك» سرّاً
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٢</span>
+    <b>يقول:</b> «وأنا على ذلك من الشاهدين»
+  </div>
+  <div class="condition-item" style="background: #eff6ff; border: 1px solid #bfdbfe;">
+    <span class="condition-num">٣</span>
+    <b>يقول:</b> «أشهد» — أي أشهد بذلك
+  </div>
+  <div class="condition-item" style="background: #f5f3ff; border: 1px solid #ddd6fe;">
+    <span class="condition-num">٤</span>
+    <b>يسكت:</b> لا يقول شيئاً
+  </div>
+</div>
+
+<h3 class="sub-title">المأموم غير السامع</h3>
+
+<div class="note-box">
+  <span class="box-label label-note">بيان</span>
+  <p>أمّا مأموم لم يسمع قنوت إمامه أو سمع صوتاً لا يفهمه — لا يميّز الحروف — فإنّه <b>يقنط سرّاً</b>. ذكر المصنّف هذا الحكم مرّتين تأكيداً.</p>
+</div>
+
+<!-- ===== 12. تخصيص الإمام نفسه ===== -->
+<h2 class="section-title">١٢. كراهة تخصيص الإمام نفسه بالدعاء</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويُكره لإمام تخصيص نفسه بدعاء</b> — أي بدعاء القنوت، للنهي عن تخصيص نفسه بالدعاء.</p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p>ما روي في سنن أبي داود والترمذي أنّ النبيّ صلّى الله عليه وسلّم قال:</p>
+  <p class="hadith-ref"><b>«ثلاث لا يحلّ لأحد أن يفعلها: لا يأمّ رجل قوماً فيخصّ نفسه بدعوة دونهم، ولا ينظر في قعر بيت قبل أن يستأذن، ولا يصلّي وهو حقن حتّى يتخفّف»</b></p>
+</div>
+
+<h3 class="sub-title">مقتضى النهي</h3>
+
+<p>فيقول الإمام «اهدنا» بضمير الجمع، وما عطف عليه بلفظ الجمع: اهدنا، عافنا، تولّنا. وقضيّة هذا النهي أنّ سائر الأدعية كذلك — أي أنّ الإمام يجمع في كلّ أدعية الصلاة.</p>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">تحقيق المسألة</span>
+  <p><b>ظاهر النهي:</b> أنّ الإمام يجمع في كلّ أدعية الصلاة.</p>
+  <p><b>لكن:</b> يتعيّن حمله على ما لم يرد عن النبيّ صلّى الله عليه وسلّم وهو إمام بلفظ الإفراد — وهو كثير. فقد سأل أبو هريرة رضي الله عنه النبيّ ﷺ: ما تقول بين تكبيرتك وقراءتك؟ قال: «أقول اللهم باعد بيني وبين خطاياني» — بلفظ الإفراد.</p>
+</div>
+
+<h3 class="sub-title">قول ابن القيم</h3>
+
+<div class="note-box">
+  <span class="box-label label-note">قول بعض الحفاظ</span>
+  <p>قال بعض الحفاظ — وهو العلاّمة ابن القيم رحمه الله في زاد المعاد كما صرّح باسمه الخطيب الشربيني في مغني المحتاج:</p>
+  <p><b>«إنّ أدعيته صلّى الله عليه وسلّم كلّها بلفظ الإفراد»</b></p>
+  <p>ومن ثمّ جرى بعضهم على اختصاص الجمع بالقنوت. فدعاء القنوت يكون بلفظ الجمع لأنّك تدعو وغيرك يؤمّن على الدعاء. أمّا في بقية الأدعية فأنت تدعو وهم يدعون أيضاً.</p>
+</div>
+
+<div class="key-rule">
+  ضابط الجمع والإفراد في أدعية الصلاة:<br>
+  <b>القنوت:</b> يُستحبّ الجمع (اهدنا، عافنا، تولّنا) لأنّ الإمام يدعو والمأموم يؤمّن<br>
+  <b>سائر الأدعية:</b> الوارد عن النبيّ ﷺ بلفظ الإفراد (بيني وبين خطاياني)<br>
+  فدعاء الافتتاح والركوع وبين السجدتين كلّها بصيغة الإفراد
+</div>
+
+<h3 class="sub-title">أمثلة الأدعية بلفظ الإفراد</h3>
+
+<ul>
+  <li>دعاء الافتتاح: «اللهم باعد بيني وبين خطاياني»</li>
+  <li>دعاء الركوع: «سبحانك اللهم ربّنا وبحمدك اللهم اغفر لي»</li>
+  <li>دعاء بين السجدتين: «ربّ اغفر لي وارحمني واهدني واجبرني»</li>
+</ul>
+
+<!-- ===== 13. الركن السابع: السجود ===== -->
+<h2 class="section-title">١٣. الركن السابع: السجود مرّتين في كلّ ركعة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وسابعها سجود مرّتين كلّ ركعة</b></p>
+</div>
+
+<p>دلّ على ركنيّة السجود قول الله سبحانه وتعالى: <span class="verse-ref">{يا أيّها الذين آمنوا اركعوا واسجدوا واعبدوا ربّكم وافعلوا الخير لعلكم تفلحون}</span> وقوله صلّى الله عليه وسلّم للمسيء صلاته: <b>«ثمّ اسجد حتّى تطمئنّ ساجداً»</b></p>
+
+<h3 class="sub-title">لماذا كُرّر السجود مرّتين؟</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">العلة</span>
+  <p>السجود كُرّر في كلّ ركعة مرّتين دون غيره من الأركان — الركوع مرّة والاعتدال مرّة والقيام مرّة — لأنّ السجود غاية التواضع: بأن يضع العبد أشرف موضع فيه وهو الجبهة على الأرض. فكُرّر مرّتين حتّى يظهر العبد تواضعه لربّه عزّ وجلّ.</p>
+</div>
+
+<h3 class="sub-title">تعريف السجود</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">تعريف</span>
+  <p><b>لغةً:</b> الميل والتطامن.</p>
+  <p><b>شرعاً:</b> وضع الأعضاء السبعة على الأرض أو على ما يسجد عليه المصلي بشروط مخصوصة. وبعضهم يقول: السجود وضع الجبهة، لكن الأولى أنّه وضع الأعضاء السبعة وليس الجبهة فقط.</p>
+</div>
+
+<!-- ===== 14. السجود على المحمول ===== -->
+<h2 class="section-title">١٤. السجود على المحمول وغير المحمول</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>كلّ ركعة على غير محمول له، وإن تحرّك بحركته ولو نحو سرير — كما إذا سجد على محمول لم يتحرّك بحركته كطرف من ردائه الطويل</b></p>
+</div>
+
+<h3 class="sub-title">تصنيف حالات السجود</h3>
+
+<div class="tree-container">
+  <div class="tree-root">حالات السجود</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">غير محمول له</div>
+      <div class="tree-branch-label"><b>يصحّ مطلقاً</b><br>سواء تحرّك بحركته أو لا<br>مثال: طاولة، سجادة، سرير</div>
+    </div>
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a;">
+      <div class="tree-branch-num">محمول لا يتحرّك بحركته</div>
+      <div class="tree-branch-label"><b>يصحّ</b><br>مثال: طرف عمّامة طويلة جداً<br>لا تتحرّك بحركة الشخص</div>
+    </div>
+    <div class="tree-branch" style="background: #fef2f2; border-color: #fca5a5;">
+      <div class="tree-branch-num">محمول يتحرّك بحركته</div>
+      <div class="tree-branch-label"><b>لا يصحّ</b><br>كطرف من عمامته أو ردائه<br>كأنّه يسجد على جزء من نفسه</div>
+    </div>
+  </div>
+</div>
+
+<table>
+  <tr>
+    <th>الحالة</th>
+    <th>المثال</th>
+    <th>الحكم</th>
+    <th>العلّة</th>
+  </tr>
+  <tr>
+    <td><b>السجود على غير محمول له</b></td>
+    <td>طاولة، سجادة، سرير يقف عليه</td>
+    <td><span class="highlight-green">يصحّ مطلقاً</span></td>
+    <td>ليس محمولاً له فلا يضرّ السجود عليه</td>
+  </tr>
+  <tr>
+    <td><b>سجد على غير محمول يتحرّك بحركته</b></td>
+    <td>سرير يتحرّك بحركته</td>
+    <td><span class="highlight-green">يصحّ</span></td>
+    <td>غير محمول له رغم تحرّكه بحركته</td>
+  </tr>
+  <tr>
+    <td><b>سجد على محمول لا يتحرّك بحركته</b></td>
+    <td>طرف عمامة طويلة جداً لا تتحرّك بحركته</td>
+    <td><span class="highlight-green">يصحّ</span></td>
+    <td>محمول لكنّه لا يتحرّك بحركته</td>
+  </tr>
+  <tr>
+    <td><b>سجد على محمول يتحرّك بحركته</b></td>
+    <td>طرف عمامته أو ردائه الذي يتحرّك بحركته</td>
+    <td><span class="highlight-red">لا يصحّ</span></td>
+    <td>كأنّه يسجد على جزء من نفسه</td>
+  </tr>
+</table>
+
+<h3 class="sub-title">حكم من سجد على محمول يتحرّك بحركته</h3>
+
+<div class="exception-box">
+  <span class="box-label label-exc">تفصيل</span>
+  <p><b>فإن سجد عليه بطلت الصلاة إن تعمّد وعلم تحريمه.</b> وإلّا — أي وإن لم يتعمّد أو لم يعلم تحريمه — أعاد السجود فقط، وما بعده أيضاً.</p>
+</div>
+
+<div class="flow-row">
+  <div class="flow-box">سجد على محمول يتحرّك بحركته</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box" style="background: #d97706;">هل تعمّد وعلم التحريم؟</div>
+  <div class="flow-arrow">←</div>
+</div>
+<div class="flow-row">
+  <div class="flow-result flow-impure">نعم: تبطل الصلاة</div>
+  <div class="flow-result flow-excused">لا: يعيد السجود فقط وما بعده</div>
+</div>
+
+<!-- ===== 15. السجود على يد غيره ===== -->
+<h2 class="section-title">١٥. السجود على يد غيره والمنديل بيده</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويصحّ على يد غيره، وعلى نحو منديل بيده</b></p>
+</div>
+
+<h3 class="sub-title">السجود على يد غيره</h3>
+
+<p>لو سجد على يد غيره يصحّ، لأنّها غير محمولة له. أمّا السجود على يد نفسه فلا يصحّ — لأنّها جزء منه، فإذا كان لا يصحّ السجود على ثوب محمول يتحرّك بحركته فباب أولى أن لا يصحّ على يده.</p>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">السجود على يد غيره</div>
+    <div class="compare-card-body"><b>يصحّ</b><br>لأنّها غير محمولة له<br>فهي كالسجود على غير المحمول</div>
+  </div>
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">السجود على يد نفسه</div>
+    <div class="compare-card-body"><b>لا يصحّ</b><br>لأنّها جزء منه<br>كالسجود على المحمول المتحرّك</div>
+  </div>
+</div>
+
+<h3 class="sub-title">السجود على منديل بيد غيره</h3>
+
+<p>لو كان يسجد على منديل يحمله شخص آخر بيده — يصحّ ذلك، لأنّ له حكم المنفصل. فالمنديل محمول لغيره وليس له، وفي حكم المنفصل.</p>
+
+<div class="key-rule">
+  خلاصة أحكام السجود على الأشياء:<br>
+  <b>غير محمول له:</b> يصحّ مطلقاً (تحرّك أو لا)<br>
+  <b>محمول له لا يتحرّك بحركته:</b> يصحّ (كطرف عمّامة طويلة)<br>
+  <b>محمول له يتحرّك بحركته:</b> لا يصحّ (كطرف العمامة أو الرداء)<br>
+  <b>يد غيره:</b> يصحّ · <b>يده:</b> لا يصحّ<br>
+  <b>منديل بيد غيره:</b> يصحّ — حكم المنفصل
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">مسألة لاحقة</span>
+  <p>ولو سجد على شيء فالتصق بجبهته صحّ ووجب إزالته — هذا ممّا سيأتي تفصيله إن شاء الله تعالى.</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf') format('truetype'); font-weight: normal; }
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf') format('truetype'); font-weight: bold; }
+@font-face { font-family: 'NotoNaskh'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf') format('truetype'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+
+body {
+  font-family: 'NotoNaskh', 'Amiri', serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #1a1a2e;
+  direction: rtl;
+  background: #fff;
+  text-align: justify;
+}
+
+.cover-header {
+  background: #1a5632;
+  color: white;
+  padding: 20px 14px;
+  text-align: center;
+  margin: 0 0 12px 0;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px);
+  border-bottom: 4px solid #c8a951;
+}
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 6px; border: none; font-family: 'Amiri', serif; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.9; margin: 4px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.92; margin: 6px 0 2px 0; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .creator { font-size: 11pt; opacity: 0.85; margin-top: 2px; }
+.cover-header .series { font-size: 11pt; opacity: 0.8; margin-top: 4px; }
+
+.toc {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 0 0 12px 0;
+}
+.toc-title {
+  font-family: 'Amiri', serif;
+  font-size: 14pt;
+  color: #1a5632;
+  text-align: center;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #c8a951;
+  padding-bottom: 4px;
+}
+.toc-item {
+  font-size: 10pt;
+  padding: 2px 0;
+  border-bottom: 1px dotted #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+h2.section-title {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0d7c3e;
+  border-bottom: 2px solid #0d7c3e;
+  padding-bottom: 5px;
+  margin: 18px 0 10px;
+}
+
+h3.sub-title {
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: #0a5c2e;
+  margin: 14px 0 8px;
+  padding-right: 10px;
+  border-right: 4px solid #0d7c3e;
+}
+
+h4.minor-title {
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #166534;
+  margin: 10px 0 6px;
+}
+
+p { margin: 5px 0; text-align: justify; }
+
+.definition-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-right: 4px solid #0d7c3e;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.rule-box {
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-right: 4px solid #d97706;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.exception-box {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-right: 4px solid #ea580c;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.evidence-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-right: 4px solid #2563eb;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.issue-box {
+  background: #fdf2f8;
+  border: 1px solid #fbcfe8;
+  border-right: 4px solid #db2777;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.comparison-box {
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  border-right: 4px solid #7c3aed;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.note-box {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-right: 4px solid #0284c7;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.poetry-box {
+  background: #faf5ff;
+  border: 1px solid #e9d5ff;
+  border-right: 4px solid #9333ea;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+  text-align: center;
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  line-height: 2.2;
+}
+
+.key-rule {
+  background: #dcfce7;
+  border: 2px solid #16a34a;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.box-label {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 4px;
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.label-def { background: #0d7c3e; }
+.label-rule { background: #d97706; }
+.label-exc { background: #ea580c; }
+.label-ev { background: #2563eb; }
+.label-issue { background: #db2777; }
+.label-comp { background: #7c3aed; }
+.label-note { background: #0284c7; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 13px;
+  table-layout: fixed;
+}
+
+th {
+  background: #0d7c3e;
+  color: #fff;
+  padding: 6px 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+td {
+  padding: 5px 8px;
+  border: 1px solid #d1d5db;
+  text-align: center;
+  vertical-align: top;
+}
+
+tr:nth-child(even) { background: #f0fdf4; }
+tr:nth-child(odd) { background: #fff; }
+
+.tree-container { margin: 12px 0; text-align: center; }
+.tree-root {
+  display: inline-block;
+  background: linear-gradient(135deg, #0d7c3e, #0a5c2e);
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+.tree-branches { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px; }
+.tree-branch {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  min-width: 80px;
+  text-align: center;
+}
+.tree-branch-num { font-family: 'Amiri', serif; font-weight: bold; color: #0d7c3e; font-size: 14px; }
+.tree-branch-label { font-size: 12px; color: #374151; }
+
+.compare-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.compare-card { flex: 1; min-width: 140px; border-radius: 8px; padding: 8px 10px; text-align: center; }
+.compare-card-green { background: #dcfce7; border: 1px solid #86efac; }
+.compare-card-red { background: #fef2f2; border: 1px solid #fca5a5; }
+.compare-card-gold { background: #fefce8; border: 1px solid #fde68a; }
+.compare-card-blue { background: #eff6ff; border: 1px solid #bfdbfe; }
+.compare-card-title { font-family: 'Amiri', serif; font-weight: bold; font-size: 14px; margin-bottom: 4px; }
+.compare-card-body { font-size: 12px; }
+
+.flow-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px; margin: 8px 0; }
+.flow-box { background: #0d7c3e; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-family: 'Amiri', serif; font-weight: bold; text-align: center; }
+.flow-arrow { font-size: 16px; color: #0d7c3e; font-weight: bold; }
+.flow-result { padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; text-align: center; }
+.flow-pure { background: #dcfce7; border: 1px solid #86efac; color: #166534; }
+.flow-impure { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+.flow-excused { background: #fefce8; border: 1px solid #fde68a; color: #92400e; }
+
+.highlight-green { background: #dcfce7; padding: 1px 4px; border-radius: 3px; }
+.highlight-gold { background: #fefce8; padding: 1px 4px; border-radius: 3px; }
+.highlight-red { background: #fef2f2; padding: 1px 4px; border-radius: 3px; }
+
+.verse-ref { font-family: 'Amiri', serif; font-size: 14px; color: #1e40af; text-align: center; margin: 6px 0; }
+.hadith-ref { font-family: 'Amiri', serif; font-size: 13px; color: #166534; text-align: center; margin: 6px 0; }
+
+.condition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.condition-item { border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.condition-num {
+  display: inline-block; background: #0d7c3e; color: #fff; min-width: 24px; height: 24px;
+  border-radius: 50%; text-align: center; line-height: 24px; font-family: 'Amiri', serif;
+  font-weight: bold; font-size: 12px; margin-left: 6px;
+}
+
+ul { margin: 4px 0; padding-right: 20px; }
+li { margin: 2px 0; }
+</style>
+</head>
+<body>
+
+<!-- ===== COVER HEADER ===== -->
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس الثامن والأربعون — تابع سنن الصلاة: النشاط والخشوع وتدبّر القراءة والنظر والأذكار بعد الصلاة</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="creator">تنسيق: أحمد بن إرشاد</div>
+  <div class="series">سنة النشاط · فراغ القلب · الخشوع وتعليلاته · وسائل تحصيله · تدبّر القراءة والذكر · إدامة النظر · تغميض العينين · كراهة ترك السنن · الأذكار بعد الصلاة</div>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. فرع: سنة دخول الصلاة بنشاط</span></div>
+  <div class="toc-item"><span>٢. صفات المنافقين في الصلاة</span></div>
+  <div class="toc-item"><span>٣. فراغ القلب من الشواغل</span></div>
+  <div class="toc-item"><span>٤. سنة الخشوع في الصلاة كلّها</span></div>
+  <div class="toc-item"><span>٥. التعليلات الثلاثة لاستحباب الخشوع</span></div>
+  <div class="toc-item"><span>٦. وسائل تحصيل الخشوع</span></div>
+  <div class="toc-item"><span>٧. تدبّر القراءة إجمالاً لا تفصيلاً</span></div>
+  <div class="toc-item"><span>٨. تدبّر الذكر قياساً على القراءة</span></div>
+  <div class="toc-item"><span>٩. سنة إدامة النظر إلى محلّ السجود</span></div>
+  <div class="toc-item"><span>١٠. الاستثناءات في النظر إلى محلّ السجود</span></div>
+  <div class="toc-item"><span>١١. تغميض العينين في الصلاة</span></div>
+  <div class="toc-item"><span>١٢. فائدة: كراهة ترك سنن الصلاة</span></div>
+  <div class="toc-item"><span>١٣. سنة الذكر والدعاء سرّاً عقب الصلاة</span></div>
+</div>
+
+<!-- ===== 1. سنة دخول الصلاة بنشاط ===== -->
+<h2 class="section-title">١. فرع: سنة دخول الصلاة بنشاط</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">فرع — نصّ المصنّف</span>
+  <p><b>فرع سنة دخول صلاة بنشر</b> — أي يُسنّ دخول الصلاة بنشاط ورغبة. قوله «دخول صلاة» يشمل صلاة الفرض والنفل. و«بنشر» أي برغبة في الصلاة.</p>
+</div>
+
+<h3 class="sub-title">الدليل على استحباب النشاط</h3>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل من القرآن</span>
+  <p>قال تعالى: <span class="verse-ref">{وإذا قاموا إلى الصلاة قاموا كسالى}</span> — أي أنّ الله تعالى ذمّ تاركي النشاط، فدلّ على استحبابه.</p>
+  <p>المصنّف علّل بقوله: <b>«لأنّه تعالى ذمّ تاركيه»</b>، أي ذمّ تاركي النشر (النشاط)، بقوله تعالى {وإذا قاموا إلى الصلاة قاموا كسالى}.</p>
+</div>
+
+<h3 class="sub-title">معنى الكسل</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">تعريف</span>
+  <p><b>الكسل هو الفتور والتواني</b> — والتواني هو التراخي. فالكسل عكس النشاط، وهو التثاقل والتراخي عن أداء الصلاة برغبة ونشاط.</p>
+</div>
+
+<!-- ===== 2. صفات المنافقين ===== -->
+<h2 class="section-title">٢. صفات المنافقين في الصلاة</h2>
+
+<p>وصف الله سبحانه وتعالى المنافقين في الآية بثلاث صفات تتعلّق بالصلاة:</p>
+
+<table>
+  <tr>
+    <th>الصفة</th>
+    <th>النصّ القرآني</th>
+    <th>المعنى</th>
+  </tr>
+  <tr>
+    <td><b>الأولى</b></td>
+    <td>{وإذا قاموا إلى الصلاة قاموا كسالى}</td>
+    <td>يقومون إلى الصلاة بتثاقل وتراخٍ وفتور</td>
+  </tr>
+  <tr>
+    <td><b>الثانية</b></td>
+    <td>{يراؤون الناس}</td>
+    <td>مع كونهم يصلّون وهم كسالى إلاّ أنّهم يراؤون الناس — أي يصلّون رياءً لا إخلاصاً</td>
+  </tr>
+  <tr>
+    <td><b>الثالثة</b></td>
+    <td>{ولا يذكرون الله إلاّ قليلاً}</td>
+    <td>لا يذكرون الله في صلاتهم إلاّ ذكراً قليلاً</td>
+  </tr>
+</table>
+
+<div class="key-rule">
+  ثلاث صفات للمنافقين في الصلاة:<br>
+  الكسل عند القيام · الرياء للناس · قلّة ذكر الله
+</div>
+
+<!-- ===== 3. فراغ القلب ===== -->
+<h2 class="section-title">٣. فراغ القلب من الشواغل</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وفراغ القلب من الشواغل لأنّه أقرب إلى الخشوع</b> — قوله «وفراغي» معطوف على قوله «بنشر»، أي سنّ دخول صلاة بنشاط <b>وفراغ القلب من الشواغل</b>. أي أنّه يدخل الصلاة وقلبه فارغ من الشواغل.</p>
+</div>
+
+<h3 class="sub-title">لماذا فراغ القلب؟</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">العلة</span>
+  <p>فراغ القلب من الشواغل <b>لأنّه أقرب إلى الخشوع</b> — أي لأنّ فراغ قلبه من الشواغل ومن الأمور المشتّتة سيجعله أقرب إلى الخشوع في صلاته.</p>
+</div>
+
+<h3 class="sub-title">ماذا يُكره استحضاره في الصلاة؟</h3>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">أمور الدنيا</div>
+    <div class="compare-card-body">يُكره أن يفكر في صلاته<br>بأمر من أمور الدنيا<br><b>مكروه</b></div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">المسألة الفقهية</div>
+    <div class="compare-card-body">حتى لو كان يفكر<br>في مسألة فقهية<br>في أثناء الصلاة — <b>مكروه أيضاً</b></div>
+  </div>
+</div>
+
+<div class="key-rule">
+  يُكره للمصلي أن يفكّر في صلاته بأمر دنيوي<br>
+  بل وحتى بمسألة فقهية — لأنّ ذلك ينافي الخشوع
+</div>
+
+<!-- ===== 4. سنة الخشوع ===== -->
+<h2 class="section-title">٤. سنة الخشوع في الصلاة كلّها</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وسنّ فيها أي في صلاته كلّها خشوع</b> — أي يُسنّ الخشوع في جميع أجزاء الصلاة، من أولها إلى آخرها.</p>
+</div>
+
+<h3 class="sub-title">تعريف الخشوع</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">تعريف</span>
+  <p><b>الخشوع هو سكون القلب والجوارح</b> — فالخشوع يتكوّن من أمرين: سكون القلب، وسكون الجوارح. فإذا خشع القلب وسكنت الجوارح تحقّق الخشوع.</p>
+</div>
+
+<h3 class="sub-title">كيف يخشع القلب؟</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">خشوع القلب</span>
+  <p><b>بأن لا يحضر فيه غير ما هو فيه</b> — أي لا يحضر شيء في القلب غير ما هو متلبّس به من أمر الصلاة. فلا يكون شيء في القلب إلاّ الصلاة وما يتعلّق بالصلاة. هذا هو خشوع القلب.</p>
+  <p>وحتى <b>ما يتعلّق بالآخرة</b> لا يحضره في صلاته — بل ما يتعلّق بالصلاة: يتدبّر ما يقرأ في الصلاة من قرآن وأذكار وأدعية.</p>
+</div>
+
+<h3 class="sub-title">كيف تخشع الجوارح؟</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">خشوع الجوارح</span>
+  <p><b>بأن لا يعبث بأحدها</b> — أي بأن لا يعبث بواحد من جوارحه. فإذا سكنت جوارحه عن العبث تحقّق خشوع الجوارح.</p>
+</div>
+
+<div class="tree-container">
+  <div class="tree-root">الخشوع = سكون القلب + سكون الجوارح</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #eff6ff; border-color: #bfdbfe;">
+      <div class="tree-branch-num">خشوع القلب</div>
+      <div class="tree-branch-label">أن لا يحضر فيه غير ما هو فيه<br>أي: التركيز التامّ في الصلاة<br>حتى أمور الآخرة لا يحضرها<br>بل يتدبّر القراءة والأذكار</div>
+    </div>
+    <div class="tree-branch" style="background: #f0fdf4; border-color: #bbf7d0;">
+      <div class="tree-branch-num">خشوع الجوارح</div>
+      <div class="tree-branch-label">أن لا يعبث بواحد منها<br>أي: سكون الأعضاء الظاهرة<br>عدم الحركة العبثية</div>
+    </div>
+  </div>
+</div>
+
+<h3 class="sub-title">حكم الخشوع</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p>الخشوع <b>مسنون استحباباً مؤكّداً</b> لأنّه روح الصلاة ولبّها. قال تعالى: <span class="verse-ref">{وأقم الصلاة لذكري}</span> — أي أقم الصلاة لتذكرني، فإذا كان يصلّي وهو غافل عن ذكر ربه فلم يحقّق مقصود الصلاة ولم يحقّق المراد منها وهو ذكر الله عزّ وجلّ.</p>
+</div>
+
+<!-- ===== 5. التعليلات الثلاثة ===== -->
+<h2 class="section-title">٥. التعليلات الثلاثة لاستحباب الخشوع</h2>
+
+<p>ذكر المصنّف ثلاثة تعليلات لاستحباب الخشوع:</p>
+
+<table>
+  <tr>
+    <th>التعليل</th>
+    <th>البيان</th>
+    <th>الدليل</th>
+  </tr>
+  <tr>
+    <td><b>الأوّل</b></td>
+    <td>ثناء الله تعالى في كتابه العزيز على فاعليه</td>
+    <td><span class="verse-ref">{قد أفلح المؤمنون الذين هم في صلاتهم خاشعون}</span> — جعل الله أوّل وصف لأهل الإيمان أنّهم يخشعون في صلاتهم</td>
+  </tr>
+  <tr>
+    <td><b>الثاني</b></td>
+    <td>انتفاء ثواب الصلاة بانتفائه — أي إذا انتفى الخشوع لا يثاب على صلاته وإن كانت مجزئة صحيحة</td>
+    <td>حديث: <b>«إنّ الرجل لينصرف وما كُتب له من صلاته إلاّ عُشرها... تُسعها... ثُمنها... سُبعها... سُدسها... خُمسها... رُبعها... ثُلثها... نصفها»</b></td>
+  </tr>
+  <tr>
+    <td><b>الثالث</b></td>
+    <td>لأنّ لنا وجهاً أنّه شرط للصحّة — اختاره جمع من الفقهاء كالإمام الغزالي</td>
+    <td>الوجه: رأي فقهي منطلق من أصول الشافعية — قال به متقدّمو الشافعية</td>
+  </tr>
+</table>
+
+<h3 class="sub-title">تفصيل التعليل الثاني: انتفاء الثواب</h3>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الحديث الصحيح</span>
+  <p>قال النبيّ صلّى الله عليه وسلّم: <b>«إنّ الرجل لينصرف وما كُتب له من صلاته إلاّ عشرها، تُسعها، ثُمنها، سُبعها، سُدسها، خُمسها، رُبعها، ثُلثها، نصفها»</b></p>
+  <p>أي أنّه يُكتب لك من صلاتك ما كان عقلك حاضراً فيها — فكلّما زاد حضور القلب زاد الثواب، وكلّما نقص نقص الثواب.</p>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">تفصيل مهمّ</span>
+  <p>إذا صلّى صلاة لم يخشع فيها، فإنّها تقع <b>مجزئة صحيحة</b> لكنّها <b>بلا ثواب</b> — أي صحّتْ لكن لا يثاب عليها. فانتفاء الخشوع لا يُبطل الصلاة على المعتمد، لكن يُفوّت الثواب.</p>
+</div>
+
+<h3 class="sub-title">تفصيل التعليل الثالث: الخشوع شرط للصحّة (وجه)</h3>
+
+<div class="issue-box">
+  <span class="box-label label-issue">خلاف بين الفقهاء</span>
+  <p><b>الوجه:</b> أنّ الخشوع شرط لصحّة الصلاة — اختاره جمع من الفقهاء كالإمام الغزالي رحمه الله. وهذا الوجه هو رأي فقهي قال به متقدّمو الشافعية (الأصحاب الذين كانوا قبل المئة الرابعة).</p>
+  <p>وبناءً على هذا الوجه: من لم يخشع في صلاته فسدت صلاته — لأنّ الخشوع مقصود الصلاة وروحها، فالصلاة بلا خشوع كالعبادة بلا روح، كمن يتقرّب إلى الله بميته — جسد بلا روح.</p>
+</div>
+
+<div class="flow-row">
+  <div class="flow-box">الخشوع روح الصلاة</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box" style="background: #7c3aed;">بلا خشوع</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-impure">كالجسد بلا روح</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-impure">عبادة بلا مقصود</div>
+</div>
+
+<h3 class="sub-title">اختلاف الفقهاء في عدّ أركان الصلاة</h3>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-blue">
+    <div class="compare-card-title">القاضي أبو شجاع</div>
+    <div class="compare-card-body">عدّ أركان الصلاة<br><b>ثمانية عشر ركناً</b><br>لم يعدّ الخشوع ركناً</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">بعض الفقهاء</div>
+    <div class="compare-card-body">عدّ أركان الصلاة<br><b>عشرين ركناً</b><br>الركن ١٩: المصلي<br>الركن ٢٠: الخشوع</div>
+  </div>
+</div>
+
+<h3 class="sub-title">سفيان الثوري: من لم يخشع فسدت صلاته</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">قول سفيان الثوري</span>
+  <p>اشتهر من بين الأئمّة بالورع القول بأنّ من لم يخشع في صلاته فسدت صلاته. وهو أحد أئمّة الدنيا في عهد التابعين.</p>
+</div>
+
+<div class="poetry-box">
+  <span class="box-label label-ev" style="background: #9333ea;">شعر في سفيان الثوري</span>
+  <p>هل لهم يا قوم في بدعتهم<br>
+  من فقيه أو إمام يُتبع<br>
+  مثل سفيان أخي ثور الذي<br>
+  علَّم الناس دقيقات الورع</p>
+</div>
+
+<h3 class="sub-title">أئمّة الدنيا في عهد التابعين</h3>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #f0fdf4; border: 1px solid #bbf7d0;">
+    <span class="condition-num">١</span>
+    <b>مالك بن أنس</b> — في المدينة
+  </div>
+  <div class="condition-item" style="background: #f0fdf4; border: 1px solid #bbf7d0;">
+    <span class="condition-num">٢</span>
+    <b>الليث بن سعد</b> — في مصر
+  </div>
+  <div class="condition-item" style="background: #f0fdf4; border: 1px solid #bbf7d0;">
+    <span class="condition-num">٣</span>
+    <b>الأوزاعي</b> — في الشام
+  </div>
+  <div class="condition-item" style="background: #f0fdf4; border: 1px solid #bbf7d0;">
+    <span class="condition-num">٤</span>
+    <b>سفيان الثوري</b> — في العراق
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">ربط بالصيام</span>
+  <p>مرّ معنا في الصيام أنّ الإمام سفيان الثوري يقول: إذا اغتاب في أثناء صومه فإنّ صومه يبطل. وهنا في الصلاة يقول: إذا صلّى بلا خشوع فإنّ صلاته تفسد. وهذا يتّسق مع مذهبه في الورع.</p>
+</div>
+
+<!-- ===== 6. وسائل تحصيل الخشوع ===== -->
+<h2 class="section-title">٦. وسائل تحصيل الخشوع</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وممّا يحصل الخشوع</b> — ذكر المصنّف ثلاثة أشياء من وسائل تحصيل الخشوع:</p>
+</div>
+
+<table>
+  <tr>
+    <th>الوسيلة</th>
+    <th>البيان</th>
+  </tr>
+  <tr>
+    <td><b>الأولى</b></td>
+    <td>استحضار أنّه بين يدي ملك الملوك الذي يعلم السرّ وأخفى — يناجي الملك في صلاته، يعلم ما في قلبه وسرّه</td>
+  </tr>
+  <tr>
+    <td><b>الثانية</b></td>
+    <td>أنّه ربّما تجلّى المولى عزّ وجلّ عليه بالقهر (أي بالعقوبة) لعدم القيام بحقّ ربوبيّته — فردّ عليه صلاته. أي أنّ الله قد يعاقبه إذا كان قلبه غير خاشع وجوارحه غير خاشعة</td>
+  </tr>
+  <tr>
+    <td><b>الثالثة</b></td>
+    <td>قول سيدي القطب العارف بالله محمد البكري: إنّ ممّا يورث الخشوع <b>إطالة الركوع والسجود</b></td>
+  </tr>
+</table>
+
+<h3 class="sub-title">التعليل الثاني: مثال تقريبي</h3>
+
+<div class="note-box">
+  <span class="box-label label-note">مثال</span>
+  <p>لو كنّا في حضرة السلطان وهو آدمي مثلنا، وأحدنا في المجلس يعبث بيده أو بوجهه أو بثوبه — لربّما استنكر الناس ذلك منه. <b>فكيف يكون المرء بين يدي المولى عزّ وجلّ ويفعل هذا العبث؟</b> مثل هذا ربّما عاقبه الله فردّ عليه صلاته.</p>
+</div>
+
+<h3 class="sub-title">الوسيلة الثالثة: إطالة الركوع والسجود</h3>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">قول سيدي القطب محمد البكري</span>
+  <p><b>إنّ ممّا يورث الخشوع إطالة الركوع والسجود</b> — فإذا أطال ركوعه وسجوده واعتداله وجلوسه بين السجدتين كان ذلك من أسباب تحصيل الخشوع.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه</span>
+  <p>أمّا الاعتدال والجلوس بين السجدتين عند فقهاء الشافعية فمن الأركان القصيرة التي لا تُطال — لكن في الركوع والسجود تُشرع الإطالة.</p>
+</div>
+
+<h3 class="sub-title">وسائل أخرى لتحصيل الخشوع</h3>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">١</span>
+    <b>التهيّؤ للصلاة</b> قبل دخول وقتها
+  </div>
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">٢</span>
+    <b>إحسان الوضوء</b>
+  </div>
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">٣</span>
+    <b>إجابة المؤذّن</b>
+  </div>
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">٤</span>
+    <b>صلاة السنّة القبليّة</b>
+  </div>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">حديث صحيح مسلم</span>
+  <p>كان النبيّ صلّى الله عليه وسلّم <b>يصلّي ركعتين خفيفتين قبل قيام الليل</b> — قال العلماء: الحكمة من صلاة الركعتين الخفيفتين <b>تنشيط نفسي لقيام الليل</b>، يبدأ بركعتين خفيفتين ثمّ يشرع في قيام الليل بالركوع والسجود.</p>
+</div>
+
+<h3 class="sub-title">مصطلح «القطب»</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">معنى القطب</span>
+  <p><b>المعنى الأوّل:</b> من بلغ رتبة عظيمة في العبادة — وإذا أُطلق على هذا المعنى فلا إشكال فيه.</p>
+  <p><b>المعنى الثاني:</b> يُطلق القطب على أناس يزعمون أنّ لهم تصرّفاً في الكون — وهذا <b>لا شكّ في بطلانه</b>.</p>
+  <p>ولفظ «الأقطاب» ممّا لم يرد لا في القرآن الكريم ولا في السنّة النبويّة. وإن كان المقصود المعنى الأوّل فلا بأس.</p>
+</div>
+
+<!-- ===== 7. تدبّر القراءة ===== -->
+<h2 class="section-title">٧. تدبّر القراءة إجمالاً لا تفصيلاً</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وتدبّر قراءة</b> — أي ويسنّ تدبّر القراءة. وهو معطوف على قوله «وسنّ فيها كلّها خشوع»، أي وسنّ خشوع وسنّ تدبّر قراءة. أي تأمّل معانيها.</p>
+</div>
+
+<h3 class="sub-title">إجمالاً لا تفصيلاً</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">قيد مهمّ</span>
+  <p>التأمّل للمعاني <b>إجمالاً لا تفصيلاً</b> — يعني وأنت تقرأ مثلاً «بسم الله الرحمن الرحيم» تتأمّل معنى لفظ الجلالة، الرحمن الذي يرحم عباده، الرحيم — تأمّلاً إجماليّاً. والحمد لله ربّ العالمين: المعنى الإجمالي للحمد وهو الثناء على الله.</p>
+  <p><b>ولا تدخل في التفاصيل</b> — لأنّ دخولك في تفاصيل المعاني ربّما أخرجك عن مقصود الصلاة. فلا تسبح في تفاصيل التأمّلات وإنّما تتأمّل ذلك إجمالاً لا على وجه التفصيل.</p>
+</div>
+
+<div class="key-rule">
+  تدبّر القراءة: إجمالاً لا تفصيلاً<br>
+  لأنّ التفصيل قد يُخرج من مقصود الصلاة
+</div>
+
+<h3 class="sub-title">الدليل والتعليل</h3>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p>قال تعالى: <span class="verse-ref">{أفلا يتدبّرون القرآن}</span></p>
+  <p><b>ولأنّ به — أي بالتدبّر — يكمل مقصود الخشوع</b> — فمن كان يتدبّر قراءة إمامه أو قراءة نفسه ويتدبّر الأذكار التي يقولها فإنّه يحصل الخشوع.</p>
+</div>
+
+<!-- ===== 8. تدبّر الذكر ===== -->
+<h2 class="section-title">٨. تدبّر الذكر قياساً على القراءة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وتدبّر ذكر قياساً على القراءة</b> — أي يُسنّ تدبّر الأذكار في الصلاة قياساً على تدبّر القراءة.</p>
+</div>
+
+<h3 class="sub-title">أمثلة تدبّر الأذكار</h3>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-blue">
+    <div class="compare-card-title">في الركوع</div>
+    <div class="compare-card-body">يقول: <b>سبحان ربّي العظيم وبحمده</b><br>يستحضر أنّ معنى التسبيح<br>تنزيه الله تعالى</div>
+  </div>
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">في السجود</div>
+    <div class="compare-card-body">يقول: <b>سبحان ربّي الأعلى وبحمده</b><br>يستحضر أنّ معنى التسبيح<br>تنزيه الله من كلّ نقص وعيب</div>
+  </div>
+</div>
+
+<h3 class="sub-title">الفرق بين الأذكار وقراءة القرآن فيمن لا يعلم المعنى</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">مسألة مهمّة</span>
+  <p><b>قراءة القرآن:</b> لو قرأ القرآن يُثاب عليه حتّى ولو كان لا يعلم المعنى — لأنّ القرآن متعبَّد بألفاظه.</p>
+  <p><b>الأذكار:</b> لو أتى بالأذكار دون معرفة لمعانيها — هل يُثاب عليها أو لا يُثاب؟ فيه خلاف سيأتي في كلام المصنّف الإشارة إلى ذلك.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه</span>
+  <p>هذه المسألة ستأتي تفصيلاً في الدروس القادمة — بخلاف قراءة القرآن فإنّه يُثاب عليه حتى ولو لم يعلم المعنى لأنّه متعبَّد بألفاظه، أمّا الأذكار ففيها خلاف.</p>
+</div>
+
+<!-- ===== 9. إدامة النظر ===== -->
+<h2 class="section-title">٩. سنة إدامة النظر إلى محلّ السجود</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وسنّ إدامة نظر محلّ سجوده لأنّ ذلك أقرب إلى الخشوع</b> — أي يُسنّ للمصلي أن يداوم بالنظر إلى محلّ سجوده، لأنّ ذلك أقرب إلى الخشوع. فإذا تشتّت النظر تلهّى الإنسان في صلاته.</p>
+</div>
+
+<h3 class="sub-title">أربع حالات يُسنّ فيها النظر إلى محلّ السجود</h3>
+
+<p>ذكر المصنّف أربع حالات حتّى في هذه المواضع يُسنّ النظر إلى محلّ السجود:</p>
+
+<table>
+  <tr>
+    <th>الحالة</th>
+    <th>البيان</th>
+    <th>الردّ على من قال</th>
+  </tr>
+  <tr>
+    <td><b>ولو أعمى</b></td>
+    <td>حتّى لو كان المصلي أعمى ينظر إلى محلّ سجوده</td>
+    <td>—</td>
+  </tr>
+  <tr>
+    <td><b>وإن كان عند الكعبة</b></td>
+    <td>حتّى لو كان يصلّي عند الكعبة فالسنّة أن ينظر إلى محلّ السجود</td>
+    <td>ردّ على من قال إنّ المصلي إذا كان قبل الكعبة فالأفضل أن ينظر إليها</td>
+  </tr>
+  <tr>
+    <td><b>أو في الظلمة</b></td>
+    <td>حتّى لو كان يصلّي في ظلمة</td>
+    <td>—</td>
+  </tr>
+  <tr>
+    <td><b>أو في صلاة جنازة</b></td>
+    <td>حتّى في صلاة الجنازة يُسنّ النظر إلى محلّ السجود (أي فيما لو سجدت تقديراً)</td>
+    <td>ردّ على من قال إنّه في صلاة الجنازة ينظر إلى الميت</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه</span>
+  <p>صلاة الجنازة ليس فيها سجود، لكن قوله «محلّ سجوده» أي فيما لو سجدت تقديراً. فالمقصود أنّ السنّة أن ينظر إلى موضع السجود حتى في صلاة الجنازة.</p>
+</div>
+
+<!-- ===== 10. الاستثناءات ===== -->
+<h2 class="section-title">١٠. الاستثناءات في النظر إلى محلّ السجود</h2>
+
+<h3 class="sub-title">الاستثناء الأوّل: التشهد — النظر إلى المسبحة</h3>
+
+<div class="exception-box">
+  <span class="box-label label-exc">استثناء — ذكره المصنّف</span>
+  <p><b>نعم، السنّة أن يقصر نظره على مسبحته عند رفعها في التشهد</b> — ففي التشهد ينظر إلى المسبحة (السبّابة) ما دامت مرتفعة.</p>
+  <ul>
+    <li>في <b>التشهد الأوّل</b>: يكون نظره إلى المسبحة حتى القيام للثانية والثالثة</li>
+    <li>في <b>التشهد الأخير</b>: يكون نظره إلى المسبحة حتى السلام</li>
+  </ul>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p>حديث عبد الله بن الزبير أنّ النبيّ صلّى الله عليه وسلّم <b>«كان إذا قعد للتشهد وضع كفّه اليسرى على فخذه اليسرى وأشهدَه على فخذه اليسرى وأشار بالسبّابة لا يُجاوز بصره إشارته»</b> — رواه أبو داود في سننه.</p>
+</div>
+
+<h3 class="sub-title">الاستثناء الثاني: صلاة الخوف — النظر إلى العدوّ</h3>
+
+<div class="exception-box">
+  <span class="box-label label-exc">استثناء — لم يذكره المصنّف</span>
+  <p>إذا كان يصلّي بحضرة العدوّ في <b>صلاة الخوف</b>، فالسنّة أن يكون نظره إلى عدوه لئلاّ يبغته العدوّ في الصلاة. وحينئذ لا ينظر إلى محلّ سجوده.</p>
+</div>
+
+<h3 class="sub-title">الاستثناء الثالث: زخارف في موضع السجود</h3>
+
+<div class="exception-box">
+  <span class="box-label label-exc">استثناء — ذكره العلامة الرملي</span>
+  <p>لو كان في موضع سجوده زخارف — كأن يصلّي على سجادة فيها زخارف في موضع السجود — <b>حينئذ لا ينظر إليها</b> أي إلى مكانه أو موضعه سجوده، لئلاّ تلهيه في صلاته.</p>
+</div>
+
+<div class="key-rule">
+  ثلاثة استثناءات من النظر إلى محلّ السجود:<br>
+  <b>١.</b> التشهد → النظر إلى المسبحة (ذكره المصنّف)<br>
+  <b>٢.</b> صلاة الخوف → النظر إلى العدوّ (لم يذكره المصنّف)<br>
+  <b>٣.</b> زخارف في موضع السجود → لا ينظر إليها (ذكره الرملي)
+</div>
+
+<!-- ===== 11. تغميض العينين ===== -->
+<h2 class="section-title">١١. تغميض العينين في الصلاة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ولا يكره تغميض عينيه إن لم يخف ضرراً</b> — أي لا يُكره تغميض العينين في الصلاة لعدم ورود النهي عن ذلك.</p>
+</div>
+
+<h3 class="sub-title">معنى «لا يكره»</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">تحليل العبارة</span>
+  <p>قوله «لا يكره» <b>لا يعني أنّه يُستحبّ</b> — بل قال الفقهاء: هو <b>خلاف الأولى</b> لكنّه ليس مكروهاً. أي أنّ الأفضل عدم التغميض، لكنّه ليس مكروهاً تحريماً ولا تنزيهاً.</p>
+</div>
+
+<h3 class="sub-title">أحكام تغميض العينين</h3>
+
+<table>
+  <tr>
+    <th>الحالة</th>
+    <th>الحكم</th>
+    <th>البيان</th>
+  </tr>
+  <tr>
+    <td><b>مطلقاً</b></td>
+    <td><span class="highlight-gold">خلاف الأولى</span></td>
+    <td>لا يكره تغميض العينين لكنّه خلاف الأولى — لم يرد نهي عن تغميض العينين في الصلاة</td>
+  </tr>
+  <tr>
+    <td><b>في مكان فيه زخارف</b></td>
+    <td><span class="highlight-green">يُستحبّ</span></td>
+    <td>إذا كان يصلّي في مكان فيه زخارف يُستحبّ أن يغمض عينيه</td>
+  </tr>
+  <tr>
+    <td><b>إذا فتح عينيه نظر إلى حرام</b></td>
+    <td><span class="highlight-red">يجب</span></td>
+    <td>كأن يصلّي في مكان عام (مطار، مستشفى) والنساء أمام عينيه — يجب عليه تغميض عينيه لأنّ تغميض العينين سبيل لصرف البصر عن الحرام</td>
+  </tr>
+  <tr>
+    <td><b>إذا خاف ضرراً من التغميض</b></td>
+    <td><span class="highlight-red">يُكره</span></td>
+    <td>مفهوم قوله «إن لم يخف ضرراً»: إذا خاف من التغميض ضرراً فإنّه يُكره له</td>
+  </tr>
+</table>
+
+<!-- ===== 12. كراهة ترك السنن ===== -->
+<h2 class="section-title">١٢. فائدة: كراهة ترك سنن الصلاة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">فائدة — نصّ المصنّف</span>
+  <p><b>فائدة: يُكره للمصلي الذكر وغيره ترك شيء من سنن الصلاة</b> — أي يُكره للمصلي — ذكراً أو غير ذكر (الأنثى والخنثى) — ترك شيء من سنن الصلاة.</p>
+</div>
+
+<h3 class="sub-title">مثال: من لا يقرأ السورة بعد الفاتحة</h3>
+
+<div class="issue-box">
+  <span class="box-label label-issue">مسألة</span>
+  <p>من عُرف عنه أنّه يترك قراءة السورة بعد الفاتحة — أي يقرأ الفاتحة فقط ولا يقرأ سورة بعدها في جميع الركعات — <b>لا تُقبل شهادته</b>. لأنّ قراءة السورة بعد الفاتحة سنّة مؤكّدة، وتركها يدلّ على تهاونه.</p>
+</div>
+
+<h3 class="sub-title">قول شيخنا ابن حشر: وفي عمومه نظر</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">تحليل القول</span>
+  <p>قال شيخنا العلامة ابن حشر رحمه الله: <b>«وفي عمومه نظر»</b> — أي في عموم هذا القول نظر. يعني: هل كلّ من ترك سنّة من سنن الصلاة وقع في مكروه؟ هذا الكلام بهذا العموم فيه نظر.</p>
+  <p><b>والذي يتجه تخصيصه بما ورد فيه نهي أو خلاف في الوجوب</b> — أي يُخصّص عموم «يكره ترك شيء من سنن الصلاة» بحالتين:</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">ما ورد فيه نهي</div>
+    <div class="compare-card-body">إذا ورد نهي عن فعل شيء<br>فتركه مكروه<br>مثل: النهي عن العبث في الصلاة</div>
+  </div>
+  <div class="compare-card compare-card-blue">
+    <div class="compare-card-title">خلاف في الوجوب</div>
+    <div class="compare-card-body">إذا حصل خلاف في وجوب السنّة<br>وإن كان مذهبنا أنّها ليست واجبة<br>لكن يُكره تركها لوجود الخلاف</div>
+  </div>
+</div>
+
+<h3 class="sub-title">تفصيل: هل يلزم من ترك المستحبّ الوقوع في المكروه؟</h3>
+
+<div class="key-rule">
+  القاعدة: هل يلزم من ترك المستحبّ الوقوع في المكروه؟<br>
+  <b>إن كان سنّة مؤكّدة</b> → تركه <b>مكروه</b><br>
+  <b>إن كان سنّة غير مؤكّدة</b> → تركه <b>خلاف الأولى</b> (لا مكروه)
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">سنّة مؤكّدة — تركها مكروه</div>
+    <div class="compare-card-body"><b>مثال: غسل الجمعة</b><br>سنّة مؤكّدة حتّى قال جماعة<br>من أهل العلم إنّه واجب<br>فتركه مكروه<br>(مع أنّه لم يأتِ نهي عن تركه)</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">سنّة غير مؤكّدة — تركها خلاف الأولى</div>
+    <div class="compare-card-body"><b>مثال: استقبال القبلة عند الوضوء</b><br>من آداب الوضوء<br>من ترك ذلك لا يُقال إنّه<br>ارتكب مكروهاً<br>بل خلاف الأولى فقط</div>
+  </div>
+</div>
+
+<!-- ===== 13. سنة الذكر والدعاء بعد الصلاة ===== -->
+<h2 class="section-title">١٣. سنة الذكر والدعاء سرّاً عقب الصلاة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وسنّ ذكر ودعاء سرّاً عقبها</b> — أي يُسنّ الإسرار بالذكر والدعاء عقب الصلاة. وهذه سنّة أخرى من السنن التي تكون بعد الصلاة.</p>
+</div>
+
+<h3 class="sub-title">معنى «عقب» مقابل «بعد»</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">فرق دقيق</span>
+  <p><b>عقب</b> = بعده مباشرة — أي فور الانتهاء من الصلاة.</p>
+  <p><b>بعد</b> = يمكن بعده بتراخٍ — أي ليس بالضرورة مباشرة.</p>
+  <p>وبماذا عبر المصنّف؟ عبر بـ<b>«عقب»</b> — ممّا يفهم أنّه يريد أن يكون الذكر والدعاء بعد الصلاة <b>مباشرة</b>.</p>
+</div>
+
+<h3 class="sub-title">الأكمل: تقديم الأذكار على الراتبة</h3>
+
+<div class="key-rule">
+  الأكمل: تقديم الأذكار والأدعية على الراتبة<br>
+  يبدأ أوّلاً بالأذكار والأدعية ثمّ بعد ذلك يأتي بالراتبة
+</div>
+
+<div class="flow-row">
+  <div class="flow-box">الصلاة المفروضة</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box" style="background: #d97706;">الأذكار والأدعية</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">الراتبة (السنّة البعدية)</div>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">لو قدّم الراتبة على الأذكار</span>
+  <p>مثلاً: صلّى الظهر ثمّ صلّى راتبة الظهر البعدية ثمّ أتى بالتسبيح والأدعية — هل فاتت الأذكار والأدعية؟</p>
+  <p><b>الجواب:</b> فات <b>الأكمل</b> لكن <b>أصلها لا يفوت</b> — بل يأتي بها لكن الأفضل قد فات. لأنّ الأفضل أن يقدّم الأذكار والأدعية لتكون عقب الصلاة مباشرة.</p>
+</div>
+
+<h3 class="sub-title">استثناء: الجمع بين الصلاتين</h3>
+
+<div class="exception-box">
+  <span class="box-label label-exc">استثناء</span>
+  <p>إذا جمع بين الصلاتين (كصلاة الظهر والعصر جمع تقديم) فإنّه:</p>
+  <ul>
+    <li>يصلّي الظهر أوّلاً</li>
+    <li>ثمّ يبادر فيصلّي العصر — لأنّه يشترط الموالاة بين الصلاتين</li>
+    <li>ثمّ بعد العصر يأتي <b>بأذكار صلاة الظهر ثمّ بأذكار صلاة العصر</b></li>
+  </ul>
+  <p>فهنا يؤخّر الأذكار حتّى يصلّي العصر — وهذا هو الأفضل. وإن أتى بذكر لصلاة منهما فلا بأس، لكن الأكمل أن يأتي بأذكار صلاة الظهر ثمّ بأذكار صلاة العصر.</p>
+</div>
+
+<h3 class="sub-title">الدليل على استحباب الدعاء بعد الصلاة</h3>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p>سُئل النبيّ صلّى الله عليه وسلّم: أيّ الدعاء أسمع (أي أقرب إلى الإجابة)؟ قال: <b>«جوف الليل الآخر ودبر الصلوات المكتوبة»</b></p>
+  <p>هذا يدلّ على استحباب الدعاء بعد الصلوات المكتوبة.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">ردّ على من أنكر الدعاء بعد الصلاة</span>
+  <p>بعض العلماء قال: إنّ الدعاء يكون قبل السلام وأمّا بعد السلام فلا دعاء. وهذا في الحقيقة <b>قول غريب سديد</b> — لأنّه قد جاء في أحاديث مصرّحة بالدعاء بعد الصلاة. وتعقّب ذلك الحافظ ابن حجر رحمه الله في فتح الباري وذكر حديثين صرّح فيهما بالدعاء بعد الصلاة.</p>
+</div>
+
+<h3 class="sub-title">سرّاً لا جهراً</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">التقييد</span>
+  <p>قال المصنّف: <b>«ذكر ودعاء سرّاً»</b> — أي لا جهراً. فالأذكار والأدعية بعد الصلاة تُقال سرّاً لا جهراً.</p>
+</div>
+
+<h3 class="sub-title">سؤال للتفكير: هل تُشرع الأذكار بعد النوافل؟</h3>
+
+<div class="issue-box">
+  <span class="box-label label-issue">سؤال</span>
+  <p>هل الأذكار والأدعاء مختصّة بالفرائض المكتوبات فقط، أم تُشرع حتّى بعد النوافل كالتراويح وصلاة العيدين وصلاة الاستسقاء والرواتب؟</p>
+  <p>هذا سؤال للتفكير — من وقف على نقل لأهل العلم فليُفد في الدرس الحاضر أو ليُكتب في المجموعة.</p>
+</div>
+
+</body>
+</html>

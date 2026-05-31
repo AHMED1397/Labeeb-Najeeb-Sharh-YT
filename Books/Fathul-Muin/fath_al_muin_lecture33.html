@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf') format('truetype'); font-weight: normal; }
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf') format('truetype'); font-weight: bold; }
+@font-face { font-family: 'NotoNaskh'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf') format('truetype'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+
+body {
+  font-family: 'NotoNaskh', 'Amiri', serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #1a1a2e;
+  direction: rtl;
+  background: #fff;
+  text-align: justify;
+}
+
+.cover-header {
+  background: #1a5632;
+  color: white;
+  padding: 20px 14px;
+  text-align: center;
+  margin: 0 0 12px 0;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px);
+  border-bottom: 4px solid #c8a951;
+}
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 6px; border: none; font-family: 'Amiri', serif; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.9; margin: 4px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.92; margin: 6px 0 2px 0; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .creator { font-size: 11pt; opacity: 0.85; margin-top: 2px; }
+.cover-header .series { font-size: 11pt; opacity: 0.8; margin-top: 4px; }
+
+.toc {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 0 0 12px 0;
+}
+.toc-title {
+  font-family: 'Amiri', serif;
+  font-size: 14pt;
+  color: #1a5632;
+  text-align: center;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #c8a951;
+  padding-bottom: 4px;
+}
+.toc-item {
+  font-size: 10pt;
+  padding: 2px 0;
+  border-bottom: 1px dotted #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+h2.section-title {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0d7c3e;
+  border-bottom: 2px solid #0d7c3e;
+  padding-bottom: 5px;
+  margin: 18px 0 10px;
+}
+
+h3.sub-title {
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: #0a5c2e;
+  margin: 14px 0 8px;
+  padding-right: 10px;
+  border-right: 4px solid #0d7c3e;
+}
+
+h4.minor-title {
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #166534;
+  margin: 10px 0 6px;
+}
+
+p { margin: 5px 0; text-align: justify; }
+
+.definition-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-right: 4px solid #0d7c3e;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.rule-box {
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-right: 4px solid #d97706;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.exception-box {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-right: 4px solid #ea580c;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.evidence-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-right: 4px solid #2563eb;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.issue-box {
+  background: #fdf2f8;
+  border: 1px solid #fbcfe8;
+  border-right: 4px solid #db2777;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.comparison-box {
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  border-right: 4px solid #7c3aed;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.note-box {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-right: 4px solid #0284c7;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.poetry-box {
+  background: #faf5ff;
+  border: 1px solid #e9d5ff;
+  border-right: 4px solid #9333ea;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+  text-align: center;
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  line-height: 2.2;
+}
+
+.key-rule {
+  background: #dcfce7;
+  border: 2px solid #16a34a;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.box-label {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 4px;
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.label-def { background: #0d7c3e; }
+.label-rule { background: #d97706; }
+.label-exc { background: #ea580c; }
+.label-ev { background: #2563eb; }
+.label-issue { background: #db2777; }
+.label-comp { background: #7c3aed; }
+.label-note { background: #0284c7; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 13px;
+  table-layout: fixed;
+}
+
+th {
+  background: #0d7c3e;
+  color: #fff;
+  padding: 6px 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+td {
+  padding: 5px 8px;
+  border: 1px solid #d1d5db;
+  text-align: center;
+  vertical-align: top;
+}
+
+tr:nth-child(even) { background: #f0fdf4; }
+tr:nth-child(odd) { background: #fff; }
+
+.tree-container { margin: 12px 0; text-align: center; }
+.tree-root {
+  display: inline-block;
+  background: linear-gradient(135deg, #0d7c3e, #0a5c2e);
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+.tree-branches { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px; }
+.tree-branch {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  min-width: 80px;
+  text-align: center;
+}
+.tree-branch-num { font-family: 'Amiri', serif; font-weight: bold; color: #0d7c3e; font-size: 14px; }
+.tree-branch-label { font-size: 12px; color: #374151; }
+
+.compare-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.compare-card { flex: 1; min-width: 140px; border-radius: 8px; padding: 8px 10px; text-align: center; }
+.compare-card-green { background: #dcfce7; border: 1px solid #86efac; }
+.compare-card-red { background: #fef2f2; border: 1px solid #fca5a5; }
+.compare-card-gold { background: #fefce8; border: 1px solid #fde68a; }
+.compare-card-blue { background: #eff6ff; border: 1px solid #bfdbfe; }
+.compare-card-title { font-family: 'Amiri', serif; font-weight: bold; font-size: 14px; margin-bottom: 4px; }
+.compare-card-body { font-size: 12px; }
+
+.flow-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px; margin: 8px 0; }
+.flow-box { background: #0d7c3e; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-family: 'Amiri', serif; font-weight: bold; text-align: center; }
+.flow-arrow { font-size: 16px; color: #0d7c3e; font-weight: bold; }
+.flow-result { padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; text-align: center; }
+.flow-pure { background: #dcfce7; border: 1px solid #86efac; color: #166534; }
+.flow-impure { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+.flow-excused { background: #fefce8; border: 1px solid #fde68a; color: #92400e; }
+
+.highlight-green { background: #dcfce7; padding: 1px 4px; border-radius: 3px; }
+.highlight-gold { background: #fefce8; padding: 1px 4px; border-radius: 3px; }
+.highlight-red { background: #fef2f2; padding: 1px 4px; border-radius: 3px; }
+
+.verse-ref { font-family: 'Amiri', serif; font-size: 14px; color: #1e40af; text-align: center; margin: 6px 0; }
+.hadith-ref { font-family: 'Amiri', serif; font-size: 13px; color: #166534; text-align: center; margin: 6px 0; }
+
+.condition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.condition-item { border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.condition-num {
+  display: inline-block; background: #0d7c3e; color: #fff; min-width: 24px; height: 24px;
+  border-radius: 50%; text-align: center; line-height: 24px; font-family: 'Amiri', serif;
+  font-weight: bold; font-size: 12px; margin-left: 6px;
+}
+
+ul { margin: 4px 0; padding-right: 20px; }
+li { margin: 2px 0; }
+</style>
+</head>
+<body>
+
+<!-- ===== COVER HEADER ===== -->
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس الثالث والثلاثون — تابع أوقات الصلاة: تعجيلها وتأخيرها وأوقات النهي</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="creator">تنسيق: أحمد بن إرشاد</div>
+  <div class="series">تعجيل الصلاة · تأخيرها مستحبّاً وواجباً · النوم بعد دخول الوقت · أوقات النهي عن الصلاة · الاستثناءات</div>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. استحباب تعجيل الصلاة لأوّل وقتها</span></div>
+  <div class="toc-item"><span>٢. معنى التعجيل فقهياً</span></div>
+  <div class="toc-item"><span>٣. استثناء: الإبراد بالظهر لشدة الحرّ</span></div>
+  <div class="toc-item"><span>٤. استحباب تأخير الصلاة لفضيلة الجماعة</span></div>
+  <div class="toc-item"><span>٥. المراتب الثلاث لتأخير الصلاة لظنّ الجماعة</span></div>
+  <div class="toc-item"><span>٦. الجماعة القليلة أوّل الوقت أفضل من الكثيرة آخره</span></div>
+  <div class="toc-item"><span>٧. وجوب تأخير الصلاة: المحرم بحجّ</span></div>
+  <div class="toc-item"><span>٨. وجوب تأخير الصلاة: إنقاذ غريق أو أسير</span></div>
+  <div class="toc-item"><span>٩. وجوب تأخير الصلاة: انتظار تطهير الثوب</span></div>
+  <div class="toc-item"><span>١٠. مسألة الرعاف: هل ينتظر انقطاع الدم؟</span></div>
+  <div class="toc-item"><span>١١. كراهة النوم بعد دخول وقت الصلاة</span></div>
+  <div class="toc-item"><span>١٢. أوقات النهي عن الصلاة: حكمها والصلوات المنهيّ عنها</span></div>
+  <div class="toc-item"><span>١٣. الأوقات الخمسة للنهي عن الصلاة</span></div>
+  <div class="toc-item"><span>١٤. استثناءات أوقات النهي</span></div>
+  <div class="toc-item"><span>١٥. الصلاة ذات السبب المتقدّم وأمثلتها</span></div>
+  <div class="toc-item"><span>١٦. صلاة الكسوف والخسوف والاستسقاء</span></div>
+</div>
+
+<!-- ===== 1. استحباب تعجيل الصلاة ===== -->
+<h2 class="section-title">١. استحباب تعجيل الصلاة لأوّل وقتها</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">فرع — نصّ المصنّف</span>
+  <p><b>يندب تعجيل صلاة ولو عشاءً لأوّل وقتها</b> — أي يُستحبّ تعجيل الصلوات كلّها في أوّل وقتها، بما في ذلك صلاة العشاء، وذلك لأدلّة عامّة وأدلّة خاصّة.</p>
+</div>
+
+<h3 class="sub-title">الأدلّة العامّة</h3>
+
+<p>من الأدلّة العامّة على استحباب التعجيل: الآيات والأحاديث التي تحثّ على المسارعة إلى الخيرات، كقوله تعالى: <span class="verse-ref">{وسارعوا إلى مغفرة من ربّكم}</span> وقوله: <span class="verse-ref">{واستبقوا الخيرات}</span> وغير ذلك من النصوص التي تدلّ على فضل المبادرة إلى الطاعات والمسابقة في الخيرات عموماً.</p>
+
+<h3 class="sub-title">الأدلّة الخاصّة</h3>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الحديث</span>
+  <p><b>«أفضل الأعمال الصلاة لأوّل وقتها»</b> — أصل الحديث في الصحيحين، لكن برواية «لأوّل وقتها» ليست في الصحيحين بل هي في سنن الدارقطنيّ. ومع ذلك فهو دليل خاصّ على فضيلة التعجيل.</p>
+</div>
+
+<h3 class="sub-title">لماذا قال المصنّف "ولو عشاءً"؟</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف في المذهب</span>
+  <p>إنّما قال المصنّف «ولو عشاءً» لوجود خلاف في صلاة العشاء. ففي المذهب قول بأنّه يُستحبّ تأخير العشاء، لكن <b>القول المعتمد</b> أنّه يُستحبّ التعجيل في صلاة العشاء، وهو ما واظب عليه النبيّ صلّى الله عليه وسلّم وواظب عليه الخلفاء الراشدون رضي الله عنهم أنّهم كانوا يعجّلون صلاة العشاء. فلوجود هذا الخلاف نبّه المصنّف بقوله «ولو عشاءً».</p>
+</div>
+
+<div class="key-rule">
+  القول المعتمد: يُسنّ تعجيل الصلوات بما فيها صلاة العشاء<br>
+  وواظب النبيّ صلّى الله عليه وسلّم والخلفاء الراشدون على تعجيل العشاء
+</div>
+
+<!-- ===== 2. معنى التعجيل ===== -->
+<h2 class="section-title">٢. معنى التعجيل فقهياً</h2>
+
+<div class="definition-box">
+  <span class="box-label label-def">تعريف</span>
+  <p>معنى التعجيل أنّه <b>بعد دخول الوقت يشتغل بأسباب الصلاة</b> التي منها: الطهارة، وستر العورة، والأذان، والإقامة. فإذا فعل هذه الأشياء بعد دخول الوقت فإنّه يُعتبر معجّلاً.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه مهمّ</span>
+  <p>لا يُشترط ليكون معجّلاً أن يفعل هذه الأشياء <b>قبل</b> دخول الوقت. بل حتّى لو دخل الوقت وبعد الدخول قام بالطهارة وستر العورة والأذان والإقامة وصلّى السنّة الراتبة القبليّة ثمّ صلّى الفريضة، فإنّ هذا داخل في التعجيل.</p>
+</div>
+
+<h3 class="sub-title">صور التعجيل</h3>
+
+<table>
+  <tr>
+    <th>الصورة</th>
+    <th>البيان</th>
+    <th>حكم التعجيل</th>
+  </tr>
+  <tr>
+    <td><b>فعل الأسباب بعد دخول الوقت</b></td>
+    <td>تطهّر وستر عورته وأذّن وأقام وصلّى — كلّ ذلك بعد دخول الوقت</td>
+    <td><span class="highlight-green">معجّل ✕</span></td>
+  </tr>
+  <tr>
+    <td><b>فعل الأسباب قبل الوقت ثمّ صلّى مباشرة</b></td>
+    <td>تطهّر وستر عورته وأذّن وأقام مباشرة وصلّى — بدأ قبل الوقت</td>
+    <td><span class="highlight-green">معجّل ✕</span></td>
+  </tr>
+  <tr>
+    <td><b>فعل الأسباب قبل الوقت ثمّ انتظر زمناً بقدرها</b></td>
+    <td>تطهّر وستر عورته ثمّ انتظر بعد الأذان زمناً بقدر الطهارة وستر العورة ثمّ صلّى</td>
+    <td><span class="highlight-green">معجّل ✕</span></td>
+  </tr>
+</table>
+
+<!-- ===== 3. الإبراد ===== -->
+<h2 class="section-title">٣. استثناء: الإبراد بالظهر لشدّة الحرّ</h2>
+
+<div class="exception-box">
+  <span class="box-label label-exc">استثناء من التعجيل</span>
+  <p>بعض الصلوات تُستثنى من التعجيل، كصلاة الظهر في حالة الإبراد. وقد مرّ في دروس الفقه أنّه يُستحبّ الإبراد في صلاة الظهر بشرط أن يكون الحرّ شديداً في قطر حارّ، لمن كان يصلّي جماعةً في غير الجمعة.</p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p>قال النبيّ صلّى الله عليه وسلّم: <b>«إذا اشتدّ الحرّ فأبردوا بالصلاة فإنّ شدّة الحرّ من فيح جهنّم»</b></p>
+  <p>وقال صاحب الزّبد: <i>«وسنّ الإبراد بفعل الظهر لشدّة الحرّ لقطر حارّ لطالب الجمع لمسجد أُتي إليه من بعد خلاف الجمعة»</i></p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">معنى الإبراد</span>
+  <p>الإبراد هو تأخير صلاة الظهر عن أوّل وقتها. وغاية الكمال أن تُؤخّر إلى <b>منتصف الوقت</b>. ومعنى «من فيح جهنّم» أي من انتشار حرّها واشتداد لهبها.</p>
+</div>
+
+<div class="tree-container">
+  <div class="tree-root">حكم صلاة الظهر</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">الأصل</div>
+      <div class="tree-branch-label">تعجيل الظهر<br>في أوّل وقتها</div>
+    </div>
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a;">
+      <div class="tree-branch-num">الإبراد</div>
+      <div class="tree-branch-label">تأخيرها لشدّة الحرّ<br>في قطر حارّ — لجماعة<br>غير الجمعة</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 4. استحباب التأخير للجماعة ===== -->
+<h2 class="section-title">٤. استحباب تأخير الصلاة لفضيلة الجماعة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وتأخيرها عن أوّله لتيقّن جماعة أثناءه وإن فحش التأخير ما لم يضق الوقت</b> — أي ويُندب تأخير الصلاة عن أوّل الوقت لفضيلة تحصيل الجماعة، والضمير في «أوّله» عائد إلى الوقت.</p>
+</div>
+
+<p>الجماعة إمّا أن تتيقّن أنّها ستكون في آخر الوقت، وإمّا أن يغلب على الظنّ أنّها ستكون، وإمّا أن يشكّ في حصولها. وكلّ مرتبة لها حكمها الخاصّ الذي سيأتي بيانه. فالأصل أنّه يُسنّ تعجيل الصلاة، لكن أحياناً يُندب تأخيرها لحصول فضيلة كالجماعة، وأحياناً يجب تأخيرها حتّى وإن خرج الوقت كما سيأتي.</p>
+
+<!-- ===== 5. المراتب الثلاث ===== -->
+<h2 class="section-title">٥. المراتب الثلاث لتأخير الصلاة لظنّ الجماعة</h2>
+
+<div class="key-rule">
+  قاعدة فقهية: تقديم أعلى المصلحتين<br>
+  أيّهما أعلى مصلحة يُقدّم — وهذا كلّه من تطبيقات قاعدة<br>
+  <b>إعمال أعظم الأمرين مصلحة وتقديم المصلحة العليا</b>
+</div>
+
+<table>
+  <tr>
+    <th>المرتبة</th>
+    <th>الحالة</th>
+    <th>حكم التأخير</th>
+    <th>الشرط</th>
+  </tr>
+  <tr>
+    <td><b>الأولى</b></td>
+    <td>تيقّن حصول الجماعة في آخر الوقت</td>
+    <td><span class="highlight-green">يُندب التأخير</span></td>
+    <td>ما لم يضق الوقت (ألّا يُوقع بعض الصلاة خارج الوقت)</td>
+  </tr>
+  <tr>
+    <td><b>الثانية</b></td>
+    <td>ظنّ حصول الجماعة في آخر الوقت</td>
+    <td><span class="highlight-gold">يُندب التأخير</span></td>
+    <td>إذا لم يفحش التأخير (أي ما لم ينتصف الوقت)</td>
+  </tr>
+  <tr>
+    <td><b>الثالثة</b></td>
+    <td>الشكّ في حصول الجماعة</td>
+    <td><span class="highlight-red">لا يُندب التأخير مطلقاً</span></td>
+    <td>سواء فحش التأخير أو لم يفحش</td>
+  </tr>
+</table>
+
+<h3 class="sub-title">تفصيل المرتبة الأولى: تيقّن الجماعة</h3>
+
+<p>إذا تيقّن أنّ الجماعة ستكون في آخر الوقت، يُستحبّ تأخير الصلاة بشرط أن لا يضيق الوقت، أي أن يُصلّي الصلاة كلّها في الوقت ولا يُخرج شيئاً منها خارج الوقت. وإن فحش التأخير فلا بأس ما دام الوقت لا يضيق.</p>
+
+<div class="note-box">
+  <span class="box-label label-note">الصورة الأفضل</span>
+  <p>لو قال إنسان: «سأصلّي في أوّل الوقت منفرداً ثمّ أُصلّي في آخر الوقت إعادة مع الجماعة» — فهذا <b>أفضل</b>، لأنّه جمع بين فضيلتين: فضيلة الصلاة في أوّل الوقت وفضيلة الجماعة. وقد مرّ في دروس الورقات قصّة معاذ بن جبل الذي كان يصلّي مع النبيّ صلّى الله عليه وسلّم ثمّ يذهب إلى قومه فيصلّي بهم إماماً.</p>
+</div>
+
+<h3 class="sub-title">تفصيل المرتبة الثانية: ظنّ الجماعة</h3>
+
+<p>إذا لم يتيقّن وإنّما ظنّ الجماعة في آخر الوقت، يُستحبّ تأخير الصلاة <b>بشرط أن لا يفحش التأخير</b>. ومعنى «ما لم يفحش التأخير» أي ما لم ينتصف الوقت — كما صرّح به المصنف في كتابه إرشاد العباد. أي أنّ التأخير لا يزيد على نصف الوقت.</p>
+
+<h3 class="sub-title">تفصيل المرتبة الثالثة: الشكّ</h3>
+
+<p>إذا شكّ في حصول الجماعة في آخر الوقت — هل تحصل أو لا تحصل، وهما مستويان عنده — فلا يُندب التأخير <b>مطلقاً</b>، أي سواء فحش التأخير أو لم يفحش. فلا يستحبّ التأخير بأيّ حال.</p>
+
+<!-- ===== 6. الجماعة القليلة أوّل الوقت ===== -->
+<h2 class="section-title">٦. الجماعة القليلة أوّل الوقت أفضل من الكثيرة آخره</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>والجماعة القليلة أوّل الوقت أفضل من الكثيرة آخره</b> — أي لو خُيّرت بين أن تصلّي جماعةً قليلة في أوّل الوقت أو جماعةً كثيرة في آخره، فالأفضل الجماعة القليلة في أوّل الوقت.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">جماعة قليلة في أوّل الوقت</div>
+    <div class="compare-card-body"><b>أفضل ✕</b><br>أصل الفضيلة (الجماعة) موجود<br>زائد عليها فضيلة أوّل الوقت</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">جماعة كثيرة في آخر الوقت</div>
+    <div class="compare-card-body">أصل الفضيلة (الجماعة) موجود<br>لكن تفوّت فضيلة أوّل الوقت<br>والكثرة كمال لا أصل</div>
+  </div>
+</div>
+
+<h3 class="sub-title">العلة</h3>
+
+<p>السبب في ذلك أنّ أصل السنّة — وهي الجماعة — موجودة هنا وهنا، وإنّما التفاوت في كمال الفضيلة. ففي أوّل الوقت الجماعة قليلة وفي آخره كثيرة، لكنّ أصل الفضيلة متّحد في الموضعين. بخلاف الصورة السابقة حيث كان في أوّل الوقت يصلّي <b>منفرداً</b> وفي آخره يصلّي <b>جماعة</b> — فهنالك قدّمنا الجماعة لأنّ أصل الفضيلة كان مفقوداً في أوّل الوقت.</p>
+
+<div class="key-rule">
+  القاعدة: إذا وُجد أصل الفضيلة في الموضعين<br>
+  قُدّمت فضيلة أوّل الوقت على كمال الجماعة في آخره<br>
+  وإذا اختلفت أصول الفضيلة قدّم الأعلى مصلحة
+</div>
+
+<!-- ===== 7. وجوب التأخير: المحرم بحج ===== -->
+<h2 class="section-title">٧. وجوب تأخير الصلاة: المحرم بحجّ</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويؤخّر المحرم صلاة العشاء وجوباً لأجل خوف فوت حجّ بفوت الوقوف بعرفة</b> — أي أنّ المحرم بحجّ يجب عليه تأخير صلاة العشاء وجوباً إذا خاف فوات الحجّ بفوات الوقوف بعرفة.</p>
+</div>
+
+<h3 class="sub-title">أركان الحجّ</h3>
+
+<div class="flow-row">
+  <div class="flow-box">الإحرام</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box" style="background: #d97706;">الوقوف بعرفة</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">طواف الإفاضة</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">السعي</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">الحلق/التقصير</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">الترتيب</div>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p>قال النبيّ صلّى الله عليه وسلّم: <b>«الحجّ عرفة»</b> — أي أنّ الوقوف بعرفة هو ركن الحجّ الأعظم، فمن فاته الوقوف بعرفة فاته الحجّ.</p>
+</div>
+
+<h3 class="sub-title">تفصيل المسألة</h3>
+
+<p>وقت الوقوف بعرفة يبدأ من بعد الزوال ويستمرّ إلى طلوع الفجر يوم النحر. فإذا وصل الحاجّ إلى قرب عرفة وقد دخل وقت العشاء، فهو بين أمرين: إمّا أن يمشي إلى عرفة ليدرك الوقوف قبل طلوع الفجر، وإمّا أن يقف ليصلّي العشاء متمكّناً — فإن وقف لصلاة العشاء طلع الفجر ولم يقف بعرفة فيفوته الحجّ.</p>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">تأخير العشاء وإدراك عرفة</div>
+    <div class="compare-card-body">يُؤخّر العشاء وجوباً<br>ويدرك الوقوف بعرفة<br>ثمّ يصلّي العشاء بعرفة صلاة تامة متمكّناً</div>
+  </div>
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">صلاة العشاء متمكّناً</div>
+    <div class="compare-card-body">يفوته الوقوف بعرفة<br>ويفوته الحجّ<br>وقضاؤه صعب (الحجّ من قابل)</div>
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">لماذا لا يصلّي صلاة شدّة الخوف؟</span>
+  <p>لو قال قائل: لماذا لا يصلّي صلاة شدّة الخوف وهو يمشي إلى عرفة؟ قال الفقهاء: <b>لا يصلّي صلاة شدّة الخوف</b>، بل يدرك الوقوف بعرفة وإن خرج الوقت ثمّ يصلّي العشاء صلاة تامة متمكّناً. لأنّ صلاة شدّة الخوف فيها مشقّة وفيها ترك للاستقبال وغير ذلك، والصلاة التامة أفضل.</p>
+</div>
+
+<div class="issue-box">
+  <span class="box-label label-issue">مسألة: المحرم بالعمرة</span>
+  <p>هل المحرم بالعمرة له نفس الحكم؟ الجواب: <b>لا</b>، هذا خاصّ بالحجّ فقط. لأنّ وقت العمرة جميع السنة — ليس لها وقت محدّد، فإذا فاتت العمرة يمكن فعلها في أيّ وقت. بخلاف الحجّ الذي له وقت محدّد. وهذا ما اعتمده شيخه العلاّمة ابن حجر.</p>
+</div>
+
+<!-- ===== 8. وجوب التأخير: إنقاذ غريق أو أسير ===== -->
+<h2 class="section-title">٨. وجوب تأخير الصلاة: إنقاذ غريق أو أسير</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويؤخّر وجوباً من رأى نحو غريق أو أسير لو أنقذه خرج الوقت</b> — أي يجب تأخير الصلاة على من رأى شخصاً يغرق أو مسلماً أسره الكفّار، لو أراد إنقاذه خرج وقت الصلاة.</p>
+</div>
+
+<div class="key-rule">
+  مصلحة إنقاذ النفس أعظم من مصلحة إيقاع الصلاة في وقتها<br>
+  فيجب التأخير حتّى وإن خرج الوقت
+</div>
+
+<p>هذا كلّه من تطبيقات قاعدة <b>تعارض المصلحتين</b> — فمصلحة إنقاذ الغريق أو الأسير أعظم من مصلحة الصلاة في وقتها، لأنّ حفظ النفس من الكليّات الخمس التي جاءت الشريعة بحفظها.</p>
+
+<!-- ===== 9. وجوب التأخير: تطهير الثوب ===== -->
+<h2 class="section-title">٩. وجوب تأخير الصلاة: انتظار تطهير الثوب</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">مسألة سابقة</span>
+  <p>مرّت معنا مسألة في الدروس السابقة: إذا كان عنده ثوب متنجّس وهو يمكنه تطهيره — فهذا ينتظر تطهير الثوب ويصلّي فيه حتّى وإن خرج الوقت، ما دام أنّه يمكنه تطهير الثوب. أي يجب التأخير حتّى وإن خرج الوقت.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">يمكن تطهير الثوب</div>
+    <div class="compare-card-body">يطهّر الثوب ويصلّي بعد الوقت<br>بثوب طاهر — <b>يجب التأخير</b><br>ولا يصلّي عارياً</div>
+  </div>
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">لا يمكن تطهير الثوب</div>
+    <div class="compare-card-body">يصلّي عارياً في الوقت<br>لأنّه عاجز عن ستر العورة<br>وهذا ما مرّ تفصيله</div>
+  </div>
+</div>
+
+<!-- ===== 10. مسألة الرعاف ===== -->
+<h2 class="section-title">١٠. مسألة الرعاف: هل ينتظر انقطاع الدم؟</h2>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف بين الفقهاء</span>
+  <p><b>لو رعف قبل الصلاة فإن رجا قطاعه في الوقت انتظر</b> — الرعاف هو سيلان الدم من الأنف. فلو أصابه الرعاف قبل الصلاة ورجا أن ينقطع الدم في الوقت، فهل ينتظر أو يتحفّظ ويصلّي؟</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">بعض الفقهاء</div>
+    <div class="compare-card-body">ينتظر حتّى يقف الدم<br><b>حتّى وإن خرج الوقت</b><br>ثمّ يصلّي طاهراً</div>
+  </div>
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">المعتمد في المذهب</div>
+    <div class="compare-card-body">يتحفّظ (يضع شيئاً يوقف الدم)<br>ويصلّي <b>في الوقت</b><br>لا ينتظر خروج الوقت</div>
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">ربط المسائل</span>
+  <p>ينبغي ربط هذه المسائل بعضها ببعض لتسهيل فهمها عند المذاكرة. فمسائل التأخير الواجب تشمل: المحرم بحجّ، وإنقاذ الغريق والأسير، وانتظار تطهير الثوب، ومسألة الرعاف (فيها خلاف). والأصل في كلّها قاعدة تعارض المصلحتين وتقديم الأعلى مصلحة.</p>
+</div>
+
+<!-- ===== 11. النوم بعد دخول الوقت ===== -->
+<h2 class="section-title">١١. كراهة النوم بعد دخول وقت الصلاة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>يكره النوم بعد دخول وقت الصلاة وقبل فعلها حيث ظنّ الاستيقاظ قبل ضيقه لعادة أو لإيقاظ غيره له، وإلا حرم النوم الذي لم يغلب في الوقت</b></p>
+</div>
+
+<h3 class="sub-title">تصنيف أحوال النوم</h3>
+
+<table>
+  <tr>
+    <th>الحالة</th>
+    <th>التفصيل</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td><b>النوم قبل دخول الوقت</b></td>
+    <td>حتى لو غلب على ظنّه أنّه لا يستيقظ في الوقت</td>
+    <td><span class="highlight-green">مباح</span> — لأنّه ليس مكلّفاً بالصلاة قبل دخول الوقت</td>
+  </tr>
+  <tr>
+    <td><b>غلب عليه النوم بعد دخول الوقت</b></td>
+    <td>اشتدّ عليه النوم بحيث لا يميز ولا يمكنه دفعه عن نفسه</td>
+    <td><span class="highlight-green">جائز</span> — لأنّه معذور</td>
+  </tr>
+  <tr>
+    <td><b>ظنّ الاستيقاظ قبل ضيق الوقت</b></td>
+    <td>بعادة (ساعة بيولوجيّة) أو بإيقاظ غيره له</td>
+    <td><span class="highlight-gold">مكروه</span></td>
+  </tr>
+  <tr>
+    <td><b>لم يغلب على ظنّه الاستيقاظ ولم يغلبه النوم</b></td>
+    <td>لا عادة له ولا مُوقِظ وقد لا يستيقظ</td>
+    <td><span class="highlight-red">حرام</span></td>
+  </tr>
+</table>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">١</span>
+    <b>قبل دخول الوقت:</b> مباح مطلقاً
+  </div>
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">٢</span>
+    <b>غلب عليه النوم:</b> جائز
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٣</span>
+    <b>ظنّ الاستيقاظ:</b> مكروه
+  </div>
+  <div class="condition-item" style="background: #fef2f2; border: 1px solid #fca5a5;">
+    <span class="condition-num">٤</span>
+    <b>لم يظنّ ولم يُغلب:</b> حرام
+  </div>
+</div>
+
+<h3 class="sub-title">الساعة البيولوجيّة</h3>
+
+<p>بعض الناس عندهم قدرة على التحكّم بوقت استيقاظهم — يقول «سأنام عشرين دقيقة» فينام عشرين دقيقة فقط. وهذا يمكن بالتدرّب، كالذين يدخلون في العسكريّة حيث يدرّبونهم على التحكّم بأجسامهم. هذا هو معنى «لعادة» في كلام المصنّف. ومعنى «لإيقاظ غيره له» أي أنّ شخصاً سيوقظه كأن يضع توقيت الهاتف أو يطلب من شخص إيقاظه.</p>
+
+<div class="key-rule">
+  أشار المصنّف إلى الحالات الأربع:<br>
+  تصريحاً: المكروه (ظنّ الاستيقاظ) والحرام (لم يغلب على ظنّه)<br>
+  إشارةً: المباح (قبل دخول الوقت) والجائز (غلبه النوم)
+</div>
+
+<!-- ===== 12. أوقات النهي ===== -->
+<h2 class="section-title">١٢. أوقات النهي عن الصلاة: حكمها والصلوات المنهيّ عنها</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>يكره تحريماً صلاة لا سبب لها كالنفل المطلق أو لها سبب متأخّر كركعتين استخارة وإحرام</b> — أي يُنهى عن الصلاة في أوقات محدّدة، وهذا النهي نهي تحريم.</p>
+</div>
+
+<h3 class="sub-title">حكم الصلاة في أوقات النهي</h3>
+
+<div class="key-rule">
+  ثلاثة أحكام لمن يصلّي في وقت النهي:<br>
+  <b>١. تحريم</b> — الحكم التكليفي<br>
+  <b>٢. بطلان</b> — النهي يقتضي الفساد فالصلاة لا تصحّ<br>
+  <b>٣. تعزير</b> — يؤدّب من يصلّي نفلاً مطلقاً أو ذا سبب متأخّر في هذه الأوقات
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف في المذهب</span>
+  <p><b>المعتمد:</b> النهي نهي تحريم يقتضي الفساد — فالصلاة تبطل في وقت النهي. كما قال صاحب الكوكب.</p>
+  <p><b>الرأي الآخر:</b> يُكره تنزيهاً — لا تحريماً.</p>
+</div>
+
+<h3 class="sub-title">الصلوات المنهيّ عنها في أوقات النهي</h3>
+
+<table>
+  <tr>
+    <th>النوع</th>
+    <th>البيان</th>
+    <th>المثال</th>
+  </tr>
+  <tr>
+    <td><b>النفل المطلق</b></td>
+    <td>صلاة لا سبب لها مطلقاً</td>
+    <td>صلاة التسابيح وغيرها من النوافل المطلقة</td>
+  </tr>
+  <tr>
+    <td><b>ذات سبب متأخّر</b></td>
+    <td>صلاة سببها يتأخّر عنها — يصلّي ثمّ يفعل السبب</td>
+    <td>ركعتا الاستخارة (يصلّي ثمّ يستخير)<br>ركعتا الإحرام (يصلّي ثمّ يحرم)</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">صلاة التسابيح</span>
+  <p>صلاة التسابيح مرّت في درس الوسائل: في القيام بعد الفاتحة والسورة يقول سبحان الله والحمد لله ولا إله إلا الله والله أكبر خمسة عشر مرة، وفي الركوع عشر مرّات، وفي الاعتدال عشر مرّات، وفي السجود الأولى عشر مرّات، وفي الجلوس بين السجدتين عشر مرّات، وفي السجود الثانية عشر مرّات، وفي التشهّد أيضاً عشر مرّات. وفقهاؤنا الشافعيّة كجمهور الفقهاء يستحبّونها.</p>
+</div>
+
+<!-- ===== 13. الأوقات الخمسة ===== -->
+<h2 class="section-title">١٣. الأوقات الخمسة للنهي عن الصلاة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>بعد أداء صبح حتّى ترتفع الشمس كرمح وعصر — أي وبعد أداء عصر حتّى تغرب — وعند استواء غير يوم الجمعة</b></p>
+  <p>ذكر المصنّف ثلاثة أوقات ظاهرياً، لكن في الحقيقة هي <b>خمسة أوقات</b>: اثنان يتعلّقان بفعل المصلّي وثلاثة تتعلّق بالزمان.</p>
+</div>
+
+<h3 class="sub-title">تصنيف الأوقات</h3>
+
+<div class="tree-container">
+  <div class="tree-root">أوقات النهي (خمسة)</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a;">
+      <div class="tree-branch-num">متعلّقة بفعل المصلّي</div>
+      <div class="tree-branch-label">١. بعد أداء الصبح حتّى ترتفع الشمس<br>٢. بعد أداء العصر حتّى تغرب الشمس</div>
+    </div>
+    <div class="tree-branch" style="background: #f0f9ff; border: 1px solid #bae6fd;">
+      <div class="tree-branch-num">متعلّقة بالزمان</div>
+      <div class="tree-branch-label">٣. بعد طلوع الشمس حتّى ترتفع قيد رمح<br>٤. عند الاستواء (وسط السماء)<br>٥. عند اصفرار الشمس حتّى يتمّ غروبها</div>
+    </div>
+  </div>
+</div>
+
+<table>
+  <tr>
+    <th>الرقم</th>
+    <th>الوقت</th>
+    <th>النوع</th>
+    <th>البيان</th>
+  </tr>
+  <tr>
+    <td><b>١</b></td>
+    <td>بعد أداء الصبح</td>
+    <td>متعلّق بفعل المصلّي</td>
+    <td>يبدأ النهي بعد فعل المصلّي لصلاة الصبح — لا بدخول الوقت بل بالفعل</td>
+  </tr>
+  <tr>
+    <td><b>٢</b></td>
+    <td>حتّى ترتفع الشمس قيد رمح</td>
+    <td>متعلّق بالزمان</td>
+    <td>بعد طلوع الشمس حتّى ترتفع مقدار رمح — والرمح قديماً كان معروفاً</td>
+  </tr>
+  <tr>
+    <td><b>٣</b></td>
+    <td>بعد أداء العصر</td>
+    <td>متعلّق بفعل المصلّي</td>
+    <td>يبدأ النهي بعد فعل العصر — ولو كانت مجموعة جمع تقديم</td>
+  </tr>
+  <tr>
+    <td><b>٤</b></td>
+    <td>عند الاستواء</td>
+    <td>متعلّق بالزمان</td>
+    <td>عندما تكون الشمس في وسط السماء — وقت قصير لكن لو صادف الصلاة تبطل</td>
+  </tr>
+  <tr>
+    <td><b>٥</b></td>
+    <td>عند اصفرار الشمس حتّى تغرب</td>
+    <td>متعلّق بالزمان</td>
+    <td>من اصفرار الشمس إلى تمام غروبها</td>
+  </tr>
+</table>
+
+<h3 class="sub-title">مسألة: جمع العصر تقديماً</h3>
+
+<p>لو أنّه جمع العصر مع الظهر جمع تقديم — هل يدخل وقت النهي بعد انتهاء صلاة العصر التي جمعها جمع تقديم؟ الجواب: <b>نعم يدخل</b>. فقوله «وعصر» معطوف على «صبح»، أي وبعد أداء عصر. فلو فعل العصر ولو قدّمها جمع تقديم فإنّ وقت النهي يدخل.</p>
+
+<!-- ===== 14. الاستثناءات ===== -->
+<h2 class="section-title">١٤. استثناءات أوقات النهي</h2>
+
+<h3 class="sub-title">الاستثناء الأوّل: يوم الجمعة عند الاستواء (زماني)</h3>
+
+<div class="exception-box">
+  <span class="box-label label-exc">استثناء زماني</span>
+  <p><b>وعند استواء غير يوم الجمعة</b> — أي أنّه يُنهى عن الصلاة عند الاستواء <b>إلا في يوم الجمعة</b>. ففي يوم الجمعة عند الاستواء لا نهي عن الصلاة. ووقت الاستواء قصير جداً — من تكبيرة الإحرام إلى ثانيتين فقط — لكن لو صادفت الصلاة تبطل في غير يوم الجمعة.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">غير يوم الجمعة</div>
+    <div class="compare-card-body">يُنهى عن الصلاة<br>عند الاستواء<br>والصلاة تبطل</div>
+  </div>
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">يوم الجمعة</div>
+    <div class="compare-card-body">لا نهي عن الصلاة<br>عند الاستواء<br>والصلاة تصحّ</div>
+  </div>
+</div>
+
+<h4 class="minor-title">هل الاستثناء خاصّ بمن يحضر الجمعة؟</h4>
+
+<p>قال الفقهاء: هذا <b>عامّ</b>، سواء لمن يحضر الجمعة أو من لم يحضرها — كأصحاب الأعذار كالمريض والمرأة ونحوهم. فالاستثناء عامّ في حقّ الجميع.</p>
+
+<h3 class="sub-title">الاستثناء الثاني: الحرم المكيّ (مكاني)</h3>
+
+<div class="exception-box">
+  <span class="box-label label-exc">استثناء مكاني</span>
+  <p>في حرم مكّة يجوز لك أن تصلّي أيّ صلاة حتّى ولو كانت نفلاً مطلقاً في أوقات النهي.</p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p>قال النبيّ صلّى الله عليه وسلّم كما في سنن أبي داود: <b>«يا بني عبد مناف لا تمنعوا أحداً طاف بهذا البيت أو صلّى أيّ ساعة من ليل أو نهار»</b></p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">المراد بالحرم</span>
+  <p><b>المراد بالحرم هنا ليس المسجد</b> وإنّما الحرم الذي يُحرَم الصيد فيه — الحرم كلّه. فالنهي مرفوع عن جميع حدود الحرم المكيّ، لا عن المسجد الحرام فقط.</p>
+</div>
+
+<h3 class="sub-title">الاستثناء الثالث: الصلاة ذات السبب المتقدّم (حالي)</h3>
+
+<div class="exception-box">
+  <span class="box-label label-exc">استثناء حالي</span>
+  <p>الصلاة التي <b>لها سبب متقدّم</b> لا يُنهى عنها في أوقات النهي — بل تصحّ وتُشرع. وهذا هو ما سيأتي تفصيله في القسم التالي.</p>
+</div>
+
+<div class="tree-container">
+  <div class="tree-root">استثناءات أوقات النهي</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a;">
+      <div class="tree-branch-num">زماني</div>
+      <div class="tree-branch-label">يوم الجمعة<br>عند الاستواء</div>
+    </div>
+    <div class="tree-branch" style="background: #f0f9ff; border: 1px solid #bae6fd;">
+      <div class="tree-branch-num">مكاني</div>
+      <div class="tree-branch-label">الحرم المكيّ كلّه<br>لا المسجد فقط</div>
+    </div>
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">حالي</div>
+      <div class="tree-branch-label">الصلاة ذات<br>سبب متقدّم</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 15. الصلاة ذات السبب المتقدم ===== -->
+<h2 class="section-title">١٥. الصلاة ذات السبب المتقدّم وأمثلتها</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">القاعدة</span>
+  <p><b>لا ما له سبب متقدّم</b> — أي أنّ الصلاة التي لها سبب متقدّم لا يُنهى عنها في أوقات النهي. والمراد بالسبب المتقدّم: أن يكون السبب متقدّماً على الصلاة أو مقارناً لها.</p>
+</div>
+
+<h3 class="sub-title">أقسام السبب بالنسبة للصلاة</h3>
+
+<table>
+  <tr>
+    <th>نوع السبب</th>
+    <th>البيان</th>
+    <th>الحكم في وقت النهي</th>
+  </tr>
+  <tr>
+    <td><b>سبب متقدّم</b></td>
+    <td>السبب يحصل قبل الصلاة</td>
+    <td><span class="highlight-green">لا يُنهى عنها — تصحّ</span></td>
+  </tr>
+  <tr>
+    <td><b>سبب مقارن</b></td>
+    <td>السبب يحصل مع الصلاة</td>
+    <td><span class="highlight-green">لا يُنهى عنها — تصحّ</span></td>
+  </tr>
+  <tr>
+    <td><b>سبب متأخّر</b></td>
+    <td>السبب يحصل بعد الصلاة</td>
+    <td><span class="highlight-red">يُنهى عنها — تبطل</span></td>
+  </tr>
+</table>
+
+<h3 class="sub-title">أمثلة السبب المتقدّم</h3>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">١</span>
+    <b>ركعتا الوضوء:</b> سببهما الوضوء وهو متقدّم — يتوضّأ ثمّ يصلّي
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٢</span>
+    <b>ركعتا الطواف:</b> سببهما الطواف وهو متقدّم — يطوف سبعاً ثمّ يصلّي ركعتين
+  </div>
+  <div class="condition-item" style="background: #f0f9ff; border: 1px solid #bae6fd;">
+    <span class="condition-num">٣</span>
+    <b>تحيّة المسجد:</b> سببها دخول المسجد وهو متقدّم — يدخل ثمّ يصلّي
+  </div>
+  <div class="condition-item" style="background: #f5f3ff; border: 1px solid #ddd6fe;">
+    <span class="condition-num">٤</span>
+    <b>ركعتا دخول البيت:</b> سببهما دخول البيت وهو متقدّم — يدخل ثمّ يصلّي
+  </div>
+</div>
+
+<!-- ===== 16. صلاة الكسوف والخسوف والاستسقاء ===== -->
+<h2 class="section-title">١٦. صلاة الكسوف والخسوف والاستسقاء</h2>
+
+<h3 class="sub-title">صلاة الكسوف</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">السبب متقدّم أو مقارن؟</span>
+  <p>صلاة الكسوف يمكن اعتبار سببها <b>متقدّماً</b> لأنّ الكسوف يحصل أوّلاً ثمّ نصلّي، ويمكن اعتباره <b>مقارناً</b> لأنّه يجب أن نُوقع صلاة الكسوف في أثناء الكسوف — فإذا انتهى الكسوف لا تُشرع صلاة الكسوف.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">اعتبار التقدّم</div>
+    <div class="compare-card-body">الكسوف يحصل أولاً<br>ثمّ نصلّي له<br>فالسبب متقدّم</div>
+  </div>
+  <div class="compare-card compare-card-blue">
+    <div class="compare-card-title">اعتبار المقارنة</div>
+    <div class="compare-card-body">يجب إيقاع الصلاة<br>في أثناء الكسوف<br>فالسبب مقارن</div>
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">حكم صلاة الكسوف</span>
+  <p>صلاة الكسوف <b>مستحبّة مؤكّدة</b> وليست واجبة. لكن يُقصد أن نُوقعها في أثناء الكسوف — فإذا انتهى الكسوف لم تُشرع صلاته. وكذلك صلاة الخسوف (كسوف القمر) وصلاة الاستسقاء من نفس الباب.</p>
+</div>
+
+<div class="key-rule">
+  القاعدة: الصلاة ذات السبب المتقدّم أو المقارن<br>
+  لا تُنهى عنها في أوقات النهي وتصحّ<br>
+  <b>مثل: ركعتا الوضوء، ركعتا الطواف، تحيّة المسجد، صلاة الكسوف والخسوف والاستسقاء</b>
+</div>
+
+<div class="poetry-box">
+  وليس مصروفاً من البقاع إلا بقاعاً جئنا في السماع<br>
+  مثل منى وبدر ذكر بعضها لكن ليس منها عرفة
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">الشاهد الشعري</span>
+  <p>هذا بيت من نظم الحريري أبي القاسم، يذكر أنّ من البقاع ما هو ممنوع من الصرف (أي لا ينصرف ولا يُجرّ بالفتحة) مثل منى وبدر، لكنّ عرفة ليس منها. وهذا مرتبط بمسألة نحويّة ذُكرت في سياق الكلام عن عرفة في مسألة الحجّ المتقدّمة.</p>
+</div>
+
+</body>
+</html>

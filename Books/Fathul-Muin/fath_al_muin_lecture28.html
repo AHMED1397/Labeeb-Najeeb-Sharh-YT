@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf') format('truetype'); font-weight: normal; }
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf') format('truetype'); font-weight: bold; }
+@font-face { font-family: 'NotoNaskh'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf') format('truetype'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+
+body {
+  font-family: 'NotoNaskh', 'Amiri', serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #1a1a2e;
+  direction: rtl;
+  background: #fff;
+  text-align: justify;
+}
+
+.cover-header {
+  background: #1a5632;
+  color: white;
+  padding: 20px 14px;
+  text-align: center;
+  margin: 0 0 12px 0;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px);
+  border-bottom: 4px solid #c8a951;
+}
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 6px; border: none; font-family: 'Amiri', serif; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.9; margin: 4px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.92; margin: 6px 0 2px 0; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .creator { font-size: 11pt; opacity: 0.85; margin-top: 2px; }
+.cover-header .series { font-size: 11pt; opacity: 0.8; margin-top: 4px; }
+
+.toc {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 0 0 12px 0;
+}
+.toc-title {
+  font-family: 'Amiri', serif;
+  font-size: 14pt;
+  color: #1a5632;
+  text-align: center;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #c8a951;
+  padding-bottom: 4px;
+}
+.toc-item {
+  font-size: 10pt;
+  padding: 2px 0;
+  border-bottom: 1px dotted #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+h2.section-title {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0d7c3e;
+  border-bottom: 2px solid #0d7c3e;
+  padding-bottom: 5px;
+  margin: 18px 0 10px;
+}
+
+h3.sub-title {
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: #0a5c2e;
+  margin: 14px 0 8px;
+  padding-right: 10px;
+  border-right: 4px solid #0d7c3e;
+}
+
+h4.minor-title {
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #166534;
+  margin: 10px 0 6px;
+}
+
+p { margin: 5px 0; text-align: justify; }
+
+.definition-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-right: 4px solid #0d7c3e;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.rule-box {
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-right: 4px solid #d97706;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.exception-box {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-right: 4px solid #ea580c;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.evidence-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-right: 4px solid #2563eb;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.issue-box {
+  background: #fdf2f8;
+  border: 1px solid #fbcfe8;
+  border-right: 4px solid #db2777;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.comparison-box {
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  border-right: 4px solid #7c3aed;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.note-box {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-right: 4px solid #0284c7;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.key-rule {
+  background: #dcfce7;
+  border: 2px solid #16a34a;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.box-label {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 4px;
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.label-def { background: #0d7c3e; }
+.label-rule { background: #d97706; }
+.label-exc { background: #ea580c; }
+.label-ev { background: #2563eb; }
+.label-issue { background: #db2777; }
+.label-comp { background: #7c3aed; }
+.label-note { background: #0284c7; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 13px;
+  table-layout: fixed;
+}
+
+th {
+  background: #0d7c3e;
+  color: #fff;
+  padding: 6px 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+td {
+  padding: 5px 8px;
+  border: 1px solid #d1d5db;
+  text-align: center;
+  vertical-align: top;
+}
+
+tr:nth-child(even) { background: #f0fdf4; }
+tr:nth-child(odd) { background: #fff; }
+
+.tree-container { margin: 12px 0; text-align: center; }
+.tree-root {
+  display: inline-block;
+  background: linear-gradient(135deg, #0d7c3e, #0a5c2e);
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+.tree-branches { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px; }
+.tree-branch {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  min-width: 80px;
+  text-align: center;
+}
+.tree-branch-num { font-family: 'Amiri', serif; font-weight: bold; color: #0d7c3e; font-size: 14px; }
+.tree-branch-label { font-size: 12px; color: #374151; }
+
+.compare-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.compare-card { flex: 1; min-width: 140px; border-radius: 8px; padding: 8px 10px; text-align: center; }
+.compare-card-green { background: #dcfce7; border: 1px solid #86efac; }
+.compare-card-red { background: #fef2f2; border: 1px solid #fca5a5; }
+.compare-card-gold { background: #fefce8; border: 1px solid #fde68a; }
+.compare-card-blue { background: #eff6ff; border: 1px solid #bfdbfe; }
+.compare-card-title { font-family: 'Amiri', serif; font-weight: bold; font-size: 14px; margin-bottom: 4px; }
+.compare-card-body { font-size: 12px; }
+
+.flow-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px; margin: 8px 0; }
+.flow-box { background: #0d7c3e; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-family: 'Amiri', serif; font-weight: bold; text-align: center; }
+.flow-arrow { font-size: 16px; color: #0d7c3e; font-weight: bold; }
+.flow-result { padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; text-align: center; }
+.flow-pure { background: #dcfce7; border: 1px solid #86efac; color: #166534; }
+.flow-impure { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+
+.highlight-green { background: #dcfce7; padding: 1px 4px; border-radius: 3px; }
+.highlight-gold { background: #fefce8; padding: 1px 4px; border-radius: 3px; }
+.highlight-red { background: #fef2f2; padding: 1px 4px; border-radius: 3px; }
+
+.verse-ref { font-family: 'Amiri', serif; font-size: 14px; color: #1e40af; text-align: center; margin: 6px 0; }
+
+.condition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.condition-item { border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.condition-num {
+  display: inline-block; background: #0d7c3e; color: #fff; min-width: 24px; height: 24px;
+  border-radius: 50%; text-align: center; line-height: 24px; font-family: 'Amiri', serif;
+  font-weight: bold; font-size: 12px; margin-left: 6px;
+}
+
+.excused-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.excused-item { background: #fefce8; border: 1px solid #fde68a; border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.excused-num {
+  display: inline-block; background: #d97706; color: #fff; width: 22px; height: 22px;
+  border-radius: 50%; text-align: center; line-height: 22px; font-family: 'Amiri', serif;
+  font-weight: bold; font-size: 12px; margin-left: 6px;
+}
+</style>
+</head>
+<body>
+
+<!-- ===== COVER HEADER ===== -->
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس الثامن والعشرون — تابع ما يُعفى عنه من النجاسة</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="creator">تنسيق: أحمد بن إرشاد</div>
+  <div class="series">دم البرغوث · دم الأجنبي · دم الفصد والحجم · دم اللثة · الرعاف</div>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. أقسام المعفوّ عنه من النجاسة (تمهيد)</span><span>١</span></div>
+  <div class="toc-item"><span>٢. المسألة الأولى: دم البرغوث ونحوه ودم الدمل ونحوه</span><span>٢</span></div>
+  <div class="toc-item"><span>٣. شرط العفو: أن يكون بغير فعله</span><span>٣</span></div>
+  <div class="toc-item"><span>٤. محلّ العفو: بالنسبة للصلاة لا للماء القليل</span><span>٤</span></div>
+  <div class="toc-item"><span>٥. المسألة الثانية: قليل دم الأجنبي غير المغلّظ</span><span>٥</span></div>
+  <div class="toc-item"><span>٦. تقسيم الدم: ما يُعفى عن كثيره وما يُعفى عن قليله وما لا يُعفى عن شيء منه</span><span>٦</span></div>
+  <div class="toc-item"><span>٧. ضابط القليل والكثير وتفرّق النجس</span><span>٨</span></div>
+  <div class="toc-item"><span>٨. المسألة الثالثة: دم الفصد والحجم</span><span>٩</span></div>
+  <div class="toc-item"><span>٩. المسألة الرابعة: صلاة من أُدميت لثّته</span><span>١٠</span></div>
+  <div class="toc-item"><span>١٠. المسألة الخامسة: الرعاف قبل الصلاة</span><span>١١</span></div>
+</div>
+
+<!-- ===== 1. أقسام المعفو عنه ===== -->
+<h2 class="section-title">١. أقسام المعفوّ عنه من النجاسة (تمهيد)</h2>
+
+<div class="definition-box">
+  <span class="box-label label-def">قاعدة</span>
+  <p>كلمة <b>"يُعفى"</b> في باب النجاسات تفيد <b>أمرين</b>:</p>
+  <p><b>الأول:</b> أن هذا الشيء <span class="highlight-red">نجس</span> — فالعفو لا يعني الطهارة.</p>
+  <p><b>الثاني:</b> أنه <span class="highlight-green">لا مؤاخذة فيه</span> — أي لا إثم على من أصابه مع العجز عن إزالته.</p>
+</div>
+
+<p>وقد ذكر الشيخ أن المعفوّ عنه ينقسم إلى <b>أربعة أقسام</b> — ثلاثة منها معفوّ عنه والرابع ليس معفوّاً عنه:</p>
+
+<table>
+  <tr>
+    <th>القسم</th>
+    <th>المعفوّ عنه في الثوب</th>
+    <th>المعفوّ عنه في الماء</th>
+    <th>المثال</th>
+  </tr>
+  <tr>
+    <td><b>الأول</b></td>
+    <td><span class="highlight-green">نعم</span> — يُعفى عنه في الثوب والبدن</td>
+    <td><span class="highlight-red">لا</span> — لا يُعفى عنه في الماء</td>
+    <td>الدم القليل — يشقّ صيانة الثوب والبدن منه لكن لا يشقّ حفظ الماء</td>
+  </tr>
+  <tr>
+    <td><b>الثاني</b></td>
+    <td><span class="highlight-red">لا</span> — لا يُعفى عنه في الثوب والبدن</td>
+    <td><span class="highlight-green">نعم</span> — يُعفى عنه في الماء القليل بشرط عدم التغيّر</td>
+    <td>ميتة ما لا نفس له سائلة (كالذباب والبعوض)</td>
+  </tr>
+  <tr>
+    <td><b>الثالث</b></td>
+    <td><span class="highlight-green">نعم</span></td>
+    <td><span class="highlight-green">نعم</span></td>
+    <td>ما لا يدركه الطرف — ما لا يرى بالبصر المعتدل</td>
+  </tr>
+  <tr>
+    <td><b>الرابع</b></td>
+    <td><span class="highlight-red">لا</span></td>
+    <td><span class="highlight-red">لا</span></td>
+    <td>النجاسة المغلّظة (كلب وخنزير) — لا يُعفى عنها مطلقاً</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه</span>
+  <p>كلامنا هنا في هذا الدرس عن <b>المعفوّ عنه بالنسبة للثوب والبدن والصلاة</b>، وليس بالنسبة للماء. فالماء وأقسامه مرّت في دروس سابقة. والمصنف رحمه الله ذكر تحت قوله "ويُعفى" تقريباً ستّ مسائل نأخذها واحدة واحدة.</p>
+</div>
+
+<!-- ===== 2. المسألة الأولى: دم البرغوث ===== -->
+<h2 class="section-title">٢. المسألة الأولى: دم البرغوث ونحوه ودم الدمل ونحوه</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">النصّ</span>
+  <p><b>ويُعفى عن دم برغوث مما لا نفس له سائلة كبعوض وقمل لا عن جلده</b></p>
+</div>
+
+<h3 class="sub-title">أولاً: دم البرغوث ونحوه</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">البرغوث</span>
+  <p>حشرة صغيرة تمتص الدم من جسم الإنسان. والدم الذي يخرج منه <b>ليس دمه</b> بل هو دم الإنسان الذي امتصّه. ويمتنع العفو عن <b>دمه</b> لا عن <b>جلده</b> — لأن جلده نجس في مذهب الشافعية فلا يعفى عنه.</p>
+  <p><b>مثلث الباء:</b> بِرغوث (بالكسر) وبَرغوث (بالفتح) وبُرغوث (بالضم) — كلّه صحيح.</p>
+</div>
+
+<div class="excused-grid">
+  <div class="excused-item">
+    <span class="excused-num">١</span>
+    <b>دم البرغوث</b> — يعفى عنه لا عن جلده
+  </div>
+  <div class="excused-item">
+    <span class="excused-num">٢</span>
+    <b>دم البعوض</b> — مما لا نفس له سائلة، يعفى عن دمه لا عن جلده
+  </div>
+  <div class="excused-item">
+    <span class="excused-num">٣</span>
+    <b>دم القمل</b> — يمتص الدم من الإنسان، يعفى عن دمه لا عن جلده
+  </div>
+</div>
+
+<h3 class="sub-title">ثانياً: دم الدمل ونحوه</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">النصّ</span>
+  <p><b>ودمي نحو دمل كبثرة وجرح وعن قيحه</b> — أي ويعفى عن دم نحو الدمل كالبثرة والجرح، وعن قيح الدمل وصديده.</p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">الدمل</span>
+  <p>ما ينبت في الجسم كالجبل الصغير ثم يخرج منه القيح والصديد. <b>والبثرة:</b> كالحبة تخرج في سنّ الشباب يخرج منها دم. <b>والجرح:</b> ما كان فيه جرح خرج منه دم.</p>
+</div>
+
+<table>
+  <tr>
+    <th>المعفوّ عنه</th>
+    <th>التفصيل</th>
+  </tr>
+  <tr>
+    <td>دم الدمل</td>
+    <td>الدم الخارج من الدمل</td>
+  </tr>
+  <tr>
+    <td>دم البثرة</td>
+    <td>الدم الخارج من البثرة</td>
+  </tr>
+  <tr>
+    <td>دم الجرح</td>
+    <td>الدم الخارج من الجرح</td>
+  </tr>
+  <tr>
+    <td>قيح الدمل</td>
+    <td>ما يخرج من الدمل من قيح</td>
+  </tr>
+  <tr>
+    <td>صديد الدمل</td>
+    <td>ما يخرج من الدمل من صديد</td>
+  </tr>
+</table>
+
+<h3 class="sub-title">ثالثاً: وإن كثر الدم فيهما</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>وإن كثر الدم فيهما</b> — أي في دم البرغوث ودم نحو الدمل — <b>وانتشر بعرق</b> — أي حتى وإن انتشر الدم بسبب العرق فإنه يعفى عنهما. <b>أو فحش الأول</b> — أي زاد دم البرغوث عن حده المعتاد كثرةً، <b>بحيث طبق الثوب</b> — أي غطّى الثوب كلّه — على النقول المعتمدة يُعفى عنه أيضاً.</p>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">مقارنة</span>
+  <p><b>إن فحش الأول (دم البرغوث):</b> يعفى عنه حتى وإن طبق الثوب — على النقول المعتمدة.</p>
+  <p><b>إن فحش الثاني (دم الدمل):</b> لم يذكر المصنف العفو عنه إذا فحش — ومقتضى التقييد بالأول أن الثاني إن فحش <span class="highlight-red">لا يعفى عنه</span>.</p>
+</div>
+
+<div class="key-rule">
+  دم البرغوث ونحوه + دم الدمل ونحوه = يعفى عنهما وإن كثرا بشرط أن يكون <b>بغير فعله</b>
+</div>
+
+<!-- ===== 3. شرط العفو: بغير فعله ===== -->
+<h2 class="section-title">٣. شرط العفو: أن يكون بغير فعله</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">النصّ</span>
+  <p><b>بغير فعله</b> — فإن فعله <b>فلا يُعفى إلا عن القليل</b> على الأصح كما في التحقيق والمجموع.</p>
+</div>
+
+<p>إذا كان الدم خرج <b>بغير فعله</b> — كأن دم البرغوث خرج من تلقاء نفسه أو دم الدمل سال بلا عصر — فإنه يعفى عنه وإن كثر. أما إذا كان <b>بفعله قصداً</b> فإنه يعفى عن <b>القليل فقط</b> لا عن الكثير. وقد ذكر المصنف ثلاث صور:</p>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #fef2f2; border: 1px solid #fca5a5;">
+    <span class="condition-num">١</span>
+    <b>قتل برغوث في ثوبه قصداً</b> — فخرج دمه. أو عصر دملاً حتى أخرج ما فيه من دم أو قيح أو صديد.
+  </div>
+  <div class="condition-item" style="background: #fef2f2; border: 1px solid #fca5a5;">
+    <span class="condition-num">٢</span>
+    <b>حمل ثوباً فيه دم براغيث وصلّى فيه</b> — أو فرشه (كسجادة الصلاة) وصلّى عليه وفيه دم براغيث متفرّق.
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٣</span>
+    <b>زاد على ملبوسه ثوباً فيه دم براغيث لا لغرض</b> — أما لو لبسه لغرض كدفء أو تجمّل فلا يدخل هنا.
+  </div>
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">ج</span>
+    <b>الحكم في الصور الثلاث:</b> يعفى عن القليل فقط دون الكثير.
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">قوله "قصداً"</span>
+  <p>قوله "قصداً" أخرج ما لو لم يكن قاصداً — كمن وضع يده بدون قصد فقتل برغوثاً وخرج دمه، فهذا يعفى عنه وإن كثر لأنه لم يقصده.</p>
+</div>
+
+<h3 class="sub-title">خلاف في دم الدمل إذا عُصر</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">القولان</span>
+  <p><b>الأصح (المعتمد):</b> إذا عصر الدمل فخرج منه دم أو قيح يعفى عن <b>القليل فقط</b> لا عن الكثير — كما في التحقيق والمجموع للإمام النووي.</p>
+  <p><b>القول الثاني (كلام الروضة):</b> يعفى عن كثير دم الدمل وإن عصر — وهو ما اعتمده ابن النقيب في عمدة السالك، والأذرعي، والأردبيلي في الأنوار.</p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">فائدة فقهية</span>
+  <p>التعبير بـ<b>"الأصح"</b> إشارة إلى <b>قوّة الخلاف</b> — لأن القول المقابل يكون صحيحاً لكن هذا أصحّ منه. أما التعبير بـ<b>"الصحيح"</b> فالقول المقابل له يكون <b>ضعيفاً</b>. فهذه من دقّة الفقهاء في التعبير.</p>
+</div>
+
+<!-- ===== 4. محل العفو ===== -->
+<h2 class="section-title">٤. محلّ العفو: بالنسبة للصلاة لا للماء القليل</h2>
+
+<div class="key-rule">
+  محلّ العفو هنا وفيما يأتي = بالنسبة للصلاة (الثوب والبدن)<br>
+  لا لنحو ماء قليل — فينجّسه وإن قلّ
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">النصّ</span>
+  <p><b>ومحلّ العفو هنا وفيما يأتي بالنسبة للصلاة لا لنحو ماء قليل فينجّس به</b> — أي أن دم البرغوث وما نحوه، ودم الدمل والبثرة والجرح وصديده وقيحه — كلّها <span class="highlight-green">يعفى عنها بالنسبة للصلاة</span> (أي في الثوب والبدن)، لكنها <span class="highlight-red">تنجّس الماء القليل</span> إذا وقعت فيه وإن قلّت.</p>
+</div>
+
+<h3 class="sub-title">ملاقاة البدن للدم المعفوّ عنه</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكمان</span>
+  <p><b>ولا أثر لملاقاة البدن له رطباً</b> — أي لو كان على بدنك دم برغوث أو دم جرح معفوّ عنه ووقعت يدك عليه وهو رطب لم يجفّ بعد، فلا أثر لذلك — لا تنجس يدك.</p>
+  <p><b>ولا يُكلَّف تنشيف البدن لعسره</b> — أي لا يجب عليك تنشيف العضو الذي عليه الدم المعفوّ عنه، لأن تكليف ذلك فيه عسر ومشقّة.</p>
+</div>
+
+<!-- ===== 5. المسألة الثانية: دم الأجنبي ===== -->
+<h2 class="section-title">٥. المسألة الثانية: قليل دم الأجنبي غير المغلّظ</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">النصّ</span>
+  <p><b>وعن قليل نحو دم غيره أي أجنبي غير مغلظ بخلاف كثيره</b> — أي يعفى عن قليل دم الأجنبي غير المغلّظ، أما كثيره فلا يعفى عنه.</p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">دم الأجنبي</span>
+  <p><b>الدم الأجنبي</b> هو: دم غيره من إنسان أو حيوان أو بهيمة ليست كلباً ولا خنزيراً. ويدخل فيه أيضاً: <b>دم نفسه إذا عاد إليه</b> — كأن خرج الدم من جرح في رأسه فوقع على صدره أو يده أو قدمه، فبالنسبة للصدر واليد والقدم يعتبر دماً أجنبياً. وكما قال الأذرعي: <b>دم انفصل من بدنه ثم أصابه</b> يعتبر دماً أجنبياً.</p>
+</div>
+
+<div class="excused-grid">
+  <div class="excused-item">
+    <span class="excused-num">١</span>
+    <b>دم إنسان آخر</b> — يعفى عن قليله لا عن كثيره
+  </div>
+  <div class="excused-item">
+    <span class="excused-num">٢</span>
+    <b>دم بهيمة</b> (ليست كلباً ولا خنزيراً) — يعفى عن قليله
+  </div>
+  <div class="excused-item">
+    <span class="excused-num">٣</span>
+    <b>دم نفسه إذا عاد إليه</b> — كدم خرج من الرأس فوقع على الصدر
+  </div>
+  <div class="excused-item">
+    <span class="excused-num">٤</span>
+    <b>دم الحيض والرعاف</b> — يعفى عن قليلهما كما في المجموع
+  </div>
+</div>
+
+<h3 class="sub-title">القياس على دم الحيض والرعاف</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>ويقاس بدم الحيض والرعاف دم سائر المنافذ</b> — أي لو خرج دم من الأذن أو العين فإنه يعفى عن قليله لا عن كثيره. <b>إلا الخارج من معدن النجاسة كمحلّ الغائط</b> — أي إذا خرج الدم من محلّ خروج الغائط (الدبر) فلا يعفى عن شيء منه أصلاً لا قليله ولا كثيره.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">يعفى عن قليله</div>
+    <div class="compare-card-body">دم الحيض · دم الرعاف · دم الأذن · دم العين<br>وسائر المنافذ ما عدا معدن النجاسة</div>
+  </div>
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">لا يعفى عن شيء منه</div>
+    <div class="compare-card-body">الخارج من معدن النجاسة<br>كالدم الخارج من محلّ الغائط (الدبر)</div>
+  </div>
+</div>
+
+<!-- ===== 6. تقسيم الدم ===== -->
+<h2 class="section-title">٦. تقسيم الدم: ما يُعفى عن كثيره وما يُعفى عن قليله وما لا يُعفى عن شيء منه</h2>
+
+<div class="tree-container">
+  <div class="tree-root">تقسيم الدم من حيث العفو</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">يعفى عن كثيره</div>
+      <div class="tree-branch-label">دم نفسه بأربعة شروط</div>
+    </div>
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a;">
+      <div class="tree-branch-num">يعفى عن قليله فقط</div>
+      <div class="tree-branch-label">دم أجنبي أو جاوز محلّه أو كان بفعله</div>
+    </div>
+    <div class="tree-branch" style="background: #fef2f2; border-color: #fca5a5;">
+      <div class="tree-branch-num">لا يعفى عن شيء منه</div>
+      <div class="tree-branch-label">مغلّظ أو متعدٍّ أو مختلط أو من معدن النجاسة</div>
+    </div>
+  </div>
+</div>
+
+<h3 class="sub-title">القسم الأول: ما يُعفى عن كثيره — دم نفسه بأربعة شروط</h3>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">١</span>
+    <b>أن يكون دم الإنسان نفسه</b> — لا دم غيره (الأجنبي). فإن كان أجنبياً يعفى عن قليله فقط.
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٢</span>
+    <b>أن لا يجاوز محلّه</b> — والمحلّ هو ما يسيل إليه الدم في العادة. فإن جاوز محلّه يعفى عن قليله فقط.
+  </div>
+  <div class="condition-item" style="background: #f0f9ff; border: 1px solid #bae6fd;">
+    <span class="condition-num">٣</span>
+    <b>أن لا يختلط بشيء</b> — ككمادة وُضعت لوقف سيلان الدم. فإن اختلط بشيء لا يعفى عن شيء منه أصلاً.
+  </div>
+  <div class="condition-item" style="background: #fdf2f8; border: 1px solid #fbcfe8;">
+    <span class="condition-num">٤</span>
+    <b>أن لا يكون بفعله</b> — أي لم يتعمّد إخراج الدم. فإن كان بفعله يعفى عن قليله فقط.
+  </div>
+</div>
+
+<div class="key-rule">
+  إذا تحقّقت الشروط الأربعة = يعفى عن الدم وإن كثر<br>
+  إذا اختلّ شرط واحد = ينزل درجة (كثير ← قليل ← لا شيء)
+</div>
+
+<h3 class="sub-title">القسم الثاني: ما يُعفى عن قليله فقط</h3>
+
+<div class="excused-grid">
+  <div class="excused-item">
+    <span class="excused-num">١</span>
+    <b>دم أجنبي</b> — كدم شخص آخر أو دم بهيمة. يعفى عن قليله لا عن كثيره. ومثاله: القزّاب الذي يذبح الأغنام يصيبه دم منها، والجرّاح الذي يعالج الجروح يصيب ثوبه دم المريض.
+  </div>
+  <div class="excused-item">
+    <span class="excused-num">٢</span>
+    <b>دم نفسه جاوز محلّه</b> — كأن خرج الدم من جرح في اليد فسال إلى ما لا يسيل إليه في العادة. يعفى عن قليله فقط.
+  </div>
+  <div class="excused-item">
+    <span class="excused-num">٣</span>
+    <b>دم نفسه كان بفعله</b> — كأن تعمّد إخراج الدم بالجرح أو الفصد بلا حاجة. يعفى عن قليله فقط.
+  </div>
+</div>
+
+<h3 class="sub-title">القسم الثالث: ما لا يُعفى عن شيء منه أصلاً</h3>
+
+<table>
+  <tr>
+    <th>#</th>
+    <th>الصورة</th>
+    <th>التفصيل</th>
+  </tr>
+  <tr>
+    <td><b>١</b></td>
+    <td>دم مغلّظ</td>
+    <td>دم الكلب أو الخنزير أو ما تولّد منهما أو من أحدهما مع حيوان طاهر — لا يعفى عن شيء منه لا قليل ولا كثير</td>
+  </tr>
+  <tr>
+    <td><b>٢</b></td>
+    <td>دم متعدٍّ</td>
+    <td>كأن تضمّخ بالنجاسة — وهو محرّم، فيجب غسل جميع الدم ولا يعفى حتى عن قليله</td>
+  </tr>
+  <tr>
+    <td><b>٣</b></td>
+    <td>دم نفسه اختلط بغيره</td>
+    <td>كأن وُضعت كمادة مبلّلة بمطهّر على الجرح فاختلط الدم بها — لا يعفى عن شيء منه (ومن باب أولى دم الأجنبي المختلط)</td>
+  </tr>
+  <tr>
+    <td><b>٤</b></td>
+    <td>الخارج من معدن النجاسة</td>
+    <td>كالدم الخارج من محلّ الغائط (الدبر) — لا يعفى عن شيء منه</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">تطبيقات عملية</span>
+  <p><b>القزّاب (الجزار):</b> يصيبه دم الشاة أو الدجاج الذي يذبحه — يعفى عن <b>قليله</b> فقط لأنه دم أجنبي.</p>
+  <p><b>الجرّاح:</b> يصيب بدنه أو ثوبه دم المريض أثناء العملية — يعفى عن <b>قليله</b> فقط لأنه دم أجنبي.</p>
+  <p><b>التحليل (سحب الدم):</b> الدم الخارج في محلّه يعفى عنه وإن كثر، فإن جاوز محلّه يعفى عن قليله، وإن اختلط بقطنة مبلّلة بمطهّر لا يعفى عن شيء منه.</p>
+</div>
+
+<!-- ===== 7. ضابط القليل والكثير ===== -->
+<h2 class="section-title">٧. ضابط القليل والكثير وتفرّق النجس</h2>
+
+<h3 class="sub-title">المرجع في القلّة والكثرة: العرف</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">النصّ</span>
+  <p><b>والمرجع في القلّة والكثرة العرف لعدم الضابط شرعاً</b> — أي لا يوجد حدّ شرعي محدّد يفصل بين القليل والكثير، بل المرجع إلى العُرف. وما شُكّ في كثرته فله حكم القليل — أي إذا شككت هل هو قليل فيعفى عنه أو كثير فلا يعفى عنه، فله <b>حكم القليل</b> فيعفى عنه.</p>
+</div>
+
+<h3 class="sub-title">تفرّق النجس في مواضع</h3>
+
+<div class="issue-box">
+  <span class="box-label label-issue">الصورة</span>
+  <p>لو تفرّق النجس المعفوّ عنه في مواضع متعدّدة — كأن كان على الثوب دم قليل هنا ودم قليل هنا ودم قليل هنا — وكلّ واحد بمفرده قليل يعفى عنه، لكن لو جُمع لأصبح كثيراً. فهل يُنظر إلى كلّ موضع استقلالاً أم إلى المجموع؟</p>
+</div>
+
+<table>
+  <tr>
+    <th>القول</th>
+    <th>القائل</th>
+    <th>المعتمد</th>
+  </tr>
+  <tr>
+    <td><b>له حكم القليل</b> — يُنظر لكلّ موضع استقلالاً</td>
+    <td>إمام الحرمين (الإمام)، واعتمده العلامة الرملي</td>
+    <td><span class="highlight-green">المعتمد</span></td>
+  </tr>
+  <tr>
+    <td><b>له حكم الكثير</b> — يُنظر للمجموع</td>
+    <td>المتولي والغزالي وغيرهما، ورجّحه بعضهم، وهو ما يظهر من كلام ابن حجر</td>
+    <td>قول مرجوح</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">فائدة</span>
+  <p>إذا أُطلقت كلمة <b>"الإمام"</b> في كتب الفقه الشافعي فالمقصود به <b>إمام الحرمين</b> (أبو المعالي الجويني). وإذا أُطلقت في كتب أصول الفقه فالمقصود <b>فخر الدين الرازي</b>.</p>
+</div>
+
+<!-- ===== 8. المسألة الثالثة: دم الفصد والحجم ===== -->
+<h2 class="section-title">٨. المسألة الثالثة: دم الفصد والحجم</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">النصّ</span>
+  <p><b>ويُعفى عن دم نحو فصد وحجم بمحلّهما وإن كثرا</b></p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">الفصد والحجامة</span>
+  <p><b>الفصد:</b> يعقل العرق من أجل أن يخرج الدم الفاسد، يستعمل للاستشفاء خاصة في المناطق الباردة.</p>
+  <p><b>الحجامة:</b> تستعمل في المناطق الحارة لاستخراج الدم الفاسد بالحجام.</p>
+</div>
+
+<div class="key-rule">
+  دم الفصد والحجامة بمحلّهما = يعفى عنه وإن كثر<br>
+  إن جاوز محلّه = يعفى عن قليله فقط<br>
+  إن اختلط بشيء = لا يعفى عن شيء منه
+</div>
+
+<h3 class="sub-title">ما المراد بـ"محلّهما"؟</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">المحلّ</span>
+  <p>المراد بقوله <b>"بمحلّهما"</b>: <b>ما يغلب إليه السيلان</b> — أي ما يسيل إليه الدم في العادة. فما كان الدم يسيل إليه في العادة فهو المحلّ. وما كان لا يسيل إليه في العادة فتجاوزه يكون قد جاوز محلّه.</p>
+</div>
+
+<h3 class="sub-title">تطبيق عملي: سحب الدم للتحليل</h3>
+
+<div class="flow-row">
+  <div class="flow-box">الدم في محلّه</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-pure">يعفى عنه وإن كثر</div>
+</div>
+<div class="flow-row">
+  <div class="flow-box">الدم جاوز محلّه</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-pure">يعفى عن قليله فقط</div>
+</div>
+<div class="flow-row">
+  <div class="flow-box">الدم اختلط بقطنة مبلّلة بمطهّر</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-impure">لا يعفى عن شيء منه</div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">القطنة المبلّلة بالمطهّر</span>
+  <p>إذا كان الطبيب أخذ منك الدم للتحليل وأعطاك قطنة مبلّلة بمادّة مطهّرة أو معقّمة لوضعها على مكان الإبرة، فاختلط الدم بهذه القطنة — فالظاهر والله أعلم أنه <span class="highlight-red">لا يعفى عن شيء منه</span> لأنه اختلط بغيره (المطهّر الموجود في القطنة).</p>
+</div>
+
+<!-- ===== 9. المسألة الرابعة: صلاة من أدميت لثته ===== -->
+<h2 class="section-title">٩. المسألة الرابعة: صلاة من أُدميت لثّته</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">النصّ</span>
+  <p><b>وتصحّ صلاة من أُدميت لثّته قبل غسل الفم إذا لم يبتلع ريقه فيها</b> — أي تصحّ صلاة من خرج الدم من لثّته ولم يغسل فمه، بشرط أن لا يبتلع ريقه المختلط بالدم في أثناء الصلاة.</p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">اللثّة</span>
+  <p><b>اللثّة:</b> اللحم الذي ينبت عليه السنّ — فلحم الأسنان الذي هو مكان نبات الأسنان يسمّى لثّة. وضبطها العلامة الدمياطي في الحاشية: <b>"أُدميت" مبنيّ للمجهول</b> — ونائب الفاعل <b>"لثّته"</b> — فدلّ هذا على أنه بغير فعله، إذ لو كان بفعله لقال "أدماء".</p>
+</div>
+
+<h3 class="sub-title">حكمان مهمّان</h3>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">إذا لم يبتلع الريق</div>
+    <div class="compare-card-body">صلاته <span class="highlight-green">تصحّ</span><br>لأن دم اللثّة معفوّ عنه بالنسبة إلى الريق<br>والفم في باب النجاسة من الظاهر فيجب غسله</div>
+  </div>
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">إذا ابتلع الريق المختلط بدم اللثة</div>
+    <div class="compare-card-body">صلاته <span class="highlight-red">تبطل</span><br>القاعدة: ما يفطر الصائم يبطل الصلاة<br>وابتلاع الريق المختلط بشيء آخر يفطر الصائم</div>
+  </div>
+</div>
+
+<h3 class="sub-title">القاعدة: ما يفطر الصائم يبطل الصلاة</h3>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">نصّ الزباد</span>
+  <p>قال صاحب الزباد رحمه الله في باب مُبطلات الصلاة:</p>
+  <p class="verse-ref" style="font-size: 16px; color: #1e40af; text-align: center; line-height: 2;">وَوَثْبَةٌ تَفْحُشُ وَالْمُفَطِّرُ ٭ وَنِيَّةُ الصَّلَاةِ إِذْ تُغَيَّرُ</p>
+  <p>ثلاث مُبطلات في هذا البيت: <b>الوثبة الفاحشة</b> (القفزة الشديدة) — <b>والمفطّر</b> (ما يفطر الصائم يبطل الصلاة) — <b>وتغيير النيّة</b> داخل الصلاة.</p>
+</div>
+
+<h3 class="sub-title">الفم والأنف: ظاهر أم باطن؟</h3>
+
+<table>
+  <tr>
+    <th>الباب</th>
+    <th>حكم الفم والأنف</th>
+    <th>الأثر</th>
+  </tr>
+  <tr>
+    <td><b>باب الوضوء والغسل</b></td>
+    <td>من <span class="highlight-green">الباطن</span></td>
+    <td>لا يجب إيصال الماء إلى الفم والأنف في الوضوء والغسل</td>
+  </tr>
+  <tr>
+    <td><b>باب إزالة النجاسة</b></td>
+    <td>من <span class="highlight-red">الظاهر</span></td>
+    <td>يجب غسل النجاسة من الفم والأنف — لأن إزالة النجاسة أغلظ</td>
+  </tr>
+</table>
+
+<!-- ===== 10. المسألة الخامسة: الرعاف ===== -->
+<h2 class="section-title">١٠. المسألة الخامسة: الرعاف قبل الصلاة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">النصّ</span>
+  <p><b>ولو رعف قبل الصلاة ودام</b> — أي ودام سيلان الدم من الأنف. قوله <b>"قبل الصلاة"</b> قيد ليفهم أن الرعاف في أثناء الصلاة له حكم آخر.</p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">الرعاف</span>
+  <p><b>الرعاف:</b> خروج الدم من الأنف. وهو من المنافذ التي يُعفى عن قليل دمها ويقاس على دم الحيض والرعاف دم سائر المنافذ — كما مرّ في المسألة الثانية.</p>
+</div>
+
+<h3 class="sub-title">حالتان</h3>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">الحالة الأولى: يرجو انقطاعه والوقت متّسع</div>
+    <div class="compare-card-body"><b>ينتظره</b> — أي ينتظر انقطاع الدم ثم يصلّي<br>بشرط: أن يرجو انقطاعه وأن يتّسع الوقت لفعل الصلاة كاملة</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">الحالة الثانية: لا يرجو انقطاعه</div>
+    <div class="compare-card-body"><b>يتحفّظ كالسلس</b> — أي كصاحب السلس:<br>يغسل الموضع ويحشوه بقطنة<br>ويُعصّبه إن احتاج (بلستر ونحوه)<br>ويصلّي <b>في الوقت</b> — لا يؤخّرها</div>
+  </div>
+</div>
+
+<h3 class="sub-title">الخلاف: هل ينتظر حتى وإن خرج الوقت؟</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">القولان</span>
+  <p><b>المعتمد:</b> يتحفّظ كالسلس ويصلّي في الوقت — ولا يجوز تأخير الصلاة حتى يخرج الوقت.</p>
+  <p><b>القول المرجوح:</b> ينتظر انقطاع الدم حتى وإن خرج وقت الصلاة — قياساً على صاحب الثوب المتنجّس الذي يؤخّر الصلاة حتى يغسل ثوبه وإن خرج الوقت. قال ابن حجر: إنه <b>مرجوح</b>.</p>
+</div>
+
+<h3 class="sub-title">الفرق بين صاحب الرعاف وصاحب الثوب المتنجّس</h3>
+
+<div class="key-rule">
+  صاحب الثوب: يقدر على إزالة النجاسة من أصلها (يغسل ثوبه) ← يؤخّر<br>
+  صاحب الرعاف: لا يقدر على إيقاف الدم ← لا يؤخّر، يتحفّظ ويصلّي
+</div>
+
+<table>
+  <tr>
+    <th>المسألة</th>
+    <th>القدرة على إزالة النجاسة</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td><b>صاحب الثوب المتنجّس</b></td>
+    <td><span class="highlight-green">يقدر</span> — يغسل ثوبه</td>
+    <td>يؤخّر الصلاة حتى يغسل ثوبه وإن خرج الوقت</td>
+  </tr>
+  <tr>
+    <td><b>صاحب الرعاف</b></td>
+    <td><span class="highlight-red">لا يقدر</span> — لا يوقف الدم</td>
+    <td>يتحفّظ ويصلّي في الوقت ولا يؤخّر</td>
+  </tr>
+  <tr>
+    <td><b>صاحب الرعاف يتناول دواءً يوقفه</b></td>
+    <td><span class="highlight-green">يقدر</span> — بالدواء بعد ساعة أو ساعتين</td>
+    <td>يلحق بصاحب الثوب — ينتظر حتى ينقطع وإن خرج الوقت</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">تطبيق معاصر</span>
+  <p>بعض الناس يعانون من مرض <b>نزف الدم</b> (عدم التخثّر) فيسيل دمهم بكثرة، لكن يتناولون دواءً يوقف النزيف بعد ساعة أو ساعتين. هذا الشخص يقدر على إزالة النجاسة بالدواء وإن تأخّر — فهو أشبه بصاحب الثوب المتنجّس، فيجوز له انتظار انقطاع الدم حتى وإن خرج وقت الصلاة.</p>
+</div>
+
+<h3 class="sub-title">الرعاف في أثناء الصلاة</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p>إذا رعف في أثناء الصلاة فخرج الدم من أنفه:</p>
+  <p>— <b>إن أصابه دم قليل:</b> يعفى عنه لكونه دم رعاف يعفى عن قليله.</p>
+  <p>— <b>إن أصابه دم كثير:</b> لا يعفى عنه — لأنه دم أجنبي كثير (خرج من الأنف فأصاب البدن والثياب) — فيخرج من الصلاة.</p>
+  <p>— <b>إن خرج كثير لكن سقط في مكان منفصل لا يصيبه:</b> صلاته تصحّ لأن الدم لم يصب بدنه ولا ثوبه.</p>
+</div>
+
+</body>
+</html>

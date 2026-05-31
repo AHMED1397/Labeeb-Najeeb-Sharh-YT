@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح الإبانة والإفاضة - الدرس الثالث عشر</title>
+<style>
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+  @bottom-center {
+    content: counter(page);
+    font-size: 12px;
+    color: #0d6b3e;
+  }
+}
+
+:root {
+  --primary: #0d6b3e;
+  --dark: #0a4f2e;
+  --gold: #d4a020;
+  --light-gold: #f0e6c0;
+  --teal: #0d7377;
+  --bg: #fefefe;
+  --body-text: #1a1a1a;
+  --border: #c8d6c0;
+  --card-bg: #f8faf7;
+  --shadow: rgba(13,107,62,0.1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Amiri', 'Traditional Arabic', 'Simplified Arabic', serif;
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--body-text);
+  background: var(--bg);
+  direction: rtl;
+}
+
+/* B&W Toggle */
+.bw-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1000;
+  background: var(--primary);
+  color: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: all 0.3s;
+}
+.bw-toggle:hover { background: var(--dark); transform: scale(1.1); }
+
+body.bw-mode {
+  --primary: #333;
+  --dark: #111;
+  --gold: #666;
+  --light-gold: #e0e0e0;
+  --teal: #444;
+  --bg: #fff;
+  --body-text: #000;
+  --border: #aaa;
+  --card-bg: #f5f5f5;
+  --shadow: rgba(0,0,0,0.15);
+}
+body.bw-mode .cover-page { background: #222 !important; }
+body.bw-mode .cover-page * { color: #fff !important; border-color: #888 !important; }
+body.bw-mode .evidence-box { border-color: #888 !important; background: #f0f0f0 !important; }
+body.bw-mode .timeline-bar { filter: grayscale(100%); }
+body.bw-mode .classification-tree { border-color: #888 !important; }
+
+/* Cover Page */
+.cover-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a4f2e 0%, #0d6b3e 30%, #0d7377 60%, #0a4f2e 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+}
+.cover-page::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a020' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.8;
+}
+.cover-badge {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark);
+  font-size: 18px;
+  font-weight: bold;
+  padding: 6px 28px;
+  border-radius: 20px;
+  margin-bottom: 25px;
+  position: relative;
+  z-index: 1;
+}
+.cover-title {
+  font-size: 28px;
+  color: var(--light-gold);
+  position: relative;
+  z-index: 1;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+.cover-book {
+  font-size: 22px;
+  color: var(--gold);
+  position: relative;
+  z-index: 1;
+  margin-bottom: 30px;
+  line-height: 1.7;
+}
+.cover-line {
+  width: 120px;
+  height: 3px;
+  background: var(--gold);
+  margin: 20px auto;
+  position: relative;
+  z-index: 1;
+}
+.cover-info {
+  font-size: 17px;
+  color: #c8e6c9;
+  position: relative;
+  z-index: 1;
+  line-height: 2.2;
+}
+.cover-ornament {
+  font-size: 36px;
+  color: var(--gold);
+  position: relative;
+  z-index: 1;
+  margin: 15px 0;
+  letter-spacing: 8px;
+}
+
+/* Main Content */
+.main-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+/* Section Headers */
+h1 {
+  font-size: 22px;
+  color: var(--primary);
+  border-bottom: 3px solid var(--gold);
+  padding-bottom: 10px;
+  margin: 35px 0 20px;
+  text-align: right;
+}
+h2 {
+  font-size: 19px;
+  color: var(--dark);
+  border-right: 5px solid var(--gold);
+  padding-right: 15px;
+  margin: 25px 0 15px;
+}
+h3 {
+  font-size: 17px;
+  color: var(--teal);
+  margin: 20px 0 12px;
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 12px;
+  text-align: justify;
+  text-indent: 1.5em;
+}
+p.no-indent { text-indent: 0; }
+
+/* Evidence Box */
+.evidence-box {
+  background: linear-gradient(135deg, #f0e6c0 0%, #faf6e8 100%);
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin: 18px 0;
+  position: relative;
+}
+.evidence-box::before {
+  content: '📖';
+  position: absolute;
+  top: -12px;
+  right: 18px;
+  background: var(--gold);
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.evidence-box .ev-label {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark);
+  padding: 2px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.evidence-box .ev-text {
+  font-size: 17px;
+  line-height: 2;
+  color: var(--dark);
+}
+
+/* Classification Tree */
+.classification-tree {
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  background: var(--card-bg);
+}
+.classification-tree .tree-title {
+  text-align: center;
+  font-size: 18px;
+  color: var(--primary);
+  font-weight: bold;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px dashed var(--border);
+}
+.tree-root {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.tree-node-root {
+  background: var(--primary);
+  color: #fff;
+  padding: 8px 22px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.tree-children {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+.tree-child {
+  background: var(--light-gold);
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 10px 18px;
+  text-align: center;
+  min-width: 120px;
+}
+.tree-child .child-title {
+  font-weight: bold;
+  color: var(--dark);
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+.tree-child .child-desc {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Ruling Card */
+.ruling-card {
+  border-right: 5px solid var(--primary);
+  background: var(--card-bg);
+  border-radius: 0 10px 10px 0;
+  padding: 15px 20px;
+  margin: 15px 0;
+  box-shadow: 0 2px 6px var(--shadow);
+}
+.ruling-card .ruling-label {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  padding: 2px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.ruling-card .ruling-text {
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+/* Comparison Card */
+.comparison-card {
+  display: flex;
+  gap: 0;
+  margin: 18px 0;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.comparison-card .comp-side {
+  flex: 1;
+  padding: 15px;
+  text-align: center;
+}
+.comparison-card .comp-side:first-child {
+  background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+  border-left: 2px solid var(--border);
+}
+.comparison-card .comp-side:last-child {
+  background: linear-gradient(135deg, #fff8e1, #fffde7);
+}
+.comparison-card .comp-label {
+  font-weight: bold;
+  font-size: 14px;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+.comparison-card .comp-text {
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* Definition Card */
+.definition-card {
+  background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+.definition-card .def-label {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  padding: 3px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.definition-card .def-text {
+  font-size: 16px;
+  line-height: 2;
+}
+
+/* Callout Box */
+.callout-box {
+  background: #fffde7;
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 15px 0;
+  position: relative;
+}
+.callout-box::before {
+  content: '⚠';
+  position: absolute;
+  top: -10px;
+  right: 15px;
+  background: var(--gold);
+  color: #fff;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+.callout-box .callout-title {
+  font-weight: bold;
+  color: #b8860b;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+/* Fiqh Principle Box */
+.fiqh-box {
+  background: linear-gradient(135deg, #e0f2f1, #e8f5e9);
+  border: 2px solid var(--teal);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 18px 0;
+  position: relative;
+}
+.fiqh-box::before {
+  content: '⚖';
+  position: absolute;
+  top: -12px;
+  right: 18px;
+  background: var(--teal);
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.fiqh-box .fiqh-label {
+  display: inline-block;
+  background: var(--teal);
+  color: #fff;
+  padding: 2px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.fiqh-box .fiqh-text {
+  font-size: 17px;
+  line-height: 2;
+  color: var(--dark);
+  font-weight: bold;
+}
+
+/* Numbered Steps */
+.numbered-steps {
+  counter-reset: step;
+  margin: 15px 0;
+}
+.numbered-steps .step-item {
+  counter-increment: step;
+  padding: 10px 20px 10px 10px;
+  margin-bottom: 8px;
+  background: var(--card-bg);
+  border-radius: 8px;
+  border-right: 4px solid var(--primary);
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.step-item::before {
+  content: counter(step);
+  background: var(--primary);
+  color: #fff;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: bold;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Benefit Box */
+.benefit-box {
+  background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 18px 0;
+}
+.benefit-box .benefit-label {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark);
+  padding: 2px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* Timeline Diagram */
+.timeline-container {
+  margin: 20px 0;
+  overflow-x: auto;
+}
+.timeline-bar {
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 8px;
+  min-height: 40px;
+  box-shadow: 0 2px 6px var(--shadow);
+}
+.timeline-segment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 4px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  min-width: 40px;
+  border-left: 1px solid rgba(255,255,255,0.3);
+}
+.timeline-segment.seg-hayd { background: #1b5e20; }
+.timeline-segment.seg-istihada { background: #c62828; }
+.timeline-segment.seg-tuhr { background: #1565c0; }
+.timeline-segment.seg-weak { background: #e65100; }
+.timeline-segment.seg-ihtiyat { background: #6a1b9a; }
+.timeline-legend {
+  display: flex;
+  gap: 15px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+}
+.legend-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+}
+
+/* Data Table */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+  font-size: 14px;
+}
+.data-table th {
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 12px;
+  text-align: center;
+  font-size: 14px;
+}
+.data-table td {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  text-align: center;
+  vertical-align: top;
+}
+.data-table tr:nth-child(even) { background: var(--card-bg); }
+
+/* Scholar Card */
+.scholar-card {
+  background: linear-gradient(135deg, #fff8e1, #fffde7);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+.scholar-card .scholar-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+
+/* Quote Block */
+.quote-block {
+  background: #fafafa;
+  border-right: 5px solid var(--gold);
+  padding: 15px 20px;
+  margin: 15px 0;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: #444;
+}
+.quote-block .quote-source {
+  font-style: normal;
+  font-weight: bold;
+  color: var(--primary);
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+/* Flow Chart */
+.flow-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin: 20px 0;
+  padding: 15px;
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+}
+.flow-node {
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 15px;
+  text-align: center;
+  min-width: 180px;
+}
+.flow-arrow {
+  font-size: 24px;
+  color: var(--gold);
+  line-height: 1;
+}
+.flow-branch {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.flow-branch .flow-node {
+  min-width: 140px;
+  font-size: 14px;
+}
+.flow-node.green { background: #2e7d32; }
+.flow-node.red { background: #c62828; }
+.flow-node.gold { background: #b8860b; }
+.flow-node.teal { background: var(--teal); }
+.flow-node.purple { background: #6a1b9a; }
+
+/* Conditions Grid */
+.conditions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin: 15px 0;
+}
+.condition-card {
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
+}
+.condition-card .cond-num {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  line-height: 28px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.condition-card .cond-title {
+  font-weight: bold;
+  color: var(--dark);
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+.condition-card .cond-desc {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* Case Card */
+.case-card {
+  background: #fff;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 15px 0;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+.case-card .case-label {
+  display: inline-block;
+  background: var(--teal);
+  color: #fff;
+  padding: 2px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.case-card .case-q {
+  font-weight: bold;
+  color: var(--dark);
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+.case-card .case-a {
+  background: #e8f5e9;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* Summary Box */
+.summary-box {
+  background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+  border: 3px solid var(--primary);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 25px 0;
+}
+.summary-box .summary-title {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+/* Highlight Text */
+.highlight { background: var(--light-gold); padding: 1px 4px; border-radius: 3px; }
+.strong { font-weight: bold; color: var(--primary); }
+.gold-text { color: var(--gold); font-weight: bold; }
+
+/* Month Grid */
+.month-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 8px;
+  margin: 15px 0;
+}
+.month-cell {
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 8px;
+  text-align: center;
+}
+.month-cell .month-label {
+  font-size: 12px;
+  color: var(--teal);
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+.month-cell .month-value {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--dark);
+}
+.month-cell.month-hayd { background: #e8f5e9; border-color: #1b5e20; }
+.month-cell.month-istihada { background: #ffebee; border-color: #c62828; }
+.month-cell.month-current { background: var(--light-gold); border-color: var(--gold); }
+
+/* Ihtiyat Box */
+.ihtiyat-box {
+  background: linear-gradient(135deg, #f3e5f5, #ede7f6);
+  border: 2px solid #6a1b9a;
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 15px 0;
+  position: relative;
+}
+.ihtiyat-box::before {
+  content: '⚡';
+  position: absolute;
+  top: -10px;
+  right: 15px;
+  background: #6a1b9a;
+  color: #fff;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+.ihtiyat-box .ihtiyat-title {
+  font-weight: bold;
+  color: #4a148c;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+/* Nawh Note */
+.nahw-box {
+  background: #fff3e0;
+  border: 2px solid #e65100;
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 15px 0;
+  position: relative;
+}
+.nahw-box::before {
+  content: '✏';
+  position: absolute;
+  top: -10px;
+  right: 15px;
+  background: #e65100;
+  color: #fff;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+.nahw-box .nahw-title {
+  font-weight: bold;
+  color: #bf360c;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .comparison-card { flex-direction: column; }
+  .comparison-card .comp-side:first-child { border-left: none; border-bottom: 2px solid var(--border); }
+  .tree-children { flex-direction: column; align-items: center; }
+  .flow-branch { flex-direction: column; align-items: center; }
+  .conditions-grid { grid-template-columns: 1fr; }
+  .cover-title { font-size: 22px; }
+  .cover-book { font-size: 18px; }
+  .month-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Print Styles */
+@media print {
+  .bw-toggle { display: none; }
+  .cover-page { page-break-after: always; }
+  h1, h2, h3 { page-break-after: avoid; }
+  .ruling-card, .evidence-box, .case-card, .comparison-card {
+    page-break-inside: avoid;
+  }
+  body { font-size: 14px; }
+}
+</style>
+</head>
+<body>
+
+<!-- B&W Toggle Button -->
+<button class="bw-toggle" onclick="toggleBW()" title="تبديل الأبيض والأسود">🌗</button>
+
+<script>
+function toggleBW() {
+  document.body.classList.toggle('bw-mode');
+}
+</script>
+
+<!-- ============ COVER PAGE ============ -->
+<div class="cover-page">
+  <div class="cover-badge">جديد</div>
+  <div class="cover-ornament">✦ ✦ ✦</div>
+  <div class="cover-title">شرح الإبانة والإفاضة<br>في أحكام الحيض والنفاس والاستحاضة<br>على مذهب الإمام الشافعي</div>
+  <div class="cover-line"></div>
+  <div class="cover-book">الدرس الثالث عشر</div>
+  <div class="cover-line"></div>
+  <div class="cover-info">
+    <strong>المؤلف:</strong> عبد الرحمن بن عبد الله عبد القادر السقاف<br>
+    <strong>الشارح:</strong> د. لبيب نجيب عبد الله<br>
+    <strong>المنشئ:</strong> أحمد بن إرشاد
+  </div>
+  <div class="cover-ornament">✦ ✦ ✦</div>
+</div>
+
+<!-- ============ MAIN CONTENT ============ -->
+<div class="main-content">
+
+<!-- ===== SECTION 1: مقدمة ===== -->
+<h1>مقدمة: المعتادة غير المميزة</h1>
+
+<p>بسم الله الرحمن الرحيم، الحمد لله رب العالمين والصلاة والسلام الأتمان الأكملان على سيد المرسلين سيدنا محمد وعلى آله وصحبه الطيبين الطاهرين، أما بعد فأسأل الله سبحانه وتعالى أن يمن علينا بالعلم النافع والعمل الصالح وأن يفقهنا في الدين وأن يفتح لنا فتوح العارفين وأن يرزقنا الإخلاص في الأقوال والأعمال، اللهم آمين.</p>
+
+<p>فلا زلنا في الدرس السابع وهو المستحاضة في الحيض، وتقدم أن المستحاضة في الحيض على سبعة أقسام. اليوم نشرع في قسم جديد وهي <span class="strong">المعتادة غير المميزة</span>.</p>
+
+<div class="classification-tree">
+  <div class="tree-title">أقسام المستحاضة السبعة — موقع الدرس الحالي</div>
+  <div class="tree-root">
+    <span class="tree-node-root">المستحاضة</span>
+  </div>
+  <div class="tree-children">
+    <div class="tree-child">
+      <div class="child-title">المبتدأة المميزة</div>
+      <div class="child-desc">تم في الدروس السابقة</div>
+    </div>
+    <div class="tree-child">
+      <div class="child-title">المبتدأة غير المميزة</div>
+      <div class="child-desc">تم في الدروس السابقة</div>
+    </div>
+    <div class="tree-child">
+      <div class="child-title">المعتادة المميزة</div>
+      <div class="child-desc">تم في الدروس السابقة</div>
+    </div>
+    <div class="tree-child" style="border-color: var(--gold); background: #fff8e1; border-width: 3px;">
+      <div class="child-title" style="color: var(--gold);">المعتادة غير المميزة ◄</div>
+      <div class="child-desc" style="text-align:right;">
+        ① ذاكرة للوقت والعدد<br>
+        ② ذاكرة للوقت ناسية للعدد<br>
+        ③ ذاكرة للعدد ناسية للوقت<br>
+        ④ ناسية للوقت والعدد (المتحيرة المطلقة)
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SECTION 2: تعريف المعتادة غير المميزة ===== -->
+<h1>تعريف المعتادة غير المميزة</h1>
+
+<p>قال فضيلة الدكتور عبد الرحمن السقاف حفظه الله تعالى ونفع بعلمه في الدنيا والآخرة، اللهم آمين:</p>
+
+<div class="definition-card">
+  <span class="def-label">التعريف</span>
+  <div class="def-text">
+    <strong>المعتادة غير المميزة:</strong> هي من سبق لها حيض وطهر تعلمهما — سبق لها حيض وسبق لها طهر وكانت تعلم حيضها وكانت تعلم طهرها — ورأت الدم بصفة واحدة أو بصفات لكن فقدت شرطاً من شروط التمييز.
+  </div>
+</div>
+
+<h2>توضيح التعريف</h2>
+
+<div class="numbered-steps">
+  <div class="step-item">
+    <strong>قوله «سبق لها حيض وطهر تعلمهما»:</strong> خرج بها عن كونها مبتدأة، فليست مبتدأة لأنه قد سبق لها حيض وطهر.
+  </div>
+  <div class="step-item">
+    <strong>قوله «ورأت الدم بصفة واحدة»:</strong> كأن رأت الدم كله أسود حتى تجاوز خمسة عشر، أو كله أحمر حتى تجاوز خمسة عشر، أو نحو ذلك.
+  </div>
+  <div class="step-item">
+    <strong>قوله «أو بصفات لكن فقدت شرطاً من شروط التمييز»:</strong> أي فقدت واحداً من شروط التمييز الأربعة التي ذُكرت فيما سبق.
+  </div>
+</div>
+
+<h2>شروط التمييز الأربعة (مراجعة)</h2>
+
+<div class="conditions-grid">
+  <div class="condition-card">
+    <div class="cond-num">١</div>
+    <div class="cond-title">القوي يبلغ يوماً وليلة</div>
+    <div class="cond-desc">أن يبلغ الدم القوي يوماً وليلة على الأقل — فإن كان القوي دون يوم وليلة فقد التمييز</div>
+  </div>
+  <div class="condition-card">
+    <div class="cond-num">٢</div>
+    <div class="cond-title">القوي لا يتجاوز 15 يوماً</div>
+    <div class="cond-desc">أن لا يتجاوز القوي خمسة عشر يوماً</div>
+  </div>
+  <div class="condition-card">
+    <div class="cond-num">٣</div>
+    <div class="cond-title">الضعيف لا يبلغ 15 يوماً</div>
+    <div class="cond-desc">أن لا يبلغ الضعيف خمسة عشر يوماً إن استمر الدم</div>
+  </div>
+  <div class="condition-card">
+    <div class="cond-num">٤</div>
+    <div class="cond-title">لا يتخلل قوي بين الضعيف</div>
+    <div class="cond-desc">أن لا يتخلل للضعيف قوي — بأن يكون الضعيف متوالياً</div>
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه مهم</div>
+  إذا اختل أي شرط من هذه الشروط الأربعة حكمنا بأنها <span class="strong">غير مميزة</span>. فمثلاً: إذا كان القوي دون يوم وليلة فقد التمييز، أو إذا تجاوز القوي خمسة عشر يوماً، أو إذا بلغ الضعيف خمسة عشر يوماً، أو إذا تخلل قوي بين الضعيف — في جميع هذه الحالات حكمها حكم غير المميزة.
+</div>
+
+<!-- ===== SECTION 3: حكم المعتادة غير المميزة ===== -->
+<h1>حكم المعتادة غير المميزة</h1>
+
+<div class="ruling-card">
+  <span class="ruling-label">الحكم</span>
+  <div class="ruling-text">
+    حكم المعتادة غير المميزة أنها <span class="strong">ترد إلى عادتها في الحيض والطهر</span>. فإذا كانت عادتها خمسة أيام في الحيض فإن حيضها خمسة أيام، وعادتها في الطهر مثلاً سبعة عشر يوماً.
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه مهم: ترد إلى عادتها في الحيض والطهر معاً</div>
+  الذي أريدك أن تنتبه له أن هذه المرأة ترد إلى عادتها في الحيض <strong>وإلى عادتها في الطهر</strong> — ليس في الحيض فقط. وسينبني على هذا في المسألة الثالثة التي ستأتي أنها ترد إلى عادتها ليس إلى عادتها في الحيض فقط بل إلى عادتها في الحيض والطهر. انظر إلى عبارته: «وحكمها أنها ترد إلى عادتها في الحيض والطهر».
+</div>
+
+<h2>مثال توضيحي</h2>
+
+<div class="case-card">
+  <span class="case-label">مثال</span>
+  <div class="case-q">امرأة كان حيضها يأتيها خمسة أيام في كل شهر وتطهر سبعة عشر يوماً — كم المجموع؟</div>
+  <div class="case-a">
+    المجموع اثنان وعشرون يوماً. في شهر ما حصل عندها ما أخل بالتمييز فحكمنا بأنها غير مميزة، جاءها الدم بصفة واحدة واستمر. كيف نقول؟<br><br>
+    نقول: إن حيضك خمسة أيام ثم سبعة عشر يوماً طهر. خمسة أيام حيض والدم ما زال مستمر، ثم سبعة عشر يوماً طهر، ثم خمسة أيام حيض، ثم سبعة عشر يوماً طهر، وهكذا <span class="strong">ولو دامت على هذا أشهراً</span>.
+  </div>
+</div>
+
+<div class="timeline-container">
+  <div class="timeline-bar">
+    <div class="timeline-segment seg-hayd" style="flex:5;">5 حيض</div>
+    <div class="timeline-segment seg-tuhr" style="flex:17;">17 طهر</div>
+    <div class="timeline-segment seg-hayd" style="flex:5;">5 حيض</div>
+    <div class="timeline-segment seg-tuhr" style="flex:17;">17 طهر</div>
+    <div class="timeline-segment seg-hayd" style="flex:5;">5 حيض</div>
+    <div class="timeline-segment seg-istihada" style="flex:3;">...</div>
+  </div>
+  <div class="timeline-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#1b5e20;"></div> حيض (حسب العادة)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1565c0;"></div> طهر (حسب العادة)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#c62828;"></div> استمرار الدم (استحاضة)</div>
+  </div>
+</div>
+
+<!-- ===== SECTION 4: دليل حديث أم سلمة ===== -->
+<h1>دليل حديث أم سلمة رضي الله عنها</h1>
+
+<p>والدليل على أن المعتادة غير المميزة ترد إلى عادتها حديث أم سلمة رضي الله تعالى عنها:</p>
+
+<div class="evidence-box">
+  <span class="ev-label">حديث أم سلمة</span>
+  <div class="ev-text">
+    إن امرأة كانت تهراق الدم على عهد رسول الله صلى الله عليه وسلم فاستفتت لها أم سلمة رسول الله صلى الله عليه وسلم فقال: <strong>«تنظر عدد الليالي والأيام التي كانت تحيض كم مقدار الأيام التي كانت تحيضها من الشهر قبل أن يصيبها الذي أصابها، فلتدع الصلاة قدر ذلك»</strong>.<br><br>
+    أي تنظر آخر شهر قبل أن يصيبها ما أصابها من الاستحاضة مع عدم التمييز — كم كانت أيام حيضها. قالت: أيام الحيض كانت ستة أيام، والآن أيام الحيض ستة. وكم أيام الطهر؟ قالت: أيام الطهر كانت عشرين يوماً. <span class="strong">ستة حيض وعشرون يوماً طهر</span> يستمر الدم بغير تمييز هكذا: ستة حيض، عشرون طهر، ويمشي.<br><br>
+    رواه مالك في الموطأ والشافعي وأحمد في مسنديهما وأبو داود والنسائي وابن ماجة في سننهم بأسانيد صحيحة على شرط البخاري ومسلم.
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">فائدة: جواز الإنابة في الفتيا</div>
+  قوله «فاستفتت لها أم سلمة» فيه إشارة إلى <span class="strong">جواز الإنابة في الفتيا والاستفتاء</span> — أن تطلب من شخص أن يستفتي لك. أدلة كثيرة على هذا.
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">فائدة: متى نحكم بالعادة؟</div>
+  متى نحكم عادة المرأة؟ نحكم عادة المرأة <span class="strong">إذا لم يوجد التمييز</span>. إذا وجد التمييز فالتمييز مقدم. لكن إذا كانت غير مميزة حينئذ نقول: تنظر إلى عادتها.
+</div>
+
+<!-- ===== ملاحظة نحوية ===== -->
+<h2>ملاحظة نحوية: تهراق وهراقة وإراقة</h2>
+
+<div class="nahw-box">
+  <div class="nahw-title">ملاحظة نحوية</div>
+  <p class="no-indent"><strong>تهراق:</strong> هذا الفعل مضارع مبني للمجهول، ونائب الفاعل مستتر تقديره «هي»، والدم مفعول به. وهو من الإراقة أي السيلان — سيلان الدم أي السيل منها الدم. وهذا الفعل يأتي مبني للمجهول مثل فعل «تستحاض» يأتي مبني للمجهول.</p>
+  <p class="no-indent"><strong>هراقة:</strong> المصدر «هراقة» هكذا تكون: ها-راء-ألف-قاف-مربوطة تاء مربوطة. وإراقة من حيث المعنى شيء واحد.</p>
+  <p class="no-indent"><strong>إبدال الهاء همزة:</strong> في اللغة العربية يقع إبدال الهاء همزة — تبدل الهاء بهمزة — وهذا كثير. فكلمة «هراقة» و«إراقة» شيء واحد. الها والهمزة متقاربان في المخرج، هما في مخرج واحد كما لا يخفى عليكم، هي من الحروف الحلقية. ومن ذلك أن اللام تنطق عند بعض العرب همزة — كقولهم «الجاء زيد» بدل «هل جاء زيد» فالهاء صارت همزة.</p>
+</div>
+
+<!-- ===== SECTION 5: ثبوت العادة بمرة واحدة ===== -->
+<h1>ثبوت العادة بمرة واحدة</h1>
+
+<div class="fiqh-box">
+  <span class="fiqh-label">قاعدة</span>
+  <div class="fiqh-text">عادة الحيض والطهر تثبت بمرة واحدة.</div>
+</div>
+
+<div class="case-card">
+  <span class="case-label">مثال توضيحي</span>
+  <div class="case-q">امرأة حيضها في الشهر الأول خمسة أيام، وفي الشهر الثاني أربعة أيام، وفي الشهر الثالث ثلاثة أيام. في الشهر الرابع أصبحت معتادة غير مميزة — جاءها الدم بصفة واحدة. كيف نعمل بهذه؟</div>
+  <div class="case-a">
+    نقول: انظري آخر شهر — كم أيام الحيض؟ ثلاثة أيام. إذاً حيضك الآن في فترة عدم التمييز ثلاثة أيام. ترد إلى آخر شهر، والعادة تثبت <span class="strong">بمرة واحدة</span>.
+  </div>
+</div>
+
+<h2>مثال الكتاب</h2>
+
+<div class="quote-block">
+  مثال ذلك: لو كانت عادتها المستمرة خمسة من كل شهر — عادتها يعني الدم الحيضي يأتيها في كل شهر خمسة أيام — ثم صارت ستة في شهر، ثم جاءها الدم وزاد على خمسة عشر يوماً. فالمرأة في مثل هذا المثال مستحاضة وهي معتادة لأنه قد سبق لها حيض وطهر، وصورة الكلام هنا أنها غير مميزة أيضاً. فنردها إلى عادتها الأخيرة وهي الستة.
+  <div class="quote-source">نص المؤلف</div>
+</div>
+
+<div class="ruling-card">
+  <span class="ruling-label">تعليل</span>
+  <div class="ruling-text">
+    لماذا نردها إلى العادة الأخيرة وهي الستة مع أنها معتادة في الأشهر السابقة خمسة أيام؟ الجواب: لأن العادة تثبت <span class="strong">بمرة واحدة</span>. لأن العادة في الحيض والطهر تثبت بمرة واحدة.
+  </div>
+</div>
+
+<!-- ===== SECTION 6: أربع مسائل في ثبوت العادة ===== -->
+<h1>أربع مسائل في ثبوت العادة</h1>
+
+<p>قال: وها هنا نبين بعض المسائل التي تتعلق بثبوت العادة. هيا انتبه معي — مسائل مهمة هذه، أربع مسائل فقط.</p>
+
+<!-- ===== المسألة الأولى ===== -->
+<h2>المسألة الأولى: إذا اختلفت العادة وانتظمت</h2>
+
+<div class="fiqh-box">
+  <span class="fiqh-label">المسألة الأولى</span>
+  <div class="fiqh-text">إذا اختلفت عادة المرأة وانتظمت فإن هذه العادة حينئذ تثبت بمرتين.</div>
+</div>
+
+<div class="case-card">
+  <span class="case-label">مثال تفصيلي</span>
+  <div class="case-q">امرأة اختلفت عادتها وانتظمت: الشهر الأول 3 أيام، الثاني 5 أيام، الثالث 7 أيام، ثم تكرر النمط.</div>
+  <div class="case-a">
+    <div class="month-grid">
+      <div class="month-cell month-hayd">
+        <div class="month-label">الشهر ١</div>
+        <div class="month-value">3 أيام</div>
+      </div>
+      <div class="month-cell month-hayd">
+        <div class="month-label">الشهر ٢</div>
+        <div class="month-value">5 أيام</div>
+      </div>
+      <div class="month-cell month-hayd">
+        <div class="month-label">الشهر ٣</div>
+        <div class="month-value">7 أيام</div>
+      </div>
+      <div class="month-cell month-hayd">
+        <div class="month-label">الشهر ٤</div>
+        <div class="month-value">3 أيام</div>
+      </div>
+      <div class="month-cell month-hayd">
+        <div class="month-label">الشهر ٥</div>
+        <div class="month-value">5 أيام</div>
+      </div>
+      <div class="month-cell month-hayd">
+        <div class="month-label">الشهر ٦</div>
+        <div class="month-value">7 أيام</div>
+      </div>
+    </div>
+    <p class="no-indent" style="margin-top:10px;">الشهر الأول وافق الرابع (3)، والثاني وافق الخامس (5)، والثالث وافق السادس (7). هذه العادة لا تثبت إلا بأن تنتظم في ستة أشهر — أي <span class="strong">لا بد من مرتين</span> حتى تحكم العادة.</p>
+  </div>
+</div>
+
+<h3>استمرار المثال: إذا استحيضت بعد الانتظام</h3>
+
+<div class="month-grid">
+  <div class="month-cell month-hayd">
+    <div class="month-label">الشهر ٧</div>
+    <div class="month-value">← 3 أيام</div>
+  </div>
+  <div class="month-cell month-hayd">
+    <div class="month-label">الشهر ٨</div>
+    <div class="month-value">← 5 أيام</div>
+  </div>
+  <div class="month-cell month-hayd">
+    <div class="month-label">الشهر ٩</div>
+    <div class="month-value">← 7 أيام</div>
+  </div>
+  <div class="month-cell month-hayd">
+    <div class="month-label">الشهر ١٠</div>
+    <div class="month-value">← 3 أيام</div>
+  </div>
+  <div class="month-cell month-hayd">
+    <div class="month-label">الشهر ١١</div>
+    <div class="month-value">← 5 أيام</div>
+  </div>
+  <div class="month-cell month-hayd">
+    <div class="month-label">الشهر ١٢</div>
+    <div class="month-value">← 7 أيام</div>
+  </div>
+</div>
+
+<p>لو أنها في الشهر السابع أصبحت غير مميزة نقول: عادتك في الشهر السابع كم؟ ثلاثة أيام. لأن في الشهر الأول كم؟ ثلاثة أيام. ولو أن هذه المرأة استمر الأمر معها في الشهر الثامن غير مميزة — كم عادتها في الثامن؟ خمسة أيام. ولو أنها في التاسع غير مميزة — كم عادتها؟ سبعة أيام. ولو أنها في العاشر غير مميزة — كم عادتها؟ ثلاثة أيام. وهكذا على رأس السنة.</p>
+
+<div class="nahw-box">
+  <div class="nahw-title">ملاحظة نحوية</div>
+  <p class="no-indent">قوله «فإن هذه العادة حينئذ تثبت بمرتين» — «هذه العادة» عندكم صح؟ لا، «هذه العادة» صحيح. عطف بيان أو بدل — معرّف بعد إشارة بأل يُعرب نعت أو بيان أو بدل. فيكون بالنصب.</p>
+</div>
+
+<!-- ===== أما إذا لم تنتظم العادة ===== -->
+<h2>أما إذا لم تنتظم العادة</h2>
+
+<div class="ruling-card">
+  <span class="ruling-label">حكم</span>
+  <div class="ruling-text">
+    أما إذا لم تنتظم عادتها — سواء تكرر الدور أو لم يتكرر — بأن كانت تتقدم هذه مرة وهذه مرة أخرى، فإنها <span class="strong">ترد إلى ما قبل شهر الاستحاضة</span> ويلزمها الاحتياط إلى أكثر عادتها.
+  </div>
+</div>
+
+<div class="case-card">
+  <span class="case-label">المثال الأول: يلزمها الاحتياط</span>
+  <div class="case-q">امرأة لم تنتظم عادتها: الشهر الأول 7 أيام، الثاني 5 أيام، الثالث 3 أيام، الرابع 2 أيام، الخامس 7 أيام، السادس 5 أيام. في الشهر السابع أصبحت مستحاضة غير مميزة.</div>
+  <div class="case-a">
+    <div class="month-grid">
+      <div class="month-cell month-hayd">
+        <div class="month-label">الشهر ١</div>
+        <div class="month-value">7 أيام</div>
+      </div>
+      <div class="month-cell month-hayd">
+        <div class="month-label">الشهر ٢</div>
+        <div class="month-value">5 أيام</div>
+      </div>
+      <div class="month-cell month-hayd">
+        <div class="month-label">الشهر ٣</div>
+        <div class="month-value">3 أيام</div>
+      </div>
+      <div class="month-cell month-hayd">
+        <div class="month-label">الشهر ٤</div>
+        <div class="month-value">2 أيام</div>
+      </div>
+      <div class="month-cell month-hayd">
+        <div class="month-label">الشهر ٥</div>
+        <div class="month-value">7 أيام</div>
+      </div>
+      <div class="month-cell month-hayd">
+        <div class="month-label">الشهر ٦</div>
+        <div class="month-value">5 أيام</div>
+      </div>
+      <div class="month-cell month-istihada">
+        <div class="month-label">الشهر ٧</div>
+        <div class="month-value">استحاضة</div>
+      </div>
+    </div>
+    <p class="no-indent" style="margin-top:10px;">نقول: تردين إلى العادة في آخر شهر والتي هي <span class="strong">خمسة أيام</span>. أيام حيض — خمسة أيام ما في صلاة. تغتسل بعد الخمسة. لكن يلزمك <span class="strong">يومان احتياط</span> لأن أكثر عادتها سبعة أيام وهي ردت إلى خمسة فقط.</p>
+  </div>
+</div>
+
+<div class="ihtiyat-box">
+  <div class="ihtiyat-title">معنى الاحتياط</div>
+  <p class="no-indent">والمراد بالاحتياط أنها <span class="strong">في حكم الحائض في نحو الوطأ</span> — أي بالنسبة للوطأ لها أحكام الحائض فالوطأ حرام لأن الحائض حرام — <span class="strong">وفي حكم الطاهر في العبادة</span> وتغتسل عند آخر عادتها.</p>
+  <p class="no-indent" style="margin-top:8px;"><strong>الخلاصة:</strong> في أيام الاحتياط — من حيث العبادات تفعل (تصلي وتصوم)، ومن حيث الوطأ لا يحل للزوج.</p>
+</div>
+
+<div class="case-card">
+  <span class="case-label">المثال الثاني: لا يلزمها الاحتياط</span>
+  <div class="case-q">امرأة: الشهر الأول 5 أيام، الثاني 7 أيام، الثالث 3 أيام، الرابع 3 أيام، الخامس 5 أيام، السادس 7 أيام. في الشهر السابع أصبحت مستحاضة غير مميزة.</div>
+  <div class="case-a">
+    <div class="month-grid">
+      <div class="month-cell month-hayd">
+        <div class="month-label">الشهر ١</div>
+        <div class="month-value">5 أيام</div>
+      </div>
+      <div class="month-cell month-hayd">
+        <div class="month-label">الشهر ٢</div>
+        <div class="month-value">7 أيام</div>
+      </div>
+      <div class="month-cell month-hayd">
+        <div class="month-label">الشهر ٣</div>
+        <div class="month-value">3 أيام</div>
+      </div>
+      <div class="month-cell month-hayd">
+        <div class="month-label">الشهر ٤</div>
+        <div class="month-value">3 أيام</div>
+      </div>
+      <div class="month-cell month-hayd">
+        <div class="month-label">الشهر ٥</div>
+        <div class="month-value">5 أيام</div>
+      </div>
+      <div class="month-cell month-hayd">
+        <div class="month-label">الشهر ٦</div>
+        <div class="month-value">7 أيام</div>
+      </div>
+      <div class="month-cell month-istihada">
+        <div class="month-label">الشهر ٧</div>
+        <div class="month-value">استحاضة</div>
+      </div>
+    </div>
+    <p class="no-indent" style="margin-top:10px;">الشهر قبل الاستحاضة هو <span class="strong">سبعة أيام</span> وهو أكثر عادتها. فترد إلى السبعة. <span class="strong">لا يلزمها الاحتياط</span> لأن الذي ردت إليه هو أكثر عادتها.</p>
+  </div>
+</div>
+
+<div class="ruling-card">
+  <span class="ruling-label">قاعدة</span>
+  <div class="ruling-text">
+    يلزمها الاحتياط إلى أكثر عادتها <span class="strong">إن لم يكن هو الذي ردت إليه</span>. أي إن لم يكن أكثر عادتها هو الذي ردت إليه — كالمثال الأول. أما المثال الثاني فالذي ردت إليه هو أكثر عادتها فلا يلزمها الاحتياط.
+  </div>
+</div>
+
+<!-- ===== استدراك العلامة بن قاسم العبادي ===== -->
+<h2>استدراك العلامة بن قاسم العبادي</h2>
+
+<div class="scholar-card">
+  <div class="scholar-name">العلامة بن قاسم العبادي</div>
+  <p class="no-indent">متوفى سنة 994 من الهجرة. صاحب حاشية على العباب — والعباب لأحمد بن عمر مزيّد، وهو مختصر روضة الطالبين.</p>
+  <p class="no-indent" style="margin-top:8px;">قال العلامة بن قاسم العبادي رحمه الله الذي في العباب وغيره: <span class="highlight">أنه حيث لم يتكرر الدور ترد للنوبة الأخيرة ولا احتياط عليها مطلقاً</span>.</p>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">توضيح استدراك بن قاسم العبادي</div>
+  <p class="no-indent">يقصد العلامة بن قاسم العبادي: لو لم يتكرر الدور — فقط ثلاثة أشهر مثلاً: في الشهر الأول جاءها خمسة، في الشهر الثاني جاءها سبعة، في الشهر الثالث جاءها ثلاثة أيام ثم استحيضت — في هذه الحالة لم يتكرر الدور فيلزمها أن ترد إلى آخر شهر الذي هو ثلاثة أيام <span class="strong">ولا يلزمها الاحتياط</span>.</p>
+  <p class="no-indent" style="margin-top:8px;">لاحظ: في العبارة قبل قليل قال «أما إذا لم تنتظم عادتها سواء تكرر الدور أو لم يتكرر» — تعالى بن قاسم يقول: لا، هذا الكلام الذي سبق في حالة ما لو تكرر الدور. أما إذا لم يتكرر الدور فإنها ترد إلى آخر شهر قبل استحاضتها ولا يلزمها الاحتياط. هذا استدراك أو تعقيب من العلامة بن قاسم وهو فقيه دليل.</p>
+</div>
+
+<div class="comparison-card">
+  <div class="comp-side">
+    <div class="comp-label">المؤلف (السقاف)</div>
+    <div class="comp-text">
+      إذا لم تنتظم العادة <strong>سواء تكرر الدور أو لم يتكرر</strong> ترد إلى ما قبل شهر الاستحاضة <strong>ويلزمها الاحتياط</strong> إلى أكثر عادتها
+    </div>
+  </div>
+  <div class="comp-side">
+    <div class="comp-label">بن قاسم العبادي (استدراك)</div>
+    <div class="comp-text">
+      حيث <strong>لم يتكرر الدور</strong> فقط — ترد إلى النوبة الأخيرة <strong>ولا احتياط عليها مطلقاً</strong>
+    </div>
+  </div>
+</div>
+
+<!-- ===== المسألة الثانية ===== -->
+<h2>المسألة الثانية: تثبت العادة بالتمييز كما تثبت بانقطاع الدم</h2>
+
+<div class="fiqh-box">
+  <span class="fiqh-label">المسألة الثانية</span>
+  <div class="fiqh-text">تثبت العادة بالتمييز كما تثبت بانقطاع الدم.</div>
+</div>
+
+<p>ما معنى ذلك؟ انتبه معي: نعود إلى المثال الذي في السبورة. هذه المرأة في الشهر الأول جاءها الدم سبعة أيام وانقطع، ثم جاءها الدم خمسة أيام وانقطع، ثم ثلاثة أيام وانقطع. ثم جاءها ثلاثة أيام وانقطع، سبعة أيام وانقطع، خمسة أيام وانقطع. ثم استحيضت وكانت غير مميزة — تثبت لها حكم العادة، والدم هنا كان يأتي وينقطع. فنقول إن عادتك في آخر شهر كم؟ خمسة أيام. لماذا؟ لأن الدم جاءها خمسة أيام وانقطع.</p>
+
+<p>نفس الكلام لو جاءها الدم مثلاً خمسة أيام أسود ثم استمر أحمر حتى تجاوز خمسة عشر — فكم حيضها؟ خمسة أيام. طيب الآن الدم انقطع ولا ما انقطع؟ ما انقطع. لكنها مميزة وغير مميزة. إذاً نحكم لها بعادتها بناءً على التمييز. فهمتم؟ نحكم — إذا استحيضت فيما بعد وكانت غير مميزة — نحكم لها بعادتها بناءً على التمييز.</p>
+
+<div class="case-card">
+  <span class="case-label">مثال توضيحي</span>
+  <div class="case-q">نفترض أنها جاءها الدم أسود خمسة أيام، ثم أحمر مثلاً خمسة وعشرين يوماً. ثم بعد ذلك جاءها أسود واستمر (حتى تجاوز خمسة عشر). الآن أصبحت هنا غير مميزة. كم حيضها في هذا الشهر عندما صارت غير مميزة؟</div>
+  <div class="case-a">
+    <span class="strong">خمسة أيام</span>. مع أن الدم في الشهر الماضي ما انقطع. سواء جاء خمسة أيام منقطع أو ميزت — عرفت الحيض من خلال التمييز — في الحالة ترد إلى عادتها.
+  </div>
+</div>
+
+<div class="case-card">
+  <span class="case-label">مثال آخر</span>
+  <div class="case-q">لو أن الدم جاءها خمسة أيام ثم انقطع — هذا الشهر. في الشهر الذي بعده جاء الدم واستمر على صفة واحدة (يعني غير مميزة). كم عادتها هنا؟</div>
+  <div class="case-a">
+    <span class="strong">خمسة أيام</span>. لأنه في الشهر الأول جاء خمسة أيام منقطع. إذاً سواء جاء خمسة أيام منقطع أو ميزت عرفت الحيض من خلال التمييز — في الحالة ترد إلى عادتها. هذا هو المعنى.
+  </div>
+</div>
+
+<h3>مثال المؤلف</h3>
+
+<div class="quote-block">
+  مثاله: لو رأت مبتدأة خمسة أيام أسود ثم أصفر مستمر (ما معنى مستمر؟ حتى تجاوز الخمسة عشر)، ثم رأت في الشهر الثاني دماً مبهماً (ما معنى مبهماً؟ يعني ليس فيه تمييز) زاد على الخمسة عشر، كان عادتها أيام الأسود فقط (أي من الشهر السابق).
+  <div class="quote-source">نص المؤلف</div>
+</div>
+
+<div class="timeline-container">
+  <div style="font-size:14px; font-weight:bold; color:var(--dark); margin-bottom:5px;">الشهر الأول (مميزة):</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment seg-hayd" style="flex:5;">5 أسود</div>
+    <div class="timeline-segment seg-istihada" style="flex:10;">أصفر مستمر (استحاضة)</div>
+  </div>
+  <div style="font-size:14px; font-weight:bold; color:var(--dark); margin-bottom:5px; margin-top:12px;">الشهر الثاني (غير مميزة):</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment seg-hayd" style="flex:5;">5 حيض (حسب العادة)</div>
+    <div class="timeline-segment seg-istihada" style="flex:10;">مبهم مستمر (استحاضة)</div>
+  </div>
+  <div class="timeline-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#1b5e20;"></div> حيض</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#c62828;"></div> استحاضة</div>
+  </div>
+</div>
+
+<!-- ===== المسألة الثالثة ===== -->
+<h2>المسألة الثالثة: المراد بعادة المرأة التي ترد إليها</h2>
+
+<div class="fiqh-box">
+  <span class="fiqh-label">المسألة الثالثة</span>
+  <div class="fiqh-text">المراد بعادة المرأة التي ترد إليها: عادتها في الحيض والطهر، ليس في الحيض فقط. والتي مجموعها يسمى «دوراً».</div>
+</div>
+
+<p>هذا أكدت عليه في بداية الدرس: عادتها في الحيض والطهر، ليس في الحيض فقط. والتي مجموعها يسمى <span class="strong">دوراً</span>. يعني مجموع الحيض مع مجموع الطهر اسمه دور.</p>
+
+<div class="case-card">
+  <span class="case-label">مثال</span>
+  <div class="case-q">امرأة تحيض ستة أيام وطهرها عشرون يوماً. ثم في شهر جاءها الدم بصفة واحدة.</div>
+  <div class="case-a">
+    نقول لها: إن أيام الحيض ستة، وبعد الستة تغتسلين، وهذا طهر. والدم مستمر؟ بعد العشرين يوماً (كان طهرها عشرين يوماً) — ستة أيام حيض. بعد الستة أيام حيض تغتسلين. عشرون يوماً طهر. الدم مستمر؟ وهكذا.<br><br>
+    مجموع هذه الأيام الستة (أيام الحيض) مع العشرين يسمى <span class="strong">دوراً</span>. مجموع 26 يوماً هو الدور.
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه: الدور لا يشترط أن يكون ثلاثين يوماً</div>
+  لا يشترط أن يكون الدور ثلاثين يوماً. قد يكون أقل من ثلاثين. قد يكون حيض المرأة خمسة أيام وطهرها ستة عشر يوماً — يكون الدور واحداً وعشرين يوماً. قد يكون الدور ستة وعشرين يوماً. قد يكون الدور أربعة وعشرين يوماً. ممكن. تجد في كتب الفقه مثلاً امرأة سألت فقالت إن دوري كذا وكذا — تقصد بدورها مجموع حيضها مع طهرها.
+</div>
+
+<h3>مثال المؤلف</h3>
+
+<div class="quote-block">
+  كانت عادتها المستمرة ستة أيام وطهرها من الحيض ستة عشر. فهذه دورها اثنان وعشرون يوماً — ستة حيض وستة عشر طهر. فلو زاد دم في شهر ما على خمسة عشر واستمر أربعين يوماً... خمسين يوماً... ستين يوماً... ما يهم... نعمل لها ستة أيام حيض، وبعدين ستة عشر طهر. بعد ستة عشر طهر ستة أيام حيض، وبعدين ستة عشر طهر. وهكذا. وكانت معتادة غير مميزة فنحكم لها في هذا المثال بالعادة. فحيضها ستة أيام وطهرها ستة عشر. ثم نحيضها ستة.
+  <div class="quote-source">نص المؤلف</div>
+</div>
+
+<div class="timeline-container">
+  <div style="font-size:14px; font-weight:bold; color:var(--dark); margin-bottom:5px;">الدور = 6 حيض + 16 طهر = 22 يوماً</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment seg-hayd" style="flex:6;">6 حيض</div>
+    <div class="timeline-segment seg-tuhr" style="flex:16;">16 طهر</div>
+    <div class="timeline-segment seg-hayd" style="flex:6;">6 حيض</div>
+    <div class="timeline-segment seg-tuhr" style="flex:16;">16 طهر</div>
+    <div class="timeline-segment seg-hayd" style="flex:6;">6 حيض</div>
+    <div class="timeline-segment seg-istihada" style="flex:3;">...</div>
+  </div>
+  <div class="timeline-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#1b5e20;"></div> حيض</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1565c0;"></div> طهر</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#c62828;"></div> استحاضة (استمرار الدم)</div>
+  </div>
+</div>
+
+<!-- ===== المسألة الرابعة ===== -->
+<h2>المسألة الرابعة: يجوز أن تنتقل العادة</h2>
+
+<div class="fiqh-box">
+  <span class="fiqh-label">المسألة الرابعة</span>
+  <div class="fiqh-text">يجوز أن تنتقل العادة فتتقدم وتتأخر وتزيد وتنقص. وحينئذ إذا حصل مثل هذا التقدم والتأخر والزيادة والنقصان — ترد إلى آخر ما رأت، لأنه أقرب إلى شهر الاستحاضة.</div>
+</div>
+
+<div class="ruling-card">
+  <span class="ruling-label">قاعدة فقهية</span>
+  <div class="ruling-text">
+    <span class="strong">ما قارب الشيء يُعطى حكمه</span> أو يُعطى حكمه. ولهذا ترد إلى آخر ما رأت لأنه أقرب إلى شهر الاستحاضة.
+  </div>
+</div>
+
+<div class="case-card">
+  <span class="case-label">مثال المؤلف</span>
+  <div class="case-q">لو كانت عادتها خمسة من أول الشهر. فرأت في شهر ستة وطهرت باقيه. ثم رأت في الشهر الذي يليه سبعة وطهرت باقيه. ثم استحيضت.</div>
+  <div class="case-a">
+    <div class="month-grid">
+      <div class="month-cell month-hayd">
+        <div class="month-label">عادة دائمة</div>
+        <div class="month-value">5 أيام</div>
+      </div>
+      <div class="month-cell month-current">
+        <div class="month-label">شهر الزيادة ١</div>
+        <div class="month-value">6 أيام</div>
+      </div>
+      <div class="month-cell month-current">
+        <div class="month-label">شهر الزيادة ٢</div>
+        <div class="month-value">7 أيام</div>
+      </div>
+      <div class="month-cell month-istihada">
+        <div class="month-label">شهر الاستحاضة</div>
+        <div class="month-value">استحيضت</div>
+      </div>
+    </div>
+    <p class="no-indent" style="margin-top:10px;">ترد إلى آخر شهر وهو <span class="strong">سبعة أيام</span>.</p>
+    <p class="no-indent" style="margin-top:8px;"><strong>هل يلزمها الاحتياط؟</strong> لا يلزمها الاحتياط لأنها ردت إلى أكثر عادتها وحينئذ لا يلزمها.</p>
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه على عبارة المؤلف</div>
+  قوله «لو كانت عادتها خمسة من أول شهر» — كلمة «عادتها» تشعر بأنه يوجد من قبل، يعني أن هذا ليس هو الشهر الثالث إلا إن كان في شيء واحد — يعني يقصد لعل الشيخ يقصد: هذا إذا كان يقصد في الشهر الثالث أي من حصل الزيادة في الشهر الثاني ستة أيام وحصل الزيادة في الثالث سبعة ثم في الرابع ليست زيادة فقط وإنما حصل عدم تمييز. ممكن يقصد هذا الشيء. على كل حال تنبهوا لمثل هذا التعبير.
+</div>
+
+<!-- ===== SECTION 7: حكم استمرار الدم بالمعتادة في الشهر الثاني ===== -->
+<h1>حكم استمرار الدم بالمعتادة في الشهر الثاني</h1>
+
+<div class="ruling-card">
+  <span class="ruling-label">حكم</span>
+  <div class="ruling-text">
+    إذا استمر بالمعتادة الدم في الشهر الثاني وجاوز العادة — اغتسلت عند مجاوزة العادة. لأن علمنا من الشهر الأول أنها مستحاضة، والاستحاضة تثبت بمرة.
+  </div>
+</div>
+
+<h2>التفصيل بين الشهر الأول والشهر الثاني</h2>
+
+<div class="comparison-card">
+  <div class="comp-side">
+    <div class="comp-label">الشهر الأول (شهر ثبوت الاستحاضة)</div>
+    <div class="comp-text">
+      لا تغتسل عند مجاوزة العادة، لأنها <span class="strong">لا تدري</span> هل هي مستحاضة أو يمكن أن ينقطع الدم قبل خمسة عشر.<br><br>
+      <strong>الأصل أنها حائض</strong> — لا تصلي ولا تصوم. فإذا تجاوز الدم خمسة عشر ما بعدين نقول: ما دام الدم تجاوز خمسة عشر أنت مستحاضة غير مميزة. كم حيضك؟ ثلاثة أيام فقط. وبعدين من اليوم الرابع إلى الآن يلزمك القضاء.
+    </div>
+  </div>
+  <div class="comp-side">
+    <div class="comp-label">الشهر الثاني (بعد ثبوت الاستحاضة)</div>
+    <div class="comp-text">
+      إذا مضت خمسة أيام — <span class="strong">تغتسل مباشرة وتصلي</span> — ما تنتظر إلى خمسة عشر. لماذا؟ لأنه تبين من الشهر الأول أنها مستحاضة، والاستحاضة تثبت <span class="strong">بمرة</span>.
+    </div>
+  </div>
+</div>
+
+<div class="case-card">
+  <span class="case-label">مثال تطبيقي تفصيلي</span>
+  <div class="case-q">امرأة عادتها منتظمة: 3 أيام، 5 أيام، 7 أيام (مكررة). في الشهر السابع استحيضت (غير مميزة). ما الحكم؟</div>
+  <div class="case-a">
+    <h3>الشهر السابع (شهر ثبوت الاستحاضة):</h3>
+    <p class="no-indent">ترد إلى <span class="strong">ثلاثة أيام</span>. هل هي بعد الثلاثة أيام مباشرة تغتسل وتصلي؟ <span class="strong">لا</span> — لأنها لا تدري هل هي هذه استحاضة أو يمكن أن ينقطع قبل الخمسة عشر. هي ما تدري أصلاً. يمكن الدم يزيد إلى تسع أيام أو عشرة أيام — ما تدري. يمكن ينقطع قبل خمسة عشر. الأصل أنها حائض لا تصلي ولا تصوم.</p>
+    <p class="no-indent" style="margin-top:8px;">فإذا تجاوز الدم خمسة عشر — نقول: أنت مستحاضة غير مميزة، حيضك ثلاثة أيام فقط. ومن اليوم الرابع إلى الآن يلزمك القضاء.</p>
+    
+    <h3 style="margin-top:15px;">الشهر الثامن (بعد ثبوت الاستحاضة):</h3>
+    <p class="no-indent">جاءها الدم بصفة واحدة — نقول: خلاص إذا مضت خمسة أيام تغتسلين مباشرة وتصلين — <span class="strong">ما تنتظرين إلى خمسة عشر</span>. لأنه تبين من الشهر السابع أنها مستحاضة والاستحاضة تثبت بمرة.</p>
+    <p class="no-indent" style="margin-top:8px;">بعد الخمسة أيام تغتسل وتصلي وتصوم مع الاحتياط (يومان احتياط). أغسلت بعد خمسة أيام وصلت وصامت — جميل. وبقي الدم في اليوم السادد والسابع والثامن والتاسع والعاشر وانقطع الدم — تبين أن الصلاة في هذه الأيام العشرة كلها غير صحيحة وما صومها غير صحيح — لأنه وقع الانقطاع قبل خمسة عشر يوماً.</p>
+  </div>
+</div>
+
+<div class="quote-block">
+  إذا استمر بالمعتادة الدم في الشهر الثاني وجاوز العادة اغتسلت عند مجاوزة العادة — لأن علمنا من الشهر الأول أنها مستحاضة والاستحاضة تثبت بمرة. وتفعل ما تفعله الطاهرات من الصلاة والصوم وسواهما. وهكذا تفعل في كل شهر. فإذا انقطع دمها في بعض الشهور على خمسة عشر أو أقل — علمنا أنها ليست مستحاضة في هذا الشهر بل هي في حيض — وأن جميع ما رأته (أي في ذلك الشهر الذي حصل فيه الانقطاع قبل مجاوزة الخمسة عشر) حيض — فتتدارك ما يجب تداركه من الصوم وغيره.
+  <div class="quote-source">نص المؤلف</div>
+</div>
+
+<div class="ihtiyat-box">
+  <div class="ihtiyat-title">خلاصة: ماذا تفعل المعتادة غير المميزة في الشهر الثاني؟</div>
+  <p class="no-indent"><strong>في الشهر الأول (ثبوت الاستحاضة):</strong> لا تغتسل عند مجاوزة العادة — تنتظر حتى يتجاوز 15 يوماً لتبين حالها.</p>
+  <p class="no-indent"><strong>في الشهر الثاني فصاعداً:</strong> إذا مضت أيام عادتها اغتسلت مباشرة وتفعل ما تفعله الطاهرات — لأن الاستحاضة تثبت بمرة.</p>
+  <p class="no-indent"><strong>إذا انقطع الدم قبل 15:</strong> علمنا أنها ليست مستحاضة في ذلك الشهر بل هي حائض — وجميع ما رأته حيض — فتتدارك ما يجب تداركه من الصوم وغيره بالقضاء.</p>
+</div>
+
+<!-- ===== SECTION 8: إشارة إلى المتحيرة المطلقة ===== -->
+<h1>إشارة إلى الدرس القادم: المتحيرة المطلقة</h1>
+
+<p>قال: خامساً المتحيرة المطلقة — هذه نتركها في بداية الدرس القادم إن شاء الله. والله أعلم، وصلي اللهم وسلم وبارك على سيدنا محمد وآله وصحبه أجمعين والحمد لله رب العالمين.</p>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه الشيخ</div>
+  غداً لابد أن تأكلوا جيداً — غداً ربما أصعب درس الكتاب، أقول لكم بصراحة: غداً ربما أصعب — المتحيرة المطلقة. فلابد أن تستعدوا تأتون إلى هنا بصدر منشرح.
+</div>
+
+<div class="flow-chart">
+  <div class="flow-node">المستحاضة في الحيض</div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-branch">
+    <div class="flow-node green">المبتدأة المميزة ✓</div>
+    <div class="flow-node green">المبتدأة غير المميزة ✓</div>
+    <div class="flow-node green">المعتادة المميزة ✓</div>
+    <div class="flow-node gold">المعتادة غير المميزة ◄ الدرس الحالي</div>
+  </div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-node purple">المتحيرة المطلقة ◄ الدرس القادم</div>
+</div>
+
+<!-- ===== خلاصة الدرس ===== -->
+<h1>خلاصة الدرس</h1>
+
+<div class="summary-box">
+  <div class="summary-title">خلاصة مسائل الدرس الثالث عشر</div>
+  <div class="data-table" style="margin-top:10px;">
+    <table>
+      <thead>
+        <tr>
+          <th>المسألة</th>
+          <th>الحكم</th>
+          <th>ملاحظة</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>تعريف المعتادة غير المميزة</td>
+          <td>من سبق لها حيض وطهر ورأت الدم بصفة واحدة أو بصفات لكن فقدت شرطاً من شروط التمييز</td>
+          <td>تخرج بقوله «سبق لها حيض وطهر» عن كونها مبتدأة</td>
+        </tr>
+        <tr>
+          <td>حكمها</td>
+          <td>ترد إلى عادتها في الحيض والطهر معاً</td>
+          <td>ليس في الحيض فقط — تأكيد مهم</td>
+        </tr>
+        <tr>
+          <td>ثبوت العادة</td>
+          <td>تثبت بمرة واحدة</td>
+          <td>عادة الحيض والطهر تثبت بمرة واحدة</td>
+        </tr>
+        <tr>
+          <td>المسألة ١: اختلفت وانتظمت</td>
+          <td>تثبت بمرتين</td>
+          <td>لا بد أن ينتظم في ستة أشهر</td>
+        </tr>
+        <tr>
+          <td>المسألة ١: لم تنتظم</td>
+          <td>ترد إلى ما قبل شهر الاستحاضة مع الاحتياط إلى أكثر العادة إن لم يكن هو الذي ردت إليه</td>
+          <td>استدراك بن قاسم: لو لم يتكرر الدور فلا احتياط</td>
+        </tr>
+        <tr>
+          <td>المسألة ٢</td>
+          <td>تثبت العادة بالتمييز كما تثبت بانقطاع الدم</td>
+          <td>العادة تثبت بالتمييز أيضاً لا بالانقطاع فقط</td>
+        </tr>
+        <tr>
+          <td>المسألة ٣</td>
+          <td>العادة تشمل الحيض والطهر ومجموعهما يسمى «دوراً»</td>
+          <td>الدور لا يشترط أن يكون 30 يوماً</td>
+        </tr>
+        <tr>
+          <td>المسألة ٤</td>
+          <td>يجوز أن تنتقل العادة وتتقدم وتتأخر وتزيد وتنقص — ترد إلى آخر ما رأت</td>
+          <td>القاعدة: ما قارب الشيء يعطى حكمه</td>
+        </tr>
+        <tr>
+          <td>الشهر الثاني من الاستحاضة</td>
+          <td>تغتسل عند مجاوزة العادة مباشرة لأن الاستحاضة تثبت بمرة</td>
+          <td>في الشهر الأول تنتظر حتى يتجاوز 15</td>
+        </tr>
+        <tr>
+          <td>انقطع الدم قبل 15</td>
+          <td>جميع ما رأته حيض — تتدارك ما يجب تداركه</td>
+          <td>الصلاة والصوم غير صحيحين في أيام الاحتياط</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="benefit-box">
+  <span class="benefit-label">فائدة جامعة</span>
+  <div>
+    <strong>القواعد الأساسية في هذا الدرس:</strong><br>
+    ① العادة تثبت بمرة واحدة<br>
+    ② إذا اختلفت العادة وانتظمت تثبت بمرتين<br>
+    ③ تثبت العادة بالتمييز كما تثبت بانقطاع الدم<br>
+    ④ المعتادة غير المميزة ترد إلى عادتها في الحيض والطهر (الدور)<br>
+    ⑤ يجوز انتقال العادة — ترد إلى آخر ما رأت<br>
+    ⑥ ما قارب الشيء يعطى حكمه<br>
+    ⑦ الاستحاضة تثبت بمرة — ففي الشهر الثاني تغتسل عند مجاوزة العادة مباشرة<br>
+    ⑧ الاحتياط يكون في العبادات (تفعل) دون الوطأ (يحرم)
+  </div>
+</div>
+
+</div><!-- end main-content -->
+
+</body>
+</html>

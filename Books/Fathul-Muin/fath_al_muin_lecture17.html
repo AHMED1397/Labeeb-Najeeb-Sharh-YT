@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf'); }
+@font-face { font-family: 'Amiri-Bold'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf'); }
+@font-face { font-family: 'NotoNaskhArabic'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+body { font-family: 'NotoNaskhArabic', 'Amiri', serif; font-size: 14px; line-height: 1.8; color: #2c2c2c; direction: rtl; text-align: justify; }
+h1 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 18pt; color: #1a5632; margin: 14px 0 6px 0; }
+h2 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 15pt; color: #1a5632; margin: 12px 0 5px 0; border-bottom: 2px solid #c8a951; padding-bottom: 3px; }
+h3 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 12pt; color: #2c5f7c; margin: 8px 0 4px 0; }
+p { margin: 3px 0; }
+.cover-header { background: #1a5632; color: white; padding: 20px 14px; text-align: center; margin: 0 0 12px 0; background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px); border-bottom: 4px solid #c8a951; }
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 6px; border: none; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.9; margin: 4px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.92; margin: 6px 0 2px 0; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .series { font-size: 11pt; opacity: 0.8; margin-top: 4px; }
+.toc { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 6px; padding: 10px 14px; margin: 0 0 12px 0; }
+.toc-title { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 14pt; color: #1a5632; text-align: center; margin-bottom: 6px; border-bottom: 2px solid #c8a951; padding-bottom: 4px; }
+.toc-item { font-size: 10pt; padding: 2px 0; border-bottom: 1px dotted #ccc; display: flex; justify-content: space-between; }
+.table-container { overflow-x: hidden; margin: 8px 0; page-break-inside: avoid; }
+table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 10pt; }
+th, td { padding: 4px 8px; border: 1px solid #ddd; overflow-wrap: break-word; word-break: break-word; }
+th { background-color: #1a5632; color: white; text-align: right; font-size: 10pt; }
+.callout { padding: 8px 12px; margin: 8px 0; border-radius: 0 6px 6px 0; page-break-inside: avoid; }
+.callout-title { font-weight: bold; margin-bottom: 3px; font-size: 11pt; }
+.callout-body { color: #333; line-height: 1.7; font-size: 13px; }
+.callout-warning { background: #fff3cd; border-right: 4px solid #c8a951; }
+.callout-warning .callout-title { color: #856404; }
+.callout-ruling { background: #e8f5e9; border-right: 4px solid #1a5632; }
+.callout-ruling .callout-title { color: #1a5632; }
+.callout-important { background: #e3f2fd; border-right: 4px solid #2c5f7c; }
+.callout-important .callout-title { color: #2c5f7c; }
+.callout-danger { background: #f8d7da; border-right: 4px solid #c0392b; }
+.callout-danger .callout-title { color: #c0392b; }
+.callout-info { background: #d1ecf1; border-right: 4px solid #17a2b8; }
+.callout-info .callout-title { color: #0c5460; }
+.callout-definition { background: #e8f4f8; border-right: 4px solid #2c5f7c; }
+.callout-definition .callout-title { color: #1a3a5c; }
+.callout-success { background: #d4edda; border-right: 4px solid #28a745; }
+.callout-success .callout-title { color: #155724; }
+.card-grid { display: grid; gap: 8px; margin: 10px 0; max-width: 100%; }
+.card-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.card-grid-3 { grid-template-columns: repeat(2, 1fr); }
+.card { padding: 10px; border-radius: 8px; text-align: center; max-width: 100%; overflow-wrap: break-word; }
+.card-title { font-size: 11pt; font-weight: bold; }
+.card-desc { font-size: 9pt; margin-top: 3px; opacity: 0.9; line-height: 1.6; }
+.compare-box { display: flex; gap: 0; margin: 8px 0; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.1); max-width: 100%; flex-wrap: wrap; }
+.compare-side { flex: 1; min-width: 0; padding: 8px 10px; }
+.compare-side h3 { margin: 0 0 4px 0; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 3px; font-size: 11pt; color: white; }
+.compare-side p { font-size: 12px; line-height: 1.6; color: white; }
+.compare-divider { width: 3px; background: #c8a951; }
+.section-num { display: inline-block; background: #1a5632; color: white; width: 22px; height: 22px; line-height: 22px; text-align: center; border-radius: 50%; font-size: 11pt; margin-left: 5px; }
+.vertical-flow { display: flex; flex-direction: column; align-items: center; margin: 10px 0; page-break-inside: avoid; max-width: 100%; }
+.flow-step { padding: 7px 12px; border-radius: 6px; text-align: center; max-width: 280px; width: 90%; }
+.flow-arrow { color: #c8a951; font-size: 14pt; margin: 1px 0; }
+.poetry-box { background: #f9f5ec; border: 2px solid #c8a951; border-radius: 8px; padding: 10px 16px; margin: 10px 0; text-align: center; page-break-inside: avoid; }
+.poetry { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 13pt; color: #1a5632; line-height: 2.2; }
+.formula-box { background: #fdf6e3; border: 2px solid #c8a951; border-radius: 8px; padding: 10px 14px; margin: 8px 0; page-break-inside: avoid; text-align: center; }
+.formula-box .formula-text { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 12pt; color: #1a5632; line-height: 1.8; }
+.formula-box .formula-note { font-size: 10pt; color: #4a4a5e; margin-top: 4px; }
+.classification-group { display: grid; gap: 8px; margin: 8px 0; grid-template-columns: repeat(2, 1fr); page-break-inside: avoid; }
+.box-green { background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border: 2px solid #1a5632; border-radius: 8px; padding: 10px; }
+.box-green .box-title { font-family: 'Amiri-Bold', 'Amiri', serif; color: #1a5632; font-size: 11pt; font-weight: bold; margin-bottom: 4px; }
+.box-green .box-content { font-size: 12px; line-height: 1.7; color: #333; }
+.box-blue { background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border: 2px solid #2c5f7c; border-radius: 8px; padding: 10px; }
+.box-blue .box-title { font-family: 'Amiri-Bold', 'Amiri', serif; color: #2c5f7c; font-size: 11pt; font-weight: bold; margin-bottom: 4px; }
+.box-blue .box-content { font-size: 12px; line-height: 1.7; color: #333; }
+.box-gold { background: linear-gradient(135deg, #fdf6e3 0%, #f5e6b8 100%); border: 2px solid #c8a951; border-radius: 8px; padding: 10px; }
+.box-gold .box-title { font-family: 'Amiri-Bold', 'Amiri', serif; color: #856404; font-size: 11pt; font-weight: bold; margin-bottom: 4px; }
+.box-gold .box-content { font-size: 12px; line-height: 1.7; color: #333; }
+.box-red { background: linear-gradient(135deg, #f8e8e8 0%, #f5d0d0 100%); border: 2px solid #8b1a1a; border-radius: 8px; padding: 10px; }
+.box-red .box-title { font-family: 'Amiri-Bold', 'Amiri', serif; color: #8b1a1a; font-size: 11pt; font-weight: bold; margin-bottom: 4px; }
+.box-red .box-content { font-size: 12px; line-height: 1.7; color: #333; }
+.condition-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin: 8px 0; page-break-inside: avoid; }
+.condition-item { background: #f5f0e6; border: 1px solid #d4c9a8; border-radius: 6px; padding: 8px 10px; font-size: 11px; line-height: 1.6; }
+.condition-item .cond-num { display: inline-block; background: #1a5632; color: white; width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 50%; font-size: 10pt; margin-left: 4px; }
+.diagram-container { background: #fafaf5; border: 2px solid #d4c9a8; border-radius: 8px; padding: 12px; margin: 8px 0; page-break-inside: avoid; }
+.diagram-branch { display: flex; gap: 8px; margin: 6px 0; flex-wrap: wrap; }
+.diagram-node { flex: 1; min-width: 140px; padding: 8px; border-radius: 6px; font-size: 11px; line-height: 1.6; }
+.diagram-node.node-main { background: #1a5632; color: white; font-weight: bold; text-align: center; }
+.diagram-node.node-branch { background: #f5f0e6; border: 1px solid #c8a951; }
+.diagram-node.node-result { background: #e8f5e9; border: 1px solid #1a5632; }
+.diagram-node.node-warn { background: #f8e8e8; border: 1px solid #8b1a1a; }
+.numbered-list { counter-reset: item; padding: 0; margin: 8px 0; }
+.numbered-list li { list-style: none; padding: 4px 8px 4px 0; font-size: 13px; line-height: 1.7; border-bottom: 1px dotted #e0e0e0; }
+.numbered-list li:last-child { border-bottom: none; }
+</style>
+</head>
+<body>
+
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس السابع عشر — نواقض الوضوء</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="series">خروج شيء من السبيلين · زوال العقل · مس الفرج · تلاقي البشرتين</div>
+</div>
+
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. مقدمة: نواقض الوضوء الأربعة</span><span>١</span></div>
+  <div class="toc-item"><span>٢. الناقض الأول: تيقن خروج شيء — الدخول لا ينقض</span><span>٢</span></div>
+  <div class="toc-item"><span>٣. الناقض الأول: غير مني — قاعدة الأعظم والأدنى</span><span>٣</span></div>
+  <div class="toc-item"><span>٤. الناقض الأول: عينا أو ريحا، رطبا أو جافا، معتادا أو نادرا</span><span>٣</span></div>
+  <div class="toc-item"><span>٥. الناقض الأول: انفصل أو لا — دودة أخرجت رأسها</span><span>٤</span></div>
+  <div class="toc-item"><span>٦. الناقض الأول: من أحد سبيلي المتوضئ الحي</span><span>٥</span></div>
+  <div class="toc-item"><span>٧. الناقض الأول: حكم الباسور — داخلي وخارجي</span><span>٥</span></div>
+  <div class="toc-item"><span>٨. فتوى الكمال الردد — تيسير في مسألة الباسور</span><span>٦</span></div>
+  <div class="toc-item"><span>٩. الناقض الثاني: زوال العقل (زوال تمييز)</span><span>٧</span></div>
+  <div class="toc-item"><span>١٠. الناقض الثاني: نوم القاعد الممكن — شروط عدم النقض</span><span>٨</span></div>
+  <div class="toc-item"><span>١١. الناقض الثاني: تيقن الرؤيا مع عدم تذكر نوم</span><span>٩</span></div>
+  <div class="toc-item"><span>١٢. العلم والعقل — مناظرة شعرية</span><span>١٠</span></div>
+  <div class="toc-item"><span>١٣. أحمد شوقي — الثعلب والديك</span><span>١٠</span></div>
+  <div class="toc-item"><span>١٤. الناقض الثالث: مس فرج آدمي أو محل قطعه</span><span>١١</span></div>
+  <div class="toc-item"><span>١٥. مواضع يستحب فيها الوضوء (٤٣ موضعاً)</span><span>١٢</span></div>
+  <div class="toc-item"><span>١٦. فرج البهيمة والنظر إلى فرج الآدمي</span><span>١٤</span></div>
+  <div class="toc-item"><span>١٧. الناقض الثالث: ببطن كف — تفصيل المس</span><span>١٥</span></div>
+  <div class="toc-item"><span>١٨. الناقض الرابع: تلاقي بشرتين — بدء</span><span>١٦</span></div>
+</div>
+
+<!-- 1 -->
+<h2><span class="section-num">١</span> مقدمة: نواقض الوضوء الأربعة</h2>
+
+<p>قال المصنف العلامة الفقيه المليباري رحمه الله تعالى: "ونواقضه"، أي ونواقض الوضوء. والنواقض جمع ناقض، وهي الأسباب التي ينتهي بها الوضوء أو ينتهي الوضوء بوجود واحد منها.</p>
+
+<div class="callout callout-ruling">
+  <div class="callout-title">قاعدة: حصر النواقض في أربعة — تعبدي</div>
+  <div class="callout-body">
+    نواقض الوضوء أربعة فقط، وكونها أربعة حصر فيها تعبدي، فلا يُضاف إليها غيرها. ولذلك لا ينقض عند الشافعية أيٌّ من الآتي:
+    <ul style="margin: 4px 0; padding-right: 18px;">
+      <li>خروج النجاسة من غير السبيلين</li>
+      <li>القيء</li>
+      <li>الحجامة ولا الفصد</li>
+      <li>الردة عن الإسلام</li>
+      <li>أكل لحم الإبل</li>
+    </ul>
+    فهذه كلها ليست نواقض للوضوء عند الشافعية، فالنواقض محصورة في أربعة أشياء فقط.
+  </div>
+</div>
+
+<div class="card-grid card-grid-2">
+  <div class="card" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border: 2px solid #1a5632;">
+    <div class="card-title" style="color: #1a5632;">الناقض الأول</div>
+    <div class="card-desc">تيقن خروج شيء من أحد السبيلين</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb); border: 2px solid #2c5f7c;">
+    <div class="card-title" style="color: #2c5f7c;">الناقض الثاني</div>
+    <div class="card-desc">زوال العقل (زوال التمييز)</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #fdf6e3, #f5e6b8); border: 2px solid #c8a951;">
+    <div class="card-title" style="color: #856404;">الناقض الثالث</div>
+    <div class="card-desc">مس فرج آدمي أو محل قطعه</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #f8e8e8, #f5d0d0); border: 2px solid #8b1a1a;">
+    <div class="card-title" style="color: #8b1a1a;">الناقض الرابع</div>
+    <div class="card-desc">تلاقي بشرتين بلا حائل</div>
+  </div>
+</div>
+
+<!-- 2 -->
+<h2><span class="section-num">٢</span> الناقض الأول: تيقن خروج شيء — الدخول لا ينقض</h2>
+
+<p>قال المصنف: "أحدها تيقن خروج شيء". قوله "تيقن" إشارة إلى أنه لو حصل شك هل خرج شيء أو لم يخرج، فالأصل بقاء الطهارة، إنما ينتقض بالتيقن للقاعدة الفقهية المشهورة: اليقين لا يزول بالشك.</p>
+
+<p>وقوله "خروج شيء" يُفهم منه أن ما دخل إلى السبيلين أو إلى غيرهما لا ينقض الوضوء. فالذي يدخل عبر الأنف أو الفم أو عبر القبل أو الدبر لا ينقض الوضوء. ومن هنا نعلم أنه لو أدخل الإنسان دواءً في دبره مثلاً وكان متوضئاً وهذا الدواء دخل واستقر في الداخل، فإن وضوءه لا ينتقض وله أن يصلي بذلك الوضوء، لأن الوضوء إنما ينتقض بخروج شيء لا بدخول شيء.</p>
+
+<div class="classification-group">
+  <div class="box-green">
+    <div class="box-title">الدخول لا ينقض</div>
+    <div class="box-content">إذا أدخل شيئاً في دبره أو قبله وهو متوضئ فإن وضوءه لا ينتقض. ومادام ذلك الشيء بعضه في داخل الدبر وبعضه في الخارج لا ينتقض أيضاً. فإذا أخرجه بالكامل انتقض الوضوء.</div>
+  </div>
+  <div class="box-blue">
+    <div class="box-title">بقاء الشيء جزئياً في الداخل</div>
+    <div class="box-content">مادام الشيء بعضه في الداخل وبعضه في الخارج يبقى على وضوئه. فيجوز له مس المصحف لأنه على وضوء. لكن لا تجوز له الصلاة — لا لأنه محدث بل لأنه اتصل بشيء بنجاسة وطرفه ظاهر.</div>
+  </div>
+</div>
+
+<div class="callout callout-warning">
+  <div class="callout-title">مسألة الكانيولا (الفراشة) والصلاة</div>
+  <div class="callout-body">
+    الكانيولا: إبرة يوضع بعضها في الوريد وبعضها ظاهر، بحيث لا يحتاج الطبيب في كل مرة أن يفتح فتحة جديدة. هذه الإبرة اتصل بعضها بالنجاسة (الوريد) وبعضها ظاهر — فالصلاة لا تصح في هذه الحالة. كيف يصنع هذا الشخص؟ نقول له: صلِّ لحرمة الوقت ثم يجب عليك قضاء الصلاة في تلك الأيام التي كانت الكانيولا موجودة. هذا مذهب الشافعية.
+  </div>
+</div>
+
+<div class="callout callout-info">
+  <div class="callout-title">مذهب المالكية في النادر</div>
+  <div class="callout-body">
+    عند المالكية الذي ينقض الوضوء هو الشيء المعتاد، فالشيء النادر لا ينقض الوضوء. وبالتالي لو أدخل الطبيب حديداً أو شيئاً في القبل أو الدبر ثم أخرجه وكان الشخص متوضئاً، فمقتضى كلام فقهاء المالكية أن الوضوء لا ينتقض لأن هذا شيء نادر ليس معتاداً.
+  </div>
+</div>
+
+<!-- 3 -->
+<h2><span class="section-num">٣</span> الناقض الأول: غير مني — قاعدة الأعظم والأدنى</h2>
+
+<p>قال المصنف: "غير منيه". أي أن الخارج إنما ينقض إذا كان غير منيٍّ. فلو خرج المني فإنه لا ينقض الوضوء، وهذه مسألة تكررت معنا في أكثر من مناسبة، وذكرنا القاعدة:</p>
+
+<div class="formula-box">
+  <div class="formula-text">ما أوجب أعظم الأمرين بخصوصه لم يُوجب الأدنى بعمومه</div>
+  <div class="formula-note">المني يوجب الغسل (الأعظم) بخصوص كونه منياً — فلا يوجب الوضوء (الأدنى) بعموم كونه خارجاً من السبيلين</div>
+</div>
+
+<p>خروج المني لما كان يوجب الغسل لا ينقض الوضوء، بشرط أن يكون المني مني الإنسان نفسه الخارج منه أول مرة.</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 35%;">نوع المني الخارج</th>
+        <th style="width: 20%;">حكمه</th>
+        <th style="width: 45%;">البيان</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #e8f5e9;">
+        <td style="font-weight: bold;">مني الشخص نفسه الخارج منه أول مرة</td>
+        <td style="color: #1a5632; font-weight: bold;">لا ينقض الوضوء</td>
+        <td>لأنه يوجب الغسل (الأعظم) فلا يوجب الوضوء (الأدنى)</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">مني غيره (كالمرأة المُكرَهة أو الصغيرة)</td>
+        <td style="color: #c0392b; font-weight: bold;">ينقض الوضوء</td>
+        <td>المرأة المُكرَهة لم تقضِ شهوتها فالمني ليس منياً لها بل مني من جامعها، وكذلك الصغيرة لا مني لها فالمني الخارج ليس منياً لها</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 4 -->
+<h2><span class="section-num">٤</span> الناقض الأول: عينا أو ريحا، رطبا أو جافا، معتادا أو نادرا</h2>
+
+<p>قال المصنف: "عيناً كان أو ريحاً، رطباً أو جافاً، معتاداً كبول أو نادراً كدم باسور". فسواء كان الخارج عيناً (مادياً) أو ريحاً، وسواء كان رطباً أو جافاً، وسواء كان معتاداً كبول أو نادراً كدم الباسور — ينقض الوضوء في جميع الأحوال.</p>
+
+<div class="card-grid card-grid-2">
+  <div class="card" style="background: #e8f5e9; border: 2px solid #1a5632;">
+    <div class="card-title" style="color: #1a5632;">عيناً أو ريحاً</div>
+    <div class="card-desc">سواء كان الخارج مادياً كالبول أو ريحاً — ينقض في الحالتين</div>
+  </div>
+  <div class="card" style="background: #e3f2fd; border: 2px solid #2c5f7c;">
+    <div class="card-title" style="color: #2c5f7c;">رطباً أو جافاً</div>
+    <div class="card-desc">سواء كان الخارج رطباً كالبول أو جافاً — ينقض في الحالتين</div>
+  </div>
+  <div class="card" style="background: #fdf6e3; border: 2px solid #c8a951;">
+    <div class="card-title" style="color: #856404;">معتاداً كبول</div>
+    <div class="card-desc">المعتاد كالبول والغائط ينقض بلا خلاف</div>
+  </div>
+  <div class="card" style="background: #f8e8e8; border: 2px solid #8b1a1a;">
+    <div class="card-title" style="color: #8b1a1a;">نادراً كدم باسور أو ريح من القبل</div>
+    <div class="card-desc">النادر أيضاً ينقض عند الشافعية خلافاً للمالكية</div>
+  </div>
+</div>
+
+<div class="compare-box">
+  <div class="compare-side" style="background: #1a5632;">
+    <h3>مذهب الشافعية</h3>
+    <p>الشيء النادر كالدود والدم وخروج الريح من القبل ينقض الوضوء مطلقاً، سواء كان معتاداً أو نادراً.</p>
+  </div>
+  <div class="compare-divider"></div>
+  <div class="compare-side" style="background: #2c5f7c;">
+    <h3>مذهب المالكية</h3>
+    <p>الشيء النادر لا ينقض الوضوء — إنما ينتقض بالشيء المعتاد فقط. فخروج الدود أو الدم النادر لا ينقض عندهم.</p>
+  </div>
+</div>
+
+<!-- 5 -->
+<h2><span class="section-num">٥</span> الناقض الأول: انفصل أو لا — دودة أخرجت رأسها</h2>
+
+<p>قال المصنف: "إن فصل أولى كدودة أخرجت رأسها ثم رجعت". أي سواء انفصل الخارج أو لم ينفصل — كلاهما ينقض الوضوء. ومثال ما لم ينفصل: دودة أخرجت رأسها من الدبر ثم رجعت.</p>
+
+<div class="callout callout-ruling">
+  <div class="callout-title">حكم الدودة التي أخرجت رأسها</div>
+  <div class="callout-body">
+    لو أن دودة أخرجت رأسها من الدبر انتقض الوضوء سواء أدخلت رأسها مرة أخرى أو لم تدخلها — في الحالتين ينتقض الوضوء. وعبّر العلامة ابن حجر في فتح الجواد بقوله: "كدودة أخرجت رأسها <b>وإن رجعت</b>" — وليس "ثم رجعت"، لأن "ثم" توحي بالترتيب وكأن رجوعها قيد، والأولى أن يقال "وإن رجعت" أي سواء رجعت أو لم ترجع.
+  </div>
+</div>
+
+<div class="callout callout-important">
+  <div class="callout-title">الفرق بين الدودة والجهاز الطبي</div>
+  <div class="callout-body">
+    قد يقول قائل: هذا يختلف مع كلامك السابق في مسألة الجهاز (الكانيولا) الذي بعضه في الداخل وبعضه في الخارج. والجواب: لا يختلف. كلام السابق في شيء <b>أُدخل</b> من الخارج (كجهاز أدخله الطبيب)، أما الدودة فهي <b>خرجت</b> من الداخل. فإذا أخرج الطبيب الجهاز انتقض الوضوء أيضاً. أما مادام الجهاز مدخولاً فلا نقض لأن الدخول لا ينقض.
+  </div>
+</div>
+
+<!-- 6 -->
+<h2><span class="section-num">٦</span> الناقض الأول: من أحد سبيلي المتوضئ الحي</h2>
+
+<p>قال المصنف: "من أحد سبيلي المتوضئ الحي، دبراً كان أو قبلاً". السبيلان هما القبل والدبر. وبعض الفقهاء قال الأفضل أن يُقال "من قبل أو دبر" لا "سبيلين"، لأنه لو كان للإنسان دبران يعملان فسواء خرج من هذا أو من هذا ينتقض الوضوء.</p>
+
+<div class="classification-group">
+  <div class="box-green">
+    <div class="box-title">قيد "الحي"</div>
+    <div class="box-content">قوله "الحي" قيد أخرج الميت. فالميت لو وُضئ وغُسل ثم خرج منه شيء من السبيلين بعد غسله — كالبول أو الغائط — لا يجب علينا أن نُعيد الوضوء أو الغسل، الواجب علينا إزالة النجاسة فقط.</div>
+  </div>
+  <div class="box-blue">
+    <div class="box-title">دبراً كان أو قبلاً</div>
+    <div class="box-content">سواء خرج الخارج من القبل أو من الدبر ينتقض الوضوء. والأفضل أن يُقال "من قبل أو دبر" لا "سبيلين" احتياطاً لمن له دبران.</div>
+  </div>
+</div>
+
+<!-- 7 -->
+<h2><span class="section-num">٧</span> الناقض الأول: حكم الباسور — داخلي وخارجي</h2>
+
+<p>قال المصنف: "ولو كان الخارج باسوراً نابتاً داخل الدبر فخرج أو زاد خروجه". الباسور عبارة عن أوعية دموية تتورم، وله نوعان: داخلي (نابت داخل الدبر) وخارجي (نابت خارج الدبر). واسم الباسور في بعض البلدان "واسيها" أو "انبيان".</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 20%;">نوع الباسور</th>
+        <th style="width: 20%;">الحالة</th>
+        <th style="width: 20%;">حكم النقض</th>
+        <th style="width: 40%;">السبب</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;" rowspan="3">الباسور الداخلي<br>(نابت داخل الدبر)</td>
+        <td>١. خرج الباسور نفسه</td>
+        <td style="color: #c0392b; font-weight: bold;">ينقض</td>
+        <td>خروج من السبيل</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td>٢. زاد خروجه</td>
+        <td style="color: #c0392b; font-weight: bold;">ينقض</td>
+        <td>خروج من السبيل</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td>٣. خرج دمه</td>
+        <td style="color: #c0392b; font-weight: bold;">ينقض</td>
+        <td>خروج من السبيل</td>
+      </tr>
+      <tr style="background-color: #e8f5e9;">
+        <td style="font-weight: bold;" rowspan="2">الباسور الخارجي<br>(نابت خارج الدبر)</td>
+        <td>١. تدلّى الباسور</td>
+        <td style="color: #28a745; font-weight: bold;">لا ينقض</td>
+        <td>ليس خارجاً من السبيل — هو خارج الدبر أصلاً</td>
+      </tr>
+      <tr style="background-color: #e8f5e9;">
+        <td>٢. خرج دمه</td>
+        <td style="color: #28a745; font-weight: bold;">لا ينقض</td>
+        <td>ليس خارجاً من السبيل</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout callout-warning">
+  <div class="callout-title">تنبيه: فرق بين دم الباسور والباسور نفسه</div>
+  <div class="callout-body">
+    لما قال المصنف سابقاً "كدم باسور" فُهم أن دم الباسور ينقض إذا كان الباسور نابتاً داخل الدبر. فإذا كان الباسور في الداخل وخرج دمه ينقض — لأنه خارج من السبيل. أما الباسور الخارجي فلا ينقض لا الباسور نفسه ولا دمه لأنه خارج الدبر أصلاً.
+  </div>
+</div>
+
+<!-- 8 -->
+<h2><span class="section-num">٨</span> فتوى الكمال الردد — تيسير في مسألة الباسور</h2>
+
+<p>الكمال الردد من كبار فقهاء اليمن في زمانه (توفي سنة 923 هـ)، له كتاب "الكوكب الوقاد شرح الإرشاد" في 24 مجلداً. وفتاوى فقهاء اليمن تتميز بنوع من التيسير. أفتى الكمال الردد بعدم النقض بخروج الباسور نفسه، بل النقض بالخارج منه (أي دم الباسور).</p>
+
+<div class="callout callout-success">
+  <div class="callout-title">فتوى الكمال الردد — تيسير</div>
+  <div class="callout-body">
+    الباسور إذا خرج لا ينقض عنده — ما الذي ينقض؟ قال: إذا خرج دم الباسور ينقض، أما الباسور نفسه لا ينقض. وهذا تيسير على مذهب مالك الذي لا ينتقض عنده الوضوء بالنادر أصلاً.
+  </div>
+</div>
+
+<div class="callout callout-info">
+  <div class="callout-title">من محاسن كتاب فتح المعين</div>
+  <div class="callout-body">
+    من محاسن كتاب فتح المعين أنه إذا وجد قولاً آخر في مذهب من المذاهب الأربعة معتبر وفيه تيسير يذكره لك. لأن هذا الكتاب أُلِّف للعمل لا للتنظير الفقهي، فهو يهتم بالمسائل التي يعمل بها المسلم. وفي بعض المسائل قد يشق أن يأخذ الإنسان بمذهب الشافعية فيذكر مذهباً آخر معتبراً من المذاهب الأربعة فيه تيسير — كما مرّ في مسألة الماء القليل الذي إذا وقعت فيه نجاسة ذكر قول مالك أنه لا ينجّس.
+  </div>
+</div>
+
+<!-- 9 -->
+<h2><span class="section-num">٩</span> الناقض الثاني: زوال العقل (زوال تمييز)</h2>
+
+<p>قال المصنف: "وثانيها زوال عقل". العقل يطلق على الصفة الغريزية ويطلق على التمييز. فما مراد الفقهاء هنا؟ نقول: زوال تمييز وليس المقصود أن الصفة الغريزية زالت بالكلية. فإذا زالت الصفة الغريزية كان الإنسان مجنوناً، لكن التمييز إذا زال يمكن أن يكون مغمىً عليه أو سكران — أي العقل موجود لكن سُتر أو غُطي عليه.</p>
+
+<p>قال المصنف: "زوال عقل أي تمييز بسكر أو جنون أو إغماء أو نوم، للخبر الصحيح: فمن نام فليتوضأ". وخرج بزوال العقل: النعاس، وأوائل نشوة السكر — فلا نقض بهما لأنه يبقى نوع تمييز.</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 30%;">الحالة</th>
+        <th style="width: 20%;">حكم النقض</th>
+        <th style="width: 50%;">البيان</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">السكر</td>
+        <td style="color: #c0392b; font-weight: bold;">ينقض</td>
+        <td>زوال التمييز بالسكر ينتقض به الوضوء</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">الجنون</td>
+        <td style="color: #c0392b; font-weight: bold;">ينقض</td>
+        <td>زوال التمييز بالجنون ينتقض به الوضوء</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">الإغماء</td>
+        <td style="color: #c0392b; font-weight: bold;">ينقض</td>
+        <td>زوال التمييز بالإغماء ينتقض به الوضوء</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">النوم</td>
+        <td style="color: #c0392b; font-weight: bold;">ينقض</td>
+        <td>لقوله صلى الله عليه وسلم: "فمن نام فليتوضأ" — إلا نوم القاعد الممكن</td>
+      </tr>
+      <tr style="background-color: #e8f5e9;">
+        <td style="font-weight: bold;">النعاس</td>
+        <td style="color: #28a745; font-weight: bold;">لا ينقض</td>
+        <td>لأن العقل لم يزل، ما زال عنده بعض إدراك. ومن علامات النعاس: سماع كلام الحاضرين وإن لم يفهمه</td>
+      </tr>
+      <tr style="background-color: #e8f5e9;">
+        <td style="font-weight: bold;">أوائل نشوة السكر</td>
+        <td style="color: #28a745; font-weight: bold;">لا ينقض</td>
+        <td>لأنه يبقى نوع تمييز في بداية النشوة</td>
+      </tr>
+      <tr style="background-color: #fff3cd;">
+        <td style="font-weight: bold;">الشك هل نام أم نعس</td>
+        <td style="color: #856404; font-weight: bold;">لا ينقض</td>
+        <td>لأن الأصل بقاء الطهارة واليقين لا يزول بالشك</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 10 -->
+<h2><span class="section-num">١٠</span> الناقض الثاني: نوم القاعد الممكن — شروط عدم النقض</h2>
+
+<p>قال المصنف: "لا زواله بنوم قاعد ممكن مقعده، أي إليته من مقره". إذا نام قاعداً ممكناً مقعده من محل جلوسه فحينئذ لا ينتقض وضوءه. ويظهر من كلام المصنف أنه يشترط شروط لعدم النقض:</p>
+
+<div class="condition-grid">
+  <div class="condition-item">
+    <span class="cond-num">١</span>
+    <div style="font-weight: bold; color: #1a5632; margin-bottom: 2px;">القعود</div>
+    <div>لا بد أن يكون قاعداً. فلو كان مضطجعاً أو قائماً ونام انتقض وضوءه. وحتى لو وضع خرقة أو حفاظة ما دام مضطجعاً ينتقض الوضوء.</div>
+  </div>
+  <div class="condition-item">
+    <span class="cond-num">٢</span>
+    <div style="font-weight: bold; color: #1a5632; margin-bottom: 2px;">التمكين</div>
+    <div>أي لا يوجد تباعد بينه وبين محل قعوده — أن إليته على مكان قعوده بلا تجافٍ ولا فراغ. والنحيف لا يحصل منه التمكين لأنه لا يملأ محل القعود.</div>
+  </div>
+  <div class="condition-item">
+    <span class="cond-num">٣</span>
+    <div style="font-weight: bold; color: #1a5632; margin-bottom: 2px;">الانتباه على حالة التمكين</div>
+    <div>وينتقض وضوء ممكن انتبه بعد زوال إليته عن مقره. فلو زال التمكين ثم استيقظ انتقض الوضوء، لكن لو انتبه ولا زال على حالة التمكين لا ينتقض.</div>
+  </div>
+  <div class="condition-item">
+    <span class="cond-num">✓</span>
+    <div style="font-weight: bold; color: #2c5f7c; margin-bottom: 2px;">الاستناد والاحتباء</div>
+    <div>إن استند لما لو زال لسقط — لا ينتقض وضوءه (كالنوم في الطائرة أو القطار). وكذلك لو نام وهو محتبٍ أي ضمّ ساقيه إلى بطنه — لا ينتقض.</div>
+  </div>
+</div>
+
+<div class="callout callout-ruling">
+  <div class="callout-title">قاعدة اليقين لا يزول بالشك في نوم القاعد</div>
+  <div class="callout-body">
+    <b>لو شك هل كان ممكناً أو لا:</b> لا ينتقض الوضوء لأن الأصل بقاء الطهارة.<br>
+    <b>لو شك هل زالت الإلة قبل اليقظة أو بعدها:</b> لا ينتقض الوضوء — لأن الأصل بقاء الطهارة واليقين لا يزول بالشك.<br>
+    <b>الشخص النحيف:</b> إذا نام جالساً ينتقض وضوءه لأنه لا يحصل منه التمكين — فإليته لا تملأ محل القعود.
+  </div>
+</div>
+
+<!-- 11 -->
+<h2><span class="section-num">١١</span> الناقض الثاني: تيقن الرؤيا مع عدم تذكر نوم</h2>
+
+<p>قال المصنف: "وتيقن الرؤيا مع عدم تذكر نوم لا أثر له". يقول المؤلف: لو أنك تيقنت أنك رأيت الرؤيا لكن لا تتذكر أنك نمت أو لا — فلا أثر لذلك. وهذا مشكل: كيف يتيقن الإنسان أنه رأى رؤيا ولا يدري هل نام أو لم ينام؟ لأن الرؤيا لا تكون إلا للنائم.</p>
+
+<div class="compare-box">
+  <div class="compare-side" style="background: #2c5f7c;">
+    <h3>تيقن الرؤيا مع عدم تذكر النوم</h3>
+    <p>لا أثر له — أي لا ينتقض الوضوء. لأن الأصل بقاء الطهارة واليقين لا يزول بالشك. مع أن هذا مشكل عند بعض الفقهاء لأن الرؤيا لا تكون إلا للنائم.</p>
+  </div>
+  <div class="compare-divider"></div>
+  <div class="compare-side" style="background: #8b1a1a;">
+    <h3>تيقن الرؤيا مع الشك في النوم</h3>
+    <p>ينتقض الوضوء — لأن الرؤيا مرجحة لأحد الطرفين. فالرؤيا تؤكد أنك نمت لأن الرؤيا لا تكون إلا للنائم، فهي تُرجّح جانب النوم على اليقظة.</p>
+  </div>
+</div>
+
+<!-- 12 -->
+<h2><span class="section-num">١٢</span> العلم والعقل — مناظرة شعرية</h2>
+
+<p>ذكر الشيخ مسألة: أيهما أفضل العلم أم العقل؟ فبعضهم قال العقل أفضل لأن الله عُرف بالعقل، وبعضهم قال العلم أفضل لأن الله سمى نفسه عليماً ولم يُسمِّ نفسه عقلاً. ونظّم ذلك بعض الشعراء:</p>
+
+<div class="poetry-box">
+  <div class="poetry">
+    علم العليم وعقل العاقل اختلفا<br>
+    من منهما قد أحرز الشرفا<br>
+    فالعلم قال أنا أحرزت غايته<br>
+    والعقل قال أنا الرحمن بي عُرفا<br>
+    فأفصح العلم إفصاحاً وقال له<br>
+    بأينا الرحمن في قرآنه اتصفا<br>
+    فبان للعقل أن العلم سيده<br>
+    فقبل العقل رأس العلم وانصرفا
+  </div>
+  <div style="font-size: 10pt; color: #4a4a5e; margin-top: 4px;">منظومة في تفضيل العلم على العقل</div>
+</div>
+
+<div class="callout callout-important">
+  <div class="callout-title">المراد: العلم أفضل</div>
+  <div class="callout-body">
+    احتجّ العلم بأن الله وصف نفسه في القرآن بالعلم ولم يصف نفسه بالعقل — فبان للعقل أن العلم سيده فقبل العقل رأس العلم وانصرفا. أي أن كل واحد رجع إلى بيته واعترف بتفضيل العلم.
+  </div>
+</div>
+
+<!-- 13 -->
+<h2><span class="section-num">١٣</span> أحمد شوقي — الثعلب والديك</h2>
+
+<p>ذكر الشيخ قصة الثعلب والديك لأحمد شوقي رحمه الله، وهي من باب الكلام على لسان الحيوان في الوعظ، مثلما تكلم العلم والعقل في المناظرة السابقة:</p>
+
+<div class="poetry-box">
+  <div class="poetry">
+    برز التعلّم للناس يوماً<br>
+    في ثياب الواعظين فمشى<br>
+    في الناس يهدي ويسوق الماكرين<br>
+    <br>
+    الثعلب: يا عباد الله توبوا<br>
+    فهو رب التائبين<br>
+    <br>
+    الديك يؤذن لصلاة الصبح فينا<br>
+    فأتى الديك رسول من إمام الناسكينا<br>
+    عرف الأمر عليه وهو يرجو أن يلينا<br>
+    فأجاب الديك عذراً يا أظل المهتدين<br>
+    بلّغ الثعلب عني عن جدود الأولين<br>
+    عن ذوي التقيان ممن دخلوا البطن اللعينة<br>
+    مخطئ من ظن يوماً أن للثعلب دين
+  </div>
+  <div style="font-size: 10pt; color: #4a4a5e; margin-top: 4px;">أحمد شوقي — قصة الثعلب والديك</div>
+</div>
+
+<div class="callout callout-warning">
+  <div class="callout-title">العبرة من القصة</div>
+  <div class="callout-body">
+    الثعلب مخادع — يعلن أنه تائب وفي الحقيقة لا يتوب، بل يريد الديك ليؤذن ثم يأكله. وكذلك الشيطان يزين للإنسان التوبة الكاذبة ليقع في المعصية. فمخطئ من ظن يوماً أن للثعلب دين.
+  </div>
+</div>
+
+<!-- 14 -->
+<h2><span class="section-num">١٤</span> الناقض الثالث: مس فرج آدمي أو محل قطعه</h2>
+
+<p>قال المصنف: "وثالثها مس فرج آدمي أو محل قطعين". أي مس الفرج بباطن الكف أو بطن الأصابع ينتقض به الوضوء. ولو كان الفرج فرج ميت أو فرج صغير — ينتقض الوضوء. قبلاً كان الفرج أو دبراً، متصلاً أو مقطوعاً.</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 35%;">المسألة</th>
+        <th style="width: 20%;">الحكم</th>
+        <th style="width: 45%;">البيان</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">مس فرج آدمي حي</td>
+        <td style="color: #c0392b; font-weight: bold;">ينقض</td>
+        <td>سواء كان قبلاً أو دبراً، متصلاً أو مقطوعاً</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">مس فرج ميت</td>
+        <td style="color: #c0392b; font-weight: bold;">ينقض</td>
+        <td>حتى ولو كان الفرج فرج ميت</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">مس فرج صغير</td>
+        <td style="color: #c0392b; font-weight: bold;">ينقض</td>
+        <td>فرج الصغير ينقض الوضوء بمسه</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">مس محل القطع</td>
+        <td style="color: #c0392b; font-weight: bold;">ينقض</td>
+        <td>لو كان مقطوع الذكر فمس مكان القطع ينتقض الوضوء</td>
+      </tr>
+      <tr style="background-color: #e8f5e9;">
+        <td style="font-weight: bold;">ما قطع في الختان</td>
+        <td style="color: #28a745; font-weight: bold;">لا ينقض</td>
+        <td>الجلدة التي تقطع من رأس الذكر عند الختان — مسها لا ينقض الوضوء</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout callout-ruling">
+  <div class="callout-title">حد الفرج الذي ينقض مسه</div>
+  <div class="callout-body">
+    الفرج هو ملتقى الشفرين لا ما وراءهما. فمحل الختان (ما فوق ملتقى الشفرين) لا ينقض مسه. أما ملتقى الشفرين وما دونه فينقض.
+  </div>
+</div>
+
+<!-- 15 -->
+<h2><span class="section-num">١٥</span> مواضع يستحب فيها الوضوء (٤٣ موضعاً)</h2>
+
+<p>قال المصنف: "نعم يندب الوضوء من...". وبعض فقهاء الشافعية جمعوا المواضع التي يُستحب فيها الوضوء. فالحافظ العراقي (زين الدين العراقي) له منظومة جمع فيها أربعين صورة يُستحب فيها الوضوء، شرحها ابنه ولي الدين العراقي. ثم زاد السيوطي ست صور حتى وصلت إلى أكثر من سبعين صورة عند بعضهم. وذكر المصنف هنا مجموعة قيدة:</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 6%;">الرقم</th>
+        <th style="width: 35%;">الموضع</th>
+        <th style="width: 59%;">البيان والسبب</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8f9fa;"><td style="text-align: center;">١</td><td style="font-weight: bold;">مس العانة</td><td>الشعر الذي فوق القبل وفوق الدبر وما حولهما — يستحب الوضوء من مسه مع أنه لا ينقض</td></tr>
+      <tr><td style="text-align: center;">٢</td><td style="font-weight: bold;">باطن الإلية</td><td>الذي ينقض حلقة الدبر، أما الباطن الذي قبل الحلقة لا ينقض لكن يستحب منه الوضوء</td></tr>
+      <tr style="background-color: #f8f9fa;"><td style="text-align: center;">٣</td><td style="font-weight: bold;">الأنثيان (الخصيتان)</td><td>يستحب الوضوء من مسهما</td></tr>
+      <tr><td style="text-align: center;">٤</td><td style="font-weight: bold;">شعر نبت فوق الذكر</td><td>من باب عطف الخاص على العام لأنه يدخل في العام</td></tr>
+      <tr style="background-color: #f8f9fa;"><td style="text-align: center;">٥</td><td style="font-weight: bold;">أصل الفخذ (الرُّفْق)</td><td>المكان الذي تجتمع فيه الأوساخ أحياناً</td></tr>
+      <tr><td style="text-align: center;">٦</td><td style="font-weight: bold;">مس الصغيرة</td><td>لمس الصغيرة لا ينقض لكن يستحب الوضوء منه</td></tr>
+      <tr style="background-color: #f8f9fa;"><td style="text-align: center;">٧</td><td style="font-weight: bold;">مس الأمرد</td><td>مطلقاً سواء كان حسناً أو قبيحاً</td></tr>
+      <tr><td style="text-align: center;">٨</td><td style="font-weight: bold;">مس الأبرص</td><td>جاء في حديث موقوف عن ابن مسعود رواه الطبراني بإسناد ضعيف</td></tr>
+      <tr style="background-color: #f8f9fa;"><td style="text-align: center;">٩</td><td style="font-weight: bold;">مس اليهودي</td><td>السيوطي: يستحب الوضوء من لمس كل كافر ليتذكر المسلم نعمة الإسلام</td></tr>
+      <tr><td style="text-align: center;">١٠</td><td style="font-weight: bold;">الفصد</td><td>قطع عرق ليخرج الدم الفاسد — يستحب الوضوء استحباباً لا وجوباً</td></tr>
+      <tr style="background-color: #f8f9fa;"><td style="text-align: center;">١١</td><td style="font-weight: bold;">الحجامة</td><td>لأن بعض المذاهب ترى أن الحجامة تنقض الوضوء</td></tr>
+      <tr><td style="text-align: center;">١٢</td><td style="font-weight: bold;">الرعاف</td><td>خروج الدم من الأنف — لا ينقض عند الشافعية لكن يستحب الوضوء خروجاً من خلاف مذهب أحمد</td></tr>
+      <tr style="background-color: #f8f9fa;"><td style="text-align: center;">١٣</td><td style="font-weight: bold;">النظر بشهوة</td><td>ولو إلى محرم</td></tr>
+      <tr><td style="text-align: center;">١٤</td><td style="font-weight: bold;">التلفظ بمعصية</td><td>كالسب والغيبة والنميمة والكذب — لأن الوضوء كفارة</td></tr>
+      <tr style="background-color: #f8f9fa;"><td style="text-align: center;">١٥</td><td style="font-weight: bold;">الغضب</td><td>للحديث: "إن الغضب من الشيطان فإذا غضب أحدكم فليتوضأ"</td></tr>
+      <tr><td style="text-align: center;">١٦</td><td style="font-weight: bold;">حمل الميت</td><td>للحديث: "من غسل ميتاً فليغسل ومن حمله فليتوضأ"</td></tr>
+      <tr style="background-color: #f8f9fa;"><td style="text-align: center;">١٧</td><td style="font-weight: bold;">مس الميت</td><td>قياساً على حمله</td></tr>
+      <tr><td style="text-align: center;">١٨</td><td style="font-weight: bold;">قص الظفر</td><td>الضابط: كل تغير في البدن يستحب الوضوء منه</td></tr>
+      <tr style="background-color: #f8f9fa;"><td style="text-align: center;">١٩</td><td style="font-weight: bold;">قص الشارب</td><td>تغير في البدن</td></tr>
+      <tr><td style="text-align: center;">٢٠</td><td style="font-weight: bold;">حلق الرأس</td><td>تغير في البدن</td></tr>
+      <tr style="background-color: #f8f9fa;"><td style="text-align: center;">٢١</td><td style="font-weight: bold;">النعاس</td><td>لا ينقض لكن يستحب الوضوء منه</td></tr>
+      <tr><td style="text-align: center;">٢٢</td><td style="font-weight: bold;">القيء</td><td>ناقض عند أحمد إذا كان فاحشاً — خروجاً من خلافه</td></tr>
+      <tr style="background-color: #f8f9fa;"><td style="text-align: center;">٢٣</td><td style="font-weight: bold;">القهقهة في الصلاة</td><td>تبطل الوضوء عند أبي حنيفة — خروجاً من خلافه</td></tr>
+      <tr><td style="text-align: center;">٢٤</td><td style="font-weight: bold;">أكل ما مسته النار</td><td>بعض الصحابة يرى أن الوضوء ينتقض به — خروجاً من خلافهم</td></tr>
+      <tr style="background-color: #f8f9fa;"><td style="text-align: center;">٢٥</td><td style="font-weight: bold;">أكل لحم الإبل</td><td>مذهب أحمد واختاره النووي أن أكل لحم الإبل ينقض — خروجاً من خلافهم</td></tr>
+      <tr><td style="text-align: center;">٢٦</td><td style="font-weight: bold;">الشك في الحدث</td><td>عند مالك يجب أن يتوضأ — خروجاً من خلافه يستحب</td></tr>
+      <tr style="background-color: #f8f9fa;"><td style="text-align: center;">٢٧</td><td style="font-weight: bold;">إرادة الجمع</td><td>أنشط للعود</td></tr>
+      <tr><td style="text-align: center;">٢٨</td><td style="font-weight: bold;">شرب لبن الإبل</td><td>جاء ذلك عن بعض الصحابة</td></tr>
+      <tr style="background-color: #f8f9fa;"><td style="text-align: center;">٢٩</td><td style="font-weight: bold;">مس فرج البهيمة</td><td>لا ينقض لكن يستحب الوضوء منه</td></tr>
+      <tr><td style="text-align: center;">٣٠</td><td style="font-weight: bold;">مس فرج الآدم بظهر الكف</td><td>لا ينقض لكن يستحب الوضوء — وكذا حرف الكف ورؤوس الأصابع</td></tr>
+      <tr style="background-color: #f8f9fa;"><td style="text-align: center;">٣١</td><td style="font-weight: bold;">إرادة النوم</td><td>مطلقاً ويتأكد في حق الجنب</td></tr>
+      <tr><td style="text-align: center;">٣٢</td><td style="font-weight: bold;">الاستيقاظ من النوم</td><td>لحديث: "إن الشيطان يعقد في قافية أحدكم ثلاث عقد..."</td></tr>
+      <tr style="background-color: #f8f9fa;"><td style="text-align: center;">٣٣</td><td style="font-weight: bold;">قراءة القرآن والحديث</td><td>تعظيماً لما يقرأ</td></tr>
+      <tr><td style="text-align: center;">٣٤</td><td style="font-weight: bold;">سماع القرآن والحديث</td><td>تعظيماً لما يسمع</td></tr>
+      <tr style="background-color: #f8f9fa;"><td style="text-align: center;">٣٥</td><td style="font-weight: bold;">الذكر (تسبيح ونحوه)</td><td>تعظيماً لله</td></tr>
+      <tr><td style="text-align: center;">٣٦</td><td style="font-weight: bold;">المكث في المسجد</td><td>مراعاة للأدب</td></tr>
+      <tr style="background-color: #f8f9fa;"><td style="text-align: center;">٣٧</td><td style="font-weight: bold;">المرور في المسجد</td><td>لحديث ابن خزيمة: "إن من أشراط الساعة أن يمر الرجل في المسجد لا يصلي فيه ركعتين"</td></tr>
+      <tr><td style="text-align: center;">٣٨</td><td style="font-weight: bold;">دراسة العلم وسماعه وكتابته</td><td>تعظيماً للعلم</td></tr>
+      <tr style="background-color: #f8f9fa;"><td style="text-align: center;">٣٩</td><td style="font-weight: bold;">زيارة القبور</td><td>لأنه مقام تذكر الآخرة فيكون على هيئة أكمل</td></tr>
+      <tr><td style="text-align: center;">٤٠</td><td style="font-weight: bold;">خطبة غير الجمعة</td><td>كالعيدين والكسوف والخسوف والاستسقاء — أما خطبة الجمعة فيجب أن يكون متوضئاً</td></tr>
+      <tr style="background-color: #f8f9fa;"><td style="text-align: center;">٤١</td><td style="font-weight: bold;">الوقوف بعرفة</td><td>يوم ذكر والذكر يستحب له الوضوء</td></tr>
+      <tr><td style="text-align: center;">٤٢</td><td style="font-weight: bold;">الأذان والإقامة</td><td>يستحب الوضوء للمؤذن والمقيم</td></tr>
+      <tr style="background-color: #f8f9fa;"><td style="text-align: center;">٤٣</td><td style="font-weight: bold;">الغسل من الجنابة والأكل والشرب للجنب</td><td>في غسل الجنابة يستحب الوضوء — وللجنب إذا أراد أن يأكل أو يشرب يستحب له الوضوء</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout callout-success">
+  <div class="callout-title">الموضع ٤٣: العائن</div>
+  <div class="callout-body">
+    يستحب الوضوء للعائن — وهو الذي يصيب غيره بالعين — للأحاديث الواردة في ذلك.
+  </div>
+</div>
+
+<h3>نية الوضوء في هذه المواضع المستحبة</h3>
+
+<p>إذا توضأ في أيٍّ من هذه المواضع ينوي نية من النيات المعتبرة: ينوي الوضوء أو فرض الوضوء أو رفع الحدث — أي نية من النيات المعتبرة. إلا الذي في غسل الجنابة فإنه ينوي به أنه سُنّ من سنن الغسل إن تجردت جنابته عن الحدث الأصغر، على ما سيتفصّل إن شاء الله لاحقاً.</p>
+
+<!-- 16 -->
+<h2><span class="section-num">١٦</span> فرج البهيمة والنظر إلى فرج الآدمي</h2>
+
+<p>قال المصنف: "وخرج بآدم فرج البهيمة إذ لا يشتهى، ومن ثم جاز النظر إليه". فرج البهيمة لا ينقض لمسه لأنه لا يشتهى، ويجوز النظر إليه. ومفهوم ذلك أن غير البهيمة لا يجوز النظر إلى فرجه كالآدمي ولو كان طفلاً صغيراً.</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 30%;">المسألة</th>
+        <th style="width: 20%;">الحكم</th>
+        <th style="width: 50%;">البيان</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #e8f5e9;">
+        <td style="font-weight: bold;">النظر إلى فرج البهيمة</td>
+        <td style="color: #28a745; font-weight: bold;">جائز</td>
+        <td>لأنه لا يشتهى</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">النظر إلى فرج الصغيرة</td>
+        <td style="color: #c0392b; font-weight: bold;">لا يجوز</td>
+        <td>وإن كانت لا تشتهى — لا يجوز النظر إلى فرجها</td>
+      </tr>
+      <tr style="background-color: #fff3cd;">
+        <td style="font-weight: bold;">النظر إلى فرج الصغير الذكر</td>
+        <td style="color: #856404; font-weight: bold;">جائز ما لم يميّز</td>
+        <td>يجوز النظر إلى فرق الصغير الذكر ما لم يميّز</td>
+      </tr>
+      <tr style="background-color: #d1ecf1;">
+        <td style="font-weight: bold;">استثناء: الأم والمربية</td>
+        <td style="color: #0c5460; font-weight: bold;">يجوز لها النظر</td>
+        <td>يستثنى الأم والمربية فيجوز لها النظر إلى فرج الصغيرة لحاجة التربية والتنظيف والتغسيل</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 17 -->
+<h2><span class="section-num">١٧</span> الناقض الثالث: ببطن كف — تفصيل المس</h2>
+
+<p>قال المصنف: "ببطن كف لقوله صلى الله عليه وسلم: من مس فرقه، وفي رواية: من مس ذكراً فليتوضأ". وهذا الحديث ناسخ للحديث الآخر "إنما هو بضعة منك" فإن هذا متأخر وذاك متقدم.</p>
+
+<div class="diagram-container">
+  <div style="text-align: center; margin-bottom: 8px;">
+    <div class="diagram-node node-main" style="display: inline-block; padding: 6px 16px;">مس الفرج — ما ينقض وما لا ينقض</div>
+  </div>
+  <div class="diagram-branch">
+    <div class="diagram-node node-warn" style="flex: 1;">
+      <div style="font-weight: bold; color: #8b1a1a; margin-bottom: 4px;">ينقض الوضوء</div>
+      <div style="color: #333;">بطن الراحتين + بطن الأصابع</div>
+    </div>
+    <div class="diagram-node node-result" style="flex: 1;">
+      <div style="font-weight: bold; color: #1a5632; margin-bottom: 4px;">لا ينقض (ويستحب الوضوء)</div>
+      <div style="color: #333;">ظهر الكف + حرف الكف + رؤوس الأصابع + ما بين الأصابع</div>
+    </div>
+  </div>
+</div>
+
+<div class="callout callout-ruling">
+  <div class="callout-title">تفصيل أجزاء الكف</div>
+  <div class="callout-body">
+    <b>بطن الكف:</b> هو بطن الراحتين وبطن الأصابع — هذا الذي ينقض الوضوء.<br>
+    <b>حرف اليد:</b> لا ينقض — ومع ذلك يستحب الوضوء كما مر.<br>
+    <b>ظهر اليد:</b> لا ينقض — ومع ذلك يستحب الوضوء.<br>
+    <b>رؤوس الأصابع:</b> لا تنقض.<br>
+    <b>ما بين الأصابع:</b> لا ينقض.
+  </div>
+</div>
+
+<!-- 18 -->
+<h2><span class="section-num">١٨</span> الناقض الرابع: تلاقي بشرتين — بدء</h2>
+
+<p>قال المصنف: "ورابعها تلاقي بشرتين". وهذا الناقض الرابع له قيدان:</p>
+
+<div class="condition-grid">
+  <div class="condition-item">
+    <span class="cond-num">١</span>
+    <div style="font-weight: bold; color: #1a5632; margin-bottom: 2px;">التلاقي</div>
+    <div>تفهم منه أنه إذا لم يحصل التلاقي وكان اللمس من وراء حائل فلا ينقض. إنما ينقض إذا حصل التلاقي — أي المباشرة بلا حائل.</div>
+  </div>
+  <div class="condition-item">
+    <span class="cond-num">٢</span>
+    <div style="font-weight: bold; color: #1a5632; margin-bottom: 2px;">بشرتين</div>
+    <div>البشرة هي الجلد. فلمس البشرة ينقض الوضوء، ولمس غير البشرة لا ينقض. وغير البشرة أربعة أشياء: الشعر، السن، الظفر، باطن العين.</div>
+  </div>
+</div>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 30%;">ما لا يعدّ بشرة</th>
+        <th style="width: 20%;">حكم المس</th>
+        <th style="width: 50%;">البيان</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #e8f5e9;">
+        <td style="font-weight: bold;">الشعر</td>
+        <td style="color: #28a745; font-weight: bold;">لا ينقض</td>
+        <td>لمس الشعر لا ينقض الوضوء لأنه ليس بشرة</td>
+      </tr>
+      <tr style="background-color: #e8f5e9;">
+        <td style="font-weight: bold;">السن</td>
+        <td style="color: #28a745; font-weight: bold;">لا ينقض</td>
+        <td>لمس الأسنان لا ينقض الوضوء</td>
+      </tr>
+      <tr style="background-color: #e8f5e9;">
+        <td style="font-weight: bold;">الظفر</td>
+        <td style="color: #28a745; font-weight: bold;">لا ينقض</td>
+        <td>لمس الأظفار لا ينقض الوضوء</td>
+      </tr>
+      <tr style="background-color: #e8f5e9;">
+        <td style="font-weight: bold;">باطن العين</td>
+        <td style="color: #28a745; font-weight: bold;">لا ينقض</td>
+        <td>لمس باطن العين لا ينقض الوضوء</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">اللسان (شَفَة اللحم)</td>
+        <td style="color: #c0392b; font-weight: bold;">ينقض</td>
+        <td>لمس اللسان ينقض الوضوء لأنه بشرة (لحم) لا ظفر ولا سن</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout callout-info">
+  <div class="callout-title">قاعدة: ما ليس ببشرة لا ينقض مسه</div>
+  <div class="callout-body">
+    غير البشرة أربعة أشياء فقط: الشعر والسن والظفر وباطن العين. فلمس أيٍّ منها لا ينقض الوضوء. أما ما عدا ذلك من أجزاء الجسم كاللسان والشفتين فهو بشرة ينقض مسه.
+  </div>
+</div>
+
+</body>
+</html>

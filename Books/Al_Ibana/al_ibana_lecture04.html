@@ -1,0 +1,2116 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح الإبانة والإفاضة - الدرس 04</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-green: #0d6b3e;
+  --dark-green: #0a4f2e;
+  --gold: #d4a020;
+  --light-gold: #f0e6c0;
+  --teal: #0d7377;
+  --bg: #fefefe;
+  --body-text: #1a1a1a;
+  --border: #c8d6c0;
+  --card-bg: #f8faf7;
+  --evidence-bg: #eef5eb;
+  --callout-bg: #fff8e7;
+  --definition-bg: #ebf5f5;
+  --comparison-bg: #f5f0eb;
+  --ruling-bg: #f0f5eb;
+  --scholar-bg: #f5f0f8;
+  --shadow: 0 2px 8px rgba(0,0,0,0.08);
+  --shadow-hover: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.bw-mode {
+  --primary-green: #333;
+  --dark-green: #1a1a1a;
+  --gold: #666;
+  --light-gold: #eee;
+  --teal: #444;
+  --bg: #fff;
+  --body-text: #000;
+  --border: #999;
+  --card-bg: #f5f5f5;
+  --evidence-bg: #f0f0f0;
+  --callout-bg: #f5f5f5;
+  --definition-bg: #f0f0f0;
+  --comparison-bg: #f0f0f0;
+  --ruling-bg: #f0f0f0;
+  --scholar-bg: #f0f0f0;
+  --shadow: 0 2px 8px rgba(0,0,0,0.1);
+  --shadow-hover: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+  font-size: 16px;
+  line-height: 2;
+  color: var(--body-text);
+  background: var(--bg);
+  direction: rtl;
+}
+
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+  @bottom-center {
+    content: counter(page);
+    font-size: 12px;
+    color: #888;
+  }
+}
+
+@media print {
+  body { font-size: 14px; line-height: 1.8; }
+  .bw-toggle { display: none !important; }
+  .cover-page { page-break-after: always; }
+  .section { page-break-inside: avoid; }
+  .comparison-container { flex-direction: row !important; }
+}
+
+.bw-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1000;
+  background: var(--primary-green);
+  color: white;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  font-family: 'Noto Naskh Arabic', serif;
+}
+.bw-toggle:hover {
+  background: var(--dark-green);
+  box-shadow: var(--shadow-hover);
+  transform: scale(1.1);
+}
+
+.cover-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 40%, var(--teal) 70%, var(--dark-green) 100%);
+  color: white;
+  text-align: center;
+  padding: 40px 30px;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+}
+
+.cover-page::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a020' fill-opacity='0.08'%3E%3Cpath d='M30 0L60 30L30 60L0 30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.cover-page::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold), var(--light-gold), var(--gold));
+}
+
+.cover-ornament {
+  font-size: 50px;
+  color: var(--gold);
+  margin-bottom: 20px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.cover-book-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  line-height: 1.6;
+  max-width: 700px;
+}
+
+.cover-lecture-badge {
+  background: var(--gold);
+  color: var(--dark-green);
+  padding: 8px 30px;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 20px 0;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.cover-lecture-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: var(--light-gold);
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.cover-info {
+  margin-top: 25px;
+  font-size: 16px;
+  line-height: 2.2;
+  color: rgba(255,255,255,0.9);
+}
+
+.cover-info .label {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.cover-divider {
+  width: 120px;
+  height: 2px;
+  background: var(--gold);
+  margin: 20px auto;
+  border: none;
+}
+
+.cover-badge-new {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark-green);
+  padding: 4px 18px;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.main-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 15px 60px;
+}
+
+.section-header {
+  background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+  color: white;
+  padding: 15px 25px;
+  border-radius: 10px;
+  margin: 35px 0 20px;
+  font-size: 22px;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-header::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 6px;
+  height: 100%;
+  background: var(--gold);
+}
+
+.section-header .section-number {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark-green);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 36px;
+  font-size: 16px;
+  margin-left: 12px;
+  font-weight: 700;
+}
+
+.sub-header {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--primary-green);
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 8px;
+  margin: 25px 0 15px;
+}
+
+.sub-sub-header {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--dark-green);
+  margin: 20px 0 10px;
+  padding-right: 15px;
+  border-right: 4px solid var(--teal);
+}
+
+.body-text {
+  font-size: 16px;
+  line-height: 2;
+  margin-bottom: 12px;
+  text-align: justify;
+}
+
+.highlight {
+  background: var(--light-gold);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+.green-highlight {
+  color: var(--primary-green);
+  font-weight: 700;
+}
+
+.gold-highlight {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.teal-highlight {
+  color: var(--teal);
+  font-weight: 600;
+}
+
+.classification-tree {
+  background: var(--card-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 25px;
+  margin: 20px 0;
+  box-shadow: var(--shadow);
+}
+
+.classification-tree .tree-title {
+  text-align: center;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 20px;
+}
+
+.tree-root {
+  background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+  color: white;
+  text-align: center;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0 auto 5px;
+  width: fit-content;
+  position: relative;
+}
+
+.tree-connector {
+  width: 2px;
+  height: 20px;
+  background: var(--primary-green);
+  margin: 0 auto;
+}
+
+.tree-branches {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.tree-branch {
+  background: white;
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 15px 20px;
+  min-width: 180px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.tree-branch:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+.tree-branch .branch-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 8px;
+}
+
+.tree-branch .branch-desc {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.8;
+}
+
+.ruling-card {
+  background: var(--ruling-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 12px 0;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.ruling-card .ruling-badge {
+  background: var(--primary-green);
+  color: white;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  min-width: 80px;
+  text-align: center;
+}
+
+.ruling-card .ruling-badge.wajib { background: var(--primary-green); }
+.ruling-card .ruling-badge.haram { background: #8B0000; }
+.ruling-card .ruling-badge.mubah { background: var(--teal); }
+.ruling-card .ruling-badge.khilaf { background: var(--gold); color: var(--dark-green); }
+.ruling-card .ruling-badge.qaeda { background: var(--teal); }
+.ruling-card .ruling-badge.tanbeeh { background: #e67e22; }
+.ruling-card .ruling-badge.sunna { background: #27ae60; }
+.ruling-card .ruling-badge.muqabil { background: #7f8c8d; }
+
+.ruling-card .ruling-content {
+  flex: 1;
+  line-height: 2;
+  font-size: 16px;
+}
+
+.evidence-box {
+  background: var(--evidence-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 20px 25px;
+  margin: 20px 0;
+  position: relative;
+  box-shadow: var(--shadow);
+}
+
+.evidence-box .evidence-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 10px;
+}
+
+.evidence-box .quran-verse {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dark-green);
+  line-height: 2.2;
+  text-align: center;
+  margin: 10px 0;
+  padding: 10px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.evidence-box .hadith-text {
+  font-family: 'Amiri', serif;
+  font-size: 18px;
+  color: var(--dark-green);
+  line-height: 2;
+  margin: 10px 0;
+  padding: 10px 15px;
+  border-right: 4px solid var(--gold);
+  background: rgba(212, 160, 32, 0.05);
+}
+
+.comparison-container {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.comparison-card {
+  flex: 1;
+  min-width: 220px;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  border-top: 4px solid var(--primary-green);
+  transition: all 0.3s ease;
+}
+
+.comparison-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+.comparison-card.shafii { border-top-color: var(--primary-green); }
+.comparison-card.hanbali { border-top-color: #c0392b; }
+.comparison-card.hanafi { border-top-color: #2980b9; }
+.comparison-card.maliki { border-top-color: #8e44ad; }
+
+.comparison-card .card-title {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.comparison-card.shafii .card-title { color: var(--primary-green); }
+.comparison-card.hanbali .card-title { color: #c0392b; }
+.comparison-card.hanafi .card-title { color: #2980b9; }
+.comparison-card.maliki .card-title { color: #8e44ad; }
+
+.comparison-card .card-content {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #444;
+}
+
+.definition-card {
+  background: var(--definition-bg);
+  border: 2px solid var(--teal);
+  border-radius: 12px;
+  padding: 20px 25px;
+  margin: 20px 0;
+  position: relative;
+  box-shadow: var(--shadow);
+}
+
+.definition-card .def-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--teal);
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.definition-card .def-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--dark-green);
+  line-height: 2.2;
+  text-align: center;
+  padding: 10px;
+}
+
+.definition-card .def-parts {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px dashed var(--border);
+}
+
+.callout-box {
+  background: var(--callout-bg);
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 15px 0;
+  position: relative;
+  box-shadow: var(--shadow);
+}
+
+.callout-box .callout-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.callout-box .callout-content {
+  font-size: 16px;
+  line-height: 2;
+}
+
+.numbered-steps {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: var(--shadow);
+}
+
+.numbered-steps .steps-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 10px 15px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.step-item .step-number {
+  background: var(--primary-green);
+  color: white;
+  min-width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.step-item .step-content {
+  flex: 1;
+  font-size: 16px;
+  line-height: 2;
+}
+
+.step-item .step-source {
+  font-size: 14px;
+  color: var(--teal);
+  font-weight: 600;
+}
+
+.benefit-box {
+  background: linear-gradient(135deg, var(--light-gold), #fff8e7);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 20px 25px;
+  margin: 20px 0;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.benefit-box .benefit-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.benefit-box .benefit-content {
+  font-size: 16px;
+  line-height: 2;
+}
+
+.fiqh-box {
+  background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 20px 25px;
+  margin: 20px 0;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.fiqh-box .fiqh-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 10px;
+}
+
+.fiqh-box .fiqh-content {
+  font-size: 16px;
+  line-height: 2;
+}
+
+.quote-block {
+  background: var(--card-bg);
+  border-right: 5px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  padding: 20px 25px;
+  margin: 20px 0;
+  font-family: 'Amiri', serif;
+  font-size: 18px;
+  line-height: 2.2;
+  color: var(--dark-green);
+  font-style: italic;
+  position: relative;
+  box-shadow: var(--shadow);
+}
+
+.quote-block::before {
+  content: '\275D';
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 30px;
+  color: var(--gold);
+  font-style: normal;
+}
+
+.quote-block .quote-attribution {
+  display: block;
+  margin-top: 10px;
+  font-size: 15px;
+  color: var(--teal);
+  font-style: normal;
+  font-weight: 600;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.data-table th {
+  background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+  color: white;
+  padding: 12px 15px;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.data-table td {
+  padding: 10px 15px;
+  border: 1px solid var(--border);
+  font-size: 15px;
+  line-height: 1.9;
+  text-align: center;
+}
+
+.data-table tr:nth-child(even) {
+  background: var(--card-bg);
+}
+
+.data-table tr:hover {
+  background: var(--light-gold);
+}
+
+.cases-container {
+  display: grid;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.case-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 15px 20px;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  border-right: 5px solid var(--primary-green);
+}
+
+.case-card .case-number {
+  background: var(--primary-green);
+  color: white;
+  min-width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.case-card .case-content {
+  flex: 1;
+}
+
+.case-card .case-condition {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--dark-green);
+  margin-bottom: 5px;
+}
+
+.case-card .case-ruling {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #444;
+}
+
+.case-card .case-ruling strong {
+  color: var(--primary-green);
+}
+
+.scholar-card {
+  background: var(--scholar-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 15px 0;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.scholar-card .scholar-icon {
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.scholar-card .scholar-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 5px;
+}
+
+.scholar-card .scholar-info {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #444;
+}
+
+.word-highlight {
+  background: linear-gradient(transparent 60%, var(--light-gold) 60%);
+  font-weight: 600;
+  padding: 0 2px;
+}
+
+.page-footer {
+  text-align: center;
+  padding: 30px 0 20px;
+  border-top: 2px solid var(--border);
+  margin-top: 40px;
+  font-size: 14px;
+  color: #888;
+}
+
+.scroll-top {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 44px;
+  height: 44px;
+  background: var(--primary-green);
+  color: white;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+.scroll-top:hover {
+  background: var(--dark-green);
+}
+
+@media (max-width: 768px) {
+  .cover-book-title { font-size: 22px; }
+  .cover-lecture-title { font-size: 18px; }
+  .section-header { font-size: 19px; }
+  .comparison-container { flex-direction: column; }
+  .tree-branches { flex-direction: column; align-items: center; }
+  .data-table { font-size: 13px; }
+  .data-table th, .data-table td { padding: 8px 10px; }
+  .case-card { flex-direction: column; }
+}
+
+.vs-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 18px;
+}
+
+/* Timeline / Flow Diagram */
+.timeline-diagram {
+  background: var(--card-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 20px 25px;
+  margin: 20px 0;
+  box-shadow: var(--shadow);
+  overflow-x: auto;
+}
+
+.timeline-diagram .timeline-title {
+  text-align: center;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 15px;
+}
+
+.timeline-bar {
+  position: relative;
+  height: 50px;
+  background: #e0e0e0;
+  border-radius: 8px;
+  margin: 10px 0;
+  overflow: hidden;
+  display: flex;
+}
+
+.timeline-segment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  padding: 0 8px;
+  line-height: 1.3;
+}
+
+.timeline-segment.hayd {
+  background: linear-gradient(135deg, var(--primary-green), #27ae60);
+}
+
+.timeline-segment.tuhr {
+  background: linear-gradient(135deg, #2980b9, #3498db);
+}
+
+.timeline-segment.fasad {
+  background: linear-gradient(135deg, #c0392b, #e74c3c);
+}
+
+.timeline-segment.takmila {
+  background: linear-gradient(135deg, #8e44ad, #9b59b6);
+}
+
+.timeline-segment.new-hayd {
+  background: linear-gradient(135deg, #d4a020, #e67e22);
+}
+
+.timeline-legend {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.timeline-legend .legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #555;
+}
+
+.timeline-legend .legend-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+}
+
+/* Flow chart styles */
+.flow-container {
+  background: var(--card-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 25px;
+  margin: 20px 0;
+  box-shadow: var(--shadow);
+}
+
+.flow-container .flow-title {
+  text-align: center;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 20px;
+}
+
+.flow-node {
+  background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+  color: white;
+  text-align: center;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 8px auto;
+  width: fit-content;
+  max-width: 90%;
+  box-shadow: var(--shadow);
+}
+
+.flow-node.decision {
+  background: var(--gold);
+  color: var(--dark-green);
+  border-radius: 0;
+  transform: rotate(0deg);
+  clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+  padding: 15px 40px;
+}
+
+.flow-node.result-a {
+  background: linear-gradient(135deg, #27ae60, #2ecc71);
+}
+
+.flow-node.result-b {
+  background: linear-gradient(135deg, #8e44ad, #9b59b6);
+}
+
+.flow-arrow {
+  text-align: center;
+  font-size: 22px;
+  color: var(--primary-green);
+  margin: 4px 0;
+}
+
+.flow-branches {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.flow-branch {
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
+}
+
+.flow-branch-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--teal);
+  margin-bottom: 8px;
+}
+
+/* Practice problem card */
+.practice-card {
+  background: linear-gradient(135deg, #f5f0eb, #fefefe);
+  border: 2px dashed var(--gold);
+  border-radius: 12px;
+  padding: 20px 25px;
+  margin: 20px 0;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.practice-card .practice-label {
+  background: var(--gold);
+  color: var(--dark-green);
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.practice-card .practice-content {
+  font-size: 16px;
+  line-height: 2;
+  color: var(--dark-green);
+}
+
+</style>
+</head>
+<body>
+
+<!-- B&W Toggle Button -->
+<button class="bw-toggle" onclick="toggleBW()" title="تبديل الأبيض والأسود">ن</button>
+
+<!-- Scroll to Top -->
+<button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" id="scrollTopBtn">&#9650;</button>
+
+<!-- ==================== COVER PAGE ==================== -->
+<div class="cover-page">
+  <div class="cover-ornament">&#10022; &#10048; &#10022;</div>
+  <div class="cover-badge-new">جديد</div>
+  <div class="cover-book-title">الإبانة والإفاضة في أحكام الحيض والنفاس والاستحاضة<br>على مذهب الإمام الشافعي</div>
+  <div class="cover-lecture-badge">الدرس الرابع</div>
+  <div class="cover-lecture-title">الدم الذي تراه الحامل والنقاء المتخلل بين دماء الحيض</div>
+  <hr class="cover-divider">
+  <div class="cover-info">
+    <span class="label">المؤلف:</span> عبد الرحمن بن عبد الله عبد القادر السقاف<br>
+    <span class="label">الشارح:</span> د. لبيب نجيب عبد الله<br>
+    <span class="label">المنظم:</span> أحمد بن إرشاد
+  </div>
+</div>
+
+<!-- ==================== MAIN CONTENT ==================== -->
+<div class="main-content">
+
+<!-- ===== Opening ===== -->
+<p class="body-text">
+بسم الله الرحمن الرحيم، وأن يرزقنا الإخلاص في الأقوال والأعمال، اللهم آمين.
+</p>
+
+<p class="body-text">
+فوصلنا بارك الله فيكم في الدرس الثاني إلى مبحث النقاء المتخلل، لا إلى مبحث الدم الذي تراه الحامل، صح؟ هذا بداية درسنا.
+</p>
+
+<!-- ===== Section 1: الدم الذي تراه الحامل ===== -->
+<h1 class="section-header"><span class="section-number">1</span> الدم الذي تراه الحامل</h1>
+
+<p class="body-text">
+الحامل هل تحيض أو لا تحيض؟ هذه مسألة خلافية بين الفقهاء.
+</p>
+
+<!-- Classification Tree: خلاف الفقهاء -->
+<div class="classification-tree">
+  <div class="tree-title">خلاف الفقهاء في حيض الحامل</div>
+  <div class="tree-root">الدم الذي تراه الحامل</div>
+  <div class="tree-connector"></div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="branch-name">الشافعية والمالكية</div>
+      <div class="branch-desc">الحامل <span class="green-highlight">تحيض</span></div>
+    </div>
+    <div class="tree-branch">
+      <div class="branch-name">الحنفية والحنابلة</div>
+      <div class="branch-desc">الحامل <span class="gold-highlight">لا تحيض</span></div>
+    </div>
+  </div>
+</div>
+
+<h2 class="sub-header">مذهب الشافعية والمالكية: الحامل تحيض</h2>
+
+<p class="body-text">
+مذهب الإمام الشافعي رحمه الله تعالى، وهو مذهب المالكية أيضاً، أن الحامل تحيض. ومستند هؤلاء الذين قالوا إن الحامل تحيض: أن الدماء التي تخرج من فرج المرأة إما دم حيض أو دم استحاضة أو دم نفاس. هذا ليس دم نفاس. وقالوا أيضاً ليس دم استحاضة لأنه قد يخرج في نفس أيام عادتها. إذن ماذا يبقى؟ يبقى أنه دم حيض.
+</p>
+
+<p class="body-text">
+وقالوا إن الأدلة التي فيها أن الحيض أذى تشمل الحامل. واضح؟ هذا مستند من قال إن الحامل تحيض وهم من الشافعية والمالكية.
+</p>
+
+<!-- Evidence Box: أدلة من قال الحامل تحيض -->
+<div class="evidence-box">
+  <div class="evidence-label">أدلة من قال إن الحامل تحيض</div>
+  <div class="hadith-text">
+    وقالوا إن الأدلة التي فيها أن الحيض أذى تشمل الحامل.
+  </div>
+  <p class="body-text" style="margin-top:10px">
+    <span class="green-highlight">الاستدلال بالآية:</span> قوله تعالى: ﴿قُلْ هُوَ أَذًى﴾ فتشمل الحامل تماماً؟ كقوله تعالى ﴿قُلْ هُوَ أَذًى﴾
+  </p>
+  <div class="quran-verse">﴿وَيَسْأَلُونَكَ عَنِ الْمَحِيضِ قُلْ هُوَ أَذًى﴾ [البقرة: 222]</div>
+  <p class="body-text" style="margin-top:10px">
+    <span class="green-highlight">الاستدلال بالسنة:</span> وقوله عليه الصلاة والسلام: «إن دم الحيض أسود يُعرف» فهذا يعم الحامل وغيرها.
+  </p>
+  <div class="hadith-text">«إن دم الحيض أسود يُعرف»</div>
+</div>
+
+<!-- Comparison Cards: تفصيل الأقوال -->
+<div class="comparison-container">
+  <div class="comparison-card shafii">
+    <div class="card-title">الشافعية والمالكية</div>
+    <div class="card-content">
+      <strong>الحامل تحيض</strong><br><br>
+      <strong>المستند:</strong><br>
+      1. الدم الخارج إما حيض أو استحاضة أو نفاس، وهذا ليس نفاساً ولا استحاضةً (يخرج في أيام العادة) فيبقى حيضاً<br>
+      2. أدلة الحيض (الآية والسنة) تشمل الحامل لعمومها<br>
+      3. قوله تعالى ﴿قُلْ هُوَ أَذًى﴾<br>
+      4. قوله ﷺ «إن دم الحيض أسود يُعرف»
+    </div>
+  </div>
+  <div class="comparison-card hanafi">
+    <div class="card-title">الحنفية والحنابلة</div>
+    <div class="card-content">
+      <strong>الحامل لا تحيض</strong><br><br>
+      <strong>الدليل:</strong><br>
+      أن النبي ﷺ قال لعبد الله بن عمر عندما طلق زوجته حال كونها في حيض، قال له: «أمسكها» ثم «طلقها طاهراً أو حاملاً»<br><br>
+      معلوم أن الطلاق في الحيض حرام، فدل ذلك على أنه لو طلقها في حال الحمل لا تكون في حال حيض. ولأن الحمل إنما يعرف بانقطاعها ويطاع الحيض. واضح؟ ولذلك جعل الحيض دليلاً على براءة الرحم. إذن قالوا: الحامل لا تحيض.
+    </div>
+  </div>
+</div>
+
+<!-- Evidence Box: دليل الحنفية والحنابلة -->
+<div class="evidence-box">
+  <div class="evidence-label">دليل الحنفية والحنابلة القائلين بأن الحامل لا تحيض</div>
+  <div class="hadith-text">
+    أن النبي صلى الله عليه وسلم قال لعبد الله بن عمر عندما طلق زوجته حال كونها في حيض: قال له أمسكها ثم طلقها طاهراً أو حاملاً. واضح معلوم أن الطلاق في الحيض حرام فدل ذلك على أنه لو طلقها في حال الحمل لا تكون في حال حيض. ولأن الحمل إنما يعرف بانقطاعها ويطاع الحيض. ولذلك جعل الحيض دليلاً على براءة الرحم.
+  </div>
+</div>
+
+<h2 class="sub-header">أقوال الأطباء</h2>
+
+<p class="body-text">
+والأطباء ماذا قالوا؟ أكثر الأطباء، السواد الأعظم من الأطباء، يقولون: الحامل لا تحيض. وبعض الأطباء قال: يمكن أن الحامل تحيض وإن كان ذلك عن قلة وندور. واضح؟ إذن المسألة خلافية بين الفقهاء وبين الأطباء، وممن ذكر من الأطباء أن الحامل يمكن أن تحيض: الدكتور محمد علي البار في كتابه <span class="green-highlight">خلق الإنسان بين الطب والقرآن</span> ذكر أن الحامل قد تحيض.
+</p>
+
+<p class="body-text">
+إذن المسألة خلافية بين الفقهاء، والمسألة خلافية أيضاً بين الأطباء، وإن كان أكثر الأطباء يقولون إن الحامل لا تحيض.
+</p>
+
+<!-- Scholar Card: Dr. Muhammad Ali Al-Bar -->
+<div class="scholar-card">
+  <div class="scholar-icon">&#128214;</div>
+  <div>
+    <div class="scholar-name">الدكتور محمد علي البار</div>
+    <div class="scholar-info">ذكر في كتابه «خلق الإنسان بين الطب والقرآن» أن الحامل قد تحيض، وإن كان ذلك عن قلة وندور. وهو من الأطباء الذين خالفوا السواد الأعظم في هذه المسألة.</div>
+  </div>
+</div>
+
+<h2 class="sub-header">المعتمد في مذهب الشافعية</h2>
+
+<p class="body-text">
+والذي يهمنا في هذا المقام أن نقرر مذهب فقهائنا الشافعية رحمهم الله تعالى رحمة واسعة. فقال هنا فضيلة الدكتور الفقيه عبد الرحمن السقاف وفقه الله تعالى: الدم الذي تراه الحامل إذا رأت الحامل دماً يصلح أن يكون حيضاً — كيف يصلح أن يكون حيضاً؟ قال بأن بلغ يوماً وليلة — فالأظهر قوله.
+</p>
+
+<p class="body-text">
+<span class="green-highlight">الأظهر</span> إشارة إلى وجود الخلاف في المذهب، بل إشارة إلى أن هذا الخلاف بين أقوال الإمام الشافعي، وإشارة إلى قوة الخلاف.
+</p>
+
+<p class="body-text">
+قال فالأظهر من أقوال إمامنا الشافعي رضي الله عنه — سمعتم منها الراء تمام؟ رضي الله عنه — أنه حيض. لماذا حيض؟ قال لعموم الأدلة في اعتباره دم حيض. فالآية الكريمة تشمله، كقوله تعالى ﴿قُلْ هُوَ أَذًى﴾ فتشمله تماماً؟ وقوله عليه الصلاة والسلام «إن دم الحيض أسود يُعرف» هذا هو المعتمد في مذهب الشافعية أن الحامل تحيض.
+</p>
+
+<!-- Ruling Card: المعتمد -->
+<div class="ruling-card">
+  <div class="ruling-badge wajib">المعتمد</div>
+  <div class="ruling-content">
+    الأظهر من أقوال الإمام الشافعي رضي الله عنه أن الدم الذي تراه الحامل — إذا بلغ يوماً وليلة — هو <span class="green-highlight">دم حيض</span>، لعموم الأدلة في اعتباره دم حيض. والآية الكريمة تشمله ﴿قُلْ هُوَ أَذًى﴾ وحديث «إن دم الحيض أسود يُعرف».
+  </div>
+</div>
+
+<h2 class="sub-header">مقابل الأظهر</h2>
+
+<p class="body-text">
+قال في التعليق عند قوله «فالأظهر»: ومقابل الأظهر أنه ليس بحيض بل هو حدث دائم كسلس البول، أي أنه دم فساد تمام؟ لأن الحمل يسد مخرج الحيض، أي الحمل إذا حدث في الرحم يسد مخرج الحيض فلا ينزل الحيض، وقد جعل دليلاً على براءة الرحم، أي وقد جعل الحيض دليلاً على براءة الرحم تمام؟ ولذلك في باب الاستبراء تستبرأ الأمة بحيضة لأنها إذا حاضت علم براءة رحمها صح؟ والحامل لا توطأ حتى تضع الحمل صح ولا لا؟ درسنا هذا في باب الاستبراء.
+</p>
+
+<!-- Ruling Card: مقابل الأظهر -->
+<div class="ruling-card">
+  <div class="ruling-badge muqabil">مقابل الأظهر</div>
+  <div class="ruling-content">
+    ليس بحيض بل هو <span class="gold-highlight">حدث دائم كسلس البول</span> (أي دم فساد). <strong>التعليل:</strong> لأن الحمل يسد مخرج الحيض فلا ينزل الحيض، وقد جعل الحيض دليلاً على براءة الرحم — ولذلك في باب الاستبراء تستبرأ الأمة بحيضة لأنها إذا حاضت علم براءة رحمها، والحامل لا توطأ حتى تضع الحمل.
+  </div>
+</div>
+
+<h2 class="sub-header">الجواب عن تعليل مقابل الأظهر</h2>
+
+<p class="body-text">
+والأول — من الأول؟ أي معتمد المذهب الذي يقول إن الحامل تحيض — أجاب عنه، أي أجاب عن هذا التعليل، بأنه إنما حكم ببراءة الرحم <span class="green-highlight">عملاً بالغالب</span>، عملاً بالغالب. ولذلك حتى قالوا في حديث النبي صلى الله عليه وسلم السابق — في حديث النبي صلى الله عليه وسلم ابن عمر — طلقها طاهراً أو حاملاً واضح — قالوا قوله «أو حاملاً» مبني على أن الغالب في الحامل أنها لا تحيض، لكن قد تحيض تمام؟
+</p>
+
+<!-- Ruling Card: الجواب -->
+<div class="ruling-card">
+  <div class="ruling-badge qaeda">جواب</div>
+  <div class="ruling-content">
+    إنما حكم ببراءة الرحم <span class="green-highlight">عملاً بالغالب</span>. وقوله ﷺ «أو حاملاً» مبني على أن الغالب في الحامل أنها لا تحيض، لكن قد تحيض.
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه: جواز تقليد الرأي المقابل عند الحاجة</div>
+  <div class="callout-content">
+    وهذا الرأي الذي هو مقابل الأظهر يمكن تقليده، خاصة إذا احتاجت المرأة أن تقلده. يعني إذا كانت المرأة مثلاً في حال الحمل نزل منها الدم وقالوا إنه يجب أن تقلده، أرادت أن تقلد الرأي الآخر الذي يقول إن الحامل لا تحيض، فلا مانع أن تقلد ذلك الرأي خاصة إذا احتاجت إلى تقليده. فهموا؟
+  </div>
+</div>
+
+<!-- Benefit Box: خلاصة مسألة الحامل -->
+<div class="benefit-box">
+  <div class="benefit-title">خلاصة مسألة الدم الذي تراه الحامل</div>
+  <div class="benefit-content">
+    <strong>المعتمد في مذهب الشافعية:</strong> أن الحامل تحيض إذا بلغ الدم يوماً وليلة — لعموم الأدلة.<br>
+    <strong>مقابل الأظهر:</strong> ليس بحيض بل حدث دائم — لأن الحمل يسد مخرج الحيض.<br>
+    <strong>الجواب عن التعليل:</strong> حكم ببراءة الرحم عملاً بالغالب، لا قطعاً.<br>
+    <strong>جواز التقليد:</strong> يمكن تقليد مقابل الأظهر خاصة عند الحاجة.
+  </div>
+</div>
+
+<!-- ===== Section 2: النقاء المتخلل بين دماء الحيض ===== -->
+<h1 class="section-header"><span class="section-number">2</span> النقاء المتخلل بين دماء الحيض</h1>
+
+<p class="body-text">
+بعد ذلك ذكر مسألة أخرى وهي المسألة السادسة. هذه المسألة تحتاج منك إلى بعض الانتباه، قليل من الانتباه فقط ليس كثيراً، فأعطوني جزءاً من انتباهكم حتى نفهمها جيداً.
+</p>
+
+<p class="body-text">
+النقاء المتخلل بين دماء الحيض — ما حكمه؟ تبه معي: نفترض على سبيل المثال أن امرأة ما جاءها الدم من اليوم الأول إلى اليوم الخامس دم، وحصل انقطاع من اليوم السادس إلى اليوم التاسع انقطاع نقاء. ما معنى نقاء؟ نقاء أي أنها لو أدخلت قطنة لخرجت غير متلوثة، هذا نقاء. ثم عادت دم من اليوم العاشر إلى اليوم الثاني عشر، ثلاثة أيام، هذا دم. واضح؟
+</p>
+
+<!-- Definition Card: النقاء -->
+<div class="definition-card">
+  <div class="def-label">تعريف النقاء</div>
+  <div class="def-text">خروج القطنة غير متلوثة بالدم</div>
+  <div class="def-parts">
+    <p class="body-text" style="margin-bottom:0">النقاء: أن تدخل المرأة قطنة في فرجها فتخرج غير متلوثة بالدم. أي أنه لا يظهر عليها أثر الدم.</p>
+  </div>
+</div>
+
+<!-- Timeline Diagram: مثال النقاء المتخلل -->
+<div class="timeline-diagram">
+  <div class="timeline-title">مثال توضيحي: النقاء المتخلل بين دماء الحيض</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment hayd" style="width:28%">دم (حيض)<br>يوم 1-5</div>
+    <div class="timeline-segment tuhr" style="width:22%">نقاء<br>يوم 6-9</div>
+    <div class="timeline-segment hayd" style="width:17%">دم (حيض)<br>يوم 10-12</div>
+  </div>
+  <div style="text-align:center; margin:8px 0; font-size:15px; color:var(--dark-green); font-weight:600;">
+    الدم الأول (يوم 1-5): حيض بلا خلاف &nbsp;|&nbsp; الدم الثاني (يوم 10-12): حيض بلا خلاف &nbsp;|&nbsp; النقاء (يوم 6-9): <span class="green-highlight">حيض على الأصح</span>
+  </div>
+  <div class="timeline-legend">
+    <div class="legend-item">
+      <div class="legend-dot" style="background:var(--primary-green);"></div>
+      دم حيض
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:#2980b9;"></div>
+      نقاء (متخلل)
+    </div>
+  </div>
+</div>
+
+<h2 class="sub-header">حكم النقاء المتخلل</h2>
+
+<p class="body-text">
+من اليوم الأول إلى اليوم الخامس هذا حيض بلا خلاف. من اليوم العاشر إلى اليوم الثاني عشر هذا حيض بلا خلاف. النقاء هذا ما حكمه؟ هذا النقاء محاط بحيضين، صح، محاط بدمي حيض، هذا دم حيض وهذا دم حيض. ما حكم هذا النقاء؟ هل هو حيض أو طهر؟
+</p>
+
+<p class="body-text">
+قال الشافعية: هذا حيض أيضاً <span class="green-highlight">على الأصح</span>، إشارة إلى وجود خلاف. واضح؟ هذا النقاء حيض على الأصح، صح.
+</p>
+
+<p class="body-text">
+مذهب الحنابلة قال هذا النقاء طهر، وهو أيضاً مذهب المالكية. مذهب المالكية والحنابلة قالوا هذا النقاء طهر تمام؟
+</p>
+
+<!-- Comparison Cards -->
+<div class="comparison-container">
+  <div class="comparison-card shafii">
+    <div class="card-title">مذهب الشافعية</div>
+    <div class="card-content">
+      النقاء المتخلل <span class="green-highlight">حيض على الأصح</span> (بشرطين سيأتيان)
+    </div>
+  </div>
+  <div class="comparison-card maliki">
+    <div class="card-title">مذهب المالكية والحنابلة</div>
+    <div class="card-content">
+      النقاء المتخلل <span class="gold-highlight">طهر</span>
+    </div>
+  </div>
+</div>
+
+<h2 class="sub-header">وجوب الغسل عند حصول الجفاف</h2>
+
+<p class="body-text">
+أريد أن ألفت انتباهك إلى جزئية: هذه المرأة جاءها الدم من اليوم الأول إلى اليوم الخامس، قلنا هذا الدم حيض. في اليوم السادس حصل لها نقاء، أدخلت قطنة في فرجها فخرجت غير متلوثة تمام؟ عندما حصل النقاء هذا هل نقول لها خلاص حصل النقاء يجب أن تغتسلي، أو نقول انتظري يمكن أن يعود الدم ويعود؟ واضح السؤال؟
+</p>
+
+<p class="body-text">
+نقول <span class="green-highlight">يجب عليها أن تغتسل بمجرد حصول الجفاف</span> إذا هنا، هنا يجب عليها الغسل وأن تفعل ما تفعله الطاهرة من صلاة وصوم ونحو ذلك.
+</p>
+
+<!-- Ruling Card: وجوب الغسل -->
+<div class="ruling-card">
+  <div class="ruling-badge wajib">واجب</div>
+  <div class="ruling-content">
+    يجب عليها الغسل بمجرد حصول الجفاف، وأن تفعل ما تفعله الطاهرات من صلاة وصوم ونحو ذلك. <strong>ولا تنتظر</strong> وتقول لعل الدم يعود.
+  </div>
+</div>
+
+<p class="body-text">
+طيب لو قالت هذه المرأة — وهذه طبعاً المسألة سندرسها لكن أريد أن ألفت انتباهك إليها من الآن — لو قالت المرأة: أنا اعتدت يأتي الدم من تاريخ واحد لتاريخ خمسة، يحصل النقاء من تاريخ ستة لتاريخ تسعة، ثم يعود الدم، أنا اعتدت هذا. هل حتى لو اعتدت هذا يجب عليها الغسل؟ مع أن في ظني الشهر الأول حصل لي كذا، في ظني أن في هذا الشهر حصل لي كذا، هل يجب علي الغسل والصلاة؟
+</p>
+
+<p class="body-text">
+<span class="green-highlight">نعم يجب عليك</span>، المعتمد يجب عليك حتى وإن اعتدت أن الدم يعود. فهمتم؟ ستأتي المسألة لكن أريد أن ألفت انتباهك إليها من الآن.
+</p>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه: يجب الغسل ولو اعتادت عودة الدم</div>
+  <div class="callout-content">
+    المعتمد أنه يجب عليها الغسل والصلاة بمجرد حصول الجفاف، <strong>حتى وإن اعتادت</strong> أن الدم يعود بعد النقاء. فلا تنتظر عودة الدم.
+  </div>
+</div>
+
+<h2 class="sub-header">تبين بطلان العبادة إذا عاد الدم</h2>
+
+<p class="body-text">
+طيب إذا يجب عليها أن تغتسل وأن تفعل ما تفعله الطاهرة، عاد الدم. إذا عاد الدم تبين أن ما فعلته في هذا الشهر، في هذه الأيام الثلاثة، أو في تاريخ ستة أو سبعة أو ثمانية أو تسعة، في الأيام الأربعة، تبين أن ما فعلته من صلاة من صوم <span class="green-highlight">لا يصح في مذهبنا</span>. طبعاً لا يصح، لكن على مذهب المالكية والحنابلة سيصح لأنه طهر عندهم. فهمتم أم لا؟
+</p>
+
+<p class="body-text">
+جاءها الدم من تاريخ واحد إلى تاريخ خمسة هذا حيض، وحصل لها نقاء من تاريخ ستة إلى تاريخ تسعة، صلت صامت، عاد الدم في تاريخ عشرة إلى تاريخ اثني عشر. فهمتم؟ ما فعلته هنا من صلاة من صوم ما حكمه في مذهبنا؟ تبين عدم صحته.
+</p>
+
+<p class="body-text">
+طيب لو قال الزوج: أنا وطئتها في هذه الأيام؟ نقول: <span class="green-highlight">لا تأثم</span> لأنك عملت بالظاهر. واضح؟
+</p>
+
+<!-- Ruling Card: بطلان العبادة -->
+<div class="ruling-card">
+  <div class="ruling-badge qaeda">قاعدة</div>
+  <div class="ruling-content">
+    إذا عاد الدم تبين <span class="green-highlight">بطلان ما فعلته من صلاة وصيام</span> في أيام النقاء (على مذهب الشافعية). أما على مذهب المالكية والحنابلة فيصح لأنه طهر عندهم. ولو وطئ الزوج في أيام النقاء <strong>لا يأثم</strong> لأنه عمل بالظاهر.
+  </div>
+</div>
+
+<!-- ===== Section 3: شروط كون النقاء حيضاً ===== -->
+<h1 class="section-header"><span class="section-number">3</span> شروط كون النقاء المتخلل حيضاً</h1>
+
+<p class="body-text">
+طيب عاد الدم، الآن نحن قلنا إن هذا النقاء الذي تخلل الحيض ما حكمه؟ قلنا إنه حيض صح؟ لكن حيض مطلقاً أو بشرطين؟ لا، بشرطين. نقول حيض بشرطين. ما هما الشرطان؟
+</p>
+
+<div class="callout-box">
+  <div class="callout-title">ملاحظة لغوية: كلمة «شروط»</div>
+  <div class="callout-content">
+    وظاهر كلمة الشروط يا شيخ عبدان أنها جمع شرط، يعني أنها ثلاثة يعني على الأقل ثلاثة، لكن في الحقيقة ذكر شرطين. والذي كان التعبير الأول في ظني أن يقول «بالشرطين الآتيين» تمام أم لا؟ لأن لو قرأت شروط بعد أن تبحث تجد اثنين فقط.
+  </div>
+</div>
+
+<!-- Numbered Steps: الشرطان -->
+<div class="numbered-steps">
+  <div class="steps-title">شرطا كون النقاء المتخلل حيضاً</div>
+
+  <div class="step-item">
+    <div class="step-number">1</div>
+    <div class="step-content">
+      <strong>ألا يتجاوز مجموع الدماء مع النقاء خمسة عشر يوماً</strong><br>
+      <span class="teal-highlight">يمكن التعبير عنه بعبارة أخرى أظنها أسهل:</span> أن يكون النقاء بين دمي حيض. فإذا كان النقاء بين دمي حيض فهو حيض، وإذا لم يكن بين دمي حيض فهو طهر.
+    </div>
+  </div>
+
+  <div class="step-item">
+    <div class="step-number">2</div>
+    <div class="step-content">
+      <strong>أن يبلغ مجموع الدماء يوماً وليلة</strong> (أي 24 ساعة)<br>
+      <span class="teal-highlight">فلو نقص مجموع الدماء عن يوم وليلة</span> فالدم دم فساد واستحاضة.
+    </div>
+  </div>
+</div>
+
+<h2 class="sub-header">شرح الشرط الأول: ألا يتجاوز المجموع 15 يوماً</h2>
+
+<p class="body-text">
+مثال: جاءها الدم من تاريخ واحد إلى تاريخ ثمانية ثم هذا دم، ثم من تاريخ تسعة إلى تاريخ ستة عشر نقاء، ثم من تاريخ سبعة عشر إلى تاريخ تسعة عشر دم. واضح أليه؟ الآن هذا الدم الأول إيش هو؟ حيض. هذا النقاء هل هو حيض؟ لا. لماذا لا؟ تجمع كم أيام الدماء؟ ثمانية أيام الدماء ثمانية. كم أيام النقاء؟ تاريخ تسعة عشرة أحد عشر ثم اثني عشر ثلاثة عشر أربعة عشر خمسة عشر ستة عشر ثمانية. كم المجموع؟ ستة عشر. تجاوز خمسة عشر يوماً أو لم يتجاوز؟ تجاوز. إذن هذا النقاء طهر.
+</p>
+
+<!-- Timeline Diagram: مثال تجاوز 15 -->
+<div class="timeline-diagram">
+  <div class="timeline-title">مثال تجاوز المجموع خمسة عشر يوماً</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment hayd" style="width:27%">دم (حيض)<br>يوم 1-8</div>
+    <div class="timeline-segment tuhr" style="width:27%">نقاء (طهر)<br>يوم 9-16</div>
+    <div class="timeline-segment fasad" style="width:17%">دم (فساد)<br>يوم 17-19</div>
+  </div>
+  <div style="text-align:center; margin:8px 0; font-size:14px; color:var(--dark-green); font-weight:600;">
+    مجموع الدم + النقاء = 8 + 8 = 16 يوماً (تجاوز 15) ← النقاء <span class="green-highlight">طهر</span> والدم الثاني <span class="gold-highlight">دم فساد</span> (ليس ضمن 15)
+  </div>
+  <div class="timeline-legend">
+    <div class="legend-item">
+      <div class="legend-dot" style="background:var(--primary-green);"></div>
+      دم حيض
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:#2980b9;"></div>
+      نقاء (طهر)
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:#c0392b;"></div>
+      دم فساد
+    </div>
+  </div>
+</div>
+
+<p class="body-text">
+تستطيع أن تعبر عن هذا الشرط بعبارة أخرى أظنها أسهل من هذه العبارة، أن تقول: ألا يكون النقاء بين دمي حيض — الآن هذا دم حيض أم لا؟ هذا دم حيض. هذا ليس دم حيض. إذن هذا النقاء طهر، لأن النقاء متى يكون حيضاً؟ إذا كان بين دمي حيض. فهمتم أم لا؟ لكن هذا ليس بين دمي حيض. هذا الدم الذي جاء بعد ذلك من سابع عشر ثامن عشر تاسع عشر، وعندما يكون حيضاً هذا ليس دم حيض. فهنا النقاء ليس بين دمي حيض، فلما كان النقاء ليس بين دمي حيض هذا النقاء طهر. فهمتم أم لا؟
+</p>
+
+<p class="body-text">
+شرط النقاء أن يكون النقاء بين دمي حيض. واضح؟
+</p>
+
+<!-- Fiqh Principle Box -->
+<div class="fiqh-box">
+  <div class="fiqh-title">القاعدة: متى يكون النقاء المتخلل حيضاً؟</div>
+  <div class="fiqh-content">
+    يكون النقاء المتخلل حيضاً بشرطين:<br>
+    <strong>الشرط الأول:</strong> أن يكون النقاء بين دمي حيض (أي ألا يتجاوز مجموع الدماء مع النقاء 15 يوماً)<br>
+    <strong>الشرط الثاني:</strong> أن يبلغ مجموع الدماء يوماً وليلة (24 ساعة)<br><br>
+    &#x2714; إذا تحقق الشرطان → النقاء <span class="green-highlight">حيض</span><br>
+    &#x2718; إذا فقد الشرط الأول → النقاء <span class="gold-highlight">طهر</span><br>
+    &#x2718; إذا فقد الشرط الثاني → الدم <span class="gold-highlight">فساد واستحاضة</span>
+  </div>
+</div>
+
+<h2 class="sub-header">شرح الشرط الثاني: أن يبلغ مجموع الدماء 24 ساعة</h2>
+
+<p class="body-text">
+شرط الثاني إيش؟ أن يبلغ مجموع الدماء يوماً وليلة. فلو أنه جاءها في اليوم الأول الدم ست ساعات ثم حصل لها نقاء يوم الثاني إلى الخامس هذا نقاء، ثم جاءها في اليوم السادس الدم ثمان ساعات ثم حصل لها نقاء مستمر. هل هذا النقاء — بين هذا وهذا — بين هذا الدم وهذا الدم — هل هذا النقاء حيض؟ الجواب: لا. لماذا لا؟ لأن مجموع الدماء ست ساعات وثمان ساعات أقل من أربع وعشرين ساعة. فهمتم أم لا؟ واضح.
+</p>
+
+<p class="body-text">
+إذن النقاء بارك الله فيكم متى نحكم عليه بأنه حيض؟ نحكم عليه بشرطين: شرط الأول أن لا يكون مجموع الدماء مع النقاء يتجاوز خمسة عشر يوماً. الشرط الثاني أن يبلغ مجموع الدماء يوماً وليلة أي أربع وعشرين ساعة.
+</p>
+
+<!-- Ruling Card: الشرط الثاني -->
+<div class="ruling-card">
+  <div class="ruling-badge qaeda">قاعدة</div>
+  <div class="ruling-content">
+    إذا نقص مجموع الدماء عن يوم وليلة (24 ساعة) فالدم دم <span class="gold-highlight">فساد واستحاضة</span>، والنقاء طهر. مثال: 6 ساعات + 8 ساعات = 14 ساعة (أقل من 24) ← الكل دم فساد.
+  </div>
+</div>
+
+<!-- ===== Section 4: حالتان لعودة الدم ===== -->
+<h1 class="section-header"><span class="section-number">4</span> حالتان لعودة الدم بعد النقاء</h1>
+
+<p class="body-text">
+فله حالتان: الحالة الأولى أن يعود قبل الخمسة عشر يوماً. حالة ثانية أن يعود بعد الخمسة عشر يوماً. واضح؟ نضرب مثال لهذا ومثال لهذا حتى نفرق بين الصورتين، لأن في عندنا امرأة مستحاضة وفي عندنا امرأة أخرى عليها بقية طهر، هذه لا حكم هذه لا حكم آخر.
+</p>
+
+<!-- Flow Chart: حالتان -->
+<div class="flow-container">
+  <div class="flow-title">حالتا عودة الدم بعد النقاء</div>
+  <div class="flow-node">الدم ينقطع ثم يعود</div>
+  <div class="flow-arrow">&#9660;</div>
+  <div class="flow-branches">
+    <div class="flow-branch">
+      <div class="flow-branch-label">الحالة الأولى</div>
+      <div class="flow-node result-a">يعود قبل 15 يوماً ويستمر</div>
+      <div class="flow-arrow">&#9660;</div>
+      <div class="flow-node" style="background:linear-gradient(135deg,#27ae60,#2ecc71); font-size:14px;">امرأة مستحاضة<br>ترد إلى إحدى الصور السبع<br>(الدرس السابع)</div>
+    </div>
+    <div class="flow-branch">
+      <div class="flow-branch-label">الحالة الثانية</div>
+      <div class="flow-node result-b">يعود بعد 15 يوماً</div>
+      <div class="flow-arrow">&#9660;</div>
+      <div class="flow-node" style="background:linear-gradient(135deg,#8e44ad,#9b59b6); font-size:14px;">امرأة عليها بقية طهر<br>تكمل أقل الطهر (15 يوماً)<br>وما زاد فهو حيض جديد</div>
+    </div>
+  </div>
+</div>
+
+<h2 class="sub-header">الحالة الأولى: يعود قبل 15 يوماً — المستحاضة</h2>
+
+<p class="body-text">
+مثاله: جاءها الدم سبعة أيام، ثم حصل نقاء من ثمانية إلى عشرة، ثم من الحادي عشر إلى السابع عشر دم. هذه المرأة لاحظ معي حصل انقطاع للدم وحصل عود له. متى عاد الدم؟ قبل خمسة عشر يوماً. هذه امرأة تسمى <span class="green-highlight">امرأة مستحاضة</span>. ما معنى مستحاضة؟ أي أن الدم في اليوم الخامس عشر كان موجوداً واستمر إلى السادس عشر والسابع عشر. فإذا كان الدم مستمراً الخامس عشر السادس عشر السابع عشر مستمراً، هذه تسمى امرأة مستحاضة.
+</p>
+
+<p class="body-text">
+ما حكم المرأة المستحاضة؟ لها سبع صور سندرسها في الدرس السابع. ترد إلى إحدى الصور السبع التي سندرسها بما يناسب حالتها، قد تكون مبتدأة قد تكون معتادة، والمبتدأة قد تكون مميزة أو غير مميزة، والمعتادة قد تكون مميزة وغير مميزة. واضح أليه؟ لكن الشاهد من هذا أن الدم إذا انقطع ثم عاد قبل الخمسة عشر واستمر، أن يعود قبل الخامس عشر ويستمر، فإن هذه المرأة ما حكمها؟ مستحاضة.
+</p>
+
+<!-- Timeline Diagram: الحالة الأولى -->
+<div class="timeline-diagram">
+  <div class="timeline-title">الحالة الأولى: الدم يعود قبل 15 يوماً (مستحاضة)</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment hayd" style="width:25%">دم<br>يوم 1-7</div>
+    <div class="timeline-segment tuhr" style="width:11%">نقاء<br>يوم 8-10</div>
+    <div class="timeline-segment fasad" style="width:32%">دم مستمر (تجاوز 15)<br>يوم 11-17</div>
+  </div>
+  <div style="text-align:center; margin:8px 0; font-size:14px; color:var(--dark-green); font-weight:600;">
+    الدم عاد قبل 15 يوماً واستمر ← امرأة <span class="green-highlight">مستحاضة</span>
+  </div>
+  <div class="timeline-legend">
+    <div class="legend-item">
+      <div class="legend-dot" style="background:var(--primary-green);"></div>
+      دم حيض
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:#2980b9;"></div>
+      نقاء
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:#c0392b;"></div>
+      دم مستمر (استحاضة)
+    </div>
+  </div>
+</div>
+
+<h2 class="sub-header">الحالة الثانية: يعود بعد 15 يوماً — امرأة عليها بقية طهر</h2>
+
+<p class="body-text">
+مثالها: من اليوم الأول إلى اليوم التاسع دم، من اليوم العاشر إلى اليوم السادس عشر نقاء، من اليوم السابع عشر إلى اليوم الثلاثين دم. هذا حيض وهذا حيض. طيب هذا النقاء حيض أو طهر؟ لماذا قلتم طهر؟ لأن مجموع الدم مع النقاء تجاوز خمسة عشر. صح؟ هذا طهر. جميل. هذا طهر.
+</p>
+
+<p class="body-text">
+طيب هذا الآن دم من اليوم السابع عشر إلى الثلاثين، يعني كم يوم؟ أربعة عشر يوماً الدم موجود من السابع عشر إلى الثلاثين واضح أليه؟ طيب من السابع عشر يعني عاد الدم متى؟ متى عاد الدم؟ بعد الخامس عشر صح.
+</p>
+
+<p class="body-text">
+طيب هذه الأربعة عشر ما حكمها؟ نقول: هذا طهر، كم أيام الطهر؟ سبعة عشر ستة، نأخذ من هذه الأربعة عشر ما نكمل به أقل الطهر كم؟ تسعة أيام. تسعة أيام من الأربعة عشر هذا يكون طهر لأنه تسعة مع ستة يساوي كم؟ خمسة عشر، الذي هو أقل الطهر بين حيضتين. أقل الطهر بين حيضتين. فهمتم أم لا؟
+</p>
+
+<p class="body-text">
+طيب بقية الأيام الخمسة من الأربعة عشر ما حكمها؟ <span class="green-highlight">حيض جديد</span>. هذه المرأة ماذا تسمى؟ تسمى <span class="green-highlight">امرأة عليها بقية طهر</span>. ما معنى عليها بقية طهر؟ يعني من هذه الأربعة عشر أيام تكمل طهرها. من هذه الأربعة عشر تسعة أيام نكمل بها طهرها، فهذا النقاء طهر ونكمل الطهر بتسعة أيام من الأربعة عشر، هذه التي هي امرأة عليها بقية طهر، ليس لها حكم مستحاضة فلا ترد إلى الصور السبع التي مرت معها. هذا حكمها. فرق بين الصورتين.
+</p>
+
+<!-- Timeline Diagram: الحالة الثانية -->
+<div class="timeline-diagram">
+  <div class="timeline-title">الحالة الثانية: الدم يعود بعد 15 يوماً (عليها بقية طهر)</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment hayd" style="width:30%">دم (حيض)<br>يوم 1-9</div>
+    <div class="timeline-segment tuhr" style="width:20%">نقاء (طهر)<br>يوم 10-16</div>
+    <div class="timeline-segment takmila" style="width:15%">تكملة طهر<br>7 أيام من 14</div>
+    <div class="timeline-segment new-hayd" style="width:15%">حيض جديد<br>7 أيام</div>
+  </div>
+  <div style="text-align:center; margin:8px 0; font-size:14px; color:var(--dark-green); font-weight:600;">
+    الدم عاد بعد 15 يوماً ← امرأة <span class="green-highlight">عليها بقية طهر</span> — تكمل أقل الطهر (15 يوماً) والباقي حيض جديد
+  </div>
+  <div class="timeline-legend">
+    <div class="legend-item">
+      <div class="legend-dot" style="background:var(--primary-green);"></div>
+      دم حيض
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:#2980b9;"></div>
+      نقاء (طهر)
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:#8e44ad;"></div>
+      تكملة طهر
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:#d4a020;"></div>
+      حيض جديد
+    </div>
+  </div>
+</div>
+
+<!-- Comparison: المستحاضة vs عليها بقية طهر -->
+<div class="comparison-container">
+  <div class="comparison-card shafii">
+    <div class="card-title">امرأة مستحاضة</div>
+    <div class="card-content">
+      <strong>الدم يعود قبل 15 يوماً ويستمر</strong><br><br>
+      • الدم مستمر في اليوم 15 وما بعده<br>
+      • ترد إلى إحدى الصور السبع (الدرس السابع)<br>
+      • قد تكون مبتدأة أو معتادة، مميزة أو غير مميزة
+    </div>
+  </div>
+  <div class="comparison-card maliki">
+    <div class="card-title">امرأة عليها بقية طهر</div>
+    <div class="card-content">
+      <strong>الدم يعود بعد 15 يوماً</strong><br><br>
+      • النقاء طهر (لتجاوز المجموع 15)<br>
+      • تكمل أقل الطهر (15 يوماً) من الأيام الجديدة<br>
+      • ما زاد عن تكملة الطهر = حيض جديد<br>
+      • لا ترد إلى الصور السبع
+    </div>
+  </div>
+</div>
+
+<!-- ===== Section 5: نص الكتاب مع الشرح ===== -->
+<h1 class="section-header"><span class="section-number">5</span> نص الكتاب مع الشرح</h1>
+
+<div class="quote-block">
+  قال رحمه الله: سادساً النقاء المتخلل بين دماء الحيض. إذا رأت الحائض يوماً دماً ويوماً نقاءً أو ساعة دماً وساعة نقاءً وهكذا.
+  <span class="quote-attribution">— المؤلف عبد الرحمن السقاف</span>
+</div>
+
+<p class="body-text">
+فلا خلاف في المذهب أن أيام الدم حيض. ولا خلاف أنها إذا رأت النقاء يجب عليها أن تغتسل وتصلي وتصوم. شوف هذا الذي ذكرته لك هنا: هذا إذا رأت النقاء يجب عليها الغسل وأن تفعل ما تفعله الطاهرات، ولا تنتظر تقول لعل الدم يعود. واضح لا لا.
+</p>
+
+<p class="body-text">
+ويباح لزوجها وطؤها. لماذا؟ ما التعليل؟ قال: لأن الظاهر بقاء الطهر وعدم معاودة الدم. فإن قالت: أنا من عادتي أنه يرجع. قال: والأظهر أنه حيض بالشروط الآتية، بالشروط التالية.
+</p>
+
+<!-- Ruling Cards from the book -->
+<div class="ruling-card">
+  <div class="ruling-badge wajib">بلا خلاف</div>
+  <div class="ruling-content">
+    أيام الدم <span class="green-highlight">حيض</span> بلا خلاف في المذهب.
+  </div>
+</div>
+
+<div class="ruling-card">
+  <div class="ruling-badge wajib">واجب</div>
+  <div class="ruling-content">
+    إذا رأت النقاء <span class="green-highlight">يجب عليها الغسل والصلاة والصوم</span>، ولا تنتظر عودة الدم. ويباح لزوجها وطؤها، لأن الظاهر بقاء الطهر وعدم معاودة الدم.
+  </div>
+</div>
+
+<div class="ruling-card">
+  <div class="ruling-badge qaeda">الأصح</div>
+  <div class="ruling-content">
+    النقاء المتخلل <span class="green-highlight">حيض بالشروط الآتية</span>. ولو قالت «من عادتي أنه يرجع» فالمعتمد أنها تغتسل وتصلي ولا تنتظر.
+  </div>
+</div>
+
+<h2 class="sub-header">نص المؤلف في الشرط الأول</h2>
+
+<div class="quote-block">
+  قال: الأول أن لا يتجاوز مجموع الدماء مع النقاء خمسة عشر يوماً. لا يتجاوز مجموع الدماء مع النقاء — هنا كم الدماء؟ خمسة أيام هنا، أربعة أيام صح؟ — لا يتجاوز خمسة عشر يوماً.
+  <span class="quote-attribution">— المؤلف عبد الرحمن السقاف</span>
+</div>
+
+<p class="body-text">
+قال هنا مثال مجاوزة صح؟ قال: فلو رأت الدم عشرة أيام ثم النقاء، ولم يأتِ الدم إلا في السادس عشر. إذن من واحد إلى عشرة دم، من الحادي عشر إلى السادس عشر أو إلى الخامس عشر نقاء، يعني الخامس عشر انتهى وهو نقاء. متى عاد الدم؟ في السادس عشر. هذا دم. إذن هنا تجاوز. لما تجاوز مجموع الدم مع النقاء تجاوز خمسة عشر أو لا؟ تجاوز خمسة عشر لأن الدم لم يعد إلا في السادس عشر.
+</p>
+
+<p class="body-text">
+انظر ماذا قال: فلو رأت الدم عشرة أيام ثم نقاء ولم يأتِ الدم إلا في السادس عشر. قال: فالسادس عشر وما قبله ليس بحيض بل طهر. لماذا؟ لأن النقاء لم يعقبه دم في الخمسة عشر بل فيما بعدها في السادس عشر.
+</p>
+
+<!-- Ruling Card: مثال المجاوزة -->
+<div class="ruling-card">
+  <div class="ruling-badge qaeda">مثال</div>
+  <div class="ruling-content">
+    لو رأت الدم 10 أيام ثم نقاء ولم يأتِ الدم إلا في السادس عشر: فالسادس عشر وما قبله <span class="green-highlight">ليس بحيض بل طهر</span>، لأن النقاء لم يعقبه دم في الخمسة عشر بل فيما بعدها.
+  </div>
+</div>
+
+<h2 class="sub-header">التعليق: إذا تجاوز الدم 15 يوماً</h2>
+
+<p class="body-text">
+قال في التعليق: ثم إن تجاوز الدم الخمسة عشر وكان متصلاً بدم قبلها في الخمسة عشر فهي مستحاضة ترد إلى إحدى صور المستحاضة السبع التي سيأتي الحديث عنها في الدرس السابع.
+</p>
+
+<p class="body-text">
+وإذا لم يتصل الدم بالدم الذي كان في الخمسة عشر يوماً — وإذا لم يتصل بدم قبله في الخمسة عشر — امرأة عليها بقية طهر. تكمل أقل الطهر كم؟ أقل الطهر خمسة عشر يوماً. وما زاد فهو حيض جديد.
+</p>
+
+<!-- Ruling Card: تجاوز 15 -->
+<div class="ruling-card">
+  <div class="ruling-badge khilaf">حكمان</div>
+  <div class="ruling-content">
+    إذا تجاوز الدم 15 يوماً:<br>
+    <strong>1. إذا كان متصلاً بدم قبلها في الخمسة عشر:</strong> <span class="green-highlight">مستحاضة</span> — ترد إلى إحدى صور المستحاضة السبع (الدرس السابع).<br>
+    <strong>2. إذا لم يتصل بدم قبله في الخمسة عشر:</strong> <span class="gold-highlight">امرأة عليها بقية طهر</span> — تكمل أقل الطهر (15 يوماً) وما زاد فهو حيض جديد.
+  </div>
+</div>
+
+<h2 class="sub-header">نص المؤلف في الشرط الثاني</h2>
+
+<div class="quote-block">
+  قال: الثاني ألا ينقص مجموع الدماء عن أقل الحيض. فإذا نقص مجموع الدماء عن يوم وليلة فهذا الدم دم فساد.
+  <span class="quote-attribution">— المؤلف عبد الرحمن السقاف</span>
+</div>
+
+<p class="body-text">
+إذن هنا الدم الأول جاء في اليوم الأول ست ساعات وانقطع، وانقطع من اليوم الثاني إلى الخامس، ثم جاء في اليوم السادس ثمان ساعات. نقول هذا حيض؟ لا. هذا فساد. هذا حيض؟ لا. هذا فساد. واضح؟ لأن مجموع الدماء لا يبلغ كم؟ لا يبلغ يوماً وليلة. قال: فهذا الدم دم فساد واستحاضة.
+</p>
+
+<!-- ===== Section 6: الأمثلة الأربعة ===== -->
+<h1 class="section-header"><span class="section-number">6</span> الأمثلة الأربعة من الكتاب</h1>
+
+<p class="body-text">
+ثم ذكر لك المؤلف وفقه الله أربعة أمثلة سنجيب عليها مثالاً مثالاً.
+</p>
+
+<!-- المثال الأول -->
+<h2 class="sub-header">المثال الأول</h2>
+
+<div class="quote-block">
+  قال: مثال — لو رأت ثلاثة دماً وانقطع ثم جاءها دم بعد ذلك في العاشر وانقطع.
+  <span class="quote-attribution">— المؤلف</span>
+</div>
+
+<p class="body-text">
+لو رأت ثلاثة دماً كيف يعني ثلاثة دماً؟ يعني من واحد إلى ثلاثة هذا دم. طيب وانقطع، ثم جاءها دم بعد ذلك في العاشر، يعني من اليوم الرابع إلى اليوم التاسع نقاء صح، لأنه قال لك جاءها متى في العاشر. إذن الدم موجود في العاشر تمام. قال في العاشر وانقطع. جاءها دم في العاشر بعد العاشر حصل انقطاع خلاص انقطع بعد العاشر تمام.
+</p>
+
+<p class="body-text">
+قال: فالثلاثة الأيام الأولى والعاشر حيض بلا خلاف. صح هذا حيض وهذا حيض. طيب هذا النقاء ما حكمه؟ حيض. لماذا حيض؟ تحقق الشرطان: الشرط الأول أنه وقع بين دمي حيض — بعبارة أخرى ألا يتجاوز المجموع خمسة عشر — والشرط الثاني أن مجموع الساعات — وهذا هذا الافتراض أن مجموع الساعات بلغ أربع وعشرين ساعة — واضح.
+</p>
+
+<p class="body-text">
+إذن هذا النقاء ما حكمه؟ هذا حيض على الأصح. انظر ماذا قال: قال فالثلاثة الأيام الأولى والعاشر حيض بلا خلاف، والنقاء الذي بينهما حيض تبعاً لهما على الأظهر. لماذا قال لأنه توفرت فيه الشروط حيث كان مجموع الدماء زائداً على اليوم والليلة وكان ذلك كله في ضمن الخمسة عشر أي لم يتجاوز الخمسة عشر.
+</p>
+
+<!-- Case Card: المثال الأول -->
+<div class="case-card">
+  <div class="case-number">1</div>
+  <div class="case-content">
+    <div class="case-condition">رأت 3 أيام دماً ثم انقطع ثم جاءها دم في اليوم العاشر وانقطع</div>
+    <div class="case-ruling">
+      <strong>الأيام الثلاثة الأولى (1-3):</strong> حيض بلا خلاف<br>
+      <strong>اليوم العاشر:</strong> حيض بلا خلاف<br>
+      <strong>النقاء (4-9):</strong> <span class="green-highlight">حيض تبعاً لهما على الأظهر</span><br><br>
+      <strong>السبب:</strong> توفر الشرطان:<br>
+      1. مجموع الدماء زائد على اليوم والليلة<br>
+      2. ذلك كله في ضمن الخمسة عشر (لم يتجاوز)
+    </div>
+  </div>
+</div>
+
+<!-- Timeline Diagram: المثال الأول -->
+<div class="timeline-diagram">
+  <div class="timeline-title">المثال الأول: رأت 3 أيام دماً ثم نقاء ثم دم في اليوم العاشر</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment hayd" style="width:20%">دم (حيض)<br>يوم 1-3</div>
+    <div class="timeline-segment hayd" style="width:40%; background:linear-gradient(135deg,#0a7a3a,#27ae60);">نقاء (حيض تبعاً)<br>يوم 4-9</div>
+    <div class="timeline-segment hayd" style="width:7%">دم<br>يوم 10</div>
+  </div>
+  <div style="text-align:center; margin:8px 0; font-size:14px; color:var(--dark-green); font-weight:600;">
+    تحققا الشرطان ← النقاء <span class="green-highlight">حيض على الأظهر</span>
+  </div>
+</div>
+
+<!-- المثال الثاني -->
+<h2 class="sub-header">المثال الثاني</h2>
+
+<div class="quote-block">
+  قال: مثال — لو رأت في يوم ست ساعات وانقطع ثم في اليوم الخامس رأت الدم عشر ساعات وانقطع.
+  <span class="quote-attribution">— المؤلف</span>
+</div>
+
+<p class="body-text">
+لو رأت في يوم ست ساعات وانقطع — إذن في اليوم الأول كم ساعات؟ ست ساعات وانقطع. ثم في اليوم الخامس — يعني من اليوم الثاني إلى اليوم الرابع نقاء — في اليوم الخامس رأت الدم كم ساعة؟ عشر ساعات تمام وانقطع بعد ذلك حصل انقطاع.
+</p>
+
+<p class="body-text">
+ما حكم هذا النقاء وما حكم الدم الذي في اليوم الخامس وما حكم الدم الذي في اليوم الأول؟ الجواب: هذا دم فساد استحاضة، وهذا دم فساد، وهذا النقاء طهر. واضح؟ لماذا ما التعليل؟ لأن مجموع الساعات لم يبلغ أربع وعشرين ساعة فلم يتحقق الشرط الثاني.
+</p>
+
+<p class="body-text">
+انظر ماذا قال: فالجميع دم استحاضة لأن مجموع الدماء نقص عن اليوم والليلة.
+</p>
+
+<!-- Case Card: المثال الثاني -->
+<div class="case-card">
+  <div class="case-number">2</div>
+  <div class="case-content">
+    <div class="case-condition">رأت في يوم 6 ساعات وانقطع ثم في اليوم الخامس رأت 10 ساعات وانقطع</div>
+    <div class="case-ruling">
+      <strong>الدم الأول (6 ساعات):</strong> دم فساد واستحاضة<br>
+      <strong>الدم الثاني (10 ساعات):</strong> دم فساد واستحاضة<br>
+      <strong>النقاء (اليوم 2-4):</strong> <span class="gold-highlight">طهر</span><br><br>
+      <strong>السبب:</strong> مجموع الساعات = 6 + 10 = 16 ساعة (أقل من 24) — لم يتحقق الشرط الثاني.<br>
+      قال المؤلف: «فالجميع دم استحاضة لأن مجموع الدماء نقص عن اليوم والليلة»
+    </div>
+  </div>
+</div>
+
+<!-- Timeline Diagram: المثال الثاني -->
+<div class="timeline-diagram">
+  <div class="timeline-title">المثال الثاني: 6 ساعات + 10 ساعات (لم يبلغ 24)</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment fasad" style="width:12%">دم فساد<br>6 ساعات</div>
+    <div class="timeline-segment tuhr" style="width:30%">نقاء (طهر)<br>يوم 2-4</div>
+    <div class="timeline-segment fasad" style="width:12%">دم فساد<br>10 ساعات</div>
+  </div>
+  <div style="text-align:center; margin:8px 0; font-size:14px; color:var(--dark-green); font-weight:600;">
+    مجموع الدماء = 16 ساعة &lt; 24 ساعة ← لم يتحقق الشرط الثاني ← <span class="gold-highlight">الجميع دم استحاضة</span>
+  </div>
+</div>
+
+<!-- المثال الثالث -->
+<h2 class="sub-header">المثال الثالث</h2>
+
+<div class="quote-block">
+  قال: مثال — لو رأت سبعة أيام دماً وانقطع ثم جاءها الدم في السادس عشر والسابع عشر وانقطع.
+  <span class="quote-attribution">— المؤلف</span>
+</div>
+
+<p class="body-text">
+هذا يحتاج إلى بعض الانتباه. لو رأت الدم سبعة أيام — من يوم أول لليوم السابع رأت الدم — ثم جاءها الدم في السادس عشر، إذن من الثامن إلى الخامس عشر هذا نقاء، ثم جاءها الدم في السادس عشر والسابع عشر وانقطع.
+</p>
+
+<p class="body-text">
+ماذا نقول؟ نقول: الدم هنا من اليوم الأول لسابع حيض صح. النقاء من الثامن إلى الخامس عشر طهر. لماذا طهر؟ لأن المجموع تجاوز خمسة عشر. بعبارة أخرى لأن هذا النقاء لم يقع بين دمي حيض. فإن هذا أيضاً دم فساد — نكتب فساد أحسن — ليس دم حيض. لماذا دم فساد؟ لأنه تجاوز خمسة عشر. أكثر الحيض كم؟ خمسة عشر. إلى هنا هذا تجاوز خمسة عشر. واضح.
+</p>
+
+<p class="body-text">
+انظر ماذا قال المؤلف: فالدم الأول حيض تمام. ولا يكون النقاء حيضاً لماذا لا يكون النقاء حيضاً؟ لأن المجموع تجاوز خمسة عشر. قال: والسادس عشر والسابع عشر طهر قطعاً. هذا طهر قطعاً. دم فساد لماذا ليس حيضاً؟ لأن أكثر الحيض خمسة عشر وهذا جاء بعد الخمسة عشر.
+</p>
+
+<p class="body-text">
+قال: لأن النقاء لم يكن بين دمي حيض، وإنما يكون بين دمي حيض في الخمسة عشر وهذا ليس ضمن الخمسة عشر.
+</p>
+
+<!-- Case Card: المثال الثالث -->
+<div class="case-card">
+  <div class="case-number">3</div>
+  <div class="case-content">
+    <div class="case-condition">رأت 7 أيام دماً ثم انقطع ثم جاءها الدم في اليوم 16 و17 وانقطع</div>
+    <div class="case-ruling">
+      <strong>الدم الأول (يوم 1-7):</strong> <span class="green-highlight">حيض</span><br>
+      <strong>النقاء (يوم 8-15):</strong> <span class="gold-highlight">طهر</span> — لأن المجموع تجاوز 15<br>
+      <strong>الدم الثاني (يوم 16-17):</strong> <span class="gold-highlight">دم فساد (طهر قطعاً)</span> — لأنه بعد أكثر الحيض (15 يوماً)<br><br>
+      <strong>السبب:</strong> النقاء لم يكن بين دمي حيض، وإنما يكون بين دمي حيض في الخمسة عشر وهذا ليس ضمن الخمسة عشر.
+    </div>
+  </div>
+</div>
+
+<!-- Timeline Diagram: المثال الثالث -->
+<div class="timeline-diagram">
+  <div class="timeline-title">المثال الثالث: 7 أيام دم + نقاء + دم في 16-17</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment hayd" style="width:25%">دم (حيض)<br>يوم 1-7</div>
+    <div class="timeline-segment tuhr" style="width:30%">نقاء (طهر)<br>يوم 8-15</div>
+    <div class="timeline-segment fasad" style="width:10%">دم فساد<br>يوم 16-17</div>
+  </div>
+  <div style="text-align:center; margin:8px 0; font-size:14px; color:var(--dark-green); font-weight:600;">
+    المجموع تجاوز 15 ← النقاء طهر، والدم الثاني فساد لأنه بعد أكثر الحيض
+  </div>
+</div>
+
+<!-- المثال الرابع -->
+<h2 class="sub-header">المثال الرابع</h2>
+
+<div class="quote-block">
+  قال: مثال — لو رأت عشرة أيام دماً وانقطع ثم جاءها الدم بعد ثمانية أيام من انقطاعه واستمر اثني عشر يوماً وانقطع.
+  <span class="quote-attribution">— المؤلف</span>
+</div>
+
+<p class="body-text">
+لو رأت الدم عشرة أيام وانقطع — كيف يعني من واحد إلى عشرة هذا دم — وانقطع. ثم جاءها الدم بعد ثمانية أيام. إذا الانقطاع كم يوم؟ من الحادي عشر إلى الثامن عشر هذا نقاء. ثم من الثامن عشر بعد ثمانية أيام — حادي عشر ثاني عشر ثالث عشر رابع عشر خامس عشر سادس عشر سابع عشر ثامن عشر — جاءها الدم واستمر اثني عشر يوماً وانقطع، يعني إلى كم؟ إلى ثلاثين.
+</p>
+
+<p class="body-text">
+ما رأيكم نقول هذا الدم الأول ما حكمه؟ حيض. هذا النقاء تجاوز أم لا تجاوز؟ تجاوز. إذن هذا النقاء ما يكون طهر أم لا حيض؟ هذا النقاء طهر. هنا كم اثني عشر يوماً فيها دم. ما حكمها؟ نأخذ من الاثني عشر ما نكمل به الطهر. كم عندك أيام ثمانية أيام. كم باقي تكملة الخمسة عشر؟ سبعة أيام. سبعة أيام وثمانية أيام يطلع خمسة عشر، هذه أيام طهر. كم باقي من الاثني عشر؟ خمسة أيام صح. هذا حيض جديد. إذا هذه امرأة ماذا تسمى؟ امرأة عليها بقية طهر.
+</p>
+
+<p class="body-text">
+انظر ماذا قال المؤلف: قال فالعشرة الأيام الأولى حيض — الحمد لله جوابنا صحيح — هذه حيض تمام. وأما الاثنا عشر يوماً دماً فلا يمكن جعلها حيضاً — هذه الاثني عشر أيام مش ممكن كلها تكون حيض مش ممكن كلها تكون حيض — قال فلا يمكن جعلها حيضاً لأن النقاء لم يكن بين دمي حيض، لأن الدم الذي عاد في التاسع عشر — هذا لا يمكن أن يكون حيضاً لأن أكثر الحيض كان خمسة عشر، هذا جاء بعد الخمسة عشر. فقال: لأن النقاء لم يكن بين دمي حيض وإنما يكون بين دم حيض في الخمسة عشر وهذا ليس ضمن الخمسة عشر بل بعدها.
+</p>
+
+<p class="body-text">
+وإنما هذه المرأة كما سيأتي بيانه في الدرس السابع امرأة عليها بقية طهر، فتكمل بقية طهرها تمام وما زاد يكون حيضاً جديداً.
+</p>
+
+<!-- Case Card: المثال الرابع -->
+<div class="case-card">
+  <div class="case-number">4</div>
+  <div class="case-content">
+    <div class="case-condition">رأت 10 أيام دماً ثم انقطع ثم جاءها الدم بعد 8 أيام واستمر 12 يوماً وانقطع</div>
+    <div class="case-ruling">
+      <strong>الدم الأول (يوم 1-10):</strong> <span class="green-highlight">حيض</span><br>
+      <strong>النقاء (يوم 11-18):</strong> <span class="gold-highlight">طهر</span> — لأن المجموع تجاوز 15<br>
+      <strong>من الـ 12 يوماً الجديدة:</strong><br>
+      &nbsp;&nbsp;— <span class="teal-highlight">7 أيام:</span> تكملة لأقل الطهر بين الحيضتين (8 + 7 = 15) = طهر<br>
+      &nbsp;&nbsp;— <span class="green-highlight">5 أيام:</span> حيض جديد<br><br>
+      <strong>حكم المرأة:</strong> امرأة عليها بقية طهر<br><br>
+      <strong>كيف يعني؟</strong> قال المؤلف: «ففي هذه المسألة تأخذ من الدم الجديد سبعة أيام دم فساد تكملة لأقل طهر بين حيضتين، تأخذ سبعة أيام تكمل الثمانية حتى يصبح المجموع خمسة عشر أقل طهر بين حيضتين، وما بقي — خمسة أيام — حيض جديد.»
+    </div>
+  </div>
+</div>
+
+<!-- Timeline Diagram: المثال الرابع -->
+<div class="timeline-diagram">
+  <div class="timeline-title">المثال الرابع: 10 أيام دم + 8 أيام نقاء + 12 يوماً دم</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment hayd" style="width:22%">دم (حيض)<br>يوم 1-10</div>
+    <div class="timeline-segment tuhr" style="width:18%">نقاء (طهر)<br>يوم 11-18</div>
+    <div class="timeline-segment takmila" style="width:16%">تكملة طهر<br>7 أيام</div>
+    <div class="timeline-segment new-hayd" style="width:11%">حيض جديد<br>5 أيام</div>
+  </div>
+  <div style="text-align:center; margin:8px 0; font-size:14px; color:var(--dark-green); font-weight:600;">
+    امرأة عليها بقية طهر — تكمل 7 أيام (8 نقاء + 7 = 15 أقل الطهر) والباقي 5 أيام حيض جديد
+  </div>
+  <div class="timeline-legend">
+    <div class="legend-item">
+      <div class="legend-dot" style="background:var(--primary-green);"></div>
+      دم حيض
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:#2980b9;"></div>
+      نقاء (طهر)
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:#8e44ad;"></div>
+      تكملة طهر
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:#d4a020;"></div>
+      حيض جديد
+    </div>
+  </div>
+</div>
+
+<h3 class="sub-sub-header">إذا كان الدم الذي جاوز 15 متقطعاً</h3>
+
+<p class="body-text">
+قال المؤلف: هذا إذا لم يكن الدم الذي جاوز الخمسة عشر متقطعاً. فإذا كان كذلك — أي متقطع يعني يأتيها الدم يوم نقاء يوم دم يوم نقاء يوم — واضح فهذا حيض. وإذا استمر وجاوز الخمسة عشر فهذا يكون ماذا؟ استحاض بعد الخمسة عشر.
+</p>
+
+<p class="body-text">
+ولذلك قال هنا: هذا إذا لم يكن الدم الذي جاوز الخمسة عشر متقطعاً. فإن كان كذلك فهي مستحاضة ذات تقطع ترد أيضاً إلى صور المستحاضة التي سيأتي الحديث عنها.
+</p>
+
+<!-- Ruling Card: الدم المتقطع -->
+<div class="ruling-card">
+  <div class="ruling-badge khilaf">تنبيه</div>
+  <div class="ruling-content">
+    إذا كان الدم الذي جاوز الخمسة عشر <strong>متقطعاً</strong> (يأتي يوماً وينقطع يوماً) فهي <span class="green-highlight">مستحاضة ذات تقطع</span>، ترد إلى صور المستحاضة (الدرس السابع). أما إذا كان <strong>مستمراً</strong> وجاوز 15 فهو امرأة عليها بقية طهر.
+  </div>
+</div>
+
+<!-- ===== Section 7: جدول مقارنة الأمثلة الأربعة ===== -->
+<h1 class="section-header"><span class="section-number">7</span> جدول مقارنة الأمثلة الأربعة</h1>
+
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>المثال</th>
+      <th>البيان</th>
+      <th>حكم الدم الأول</th>
+      <th>حكم النقاء</th>
+      <th>حكم الدم الثاني</th>
+      <th>السبب</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>الأول</strong></td>
+      <td>3 أيام دم + نقاء + دم في اليوم 10</td>
+      <td style="color:var(--primary-green); font-weight:700;">حيض</td>
+      <td style="color:var(--primary-green); font-weight:700;">حيض (على الأظهر)</td>
+      <td style="color:var(--primary-green); font-weight:700;">حيض</td>
+      <td>تحققا الشرطان: المجموع ≤ 15 ومجموع الدم ≥ 24 ساعة</td>
+    </tr>
+    <tr>
+      <td><strong>الثاني</strong></td>
+      <td>6 ساعات + نقاء + 10 ساعات</td>
+      <td style="color:#c0392b; font-weight:700;">فساد</td>
+      <td style="color:#2980b9; font-weight:700;">طهر</td>
+      <td style="color:#c0392b; font-weight:700;">فساد</td>
+      <td>مجموع الدماء (16 ساعة) أقل من 24 ساعة</td>
+    </tr>
+    <tr>
+      <td><strong>الثالث</strong></td>
+      <td>7 أيام دم + نقاء + دم في 16-17</td>
+      <td style="color:var(--primary-green); font-weight:700;">حيض</td>
+      <td style="color:#2980b9; font-weight:700;">طهر</td>
+      <td style="color:#c0392b; font-weight:700;">فساد</td>
+      <td>المجموع تجاوز 15 — النقاء ليس بين دمي حيض</td>
+    </tr>
+    <tr>
+      <td><strong>الرابع</strong></td>
+      <td>10 أيام دم + 8 نقاء + 12 يوماً دم</td>
+      <td style="color:var(--primary-green); font-weight:700;">حيض</td>
+      <td style="color:#2980b9; font-weight:700;">طهر</td>
+      <td style="color:#8e44ad; font-weight:700;">7 طهر + 5 حيض جديد</td>
+      <td>تجاوز 15 — عليها بقية طهر — تكمل 7 أيام والباقي حيض جديد</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ===== Section 8: مسائل تطبيقية ===== -->
+<h1 class="section-header"><span class="section-number">8</span> مسائل تطبيقية</h1>
+
+<p class="body-text">
+أكتب لكم مسألتين لا بأس.
+</p>
+
+<!-- المسألة الأولى -->
+<div class="practice-card">
+  <div class="practice-label">المسألة الأولى</div>
+  <div class="practice-content">
+    رأت الدم ثلاثة عشر يوماً ثم نقاء أربعة أيام ثم رأت الدم إلى آخر الشهر.<br><br>
+    <strong>المطلوب:</strong> بيّن أين دم الحيض وأين يكون الطهر وأين يكون الاستحاضة.
+  </div>
+</div>
+
+<!-- المسألة الثانية -->
+<div class="practice-card">
+  <div class="practice-label">المسألة الثانية</div>
+  <div class="practice-content">
+    رأت الدم سبعة أيام ثم نقاء سبعة أيام ثم رأت الدم سبعة أيام.<br><br>
+    <strong>المطلوب:</strong> بيّن حكم كل فترة.
+  </div>
+</div>
+
+<!-- المسألة الثالثة -->
+<div class="practice-card">
+  <div class="practice-label">المسألة الثالثة</div>
+  <div class="practice-content">
+    رأت الدم سبعة أيام ثم نقاء يومين ثم رأت الدم...<br><br>
+    <strong>المطلوب:</strong> بيّن حكم كل فترة.
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه</div>
+  <div class="callout-content">
+    هذه المسائل يُستحب الوتر في الإجابة عليها — قياساً على التمر في الإفطار. أُجيب عنها في درس العصر.
+  </div>
+</div>
+
+<!-- ===== الخاتمة ===== -->
+<p class="body-text" style="text-align:center; margin-top:30px; font-size:18px; color:var(--dark-green);">
+  نكتفي بهذا. يكفي هذا اليوم. والله أعلم. وصلى الله وسلم وبارك على سيدنا محمد وعلى آله وصحبه أجمعين.
+</p>
+
+<!-- ===== Key Benefit Boxes ===== -->
+<div class="benefit-box">
+  <div class="benefit-title">الفائدة الأولى: الدم الذي تراه الحامل</div>
+  <div class="benefit-content">
+    <strong>المعتمد في المذهب:</strong> أن الدم الذي تراه الحامل إذا بلغ يوماً وليلة فهو حيض (الأظهر) — لعموم الأدلة.<br>
+    <strong>مقابل الأظهر:</strong> ليس بحيض بل حدث دائم — لأن الحمل يسد مخرج الحيض.<br>
+    <strong>الجواب:</strong> حكم ببراءة الرحم عملاً بالغالب، وقد تحيض الحامل وإن كان نادراً.
+  </div>
+</div>
+
+<div class="benefit-box">
+  <div class="benefit-title">الفائدة الثانية: النقاء المتخلل بين دماء الحيض</div>
+  <div class="benefit-content">
+    <strong>حكمه:</strong> حيض على الأصح (عند الشافعية)، طهر (عند المالكية والحنابلة).<br>
+    <strong>بشرطين:</strong><br>
+    1. ألا يتجاوز مجموع الدماء مع النقاء 15 يوماً (أو: أن يكون النقاء بين دمي حيض)<br>
+    2. أن يبلغ مجموع الدماء يوماً وليلة (24 ساعة)<br>
+    <strong>يجب الغسل بمجرد الجفاف</strong> ولو اعتادت عودة الدم.
+  </div>
+</div>
+
+<div class="benefit-box">
+  <div class="benefit-title">الفائدة الثالثة: حالتان لعودة الدم</div>
+  <div class="benefit-content">
+    <strong>الحالة الأولى — يعود قبل 15 يوماً ويستمر:</strong> امرأة مستحاضة — ترد إلى إحدى الصور السبع (الدرس السابع).<br>
+    <strong>الحالة الثانية — يعود بعد 15 يوماً:</strong> امرأة عليها بقية طهر — تكمل أقل الطهر (15 يوماً) من أيام الدم الجديد، وما زاد فهو حيض جديد.<br>
+    <strong>إذا كان الدم متقطعاً بعد 15:</strong> مستحاضة ذات تقطع — ترد إلى صور المستحاضة.
+  </div>
+</div>
+
+<!-- Page Footer -->
+<div class="page-footer">
+  شرح الإبانة والإفاضة في أحكام الحيض والنفاس والاستحاضة — الدرس الرابع<br>
+  المؤلف: عبد الرحمن بن عبد الله عبد القادر السقاف | الشارح: د. لبيب نجيب عبد الله | المنظم: أحمد بن إرشاد
+</div>
+
+</div><!-- main-content -->
+
+<script>
+function toggleBW() {
+  document.body.classList.toggle('bw-mode');
+}
+
+window.addEventListener('scroll', function() {
+  var btn = document.getElementById('scrollTopBtn');
+  if (window.pageYOffset > 300) {
+    btn.style.display = 'flex';
+  } else {
+    btn.style.display = 'none';
+  }
+});
+</script>
+
+</body>
+</html>

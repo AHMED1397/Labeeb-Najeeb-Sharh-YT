@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf') format('truetype'); font-weight: normal; }
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf') format('truetype'); font-weight: bold; }
+@font-face { font-family: 'NotoNaskh'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf') format('truetype'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+
+body {
+  font-family: 'NotoNaskh', 'Amiri', serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #1a1a2e;
+  direction: rtl;
+  background: #fff;
+  text-align: justify;
+}
+
+/* ===== COVER HEADER (تابع style — like parts 10-20) ===== */
+.cover-header {
+  background: #1a5632;
+  color: white;
+  padding: 20px 14px;
+  text-align: center;
+  margin: 0 0 12px 0;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px);
+  border-bottom: 4px solid #c8a951;
+}
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 6px; border: none; font-family: 'Amiri', serif; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.9; margin: 4px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.92; margin: 6px 0 2px 0; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .creator { font-size: 11pt; opacity: 0.85; margin-top: 2px; }
+.cover-header .series { font-size: 11pt; opacity: 0.8; margin-top: 4px; }
+
+/* ===== TABLE OF CONTENTS ===== */
+.toc {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 0 0 12px 0;
+}
+.toc-title {
+  font-family: 'Amiri', serif;
+  font-size: 14pt;
+  color: #1a5632;
+  text-align: center;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #c8a951;
+  padding-bottom: 4px;
+}
+.toc-item {
+  font-size: 10pt;
+  padding: 2px 0;
+  border-bottom: 1px dotted #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ===== SECTION HEADINGS ===== */
+h2.section-title {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0d7c3e;
+  border-bottom: 2px solid #0d7c3e;
+  padding-bottom: 5px;
+  margin: 18px 0 10px;
+}
+
+h3.sub-title {
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: #0a5c2e;
+  margin: 14px 0 8px;
+  padding-right: 10px;
+  border-right: 4px solid #0d7c3e;
+}
+
+h4.minor-title {
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #166534;
+  margin: 10px 0 6px;
+}
+
+p { margin: 5px 0; text-align: justify; }
+
+/* ===== CONTENT BOXES ===== */
+.definition-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-right: 4px solid #0d7c3e;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.rule-box {
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-right: 4px solid #d97706;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.exception-box {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-right: 4px solid #ea580c;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.evidence-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-right: 4px solid #2563eb;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.issue-box {
+  background: #fdf2f8;
+  border: 1px solid #fbcfe8;
+  border-right: 4px solid #db2777;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.comparison-box {
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  border-right: 4px solid #7c3aed;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.note-box {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-right: 4px solid #0284c7;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.key-rule {
+  background: #dcfce7;
+  border: 2px solid #16a34a;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.box-label {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 4px;
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.label-def { background: #0d7c3e; }
+.label-rule { background: #d97706; }
+.label-exc { background: #ea580c; }
+.label-ev { background: #2563eb; }
+.label-issue { background: #db2777; }
+.label-comp { background: #7c3aed; }
+.label-note { background: #0284c7; }
+
+/* ===== TABLES ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 13px;
+  table-layout: fixed;
+}
+
+th {
+  background: #0d7c3e;
+  color: #fff;
+  padding: 6px 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+td {
+  padding: 5px 8px;
+  border: 1px solid #d1d5db;
+  text-align: center;
+  vertical-align: top;
+}
+
+tr:nth-child(even) { background: #f0fdf4; }
+tr:nth-child(odd) { background: #fff; }
+
+/* ===== CLASSIFICATION TREE ===== */
+.tree-container {
+  margin: 12px 0;
+  text-align: center;
+}
+
+.tree-root {
+  display: inline-block;
+  background: linear-gradient(135deg, #0d7c3e, #0a5c2e);
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.tree-branches {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.tree-branch {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  min-width: 80px;
+  text-align: center;
+}
+
+.tree-branch-num {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  color: #0d7c3e;
+  font-size: 14px;
+}
+
+.tree-branch-label {
+  font-size: 12px;
+  color: #374151;
+}
+
+/* ===== COMPARISON GRID ===== */
+.compare-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.compare-card {
+  flex: 1;
+  min-width: 140px;
+  border-radius: 8px;
+  padding: 8px 10px;
+  text-align: center;
+}
+
+.compare-card-green {
+  background: #dcfce7;
+  border: 1px solid #86efac;
+}
+
+.compare-card-red {
+  background: #fef2f2;
+  border: 1px solid #fca5a5;
+}
+
+.compare-card-title {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.compare-card-body {
+  font-size: 12px;
+}
+
+/* ===== FLOW DIAGRAM ===== */
+.flow-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 8px 0;
+}
+
+.flow-box {
+  background: #0d7c3e;
+  color: #fff;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+.flow-arrow {
+  font-size: 16px;
+  color: #0d7c3e;
+  font-weight: bold;
+}
+
+.flow-result {
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.flow-pure { background: #dcfce7; border: 1px solid #86efac; color: #166534; }
+.flow-impure { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+
+/* ===== INLINE HIGHLIGHTS ===== */
+.highlight-green { background: #dcfce7; padding: 1px 4px; border-radius: 3px; }
+.highlight-gold { background: #fefce8; padding: 1px 4px; border-radius: 3px; }
+.highlight-red { background: #fef2f2; padding: 1px 4px; border-radius: 3px; }
+
+.verse-ref {
+  font-family: 'Amiri', serif;
+  font-size: 14px;
+  color: #1e40af;
+  text-align: center;
+  margin: 6px 0;
+}
+
+.excused-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.excused-item {
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 13px;
+}
+
+.excused-num {
+  display: inline-block;
+  background: #d97706;
+  color: #fff;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 22px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 12px;
+  margin-left: 6px;
+}
+</style>
+</head>
+<body>
+
+<!-- ===== COVER HEADER (تابع — medium header like parts 10-20) ===== -->
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس الرابع والعشرون — النجاسات (تابع)</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="creator">تنسيق: أحمد بن إرشاد</div>
+  <div class="series">بيض غير المأكول · شعر المأكول وريشه · سؤر الحيوان · المعفوّ عنه من النجاسات</div>
+</div>
+
+<!-- ===== TABLE OF CONTENTS ===== -->
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. بيض غير المأكول</span><span>١</span></div>
+  <div class="toc-item"><span>٢. مقارنة: حكم البيض والمني واللبن</span><span>١</span></div>
+  <div class="toc-item"><span>٣. شعر المأكول وريشه</span><span>٢</span></div>
+  <div class="toc-item"><span>٤. الشكّ في الشعر أو نحوه</span><span>٣</span></div>
+  <div class="toc-item"><span>٥. بيض الميتة</span><span>٤</span></div>
+  <div class="toc-item"><span>٦. سؤر كل حيوان طاهر</span><span>٤</span></div>
+  <div class="toc-item"><span>٧. مسألة: الحيوان الطاهر تنجّس فمه ثم ولغ في ماء</span><span>٥</span></div>
+  <div class="toc-item"><span>٨. المعفوّ عنه من النجاسات (تسعة أشياء)</span><span>٦</span></div>
+  <div class="toc-item"><span>٩. شروط العفو عن هذه الأشياء التسعة</span><span>٩</span></div>
+  <div class="toc-item"><span>١٠. ملخص الدرس</span><span>١٠</span></div>
+</div>
+
+<!-- ===== SECTION 1: بيض غير المأكول ===== -->
+<h2 class="section-title">١. بيض غير المأكول</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">القاعدة</span>
+  <p><b>وكذا بيض غير مأكول ويحل أكله على الأصح</b> — أي بيض غير المأكول طاهر، فإذا كان بيض غير المأكول طاهراً فمن باب أولى أن بيض المأكول طاهر. إذن <b>كل بيض فهو طاهر</b> سواء كان الحيوان مأكولاً أو غير مأكول.</p>
+</div>
+
+<div class="key-rule">
+  قاعدة البيض: كل بيض طاهر — فإن عُلم ضرره أو غُلب على الظن فلا يجوز أكله، وإلا فأكله جائز
+</div>
+
+<!-- ===== مقارنة البيض والمني واللبن ===== -->
+<h2 class="section-title">٢. مقارنة: حكم البيض والمني واللبن</h2>
+
+<table>
+  <tr>
+    <th>المادة</th>
+    <th>من مأكول اللحم</th>
+    <th>من غير المأكول</th>
+    <th>الملاحظة</th>
+  </tr>
+  <tr>
+    <td><b>البيض</b></td>
+    <td><span class="highlight-green">طاهر</span></td>
+    <td><span class="highlight-green">طاهر</span></td>
+    <td>كل البيض طاهر مطلقاً</td>
+  </tr>
+  <tr>
+    <td><b>المني</b></td>
+    <td><span class="highlight-green">طاهر</span></td>
+    <td><span class="highlight-green">طاهر</span> (إلا الكلب والخنزير)</td>
+    <td>أوسع المذاهب (الشافعية)</td>
+  </tr>
+  <tr>
+    <td><b>اللبن</b></td>
+    <td><span class="highlight-green">طاهر</span></td>
+    <td><span class="highlight-red">نجس</span> (إلا الآدمي)</td>
+    <td>اللبن غذاء الحيوان ومربّاه</td>
+  </tr>
+  <tr>
+    <td><b>الروث والبول</b></td>
+    <td><span class="highlight-red">نجس</span></td>
+    <td><span class="highlight-red">نجس</span></td>
+    <td>نجسان مطلقاً</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه</span>
+  <p>الفرق بين اللبن والبيض والمني: <b>اللبن</b> ما يتغذّى عليه الحيوان وما يتربّى به (مربّى الحيوان)، ففي غير المأكول يكون نجساً. أما <b>البيض</b> و<b>المني</b> فهما أصل الحيوان، فكانا طاهرين من كل الحيوانات إلا الكلب والخنزير.</p>
+</div>
+
+<!-- ===== SECTION: شعر المأكول ===== -->
+<h2 class="section-title">٣. شعر المأكول وريشه</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>وشعر مأكول وريشه إذا أُبين في حياته</b> — أي شعر الحيوان المأكول وريشه إذا فُصل في حال الحياة فهو طاهر. والمقصود "في حال الحياة أو بعد التذكية" — فما أُخذ في حال الحياة أو بعد التذكية فهو طاهر.</p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p>قوله تعالى: <span class="verse-ref">{ومن أصوافها وأوبارها وأشعارها أثاثاً ومتاعاً إلى حين}</span> [النحل: 80]</p>
+</div>
+
+<table>
+  <tr>
+    <th>متى أُخذ الشعر/الريش</th>
+    <th>الحكم عند الشافعية</th>
+    <th>الحكم عند الجمهور</th>
+  </tr>
+  <tr>
+    <td>في حال الحياة</td>
+    <td><span class="highlight-green">طاهر</span></td>
+    <td><span class="highlight-green">طاهر</span></td>
+  </tr>
+  <tr>
+    <td>بعد التذكية (الذبح الشرعي)</td>
+    <td><span class="highlight-green">طاهر</span></td>
+    <td><span class="highlight-green">طاهر</span></td>
+  </tr>
+  <tr>
+    <td>بعد الموت (ميتة)</td>
+    <td><span class="highlight-red">نجس</span></td>
+    <td><span class="highlight-green">طاهر</span></td>
+  </tr>
+</table>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">سبب الخلاف</span>
+  <p><b>الشافعية:</b> أخذوا بعموم آية المائدة <span class="verse-ref">{حُرّمت عليكم الميتة}</span> — فالميتة بسائر أجزائها محرّمة ومنها شعرها، فشعر الميتة نجس.</p>
+  <p><b>الجمهور (مالك، أبو حنيفة، أحمد):</b> أخذوا بعموم آية النحل <span class="verse-ref">{ومن أصوافها وأوبارها وأشعارها أثاثاً ومتاعاً}</span> — قالوا الآية تشمل حال الحياة وحال الموت.</p>
+</div>
+
+<h3 class="sub-title">تفصيل: ماذا لو قُطع عضو فيه شعر؟</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">التفريق</span>
+  <p>الذي يكون طاهراً في حال الحياة هو <b>الشعر إذا أُخذ وحده</b>. أما لو قُطع جزء من جسد الحيوان (كالذيل مثلاً) وفيه شعر، فإن العضو نجس والشعر الذي عليه أيضاً نجس — لأننا لم نفصل الشعر وحده بل فصلنا جزءاً من البدن.</p>
+</div>
+
+<!-- ===== SECTION: الشك في الشعر ===== -->
+<h2 class="section-title">٤. الشكّ في الشعر أو نحوه</h2>
+
+<div class="issue-box">
+  <span class="box-label label-issue">المسألة</span>
+  <p><b>ولو شكّ في شعر أو نحوه أهو من مأكول أو من غيره، أو انفصل من حيّ أو ميت، فهو طاهر.</b></p>
+  <p>هذه المسألة تجيب عن سؤالين:</p>
+</div>
+
+<table>
+  <tr>
+    <th>السؤال</th>
+    <th>التفصيل</th>
+    <th>الحكم عند الشكّ</th>
+  </tr>
+  <tr>
+    <td>هل الشعر من مأكول (طاهر) أو من غير مأكول (نجس)؟</td>
+    <td>إن كان من مأكول فطاهر، وإن كان من غير مأكول فنجس</td>
+    <td><span class="highlight-green">طاهر</span> — الأصل الطهارة</td>
+  </tr>
+  <tr>
+    <td>هل انفصل من حيّ (طاهر) أو من ميت (نجس)؟</td>
+    <td>إن انفصل من حيّ مأكول فطاهر، وإن انفصل من ميتة فنجس</td>
+    <td><span class="highlight-green">طاهر</span> — الأصل الطهارة</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">قاعدة مهمة</span>
+  <p><b>ما فُصل من حيٍّ فله حكم ميتته:</b> فما فُصل من حيوان غير مأكول فنجس (ميتته نجسة). لكن الشعر والصوف والريش والوبر <b>استُثني</b> من هذه القاعدة — فإذا أُخذت من حيٍّ مأكول فهي طاهرة. أما من غير المأكول فنجسة على القاعدة.</p>
+  <p>في الحديث: <i>"ما أُبين من حيٍّ فهو ميت"</i> — لكن هذا مخصوص بالشعر والصوف والريش والوبر من المأكول.</p>
+</div>
+
+<h3 class="sub-title">قياس العظم</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>وقياسه أن العظم كذلك</b> — أي لو شككت في عظم أهو من مذكّى (طاهر) أو من ميتة (نجس)؟ فالأصل أنه طاهر. وبه صرّح <b>القمولي</b> في كتابه <b>جواهر البحر المحيط شرح الوسيط</b> (القمولي: أحمد بن محمد، من فقهاء الشافعية المصريين، توفي سنة 727 هـ).</p>
+</div>
+
+<!-- ===== SECTION: بيض الميتة ===== -->
+<h2 class="section-title">٥. بيض الميتة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>وبيض الميتة إن تصلّب طاهر وإلا فنجس</b> — لو ماتت دجاجة مثلاً ووجدنا فيها بيضة: إن كانت قد تصلّبت فهي طاهرة، وإن لم تتصلّب فهي نجسة.</p>
+</div>
+
+<table>
+  <tr>
+    <th>حالة البيض في الميتة</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td>تصلّب (تجسّد)</td>
+    <td><span class="highlight-green">طاهر</span></td>
+  </tr>
+  <tr>
+    <td>لم يتصلّب</td>
+    <td><span class="highlight-red">نجس</span></td>
+  </tr>
+</table>
+
+<!-- ===== SECTION: سؤر الحيوان ===== -->
+<h2 class="section-title">٦. سؤر كل حيوان طاهر</h2>
+
+<div class="definition-box">
+  <span class="box-label label-def">معنى السؤر</span>
+  <p><b>السؤر</b> له إطلاقان: <b>الأول:</b> فضلة الشراب (ما بقي بعد الشرب). <b>الثاني:</b> فضلات البدن (اللعاب، الدمع، المخاط). والسياق هنا يدل على أن المراد فضلة الشراب.</p>
+</div>
+
+<div class="key-rule">
+  سؤر كل حيوان طاهر = طاهر
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">التفصيل</span>
+  <p><b>وسؤر كل حيوان طاهر طاهر</b> — فسؤر الأسد والنمر وغيرها من السباع طاهر (فضلة شرابها ولعابها ودمعها وعرقها)، ما دام الحيوان طاهراً. وأما <b>الكلب والخنزير</b> فسؤرهما نجس، وكذلك فرعهما (ما تكلّم منه).</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">حيوان طاهر</div>
+    <div class="compare-card-body">سؤره طاهر<br>حتى لو كان سبعاً (أسد، نمر)<br>فضلة شرابه، لعابه، دمعه، عرقه كله طاهر</div>
+  </div>
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">كلب أو خنزير</div>
+    <div class="compare-card-body">سؤره نجس<br>وكذلك فرعهما (ما تكلّم منه)<br>لا يُعفى عن شيء منه</div>
+  </div>
+</div>
+
+<!-- ===== مسألة: الحيوان الطاهر تنجس فمه ثم ولغ ===== -->
+<h2 class="section-title">٧. مسألة: الحيوان الطاهر تنجّس فمه ثم ولغ في ماء</h2>
+
+<div class="issue-box">
+  <span class="box-label label-issue">الصورة</span>
+  <p>لو تنجّس فم حيوان طاهر (كقطة أكلت فأراً) ثم ولغت (شربت بلسانها) في ماء قليل أو مائع — فهل يتنجّس هذا الماء؟</p>
+</div>
+
+<div class="flow-row">
+  <div class="flow-box">حيوان طاهر تنجّس فمه</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">ولغ في ماء قليل أو مائع</div>
+</div>
+<div class="flow-row">
+  <div class="flow-box">غاب واحتمل طهارة فمه (بشربه من ماء كثير أو جار)</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-pure">طاهر — لم يُنجسه</div>
+</div>
+<div class="flow-row">
+  <div class="flow-box">لم يغب أو لا يحتمل طهارة فمه (لا ماء كثير ولا جار)</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-impure">نجّسه</div>
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">التفصيل</span>
+  <p><b>فإن كان</b> ولوغه في الماء القليل <b>بعد غيبة يمكن فيها طهارة فمه</b> بولوغه في ماء كثير أو جار — <b>لم يُنجسه</b> ولو كان هرّاً. لأنه يُحتمل أنها ذهبت وشربت من الماء الكثير فنظّفت فمها من النجاسة ثم جاءت وشربت.</p>
+  <p><b>وإلا</b> — أي وإن لم تغب أصلاً أو لم يحتمل أنه ولغ في ماء كثير أو جار (بأن لم يكن هناك ماء كثير ولا جار) — <b>فنجّسه</b>، أي نجّس الماء القليل أو المائع الذي ولغ فيه.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيهات</span>
+  <p><b>المائع:</b> لا يقال "مائع قليل" لأن المائعات وإن كثرت حكمها حكم الماء القليل.</p>
+  <p><b>الماء الجار:</b> ولو كان قليلاً يُطهّر النجاسة إذا كان وارداً عليها.</p>
+  <p><b>قوله "ولو هرّاً":</b> أي ولو كان الحيوان هرّاً (قطة) — والتذكير في "نَجَّسه" لأن الكلام على الحيوان مذكّر لا على الهرّ.</p>
+</div>
+
+<!-- ===== المعفو عنه ===== -->
+<h2 class="section-title">٨. المعفوّ عنه من النجاسات (تسعة أشياء)</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">القاعدة العامة</span>
+  <p>قال شيخنا كالسيوطي (الحافظ الكبير عبد الرحمن السيوطي، متوفّى 911 هـ) تبعاً لبعض المتأخرين: <b>إنه يُعفى عن يسير عرفاً</b> — فالمرجع في تقدير اليسير والقلة هو <b>العُرف</b>.</p>
+</div>
+
+<div class="key-rule">
+  ما يشقّ الاحتراز عنه يُعفى عنه غالباً — بثلاثة شروط
+</div>
+
+<div class="tree-container">
+  <div class="tree-root">الأشياء المعفوّ عنها (٩)</div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="tree-branch-num">١</div>
+      <div class="tree-branch-label">يسير شعر نجس</div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-branch-num">٢</div>
+      <div class="tree-branch-label">يسير دخان نجاسة</div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-branch-num">٣</div>
+      <div class="tree-branch-label">ما على رجل ذباب</div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-branch-num">٤</div>
+      <div class="tree-branch-label">ما على رجل أروية</div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-branch-num">٥</div>
+      <div class="tree-branch-label">ما على منفذ غير آدميّ</div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-branch-num">٦</div>
+      <div class="tree-branch-label">ذرق طير</div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-branch-num">٧</div>
+      <div class="tree-branch-label">ما على فم طير</div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-branch-num">٨</div>
+      <div class="tree-branch-label">روث ما نشأ في الماء</div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-branch-num">٩</div>
+      <div class="tree-branch-label">روث الفئران في حياض الأخلية</div>
+    </div>
+  </div>
+</div>
+
+<!-- تفصيل كل واحد -->
+
+<h3 class="sub-title">١. يسير شعر نجس من غير مغلّظ</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p>يُعفى عن يسير شعر نجس — وهو شعر الميتة أو شعر الحيوان غير المأكول — <b>بشرط أن لا يكون من مغلّظ</b> (أي من كلب أو خنزير). فالكلب والخنزير لا يُعفى عن شيء من شعرهما.</p>
+</div>
+
+<table>
+  <tr>
+    <th>نوع الشعر</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td>شعر ميتة (من مأكول)</td>
+    <td><span class="highlight-gold">نجس لكن يُعفى عن يسيره</span></td>
+  </tr>
+  <tr>
+    <td>شعر حيوان غير مأكول</td>
+    <td><span class="highlight-gold">نجس لكن يُعفى عن يسيره</span></td>
+  </tr>
+  <tr>
+    <td>شعر كلب أو خنزير (مغلّظ)</td>
+    <td><span class="highlight-red">نجس ولا يُعفى عنه</span></td>
+  </tr>
+</table>
+
+<h3 class="sub-title">٢. يسير دخان نجاسة</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">ما هو دخان النجاسة؟</span>
+  <p><b>دخان النجاسة:</b> المتصاعد من إحراق عين نجسة أو عين متنجّسة بالنار. فما يتصاعد عند إحراق روث الحيوانات مثلاً — هذا الدخان نجس لأنه انفصل عن النجاسة كأنه جزء من أجزائها.</p>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">تفريق مهم</span>
+  <p><b>دخان النجاسة</b> (نجس): المتصاعد بسبب <b>الإحراق بالنار</b> لعين نجسة أو متنجّسة.</p>
+  <p><b>الغازات/الأبخرة المتصاعدة بغير إحراق</b> (طاهرة): كالريح التي تخرج من الإنسان، أو الغازات المتصاعدة من البيارات — ليست ناتجة عن إحراق فليست نجسة.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">مثال عملي</span>
+  <p>عندك تنّور في البيت يُخبز فيه — وضعت فيه سرقيناً (سماداً) فأحرقتها، فصعد الدخان وعلق بجوانب التنّور. أخذت خرقة جافّة ومسحت الجوانب ثم وضعت الخبز — يبقى شيء يسير من الدخان في الجدار، هذا يُعفى عنه.</p>
+</div>
+
+<h3 class="sub-title">٣-٤. ما على رجل ذباب وأرويه</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>ويُعفى عما على رجل ذباب وأرويه</b> — إذا وقع الذباب على نجاسة ثم جاء ووقع على رجل إنسان، فإن ما وقع عليه الذباب ونقله برجله إلى ثوب أو بدن أو مكان — يُعفى عنه حتى وإن كان يُرى بالعين.</p>
+</div>
+
+<h3 class="sub-title">٥. ما على منفذ غير الآدميّين</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>وما على منفذ غير الآدميّين مما خرج منهم</b> — لو وقعت دجاجة في ماء وعلى مخرجها بقايا روث، فإنها لا تُنجّس ذلك الماء — هذا معفوٌّ عنه. لكن قوله "غير الآدميّين" يخرج الآدمي — فلو كان على مخرج الآدمي أثر نجاسة فإنه يُنجّس الماء (كأن استنجى بحجر).</p>
+</div>
+
+<h3 class="sub-title">٦. ذرق طير</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">الذرق</span>
+  <p><b>الذرق</b> (بسكون الراء): روث الطير. ويُعفى عن ذرق الطير <b>مطلقاً</b> سواء كان الطير مأكولاً (كالحمام) أو غير مأكول (كالحدأة، الصقر، النسر).</p>
+</div>
+
+<table>
+  <tr>
+    <th>مكان العفو عن ذرق الطير</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td>في المكان</td>
+    <td><span class="highlight-green">يُعفى عنه</span> (إذا كان جافاً ولم يتعمّد ملامسته)</td>
+  </tr>
+  <tr>
+    <td>في البدن أو الثوب</td>
+    <td><span class="highlight-red">لا يُعفى عنه</span></td>
+  </tr>
+  <tr>
+    <td>إذا كان رطباً</td>
+    <td><span class="highlight-red">لا يُعفى عنه</span></td>
+  </tr>
+  <tr>
+    <td>إذا تعمّد ملامسته</td>
+    <td><span class="highlight-red">لا يُعفى عنه</span></td>
+  </tr>
+</table>
+
+<h3 class="sub-title">٧. ما على فم الطير</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>وما على فمه</b> — أي يُعفى عن ما على فم الطير. فلو أكل الطير ديدان أو ميتة وبقي على منقاره دم ثم شرب من ماء — لا يُنجّس ذلك الماء، يُعفى عنه.</p>
+</div>
+
+<h3 class="sub-title">٨. روث ما نشأ في الماء</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>وروث ما نشأ في الماء</b> — أي يُعفى عن روث الديدان التي تنشأ في الماء (كديدان العلق التي لها منافع طبية). إذا تروّثت في الماء فإنه يُعفى عن روثها.</p>
+</div>
+
+<div class="exception-box">
+  <span class="box-label label-exc">ما بين أوراق النارجيل</span>
+  <p><b>وروث ما نشأ بين أوراق شجر النارجيل التي تُستر بها البيوت عن المطر حيث يُعسر وصول الماء إليه</b> — قديماً كانوا يصنعون السقف من أوراق جوز الهند (النارجيل)، فتأتي الحشرات (كالوزغ) والحمام وتتروّث في السقف، فينزل المطر ويحمل الروث إلى ماء البيت — هذا يُعفى عنه لصعوبة الاحتراز منه.</p>
+</div>
+
+<h3 class="sub-title">٩. روث الفئران في حياض الأخلية</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>وكذا ما تلقيه الفئران من روث في حياض الأخلية إذا عمّ الابتلاء به</b> — الفئران تتروّث أحياناً في الأحواض التي في الخلاء، فإذا عمّ الابتلاء بها (وكذلك الوزغ بل أكثر) فيُعفى عن يسيره. وفي الأصل الماء القليل إذا لاقته نجاسة يُحكم بنجاسته، لكن مع عموم الابتلاء يُعفى عنه.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">تأييد من كلام الفزاري</span>
+  <p>يؤيّد هذا ما بحثه <b>الفزاري</b> المتقدّم في الدرس الماضي: <i>"العفو عن بعر الفأرة إذا وقع في مائع وعمّت البلوى به"</i> — فهذا يؤيّد العفو عن روث الفئران في حياض الأخلية.</p>
+</div>
+
+<!-- ===== شروط العفو ===== -->
+<h2 class="section-title">٩. شروط العفو عن هذه الأشياء التسعة</h2>
+
+<div class="key-rule">
+  شروط العفو الثلاثة
+</div>
+
+<div class="excused-grid">
+  <div class="excused-item">
+    <span class="excused-num">١</span>
+    <b>أن لا يُغيّر الماء</b> — إذا غيّر الماء فإنه يُنجسه بالإجماع، لأن الماء يتنجّس بالتغيّر إجماعاً.
+  </div>
+  <div class="excused-item">
+    <span class="excused-num">٢</span>
+    <b>أن لا يكون بفعله</b> — أي أن لا يتعمّد وضع النجاسة. فلو تعمّد وضع روث الفئران في الحوض أَنجسه إن كان ماءً قليلاً.
+  </div>
+  <div class="excused-item">
+    <span class="excused-num">٣</span>
+    <b>أن لا يكون من مغلّظ</b> — أي أن لا يكون من كلب أو خنزير. فما كان من كلب أو خنزير لا يُعفى عنه أبداً.
+  </div>
+  <div class="excused-item" style="background: #dcfce7; border-color: #86efac;">
+    <b>النتيجة:</b> إذا لم يُغيّر الماء + ولم يكن بفعله + ولم يكن من مغلّظ → <span style="color: #166534; font-weight: bold;">يُعفى عنه</span>
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">القاعدة الكبرى</span>
+  <p><b>ما يشقّ الاحتراز عنه يُعفى عنه غالباً</b> — هذه قاعدة عامة في الفقه: كل شيء يشقّ على الإنسان الاحتراز عنه والابتعاد عنه، فإنه يُعفى عنه، بشرط الشروط الثلاثة المذكورة.</p>
+</div>
+
+<!-- ===== ملخص الدرس ===== -->
+<h2 class="section-title">١٠. ملخص الدرس</h2>
+
+<table>
+  <tr>
+    <th>#</th>
+    <th>الموضوع</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td>١</td>
+    <td>بيض غير المأكول</td>
+    <td>طاهر (كل البيض طاهر)</td>
+  </tr>
+  <tr>
+    <td>٢</td>
+    <td>شعر المأكول وريشه إذا أُبين في حياته</td>
+    <td>طاهر — ومن الميتة نجس</td>
+  </tr>
+  <tr>
+    <td>٣</td>
+    <td>الشكّ في الشعر (مأكول أو لا؟ حيّ أو ميت؟)</td>
+    <td>طاهر — الأصل الطهارة</td>
+  </tr>
+  <tr>
+    <td>٤</td>
+    <td>بيض الميتة</td>
+    <td>إن تصلّب طاهر وإلا فنجس</td>
+  </tr>
+  <tr>
+    <td>٥</td>
+    <td>سؤر كل حيوان طاهر</td>
+    <td>طاهر (إلا الكلب والخنزير)</td>
+  </tr>
+  <tr>
+    <td>٦</td>
+    <td>حيوان طاهر تنجّس فمه ثم ولغ في ماء</td>
+    <td>إن غاب واحتمل طهارته لم يُنجسه، وإلا نَجّسه</td>
+  </tr>
+  <tr>
+    <td>٧</td>
+    <td>المعفوّ عنه (٩ أشياء)</td>
+    <td>بثلاثة شروط: لا يُغيّر الماء، لا يكون بفعله، لا يكون من مغلّظ</td>
+  </tr>
+</table>
+
+</body>
+</html>

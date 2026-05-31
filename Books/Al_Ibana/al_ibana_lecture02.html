@@ -1,0 +1,1905 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح الإبانة والإفاضة - الدرس 02</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-green: #0d6b3e;
+  --dark-green: #0a4f2e;
+  --gold: #d4a020;
+  --light-gold: #f0e6c0;
+  --teal: #0d7377;
+  --bg: #fefefe;
+  --body-text: #1a1a1a;
+  --border: #c8d6c0;
+  --card-bg: #f8faf7;
+  --evidence-bg: #eef5eb;
+  --callout-bg: #fff8e7;
+  --definition-bg: #ebf5f5;
+  --comparison-bg: #f5f0eb;
+  --ruling-bg: #f0f5eb;
+  --scholar-bg: #f5f0f8;
+  --shadow: 0 2px 8px rgba(0,0,0,0.08);
+  --shadow-hover: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.bw-mode {
+  --primary-green: #333;
+  --dark-green: #1a1a1a;
+  --gold: #666;
+  --light-gold: #eee;
+  --teal: #444;
+  --bg: #fff;
+  --body-text: #000;
+  --border: #999;
+  --card-bg: #f5f5f5;
+  --evidence-bg: #f0f0f0;
+  --callout-bg: #f5f5f5;
+  --definition-bg: #f0f0f0;
+  --comparison-bg: #f0f0f0;
+  --ruling-bg: #f0f0f0;
+  --scholar-bg: #f0f0f0;
+  --shadow: 0 2px 8px rgba(0,0,0,0.1);
+  --shadow-hover: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+  font-size: 16px;
+  line-height: 2;
+  color: var(--body-text);
+  background: var(--bg);
+  direction: rtl;
+}
+
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+}
+
+@media print {
+  body { font-size: 14px; line-height: 1.8; }
+  .bw-toggle { display: none !important; }
+  .cover-page { page-break-after: always; }
+  .section { page-break-inside: avoid; }
+  .comparison-container { flex-direction: row !important; }
+}
+
+/* Page numbers */
+@page {
+  @bottom-center {
+    content: counter(page);
+    font-size: 12px;
+    color: #888;
+  }
+}
+
+/* B&W Toggle */
+.bw-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1000;
+  background: var(--primary-green);
+  color: white;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  font-family: 'Noto Naskh Arabic', serif;
+}
+.bw-toggle:hover {
+  background: var(--dark-green);
+  box-shadow: var(--shadow-hover);
+  transform: scale(1.1);
+}
+
+/* Cover Page */
+.cover-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 40%, var(--teal) 70%, var(--dark-green) 100%);
+  color: white;
+  text-align: center;
+  padding: 40px 30px;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+}
+
+.cover-page::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a020' fill-opacity='0.08'%3E%3Cpath d='M30 0L60 30L30 60L0 30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.cover-page::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold), var(--light-gold), var(--gold));
+}
+
+.cover-ornament {
+  font-size: 50px;
+  color: var(--gold);
+  margin-bottom: 20px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.cover-book-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  line-height: 1.6;
+  max-width: 700px;
+}
+
+.cover-lecture-badge {
+  background: var(--gold);
+  color: var(--dark-green);
+  padding: 8px 30px;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 20px 0;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.cover-lecture-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: var(--light-gold);
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.cover-info {
+  margin-top: 25px;
+  font-size: 16px;
+  line-height: 2.2;
+  color: rgba(255,255,255,0.9);
+}
+
+.cover-info .label {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.cover-divider {
+  width: 120px;
+  height: 2px;
+  background: var(--gold);
+  margin: 20px auto;
+  border: none;
+}
+
+.cover-badge-new {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark-green);
+  padding: 4px 18px;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/* Main Content */
+.main-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 15px 60px;
+}
+
+/* Section Headers */
+.section-header {
+  background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+  color: white;
+  padding: 15px 25px;
+  border-radius: 10px;
+  margin: 35px 0 20px;
+  font-size: 22px;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-header::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 6px;
+  height: 100%;
+  background: var(--gold);
+}
+
+.section-header .section-number {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark-green);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 36px;
+  font-size: 16px;
+  margin-left: 12px;
+  font-weight: 700;
+}
+
+/* Sub Headers */
+.sub-header {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--primary-green);
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 8px;
+  margin: 25px 0 15px;
+}
+
+.sub-sub-header {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--dark-green);
+  margin: 20px 0 10px;
+  padding-right: 15px;
+  border-right: 4px solid var(--teal);
+}
+
+/* Body Text */
+.body-text {
+  font-size: 16px;
+  line-height: 2;
+  margin-bottom: 12px;
+  text-align: justify;
+}
+
+.highlight {
+  background: var(--light-gold);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+.green-highlight {
+  color: var(--primary-green);
+  font-weight: 700;
+}
+
+.gold-highlight {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.teal-highlight {
+  color: var(--teal);
+  font-weight: 600;
+}
+
+/* Classification Tree */
+.classification-tree {
+  background: var(--card-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 25px;
+  margin: 20px 0;
+  box-shadow: var(--shadow);
+}
+
+.classification-tree .tree-title {
+  text-align: center;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 20px;
+}
+
+.tree-root {
+  background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+  color: white;
+  text-align: center;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0 auto 5px;
+  width: fit-content;
+  position: relative;
+}
+
+.tree-connector {
+  width: 2px;
+  height: 20px;
+  background: var(--primary-green);
+  margin: 0 auto;
+}
+
+.tree-branches {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.tree-branch {
+  background: white;
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 15px 20px;
+  min-width: 180px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.tree-branch:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+.tree-branch .branch-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 8px;
+}
+
+.tree-branch .branch-desc {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.8;
+}
+
+.tree-branch .branch-icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+/* Ruling Cards */
+.ruling-card {
+  background: var(--ruling-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 12px 0;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.ruling-card .ruling-badge {
+  background: var(--primary-green);
+  color: white;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  min-width: 80px;
+  text-align: center;
+}
+
+.ruling-card .ruling-badge.wajib { background: var(--primary-green); }
+.ruling-card .ruling-badge.haram { background: #8B0000; }
+.ruling-card .ruling-badge.mubah { background: var(--teal); }
+.ruling-card .ruling-badge.khilaf { background: var(--gold); color: var(--dark-green); }
+
+.ruling-card .ruling-content {
+  flex: 1;
+  line-height: 2;
+  font-size: 16px;
+}
+
+/* Evidence Box */
+.evidence-box {
+  background: var(--evidence-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 20px 25px;
+  margin: 20px 0;
+  position: relative;
+  box-shadow: var(--shadow);
+}
+
+.evidence-box::before {
+  content: '';
+  position: absolute;
+  top: -14px;
+  right: 20px;
+  background: var(--evidence-bg);
+  padding: 0 8px;
+  font-size: 22px;
+}
+
+.evidence-box .evidence-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 10px;
+}
+
+.evidence-box .quran-verse {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dark-green);
+  line-height: 2.2;
+  text-align: center;
+  margin: 10px 0;
+  padding: 10px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.evidence-box .hadith-text {
+  font-family: 'Amiri', serif;
+  font-size: 18px;
+  color: var(--dark-green);
+  line-height: 2;
+  margin: 10px 0;
+  padding: 10px 15px;
+  border-right: 4px solid var(--gold);
+  background: rgba(212, 160, 32, 0.05);
+}
+
+/* Comparison Cards */
+.comparison-container {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.comparison-card {
+  flex: 1;
+  min-width: 220px;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  border-top: 4px solid var(--primary-green);
+  transition: all 0.3s ease;
+}
+
+.comparison-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+.comparison-card.shafii { border-top-color: var(--primary-green); }
+.comparison-card.hanbali { border-top-color: #c0392b; }
+.comparison-card.hanafi { border-top-color: #2980b9; }
+.comparison-card.maliki { border-top-color: #8e44ad; }
+
+.comparison-card .card-title {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.comparison-card.shafii .card-title { color: var(--primary-green); }
+.comparison-card.hanbali .card-title { color: #c0392b; }
+.comparison-card.hanafi .card-title { color: #2980b9; }
+.comparison-card.maliki .card-title { color: #8e44ad; }
+
+.comparison-card .card-content {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #444;
+}
+
+.comparison-card .card-icon {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+/* Definition Card */
+.definition-card {
+  background: var(--definition-bg);
+  border: 2px solid var(--teal);
+  border-radius: 12px;
+  padding: 20px 25px;
+  margin: 20px 0;
+  position: relative;
+  box-shadow: var(--shadow);
+}
+
+.definition-card::before {
+  content: '';
+  position: absolute;
+  top: -14px;
+  right: 20px;
+  background: var(--definition-bg);
+  padding: 0 8px;
+  font-size: 22px;
+}
+
+.definition-card .def-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--teal);
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.definition-card .def-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--dark-green);
+  line-height: 2.2;
+  text-align: center;
+  padding: 10px;
+}
+
+.definition-card .def-parts {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px dashed var(--border);
+}
+
+/* Callout Box */
+.callout-box {
+  background: var(--callout-bg);
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 15px 0;
+  position: relative;
+  box-shadow: var(--shadow);
+}
+
+.callout-box::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  right: 15px;
+  background: var(--callout-bg);
+  padding: 0 6px;
+  font-size: 20px;
+}
+
+.callout-box .callout-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.callout-box .callout-content {
+  font-size: 16px;
+  line-height: 2;
+}
+
+/* Numbered Steps */
+.numbered-steps {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: var(--shadow);
+}
+
+.numbered-steps .steps-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 10px 15px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.step-item .step-number {
+  background: var(--primary-green);
+  color: white;
+  min-width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.step-item .step-content {
+  flex: 1;
+  font-size: 16px;
+  line-height: 2;
+}
+
+.step-item .step-source {
+  font-size: 14px;
+  color: var(--teal);
+  font-weight: 600;
+}
+
+/* Key Benefit Box */
+.benefit-box {
+  background: linear-gradient(135deg, var(--light-gold), #fff8e7);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 20px 25px;
+  margin: 20px 0;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.benefit-box .benefit-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.benefit-box .benefit-content {
+  font-size: 16px;
+  line-height: 2;
+}
+
+/* Fiqh Principle Box */
+.fiqh-box {
+  background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 20px 25px;
+  margin: 20px 0;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.fiqh-box::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  right: 15px;
+  background: #e8f5e9;
+  padding: 0 8px;
+}
+
+.fiqh-box .fiqh-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 10px;
+}
+
+.fiqh-box .fiqh-content {
+  font-size: 16px;
+  line-height: 2;
+}
+
+/* Quote Block */
+.quote-block {
+  background: var(--card-bg);
+  border-right: 5px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  padding: 20px 25px;
+  margin: 20px 0;
+  font-family: 'Amiri', serif;
+  font-size: 18px;
+  line-height: 2.2;
+  color: var(--dark-green);
+  font-style: italic;
+  position: relative;
+  box-shadow: var(--shadow);
+}
+
+.quote-block::before {
+  content: '\275D';
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 30px;
+  color: var(--gold);
+  font-style: normal;
+}
+
+.quote-block .quote-attribution {
+  display: block;
+  margin-top: 10px;
+  font-size: 15px;
+  color: var(--teal);
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* Data Table */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.data-table th {
+  background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+  color: white;
+  padding: 12px 15px;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.data-table td {
+  padding: 10px 15px;
+  border: 1px solid var(--border);
+  font-size: 15px;
+  line-height: 1.9;
+  text-align: center;
+}
+
+.data-table tr:nth-child(even) {
+  background: var(--card-bg);
+}
+
+.data-table tr:hover {
+  background: var(--light-gold);
+}
+
+/* Five Cases Container */
+.cases-container {
+  display: grid;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.case-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 15px 20px;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  border-right: 5px solid var(--primary-green);
+}
+
+.case-card .case-number {
+  background: var(--primary-green);
+  color: white;
+  min-width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.case-card .case-content {
+  flex: 1;
+}
+
+.case-card .case-condition {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--dark-green);
+  margin-bottom: 5px;
+}
+
+.case-card .case-ruling {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #444;
+}
+
+.case-card .case-ruling strong {
+  color: var(--primary-green);
+}
+
+/* Scholar Card */
+.scholar-card {
+  background: var(--scholar-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 15px 0;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.scholar-card .scholar-icon {
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.scholar-card .scholar-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 5px;
+}
+
+.scholar-card .scholar-info {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #444;
+}
+
+/* Arabic diacritical marks helper */
+.tashkeel {
+  font-size: 1.05em;
+}
+
+/* Inline note */
+.inline-note {
+  font-size: 14px;
+  color: var(--teal);
+  font-weight: 600;
+}
+
+/* Highlighted word */
+.word-highlight {
+  background: linear-gradient(transparent 60%, var(--light-gold) 60%);
+  font-weight: 600;
+  padding: 0 2px;
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  padding: 30px 0 20px;
+  border-top: 2px solid var(--border);
+  margin-top: 40px;
+  font-size: 14px;
+  color: #888;
+}
+
+/* Scroll-to-top */
+.scroll-top {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 44px;
+  height: 44px;
+  background: var(--primary-green);
+  color: white;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+.scroll-top:hover {
+  background: var(--dark-green);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cover-book-title { font-size: 22px; }
+  .cover-lecture-title { font-size: 18px; }
+  .section-header { font-size: 19px; }
+  .comparison-container { flex-direction: column; }
+  .tree-branches { flex-direction: column; align-items: center; }
+  .data-table { font-size: 13px; }
+  .data-table th, .data-table td { padding: 8px 10px; }
+  .case-card { flex-direction: column; }
+}
+
+/* Waqfa (Pause/Stop) Card */
+.waqfa-card {
+  background: #fff3e0;
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 15px 0;
+  box-shadow: var(--shadow);
+}
+
+.waqfa-card .waqfa-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.waqfa-card .waqfa-content {
+  font-size: 16px;
+  line-height: 2;
+}
+
+/* Difference indicator */
+.vs-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 18px;
+}
+
+</style>
+</head>
+<body>
+
+<!-- B&W Toggle Button -->
+<button class="bw-toggle" onclick="toggleBW()" title="تبديل الأبيض والأسود">ن</button>
+
+<!-- Scroll to Top -->
+<button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" id="scrollTopBtn">&#9650;</button>
+
+<!-- ==================== COVER PAGE ==================== -->
+<div class="cover-page">
+  <div class="cover-ornament">&#10022; &#10048; &#10022;</div>
+  <div class="cover-badge-new">جديد</div>
+  <div class="cover-book-title">الإبانة والإفاضة في أحكام الحيض والنفاس والاستحاضة<br>على مذهب الإمام الشافعي</div>
+  <div class="cover-lecture-badge">الدرس الثاني</div>
+  <div class="cover-lecture-title">سن الحيض وصفاته وألوانه ومدته</div>
+  <hr class="cover-divider">
+  <div class="cover-info">
+    <span class="label">المؤلف:</span> عبد الرحمن بن عبد الله عبد القادر السقاف<br>
+    <span class="label">الشارح:</span> د. لبيب نجيب عبد الله<br>
+    <span class="label">المنظم:</span> أحمد بن إرشاد
+  </div>
+</div>
+
+<!-- ==================== MAIN CONTENT ==================== -->
+<div class="main-content">
+
+<!-- ===== Opening Dua ===== -->
+<p class="body-text">
+نبدأ ونسأل الله أن يفقهنا في الدين وأن يفتح لنا فتوح العارفين وأن يرزقنا الإخلاص في الأقوال والأعمال اللهم آمين.
+</p>
+
+<!-- ===== Section 1: تعريف النفاس ===== -->
+<h1 class="section-header"><span class="section-number">1</span> تعريف النفاس</h1>
+
+<p class="body-text">
+يقول فضيلة الدكتور الفقيه عبد الرحمن السقاف حفظه الله تعالى ونفع بعلمه في الدنيا والآخرة: قال ثانياً: النفاس. تعريف النفاس: <span class="green-highlight">النفاس هو الدم الخارج بعد فراغ الرحم من الحمل</span>. قال: النفاس هو — هذا تعريف النفاس شرعاً. ولم يُعرَف النفاس لغةً.
+</p>
+
+<h2 class="sub-header">النفاس في اللغة</h2>
+
+<p class="body-text">
+فالنفاس في اللغة هو الولادة، سُمّي نفاساً لأنه يخرج عقب نَفَس، وقيل إن النفاس في اللغة هو الدم لأنه دم يخرج بعد الولادة، ومنه قول الفقهاء: <span class="green-highlight">ما لا نَفْسَ له سائلة</span> أي ما لا دمَ له يسيل.
+</p>
+
+<h2 class="sub-header">النفاس في الشرع</h2>
+
+<p class="body-text">
+وتعريف النفاس شرعاً ما ذكره المؤلف حفظه الله فقال: الدم الخارج بعد فراغ الرحم أي قبل مضي خمسة عشر يوماً. إذن هذا التعريف يحتاج إلى تتمة، هذه التتمة ستأتي من كلامه، لكن لو أنه ذكرها هنا حتى يكون التعريف تاماً لكان أولى.
+</p>
+
+<!-- Definition Card: النفاس -->
+<div class="definition-card">
+  <div class="def-label">التعريف الشرعي الكامل</div>
+  <div class="def-text">النفاس هو الدم الخارج بعد فراغ الرحم من الحمل وقبل مضي خمسة عشر يوماً</div>
+  <div class="def-parts">
+    <p class="body-text" style="margin-bottom:5px"><span class="green-highlight">القيد الأول:</span> بعد فراغ الرحم من الحمل</p>
+    <p class="body-text" style="margin-bottom:0"><span class="green-highlight">القيد الثاني:</span> قبل مضي خمسة عشر يوماً</p>
+  </div>
+</div>
+
+<!-- ===== Section 2: الوقفات مع تعريف النفاس ===== -->
+<h1 class="section-header"><span class="section-number">2</span> الوقفات مع تعريف النفاس</h1>
+
+<p class="body-text">
+وهذا التعريف بارك الله فيكم نقف عنده وقفات:
+</p>
+
+<!-- Waqfa 1 -->
+<div class="waqfa-card">
+  <div class="waqfa-title">&#9202; الوقفة الأولى: دم الطلق والدم الذي يخرج مع الولادة ليس دم نفاس</div>
+  <div class="waqfa-content">
+    <p class="body-text">
+    أن دم الطلق — والدم الذي يخرج مع الولادة — هذا ليس دم نفاس. دم الطلق هو الدم الذي يخرج من المرأة قبل الولادة بيوم أو يومين، هذا ليس دم نفاس. والدم الذي يخرج أثناء الولادة — أي مع الولادة — أيضاً ليس دم نفاس، لأن التعريف يقول لك إن دم النفاس هو الدم الخارج <span class="green-highlight">بعد فراغ الرحم</span>. إذن الذي يخرج قبل الولادة أو مع الولادة هذا ليس دم نفاس.
+    </p>
+    <p class="body-text">
+    طيب ما هو؟ نقول: يمكن أن يكون دم حيض إذا اتصل حيضها بالولادة، وهذا مبني على الأصح عند الشافعية من أن <span class="green-highlight">الحامل تحيض</span>، وهذه المسألة سيأتي الكلام عليها إن شاء الله تعالى في موضعها. وإذا قلنا بما يقابل الأصح عند الشافعية وهو مذهب الحنابلة أن <span class="green-highlight">الحامل لا تحيض</span> فإن هذا الدم سيكون دم فساد، واضح أو لا؟
+    </p>
+  </div>
+</div>
+
+<!-- Ruling: دم الطلق -->
+<div class="ruling-card">
+  <div class="ruling-badge khilaf">خلاف</div>
+  <div class="ruling-content">
+    دم الطلق (الخارج قبل الولادة أو معها) ليس دم نفاس بالإتفاق. فإن كان دم حيض إن قلنا الحامل تحيض (الأصح عند الشافعية)، أو دم فساد إن قلنا الحامل لا تحيض (مذهب الحنابلة).
+  </div>
+</div>
+
+<!-- Waqfa 2 -->
+<div class="waqfa-card">
+  <div class="waqfa-title">&#9202; الوقفة الثانية: الدم الذي يخرج بين الولد الأول والثاني ليس دم نفاس</div>
+  <div class="waqfa-content">
+    <p class="body-text">
+    ولما قال في التعريف: الدم الخارج بعد فراغ الرحم — تفهم منه أن الدم الذي يخرج بين الولد الأول والثاني ليس دم نفاس. مثاله: لو أنها ولدت فخرج الولد الأول ثم خرج دم، وبعد خمسة أيام خرج الولد الثاني، بحيث أن المدة بين خروج الولد الأول وخروج الولد الثاني دون ستة أشهر، واضح؟ فإن هذا الدم ليس دم نفاس. فهموا أم لا؟
+    </p>
+    <p class="body-text">
+    إذن دم النفاس متى يكون؟ بعد فراغ الرحم. لكن لو أنها في بطنها أكثر من جنين فخرج الجنين الأول ثم خرج دم ثم خرج الجنين الثاني فإن هذا الدم ليس دم نفاس.
+    </p>
+  </div>
+</div>
+
+<!-- Waqfa 3 -->
+<div class="waqfa-card">
+  <div class="waqfa-title">&#9202; الوقفة الثالثة: الدم الخارج بعد مضي خمسة عشر يوماً ليس دم نفاس</div>
+  <div class="waqfa-content">
+    <p class="body-text">
+    وقفة ثالثة مع هذا التعريف في قولنا: <span class="green-highlight">وقبل مضي خمسة عشر يوماً</span>. تفهم من هذا أنه لو ولدت المرأة ولم يخرج منها دم حتى مضت خمسة عشر يوماً فإن الدم الخارج بعد مضي خمسة عشر يوماً ليس دم نفاس، بل هو إما دم حيض إن تحقق شرطه أو دم فساد — دم استحاضة — فهموا أم لا؟
+    </p>
+  </div>
+</div>
+
+<div class="benefit-box">
+  <div class="benefit-title">&#128273; خلاصة الوقفات الثلاث</div>
+  <div class="benefit-content">
+    <strong>الوقفة الأولى:</strong> دم الطلق والدم مع الولادة ليس نفاساً<br>
+    <strong>الوقفة الثانية:</strong> الدم بين توأمين (دون ستة أشهر) ليس نفاساً<br>
+    <strong>الوقفة الثالثة:</strong> الدم بعد خمسة عشر يوماً من الولادة ليس نفاساً
+  </div>
+</div>
+
+<!-- ===== Section 3: شرح تعريف النفاس ===== -->
+<h1 class="section-header"><span class="section-number">3</span> شرح تعريف النفاس</h1>
+
+<p class="body-text">
+قال فضيلة الدكتور وفقه الله: شرح التعريف — النفاس هو ذلك الدم الذي يخرج بعد فراغ الرحم من الحمل <span class="green-highlight">وإن كان المولود علقة أو مضغة</span>.
+</p>
+
+<h2 class="sub-header">إثبات النفاس بخروج العلقة والمضغة</h2>
+
+<p class="body-text">
+قالت قابلة — والقابلة هي المرأة التي تتحقق من النفاس من المرأة، التي تتولى التوليد، التي تقوم بعملية التوليد — تسمى <span class="green-highlight">قابلة</span> وتسمى في بعض المجتمعات <span class="green-highlight">الداية</span>. قال: قالت قابلة إنها — الصواب: قالت قابلة إنها — لأن الهمزة من مواضع كسرها في «إن» أن يأتي بعد قول: قالت قابلة إنها مبدأ خلق آدم.
+</p>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه نحوي: كسر همزة إن بعد القول</div>
+  <div class="callout-content">
+    الصواب: «قالت قابلة إنها» بكسر همزة إن، لأن الهمزة من مواضع كسرها في «إن» أن يأتي بعد القول. فتكون «إن» هنا مؤكدة وليست مخففة.
+  </div>
+</div>
+
+<p class="body-text">
+تفهم من هذا الكلام مسألة وهي أن النفاس يثبت بخروج علقة، والعلقة تكون بعد الأربعين إلى الثمانين.
+</p>
+
+<!-- Evidence: Hadith of Ibn Masud -->
+<div class="evidence-box">
+  <div class="evidence-label">حديث شريف — الصحيحان</div>
+  <div class="hadith-text">
+    عن ابن مسعود رضي الله تعالى عنه قال النبي صلى الله عليه وسلم: <span class="green-highlight">«إن أحدكم يُجمَع خلقه في بطن أمه أربعين يوماً نطفةً، ثم يكون علقةً مثل ذلك — أي أربعين يوماً — ثم يكون مضغةً مثل ذلك — أي أربعين يوماً»</span>
+  </div>
+</div>
+
+<!-- Classification Tree: Stages of Creation -->
+<div class="classification-tree">
+  <div class="tree-title">مراحل خلق الإنسان في الرحم</div>
+  <div class="tree-root">خلق الإنسان في الرحم</div>
+  <div class="tree-connector"></div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="branch-name">نطفة</div>
+      <div class="branch-desc">من يوم 1 إلى يوم 40</div>
+    </div>
+    <div class="tree-branch">
+      <div class="branch-name">علقة</div>
+      <div class="branch-desc">من يوم 41 إلى يوم 80<br>قطعة دم</div>
+    </div>
+    <div class="tree-branch">
+      <div class="branch-name">مضغة</div>
+      <div class="branch-desc">من يوم 81 إلى يوم 120<br>قطعة لحم</div>
+    </div>
+  </div>
+</div>
+
+<p class="body-text">
+وبالتالي المرأة إذا ولدت علقة — أي مثلاً عمرها ستون يوماً خمسون يوماً سبعون يوماً — وخرج دم فذلك الدم يثبت له حكم النفاس، أي ذلك الدم دم نفاس، واضح لله؟
+</p>
+
+<!-- Three Rulings from Alaqah -->
+<div class="numbered-steps">
+  <div class="steps-title">الأحكام الثلاثة المترتبة على خروج العلقة (مذهب الشافعية)</div>
+  <div class="step-item">
+    <span class="step-number">1</span>
+    <div class="step-content">
+      <span class="green-highlight">وجوب الغسل</span>
+    </div>
+  </div>
+  <div class="step-item">
+    <span class="step-number">2</span>
+    <div class="step-content">
+      <span class="green-highlight">ثبوت النفاس</span>
+    </div>
+  </div>
+  <div class="step-item">
+    <span class="step-number">3</span>
+    <div class="step-content">
+      <span class="green-highlight">الفطر من الصوم</span>
+    </div>
+  </div>
+</div>
+
+<p class="body-text">
+وهذا كما قلت لكم مذهب الشافعية لأن غير الشافعية لهم أقوال أخرى في هذه المسألة.
+</p>
+
+<!-- Comparison: Shafi'i vs Hanbali on Alaqah -->
+<div class="comparison-container">
+  <div class="comparison-card shafii">
+    <div class="card-title">مذهب الشافعية</div>
+    <div class="card-content">
+      النفاس يثبت <span class="green-highlight">بخروج العلقة</span> — وإن لم يتبين فيه خلق آدمي. فإذا ولدت المرأة علقة أو مضغة ثبت لها أحكام النفاس من وجوب الغسل وثبوت النفاس والفطر من الصوم.
+    </div>
+  </div>
+  <div class="comparison-card hanbali">
+    <div class="card-title">مذهب الحنابلة</div>
+    <div class="card-content">
+      أحكام النفاس إنما تترتب إذا خرج <span class="green-highlight">ما تبين فيه خلق آدم</span>. أما إذا لم يتبين فيه خلق آدم فعندهم هذا دم فساد ليس دم نفاس.
+    </div>
+  </div>
+</div>
+
+<p class="body-text">
+قال هنا: وإن كان المولود علقة أو مضغة. والعلقة قطعة دم، والمضغة قطعة لحم. والمضغة من الثمانين — أو من واحد وثمانين — إلى مئة وعشرين.
+</p>
+
+<h2 class="sub-header">إخبار القابلة الواحدة يكفي</h2>
+
+<p class="body-text">
+قالت قابلة — وقوله «قالت قابلة» فيه إشارة إلى أنه <span class="green-highlight">يكفي إخبار قابلة واحدة فقط</span> — قالت قابلة إنها مبدأ آدمي. ولذلك أكد هذه المعلومة فقال: <span class="green-highlight">ويكفي إخبار قابلة واحدة</span>.
+</p>
+
+<div class="ruling-card">
+  <div class="ruling-badge wajib">قاعدة</div>
+  <div class="ruling-content">
+    يكفي إخبار قابلة واحدة في إثبات النفاس — القابلة: المرأة التي تتولى التوليد
+  </div>
+</div>
+
+<h2 class="sub-header">قيد خمسة عشر يوماً</h2>
+
+<p class="body-text">
+ولابد في الدم المذكور حتى يكون نفاساً أن يكون خارجاً بعد الولادة — أي قبل مضي خمسة عشر يوماً منها — وإلا فليس بالنفاس، وإلا فليس بالنفاس وإنما هو حيض. قوله: وإنما هو حيض — أي إن تحقق فيه شرط الحيض بأن بلغ يوماً وليلة.
+</p>
+
+<h2 class="sub-header">سبب تسمية النفاس</h2>
+
+<p class="body-text">
+قال: وسمي النفاس نفاساً لخروجه بعد نفس — أي لخروج ذلك الدم بعد خروج النفس.
+</p>
+
+<!-- ===== Section 4: الأصل في النفاس ===== -->
+<h1 class="section-header"><span class="section-number">4</span> الأصل في النفاس</h1>
+
+<!-- Evidence: Hadith of Umm Salamah -->
+<div class="evidence-box">
+  <div class="evidence-label">حديث شريف — رواه أحمد وأبو داود وغيرهما</div>
+  <div class="hadith-text">
+    عن أم سلمة رضي الله عنها قالت: <span class="green-highlight">«كانت النفساء على عهد رسول الله صلى الله عليه وسلم تقعد أربعين يوماً — أو أربعين ليلة»</span>
+  </div>
+</div>
+
+<p class="body-text">
+قال: ففي هذا الحديث دليل لغالب النفاس وليس لأكثر النفاس. وهذه مسألة اختلفت فيها المذاهب الأربعة.
+</p>
+
+<!-- Comparison: Four Madhabs on Maximum Nifas Duration -->
+<div class="comparison-container">
+  <div class="comparison-card hanafi">
+    <div class="card-title">مذهب الحنفية</div>
+    <div class="card-content">
+      أكثر النفاس <span class="green-highlight">أربعون يوماً</span><br><br>
+      مستندهم: حديث أم سلمة «كانت النفساء تقعد أربعين يوماً»
+    </div>
+  </div>
+  <div class="comparison-card hanbali">
+    <div class="card-title">مذهب الحنابلة</div>
+    <div class="card-content">
+      أكثر النفاس <span class="green-highlight">أربعون يوماً</span><br><br>
+      مستندهم: حديث أم سلمة. وقال بعضهم نقل على هذا القول إجماع الصحابة — قال لا يُعرف مخالف من الصحابة.
+    </div>
+  </div>
+  <div class="comparison-card shafii">
+    <div class="card-title">مذهب الشافعية</div>
+    <div class="card-content">
+      أكثر النفاس <span class="green-highlight">ستون يوماً</span><br><br>
+      مستندهم: أنه قد وُجد أن دم النفاس يستمر في بعض النساء بعد الولادة إلى ستين يوماً. والحديث دليل لغالب النفاس لا لأكثره.
+    </div>
+  </div>
+  <div class="comparison-card maliki">
+    <div class="card-title">مذهب المالكية</div>
+    <div class="card-content">
+      أكثر النفاس <span class="green-highlight">ستون يوماً</span><br><br>
+      مستندهم: الوجود — أنه قد وُجد أن دم النفاس يستمر في بعض النساء إلى ستين يوماً.
+    </div>
+  </div>
+</div>
+
+<!-- Classification Tree: Nifas Durations -->
+<div class="classification-tree">
+  <div class="tree-title">مدة النفاس — مذهب الشافعية</div>
+  <div class="tree-root">النفاس</div>
+  <div class="tree-connector"></div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="branch-name">أقله</div>
+      <div class="branch-desc">لحظة</div>
+    </div>
+    <div class="tree-branch">
+      <div class="branch-name">غالبه</div>
+      <div class="branch-desc">أربعون يوماً<br>(دليل الحديث)</div>
+    </div>
+    <div class="tree-branch">
+      <div class="branch-name">أكثره</div>
+      <div class="branch-desc">ستون يوماً<br>(دليل الوجود)</div>
+    </div>
+  </div>
+</div>
+
+<p class="body-text">
+قال هنا: ففي هذا الحديث دليل لغالب النفاس وأنه أربعون يوماً. وأما أقله فلحظة وأكثره ستون يوماً. أكثر النفاس ستون يوماً. وهذا العدد وهو ستين يبدأ حسابه من الولادة — من انفصال الجنين عن الرحم. قال: وسيأتي الكلام عنها إن شاء الله تعالى.
+</p>
+
+<!-- Data Table: Nifas Durations across Madhabs -->
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>المذهب</th>
+      <th>أقل النفاس</th>
+      <th>غالب النفاس</th>
+      <th>أكثر النفاس</th>
+      <th>المستند</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="color:var(--primary-green);font-weight:700">الشافعية</td>
+      <td>لحظة</td>
+      <td>40 يوماً</td>
+      <td>60 يوماً</td>
+      <td>الوجود</td>
+    </tr>
+    <tr>
+      <td style="color:#8e44ad;font-weight:700">المالكية</td>
+      <td>—</td>
+      <td>—</td>
+      <td>60 يوماً</td>
+      <td>الوجود</td>
+    </tr>
+    <tr>
+      <td style="color:#c0392b;font-weight:700">الحنابلة</td>
+      <td>—</td>
+      <td>—</td>
+      <td>40 يوماً</td>
+      <td>حديث أم سلمة + إجماع الصحابة</td>
+    </tr>
+    <tr>
+      <td style="color:#2980b9;font-weight:700">الحنفية</td>
+      <td>—</td>
+      <td>—</td>
+      <td>40 يوماً</td>
+      <td>حديث أم سلمة</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ===== Section 5: تعريف الاستحاضة ===== -->
+<h1 class="section-header"><span class="section-number">5</span> تعريف الاستحاضة</h1>
+
+<p class="body-text">
+قال: ثالثاً: الاستحاضة. تعريف الاستحاضة: <span class="green-highlight">الاستحاضة دم يخرج من أدنى الرحم في غير أيام الحيض والنفاس</span>. دم يخرج من أدنى الرحم — قوله «من أدنى الرحم» فيه مخالفة لموضع خروج دم الحيض، فإن دم الحيض يخرج من <span class="green-highlight">أقصى الرحم</span>، أما دم الاستحاضة فيخرج من <span class="green-highlight">أدنى الرحم</span>.
+</p>
+
+<p class="body-text">
+قال: «في غير أيام الحيض والنفاس» — تفهم من هذا أن كل دم لم يُحكم عليه بأنه دم حيض أو دم نفاس فإنه دم استحاضة.
+</p>
+
+<!-- Definition Card: الاستحاضة -->
+<div class="definition-card">
+  <div class="def-label">التعريف الشرعي</div>
+  <div class="def-text">الاستحاضة: دم يخرج من أدنى الرحم في غير أيام الحيض والنفاس</div>
+  <div class="def-parts">
+    <p class="body-text" style="margin-bottom:5px"><span class="green-highlight">القيد الأول:</span> من أدنى الرحم (بخلاف الحيض من أقصى الرحم)</p>
+    <p class="body-text" style="margin-bottom:5px"><span class="green-highlight">القيد الثاني:</span> في غير أيام الحيض والنفاس</p>
+    <p class="body-text" style="margin-bottom:0"><span class="green-highlight">النتيجة:</span> كل دم لم يُحكم عليه بأنه حيض أو نفاس فهو استحاضة</p>
+  </div>
+</div>
+
+<!-- Classification Tree: Sources of Blood -->
+<div class="classification-tree">
+  <div class="tree-title">مصدر خروج الدم من الرحم</div>
+  <div class="tree-root">الدم الخارج من الرحم</div>
+  <div class="tree-connector"></div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="branch-name">دم الحيض</div>
+      <div class="branch-desc">يخرج من <span class="green-highlight">أقصى الرحم</span></div>
+    </div>
+    <div class="tree-branch">
+      <div class="branch-name">دم الاستحاضة</div>
+      <div class="branch-desc">يخرج من <span class="green-highlight">أدنى الرحم</span></div>
+    </div>
+  </div>
+</div>
+
+<h2 class="sub-header">شرح تعريف الاستحاضة</h2>
+
+<p class="body-text">
+قال شرح التعريف: الدم الثالث والأخير من الدماء الخارجة من الفرج هو دم الاستحاضة، ويقال له <span class="green-highlight">دم فساد</span> أيضاً.
+</p>
+
+<p class="body-text">
+هذا يؤكد المعلومة التي قلتها لكم في الصباح وهي أن دم الفساد ودم الاستحاضة شيء واحد. ومنهم من فرق بينهما فقال:
+</p>
+
+<!-- Comparison: Istihadah vs Fasid -->
+<div class="comparison-container">
+  <div class="comparison-card shafii">
+    <div class="card-title">دم الاستحاضة</div>
+    <div class="card-content">
+      هو الدم الذي <span class="green-highlight">زاد على أكثر الحيض</span> — وأكثر الحيض خمسة عشر يوماً — فإذا تجاوز الدم أكثر الحيض فهذا دم استحاضة.
+    </div>
+  </div>
+  <div class="comparison-card hanbali">
+    <div class="card-title">دم الفساد</div>
+    <div class="card-content">
+      هو الذي يأتي المرأة التي <span class="green-highlight">لم تبلغ سن الحيض</span> — كأن نزل الدم من امرأة لم تبلغ تسع سنين — هذا يسمى دم فساد.
+    </div>
+  </div>
+</div>
+
+<p class="body-text">
+إذن هذا رأي بعض الفقهاء في التفريق بين دم الفساد ودم الاستحاضة، لكن <span class="green-highlight">من حيث الحكم الحكم واحد</span>، تمام. ولذلك كثير من الفقهاء لم يفرقوا بين دم الاستحاضة ودم الفساد.
+</p>
+
+<p class="body-text">
+قال: ويقال له دم فساد أيضاً. وهو دم يخرج من أدنى الرحم بخلاف الحيض فإنه يخرج من أقصى الرحم. ويخرج في غير أيام الحيض والنفاس — أي أن دم الاستحاضة هو ما عدا دم الحيض والنفاس — ومعنى ذلك أن كل دم لم نحكم عليه بأنه دم حيض ولم نحكم عليه بأنه دم نفاس فإنه يكون دم استحاضة تجب له الأحكام التي سيأتي ذكرها.
+</p>
+
+<!-- ===== Section 6: الأصل في الاستحاضة ===== -->
+<h1 class="section-header"><span class="section-number">6</span> الأصل في الاستحاضة</h1>
+
+<p class="body-text">
+الأصل في أحكام الاستحاضة عدة أحاديث:
+</p>
+
+<!-- Evidence 1: Hadith of Fatimah bint Abi Hubaysh -->
+<div class="evidence-box">
+  <div class="evidence-label">الحديث الأول — حديث فاطمة بنت أبي حبيش</div>
+  <div class="hadith-text">
+    عن فاطمة بنت أبي حبيش رضي الله تعالى عنها أنها كانت تستحاض فقال لها النبي صلى الله عليه وسلم: <span class="green-highlight">«إذا كان دم الحيض فإنه دم أسود يُعرف — له رائحة»</span> — إذا «كان» هنا تامة بمعنى وُجد وليست ناقصة تحتاج إلى اسم وخبر بل تامة تحتاج إلى فاعل فقط — تمام — إذا كان أي إذا وُجد دم الحيض فإنه أسود يُعرف — فذكر النبي صلى الله عليه وسلم صفته بأنه أسود وله رائحة تميزه — <span class="green-highlight">«إذا كان دم الحيض فإنه أسود يُعرف»</span> — إذا كان ذلك — أي إذا كان ذلك الدم الذي هو دم الحيض — فهو حَبَلٌ عرق — <span class="green-highlight">«فإذا كان الآخر فتوضئي وصلي فإنما هو عرق»</span>
+  </div>
+</div>
+
+<p class="body-text">
+شفنا؟ عرق! والذي مر معنا في الصباح: عرق! واضح ولا لا؟ نعم. قال: فإذا كان الآخر فتوضئي وصلي فإنما هو عرق. فالنبي صلى الله عليه وسلم قال: تأكيداً عرق — النبي عليه الصلاة والسلام في هذا الحديث ذكر <span class="green-highlight">فرقين بين دم الحيض ودم الاستحاضة</span>.
+</p>
+
+<!-- Two Differences between Hayd and Istihadah -->
+<div class="numbered-steps">
+  <div class="steps-title">الفرقان بين دم الحيض ودم الاستحاضة من الحديث</div>
+  <div class="step-item">
+    <span class="step-number">1</span>
+    <div class="step-content">
+      <strong>الفرق الأول — من حيث الصفة:</strong> فدم الحيض أسود يُعرف — مفهوم ذلك أن دم الاستحاضة ليس بهذه الصفة بل هو كصفة الدم العادة.
+    </div>
+  </div>
+  <div class="step-item">
+    <span class="step-number">2</span>
+    <div class="step-content">
+      <strong>الفرق الثاني — من حيث موضع الخروج:</strong> فان دم الحيض يخرج كما قلت لكم من أقصى الرحم، أما هذا فهو دم عرق من أدنى الرحم. ولذلك قال: فبيّن صلى الله عليه وسلم الفرق بين دم الحيض والاستحاضة من خلال التمييز بين الدماء.
+    </div>
+  </div>
+</div>
+
+<h2 class="sub-header">أسماء عرق الاستحاضة</h2>
+
+<p class="body-text">
+فدم الاستحاضة يخرج من عرق يقال له — يقال يخرج من عرق يقال له <span class="green-highlight">العاذل</span> — بسم الله — قال: يقال له العاذل بالعين المهملة وكسر الذال المعجمة — العاذل. ويقال له <span class="green-highlight">العاذل</span> بالدال المهملة — العاذل. ويقال له <span class="green-highlight">العاذر</span> بالراء بدلاً من اللام — العاذر. إذن كم له أسماء؟ ثلاثة: العاذل والعاذل والعاذر. واضح لنا؟ ثلاثة أسماء.
+</p>
+
+<!-- Names of the Vein -->
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>الرقم</th>
+      <th>الاسم</th>
+      <th>الضبط</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><span class="green-highlight">العَاذِل</span></td>
+      <td>بالعين المهملة وكسر الذال المعجمة</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><span class="green-highlight">العَاذَل</span></td>
+      <td>بالدال المهملة</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><span class="green-highlight">العَاذِر</span></td>
+      <td>بالراء بدلاً من اللام</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Evidence 2: Another Hadith on Istihadah -->
+<div class="evidence-box">
+  <div class="evidence-label">الحديث الثاني</div>
+  <div class="hadith-text">
+    وقالت: يا رسول الله إن امرأة استحاضت فلا تطهر أفأدع الصلاة؟ فقال رسول الله صلى الله عليه وسلم: <span class="green-highlight">«لا، إنما ذلك عرق وليس بالحيضة، فإذا أقبلت الحيضة فاتركي الصلاة، فإذا ذهب قدرها فاغسلي عنك الدم وصلي»</span>
+  </div>
+</div>
+
+<p class="body-text">
+وهذا الحديث فيه فوائد ذكرناها في الدرس الماضي:
+</p>
+
+<!-- Benefits from the Hadith -->
+<div class="numbered-steps">
+  <div class="steps-title">فوائد الحديث</div>
+  <div class="step-item">
+    <span class="step-number">1</span>
+    <div class="step-content">
+      أن المستحاضة <span class="green-highlight">يجب عليها أن تصلي</span>
+    </div>
+  </div>
+  <div class="step-item">
+    <span class="step-number">2</span>
+    <div class="step-content">
+      أن الحائض <span class="green-highlight">يحرم عليها أن تصلي</span>
+    </div>
+  </div>
+  <div class="step-item">
+    <span class="step-number">3</span>
+    <div class="step-content">
+      أن الدم <span class="green-highlight">يُنجِّس</span> — للأمر بغسله — لأمر بغسله
+    </div>
+  </div>
+  <div class="step-item">
+    <span class="step-number">4</span>
+    <div class="step-content">
+      أن وجود الدم <span class="green-highlight">لا يمنع من صحة الصلاة</span> — واضح؟
+    </div>
+  </div>
+</div>
+
+<!-- ===== Section 7: العمل بالتمييز مقدم على العمل بالعادة ===== -->
+<h1 class="section-header"><span class="section-number">7</span> العمل بالتمييز مقدم على العمل بالعادة</h1>
+
+<p class="body-text">
+قال: فالحديث دليل على أن المرأة إذا ميّزت دم الحيض من دم الاستحاضة عُدّ دم الحيض وعُمل على إقباله وإدباره. واضح؟ إذا ميّزت — كيف ميّزت؟ ميّزت أي بالصفات. عرفت باللون. ونحن ذلك كما سيأتي تفصيله في الدروس القادمة. واضح؟
+</p>
+
+<p class="body-text">
+وهذا فيه إشارة إلى أن <span class="green-highlight">العمل بالتمييز مقدم على العمل بالعادة</span>. وهو مذهب الشافعية. فالمرأة إذا ميّزت بين دم الحيض ودم الاستحاضة وجب أن تعمل بالتمييز. كأن يكون دم الحيض أسود ودم الاستحاضة أحمر. واضح؟ فيجب أن تعمل بالتمييز.
+</p>
+
+<!-- Fiqh Principle Box -->
+<div class="fiqh-box">
+  <div class="fiqh-title">&#9878; قاعدة فقهية: العمل بالتمييز مقدم على العمل بالعادة</div>
+  <div class="fiqh-content">
+    <strong>المعنى:</strong> فالعمل بالتمييز مقدم على العمل بالعادة. أيش معنى بالعادة؟ يعني مثلاً هي تعتاد في كل شهر أن حيضها خمسة أيام. ففي شهر ما جاءها الدم أسود سبعة أيام ثم أحمر. واضح لنا؟ هل تعمل بعادتها أن حيضها خمسة أيام؟ أو تعمل بالتمييز؟ فيكون حيضها سبعة أيام لأنه جاءها أسود سبعة أيام ثم أحمر في الباقي. واضح؟<br><br>
+    <strong>مذهب الشافعية:</strong> أنها تعمل بالتمييز. بعض الفقهاء قالوا تعمل بالعادة.
+  </div>
+</div>
+
+<h2 class="sub-header">دليل وتعليل تقديم التمييز على العادة</h2>
+
+<p class="body-text">
+نسأل فقهاء الشافعية رحمهم الله: ما مستندكم في العمل بالتمييز؟ الجواب: هذا الحديث — مع الحديث السابق: دم الحيض أسود يُعرف — فذكر ما يميزه. واضح؟ ومن جهة التعليل — هذا من حيث الدليل ها؟ ومن حيث التعليل — قالوا: <span class="green-highlight">التمييز علامة في الدم فتتعلق بصاحبة الدم</span>. فهمتم أم لا؟ التمييز علامة في الدم — أسود ثخين له رائحة واضح. أما العادة فعلامة ليست في الدم وإنما في صاحبة الدم. فاستندوا إلى هذا الدليل والتعليل في أن العمل بالتمييز مقدم على العمل بالعادة.
+</p>
+
+<!-- Comparison: Tamyiz vs Adah -->
+<div class="comparison-container">
+  <div class="comparison-card shafii">
+    <div class="card-title">التمييز</div>
+    <div class="card-content">
+      <strong>علامة في الدم نفسه</strong><br>
+      — أسود<br>
+      — ثخين<br>
+      — له رائحة<br><br>
+      فلذلك يُقدم على العادة لأنه أقرب إلى الحقيقة
+    </div>
+  </div>
+  <div class="comparison-card hanbali">
+    <div class="card-title">العادة</div>
+    <div class="card-content">
+      <strong>علامة في صاحبة الدم</strong><br>
+      — عادتها خمسة أيام مثلاً<br><br>
+      فلذلك تُؤخر عن التمييز لأنها أبعد عن حقيقة الدم
+    </div>
+  </div>
+</div>
+
+<p class="body-text">
+وهذا سيكون معنا إن شاء الله في الدروس القادمة وإنما إشارة أو بيان لما ذكره المؤلف وفقه الله.
+</p>
+
+<p class="body-text">
+فقال رحمه الله: فالحديث دليل على أن المرأة إذا ميّزت دم الحيض من دم الاستحاضة عُدّ دم الحيض وعُمل على إقباله وإدباره. فإذا انقضى قدره اغتسلت عنه. ثم صار حكم دم الاستحاضة حكم الحدث — أي تصير حكمها يصير حكمها <span class="green-highlight">حكم دائم الحدث</span>. فتتوضأ لكل صلاة كما سيأتي تفصيله — أي تتوضأ لكل صلاة عينية لكل فرض عيني — كما سيأتي تفصيله إن شاء الله.
+</p>
+
+<div class="benefit-box">
+  <div class="benefit-title">&#128273; فائدة مهمة: حكم المستحاضة بعد انقضاء الحيض</div>
+  <div class="benefit-content">
+    إذا انقضى قدر حيضها اغتسلت عنه، ثم صار حكم دم الاستحاضة حكم الحدث — فتتوضأ لكل صلاة عينية (لكل فرض عيني).
+  </div>
+</div>
+
+<!-- ===== Section 8: خاتمة — رطوبة الفرج ===== -->
+<h1 class="section-header"><span class="section-number">8</span> خاتمة: رطوبة الفرج</h1>
+
+<p class="body-text">
+إذا عرفت ما تقدم فاعلم أن الدم الخارج من الفرج حكمه واحد — الأحكام الخاصة بالدم فما كان استحاضة وما كان ... تماماً.
+</p>
+
+<p class="body-text">
+ثم انتقل إلى مسألة أخرى وهي الرطوبة — التي تشبه العرق وتشبه المذي — هذه الرطوبة الكلام فيها من ناحيتين:
+</p>
+
+<div class="numbered-steps">
+  <div class="steps-title">ناحيتا الكلام على رطوبة الفرج</div>
+  <div class="step-item">
+    <span class="step-number">1</span>
+    <div class="step-content">
+      <strong>من حيث الطهارة والنجاسة:</strong> هل هي طاهرة أو نجسة؟
+    </div>
+  </div>
+  <div class="step-item">
+    <span class="step-number">2</span>
+    <div class="step-content">
+      <strong>من حيث نقض الوضوء وعدم نقضه:</strong> هل تنقض الوضوء أو لا تنقض؟
+    </div>
+  </div>
+</div>
+
+<p class="body-text">
+وأذكر أنني في درس مقدمة الحضرمية شرحت لكم حكم الرطوبة صح؟ وعلى كل حال أعيده الآن وأزيده تفصيلاً. فهذه الرطوبة لها <span class="green-highlight">خمس حالات</span> نشرحها ونكتبها ثم نعود إلى قراءة كلام المؤلف.
+</p>
+
+<!-- Five Cases Table -->
+<div class="cases-container">
+
+<!-- Case 1 -->
+<div class="case-card">
+  <div class="case-number">1</div>
+  <div class="case-content">
+    <div class="case-condition">إذا كانت من الدبر</div>
+    <div class="case-ruling">
+      <strong>من حيث الطهارة والنجاسة:</strong> نجسة<br>
+      <strong>من حيث نقض الوضوء:</strong> تنقض الوضوء
+    </div>
+  </div>
+</div>
+
+<!-- Case 2 -->
+<div class="case-card">
+  <div class="case-number">2</div>
+  <div class="case-content">
+    <div class="case-condition">إذا كانت من القبل مما لا يجب غسله في الاستنجاء</div>
+    <div class="case-ruling">
+      <strong>من حيث الطهارة والنجاسة:</strong> طاهرة<br>
+      <strong>من حيث نقض الوضوء:</strong> تنقض — لأنها من الباطن<br>
+      <span class="inline-note">وهذا إذا كان مما يصله ذكر المجامع</span>
+    </div>
+  </div>
+</div>
+
+<!-- Case 3 -->
+<div class="case-card">
+  <div class="case-number">3</div>
+  <div class="case-content">
+    <div class="case-condition">إذا كانت من القبل مما لا يجب غسله في الاستنجاء ويصله ذكر المجامع — خلاف بين الرملي وابن حجر</div>
+    <div class="case-ruling">
+      <strong>العلامة الرملي:</strong> نجسة تبعاً للإمام النووي في المجموع<br>
+      <strong>ابن حجر:</strong> طاهرة<br>
+      <strong>من حيث نقض الوضوء:</strong> تنقض — لأنها خارجة من الباطن
+    </div>
+  </div>
+</div>
+
+<!-- Case 4 -->
+<div class="case-card">
+  <div class="case-number">4</div>
+  <div class="case-content">
+    <div class="case-condition">إذا كانت من القبل (باطنه) ولا يصله ذكر المجامع</div>
+    <div class="case-ruling">
+      <strong>من حيث الطهارة والنجاسة:</strong> نجسة قطعاً<br>
+      <strong>من حيث نقض الوضوء:</strong> تنقض — لأنها من الباطن
+    </div>
+  </div>
+</div>
+
+<!-- Case 5 -->
+<div class="case-card">
+  <div class="case-number">5</div>
+  <div class="case-content">
+    <div class="case-condition">إذا شك في كونها من الباطن أو الظاهر</div>
+    <div class="case-ruling">
+      <strong>من حيث الطهارة والنجاسة:</strong> الأصل الطهارة — الأشياء لا تنجس بمجرد الشك<br>
+      <strong>من حيث نقض الوضوء:</strong> الأصل استصحاب الوضوء — أي عدم النقض
+    </div>
+  </div>
+</div>
+
+</div><!-- end cases-container -->
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه: كيف تميز المرأة بين الباطن والظاهر</div>
+  <div class="callout-content">
+    قال بعض الأطباء حينما سألتهم: كيف تستطيع المرأة أن تميز إذا كانت هذه الرطوبة من الباطن أو من الظاهر؟ قالوا: <span class="green-highlight">إذا شعرت بحرارة — يعني بحرقة — واضح — فهذه علامة على أن الرطوبة من الباطن</span>، بخلاف ما لو لم تشعر بشيء فإن هذه علامة على أن الرطوبة من الخارج. والله أعلم.
+  </div>
+</div>
+
+<!-- Data Table: Five Cases Summary -->
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>الحالة</th>
+      <th>الوصف</th>
+      <th>الطهارة/النجاسة</th>
+      <th>نقض الوضوء</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="font-weight:700">1</td>
+      <td>من الدبر</td>
+      <td>نجسة</td>
+      <td>تنقض</td>
+    </tr>
+    <tr>
+      <td style="font-weight:700">2</td>
+      <td>من القبل مما لا يجب غسله في الاستنجاء</td>
+      <td>طاهرة</td>
+      <td>تنقض (من الباطن)</td>
+    </tr>
+    <tr>
+      <td style="font-weight:700">3</td>
+      <td>من القبل مما يصله ذكر المجامع</td>
+      <td>خلاف: الرملي (نجسة) / ابن حجر (طاهرة)</td>
+      <td>تنقض</td>
+    </tr>
+    <tr>
+      <td style="font-weight:700">4</td>
+      <td>من القبل مما لا يصله ذكر المجامع (الباطن)</td>
+      <td>نجسة قطعاً</td>
+      <td>تنقض</td>
+    </tr>
+    <tr>
+      <td style="font-weight:700">5</td>
+      <td>شك: من الباطن أو الظاهر؟</td>
+      <td>الأصل الطهارة</td>
+      <td>لا تنقض (استصحاب الوضوء)</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ===== Section 9: كلام المؤلف في رطوبة الفرج ===== -->
+<h1 class="section-header"><span class="section-number">9</span> كلام المؤلف في رطوبة الفرج</h1>
+
+<p class="body-text">
+قال الدكتور الفقيه وفقه الله تعالى: قال: خاتمة في رطوبة الفرج. قال: مما ينزل من الفرج وليس دماً — هذا ليس دم — تمام، ما يسمى برطوبة الفرج، وهي — أي هذه الرطوبة — ماء أبيض متردد بين المذي والعرق — تمام — هذا عرق مرة ومعنى عرق وعرق — مرة الكلمات الثلاث. قال: ويتساءل عنها هل هي طاهرة أم نجسة — هذا جواب التساؤل الأول هنا — وهل خروجها ينقض الوضوء أم لا — هذا جواب التساؤل الثاني.
+</p>
+
+<p class="body-text">
+وخلاصة حكمها أنها:
+</p>
+
+<div class="ruling-card">
+  <div class="ruling-badge mubah">الظاهر</div>
+  <div class="ruling-content">
+    إن خرجت من <span class="green-highlight">الظاهر</span> — وهو ما يجب غسله في الاستنجاء ويجب غسله أيضاً في الغسل من نحو جنابة — فليست بنجسة ولا تنقض الوضوء
+  </div>
+</div>
+
+<div class="ruling-card">
+  <div class="ruling-badge haram">الباطن</div>
+  <div class="ruling-content">
+    وإن خرجت من <span class="green-highlight">الباطن</span> نقضت الوضوء وهي نجسة — على معتمد العلامة الرملي — تنقض وهي نجسة تمام
+  </div>
+</div>
+
+<div class="ruling-card">
+  <div class="ruling-badge khilaf">الشك</div>
+  <div class="ruling-content">
+    وإن شك فيها هل هي من الظاهر أو من الباطن فلا نقض ولا نجاسة — أي حالة هذه الخامسة هنا واضح — فلا نقض لأن الأصل عدم النقض واستصحاب الطهارة ولا نجاسة واضح لأن الأشياء لا تنجس بمجرد الشك
+  </div>
+</div>
+
+<p class="body-text">
+قال: والظاهر — الآن هو يقول: إذا خرجت من الظاهر إذا خرجت من الباطن — ما ضابط الظاهر؟ قال: والظاهر هو الذي يجب غسله في الغسل والاستنجاء — هذا الظاهر — ما يجب غسله. والباطن بخلافه — ما لا يجب غسله في الغسل والاستنجاء.
+</p>
+
+<!-- Definition Card: الظاهر والباطن -->
+<div class="definition-card">
+  <div class="def-label">ضبط الظاهر والباطن</div>
+  <div class="def-text" style="font-size:17px">
+    <strong>الظاهر:</strong> ما يجب غسله في الغسل والاستنجاء<br>
+    <strong>الباطن:</strong> ما لا يجب غسله في الغسل والاستنجاء
+  </div>
+</div>
+
+<!-- Comparison: Ibn Hajar vs Al-Ramli -->
+<h2 class="sub-header">تفصيل الخلاف بين ابن حجر والرملي</h2>
+
+<p class="body-text">
+ثم قال لك في التعليق: ينظر لتفصيل حكم رطوبة الفرج: تحفة المحتاج مع حواشيه، فتاوى الفقه الكبرى، بغية المسترشدين. ثم قال: وما ذكرناه هو ما اعتمده العلامة الرملي. والذي اعتمده ابن حجر أن رطوبة الفرج <span class="green-highlight">طاهرة</span> إذا كانت من حد الظاهر — إذا هنا إذا كانت من حد الظاهر فهذه طاهرة عند الشيخ ابن حجر — أو من الباطن مما يصله ذكر المجامع. انظر هنا واضح أليس كذلك؟
+</p>
+
+<p class="body-text">
+وما عدا ذلك — أي إذا كانت من الباطن الذي لا يصله ذكر المجامع — <span class="green-highlight">نجسة قطعاً</span> عند الشيخ ابن حجر وعند الشيخ الرملي. فأشار إلى الخلاف في الهامش.
+</p>
+
+<!-- Comparison Cards: Ibn Hajar vs Al-Ramli -->
+<div class="comparison-container">
+  <div class="comparison-card shafii">
+    <div class="card-title">معتمد العلامة الرملي</div>
+    <div class="card-content">
+      <strong>من الظاهر:</strong> ليست بنجسة ولا تنقض الوضوء<br><br>
+      <strong>من الباطن:</strong> تنقض الوضوء وهي <span class="green-highlight">نجسة</span><br>
+      — سواء مما يصله ذكر المجامع أو لا يصله
+    </div>
+  </div>
+  <div class="comparison-card maliki">
+    <div class="card-title">معتمد ابن حجر</div>
+    <div class="card-content">
+      <strong>من حد الظاهر:</strong> طاهرة<br><br>
+      <strong>من الباطن مما يصله ذكر المجامع:</strong> <span class="green-highlight">طاهرة</span> لكن تنقض الوضوء<br><br>
+      <strong>من الباطن مما لا يصله ذكر المجامع:</strong> نجسة قطعاً
+    </div>
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه مهم: الطهارة وإنقاض الوضوء حكمان مستقلان</div>
+  <div class="callout-content">
+    لكن لاحظ معي — الشيخ ابن حجر يقول هنا طاهرة لكنه يقول أيش؟ تنقض الوضوء تمام. فكونها طاهرة شيء وكونها تنقض الوضوء شيء آخر تمام. هو لم يذكر لك هذه الحالة البتة فأضفتها تكملة حكم المسألة واضح؟
+  </div>
+</div>
+
+<!-- ===== Section 10: دليل أحكام رطوبة الفرج ===== -->
+<h1 class="section-header"><span class="section-number">10</span> دليل أحكام رطوبة الفرج</h1>
+
+<p class="body-text">
+قال رحمه الله تعالى: والدليل الآن سيذكر لك مستند الفقهاء في هذه الأحكام. قال: <span class="green-highlight">والدليل على ما تقدم أن المذي نجس وينقض الوضوء بالاتفاق</span>. المذي نجس وينقض الوضوء بالاتفاق.
+</p>
+
+<p class="body-text">
+<span class="green-highlight">ووصفه أنه من الباطن</span> — قوله «ووصفه» أي علة نقضه للوضوء — لماذا ينقض الوضوء؟ لكونه من الباطن. فقوله «ووصفه» أي علة نجاسته وعلة نقضه للوضوء أنه من الباطن. أيش تفهم من هذا الكلام؟ أن كل ما كانت تنقضه بالاتفاق فإذا كان من الباطن فإنه ينقض الوضوء وهو نجس — هذا المقصود.
+</p>
+
+<!-- Fiqh Principle -->
+<div class="fiqh-box">
+  <div class="fiqh-title">&#9878; قاعدة فقهية: علة النجاسة والنقض — كون الخارج من الباطن</div>
+  <div class="fiqh-content">
+    <strong>القاعدة:</strong> كل ما كان من الباطن فإنه ينقض الوضوء وهو نجس — قياساً على المذي الذي وُصف بأنه من الباطن وثبتت نجاسته ونقضه بالاتفاق.<br><br>
+    <strong>فائدة:</strong> فإذا كانت الرطوبة من الباطن فهي كالمذي في أنها نجسة وفي أنها تنقض الوضوء.
+  </div>
+</div>
+
+<p class="body-text">
+قال: فإذا كانت الرطوبة من الباطن فهي كالمذي — إذا كانت من الباطن فهي كالمذي — في أنها نجسة وفي أنها تنقض الوضوء. وهذا التعليل يقوي جانب العلامة الرملي رحمه الله صح؟ لأن الرطوبة التي تخرج من الفرج من موضع يصل إليه ذكر المجامع هذه من الباطن فمقتضى ذلك أنها نجسة أيضاً.
+</p>
+
+<p class="body-text">
+قال هنا: فإذا كانت الرطوبة من الباطن فهي كالمذي. وإن كانت من الظاهر فقد أشبهت العرق — والعرق طاهر ولا ينقض الوضوء. وفي حالة الشك وفي حالة الشك فإن اليقين لا يزول بالشك — لأن الأصل الطهارة للنجاسة والأصل عدم النقض.
+</p>
+
+<!-- Classification Tree: Rational of Rulings -->
+<div class="classification-tree">
+  <div class="tree-title">تعليل أحكام رطوبة الفرج</div>
+  <div class="tree-root">رطوبة الفرج</div>
+  <div class="tree-connector"></div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="branch-name">من الباطن</div>
+      <div class="branch-desc">كالمذي (بالاتفاق)<br>نجسة + تنقض</div>
+    </div>
+    <div class="tree-branch">
+      <div class="branch-name">من الظاهر</div>
+      <div class="branch-desc">كالعرق<br>طاهرة + لا تنقض</div>
+    </div>
+    <div class="tree-branch">
+      <div class="branch-name">شك</div>
+      <div class="branch-desc">اليقين لا يزول بالشك<br>الأصل الطهارة + الأصل عدم النقض</div>
+    </div>
+  </div>
+</div>
+
+<div class="benefit-box">
+  <div class="benefit-title">&#128273; فائدة: التعليل يقوّي مذهب الرملي</div>
+  <div class="benefit-content">
+    وهذا التعليل يقوي جانب العلامة الرملي رحمه الله، لأن الرطوبة التي تخرج من الفرج من موضع يصل إليه ذكر المجامع هذه من الباطن فمقتضى ذلك أنها نجسة أيضاً — بخلاف ما ذهب إليه ابن حجر من أنها طاهرة في هذه الحالة.
+  </div>
+</div>
+
+<!-- ===== Closing ===== -->
+<p class="body-text">
+نكون بهذا بحمد الله تعالى انتهينا من الدرس الأول من هذه الدروس الثمانية. نكتفي بهذا القدر والله أعلم. وصلى الله وسلم وبارك على سيدنا محمد وآله وصحبه أجمعين. والحمد لله رب العالمين.
+</p>
+
+<!-- ==================== FOOTER ==================== -->
+<div class="page-footer">
+  شرح الإبانة والإفاضة في أحكام الحيض والنفاس والاستحاضة — الدرس الثاني<br>
+  الشارح: د. لبيب نجيب عبد الله | المنظم: أحمد بن إرشاد
+</div>
+
+</div><!-- end main-content -->
+
+<script>
+// B&W Toggle
+function toggleBW() {
+  document.body.classList.toggle('bw-mode');
+}
+
+// Scroll to top button
+window.addEventListener('scroll', function() {
+  var btn = document.getElementById('scrollTopBtn');
+  if (window.pageYOffset > 300) {
+    btn.style.display = 'flex';
+  } else {
+    btn.style.display = 'none';
+  }
+});
+</script>
+
+</body>
+</html>

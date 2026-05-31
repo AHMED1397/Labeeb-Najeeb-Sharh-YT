@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf'); }
+@font-face { font-family: 'Amiri-Bold'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf'); }
+@font-face { font-family: 'NotoNaskhArabic'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+body { font-family: 'NotoNaskhArabic', 'Amiri', serif; font-size: 14px; line-height: 1.8; color: #2c2c2c; direction: rtl; text-align: justify; }
+h1 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 18pt; color: #1a5632; margin: 14px 0 6px 0; }
+h2 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 15pt; color: #1a5632; margin: 12px 0 5px 0; border-bottom: 2px solid #c8a951; padding-bottom: 3px; }
+h3 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 12pt; color: #2c5f7c; margin: 8px 0 4px 0; }
+p { margin: 3px 0; }
+.cover-header { background: #1a5632; color: white; padding: 20px 14px; text-align: center; margin: 0 0 12px 0; background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px); border-bottom: 4px solid #c8a951; }
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 6px; border: none; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.9; margin: 4px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.92; margin: 6px 0 2px 0; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .series { font-size: 11pt; opacity: 0.8; margin-top: 4px; }
+.toc { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 6px; padding: 10px 14px; margin: 0 0 12px 0; }
+.toc-title { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 14pt; color: #1a5632; text-align: center; margin-bottom: 6px; border-bottom: 2px solid #c8a951; padding-bottom: 4px; }
+.toc-item { font-size: 11pt; padding: 2px 0; border-bottom: 1px dotted #ccc; display: flex; justify-content: space-between; }
+.table-container { overflow-x: hidden; margin: 8px 0; page-break-inside: avoid; }
+table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 10pt; }
+th, td { padding: 4px 8px; border: 1px solid #ddd; overflow-wrap: break-word; word-break: break-word; }
+th { background-color: #1a5632; color: white; text-align: right; font-size: 10pt; }
+.callout { padding: 8px 12px; margin: 8px 0; border-radius: 0 6px 6px 0; page-break-inside: avoid; }
+.callout-title { font-weight: bold; margin-bottom: 3px; font-size: 11pt; }
+.callout-body { color: #333; line-height: 1.7; font-size: 13px; }
+.callout-warning { background: #fff3cd; border-right: 4px solid #c8a951; }
+.callout-warning .callout-title { color: #856404; }
+.callout-definition { background: #e8f4f8; border-right: 4px solid #2c5f7c; }
+.callout-definition .callout-title { color: #1a3a5c; }
+.callout-danger { background: #f8d7da; border-right: 4px solid #c0392b; }
+.callout-danger .callout-title { color: #c0392b; }
+.callout-success { background: #d4edda; border-right: 4px solid #28a745; }
+.callout-success .callout-title { color: #155724; }
+.callout-info { background: #d1ecf1; border-right: 4px solid #17a2b8; }
+.callout-info .callout-title { color: #0c5460; }
+.card-grid { display: grid; gap: 8px; margin: 10px 0; max-width: 100%; }
+.card-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.card-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.card-grid-4 { grid-template-columns: repeat(2, 1fr); }
+.card-grid-5 { grid-template-columns: repeat(3, 1fr); }
+.card { padding: 10px; border-radius: 8px; text-align: center; max-width: 100%; overflow-wrap: break-word; }
+.card-number { font-size: 20px; font-weight: bold; margin-bottom: 3px; }
+.card-title { font-size: 11pt; font-weight: bold; }
+.card-desc { font-size: 9pt; margin-top: 3px; opacity: 0.9; }
+.compare-box { display: flex; gap: 0; margin: 8px 0; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.1); max-width: 100%; flex-wrap: wrap; }
+.compare-side { flex: 1; min-width: 0; padding: 8px 10px; }
+.compare-side h3 { margin: 0 0 4px 0; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 3px; font-size: 11pt; color: white; }
+.compare-side p { font-size: 12px; line-height: 1.6; color: white; }
+.compare-divider { width: 3px; background: #c8a951; }
+.section-num { display: inline-block; background: #1a5632; color: white; width: 22px; height: 22px; line-height: 22px; text-align: center; border-radius: 50%; font-size: 11pt; margin-left: 5px; }
+.formula-box { background: #f5f0e6; border: 2px solid #c8a951; border-radius: 8px; padding: 10px 14px; margin: 10px 0; text-align: center; page-break-inside: avoid; }
+.formula { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 14pt; color: #1a5632; direction: rtl; display: inline-block; }
+.vertical-flow { display: flex; flex-direction: column; align-items: center; margin: 10px 0; page-break-inside: avoid; max-width: 100%; }
+.flow-step { padding: 7px 12px; border-radius: 6px; text-align: center; max-width: 280px; width: 90%; }
+.flow-arrow { color: #c8a951; font-size: 14pt; margin: 1px 0; }
+.poetry-box { background: #fdf6e3; border: 2px solid #c8a951; border-radius: 8px; padding: 10px 16px; margin: 10px 0; text-align: center; page-break-inside: avoid; }
+.poetry-line { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 13pt; color: #1a5632; line-height: 2; }
+.highlight { background: #fffde7; padding: 2px 4px; border-radius: 3px; }
+.timeline { display: flex; flex-direction: column; align-items: stretch; margin: 10px 0; page-break-inside: avoid; }
+.timeline-item { display: flex; align-items: flex-start; gap: 10px; margin: 4px 0; }
+.timeline-dot { width: 14px; height: 14px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+.timeline-content { flex: 1; min-width: 0; }
+.timeline-year { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 11pt; color: #1a5632; font-weight: bold; }
+.timeline-text { font-size: 12px; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس الأول — المقدمة وخطبة الكتاب</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="series">ترجمة المؤلف · آداب التأليف · أحكام البسملة · أركان الحمد · براعة الاستهلال</div>
+</div>
+
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>مقدمة الدرس وعلاقته بكتاب فتح القريب</span><span>١</span></div>
+  <div class="toc-item"><span>ما يجب وجوباً صناعياً عند تأليف الكتب</span><span>٢</span></div>
+  <div class="toc-item"><span>ما يندب ندباً صناعياً عند تأليف الكتب</span><span>٣</span></div>
+  <div class="toc-item"><span>ترجمة المؤلف: اسمه الصحيح وكنيته</span><span>٤</span></div>
+  <div class="toc-item"><span>مولد المؤلف ووفاته</span><span>٥</span></div>
+  <div class="toc-item"><span>من شرح المتن ومن نظمه</span><span>٦</span></div>
+  <div class="toc-item"><span>حواشي فتح المعين</span><span>٧</span></div>
+  <div class="toc-item"><span>أهمية كتاب فتح المعين</span><span>٨</span></div>
+  <div class="toc-item"><span>أحكام البسملة الخمسة</span><span>٩</span></div>
+  <div class="toc-item"><span>السنن الكفائية في مذهب الشافعية</span><span>١٠</span></div>
+  <div class="toc-item"><span>أركان الحمد الخمسة</span><span>١١</span></div>
+  <div class="toc-item"><span>الحمد لله الفتاح الجواد المعين — براعة الاستهلال</span><span>١٢</span></div>
+  <div class="toc-item"><span>تقدير عامل البسملة: فعل مؤخر خاص</span><span>١٣</span></div>
+  <div class="toc-item"><span>اشتقاق كلمة "اسم" — البصريون والكوفيون</span><span>١٤</span></div>
+  <div class="toc-item"><span>اشتقاق اسم "الله" من "الإله"</span><span>١٥</span></div>
+  <div class="toc-item"><span>مطابقة خطبة الكتاب لآداب التأليف</span><span>١٦</span></div>
+</div>
+
+<!-- 1 -->
+<h2><span class="section-num">١</span> مقدمة الدرس وعلاقته بكتاب فتح القريب</h2>
+
+<p>افتتح الشيخ الدرس بالحمد والصلاة والسلام على النبي صلى الله عليه وسلم، وسأل الله أن يمن عليهم بالعلم النافع والعمل الصالح وأن يفقههم في الدين وأن يفتح لهم فتوح العارفين وأن يرزقهم الإخلاص في الأقوال والأعمال. ثم بيّن أن هذا هو المجلس الأول في شرح كتاب فتح المعين، ويأتي بعد أن أتمّوا بحمد الله دراسة كتاب فتح القريب المجيب شرح متن الغاية والتقريب — المتن للعلامة القاضي أبي شجاع، والشرح للعلامة ابن قاسم رحمهم الله تعالى رحمة واسعة.</p>
+
+<p>وأوضح أن كتاب فتح المعين يناسب من أتقن الكتاب السابق فهماً جيداً، فإنه تالٍ له في المرتبة ومناسب لمن أتقنه. وقد رُفعت دروس فتح القريب المجيب كاملةً على اليوتيوب، فأوصى الشيخ الحاضرين بالمذاكرة بين الفترات، وأن يستمعوا إلى شرح فتح القريب قبل حضور درس فتح المعين حتى يكون كالسُّنَّة القبلية للدرس، وبعد الحضور يعودون ويذاكرون الكتاب المتين.</p>
+
+<div class="callout callout-info">
+  <div class="callout-title">نصيحة الشيخ للطلاب</div>
+  <div class="callout-body">كتاب فتح المعين كتاب متين ومعتمد في كثير من الكليات والجامعات والمعاهد خاصة في إندونيسيا والهند وماليزيا وسنغافورة واليمن. يُدرس في الهند في ست سنوات، لكننا نرجو أن نُكمله في سنتين ونصف إلى ثلاث بإذن الله. وعلى الطالب أن يحضر ويسمع الدرس أولاً ثم يذاكره، فإن لم يفعل كان صعباً على الشيخ في توصيل المعلومات.</div>
+</div>
+
+<!-- 2 -->
+<h2><span class="section-num">٢</span> ما يجب وجوباً صناعياً عند تأليف الكتب</h2>
+
+<p>عند تأليف الكتاب هناك أشياء تجب وجوباً صناعياً — أي وجوباً عُرفياً في عرف المؤلفين وليس وجوباً شرعياً يأثم تاركه، وإنما هو من آداب التأليف المتعارف عليها بين العلماء. وهذه الأشياء أربعة:</p>
+
+<div class="card-grid card-grid-2">
+  <div class="card" style="background: linear-gradient(135deg, #1a5632 0%, #2d7a4a 100%); color: white;">
+    <div class="card-number">١</div>
+    <div class="card-title">البسملة</div>
+    <div class="card-desc">افتتاح الكتاب ببسم الله الرحمن الرحيم اقتداءً بالقرآن الكريم وعملاً بحديث: "كل أمر ذي بال لا يُبدأ فيه ببسم الله فهو أبتر"</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #2c5f7c 0%, #3a7ca5 100%); color: white;">
+    <div class="card-number">٢</div>
+    <div class="card-title">الحمدلة</div>
+    <div class="card-desc">الثناء على الله تعالى والحمد له — فالألف واللام في الحمد للجنس واللام للاختصاص أي أن جنس الحمد مختص بالله عز وجل</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #c8a951 0%, #b8943f 100%); color: white;">
+    <div class="card-number">٣</div>
+    <div class="card-title">التشهد</div>
+    <div class="card-desc">شهادة أن لا إله إلا الله — "وأشهد أن لا إله إلا الله شهادة تُدخلنا دار الخلود"</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #6b3fa0 0%, #8a5cbf 100%); color: white;">
+    <div class="card-number">٤</div>
+    <div class="card-title">الصلاة على النبي</div>
+    <div class="card-desc">الصلاة والسلام على رسول الله صلى الله عليه وسلم — "وأشهد أن سيدنا محمداً عبده ورسوله صاحب المقام المحمود"</div>
+  </div>
+</div>
+
+<div class="callout callout-warning">
+  <div class="callout-title">تنبيه: الفرق بين الوجوب الصناعي والشرعي</div>
+  <div class="callout-body">الوجوب الصناعي لا يأثم تاركه شرعاً — فهذه الأشياء الأربعة مستحبة شرعاً لكنها واجبة عرفاً في عرف المؤلفين. فمن تركها لا يأثم لكن يُعدّ مُخالفاً لآداب التأليف المتعارف عليها.</div>
+</div>
+
+<!-- 3 -->
+<h2><span class="section-num">٣</span> ما يندب ندباً صناعياً عند تأليف الكتب</h2>
+
+<p>وهناك أشياء تندب ندباً صناعياً — أي يُستحب أن يأتي بها المؤلف في مقدمته وليس واجباً عليه. وهذه ثلاثة:</p>
+
+<div class="card-grid card-grid-3">
+  <div class="card" style="background: linear-gradient(135deg, #28a745 0%, #34ce57 100%); color: white;">
+    <div class="card-number">١</div>
+    <div class="card-title">ذكر اسم المؤلف</div>
+    <div class="card-desc">أن يذكر المؤلف اسمه في مقدمة الكتاب حتى لا يقع الناس في الخطأ في نسبته — ولو أن المؤلف ذكر اسمه لما وقع الخطأ المنتشر في اسمه</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #17a2b8 0%, #20c9e0 100%); color: white;">
+    <div class="card-number">٢</div>
+    <div class="card-title">اسم مؤلف الكتاب</div>
+    <div class="card-desc">أن يذكر اسم الكتاب الذي شرحه أو اختصره — وقد ذكر المصنف اسم المتن "قرة العين"</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #c8a951 0%, #e0c068 100%); color: white;">
+    <div class="card-number">٣</div>
+    <div class="card-title">براعة الاستهلال</div>
+    <div class="card-desc">أن يأتي بشيء في المقدمة يدل على المقصود من الكتاب — فمن ألّف في النحو قال: "الحمد لله الذي رفع السماء ونصب الجبال" (رفع، نصب، خفض = إعراب)</div>
+  </div>
+</div>
+
+<div class="callout callout-definition">
+  <div class="callout-title">تعريف: براعة الاستهلال</div>
+  <div class="callout-body">أن يأتي المؤلف في مقدمته بشيء يدل على المقصود من الكتاب. مثال: من ألّف في الحديث ذكر الصحة والحسن والضعف إشارة إلى أقسام الحديث. ومن ألّف في الفقه ذكر التفقه والدين — كما فعل المصنف بقوله "المعين على التفقه في الدين".</div>
+</div>
+
+<!-- 4 -->
+<h2><span class="section-num">٤</span> ترجمة المؤلف: اسمه الصحيح وكنيته</h2>
+
+<p>سأل الشيخ الحاضرين عن اسم المؤلف كما هو مكتوب على الغلاف، فوجدهم يذكرون "أحمد زين الدين بن عبد العزيز المليباري" — وهذا خطأ شائع في كثير من الطبعات. والصحيح أن اسم المؤلف هو:</p>
+
+<div class="formula-box">
+  <div class="formula">أحمد زين الدين بن محمد الغزالي بن زين الدين المليباري</div>
+</div>
+
+<p>فالخطأ المنتشر في كثير من الطبعات هو أنهم يسمّونه "عبد العزيز" أو "أحمد بن عبد العزيز"، والصحيح أن اسم أبيه "محمد الغزالي" واسم جده "زين الدين المليباري". وأحسن من كتب في ترجمته وصوّب هذا الخطأ هو فضيلة الدكتور عبد النصير المليباري من ملبار — من نفس المدينة — وله كتاب في تراجم فقهاء الهند الشافعية.</p>
+
+<div class="callout callout-danger">
+  <div class="callout-title">تحذير: خطأ شائع في اسم المؤلف</div>
+  <div class="callout-body">لا تكاد تسلم طبعة من هذا الخطأ — فبعضهم يسمّي المؤلف "عبد العزيز" وبعضهم يسمّيه "أحمد بن عبد العزيز". والصحيح: أحمد زين الدين بن محمد الغزالي بن زين الدين المليباري. ولو أن المؤلف ذكر اسمه في مقدمة الكتاب لما حصل هذا الخطأ. وقد ذكر اسمه الصحيح في كتابه الآخر "الأجوبة عن الأسئلة الغريبة" المطبوع في مجلد لطيف.</div>
+</div>
+
+<p>وكنية المؤلف: أبو بكر. وله رسالة دكتوراه للشيخ المحاضر بعنوان "فتوح الفتاح شرح أحكام النكاح" — وهذا المتن من تأليف صاحب فتح المعين نفسه.</p>
+
+<!-- 5 -->
+<h2><span class="section-num">٥</span> مولد المؤلف ووفاته</h2>
+
+<p>أصح ما قيل في ولادة المؤلف أنه وُلد في سنة ٩٣٨ هجرية. وأما وفاته فحصل فيها خلاف بين ثلاثة أقوال:</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 10%;">القول</th>
+        <th style="width: 25%;">سنة الوفاة</th>
+        <th style="width: 20%;">مدة العمر</th>
+        <th style="width: 20%;">المرجّح</th>
+        <th style="width: 25%;">المصدر</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #d4edda;">
+        <td style="font-weight: bold;">الأول</td>
+        <td style="font-weight: bold; color: #28a745;">١٠٢٨ هـ</td>
+        <td>٩٠ سنة</td>
+        <td style="color: #28a745; font-weight: bold;">أصح الأقوال</td>
+        <td>قوّاه الدكتور عبد النصير المليباري</td>
+      </tr>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold;">الثاني</td>
+        <td>٩٩١ هـ</td>
+        <td>٥٣ سنة</td>
+        <td style="color: #856404;">مرجوح</td>
+        <td>فرق كبير بينه وبين الأول</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">الثالث</td>
+        <td>٩٨٧ هـ</td>
+        <td>٤٩ سنة</td>
+        <td style="color: #856404;">مرجوح</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>فعلى أصح الأقوال عاش المؤلف تسعين سنة — وُلد سنة ٩٣٨ وتوفي سنة ١٠٢٨ هجرية. وهو الذي قوّاه فضيلة الدكتور عبد النصير المليباري في الترجمة التي أشار إليها.</p>
+
+<!-- 6 -->
+<h2><span class="section-num">٦</span> من شرح المتن ومن نظمه</h2>
+
+<p>صنع المؤلف متناً في الفقه الشافعي سمّاه "قرة العين" — ومعنى قرة العين: سرور العين، أي أن من رأى هذا المتن ونظر فيه وتعلّمه سرّ بما فيه من العلم. وهو متن صغير حجماً لكنه من حيث العلم فيه علم كثير مع صغر حجمه. وقد شرحه بعض العلماء ونظمه آخرون:</p>
+
+<div class="compare-box">
+  <div class="compare-side" style="background: #1a5632;">
+    <h3>من نظم المتن (حَوَّله من منثور إلى شعر)</h3>
+    <p><b>١. العَقيلي</b> — من علماء اليمن، توفي سنة ١٣٦٥ هـ، نظمه لا يزال مخطوطاً، ذكره المؤرخ عبد الله الحبشي في "مصادر الفكر في اليمن"</p>
+    <p><b>٢. محمود الشربوني</b> — من العلماء، نظم المتن أيضاً</p>
+  </div>
+  <div class="compare-divider"></div>
+  <div class="compare-side" style="background: #2c5f7c;">
+    <h3>من شرح المتن</h3>
+    <p><b>١. محمد عمر نووي الجاوي</b> — شرحه في كتاب سمّاه "نهاية الزين شرح قرة العين" — شرح مطبوع متداول نافع</p>
+    <p><b>٢. المؤلف نفسه (المليباري)</b> — شرح متنه بكتابه "فتح المعين" — وعادة أن شرح المصنف لمتنه يكون أفضل الشروح لأن "صاحب البيت أدرى بما فيه" كما قال ابن حجر</p>
+  </div>
+</div>
+
+<div class="callout callout-success">
+  <div class="callout-title">القاعدة: صاحب البيت أدرى بما فيه</div>
+  <div class="callout-body">العلامة ابن حجر كتب متن "نخبة الفكر" ثم شرحه في كتاب "نزهة النظر"، وقال: "صاحب البيت أدرى بما فيه". وكذلك المليباري كتب المتن ثم شرحه، فشرحه يكون أوفى وأدق لأنه أعلم بمراده من غيره.</div>
+</div>
+
+<p>وقد عمل المؤلف نفس المنهج في كتاب آخر — كتب متن "أحكام النكاح" ثم شرحه بكتاب "المنهج الواضح شرح أحكام النكاح"، وله كتب أخرى منها: "الأجوبة العجيبة عن الأسئلة الغريبة" وكتاب عن "جهاد البرتغاليين".</p>
+
+<!-- 7 -->
+<h2><span class="section-num">٧</span> حواشي فتح المعين</h2>
+
+<p>كتاب فتح المعين لقي قبولاً واسعاً يدل على أهميته، ومن أدلة ذلك أنه كثرت عليه الحواشي — فقد كتب عدد من العلماء حواشي على هذا الشرح:</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 25%;">الحاشية</th>
+        <th style="width: 25%;">صاحبها</th>
+        <th style="width: 25%;">حالها</th>
+        <th style="width: 25%;">ملاحظة</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold;">إعانة المستعين</td>
+        <td>العلامة باصبرين</td>
+        <td style="color: #856404;">قيد الطبع</td>
+        <td>من علماء حضرموت، توفي سنة ١٣٠٥ هـ — حاشية نفيسة لم تخرج بعد</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">(حاشية ثانية)</td>
+        <td>—</td>
+        <td>—</td>
+        <td>ذكرها الشيخ في الدرس</td>
+      </tr>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold;">(حاشية ثالثة)</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">(حاشية رابعة)</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr style="background-color: #fff3cd;">
+        <td style="font-weight: bold;">حاشية معاصرة</td>
+        <td>الدكتور خلف المطلق</td>
+        <td style="color: #17a2b8;">قيد التأليف</td>
+        <td>من فقهاء الشافعية المعاصرين — يكتب حاشية على فتح المعين</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 8 -->
+<h2><span class="section-num">٨</span> أهمية كتاب فتح المعين</h2>
+
+<p>تتجلى أهمية كتاب فتح المعين في عدة أمور:</p>
+
+<div class="card-grid card-grid-2">
+  <div class="card" style="background: linear-gradient(135deg, #1a5632 0%, #2d7a4a 100%); color: white;">
+    <div class="card-number">١</div>
+    <div class="card-title">كثرة الحواشي</div>
+    <div class="card-desc">كتب عليه عدد من العلماء حواشي نفيسة — مما يدل على اهتمام العلماء به وعلى رسوخه في المنهج الدراسي</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #2c5f7c 0%, #3a7ca5 100%); color: white;">
+    <div class="card-number">٢</div>
+    <div class="card-title">النقل عن محققي المذهب</div>
+    <div class="card-desc">نقل عن ابن حجر الهيتمي (وهو تلميذه)، وابن زياد من فقهاء اليمن، والخطيب الشربيني، والرملي مراسلة</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #c8a951 0%, #b8943f 100%); color: white;">
+    <div class="card-number">٣</div>
+    <div class="card-title">صار منهجاً مقرراً</div>
+    <div class="card-desc">صار منهجاً مقرراً في كثير من الكليات والمعاهد والجامعات في إندونيسيا والهند وماليزيا وسنغافورة واليمن</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #6b3fa0 0%, #8a5cbf 100%); color: white;">
+    <div class="card-number">٤</div>
+    <div class="card-title">زيارة ابن حجر له</div>
+    <div class="card-desc">زار ابن حجر الهيتمي الهند ليلتقي بتلميذه المليباري ونزل عنده، وكتب فتاوى في مسجده — مما يدل على مكانة المليباري العظيمة</div>
+  </div>
+</div>
+
+<div class="callout callout-success">
+  <div class="callout-title">نصيحة الشيخ</div>
+  <div class="callout-body">إذا تعب طالب العلم في دراسة هذا الكتاب فسيحصل خيراً كثيراً. وإذا جعلته أنيسك صباحاً ومساءً فستحصل خيراً كثيراً. وقد تحقق دعاء المؤلف "أن يعمّ الانتفاع به للخاصة والعامة من الإخوان" — فما أكثر ما يُدرس في كثير من البلاد إلى يومنا هذا.</div>
+</div>
+
+<!-- 9 -->
+<h2><span class="section-num">٩</span> أحكام البسملة الخمسة</h2>
+
+<p>افتتح المؤلف كتابه بالبسملة اقتداءً بالقرآن الكريم وعملاً بحديث "كل أمر ذي بال لا يُبدأ فيه ببسم الله فهو أبتر أقطع أي قليل الخير". والبسملة في بداية تأليف الكتب حكمها مستحب. وعادة العلماء أنهم يتكلمون في البسملة بما يناسب ذلك العلم — فإذا كان النحو تكلموا في إعرابها، وإذا كان الفقه تكلموا في أحكامها. ولما كان هذا كتاب فقه فإن المصنف أشار إلى أحكام البسملة، وهي خمسة:</p>
+
+<div class="card-grid card-grid-5">
+  <div class="card" style="background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%); color: white;">
+    <div class="card-number">١</div>
+    <div class="card-title">واجبة</div>
+    <div class="card-desc">في قراءة الفاتحة — لأنها آية منها، من لم يقرأها فصلاته باطلة. أشار صاحب الزبد: "ومن سبق ببسم والحروف والشدي نطق"</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #28a745 0%, #34ce57 100%); color: white;">
+    <div class="card-number">٢</div>
+    <div class="card-title">مستحبة عينياً</div>
+    <div class="card-desc">في الوضوء والغسل والتيمم — تُستحب من كل واحد بعينه</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #17a2b8 0%, #20c9e0 100%); color: white;">
+    <div class="card-number">٣</div>
+    <div class="card-title">مستحبة كفائياً</div>
+    <div class="card-desc">عند الطعام — لو سمّى واحد حصلت السنة وسقط الطلب عن الباقين</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #6c757d 0%, #8a9299 100%); color: white;">
+    <div class="card-number">٤</div>
+    <div class="card-title">مباحة</div>
+    <div class="card-desc">في أخذ الأشياء غير ذات بال — كأخذ قلم أو إناء ليس ذا أهمية</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #343a40 0%, #4a5054 100%); color: white;">
+    <div class="card-number">٥</div>
+    <div class="card-title">محرمة / مكروهة</div>
+    <div class="card-desc">محرمة: عند فعل المحرّم لعينه (كالزنا وشرب الخمر)، وعند بدء سورة التوبة على ما اعتمده ابن حجر. مكروهة: في أثناء سورة التوبة، وعند المكروه لذاته</div>
+  </div>
+</div>
+
+<div class="callout callout-warning">
+  <div class="callout-title">تفصيل: البسملة المحرمة</div>
+  <div class="callout-body">البسملة في أول سورة التوبة حرام على ما اعتمده العلامة ابن حجر — لأن سورة التوبة ليس فيها بسملة. والبسملة في أثناء السورة (لا في أولها) مكروهة عنده. وكذلك التسمية عند فعل شيء محرّم لعينه حرام — كأن يسمّي عند الزنا أو شرب الخمر. وإذا سمّى عند المكروه لذاته فهو مكروه.</div>
+</div>
+
+<!-- 10 -->
+<h2><span class="section-num">١٠</span> السنن الكفائية في مذهب الشافعية</h2>
+
+<p>مرّ ذكر السنن الكفائية في كتاب فتح القريب — وهي عند الشافعية سبع سنن كفائية كما نظمها العلامة محمد الفضالي شيخ البيجوري:</p>
+
+<div class="poetry-box">
+  <div class="poetry-line">أذانٌ وتشميتٌ وفعلٌ بميتٍ إذا كان مندوبا</div>
+  <div class="poetry-line">وللأكل بسم الله وأضحيةٌ من أهل بيتٍ تُعدّد</div>
+  <div class="poetry-line">وبدءُ سلامٍ والإقامةُ فعقلا</div>
+</div>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 8%;">الرقم</th>
+        <th style="width: 30%;">السنة الكفائية</th>
+        <th style="width: 62%;">البيان</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold;">١</td>
+        <td>الأذان</td>
+        <td>سنة كفاية — يكفي أن يقوم به واحد ويسقط الطلب</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">٢</td>
+        <td>التشميت</td>
+        <td>إذا عطس واحد فقال واحد من الجماعة "يرحمك الله" سقط الطلب</td>
+      </tr>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold;">٣</td>
+        <td>فعل بميت إذا كان مندوباً</td>
+        <td>ما يندب فعله للميت سنة كفاية — إذا قام به البعض سقط الطلب</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">٤</td>
+        <td>للأكل بسم الله</td>
+        <td>لو سمّى واحد من الآكلين حصلت السنة وسقط الطلب — وهذا الشاهد في باب البسملة</td>
+      </tr>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold;">٥</td>
+        <td>أضحية من أهل بيت تُعدّد</td>
+        <td>الأضحية سنة عين للمنفرد وسنة كفاية للجماعة — إذا كان أهل البيت خمسة ففعل واحد كفى</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">٦</td>
+        <td>بدء السلام</td>
+        <td>سنة كفاية — بدء السلام على القوم</td>
+      </tr>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold;">٧</td>
+        <td>الإقامة فعقلاً</td>
+        <td>إقامة الصلاة سنة كفاية على من يتعلّق بهم فعلها من العقلاء</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>وفي الحقيقة هي أكثر من سبع — فقد وجد الشيخ أشياء ليست موجودة في هذين البيتين. لكن هذه السبع هي المذكورة في نظم الفضالي.</p>
+
+<!-- 11 -->
+<h2><span class="section-num">١١</span> أركان الحمد الخمسة</h2>
+
+<p>قال المصنف: "الحمد لله" — والحمد معناه: ذكر صفات المحمود مع المحبة والتعظيم. وعندما نقول "مع المحبة والتعظيم" نخرج المدح — لأن المدح ذكر صفات المحمود لكن قد يكون بدون محبة ولا تعظيم. فبعض الناس يأتي إلى الملك يمدحه وفي حقيقته لا يحبه — هذا يسمّى مدحاً لا حمداً.</p>
+
+<p>للحمد خمسة أركان، ومثالها: لو قلت "زيد جواد لأنه أعطاك":</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 8%;">الركن</th>
+        <th style="width: 25%;">المعنى</th>
+        <th style="width: 30%;">المثال: "زيد جواد لأنه أعطاك"</th>
+        <th style="width: 37%;">البيان</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold;">١</td>
+        <td>الحامد</td>
+        <td>أنا (الذي حمدت)</td>
+        <td>من يقوم بالحمد — فأنا الذي قلت "زيد جواد"</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">٢</td>
+        <td>المحمود</td>
+        <td>زيد</td>
+        <td>من أُثني عليه — وهو الموصوف بالجود</td>
+      </tr>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold;">٣</td>
+        <td>المحمود به</td>
+        <td>بالجود</td>
+        <td>الصفة التي حُمد بها — فوصفه بالجود</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">٤</td>
+        <td>المحمود عليه</td>
+        <td>على العطاء</td>
+        <td>الفعل الذي من أجله حُمد — أعطى فحُمد على العطاء</td>
+      </tr>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold;">٥</td>
+        <td>الصيغة</td>
+        <td>"زيد جواد"</td>
+        <td>العبارة التي يُعبَّر بها عن الحمد — وهي الجملة نفسها</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 12 -->
+<h2><span class="section-num">١٢</span> الحمد لله الفتاح الجواد المعين — براعة الاستهلال</h2>
+
+<p>قال المصنف في خطبة الكتاب: "الحمد لله الفتاح الجواد المعين على التفقه في الدين من اختاره من العباد" — وفي هذه الكلمات براعة استهلال بديعة:</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 25%;">اللفظ</th>
+        <th style="width: 35%;">المعنى</th>
+        <th style="width: 40%;">الإشارة (براعة الاستهلال)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold;">الفتاح</td>
+        <td>الذي يفتح لعباده خزائن رحمته — أو الذي يحكم بين عباده (لأن الفتح بمعنى الحكم)</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">الجواد</td>
+        <td>السخيّ — الكريم المعطي</td>
+        <td>—</td>
+      </tr>
+      <tr style="background-color: #d4edda;">
+        <td style="font-weight: bold; color: #1a5632;">المعين على التفقه في الدين</td>
+        <td>الذي يُعين على التفقّه في الدين من اختاره من العباد</td>
+        <td style="color: #1a5632; font-weight: bold;">براعة الاستهلال — لما قال "التفقه" عرفنا أنه سيتكلم في الفقه</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>وقال: "من اختاره من العباد" — أي أعان من اختاره من العباد على التفقه في الدين، وذلك فضل من الله ومنه. لأن النبي صلى الله عليه وسلم قال: "من يُرد الله به خيراً يفقّهه في الدين". فإذا رأيت نفسك تحب الفقه في الدين فاعلم أن الله أراد بك الخير — فمن علامات إرادة الخير بالعبد أن الله يفقّهه في الدين.</p>
+
+<p>ثم قال: "وأشهد أن لا إله إلا الله شهادة تُدخلنا دار الخلود، وأشهد أن سيدنا محمداً عبده ورسوله صاحب المقام المحمود، صلى الله وسلم عليه وعلى آله وأصحابه الأماجد (الشرفاء، جمع ماجد من المجد وهو الشرف)، صلاة وسلاماً أفوز بهما يوم المعاد (يوم القيامة)".</p>
+
+<!-- 13 -->
+<h2><span class="section-num">١٣</span> تقدير عامل البسملة: فعل مؤخر خاص</h2>
+
+<p>قال المصنف: "بسم الله الرحمن الرحيم أي أُؤلف" — لاحظ أن المصنف قدّر العامل بثلاثة أوجه كلها أصاب فيها:</p>
+
+<div class="vertical-flow">
+  <div class="flow-step" style="background: #1a5632; color: white; font-weight: bold;">بسم الله الرحمن الرحيم</div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step" style="background: #c8a951; color: white; font-weight: bold;">التقدير: أُؤلِّف</div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step" style="background: #2c5f7c; color: white;">قدّره فعلاً (لا اسماً) — لأن الأصل في العمل الأفعال</div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step" style="background: #2c5f7c; color: white;">قدّره مؤخّراً — تبرّكاً بالبداءة باسم الله</div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step" style="background: #2c5f7c; color: white;">قدّره خاصاً (أُؤلف) لا عاماً (أبتدئ)</div>
+</div>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 25%;">الوجه</th>
+        <th style="width: 25%;">المثال</th>
+        <th style="width: 25%;">الطريقة</th>
+        <th style="width: 25%;">النتيجة</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #d4edda;">
+        <td style="font-weight: bold; color: #28a745;">فعل مؤخر خاص (الأصح)</td>
+        <td>بسم الله الرحمن الرحيم أُؤلف</td>
+        <td>طريقة الكوفيين</td>
+        <td style="color: #28a745;">بركة البسملة تشمل الكتاب كله</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">فعل مؤخر عام</td>
+        <td>بسم الله الرحمن الرحيم أبتدئ</td>
+        <td>—</td>
+        <td>البركة في بداية التأليف فقط</td>
+      </tr>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold;">اسم عام</td>
+        <td>بسم الله الرحمن الرحيم مبدوء به</td>
+        <td>طريقة البصريين</td>
+        <td>البركة في البداية فقط</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>لو قدّره فعلاً عاماً "أبتدئ" لكانت بركة البسملة في بداية التأليف فقط. لكن لما قدّره خاصاً "أُؤلف" شملت البركة جميع التأليف. ولذلك الأدق في التقدير ما فعله المصنف: فعلاً لأن الأصل في العمل الأفعال، ومؤخراً تبرّكاً بتقديم ذكر الله، وخاصاً لتعم البركة جميع التأليف.</p>
+
+<!-- 14 -->
+<h2><span class="section-num">١٤</span> اشتقاق كلمة "اسم" — البصريون والكوفيون</h2>
+
+<p>قال المصنف: "والاسم مشتق من السمو وهو العلو لا من الوسم وهو العلامة" — وفي هذه المسألة خلاف بين البصريين والكوفيين:</p>
+
+<div class="compare-box">
+  <div class="compare-side" style="background: #1a5632;">
+    <h3>البصريون (من الأسماء)</h3>
+    <p><b>الاسم مشتق من السمو</b> بمعنى العلو — فالاسم يُعلي صاحبه ويُسمو به</p>
+    <p><b>الوزن الصرفي:</b> إفع — حُذفت الواو (عين الكلمة) وسُكّن أوله وجاءت همزة الوصل</p>
+    <p style="margin-top: 6px; font-size: 11px;">سمو ← حُذفت الواو ← سمو بوزن إفع</p>
+  </div>
+  <div class="compare-divider"></div>
+  <div class="compare-side" style="background: #2c5f7c;">
+    <h3>الكوفيون (من الأفعال)</h3>
+    <p><b>الاسم مشتق من وسم</b> بمعنى العلامة — فالسمة والعلامة</p>
+    <p><b>الوزن الصرفي:</b> أفعل — حُذف أوله (الفاء)</p>
+    <p style="margin-top: 6px; font-size: 11px;">وسم ← حُذف الأول ← وسم بوزن أفعل</p>
+  </div>
+</div>
+
+<p>والمصنف هنا رجّح طريقة البصريين (السمو)، مع أنه في مسألة تقدير عامل البسملة رجّح طريقة الكوفيين (تقدير فعل). وهذا يدل على أن المصنف ينظر إلى الدليل في كل مسألة ولا يتبع مذهباً واحداً في كل شيء.</p>
+
+<!-- 15 -->
+<h2><span class="section-num">١٥</span> اشتقاق اسم "الله" من "الإله"</h2>
+
+<p>قال المصنف: "والله علم للذات الواجب الوجود، وأصله إله على وزن إمام" — فاسم "الله" مشتق من "إله" وهو اسم جنس لكل معبود بحق أو بباطل. فمن يُعبد حقاً يُسمّى إلهاً ومن يُعبد باطلاً يُسمّى إلهاً أيضاً — كما سمّى القرآن ما يعبده المشركون آلهة. لكن "الله" لا يُطلق إلا على المعبود بحق عز وجل.</p>
+
+<p>وقال العلماء: اشتقاق "الله" من "إله" تمّ بخمس أعمال:</p>
+
+<div class="vertical-flow">
+  <div class="flow-step" style="background: #1a5632; color: white; font-weight: bold;">إله</div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step" style="background: #2d7a4a; color: white;">دخلت (ال) على إله = الإله</div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step" style="background: #2c5f7c; color: white;">نُقلت حركة الهمزة إلى اللام</div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step" style="background: #3a7ca5; color: white;">حُذفت الهمزة</div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step" style="background: #c8a951; color: white;">أُدغمت اللام في اللام</div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step" style="background: #6b3fa0; color: white;">فُخّم اللفظ</div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step" style="background: #c0392b; color: white; font-weight: bold;">الله</div>
+</div>
+
+<div class="callout callout-definition">
+  <div class="callout-title">الفرق بين "إله" و"الله"</div>
+  <div class="callout-body"><b>إله:</b> اسم جنس لكل معبود بحق أو بباطل — يُطلق على الأصنام أيضاً كما في قوله تعالى عن المشركين "آلهة". <b>الله:</b> لا يُطلق إلا على المعبود بحق عز وجل — وهو الاسم الأعظم عند الأكثر، ولم يُسمَّ به غيره ولو تعصّب. فمن دعا به ولم يُستجب له فلتخلف شرط من شروط الإجابة أو لوجود مانع.</div>
+</div>
+
+<!-- 16 -->
+<h2><span class="section-num">١٦</span> مطابقة خطبة الكتاب لآداب التأليف</h2>
+
+<p>بعد قراءة خطبة الكتاب، ننظر: هل أتى المصنف بالأشياء التي يجب وجوباً صناعياً والتي تندب ندباً صناعياً؟</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 8%;">الرقم</th>
+        <th style="width: 30%;">الأدب</th>
+        <th style="width: 15%;">الحكم</th>
+        <th style="width: 15%;">هل أتى به؟</th>
+        <th style="width: 32%;">البيان</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #d4edda;">
+        <td style="font-weight: bold;">١</td>
+        <td>البسملة</td>
+        <td>يجب صناعياً</td>
+        <td style="color: #28a745; font-weight: bold;">نعم</td>
+        <td>افتتح كتابه بها مرتين — في الخطبة وفي المتن</td>
+      </tr>
+      <tr style="background-color: #d4edda;">
+        <td style="font-weight: bold;">٢</td>
+        <td>الحمدلة</td>
+        <td>يجب صناعياً</td>
+        <td style="color: #28a745; font-weight: bold;">نعم</td>
+        <td>"الحمد لله الفتاح الجواد المعين"</td>
+      </tr>
+      <tr style="background-color: #d4edda;">
+        <td style="font-weight: bold;">٣</td>
+        <td>التشهد</td>
+        <td>يجب صناعياً</td>
+        <td style="color: #28a745; font-weight: bold;">نعم</td>
+        <td>"وأشهد أن لا إله إلا الله"</td>
+      </tr>
+      <tr style="background-color: #d4edda;">
+        <td style="font-weight: bold;">٤</td>
+        <td>الصلاة على النبي</td>
+        <td>يجب صناعياً</td>
+        <td style="color: #28a745; font-weight: bold;">نعم</td>
+        <td>"صلى الله وسلم عليه وعلى آله وأصحابه"</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">٥</td>
+        <td>ذكر اسم المؤلف</td>
+        <td>يندب صناعياً</td>
+        <td style="color: #c0392b; font-weight: bold;">لا</td>
+        <td>لم يذكر اسمه — ولو ذكره لما وقع الخطأ الشائع في اسمه</td>
+      </tr>
+      <tr style="background-color: #d4edda;">
+        <td style="font-weight: bold;">٦</td>
+        <td>اسم مؤلف الكتاب</td>
+        <td>يندب صناعياً</td>
+        <td style="color: #28a745; font-weight: bold;">نعم</td>
+        <td>ذكر اسم المتن "قرة العين بمهمات الدين"</td>
+      </tr>
+      <tr style="background-color: #d4edda;">
+        <td style="font-weight: bold;">٧</td>
+        <td>براعة الاستهلال</td>
+        <td>يندب صناعياً</td>
+        <td style="color: #28a745; font-weight: bold;">نعم</td>
+        <td>"المعين على التفقه في الدين" — إشارة إلى الفقه</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout callout-info">
+  <div class="callout-title">النتيجة: أتى بستة من سبعة</div>
+  <div class="callout-body">أتى المصنف بالأشياء الأربعة التي تجب وجوباً صناعياً (البسملة، الحمدلة، التشهد، الصلاة على النبي)، وأتى باثنين من الثلاثة التي تندب ندباً صناعياً (اسم الكتاب وبراعة الاستهلال)، لكنه لم يذكر اسمه — ولو ذكره لما وقع الخطأ المنتشر في اسمه في كثير من الطبعات. فأتى بستة من سبعة.</div>
+</div>
+
+</body>
+</html>

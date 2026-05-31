@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf') format('truetype'); font-weight: normal; }
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf') format('truetype'); font-weight: bold; }
+@font-face { font-family: 'NotoNaskh'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf') format('truetype'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+
+body {
+  font-family: 'NotoNaskh', 'Amiri', serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #1a1a2e;
+  direction: rtl;
+  background: #fff;
+  text-align: justify;
+}
+
+.cover-page {
+  width: 100%; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, #0d4a2e, #0a5c2e, #0d7c3e, #1a8f4e, #2ea06e);
+  text-align: center; color: white; padding: 40px 20px;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(200,169,81,0.04) 30px, rgba(200,169,81,0.04) 31px), repeating-linear-gradient(-45deg, transparent, transparent 30px, rgba(200,169,81,0.04) 30px, rgba(200,169,81,0.04) 31px);
+}
+
+.toc {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 0 0 12px 0;
+}
+.toc-title {
+  font-family: 'Amiri', serif;
+  font-size: 14pt;
+  color: #1a5632;
+  text-align: center;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #c8a951;
+  padding-bottom: 4px;
+}
+.toc-item {
+  font-size: 10pt;
+  padding: 2px 0;
+  border-bottom: 1px dotted #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+h2.section-title {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0d7c3e;
+  border-bottom: 2px solid #0d7c3e;
+  padding-bottom: 5px;
+  margin: 18px 0 10px;
+}
+
+h3.sub-title {
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: #0a5c2e;
+  margin: 14px 0 8px;
+  padding-right: 10px;
+  border-right: 4px solid #0d7c3e;
+}
+
+h4.minor-title {
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #166534;
+  margin: 10px 0 6px;
+}
+
+p { margin: 5px 0; text-align: justify; }
+
+.definition-box {
+  background: #f0fdf4; border: 1px solid #bbf7d0; border-right: 4px solid #0d7c3e;
+  padding: 10px 14px; margin: 10px 0; border-radius: 6px;
+}
+.rule-box {
+  background: #fefce8; border: 1px solid #fde68a; border-right: 4px solid #d97706;
+  padding: 10px 14px; margin: 10px 0; border-radius: 6px;
+}
+.exception-box {
+  background: #fff7ed; border: 1px solid #fed7aa; border-right: 4px solid #ea580c;
+  padding: 10px 14px; margin: 10px 0; border-radius: 6px;
+}
+.evidence-box {
+  background: #eff6ff; border: 1px solid #bfdbfe; border-right: 4px solid #2563eb;
+  padding: 10px 14px; margin: 10px 0; border-radius: 6px;
+}
+.issue-box {
+  background: #fdf2f8; border: 1px solid #fbcfe8; border-right: 4px solid #db2777;
+  padding: 10px 14px; margin: 10px 0; border-radius: 6px;
+}
+.comparison-box {
+  background: #f5f3ff; border: 1px solid #ddd6fe; border-right: 4px solid #7c3aed;
+  padding: 10px 14px; margin: 10px 0; border-radius: 6px;
+}
+.note-box {
+  background: #f0f9ff; border: 1px solid #bae6fd; border-right: 4px solid #0284c7;
+  padding: 10px 14px; margin: 10px 0; border-radius: 6px;
+}
+.poetry-box {
+  background: #faf5ff; border: 1px solid #e9d5ff; border-right: 4px solid #9333ea;
+  padding: 10px 14px; margin: 10px 0; border-radius: 6px;
+  text-align: center; font-family: 'Amiri', serif; font-size: 15px; line-height: 2.2;
+}
+.key-rule {
+  background: #dcfce7; border: 2px solid #16a34a;
+  padding: 10px 14px; margin: 10px 0; border-radius: 8px;
+  text-align: center; font-weight: bold; font-size: 15px;
+}
+
+.box-label {
+  font-family: 'Amiri', serif; font-weight: bold; font-size: 13px;
+  margin-bottom: 4px; display: inline-block; padding: 1px 8px;
+  border-radius: 4px; color: #fff;
+}
+.label-def { background: #0d7c3e; }
+.label-rule { background: #d97706; }
+.label-exc { background: #ea580c; }
+.label-ev { background: #2563eb; }
+.label-issue { background: #db2777; }
+.label-comp { background: #7c3aed; }
+.label-note { background: #0284c7; }
+
+table {
+  width: 100%; border-collapse: collapse; margin: 10px 0;
+  font-size: 13px; table-layout: fixed;
+}
+th {
+  background: #0d7c3e; color: #fff; padding: 6px 8px;
+  font-family: 'Amiri', serif; font-weight: bold; text-align: center;
+}
+td { padding: 5px 8px; border: 1px solid #d1d5db; text-align: center; vertical-align: top; }
+tr:nth-child(even) { background: #f0fdf4; }
+tr:nth-child(odd) { background: #fff; }
+
+.tree-container { margin: 12px 0; text-align: center; }
+.tree-root {
+  display: inline-block; background: linear-gradient(135deg, #0d7c3e, #0a5c2e);
+  color: #fff; padding: 6px 18px; border-radius: 8px;
+  font-family: 'Amiri', serif; font-weight: bold; font-size: 15px;
+}
+.tree-branches { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px; }
+.tree-branch {
+  background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px;
+  padding: 6px 12px; min-width: 80px; text-align: center;
+}
+.tree-branch-num { font-family: 'Amiri', serif; font-weight: bold; color: #0d7c3e; font-size: 14px; }
+.tree-branch-label { font-size: 12px; color: #374151; }
+
+.compare-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.compare-card { flex: 1; min-width: 140px; border-radius: 8px; padding: 8px 10px; text-align: center; }
+.compare-card-green { background: #dcfce7; border: 1px solid #86efac; }
+.compare-card-red { background: #fef2f2; border: 1px solid #fca5a5; }
+.compare-card-gold { background: #fefce8; border: 1px solid #fde68a; }
+.compare-card-blue { background: #eff6ff; border: 1px solid #bfdbfe; }
+.compare-card-title { font-family: 'Amiri', serif; font-weight: bold; font-size: 14px; margin-bottom: 4px; }
+.compare-card-body { font-size: 12px; }
+
+.flow-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px; margin: 8px 0; }
+.flow-box { background: #0d7c3e; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-family: 'Amiri', serif; font-weight: bold; text-align: center; }
+.flow-arrow { font-size: 16px; color: #0d7c3e; font-weight: bold; }
+.flow-result { padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; text-align: center; }
+
+.highlight-green { background: #dcfce7; padding: 1px 4px; border-radius: 3px; }
+.highlight-gold { background: #fefce8; padding: 1px 4px; border-radius: 3px; }
+.highlight-red { background: #fef2f2; padding: 1px 4px; border-radius: 3px; }
+
+.verse-ref { font-family: 'Amiri', serif; font-size: 14px; color: #1e40af; text-align: center; margin: 6px 0; }
+.hadith-ref { font-family: 'Amiri', serif; font-size: 13px; color: #166534; text-align: center; margin: 6px 0; }
+
+.condition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.condition-item { border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.condition-num {
+  display: inline-block; background: #0d7c3e; color: #fff; min-width: 24px; height: 24px;
+  border-radius: 50%; text-align: center; line-height: 24px; font-family: 'Amiri', serif;
+  font-weight: bold; font-size: 12px; margin-left: 6px;
+}
+
+ul { margin: 4px 0; padding-right: 20px; }
+li { margin: 2px 0; }
+</style>
+</head>
+<body>
+
+<!-- ===== FULL-PAGE COVER (NEW LESSON) ===== -->
+<div class="cover-page" style="width:100%; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; background:linear-gradient(135deg,#0d4a2e,#0a5c2e,#0d7c3e,#1a8f4e,#2ea06e); text-align:center; color:white; padding:40px 20px;">
+  <div style="background:linear-gradient(90deg,#c8a951,#e8c84a,#c8a951); height:6px; width:80%; border-radius:3px; margin-bottom:30px;"></div>
+  <h1 style="font-family:'Amiri',serif; font-size:28pt; color:white; margin:10px 0; border:none;">شرح فتح المعين</h1>
+  <div style="font-size:16pt; color:#c8a951; margin:8px 0;">للعلامة الفقيه المليباري</div>
+  <div style="background:rgba(255,255,255,0.15); border-radius:12px; padding:12px 30px; margin:15px 0;">
+    <div style="font-size:20pt; font-family:'Amiri',serif; font-weight:bold;">الدرس الخامس والثلاثون — صفة الصلاة: أركانها والنيّة</div>
+  </div>
+  <div style="font-size:14pt; color:#a8e6c3; margin:10px 0;">د. لبيب نجيب عبدالله</div>
+  <div style="font-size:12pt; color:rgba(255,255,255,0.8); margin-top:5px;">تنسيق: أحمد بن إرشاد</div>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. مقدمة: من شروط الصلاة إلى أركانها</span></div>
+  <div class="toc-item"><span>٢. الأركان والفروض: الترادف والاصطلاح</span></div>
+  <div class="toc-item"><span>٣. اختلاف فقهاء الشافعية في عدّ أركان الصلاة (سبعة أقوال)</span></div>
+  <div class="toc-item"><span>٤. تقسيم الصلاة: فرض ونفل مقيد ومطلق</span></div>
+  <div class="toc-item"><span>٥. ما تشمله صلاة الفرض</span></div>
+  <div class="toc-item"><span>٦. الواجب في نية كلّ قسم من أقسام الصلاة</span></div>
+  <div class="toc-item"><span>٧. كلام المصنّف على النية: قصد الفعل والتعيين</span></div>
+  <div class="toc-item"><span>٨. لا يكفي نية فرض الوقت</span></div>
+  <div class="toc-item"><span>٩. التعيين: بالإضافة والاشتهار</span></div>
+  <div class="toc-item"><span>١٠. الرواتب والسنن المؤقتة ووقتها</span></div>
+  <div class="toc-item"><span>١١. تعيين صلاة العيد</span></div>
+  <div class="toc-item"><span>١٢. تعيين الوتر وأحكامه</span></div>
+  <div class="toc-item"><span>١٣. النفل المقيد: مقصود لذاته وغير مقصود لذاته</span></div>
+  <div class="toc-item"><span>١٤. صلاة الأوابين ومعناها والخلاف في تعيينها</span></div>
+  <div class="toc-item"><span>١٥. وجوب نية الفرضية في صلاة الفرض</span></div>
+  <div class="toc-item"><span>١٦. صلاة الصبي ونية الفرضية</span></div>
+  <div class="toc-item"><span>١٧. من أدرك الإمام في تشهّد الجمعة (اللغز الفقهي)</span></div>
+  <div class="toc-item"><span>١٨. ما يُسنّ في النية (أربعة أمور)</span></div>
+  <div class="toc-item"><span>١٩. صحة الأداء بنية القضاء وعكسه</span></div>
+  <div class="toc-item"><span>٢٠. التعرّض لاستقبال القبلة وعدد الركعات</span></div>
+</div>
+
+<!-- ===== 1. مقدمة ===== -->
+<h2 class="section-title">١. مقدمة: من شروط الصلاة إلى أركانها</h2>
+
+<p>انتهى في الدرس الماضي من الكلام حول شروط الصلاة، وقدّم المصنّف العلامة الفقيه المليباري رحمه الله تعالى الكلام على شروط الصلاة لأنّ الشرط مقدم وضعاً، فناسب تقديمها. وبعد أن تكلّم على شروط الصلاة شرع في الكلام على أركان الصلاة، أي على ما هي الصلاة وحقيقتها، وهو المعبّر عنه عند الفقهاء بقولهم <b>صفة الصلاة</b>.</p>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>فصل في صفة الصلاة — أركان الصلاة أي فروضها أربعة عشر بجعل الطمأنينة في محالها ركناً واحداً</b></p>
+</div>
+
+<!-- ===== 2. الأركان والفروض ===== -->
+<h2 class="section-title">٢. الأركان والفروض: الترادف والاصطلاح</h2>
+
+<div class="definition-box">
+  <span class="box-label label-def">تعريف</span>
+  <p>قال المصنّف: <b>أركان الصلاة أي فروضها</b> — فتستفيد من هذا أنّ الأركان والفروض مترادفان؛ فالأركان بمعنى الفروض، والفروض بمعنى الأركان. لكن عادت الفقهاء أنّهم يعبّرون في الوضوء بقولهم <b>فروض الوضوء</b>، ويعبّرون في الصلاة بقولهم <b>أركان الصلاة</b>.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه</span>
+  <p>ذكر العلامة الشرقاوي رحمه الله في حاشيته على تحفة الطلاب سبباً لهذا الاصطلاح يمكن الرجوع إليه هناك.</p>
+</div>
+
+<!-- ===== 3. اختلاف العدّ ===== -->
+<h2 class="section-title">٣. اختلاف فقهاء الشافعية في عدّ أركان الصلاة (سبعة أقوال)</h2>
+
+<p>اختلفت طريقة عدّ فقهاء الشافعية لأركان الصلاة، وليس هذا خلافاً جوهريّاً وإنّما هو خلاف في <b>طريقة العدّ</b>:</p>
+
+<table>
+  <tr>
+    <th>القول</th>
+    <th>العدد</th>
+    <th>الزيادة على الثلاثة عشر</th>
+    <th>المشهور به</th>
+  </tr>
+  <tr>
+    <td><b>الأوّل</b></td>
+    <td><b>١٣</b></td>
+    <td>— (الأصل)</td>
+    <td>الإمام النووي في المنهاج، الإمام الرافعي في المحرر، صاحب الزبد</td>
+  </tr>
+  <tr>
+    <td><b>الثاني</b></td>
+    <td><b>١٤</b></td>
+    <td>الطمأنينة في محالها ركناً واحداً</td>
+    <td>المصنّف المليباري في هذا الكتاب</td>
+  </tr>
+  <tr>
+    <td><b>الثالث</b></td>
+    <td><b>١٥</b></td>
+    <td>الطمأنينة + مقارنة النية لتكبيرة الإحرام</td>
+    <td>شيخ الإسلام زكريا الأنصاري في تحفة الطلاب</td>
+  </tr>
+  <tr>
+    <td><b>الرابع</b></td>
+    <td><b>١٧</b></td>
+    <td>الطمأنينة الأربع كلّ واحدة ركناً مستقلاً</td>
+    <td>الإمام النووي في الروضة، صاحب سفينة النجا</td>
+  </tr>
+  <tr>
+    <td><b>الخامس</b></td>
+    <td><b>١٨</b></td>
+    <td>١٧ + نية الخروج من الصلاة (قول مرجوح)</td>
+    <td>القاضي أبو شجاع في المثل المشهور</td>
+  </tr>
+  <tr>
+    <td><b>السادس</b></td>
+    <td><b>١٩</b></td>
+    <td>١٨ + الخشوع في الصلاة</td>
+    <td>—</td>
+  </tr>
+  <tr>
+    <td><b>السابع</b></td>
+    <td><b>٢٠</b></td>
+    <td>١٩ + المصلي (كأركان الصيام)</td>
+    <td>—</td>
+  </tr>
+</table>
+
+<h3 class="sub-title">تفصيل القول الأوّل: ١٣ ركناً (المعتمد)</h3>
+
+<div class="tree-container">
+  <div class="tree-root">أركان الصلاة (١٣) — الإمام النووي</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">أركان قولية (٥)</div>
+      <div class="tree-branch-label">١. تكبيرة الإحرام<br>٢. قراءة الفاتحة<br>٣. الصلاة على النبي ﷺ في التشهّد الأخير<br>٤. التسليمة الأولى<br>٥. النية</div>
+    </div>
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a;">
+      <div class="tree-branch-num">أركان فعليّة (٨)</div>
+      <div class="tree-branch-label">١. القيام<br>٢. الركوع<br>٣. الاعتدال<br>٤. السجود<br>٥. الجلوس بين السجدتين<br>٦. الجلوس للتشهّد الأخير<br>٧. النية<br>٨. الترتيب</div>
+    </div>
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه</span>
+  <p>النية والترتيب ذُكرا في الأركان الفعلية على القول الأول (١٣). والمجموع: ٥ قولية + ٨ فعليّة = ١٣ ركناً.</p>
+</div>
+
+<h3 class="sub-title">تفصيل القول الثاني: ١٤ ركناً (المصنّف المليباري)</h3>
+
+<p>زاد على الثلاثة عشر <b>الطمأنينة</b> في جميع محالها ركناً واحداً: الطمأنينة في الركوع، وفي الاعتدال، وفي السجود، وفي الجلوس بين السجدتين. أمّا على الرأي الأول فالطمأنينة هيئة تابعة للركن لا تتحقّق إلا بها، فهي جزء من الركن وليست ركناً مستقلاً.</p>
+
+<h3 class="sub-title">تفصيل القول الرابع: ١٧ ركناً (النووي في الروضة)</h3>
+
+<p>الثلاثة عشر + الطمأنينة الأربع <b>كلّ واحدة ركناً مستقلاً</b> (في الركوع، والاعتدال، والسجود، والجلوس بين السجدتين) = ١٧ ركناً.</p>
+
+<h3 class="sub-title">تفصيل القول الخامس: ١٨ ركناً (نية الخروج)</h3>
+
+<div class="issue-box">
+  <span class="box-label label-issue">قول مرجوح</span>
+  <p>زاد على السبعة عشر <b>نية الخروج من الصلاة</b> — وهذا قول مرجوح في المذهب. المعتمد أنّ نية الخروج من الصلاة ليست ركناً. ولذلك العمريطي في النظم يقول:</p>
+</div>
+
+<div class="poetry-box">
+  ونية الخروج في قول هُجِر
+</div>
+
+<p>أي قول مهجور. وهو ما صنعه القاضي أبو شجاع في المثل المشهور (مثل الغاية والتقريب) حيث عدّ نية الخروج ركناً.</p>
+
+<h3 class="sub-title">تفصيل القول السادس: ١٩ ركناً (الخشوع)</h3>
+
+<p>زاد على الثمانية عشر <b>الخشوع</b> في الصلاة — فالصلاة لا تصحّ إلا به. وهذا قول ضعيف.</p>
+
+<h3 class="sub-title">تفصيل القول السابع: ٢٠ ركناً (المصلّي)</h3>
+
+<p>زاد على التسعة عشر <b>المصلّي</b> نفسه — كما أنّهم في الصيام قالوا إنّ أركانه ثلاثة: صائم ونيّة وترك المفطرات، كذلك عدّوا المصلّي ركناً من أركان الصلاة.</p>
+
+<div class="key-rule">
+  المعتمد: أركان الصلاة ١٣ ركناً — كما مشى عليه الإمام النووي في المنهاج<br>
+  والمصنّف رحمه الله جعلها ١٤ بجعل الطمأنينة ركناً واحداً
+</div>
+
+<!-- ===== 4. تقسيم الصلاة ===== -->
+<h2 class="section-title">٤. تقسيم الصلاة: فرض ونفل مقيد ومطلق</h2>
+
+<div class="tree-container">
+  <div class="tree-root">الصلاة</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">صلاة فرض</div>
+      <div class="tree-branch-label">المكتوبات، فرض الكفاية،<br>المنذورة، صلاة الصبي</div>
+    </div>
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a;">
+      <div class="tree-branch-num">صلاة نفل مقيد</div>
+      <div class="tree-branch-label">مقيد بسبب: تحية، وضوء، استخارة، استسقاء، كسوف...<br>مقيد بوقت: الرواتب، التراويح، الضحى</div>
+    </div>
+    <div class="tree-branch" style="background: #eff6ff; border-color: #bfdbfe;">
+      <div class="tree-branch-num">صلاة نفل مطلق</div>
+      <div class="tree-branch-label">لا سبب لها ولا وقت<br>يكفي فيها قصد الفعل فقط</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 5. ما تشمله صلاة الفرض ===== -->
+<h2 class="section-title">٥. ما تشمله صلاة الفرض</h2>
+
+<p>كلمة «صلاة فرض» تشمل أربعة أشياء:</p>
+
+<table>
+  <tr>
+    <th>#</th>
+    <th>النوع</th>
+    <th>البيان</th>
+  </tr>
+  <tr>
+    <td><b>١</b></td>
+    <td>المكتوبات</td>
+    <td>الظهر والعصر والمغرب والعشاء والصبح — فرض عين</td>
+  </tr>
+  <tr>
+    <td><b>٢</b></td>
+    <td>فرض الكفاية</td>
+    <td>صلاة الجنازة — الصلاة الوحيدة الموصوفة بفرض الكفاية في مذهب الشافعي</td>
+  </tr>
+  <tr>
+    <td><b>٣</b></td>
+    <td>المنذورة</td>
+    <td>الصلاة المنذورة توصف بأنّها صلاة فرض</td>
+  </tr>
+  <tr>
+    <td><b>٤</b></td>
+    <td>صلاة الصبي</td>
+    <td>الصبي إذا صلّى الظهر — حقيقة الصلاة فرض وإن كانت تقع من الصبي نفلاً</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه</span>
+  <p>الجماعة في المكتوبات فرض كفاية — لكن المقصود بذلك <b>الجماعة</b> لا <b>ذات الصلاة</b>. فذات الصلاة (الظهر والعصر...) فرض عين، وأمّا الجماعة فيها فهي فرض كفاية. فلا يوجد في مذهب الشافعي صلاة توصف بأنّها فرض كفاية إلا صلاة الجنازة.</p>
+</div>
+
+<!-- ===== 6. الواجب في النية ===== -->
+<h2 class="section-title">٦. الواجب في نية كلّ قسم من أقسام الصلاة</h2>
+
+<table>
+  <tr>
+    <th>القسم</th>
+    <th>الواجب في النية</th>
+    <th>التفصيل</th>
+  </tr>
+  <tr>
+    <td><b>صلاة الفرض</b></td>
+    <td><span class="highlight-green">ثلاثة أشياء</span></td>
+    <td>
+      <b>١. قصد الفعل</b> — أن يصلّي ليتميّز عن غيره من الأفعال<br>
+      <b>٢. التعيين</b> — أن يعيّنها ظهراً أو عصراً أو غيرها لتتميّز عن غيرها<br>
+      <b>٣. الفرضية</b> — أن يقصد أنّ هذه الصلاة فرض
+    </td>
+  </tr>
+  <tr>
+    <td><b>النفل المقيد</b></td>
+    <td><span class="highlight-gold">شيئان</span></td>
+    <td>
+      <b>١. قصد الفعل</b><br>
+      <b>٢. التعيين</b> — لا يجب قصد النفلية
+    </td>
+  </tr>
+  <tr>
+    <td><b>النفل المطلق</b></td>
+    <td><span class="highlight-red">شيء واحد</span></td>
+    <td>
+      <b>قصد الفعل فقط</b> — لا يجب التعيين
+    </td>
+  </tr>
+</table>
+
+<div class="key-rule">
+  قاعدة: <b>أصلي فرض الظهر</b><br>
+  «أصلي» = قصد الفعل · «فرض» = الفرضية · «الظهر» = التعيين<br>
+  وما زاد على ذلك كعدد الركعات واستقبال القبلة والإضافة لله تعالى فمستحبّ
+</div>
+
+<!-- ===== 7. كلام المصنف على النية ===== -->
+<h2 class="section-title">٧. كلام المصنّف على النية: قصد الفعل والتعيين</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>فيجب فيها — أي النية — قصد فعلها أي الصلاة لتتميّز عن بقية الأفعال، وتعينها من ظهر أو غيرها لتتميّز عن غيرها</b></p>
+</div>
+
+<p>قوله «فيجب فيها» أي في النية. وقوله «قصد فعلها أي الصلاة» يعني أن ينوي أنّه يصلّي، وذلك ليتميّز هذا الفعل عن بقية الأفعال كالأكل والشرب وغيرهما. وقوله «وتعينها من ظهر أو غيرها» يعني أن يعيّن الصلاة بأنّها ظهر أو عصر أو مغرب أو عشاء أو صبح، لتتميّز هذه الصلاة عن غيرها من الصلوات.</p>
+
+<!-- ===== 8. لا يكفي نية فرض الوقت ===== -->
+<h2 class="section-title">٨. لا يكفي نية فرض الوقت</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>فلا يكفي نية فرض الوقت</b></p>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">العلّة</span>
+  <p>لو صلّى ناوياً «فرض الوقت» فإنّ ذلك <b>لا يكفي</b>، لأنّ فرض الوقت يشمل الصلاة المؤدّاة والصلاة الفائتة — فلو كانت عليه صلاة فائتة أيضاً فإنّها تدخل تحت فرض الوقت، فلا يحصل التمييز.</p>
+</div>
+
+<!-- ===== 9. التعيين بالإضافة والاشتهار ===== -->
+<h2 class="section-title">٩. التعيين: بالإضافة والاشتهار</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ولو كانت الصلاة المفعولة نفلاً غير مطلق — كالرواتب والسنن المؤقتة أو ذات السبب — فيجب فيها التعيين بالإضافة إلى ما يعينها</b></p>
+</div>
+
+<p>التعيين يكون بأحد أمرين:</p>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">التعيين بالإضافة</div>
+    <div class="compare-card-body">أن يضيف الصلاة إلى ما يعيّنها<br><b>مثال:</b> «أصلي سنة الظهر القبلية»<br>أضفت السنة إلى صلاة الظهر<br><b>ومثال:</b> «أصلي صلاة عيد الفطر»<br>«أصلي صلاة عيد الأضحى»</div>
+  </div>
+  <div class="compare-card compare-card-blue">
+    <div class="compare-card-title">التعيين بالاشتهار</div>
+    <div class="compare-card-body">أن يكون للصلاة اسم مشهور معلوم<br><b>مثال:</b> «أصلي التراويح»<br>التراويح اسم لصلاة مشهورة<br><b>ومثال:</b> «أصلي الوتر»</div>
+  </div>
+</div>
+
+<!-- ===== 10. الرواتب والسنن المؤقتة ===== -->
+<h2 class="section-title">١٠. الرواتب والسنن المؤقتة ووقتها</h2>
+
+<h3 class="sub-title">تعريف الرواتب</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">تعريف</span>
+  <p><b>الرواتب</b> هي السنن المتعلّقة بالصلوات الخمس، سواء كانت قبلية أو بعدية، مؤكّدة أو غير مؤكّدة.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">عطف العام على الخاص</span>
+  <p>قال المصنّف: «كالرواتب والسنن المؤقتة» — والسنن المؤقتة أعمّ من الرواتب وأوسع دائرة، لأنّ الرواتب تتعلّق بالصلوات الخمس فقط، وأمّا السنن المؤقتة فتشمل غيرها كصلاة الضحى. فعطف السنن المؤقتة على الرواتب من باب <b>عطف العام على الخاص</b>، كقوله تعالى: {يوم يقوم الروح والملائكة صفاً} — الروح جبريل وهو من الملائكة، فعطفه عليهم من باب عطف العام على الخاص.</p>
+</div>
+
+<h3 class="sub-title">وقت السنن القبلية والبعدية</h3>
+
+<table>
+  <tr>
+    <th>السنّة</th>
+    <th>بداية الوقت</th>
+    <th>نهاية الوقت</th>
+  </tr>
+  <tr>
+    <td><b>السنة القبلية</b></td>
+    <td>بدخول وقت الصلاة الفرض</td>
+    <td>بخروج وقت الفرض</td>
+  </tr>
+  <tr>
+    <td><b>السنة البعدية</b></td>
+    <td>بعد الفراغ من صلاة الفرض</td>
+    <td>بخروج وقت الصلاة</td>
+  </tr>
+</table>
+
+<h3 class="sub-title">الصلوات الخمس وسننها القبلية والبعدية</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ومثلها كل صلاة لها سنة قبلها وسنة بعدها</b></p>
+</div>
+
+<p>كلّ الصلوات الخمس لها سنة قبلية وبعدية <b>إلا صلاة الصبح وصلاة العصر</b> فليس لهما سنة بعدية. أمّا صلاة الظهر فلها سنة قبلية وبعدية. وصلاة المغرب لها سنة قبلية غير مؤكّدة — قال النبيّ ﷺ: «صلّوا قبل المغرب، صلّوا قبل المغرب» ثمّ قال في الثالثة: «لمن شاء» — ولها سنة بعدية. وكذلك صلاة العشاء.</p>
+
+<div class="note-box">
+  <span class="box-label label-note">يجب التعيين وإن لم يُؤخّر القبلية</span>
+  <p>قال المصنّف: <b>«سنة الظهر القبلية أو البعدية وإن لم يؤخّر القبلية»</b> — أي لا بدّ من التعيين، سواء قدّمت السنة القبلية قبل صلاة الفرض أو أخّرتها إلى بعدها. فقبل صلاة الظهر لا يمكن أن توجد سنة بعدية لأنّ وقتها لم يدخل، لكن حتى لو أخّرت القبلية إلى بعد الفرض يجب أن تنوي «القبلية» لأنّها قبلية في ذاتها وإن أُخّرت.</p>
+</div>
+
+<!-- ===== 11. تعيين صلاة العيد ===== -->
+<h2 class="section-title">١١. تعيين صلاة العيد</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وكعيد الأضحى أو الأكبر أو الفطر أو الأصغر</b> — فلا يكفي صلاة العيد</p>
+</div>
+
+<p>إذا صلّيت صلاة العيد فيجب أن تعيّنها، فتقول: «أصلي صلاة عيد الفطر» أو «صلاة عيد الأضحى» أو «صلاة العيد الأكبر» أو «صلاة العيد الأصغر». و<ب>لا يكفي أن تقول «صلاة العيد» فقط</b> دون كلمة أضحى أو فطر أو أكبر أو أصغر — لعدم التعيين.</p>
+
+<div class="key-rule">
+  لا يكفي «صلاة العيد» مجرّدة — بل لا بدّ من الإضافة:<br>
+  صلاة عيد الفطر · صلاة عيد الأضحى · صلاة العيد الأكبر · صلاة العيد الأصغر
+</div>
+
+<!-- ===== 12. تعيين الوتر ===== -->
+<h2 class="section-title">١٢. تعيين الوتر وأحكامه</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>والوتر سواء الواحدة والزائدة عليها، ويكفي نية الوتر من غير عدد، ويحمل على ما يريده على الأوجه</b></p>
+</div>
+
+<h3 class="sub-title">التعيين في الوتر بالاشتهار لا بالإضافة</h3>
+
+<p>الوتر ممّا يحصل فيه التعيين <b>بالاشتهار</b> وليس بالإضافة. وهو سواء صلاّه ركعة واحدة أو أكثر من ركعة.</p>
+
+<h3 class="sub-title">نية الوتر من غير عدد</h3>
+
+<p>لو نوى صلاة الوتر ولم يحدّد عدداً في نيته فإنّ ذلك كافٍ، ولا يجب تحديد عدد الركعات عند النية.</p>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف: كم ركعة يُحمل عليها؟</span>
+  <p>إذا أحرمت بالوتر ولم تحدّد الركعات — هل يجوز لك أن تقتصر على ركعة أم لا بدّ من ثلاث على الأقلّ؟</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">ابن حجر (المعتمد)</div>
+    <div class="compare-card-body">يجوز الاقتطار على ركعة واحدة<br>لأنّ أقلّ الوتر ركعة<br>ويحمل العدد على ما يريده المصلّي</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">الرملي</div>
+    <div class="compare-card-body">لا بدّ من ثلاث ركعات على الأقلّ<br>لأنّ أقلّ الكمال ثلاث ركعات</div>
+  </div>
+</div>
+
+<h3 class="sub-title">لو صلّى الوتر خمس ركعات</h3>
+
+<p>إذا صلّى الوتر خمس ركعات مثلاً — يصلّي ركعتين ويسلّم، ركعتين ويسلّم، ركعة ويسلّم. ففي الركعتين الأولى والثانية ينوي <b>«صلاة ركعتين من الوتر»</b>، وفي الثالثة والرابعة <b>«صلاة ركعتين من الوتر»</b>، وفي الأخيرة <b>«صلاة الوتر»</b>.</p>
+
+<h3 class="sub-title">لا يكفي في الوتر نية سنة العشاء أو راتبتها</h3>
+
+<div class="exception-box">
+  <span class="box-label label-exc">تنبيه مهمّ</span>
+  <p><b>ولا يكفي فيه نية سنة العشاء أو راتبتها</b> — أي لو أنّه صلّى الوتر ونوى «سنة العشاء» لا يكفي، أو نوى «راتبة العشاء» أيضاً لا يكفي. لأنّ الوتر <b>صلاة مستقلّة</b> عن صلاة العشاء، فليست سنّة تابعة للعشاء.</p>
+</div>
+
+<!-- ===== 13. النفل المقيد ===== -->
+<h2 class="section-title">١٣. النفل المقيد: مقصود لذاته وغير مقصود لذاته</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>والتراويح والضحى وكاستسقاء وكسوف شمس أو خسوف قمر</b> — كلّ هذه ممّا هو نفل مقيد يجب فيه قصد الفعل والتعيين</p>
+</div>
+
+<p>النفل المقيد بسبب ينقسم إلى قسمين:</p>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">مقصود لذاته</div>
+    <div class="compare-card-body"><b>مثال:</b> صلاة الكسوف والخسوف<br><b>المعنى:</b> غيرها لا يقوم مقامها<br>لا يسقط الطلب إلا بفعلها<br>لا تسقط بصلاة أخرى</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">غير مقصود لذاته</div>
+    <div class="compare-card-body"><b>مثال:</b> تحيّة المسجد، سنّة الوضوء، صلاة الاستخارة<br><b>المعنى:</b> غيرها يقوم مقامها<br>يسقط الطلب بفعل غيرها<br>لكن لا يثاب إلا إذا نواها</div>
+  </div>
+</div>
+
+<h3 class="sub-title">تحيّة المسجد: حصول المقصود مقابل الثواب</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">قاعدة مهمّة</span>
+  <p>تحيّة المسجد ليست مقصودة لذاتها — فلو دخلت المسجد والناس يصلّون الصبح فصلّيت الصبح، سقطت عنك تحيّة المسجد. أو لو دخلت المسجد وصلّيت الضحى سقطت عنك تحيّة المسجد.</p>
+</div>
+
+<p>ينبغي التفريق بين <b>جهتين</b>:</p>
+
+<table>
+  <tr>
+    <th>الجهة</th>
+    <th>التفصيل</th>
+  </tr>
+  <tr>
+    <td><b>حصول المقصود</b> (سقوط الطلب)</td>
+    <td>لو دخل المسجد وصلّى الضحى — سقط الطلب وحصل المقصود من التحية</td>
+  </tr>
+  <tr>
+    <td><b>الثواب</b></td>
+    <td>لا يثاب ثواب تحيّة المسجد إلا إذا نواها مع الضحى</td>
+  </tr>
+</table>
+
+<div class="key-rule">
+  حصول المقصود ≠ الثواب<br>
+  يسقط الطلب بفعل غيرها — لكن لا يُثاب ثوابها إلا إذا نواها
+</div>
+
+<h3 class="sub-title">كلام المصنّف على النفل المطلق</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>أمّا النفل المطلق فلا يجب فيه تعيين، بل يكفي فيه نية فعل الصلاة كما في ركعتي التحية والوضوء والاستخارة</b></p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">فهم العبارة</span>
+  <p>ظاهر العبارة أنّ المصنّف يمثّل للنفل المطلق بالتحيّة والوضوء والاستخارة، لكنّ هذه الصلوات من <b>ذوات الأسباب</b> وليست نفلاً مطلقاً. ومراد المصنّف: أنّ هذه الصلوات وإن كانت من ذوات الأسباب لكنّ <b>غيرها يقوم مقامها</b>، فهي بمنزلة النفل المطلق في أنّه لا يجب فيها التعيين — بخلاف صلاة الكسوف والخسوف فإنّها مقصودة لذاتها ولا يقوم غيرها مقامها.</p>
+</div>
+
+<!-- ===== 14. صلاة الأوابين ===== -->
+<h2 class="section-title">١٤. صلاة الأوابين ومعناها والخلاف في تعيينها</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وكذا صلاة الأوابين</b></p>
+</div>
+
+<h3 class="sub-title">معنى صلاة الأوابين</h3>
+
+<p>صلاة الأوابين يُطلق على صلاتين:</p>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">الإطلاق الأوّل: صلاة الضحى</div>
+    <div class="compare-card-body">جاء في صحيح مسلم: <b>«صلاة الأوابين حين ترمض الفصال»</b><br>أي عندما تشتدّ الحرارة والفصال جمع فصيل وهو صغار الإبل</div>
+  </div>
+  <div class="compare-card compare-card-blue">
+    <div class="compare-card-title">الإطلاق الثاني: صلاة الغفلة</div>
+    <div class="compare-card-body">الصلاة بين المغرب والعشاء<br>وسمّيت صلاة الغفلة لأنّه وقت يغفل الناس فيه عن الصلاة<br>جاءت فيها أحاديث وآثار عند تفسير قوله تعالى: {تتجافى جنوبهم عن المضاجع يدعون ربّهم خوفاً وطمعاً}</div>
+  </div>
+</div>
+
+<h3 class="sub-title">ما المراد بصلاة الأوابين هنا؟</h3>
+
+<p>المراد هنا صلاة <b>الغفلة</b> (بين المغرب والعشاء) — لأنّ صلاة الضحى قد تقدّم ذكرها قبل سطرين حيث قال: «والتراويح والضحى».</p>
+
+<h3 class="sub-title">الخلاف: هل يجب التعيين في صلاة الأوابين؟</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف</span>
+  <p>هل صلاة الأوابين كالنفل المطلق لا يجب فيها التعيين، أم لا بدّ فيها من التعيين كصلاة الضحى؟</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">ابن زياد والسيوطي</div>
+    <div class="compare-card-body">لا يشترط فيها التعيين<br>فلو صلّى بعد المغرب ولم يعيّن تصح<br>وهو ظاهر عبارة المصنّف<br>(وابن زياد شيخ المصنّف توفّي ٩٥٧هـ)<br>(والسيوطي صاحب الأشباه توفّي ٩١١هـ)</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">ابن حجر (المعتمد)</div>
+    <div class="compare-card-body"><b>لا بدّ فيها من التعيين</b><br>كصلاة الضحى — كما أنّه يعيّن في الضحى كذلك في الأوابين<br>وهو الذي جزم به في فتاواه<br>وقال المصنّف: «على ما قاله شيخنا ابن زياد والعلاّمة السيوطي»<br>ثم قال: «والذي جزم به شيخنا — أي ابن حجر — أنّه لا بدّ من التعيين»</div>
+  </div>
+</div>
+
+<!-- ===== 15. وجوب نية الفرضية ===== -->
+<h2 class="section-title">١٥. وجوب نية الفرضية في صلاة الفرض</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وتجب نية فرض فيه — أي في الفرض — ولو كفاية أو نذراً، وإن كان الناوي صبيّاً، ليتميّز عن النفل</b></p>
+</div>
+
+<p>قوله «فيه» الضمير يعود على الفرض، أي وتجب نية الفرض في الفرض. وهذا يتناول:</p>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">١</span>
+    <b>فرض العين</b> — المكتوبات (الظهر والعصر والمغرب والعشاء والصبح)
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٢</span>
+    <b>فرض الكفاية</b> — كصلاة الجنازة، فلابدّ من نية الفرضية
+  </div>
+  <div class="condition-item" style="background: #f0f9ff; border: 1px solid #bae6fd;">
+    <span class="condition-num">٣</span>
+    <b>المنذورة</b> — ولو كانت الصلاة منذورة فلابدّ من نية الفرضية
+  </div>
+  <div class="condition-item" style="background: #fdf2f8; border: 1px solid #fbcfe8;">
+    <span class="condition-num">٤</span>
+    <b>صلاة الصبي</b> — وإن كان الناوي صبيّاً فلابدّ من نية الفرضية
+  </div>
+</div>
+
+<div class="key-rule">
+  الغاية من نية الفرضية: <b>ليتميّز عن النفل</b><br>
+  مثال: «أصلي فرض الظهر» — أصلي (قصد الفعل) + فرض (الفرضية) + الظهر (التعيين)
+</div>
+
+<!-- ===== 16. صلاة الصبي ===== -->
+<h2 class="section-title">١٦. صلاة الصبي ونية الفرضية</h2>
+
+<div class="issue-box">
+  <span class="box-label label-issue">مسألة مهمّة</span>
+  <p>قد يقول قائل: الصبيّ صلاته تقع نفلاً — فلماذا يجب عليه نية الفرضية؟</p>
+  <p><b>الجواب:</b> لأنّ النظر ليس إلى أنّ الصلاة تقع نفلاً، بل النظر إلى <b>حقيقة الصلاة وذاتها</b> — فحقيقة صلاة الظهر فرض. ولذلك الصبيّ لا تصحّ صلاته إذا صلّى جالساً مع قدرته على القيام، لأنّ القيام في صلاة الفرض ركن.</p>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">مقارنة</span>
+  <p>لو صلّى الصبيّ الظهر جالساً وقال: «أنا صبيّ وصلاة الظهر بالنسبة لي نافلة فأجلس» — نقول: <b>لا تصحّ</b>، لأنّ النظر إلى ذات الصلاة وحقيقتها وهي فرض، فيجب أن تنوي الفرضية ويجب أن تقوم.</p>
+</div>
+
+<!-- ===== 17. اللغز الفقهي ===== -->
+<h2 class="section-title">١٧. من أدرك الإمام في تشهّد الجمعة (اللغز الفقهي)</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وإن أدرك الإمام في تشهّدها</b></p>
+</div>
+
+<p>المسألة: جاء شخص والإمام في التشهّد الأخير من صلاة الجمعة — أي لم يدرك ركعة مع الإمام. عندما يكبّر ويدخل مع الإمام، <b>ماذا ينوي؟</b> هل ينوي صلاة الجمعة لأنّه سيدرك الإمام في تشهّد الجمعة، أم ينوي صلاة الظهر لأنّه سيصلّي بعد سلام الإمام ظهراً؟</p>
+
+<div class="key-rule">
+  ينوي <b>الجمعة</b> ويصلّيها <b>ظهراً</b>
+</div>
+
+<p>قال الفقهاء: ينوي الجمعة ويصلّيها ظهراً — وهذا من <b>الألغاز الفقهية</b>، يقولون:</p>
+
+<div class="poetry-box">
+  نوى وما صلّى · أصلّى وما نوى<br>
+  <span style="font-size: 13px;">نوى الجمعة وما صلّى الجمعة · صلّى الظهر وما نوى الظهر</span>
+</div>
+
+<p>أي: نوى الجمعة وما صلّى الجمعة (بل صلّى ظهراً)، وأصلّى الظهر وما نوى الظهر (بل نوى الجمعة). والمقصود بقول المصنّف «وإن أدرك الإمام في تشهّدها» أي بعد الرفع من الركوع — فإنّه يكبّر ناوياً فرض الجمعة لكنّه في الحقيقة سيصلّي ظهراً.</p>
+
+<!-- ===== 18. ما يسن في النية ===== -->
+<h2 class="section-title">١٨. ما يُسنّ في النية (أربعة أمور)</h2>
+
+<p>بعد أن فرغ المصنّف من بيان الواجب في النية شرع في بيان ما يُسنّ فيها، وذكر أربعة أمور:</p>
+
+<table>
+  <tr>
+    <th>#</th>
+    <th>المسنون</th>
+    <th>المثال</th>
+  </tr>
+  <tr>
+    <td><b>١</b></td>
+    <td>الإضافة إلى الله تعالى</td>
+    <td>«نويت أن أصلّي فرض الظهر <b>لله تعالى</b>»</td>
+  </tr>
+  <tr>
+    <td><b>٢</b></td>
+    <td>التعرّض للأداء أو القضاء</td>
+    <td>«أصلّي فرض العصر <b>أداءً</b> لله تعالى»</td>
+  </tr>
+  <tr>
+    <td><b>٣</b></td>
+    <td>التعرّض لاستقبال القبلة</td>
+    <td>«أصلّي فرض الظهر أداءً لله تعالى <b>مستقبلاً القبلة</b>»</td>
+  </tr>
+  <tr>
+    <td><b>٤</b></td>
+    <td>عدد الركعات</td>
+    <td>«أصلّي فرض الظهر أداءً لله تعالى مستقبلاً القبلة <b>أربع ركعات</b>»</td>
+  </tr>
+</table>
+
+<h3 class="sub-title">الأمر الأوّل: الإضافة إلى الله تعالى</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p>يُسنّ في النية <b>إضافة إلى الله تعالى</b> — أي يستحضر أنّه يصلّي لله تعالى، وإذا تلفّظ يقول: «نويت أن أصلّي فرض الظهر لله تعالى».</p>
+</div>
+
+<p>وهذا مستحبّ لعلّتين:</p>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">١</span>
+    <b>خروجاً من خلاف</b> من أوجبها — فهناك من الفقهاء من يقول إنّ إضافة النية لله تعالى واجب
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٢</span>
+    <b>ليتحقّق معنى الإخلاص</b> — لأنّ الإخلاص لله تعالى هو روح العبادة
+  </div>
+</div>
+
+<h3 class="sub-title">الأمر الثاني: التعرّض للأداء أو القضاء</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وتعرّض لأداء أو قضاء ولا يجب وإن كان عليه فائتة مماثلة للمؤدّاة خلافاً لمعتمد الأذرعي</b></p>
+</div>
+
+<p>يُسنّ أن يتعرّض للأداء أو القضاء في النية — فمن يصلّي العصر في وقتها يقول: «أصلّي فرض العصر أداءً لله تعالى». ومن يقضي صلاة العصر يقول: «أصلّي فرض العصر قضاءً لله تعالى».</p>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف: هل يجب التعرّض عند وجود فائتة مماثلة؟</span>
+  <p>لو كان عليه صلاة عصر فائتة وأراد أن يصلّي عصر اليوم — فهل يجب أن ينوي «أداءً» ليحصل التمييز؟</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">الأذرعي</div>
+    <div class="compare-card-body">يجب التعرّض للأداء أو القضاء<br>إذا كانت عليه فائتة مماثلة<br>ليحصل التمييز</div>
+  </div>
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">المعتمد في المذهب</div>
+    <div class="compare-card-body"><b>لا يجب</b> حتى ولو كانت عليه فائتة مماثلة<br>وهو ما صرّح به المصنّف: «ولا يجب»<br>خلافاً لمعتمد الأذرعي</div>
+  </div>
+</div>
+
+<!-- ===== 19. صحة الأداء بنية القضاء ===== -->
+<h2 class="section-title">١٩. صحة الأداء بنية القضاء وعكسه</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>والأصحّ صحة الأداء بنية القضاء وعكسه إن عذر بنحو غيم، وإلا بطلت قطعاً لتلاعبه</b></p>
+</div>
+
+<h3 class="sub-title">صورة المسألة</h3>
+
+<p>مثال: استيقظ من النوم ولم يصلّ الظهر، والجوّ غائم فظنّ أنّ وقت الظهر قد مضى وأنّ الساعة الآن الخامسة عصراً — فصلّى الظهر ناوياً <b>القضاء</b>. وبعد أن سلّم نظر في الساعة فإذا هي الثانية — أي أنّه صلّى في وقت الظهر، فوقع صلاته <b>أداءً</b> وهو نوى القضاء. هل تصحّ؟</p>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">١</span>
+    <b>إن عُذر بنحو غيم:</b> تصحّ الصلاة — فالأداء بنية القضاء وعكسه يصحّ إذا كان معذوراً بسبب غيم أو نحوه
+  </div>
+  <div class="condition-item" style="background: #fef2f2; border: 1px solid #fca5a5;">
+    <span class="condition-num">٢</span>
+    <b>وإلا بطلت قطعاً:</b> إذا لم يكن معذوراً — بأن ينوي الأداء في وقت القضاء أو القضاء في وقت الأداء بلا عذر — تبطل قطعاً بلا خلاف
+  </div>
+</div>
+
+<h3 class="sub-title">العلّة</h3>
+
+<p>لماذا تبطل إذا لم يكن معذوراً؟ لأنّه <b>متلاعب</b> — كيف ينوي الأداء في وقت القضاء؟ وكيف ينوي القضاء في وقت الأداء؟ فهو يعلم أنّ الوقت وقت أداء فينوي قضاءً، أو يعلم أنّه وقت قضاء فينوي أداءً، وهذا تلاعب.</p>
+
+<div class="key-rule">
+  الأداء بنية القضاء وعكسه:<br>
+  <span class="highlight-green">معذور (غيم) → تصحّ</span> · <span class="highlight-red">غير معذور → تبطل قطعاً لتلاعبه</span>
+</div>
+
+<!-- ===== 20. استقبال القبلة وعدد الركعات ===== -->
+<h2 class="section-title">٢٠. التعرّض لاستقبال القبلة وعدد الركعات</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وتعرّض لاستقبال — أي ويسنّ أن يتعرّض لاستقبال القبلة — وعدد الركعات</b></p>
+</div>
+
+<p>يُسنّ في النية أن يتعرّض لاستقبال القبلة وأن يستحضر عدد الركعات. فيقول مثلاً: «أصلّي فرض الظهر أداءً لله تعالى مستقبلاً القبلة أربع ركعات». فهذان الأمران من السنن في النية لا من الواجبات.</p>
+
+<div class="key-rule">
+  خلاصة ما يجب وما يسنّ في النية (صلاة الفرض):<br>
+  <b>الواجب:</b> قصد الفعل + التعيين + الفرضية<br>
+  <b>المسنون:</b> الإضافة لله تعالى + الأداء/القضاء + استقبال القبلة + عدد الركعات
+</div>
+
+</body>
+</html>

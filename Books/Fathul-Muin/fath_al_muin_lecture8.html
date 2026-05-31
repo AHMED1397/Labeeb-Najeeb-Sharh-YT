@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf'); }
+@font-face { font-family: 'Amiri-Bold'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf'); }
+@font-face { font-family: 'NotoNaskhArabic'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+body { font-family: 'NotoNaskhArabic', 'Amiri', serif; font-size: 14px; line-height: 1.8; color: #2c2c2c; direction: rtl; text-align: justify; }
+h1 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 18pt; color: #1a5632; margin: 14px 0 6px 0; }
+h2 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 15pt; color: #1a5632; margin: 12px 0 5px 0; border-bottom: 2px solid #c8a951; padding-bottom: 3px; }
+h3 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 12pt; color: #2c5f7c; margin: 8px 0 4px 0; }
+p { margin: 3px 0; }
+.cover-header { background: #1a5632; color: white; padding: 20px 14px; text-align: center; margin: 0 0 12px 0; background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px); border-bottom: 4px solid #c8a951; }
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 6px; border: none; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.9; margin: 4px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.92; margin: 6px 0 2px 0; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .series { font-size: 11pt; opacity: 0.8; margin-top: 4px; }
+.toc { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 6px; padding: 10px 14px; margin: 0 0 12px 0; }
+.toc-title { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 14pt; color: #1a5632; text-align: center; margin-bottom: 6px; border-bottom: 2px solid #c8a951; padding-bottom: 4px; }
+.toc-item { font-size: 11pt; padding: 2px 0; border-bottom: 1px dotted #ccc; display: flex; justify-content: space-between; }
+.table-container { overflow-x: hidden; margin: 8px 0; page-break-inside: avoid; }
+table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 10pt; }
+th, td { padding: 4px 8px; border: 1px solid #ddd; overflow-wrap: break-word; word-break: break-word; }
+th { background-color: #1a5632; color: white; text-align: right; font-size: 10pt; }
+.callout { padding: 8px 12px; margin: 8px 0; border-radius: 0 6px 6px 0; page-break-inside: avoid; }
+.callout-title { font-weight: bold; margin-bottom: 3px; font-size: 11pt; }
+.callout-body { color: #333; line-height: 1.7; font-size: 13px; }
+.callout-warning { background: #fff3cd; border-right: 4px solid #c8a951; }
+.callout-warning .callout-title { color: #856404; }
+.callout-definition { background: #e8f4f8; border-right: 4px solid #2c5f7c; }
+.callout-definition .callout-title { color: #1a3a5c; }
+.callout-danger { background: #f8d7da; border-right: 4px solid #c0392b; }
+.callout-danger .callout-title { color: #c0392b; }
+.callout-success { background: #d4edda; border-right: 4px solid #28a745; }
+.callout-success .callout-title { color: #155724; }
+.callout-info { background: #d1ecf1; border-right: 4px solid #17a2b8; }
+.callout-info .callout-title { color: #0c5460; }
+.card-grid { display: grid; gap: 8px; margin: 10px 0; max-width: 100%; }
+.card-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.card-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.card-grid-4 { grid-template-columns: repeat(2, 1fr); }
+.card { padding: 10px; border-radius: 8px; text-align: center; max-width: 100%; overflow-wrap: break-word; }
+.card-number { font-size: 20px; font-weight: bold; margin-bottom: 3px; }
+.card-title { font-size: 11pt; font-weight: bold; }
+.card-desc { font-size: 9pt; margin-top: 3px; opacity: 0.9; }
+.compare-box { display: flex; gap: 0; margin: 8px 0; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.1); max-width: 100%; flex-wrap: wrap; }
+.compare-side { flex: 1; min-width: 0; padding: 8px 10px; }
+.compare-side h3 { margin: 0 0 4px 0; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 3px; font-size: 11pt; color: white; }
+.compare-side p { font-size: 12px; line-height: 1.6; color: white; }
+.compare-divider { width: 3px; background: #c8a951; }
+.vertical-flow { display: flex; flex-direction: column; align-items: center; margin: 10px 0; page-break-inside: avoid; max-width: 100%; }
+.flow-step { padding: 7px 12px; border-radius: 6px; text-align: center; max-width: 280px; width: 90%; }
+.flow-arrow { color: #c8a951; font-size: 14pt; margin: 1px 0; }
+.section-num { display: inline-block; background: #1a5632; color: white; width: 22px; height: 22px; line-height: 22px; text-align: center; border-radius: 50%; font-size: 11pt; margin-left: 5px; }
+.tree-box { border: 2px solid #1a5632; border-radius: 8px; padding: 10px; margin: 10px 0; page-break-inside: avoid; background: #fafcfa; }
+.tree-node { padding: 5px 12px; border-radius: 6px; text-align: center; max-width: 100%; overflow-wrap: break-word; font-size: 11pt; }
+.tree-arrow { color: #c8a951; font-size: 12pt; margin: 1px 0; }
+.formula-box { background: #f5f0e6; border: 2px solid #c8a951; border-radius: 8px; padding: 10px 14px; margin: 10px 0; text-align: center; page-break-inside: avoid; }
+.formula { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 14pt; color: #1a5632; direction: ltr; display: inline-block; }
+</style>
+</head>
+<body>
+
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس الثامن — باب الصلاة</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="series">مقدار القلتين · الماء الكثير والقليل · النجاسة المعفو عنها · ميتة ما لا نفس له سائلة</div>
+</div>
+
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>مراجعة أقسام المياه الثلاثة</span><span>١</span></div>
+  <div class="toc-item"><span>الماء الكثير والقليل: حكم كلٍّ وخلاف الإمام مالك</span><span>٢</span></div>
+  <div class="toc-item"><span>مقدار القلتين: حساب الوزن (طريقتان)</span><span>٣</span></div>
+  <div class="toc-item"><span>مقدار القلتين: حساب المساحة (المكعب والأسطوانة)</span><span>٤</span></div>
+  <div class="toc-item"><span>الترجيح عند الاختلاف: المساحة مُقدَّمة</span><span>٥</span></div>
+  <div class="toc-item"><span>التغير بالنجاسة وإن قلّ</span><span>٦</span></div>
+  <div class="toc-item"><span>ذراع النجار وذراع الآدمي</span><span>٧</span></div>
+  <div class="toc-item"><span>قاعدة الماء الكثير: لا ينجس إلا بالتغير</span><span>٨</span></div>
+  <div class="toc-item"><span>ثلاث مسائل في الماء الكثير</span><span>٩</span></div>
+  <div class="toc-item"><span>الماء القليل: شطا نجاسته</span><span>١٠</span></div>
+  <div class="toc-item"><span>النجاسة التي لا يدركها الطرف المعتدل</span><span>١١</span></div>
+  <div class="toc-item"><span>ميتة ما لا نفس له سائلة: حكمها وشروط إعفائها</span><span>١٢</span></div>
+  <div class="toc-item"><span>من يطرح الميتة؟ خلاف الفقهاء</span><span>١٣</span></div>
+  <div class="toc-item"><span>النجاسة المعفو عنها في الماء وفي الصلاة</span><span>١٤</span></div>
+</div>
+
+<!-- 1 -->
+<h2><span class="section-num">١</span> مراجعة أقسام المياه الثلاثة</h2>
+
+<p>بدأ المصنف العلامة المليباري رحمه الله كتابه بكتاب الصلاة، وتكلم على شروطها وأولها الطهارة، وأول شرط من شروط الطهارة الماء المطلق. وقد سبق تقسيم الماء إلى ثلاثة أقسام يحتاج الطالب أن يستحضرها دائماً قبل الدخول في التفاصيل:</p>
+
+<div class="card-grid card-grid-3">
+  <div class="card" style="background: linear-gradient(135deg, #1a5632 0%, #2d7a4a 100%); color: white;">
+    <div class="card-title">ماء طهور</div>
+    <div class="card-desc">يصح به رفع الحدث وإزالة الخبث</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #2c5f7c 0%, #3a7ca5 100%); color: white;">
+    <div class="card-title">ماء طاهر</div>
+    <div class="card-desc">خالطه شيء من الطاهرات وسلبه اسم الماء المطلق</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #856404 0%, #6b5210 100%); color: white;">
+    <div class="card-title">ماء مستعمل</div>
+    <div class="card-desc">استعمل في رفع حدث أو إزالة خبث</div>
+  </div>
+</div>
+
+<p>أما القسم الثالث وهو الماء النجس (المتنجس) فالماء ينقسم إليه بحسب الكمّية: إما ماء كثير وإما ماء قليل، ولكلٍّ حكمه الذي سيُفصَّل في هذا الدرس.</p>
+
+<!-- 2 -->
+<h2><span class="section-num">٢</span> الماء الكثير والقليل: حكم كلٍّ وخلاف الإمام مالك</h2>
+
+<p>حكم الماء الكثير أنه لا ينجس إلا بالتغير — هذا بإجماع العلماء. وأما الماء القليل فحصل فيه خلاف: مذهب الشافعية أن الماء القليل ينجس بملاقاة النجاسة وإن لم يتغير، أخذاً بمفهوم المخالفة من حديث "إذا بلغ الماء قلتين لم يحمل الخبث" — فمفهومه أن ما دون القلتين يحمل الخبث.</p>
+
+<p>وذهب الإمام مالك رحمه الله إلى أن الماء القليل كالماء الكثير لا ينجس إلا بالتغير، آخذاً بحديث "إن الماء طهور لا ينجسه شيء" — والاستثناء فيه "إلا ما غُلب على ريحه أو لونه أو طعمه" ضعيف سنداً لكن العلماء أجمعوا على صحة معناه. وذكر المصنف أن كثيراً من أئمة الشافعية أخذوا بمذهب الإمام مالك منهم ابن المنذر والروياني والغزالي.</p>
+
+<div class="callout callout-info">
+  <div class="callout-title">تعليق العلامة ابن حجر</div>
+  <div class="callout-body">قال ابن حجر رحمه الله: "كأنهم رأوا التسهيل على الناس، وإلا فالدليل الأصح في قوة قول الإمام الشافعي" — لأن حديث القلتين صحيح وفيه التفصيل بين الكثير والقليل.</div>
+</div>
+
+<p>إذا تقرر هذا، فثلاثة مباحث ينبغي معرفتها في هذا الدرس: <b>أولاً</b> متى يكون الماء كثيراً (مقدار القلتين)؟ <b>وثانياً</b> ما النجاسة التي تؤثر في الماء وهل يوجد استثناء؟ <b>وثالثاً</b> ما المراد بالتغير — هل أي تغير أم التغير الكثير فقط؟</p>
+
+<!-- 3 -->
+<h2><span class="section-num">٣</span> مقدار القلتين: حساب الوزن (طريقتان)</h2>
+
+<p>بيّن النبي صلى الله عليه وسلم أن الماء الكثير هو ما بلغ قلتين فأكثر. والقلة: الجرة العظيمة، سُميت قلة لأن الرجل يقلها أي يرفعها بمشقة. ومثناها قلتان وجمعها قلال. لحساب مقدار القلتين طريقتان:</p>
+
+<h3>الطريقة الأولى: المثقال</h3>
+
+<div class="formula-box">
+  <div class="formula">القلتان = ٥٠٠ رطل بغدادي</div>
+</div>
+
+<p>الرطل الواحد = ٩٠ مثقالاً (كما ذكر الإمام النووي في المجموع). والمثقال = ٤٫٢٥ جرام (نصاب الذهب ٢٠ مثقالاً = ٨٥ جراماً).</p>
+
+<div class="formula-box">
+  <div class="formula">الرطل = ٩٠ × ٤٫٢٥ = ٣٨٢٫٥ جم</div>
+  <div style="margin-top: 4px;" class="formula">القلتان = ٥٠٠ × ٣٨٢٫٥ = ١٩١,٢٥٠ جم = ١٩١٫٢٥ لتر</div>
+</div>
+
+<h3>الطريقة الثانية: الدرهم</h3>
+
+<p>الرطل بتقدير الإمام النووي = ١٢٨٫٥٧ درهم (١٢٨ وأربعة أسباع). والدرهم = ٢٫٩٧٥ جرام (نصاب الفضة ٢٠٠ درهم = ٥٩٥ جراماً).</p>
+
+<div class="formula-box">
+  <div class="formula">الرطل = ١٢٨٫٥٧ × ٢٫٩٧٥ = ٣٨٢٫٤٦ جم</div>
+  <div style="margin-top: 4px;" class="formula">القلتان = ٥٠٠ × ٣٨٢٫٤٦ = ١٩١,٢٣٣ جم ≈ ١٩١٫٢ لتر</div>
+</div>
+
+<div class="callout callout-success">
+  <div class="callout-title">النتيجة بالوزن</div>
+  <div class="callout-body">كلتا الطريقتين تُنتجان تقريباً ١٩١ لتر. المهم ليس الحفظ بل فهم كيفية الحساب.</div>
+</div>
+
+<!-- 4 -->
+<h2><span class="section-num">٤</span> مقدار القلتين: حساب المساحة (المكعب والأسطوانة)</h2>
+
+<h3>الإناء المربع (المكعب)</h3>
+
+<p>مقدار القلتين بالمساحة: ذراع وربع طولاً وعرضاً وارتفاعاً. والذراع = ٤٨ سم، والربع = ١٢ سم، فالمجموع = ٦٠ سم.</p>
+
+<div class="formula-box">
+  <div class="formula">حجم المكعب = الطول × العرض × الارتفاع</div>
+  <div style="margin-top: 4px;" class="formula">= ٦٠ × ٦٠ × ٦٠ = ٢١٦,٠٠٠ سم³</div>
+  <div style="margin-top: 4px;" class="formula">٢١٦,٠٠٠ ÷ ١,٠٠٠ = ٢١٦ لتر</div>
+</div>
+
+<h3>الإناء المدوّر (الأسطوانة)</h3>
+
+<p>نصف القطر = ٢٤ سم (نصف الذراع). الارتفاع = ذراعان ونصف = ١٢٠ سم.</p>
+
+<div class="formula-box">
+  <div class="formula">حجم الأسطوانة = π × نق² × ع</div>
+  <div style="margin-top: 4px;" class="formula">= ٣٫١٤ × ٥٧٦ × ١٢٠ ≈ ٢١٧,٠٠٠ سم³ ≈ ٢١٧ لتر</div>
+</div>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 33%;">طريقة الحساب</th>
+        <th style="width: 33%;">المقدار باللتر</th>
+        <th style="width: 34%;">ملاحظة</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8f9fa;">
+        <td>الوزن (المثقال)</td>
+        <td style="font-weight: bold;">١٩١ لتر</td>
+        <td>الطريقة الأولى</td>
+      </tr>
+      <tr>
+        <td>الوزن (الدرهم)</td>
+        <td style="font-weight: bold;">١٩١ لتر</td>
+        <td>الطريقة الثانية</td>
+      </tr>
+      <tr style="background-color: #f8f9fa;">
+        <td>المساحة — مكعب</td>
+        <td style="font-weight: bold; color: #1a5632;">٢١٦ لتر</td>
+        <td>أقرب للصواب</td>
+      </tr>
+      <tr>
+        <td>المساحة — أسطوانة</td>
+        <td style="font-weight: bold; color: #1a5632;">٢١٧ لتر</td>
+        <td>متقارب جداً مع المكعب</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 5 -->
+<h2><span class="section-num">٥</span> الترجيح عند الاختلاف: المساحة مُقدَّمة</h2>
+
+<p>إذا اختلف تقدير القلتين وزناً ومساحةً فالمعتبر المساحة — ولذلك الأقرب أن تقدير القلتين ٢١٦ لتر. وستجد في بعض الكتب من يقول ١٩١ لتر ومن يقول ١٩٣ لتر. وكان بعض المشايخ يقول إن مقدار القلتين مئة لتر وينشد بيتاً توارثه عن بعض الفقهاء:</p>
+
+<div class="callout callout-warning">
+  <div class="callout-title">بيت شعري في تقدير القلتين</div>
+  <div class="callout-body" style="text-align: center; font-size: 13pt;">والقلتان عشرةٌ من التنك ** كذا أتى تحريره بغير شك</div>
+</div>
+
+<p>والتنك كالدلو الكبيرة التي يُسكب فيها الماء. لكن الأضبط أن مقدار القلتين ٢١٦ لتر تقريباً، سواء حُسب بالإناء المربع أم المدوّر.</p>
+
+<div class="callout callout-definition">
+  <div class="callout-title">تقريبي لا تحديدي</div>
+  <div class="callout-body">قال المصنف "خمسمائة رطل بغدادي تقريباً" — ومعنى "تقريباً" أن الفارق رطل أو رطلين لا يؤثر. بخلاف التحديدي كنصاب الزكاة (٢٠ مثقالاً ذهباً) حيث أدنى نقص يمنع الوجوب — لأنه شك والأصل براءة الذمة.</div>
+</div>
+
+<!-- 6 -->
+<h2><span class="section-num">٦</span> التغير بالنجاسة وإن قلّ</h2>
+
+<p>قال المصنف: "أو ينجس بنجس وإن قلّ ولو كان الماء كثيراً" — أي ينجس الماء بنجس إن تغير، حتى وإن كان التغير يسيراً ولوب كان الماء كثيراً. وقوله "في سورتي التغير بالطاهر والنجس" يعني أن الكلام يشمل صورتين:</p>
+
+<div class="compare-box">
+  <div class="compare-side" style="background: #1a5632;">
+    <h3>تغير بطاهر</h3>
+    <p>يبقى الماء طهوراً إلا إذا كان التغير كثيراً بحيث يسلب اسم الماء</p>
+  </div>
+  <div class="compare-divider"></div>
+  <div class="compare-side" style="background: #c0392b;">
+    <h3>تغير بنجس</h3>
+    <p>ينجس الماء وإن كان التغير يسيراً — لأن النجاسة مؤثرة بالاتفاق</p>
+  </div>
+</div>
+
+<!-- 7 -->
+<h2><span class="section-num">٧</span> ذراع النجار وذراع الآدمي</h2>
+
+<p>ذكر المصنف أن في الإناء المدوّر "ذراع من سائر الجوانب بذراع الآدمي وذراعان عمقاً بذراع النجاري وهو ذراع وربع". ذراع النجار يساوي ذراعاً وربعاً من الذراع المعتاد — ولذلك ذراعان بذراع النجار تساوي ذراعين ونصفاً بذراعنا.</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 40%;">الذراع</th>
+        <th style="width: 30%;">المقدار</th>
+        <th style="width: 30%;">الاستعمال</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8f9fa;">
+        <td>ذراع الآدمي (المعتدل)</td>
+        <td style="font-weight: bold;">٤٨ سم</td>
+        <td>القياس الأساسي</td>
+      </tr>
+      <tr>
+        <td>ذراع النجار (ذراع العمال)</td>
+        <td style="font-weight: bold;">٦٠ سم (ذراع وربع)</td>
+        <td>عمق القبر: ٣ أذرع نجار ≈ ٤ أذرع آدمية</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>وإذا ظهر الاختلاف بين التقدير بالوزن والتقدير بالمساحة فالمتبع المساحة.</p>
+
+<!-- 8 -->
+<h2><span class="section-num">٨</span> قاعدة الماء الكثير: لا ينجس إلا بالتغير</h2>
+
+<p>قال المصنف: "ولا تنجس قلة ماء ولو احتمالاً" — أي ماء كثير أو قليل (والمراد الكثير هنا). ولو احتمالاً: كأن شك في ماء هل بلغ القلتين أم لا؟ — بل حتى لو تيقنت قلته من قبل ثم حصل له شك، فإنه لا ينجس بملاقاة نجس ما لم يتغير به.</p>
+
+<div class="callout callout-danger">
+  <div class="callout-title">القاعدة بالإجماع</div>
+  <div class="callout-body">الماء الكثير لا يحكم بنجاسته إلا إذا تغير — وهذا باتفاق الفقهاء. قال النبي صلى الله عليه وسلم: "إذا بلغ الماء قلتين لم يحمل الخبث" — وما عدا ذلك (أي التغير) فمستنده الإجماع.</div>
+</div>
+
+<p>ولو استهلكت النجاسة فيه — أي ضاعت وغابت في الماء ولم تغيره لا حسّاً ولا تقديراً — فلا يحكم بنجاسته.</p>
+
+<!-- 9 -->
+<h2><span class="section-num">٩</span> ثلاث مسائل في الماء الكثير</h2>
+
+<p>فرّع المصنف على قاعدة "الماء الكثير لا ينجس إلا بالتغير" ثلاث مسائل مهمة:</p>
+
+<div class="card-grid card-grid-3">
+  <div class="card" style="background: linear-gradient(135deg, #1a5632 0%, #2d7a4a 100%); color: white;">
+    <div class="card-number">١</div>
+    <div class="card-title">لا يجب التباعد من نجس في ماء كثير</div>
+    <div class="card-desc">بركة فيها ماء كثير وفيها روث لم يغير — يجوز التوضؤ من قربه لأن الماء طهور</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #2c5f7c 0%, #3a7ca5 100%); color: white;">
+    <div class="card-number">٢</div>
+    <div class="card-title">الرغوة في البحر</div>
+    <div class="card-desc">إن تحققت من عين النجاسة أو من الماء المتغير بها فنجسة، وإلا فطاهرة</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #c8a951 0%, #b8943f 100%); color: white;">
+    <div class="card-number">٣</div>
+    <div class="card-title">تطاير قطرات من رمي بعرة</div>
+    <div class="card-desc">القطرة جزء من الماء الطهور فلا تنجس الثوب إذا أصابته</div>
+  </div>
+</div>
+
+<h3>تفصيل المسألة الثانية: الرغوة</h3>
+
+<p>لو بال في البحر (أي في ماء كثير) فارتفعت منه رغوة — ففيها تفصيل: إن تحقق أنها من عين النجاسة أو من الماء المتغير أحد أوصافه (طعماً أو لوناً أو ريحاً) بتلك النجاسة — فهي نجسة. وإن لم يتحقق ذلك فالأصل أنها طاهرة.</p>
+
+<h3>تفصيل المسألة الثالثة: تطاير القطرات</h3>
+
+<p>لو طرح بعرة في الماء الكثيير فوقعت من أجل الطرح قطرة على شيء كالثوب — لم تنجسه، لأن هذه القطرة جزء من الماء الطهور.</p>
+
+<!-- 10 -->
+<h2><span class="section-num">١٠</span> الماء القليل: شطا نجاسته</h2>
+
+<p>الماء القليل (ما دون القلتين) ينجس بملاقاة النجاسة غير المعفو عنها. وانتبه إلى كلمتين مهمتين:</p>
+
+<div class="compare-box">
+  <div class="compare-side" style="background: #1a5632;">
+    <h3>ملاقاة (وصول)</h3>
+    <p>لا بد من وصول النجاسة فعلاً للماء. فلو تغيرت رائحة الماء بسبب التروح (انتقال الريح) من ميتة مجاورة — لا ينجس لأنه لم تحصل ملاقاة.</p>
+  </div>
+  <div class="compare-divider"></div>
+  <div class="compare-side" style="background: #c0392b;">
+    <h3>غير معفو عنها</h3>
+    <p>بعض النجاسات معفو عنها في الماء القليل: ما لا يدركه الطرف المعتدل، وميتة ما لا نفس له سائلة — سيأتي تفصيلهما.</p>
+  </div>
+</div>
+
+<!-- 11 -->
+<h2><span class="section-num">١١</span> النجاسة التي لا يدركها الطرف المعتدل</h2>
+
+<p>الطرف المعتدل = البصر المعتدل. وعندما نقول "لا يدركها الطرف المعتدل" نفهم أمرين: إما أن العين لا تراها أصلاً ولو كان النظر قوياً، وإما أنها يمكن إدراكها بالبصر القوي فقط. في كلتا الحالتين لا تؤثر — لا تنجس الماء القليل.</p>
+
+<div class="callout callout-definition">
+  <div class="callout-title">حكم النجاسة التي لا يدركها الطرف</div>
+  <div class="callout-body">لا تنجس الماء القليل، بشرطين: <b>الأول</b> أن لا تكون من حيوان مغلظ (كالكلب والخنزير). <b>والثاني</b> أن لا تكون بسبب فعله — أي لا يكون هو المتسبب في حصول النجاسة في الماء (كأن يبول بجانب ماء قليل فتصل القطرات إليه).</div>
+</div>
+
+<!-- 12 -->
+<h2><span class="section-num">١٢</span> ميتة ما لا نفس له سائلة: حكمها وشروط إعفائها</h2>
+
+<p>القاعدة: جميع الميتات نجسة إلا ثلاثة: الآدمي، والسمك (ما لا يعيش إلا في الماء)، والجراد. فميتة الذباب والبعوض والوزغ والخنافس والعناكب — كلها نجسة في مذهب الشافعية. لكن يُعفى عنها في الماء القليل بثلاثة شروط:</p>
+
+<div class="card-grid card-grid-3">
+  <div class="card" style="background: linear-gradient(135deg, #1a5632 0%, #2d7a4a 100%); color: white;">
+    <div class="card-number">١</div>
+    <div class="card-title">ألا تغيّر الماء</div>
+    <div class="card-desc">فإن غيّرته حكم بنجاسته إجماعاً</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #2c5f7c 0%, #3a7ca5 100%); color: white;">
+    <div class="card-number">٢</div>
+    <div class="card-title">ألا تُطرح فيه</div>
+    <div class="card-desc">فإن طرحها شخص وهي ميتة أنجست الماء. أما إن وقعت بنفسها أو أخذها وهي حية فلا تؤثر</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #c8a951 0%, #b8943f 100%); color: white;">
+    <div class="card-number">٣</div>
+    <div class="card-title">ألا تكون مما ينشأ من الماء</div>
+    <div class="card-desc">كدود العلق الذي ينشأ من الماء — هذا لا ينجسه حتى لو طُرح فيه</div>
+  </div>
+</div>
+
+<h3>ما معنى "ما لا نفس له سائلة"؟</h3>
+
+<p>أي ما لا دم له يسيل — إما ليس له دم أصلاً، أو له دم قليل لا يسيل. والنظر إلى الجنس لا إلى الأفراد — فالوزغ جنسه ليس له دم سائل، وإن وُجد دم سائل في فرد منه. قال الفقهاء: "الشاذ يلحق بجنسه".</p>
+
+<div class="callout callout-warning">
+  <div class="callout-title">تنبيه: الإعفاء لا يعني الطهارة</div>
+  <div class="callout-body">بعض الطلاب يظنون أن ميتة ما لا نفس له سائلة طاهرة لأنها معفو عنها — لا، هي نجسة في المعتمد من مذهب الشافعية لكن يُعفى عنها. ومذهب الإمام أحمد واختاره جماعة من الشافعية أنها طاهرة، لكن المعتمد في المذهب أنها نجسة مع الإعفاء.</div>
+</div>
+
+<h3>السرطان والضفدع</h3>
+
+<p>قال المصنف: "لا سرطان وضفدع — فينجس به ماء" — أي أن السرطان والضفدع ينجسان الماء القليل، لأن لجنسهما دماً يسيل، بخلاف الوزغ والعقرب. والضفدع الأفصح فيه ضفدَع بكسر الدال عند علماء اللغة، وإن كان المشهور ضفدَع بفتح الدال.</p>
+
+<!-- 13 -->
+<h2><span class="section-num">١٣</span> من يطرح الميتة؟ خلاف الفقهاء</h2>
+
+<p>إذا طُرحت ميتة ما لا نفس له سائلة في الماء القليل — مَن الذي طرحها؟ قد يكون إنساناً أو بهيمة أو ريحاً. والإنسان قد يكون مميزاً أو غير مميز. وفي هذا خلاف بين الفقهاء:</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 20%;">مَن الطارح؟</th>
+        <th style="width: 27%;">ابن حجر</th>
+        <th style="width: 27%;">الخطيب الشربيني</th>
+        <th style="width: 26%;">الرملي</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold;">الريح</td>
+        <td style="color: #28a745;">لا تؤثر</td>
+        <td style="color: #28a745;">لا تؤثر</td>
+        <td style="color: #28a745;">لا تؤثر</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">البهيمة</td>
+        <td style="color: #28a745;">لا تؤثر</td>
+        <td style="color: #28a745;">لا تؤثر</td>
+        <td style="color: #c0392b;">تؤثر</td>
+      </tr>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold;">إنسان مميز</td>
+        <td style="color: #c0392b;">يؤثر</td>
+        <td style="color: #c0392b;">يؤثر</td>
+        <td style="color: #c0392b;">يؤثر</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">إنسان غير مميز</td>
+        <td style="color: #c0392b;">يؤثر</td>
+        <td style="color: #28a745;">لا يؤثر</td>
+        <td style="color: #c0392b;">يؤثر</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>وذكر المصنف إشارة إلى هذا الخلاف. وقال: "ولو طرح فيه ميتة من ذلك نجس وإن كان الطارح غير مكلف" — أي أن غير المميز إذا طرح ينجس الماء عند المصنف. ومفهوم كلامه أن البهيمة والريح لا ينجسان الماء بهذا الطرح.</p>
+
+<div class="callout callout-success">
+  <div class="callout-title">ولا أثر لطرح الحي مطلقاً</div>
+  <div class="callout-body">لو أخذت حيواناً لا نفس له سائلة كنحلة أو بعوضة ووضعتها في الإناء وهي حية — فلا أثر لذلك، لأن الحيوان في حال الحياة طاهر إلا الكلب والخنزير.</div>
+</div>
+
+<!-- 14 -->
+<h2><span class="section-num">١٤</span> النجاسة المعفو عنها في الماء وفي الصلاة</h2>
+
+<p>بعض النجاسات يُعفى عنها في الماء ولا يُعفى عنها في الصلاة، وبعضها بالعكس، وبعضها يُعفى عنها فيهما معاً. ثلاثة أقسام:</p>
+
+<div class="card-grid card-grid-3">
+  <div class="card" style="background: linear-gradient(135deg, #1a5632 0%, #2d7a4a 100%); color: white;">
+    <div class="card-title">يُعفى عنه في الماء فقط</div>
+    <div class="card-desc">ميتة ما لا نفس له سائلة — لأنه يشق حفظ الماء عنها</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #2c5f7c 0%, #3a7ca5 100%); color: white;">
+    <div class="card-title">يُعفى عنه في الصلاة فقط</div>
+    <div class="card-desc">الدم القليل — لأن الثوب يشق حفظه من الدم وكثرة غسله تبلّه</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #c8a951 0%, #b8943f 100%); color: white;">
+    <div class="card-title">يُعفى عنه في الماء والصلاة</div>
+    <div class="card-desc">ما لا يدركه الطرف — لأنه يشق الاحتراز عنه في البابين</div>
+  </div>
+</div>
+
+<p>قال المصنف: "غير معفو عنه في الماء ولو معفو عنه في الصلاة" — أي أن النجاسة إذا كانت معفواً عنها في الصلاة فقط (كالدم القليل) فهي غير معفو عنها في الماء، لأن الماء يسهل حفظه من الدم بخلاف الثوب.</p>
+
+</body>
+</html>

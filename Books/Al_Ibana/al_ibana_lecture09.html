@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح الإبانة والإفاضة - الدرس 09</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-green: #0d6b3e;
+  --dark-green: #0a4f2e;
+  --gold: #d4a020;
+  --light-gold: #f0e6c0;
+  --teal: #0d7377;
+  --bg: #fefefe;
+  --body-text: #1a1a1a;
+  --border: #c8d6c0;
+  --card-bg: #f8faf7;
+  --shadow: rgba(13,107,62,0.1);
+}
+
+.bw-mode {
+  --primary-green: #333;
+  --dark-green: #111;
+  --gold: #555;
+  --light-gold: #eee;
+  --teal: #444;
+  --bg: #fff;
+  --body-text: #000;
+  --border: #ccc;
+  --card-bg: #f5f5f5;
+  --shadow: rgba(0,0,0,0.1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+  font-size: 16px;
+  line-height: 2;
+  color: var(--body-text);
+  background: var(--bg);
+  direction: rtl;
+}
+
+/* B&W Toggle */
+.bw-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 9999;
+  background: var(--primary-green);
+  color: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: 'Noto Naskh Arabic', serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: all 0.3s ease;
+}
+.bw-toggle:hover { transform: scale(1.1); }
+
+/* Cover Page */
+.cover-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 40%, var(--teal) 100%);
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+}
+.cover-page::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.cover-page::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 120px;
+  background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
+  pointer-events: none;
+}
+
+.cover-badge {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark-green);
+  font-size: 18px;
+  font-weight: 700;
+  padding: 8px 30px;
+  border-radius: 30px;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 15px rgba(212,160,32,0.4);
+}
+
+.cover-title {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.cover-book-name {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--light-gold);
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.cover-author {
+  font-size: 18px;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.cover-sharih {
+  font-size: 17px;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.cover-creator {
+  font-size: 15px;
+  color: rgba(255,255,255,0.65);
+  margin-top: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.cover-ornament {
+  font-size: 40px;
+  color: var(--gold);
+  margin: 20px 0;
+  position: relative;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+/* Main Content */
+.main-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 25px;
+}
+
+/* Section Headers */
+h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary-green);
+  border-bottom: 3px solid var(--gold);
+  padding-bottom: 10px;
+  margin: 40px 0 20px;
+  position: relative;
+}
+h1::before {
+  content: '◆';
+  color: var(--gold);
+  margin-left: 8px;
+  font-size: 16px;
+}
+
+h2 {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--dark-green);
+  margin: 30px 0 15px;
+  padding-right: 15px;
+  border-right: 4px solid var(--gold);
+}
+
+h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--teal);
+  margin: 20px 0 10px;
+}
+
+p {
+  margin-bottom: 12px;
+  text-align: justify;
+}
+
+/* Visual Elements */
+
+/* Card */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 15px 0;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.card-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Ruling Card */
+.ruling-card {
+  background: var(--card-bg);
+  border-right: 5px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin: 15px 0;
+  box-shadow: 0 2px 6px var(--shadow);
+}
+.ruling-card .ruling-label {
+  display: inline-block;
+  background: var(--primary-green);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 3px 14px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+}
+.ruling-card .ruling-label.gold { background: var(--gold); color: var(--dark-green); }
+.ruling-card .ruling-label.teal { background: var(--teal); color: #fff; }
+
+/* Evidence Box */
+.evidence-box {
+  background: linear-gradient(135deg, #f0f8f0, #faf8f0);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 15px 0;
+  position: relative;
+}
+.evidence-box::before {
+  content: '📖';
+  position: absolute;
+  top: -14px;
+  right: 20px;
+  background: var(--bg);
+  padding: 0 8px;
+  font-size: 20px;
+}
+.evidence-box .evidence-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.evidence-box .evidence-text {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--dark-green);
+  line-height: 2.2;
+}
+
+/* Comparison Card */
+.comparison-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin: 15px 0;
+}
+.comparison-side {
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 18px;
+  border: 1px solid var(--border);
+}
+.comparison-side.right-side {
+  border-top: 4px solid var(--primary-green);
+}
+.comparison-side.left-side {
+  border-top: 4px solid var(--gold);
+}
+.comparison-side .side-label {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  padding: 3px 12px;
+  border-radius: 15px;
+  display: inline-block;
+}
+.comparison-side.right-side .side-label {
+  background: var(--primary-green);
+  color: #fff;
+}
+.comparison-side.left-side .side-label {
+  background: var(--gold);
+  color: var(--dark-green);
+}
+
+/* Classification Tree */
+.classification-tree {
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+}
+.classification-tree .tree-root {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-green);
+  padding: 10px 20px;
+  background: linear-gradient(135deg, var(--primary-green), var(--teal));
+  color: #fff;
+  border-radius: 25px;
+  display: inline-block;
+  margin: 0 auto 15px;
+}
+.classification-tree .tree-branches {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 15px;
+}
+.classification-tree .tree-branch {
+  background: #fff;
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 12px 18px;
+  text-align: center;
+  min-width: 140px;
+  position: relative;
+}
+.classification-tree .tree-branch .branch-icon {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+.classification-tree .tree-branch .branch-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dark-green);
+}
+.classification-tree .tree-branch .branch-desc {
+  font-size: 13px;
+  color: #666;
+  margin-top: 4px;
+}
+.tree-connector {
+  text-align: center;
+  color: var(--primary-green);
+  font-size: 24px;
+  margin: 5px 0;
+}
+
+/* Flow Chart */
+.flow-chart {
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+}
+.flow-step {
+  background: #fff;
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 12px 18px;
+  margin: 8px 0;
+  text-align: center;
+  font-weight: 600;
+}
+.flow-step.green-fill {
+  background: var(--primary-green);
+  color: #fff;
+}
+.flow-step.gold-fill {
+  background: var(--gold);
+  color: var(--dark-green);
+}
+.flow-arrow {
+  text-align: center;
+  font-size: 22px;
+  color: var(--primary-green);
+  margin: 4px 0;
+}
+.flow-branch {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr;
+  gap: 10px;
+  align-items: start;
+  margin: 10px 0;
+}
+.flow-branch .branch-label {
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  padding: 4px;
+  color: var(--primary-green);
+}
+
+/* Callout Box */
+.callout-box {
+  background: #fffef5;
+  border: 1px solid var(--gold);
+  border-right: 5px solid var(--gold);
+  border-radius: 8px;
+  padding: 15px 18px;
+  margin: 15px 0;
+}
+.callout-box .callout-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+/* Benefit Box */
+.benefit-box {
+  background: linear-gradient(135deg, #e8f5e9, #f0f8f0);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 18px;
+  margin: 15px 0;
+}
+.benefit-box .benefit-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Fiqh Principle */
+.fiqh-principle {
+  background: linear-gradient(135deg, #f0e6c0, #f8f4e0);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 18px;
+  margin: 15px 0;
+  text-align: center;
+}
+.fiqh-principle .principle-text {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--dark-green);
+  line-height: 2;
+}
+
+/* Numbered Steps */
+.numbered-steps {
+  counter-reset: step-counter;
+  margin: 15px 0;
+}
+.numbered-steps .step {
+  counter-increment: step-counter;
+  display: flex;
+  gap: 12px;
+  margin: 10px 0;
+  align-items: flex-start;
+}
+.numbered-steps .step::before {
+  content: counter(step-counter);
+  background: var(--primary-green);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  min-width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+/* Timeline Diagram */
+.timeline-diagram {
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  overflow-x: auto;
+}
+.timeline-bar {
+  display: flex;
+  margin: 10px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 40px;
+}
+.timeline-segment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  padding: 5px 8px;
+  min-width: 40px;
+  text-align: center;
+  border-left: 1px solid rgba(255,255,255,0.3);
+}
+.timeline-segment.hayd { background: #c0392b; }
+.timeline-segment.tuhr { background: var(--primary-green); }
+.timeline-segment.fasad { background: #7f8c8d; }
+.timeline-segment.nifas { background: #8e44ad; }
+.timeline-segment.takmila { background: var(--teal); }
+
+.timeline-labels {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.timeline-legend {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+.timeline-legend .legend-color {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+}
+
+/* Case Card */
+.case-card {
+  background: #fff;
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 18px;
+  margin: 15px 0;
+}
+.case-card .case-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Data Table */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+  font-size: 14px;
+}
+.data-table th {
+  background: var(--primary-green);
+  color: #fff;
+  padding: 10px 12px;
+  text-align: center;
+  font-weight: 700;
+}
+.data-table td {
+  padding: 8px 12px;
+  text-align: center;
+  border: 1px solid var(--border);
+}
+.data-table tr:nth-child(even) { background: var(--card-bg); }
+
+/* Quote Block */
+.quote-block {
+  background: linear-gradient(135deg, #f8f4e0, #faf8f0);
+  border-right: 5px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  padding: 15px 20px;
+  margin: 15px 0;
+  font-style: italic;
+}
+.quote-block .quote-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold);
+  font-style: normal;
+  margin-bottom: 6px;
+}
+
+/* Scholar Card */
+.scholar-card {
+  background: linear-gradient(135deg, #e8f5e9, #f0f8f0);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 18px;
+  margin: 15px 0;
+}
+.scholar-card .scholar-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 8px;
+}
+
+/* Sub-branch tree */
+.sub-branches {
+  margin-top: 10px;
+  padding-right: 20px;
+  border-right: 2px dashed var(--border);
+}
+.sub-branch-item {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin: 8px 0;
+}
+.sub-branch-item .sub-title {
+  font-weight: 700;
+  color: var(--teal);
+  font-size: 15px;
+}
+.sub-branch-item .sub-desc {
+  font-size: 14px;
+  color: #555;
+  margin-top: 4px;
+}
+
+/* Duas / Opening */
+.dua-block {
+  text-align: center;
+  background: linear-gradient(135deg, #f0e6c0, #faf8f0);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  font-size: 17px;
+  line-height: 2.2;
+  color: var(--dark-green);
+}
+
+/* Nested classification */
+.nested-tree {
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+}
+.nested-level {
+  margin-right: 25px;
+  padding-right: 15px;
+  border-right: 3px solid var(--gold);
+}
+.nested-item {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin: 6px 0;
+}
+.nested-item.green-border { border-right: 4px solid var(--primary-green); }
+.nested-item.gold-border { border-right: 4px solid var(--gold); }
+.nested-item.teal-border { border-right: 4px solid var(--teal); }
+
+/* Print Styles */
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+  @bottom-center {
+    content: counter(page);
+    font-size: 12px;
+    color: #888;
+  }
+}
+
+@media print {
+  .bw-toggle { display: none; }
+  .cover-page { page-break-after: always; }
+  h1 { page-break-after: avoid; }
+  .card, .ruling-card, .evidence-box, .case-card, .classification-tree, .flow-chart {
+    page-break-inside: avoid;
+  }
+  body { font-size: 14px; }
+}
+
+@media (max-width: 600px) {
+  .comparison-card { grid-template-columns: 1fr; }
+  .flow-branch { grid-template-columns: 1fr; }
+  .cover-title { font-size: 24px; }
+  .cover-book-name { font-size: 18px; }
+  body { font-size: 15px; }
+}
+
+.highlight { color: var(--primary-green); font-weight: 700; }
+.gold-highlight { color: var(--gold); font-weight: 700; }
+.teal-highlight { color: var(--teal); font-weight: 700; }
+.red-highlight { color: #c0392b; font-weight: 700; }
+.green-badge {
+  display: inline-block;
+  background: var(--primary-green);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 12px;
+}
+.gold-badge {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark-green);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 12px;
+}
+.teal-badge {
+  display: inline-block;
+  background: var(--teal);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 12px;
+}
+</style>
+</head>
+<body>
+
+<!-- B&W Toggle Button -->
+<button class="bw-toggle" onclick="toggleBW()" title="تبديل الأبيض والأسود">ون</button>
+
+<script>
+function toggleBW() {
+  document.body.classList.toggle('bw-mode');
+}
+</script>
+
+<!-- ======================== COVER PAGE ======================== -->
+<div class="cover-page">
+  <div class="cover-badge">جديد ✦ الدرس التاسع</div>
+  <div class="cover-ornament">﷽</div>
+  <div class="cover-book-name">شرح الإبانة والإفاضة في أحكام الحيض والنفاس والاستحاضة</div>
+  <div class="cover-title">مسائل في أحكام المستحاضة وأقسامها السبعة</div>
+  <div class="cover-ornament">✦ ❖ ✦</div>
+  <div class="cover-author">المؤلف: عبد الرحمن بن عبد الله عبد القادر السقاف</div>
+  <div class="cover-sharih">الشارح: د. لبيب نجيب عبد الله</div>
+  <div class="cover-creator">إعداد: أحمد بن إرشاد</div>
+</div>
+
+<!-- ======================== MAIN CONTENT ======================== -->
+<div class="main-content">
+
+<!-- Opening Dua -->
+<div class="dua-block">
+الحمد لله رب العالمين والصلاة والسلام الأتمان الأكملان على سيد المرسلين سيدنا محمد وعلى آله وصحبه الطيبين الطاهرين أما بعد<br>
+فأسأل الله سبحانه وتعالى أن يمن علينا بالعلم النافع والعمل الصالح وأن يفقهنا في الدين وأن يفتح لنا فتوح العارفين وأن يرزقنا الإخلاص في الأقوال والأعمال اللهم آمين
+</div>
+
+<!-- ===================== SECTION 1: REVIEW ===================== -->
+<h1>مراجعة: واجبات المستحاضة</h1>
+
+<p>في الدرس الماضي كان الكلام حول المستحاضة. عرفنا أن المستحاضة إما أن يتصل حيضها باستحاضتها وإما أن يكون حيضها غير متصل وإما أن تكون استحاضتها غير متصلة بحيضها، وهذه لها <span class="highlight">أربع صور</span> درسناها في الدرس الماضي.</p>
+
+<p>عرفنا أيضا ما الذي يجب على المستحاضة:</p>
+
+<div class="numbered-steps">
+  <div class="step">يجب عليها بعد دخول الوقت غسل الفرج</div>
+  <div class="step">أن تحشو الفرج بثلاثة شروط</div>
+  <div class="step">أن تعصب</div>
+  <div class="step">يجب عليها أن تتوضأ لكل صلاة</div>
+  <div class="step">يجب عليها الموالحة</div>
+  <div class="step">يجب عليها تجديد ذلك لكل صلاة</div>
+</div>
+
+<!-- ===================== SECTION 2: NAWAFIL ===================== -->
+<h1>المسألة الأولى: هل للمستحاضة أن تتنفل؟</h1>
+
+<p>قال فضيلة الدكتور عبد الرحمن السقاف حفظه الله تعالى ونفعنا بعلومه: هل للمستحاضة أن تتنفل أم لا؟ هل نقول المستحاضة لا تصلي إلا الفرض ليس لها أن تصلي النوافل فتمنع من النوافل، أو نقول إن المستحاضة يجوز لها أن تصلي النوافل؟</p>
+
+<div class="ruling-card">
+  <span class="ruling-label">المعتمد</span>
+  <p><span class="highlight">للمستحاضة أن تتنفل</span> أي يشرع لها أن تصلي النوافل. للمستحاضة أن تتنفل ما شاءت <span class="highlight">في الوقت وبعده</span>، سواء كان تنفلها في أثناء الوقت أو كان تنفلها بعد خروج وقت الصلاة التي تطهرت لها.</p>
+</div>
+
+<div class="callout-box">
+  <div class="callout-label">تنبيه: مثال تطبيقي</div>
+  <p>كأن تطهرت لتصلي صلاة الظهر فخرج وقت الظهر، فهل لها أن تصلي مثلا سنة الظهر البعدية بعد أن خرج وقت الظهر؟ <span class="highlight">لها ذلك</span>.</p>
+</div>
+
+<p>إذن المستحاضة لها أن تتنفل ما شاءت سواء في الوقت أو خارج الوقت.</p>
+
+<p>وظاهر كلامه رحمه الله أيضا أن لها أن تتنفل <span class="highlight">كل النوافل</span> سواء كانت هذه النوافل من النوافل الراتبة أو كانت هذه النوافل من النفل المطلق، يعني سواء كانت هذه النوافل النوافل المقيدة أو كانت هذه النوافل المطلقة، فلها أن تتنفل.</p>
+
+<div class="comparison-card">
+  <div class="comparison-side right-side">
+    <span class="side-label">ابن حجر والخطيب</span>
+    <p>لها أن تتنفل <span class="highlight">ما شاءت في الوقت وخارج الوقت</span> سواء كانت النافلة نفلاً مقيداً أو نفلاً مطلقاً</p>
+  </div>
+  <div class="comparison-side left-side">
+    <span class="side-label">الرملي</span>
+    <p>فيه خلاف بسيط مع ابن حجر والخطيب في بعض تفاصيل النوافل</p>
+  </div>
+</div>
+
+<div class="benefit-box">
+  <div class="benefit-label">✦ فائدة</div>
+  <p>المعتمد عند الشيخ ابن حجر وعند الخطيب أن لها أن تتنفل ما شاءت في الوقت وخارج الوقت سواء كانت النافلة نفلاً مقيداً أو نفلاً مطلقاً.</p>
+</div>
+
+<!-- ===================== SECTION 3: BLOOD AFTER BANDAGING ===================== -->
+<h1>المسألة الثانية: حكم خروج الدم بعد العصب</h1>
+
+<p>قلنا يجب على المستحاضة غسل الفرج ويجب أن تحشو الفرج بنحو قطنة، إلا إذا تأذت بحشوه تأذياً لا يحتمل أو كانت صائمة.</p>
+
+<div class="ruling-card">
+  <span class="ruling-label">القاعدة</span>
+  <p><span class="highlight">لا يضر خروج الدم بعد العصب</span> إلا إن كان بالسبب تقصير في الشد، يعني إذا قصرت في الشد في شد العصابة ولم تحكم العصابة جيداً فكان خروج الدم بسبب ذلك التقصير.</p>
+</div>
+
+<div class="flow-chart">
+  <div class="flow-step green-fill">خروج الدم بعد العصب</div>
+  <div class="flow-arrow">↙ ↘</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+    <div>
+      <div class="flow-step" style="border-color:var(--primary-green);">لا تقصير في الشد</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step green-fill">لا يضر ✅</div>
+      <div style="font-size:13px;text-align:center;color:#666;">الصلاة صحيحة</div>
+    </div>
+    <div>
+      <div class="flow-step" style="border-color:#c0392b;">تقصير في الشد</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step" style="background:#c0392b;color:#fff;">يضر ❌</div>
+      <div style="font-size:13px;text-align:center;color:#666;">لا تصح الصلاة، لا بد أن تعيد</div>
+    </div>
+  </div>
+</div>
+
+<p>فإذا قصرت في شد العصابة فكان خروج الدم بسبب ذلك التقصير، فحينئذ نقول: هذا يضر، أي لا تصح الصلاة إذا فعلت بهذا، لا بد أن تعيد هذه الأمور مرة أخرى.</p>
+
+<!-- ===================== SECTION 4: EXCUSED BLOOD ===================== -->
+<h1>المسألة الثالثة: هل يعفى عن دم المستحاضة؟</h1>
+
+<p>الدم الذي يخرج من المستحاضة يعفى عنه أو لا يعفى عنه؟</p>
+
+<div class="comparison-card">
+  <div class="comparison-side right-side">
+    <span class="side-label">ابن حجر المكي</span>
+    <p><span class="highlight">يعفى عن كثير وقليل</span> دم الاستحاضة — وهذا أيسر وأوسع بالنسبة للمرأة</p>
+  </div>
+  <div class="comparison-side left-side">
+    <span class="side-label">الرملي المصري</span>
+    <p>يعفى عن <span class="gold-highlight">قليله فقط</span> دم الاستحاضة</p>
+  </div>
+</div>
+
+<div class="benefit-box">
+  <div class="benefit-label">✦ فائدة</div>
+  <p>قول ابن حجر المكي رحمه الله بأنه يعفى عن قليله وكثيره هو <span class="highlight">الأيسر والأوسع</span> بالنسبة للمرأة.</p>
+</div>
+
+<!-- ===================== SECTION 5: BLOOD STOPPAGE - SUB-ISSUE 1 ===================== -->
+<h1>المسألة الرابعة: حكم انقطاع دم المستحاضة</h1>
+
+<p>هذه المسألة هي في الحقيقة أهم مسألة هنا وهي مسألتان ليس مسألة واحدة، لكن الشيخ جعلها كأنها مسألة واحدة:</p>
+
+<div class="card">
+  <div class="card-title">📌 المسألتان</div>
+  <div class="numbered-steps">
+    <div class="step">هل الانقطاع للدم يبطل الوضوء والصلاة أم لا؟</div>
+    <div class="step">إذا توضأت المستحاضة ثم انقطع الدم بعده، هل لها أن تصلي بذلك الوضوء أم لا؟</div>
+  </div>
+</div>
+
+<!-- Sub-Issue 1 -->
+<h2>المسألة الأولى: هل الانقطاع يبطل الوضوء والصلاة؟</h2>
+
+<p>انقطع الدم بعد الوضوء أو في أثناء الوضوء أو في أثناء الصلاة — كم حالة هذه؟ <span class="highlight">ثلاثة</span>: انقطع الدم بعد الوضوء أو في أثناء الوضوء أو في أثناء الصلاة.</p>
+
+<div class="quote-block">
+  <div class="quote-label">عبارة الكتاب</div>
+  قال: إذا توضأت المستحاضة ثم انقطع الدم بعد الوضوء أو فيه أو في الصلاة، فإن وسع زمن الانقطاع وضوءاً والصلاة وجب إعادة الوضوء وما معه، وإلا بأن لم يسع زمن الانقطاع وضوءاً والصلاة فلا يلزمها شيء.
+</div>
+
+<h3>الضابط: كم الزمن المقدر الذي يتسع لوضوء وصلاة؟</h3>
+
+<div class="callout-box">
+  <div class="callout-label">تقدير</div>
+  <p>تقريباً <span class="highlight">عشر دقائق</span> أو ربع ساعة — صلاة بأخف ما يمكن. هذا تقدير تقريبي.</p>
+</div>
+
+<h3>الحالة الأولى: مدة الانقطاع تتسع لوضوء وصلاة</h3>
+
+<div class="ruling-card">
+  <span class="ruling-label">حكم</span>
+  <p>إذا كانت مدة الانقطاع تتسع لوضوء وصلاة (تقريباً عشر دقائق فأكثر)، فان الانقطاع <span class="red-highlight">يبطل الوضوء والصلاة</span>.</p>
+</div>
+
+<div class="callout-box">
+  <div class="callout-label">التعليل</div>
+  <p>لوجود حالة يمكن فيها فعل الصلاة على وجه الكمال — حالة الانقطاع. ما هي هذه الحالة التي يمكن فيها فعل الوضوء والصلاة على وجه الكمال؟ حالة الانقطاع.</p>
+</div>
+
+<h3>الحالة الثانية: مدة الانقطاع لا تتسع لوضوء وصلاة</h3>
+
+<div class="ruling-card">
+  <span class="ruling-label gold">حكم</span>
+  <p>إذا مدة الانقطاع لا تتسع لوضوء وصلاة (أقل من عشر دقائق)، فان الانقطاع <span class="highlight">لا يبطل الوضوء ولا الصلاة</span>.</p>
+</div>
+
+<div class="callout-box">
+  <div class="callout-label">التعليل</div>
+  <p>لأن مدته قصيرة، أي ما زالت في حالة استحاضة، ليس هناك مدة كمال يمكن أن تؤدي فيها الوضوء أو الصلاة.</p>
+</div>
+
+<!-- Flow Chart for Sub-Issue 1 -->
+<div class="flow-chart">
+  <div class="flow-step green-fill">انقطاع دم المستحاضة</div>
+  <div class="flow-arrow">↙ ↘</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+    <div>
+      <div class="flow-step" style="border-color:var(--primary-green);">وسع زمن الانقطاع وضوءاً والصلاة</div>
+      <div style="font-size:14px;text-align:center;color:#666;">(~10 دقائق فأكثر)</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step" style="background:#c0392b;color:#fff;">يبطل الوضوء والصلاة</div>
+      <div style="font-size:13px;text-align:center;color:#666;">وجب إعادة الوضوء وما معه (غسل الفرج والحشو والعصب)</div>
+      <div style="font-size:13px;text-align:center;color:var(--primary-green);font-weight:700;">العلّة: وجود حالة كمال يمكن فيها الصلاة</div>
+    </div>
+    <div>
+      <div class="flow-step" style="border-color:var(--gold);">لم يسع زمن الانقطاع وضوءاً والصلاة</div>
+      <div style="font-size:14px;text-align:center;color:#666;">(أقل من ~10 دقائق)</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step green-fill">لا يبطل الوضوء ولا الصلاة</div>
+      <div style="font-size:13px;text-align:center;color:#666;">فلا يلزمها شيء</div>
+      <div style="font-size:13px;text-align:center;color:var(--primary-green);font-weight:700;">العلّة: ما زالت في حالة استحاضة</div>
+    </div>
+  </div>
+</div>
+
+<!-- Reading the book text -->
+<h3>قراءة عبارة الكتاب مع الشرح</h3>
+
+<div class="quote-block">
+  <div class="quote-label">نص الكتاب</div>
+  قال: إذا توضأت المستحاضة ثم انقطع الدم بعد الوضوء أو فيه أو في الصلاة، فإن وسع زمن الانقطاع وضوءاً والصلاة — هذه <span class="highlight">الحالة الأولى</span> — وجب إعادة الوضوء وما معه (طبعاً يجب إعادة الوضوء وما معه يعني غسل الفرج والحشو والعصيب هذا المقصود وما معه)، وإلا بأن لم يسع زمن الانقطاع وضوءاً والصلاة — هذه <span class="highlight">الحالة الثانية</span> — فلا يلزمها شيء.
+</div>
+
+<div class="callout-box">
+  <div class="callout-label">تنبيه</div>
+  <p>لماذا يجب الحشو والعصب أيضاً مع أنه لا خروج هنا انقطع؟ لاحتمال أن يعود الدم.</p>
+</div>
+
+<!-- ===================== SECTION 6: SUB-ISSUE 2 ===================== -->
+<h2>المسألة الثانية: إذا توضأت ثم انقطع الدم، هل يلزمها إعادة الوضوء؟</h2>
+
+<p>الصورة: توضأت حال كونها مستحاضة يعني الدم موجود، بعد أن انتهت من الوضوء انقطع الدم. السؤال: هل لها أن تصلي بذلك الوضوء الذي كان حال نزول الدم؟ أو نقول لا ما دام انقطع الدم يجب أن تتوضأ مرة أخرى؟</p>
+
+<p>لها <span class="highlight">حالتان</span>:</p>
+
+<h3>الحالة الأولى: لا تعتاد عودة الدم بعد انقطاعه</h3>
+
+<p>ما معنى لا تعتاد؟ ما تدري، لم يسبق لها من قبل أن الدم انقطع وعاد. ما سبق لها من قبل.</p>
+
+<div class="case-card">
+  <div class="case-title">👩 مثال: زينب</div>
+  <p>توضأت في حال كونها مستحاضة. بعد الوضوء وقبل الصلاة انقطع الدم. نسألها: هل حصل من قبل أن الدم هذا عندما انقطع عاد؟ لم يحصل من قبل هذا.</p>
+  <p>إذن هنا يوجد احتمال أنها قد <span class="highlight">شفيت من الاستحاضة</span>.</p>
+</div>
+
+<div class="ruling-card">
+  <span class="ruling-label">الحكم</span>
+  <p><span class="red-highlight">يلزمها إعادة الوضوء</span> لاحتمال انتهاء الاستحاضة، لاحتمال حصول الشفاء من الاستحاضة.</p>
+</div>
+
+<h3>الحالة الثانية: تعتاد عودة الدم بعد انقطاعه</h3>
+
+<p>هذه امرأة توضأت في حال كونها مستحاضة في حال كون الدم موجود، دم الاستحاضة. بعد أن توضأت انقطع الدم. نسألها: هل أنت اعتدتِ أن الدم إذا انقطع يعود؟ قالت: نعم أنا اعتدت أنه ينقطع ويعود.</p>
+
+<p>طيب هل إذا انقطع دم الاستحاضة وعاد، يعود سريعاً أو يتأخر؟ يعود عن قريب أو يعود عن بعيد؟</p>
+
+<div class="flow-chart">
+  <div class="flow-step green-fill">اعتادت عودة الدم بعد انقطاعه</div>
+  <div class="flow-arrow">↙ ↘</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+    <div>
+      <div class="flow-step" style="border-color:var(--primary-green);">يعود عن قُرب</div>
+      <div style="font-size:13px;text-align:center;color:#666;">يعود سريعاً، في وقت لا يسع طهارة وصلاة</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step green-fill">لا يلزمها إعادة الوضوء ✅</div>
+      <div style="font-size:13px;text-align:center;color:var(--primary-green);font-weight:700;">العلّة: الظاهر بقاء الاستحاضة</div>
+      <div style="font-size:13px;text-align:center;color:#666;">لو أعادت الوضوء ربما يعود الدم في أثناء وضوئها الثاني</div>
+    </div>
+    <div>
+      <div class="flow-step" style="border-color:var(--gold);">يعود عن بُعد</div>
+      <div style="font-size:13px;text-align:center;color:#666;">مثلاً نصف ساعة أو ساعة ثم يعود</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step" style="background:#c0392b;color:#fff;">يلزمها إعادة الوضوء ❌</div>
+      <div style="font-size:13px;text-align:center;color:var(--primary-green);font-weight:700;">العلّة: وجدت وقتاً يمكن أن توقع فيه الوضوء والصلاة على حالة الكمال</div>
+    </div>
+  </div>
+</div>
+
+<!-- Detailed explanation of "about close" case -->
+<div class="callout-box">
+  <div class="callout-label">توضيح: يعود عن قرب</div>
+  <p>قالت: أنا اعتدت أن خمس دقائق ويعود الدم. صلّت. الدم ما عاد. كملت الصلاة والدم ما فيه. ما حصل؟ حصل خلاف مع عادتها — هي اعتادت أن الدم يعود عن قرب الآن طال زمن الانقطاع.</p>
+</div>
+
+<div class="fiqh-principle">
+  <div class="principle-text">«لا عبرة بالظن إذا تبين خطؤه»</div>
+</div>
+
+<div class="ruling-card">
+  <span class="ruling-label gold">حكم ما إذا لم يعد الدم عن قرب</span>
+  <p>فإن لم يعد الدم عن قرب بان بطلان وضوئها وصلاتها، لأنه <span class="red-highlight">لا عبرة بالظن إذا تبين خطأه</span>.</p>
+</div>
+
+<!-- Detailed explanation of "about far" case -->
+<div class="callout-box">
+  <div class="callout-label">توضيح: يعود عن بعد</div>
+  <p>إن تعتاد عودة الدم بعد انقطاعه لكن عن بعد — يلزمها إعادة الوضوء. فتبين أن الدم عاد سريعاً — عكس ما ظننا — لا يلزمها شيء لأنه تبين بقاء الاستحاضة.</p>
+</div>
+
+<!-- Summary Table for Sub-Issue 2 -->
+<h3>خلاصة المسألة الثانية</h3>
+
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>الحالة</th>
+      <th>هل تعتاد عودة الدم؟</th>
+      <th>سرعة العودة</th>
+      <th>الحكم</th>
+      <th>العلّة</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>١</td>
+      <td>لا تعتاد</td>
+      <td>—</td>
+      <td><span class="red-highlight">يلزمها إعادة الوضوء</span></td>
+      <td>احتمال الشفاء من الاستحاضة</td>
+    </tr>
+    <tr>
+      <td>٢</td>
+      <td>نعم تعتاد</td>
+      <td>يعود عن قُرب</td>
+      <td><span class="highlight">لا يلزمها إعادة الوضوء</span></td>
+      <td>الظاهر بقاء الاستحاضة</td>
+    </tr>
+    <tr>
+      <td>٣</td>
+      <td>نعم تعتاد</td>
+      <td>يعود عن بُعد</td>
+      <td><span class="red-highlight">يلزمها إعادة الوضوء</span></td>
+      <td>وجدت وقتاً للطهارة والصلاة على الكمال</td>
+    </tr>
+    <tr>
+      <td>٤</td>
+      <td>نعم تعتاد (قرب)</td>
+      <td>لم يعد كما اعتادت</td>
+      <td><span class="red-highlight">يبطل وضوؤها وصلاتها</span></td>
+      <td>لا عبرة بالظن إذا تبين خطؤه</td>
+    </tr>
+    <tr>
+      <td>٥</td>
+      <td>نعم تعتاد (بعد)</td>
+      <td>عاد سريعاً عكس التوقع</td>
+      <td><span class="highlight">لا يلزمها شيء</span></td>
+      <td>تبين بقاء الاستحاضة</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ===================== SECTION 7: SEVEN CATEGORIES ===================== -->
+<h1>المستحاضة في الحيض وأقسامها السبعة</h1>
+
+<p>إذا عبر الدم أكثر الحيض وهو خمسة عشر يوماً ففي هذه الحالة تسمى المرأة مستحاضة، اختلط حيضها بالاستحاضة.</p>
+
+<div class="quote-block">
+  <div class="quote-label">عبارة الكتاب</div>
+  إذا عبر الدم أكثر الحيض وهو خمسة عشر يوماً ففي هذه الحالة تسمى المرأة مستحاضة اختلط حيضها بالاستحاضة فهي إما أن تكون مبتدأة أو معتادة وكل منهما تارة تكون مميزة وتارة تكون غير مميزة وإما أن تكون متحيرة وسنفصل الحديث عنها إن شاء الله تعالى.
+</div>
+
+<div class="classification-tree">
+  <div style="text-align:center;">
+    <div class="tree-root">المستحاضة في الحيض</div>
+    <div class="tree-connector">▼</div>
+  </div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="flex:1;">
+      <div class="branch-icon">🩸</div>
+      <div class="branch-title">المبتدأة</div>
+      <div class="branch-desc">أول مرة يأتيها الدم</div>
+      <div style="margin-top:10px;">
+        <div class="sub-branch-item">
+          <div class="sub-title">① مميزة</div>
+          <div class="sub-desc">ترى الدم بصفتين: قوي وضعيف</div>
+        </div>
+        <div class="sub-branch-item">
+          <div class="sub-title">② غير مميزة</div>
+          <div class="sub-desc">ترى الدم بصفة واحدة</div>
+        </div>
+      </div>
+    </div>
+    <div class="tree-branch" style="flex:1;">
+      <div class="branch-icon">🔄</div>
+      <div class="branch-title">المعتادة</div>
+      <div class="branch-desc">سبق لها حيض من قبل</div>
+      <div style="margin-top:10px;">
+        <div class="sub-branch-item">
+          <div class="sub-title">③ مميزة</div>
+          <div class="sub-desc">ترى الدم بصفتين: قوي وضعيف</div>
+        </div>
+        <div class="sub-branch-item">
+          <div class="sub-title">④ غير مميزة</div>
+          <div class="sub-desc">ترى الدم بصفة واحدة — لها أربع حالات</div>
+        </div>
+      </div>
+    </div>
+    <div class="tree-branch" style="flex:1;">
+      <div class="branch-icon">❓</div>
+      <div class="branch-title">المتحيرة</div>
+      <div class="branch-desc">ناسية للوقت والعدد</div>
+    </div>
+  </div>
+</div>
+
+<!-- Detailed explanation of each type -->
+<h2>تفصيل المبتدأة</h2>
+
+<p>المبتدأة بصفة اسم المفعول، أي ابتدأها الدم. ما معنى ابتدأها الدم؟ <span class="highlight">أول مرة يأتيها الدم</span>.</p>
+
+<div class="card">
+  <div class="card-title">🩸 المبتدأة المميزة</div>
+  <p>المميزة هي التي ترى الدم بالصفتين، تراه قوياً وضعيفاً. يعني ترى الدم مثلاً لونه أسود ثم أحمر، تراه أحمر وأشقر. ترى الدم بالصفتين. <span class="highlight">حكمها: تعمل بالتمييز</span>.</p>
+</div>
+
+<div class="card">
+  <div class="card-title">🩸 المبتدأة غير المميزة</div>
+  <p>جاءها الدم بصفة واحدة: كله أحمر، كله أسود، كله أشقر. <span class="highlight">حكمها: حيض يوم وليلة فقط</span>، ما زاد على يوم وليلة فاستحاضة. نأخذ باليقين، أقل الحيض يوم وليلة.</p>
+</div>
+
+<h2>تفصيل المعتادة</h2>
+
+<p>المعتادة: التي سبق لها حيض من قبل.</p>
+
+<div class="card">
+  <div class="card-title">🔄 المعتادة المميزة</div>
+  <p>ترى الدم بصفتين: تراه قوياً وضعيفاً. تراه أسود هذا قوي، وأحمر هذا ضعيف (لأن الأحمر ضعيف بالنسبة للأسود). والأشقر ضعيف بالنسبة للأحمر. والأصفر ضعيف بالنسبة للأشقر. <span class="highlight">حكمها: تعمل بالتمييز</span>.</p>
+</div>
+
+<div class="card">
+  <div class="card-title">🔄 المعتادة غير المميزة — أربع حالات</div>
+  <p>معتادة قد سبق لها من قبل حيض وطهر، لكن ترى الدم كله أسود، كله أحمر، لا تميز بين دم ودم. <span class="highlight">لها أربع حالات</span>:</p>
+</div>
+
+<div class="numbered-steps">
+  <div class="step">
+    <div>
+      <span class="green-badge">ذاكرة للوقت والعدد</span><br>
+      تذكر أن حيضها كان يأتي في أول الشهر أو في وسطه أو في آخره (الوقت)، وتذكر عدد أيام الحيض: خمسة أيام أو سبعة أو تسعة أو ثلاثة (العدد). تذكر شيئين: الوقت والعدد.
+    </div>
+  </div>
+  <div class="step">
+    <div>
+      <span class="gold-badge">ذاكرة للوقت ناسية للعدد</span><br>
+      تذكر أن الحيض يأتيها في أول الشهر مثلاً، لكن ما تدري كم يوم: نسيت الأيام. خمسة أيام؟ سبعة؟ تسعة؟ ثلاثة؟ مش عارفة كم أيام.
+    </div>
+  </div>
+  <div class="step">
+    <div>
+      <span class="teal-badge">ذاكرة للعدد ناسية للوقت</span><br>
+      تعرف أن الحيض يأتيها خمسة أيام لكن نسيت: هل في أول الشهر؟ هل في وسط الشهر؟ هل في آخر الشهر؟ ما تعرف.
+    </div>
+  </div>
+  <div class="step">
+    <div>
+      <span style="display:inline-block;background:#c0392b;color:#fff;font-size:13px;font-weight:700;padding:2px 10px;border-radius:12px;">ناسية للوقت والعدد — المتحيرة المطلقة</span><br>
+      ناسية للوقت والعدد جميعاً.
+    </div>
+  </div>
+</div>
+
+<!-- Counting the Seven -->
+<div class="benefit-box">
+  <div class="benefit-label">✦ فائدة: عدّ الأقسام السبعة</div>
+  <div class="numbered-steps">
+    <div class="step">المبتدأة المميزة</div>
+    <div class="step">المبتدأة غير المميزة</div>
+    <div class="step">المعتادة المميزة</div>
+    <div class="step">المعتادة غير المميزة ذاكرة للوقت والعدد</div>
+    <div class="step">المعتادة غير المميزة ذاكرة للوقت ناسية للعدد</div>
+    <div class="step">المعتادة غير المميزة ذاكرة للعدد ناسية للوقت</div>
+    <div class="step">المعتادة غير المميزة ناسية للوقت والعدد (المتحيرة المطلقة)</div>
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-label">تنبيه مهم</div>
+  <p>نفس هؤلاء السبع هن صور مستحاضة النفاس التي ستدرسونها في الدروس القادمة، والأحكام تكاد تكون متقاربة جداً. لو فهمت المستحاضة في الحيض لن تتعب في المستحاضة في النفاس.</p>
+</div>
+
+<!-- Poetry from Az-Zubad -->
+<div class="evidence-box">
+  <div class="evidence-label">من نظم الزبد</div>
+  <div class="evidence-text">
+    إن عَبَّر الأكثر واستداما<br>
+    فمستحاضة حاوِ أقسامها
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-label">شرح النظم</div>
+  <p>إذا عبر الدم أكثر الحيض واستدام، فمستحاضة حاوِ أقسامها — أي تأتي بأقسامها السبعة. المسألة ليست صعبة لكن تحتاج إلى بعض الانتباه فقط.</p>
+</div>
+
+<!-- ===================== SECTION 8: DIFFERENCE MUSTAHIDAH VS REMAINING TUHR ===================== -->
+<h1>الفرق بين المستحاضة والمرأة التي عليها بقية طهر</h1>
+
+<p>قبل أن يفصل الشيخ حفظه الله الكلام أكد على مسألة قد درسناها من قبل وهي الفرق بين المستحاضة وبين المرأة التي عليها بقية طهر.</p>
+
+<div class="comparison-card">
+  <div class="comparison-side right-side">
+    <span class="side-label">المستحاضة</span>
+    <p>ترد إلى إحدى الصور السبع</p>
+  </div>
+  <div class="comparison-side left-side">
+    <span class="side-label">المرأة عليها بقية طهر</span>
+    <p>نكمل بقية طهرها، وما زاد على أقل الطهر فحيض جديد</p>
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-label">تنبيه لغوي</div>
+  <p>الأفصح في اللغة العربية أن <span class="highlight">بين</span> لا تتكرر، تقول: الفرق بين المستحاضة والتي عليها بقية طهر — ولا تقول: بين المستحاضة والتي والتي عليها بقية طهر.</p>
+</div>
+
+<h2>نص الكتاب</h2>
+
+<div class="quote-block">
+  <div class="quote-label">عبارة المؤلف</div>
+  لابد أن نشير إلى مسألة مهمة وهي الفرق بين المستحاضة وبين المرأة التي عليها بقية طهر، وذلك أن من رأت أقل الحيض أو أكثره ثم انقطع الدم ثم عاد الدم بعد الخمسة عشر من مجيئه فهذه ليست مستحاضة بل امرأة عليها بقية طهر، وحكمها أنها تكمل أقل الطهر بين الحيضتين خمسة عشر وما زاد فهو حيض جديد.
+</div>
+
+<!-- ===================== SECTION 9: EXAMPLES ===================== -->
+<h1>الأمثلة التطبيقية</h1>
+
+<h2>المثال الأول</h2>
+
+<div class="case-card">
+  <div class="case-title">📋 المثال الأول</div>
+  <p>رأت امرأة ثلاثة أيام دماً ثم انقطع اثنا عشر يوماً ثم جاء الدم ثلاثة أيام.</p>
+</div>
+
+<!-- Timeline for Example 1 -->
+<div class="timeline-diagram">
+  <div class="card-title">📊 الجدول الزمني — المثال الأول</div>
+  <div style="display:flex;gap:2px;margin:10px 0;">
+    <div class="timeline-segment hayd" style="flex:3;">يوم 1-3<br>دم 🩸</div>
+    <div class="timeline-segment tuhr" style="flex:12;">يوم 4-15<br>انقطاع (نقاء)</div>
+    <div class="timeline-segment hayd" style="flex:3;">يوم 16-18<br>دم 🩸</div>
+  </div>
+  <div class="timeline-labels">
+    <div class="timeline-legend"><div class="legend-color" style="background:#c0392b;"></div> حيض</div>
+    <div class="timeline-legend"><div class="legend-color" style="background:var(--primary-green);"></div> طهر</div>
+  </div>
+</div>
+
+<div class="numbered-steps">
+  <div class="step">
+    <div>الأيام الثلاثة الأولى = <span class="highlight">حيض</span> (حيث مجموع ساعات الدماء 24 ساعة)</div>
+  </div>
+  <div class="step">
+    <div>الانقطاع من اليوم الرابع إلى اليوم الخامس عشر = حكم النقاء <span class="highlight">طهر</span> (لأن الدم عاد بعد خمسة عشر)</div>
+  </div>
+  <div class="step">
+    <div>الدم الذي عاد بعد الخمسة عشر = <span class="highlight">حيض جديد</span></div>
+  </div>
+</div>
+
+<div class="ruling-card">
+  <span class="ruling-label">الخلاصة</span>
+  <p>هذه <span class="highlight">ليست مستحاضة</span> بل <span class="highlight">امرأة عليها بقية طهر</span>. الدم عاد بعد خمسة عشر يوماً من مجيئه، فتكمل أقل الطهر خمسة عشر يوماً وما زاد فهو حيض جديد.</p>
+</div>
+
+<div class="quote-block">
+  <div class="quote-label">عبارة الكتاب</div>
+  مثال: رأت امرأة ثلاثة أيام دماً ثم انقطع اثنا عشر يوماً ثم جاء الدم ثلاثة أيام وانقطع. فالثلاثة الأخيرة ليست حيضاً لماذا؟ لأنها تكمل أقل الطهر خمسة عشر يوماً، بل دم فساد تكملة لأقل الطهر بين الحيضتين وهو خمسة عشر يوماً.
+</div>
+
+<h2>المثال الثاني</h2>
+
+<div class="case-card">
+  <div class="case-title">📋 المثال الثاني</div>
+  <p>لو كانت عادتها خمسة أيام فرأت ثلاثة أيام دماً ثم انقطع أربعة عشر يوماً ثم عاد أربعة أيام وانقطع.</p>
+</div>
+
+<!-- Timeline for Example 2 -->
+<div class="timeline-diagram">
+  <div class="card-title">📊 الجدول الزمني — المثال الثاني</div>
+  <div style="display:flex;gap:2px;margin:10px 0;">
+    <div class="timeline-segment hayd" style="flex:3;">يوم 1-3<br>دم 🩸</div>
+    <div class="timeline-segment tuhr" style="flex:14;">يوم 4-17<br>انقطاع (14 يوماً)</div>
+    <div class="timeline-segment fasad" style="flex:1;">يوم 18<br>استحاضة</div>
+    <div class="timeline-segment hayd" style="flex:3;">يوم 19-21<br>حيض جديد</div>
+  </div>
+  <div class="timeline-labels">
+    <div class="timeline-legend"><div class="legend-color" style="background:#c0392b;"></div> حيض</div>
+    <div class="timeline-legend"><div class="legend-color" style="background:var(--primary-green);"></div> طهر</div>
+    <div class="timeline-legend"><div class="legend-color" style="background:#7f8c8d;"></div> دم فساد (استحاضة)</div>
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-label">تنبيه</div>
+  <p>لو كانت عادتها خمسة أيام لكن في هذا الشهر جاءها الدم ثلاثة أيام فقط — إذن <span class="highlight">لا يهم كم عادتها</span>، المهم كم يوماً جاءها الدم فعلاً.</p>
+</div>
+
+<div class="numbered-steps">
+  <div class="step">
+    <div>الأيام الثلاثة الأولى = <span class="highlight">حيض</span> (إذا كان مجموع ساعات الدماء أربع وعشرين ساعة)</div>
+  </div>
+  <div class="step">
+    <div>الانقطاع أربعة عشر يوماً = حكم النقاء <span class="highlight">طهر</span></div>
+  </div>
+  <div class="step">
+    <div>من الأيام الأربعة العائدة: يوم واحد فقط = <span class="gold-highlight">دم فساد (استحاضة)</span> — لماذا؟ تكملة لأقل الطهر مع الأربعة عشر فتصير خمسة عشر يوماً</div>
+  </div>
+  <div class="step">
+    <div>الثلاثة الأيام الباقية (اليوم 19 واليوم 20 واليوم 21) = <span class="highlight">حيض جديد</span> (بشرطه إذا بلغ المجموع أربع وعشرين ساعة)</div>
+  </div>
+</div>
+
+<div class="quote-block">
+  <div class="quote-label">عبارة الكتاب</div>
+  فيوم من الأيام الأربعة دم فساد لماذا؟ ما معنى دم فساد؟ دم استحاضة. لماذا؟ تكملة لأقل الطهر مع الأربعة عشر فتصير خمسة عشر يوماً. صارت الأيام هذه أيام النقاء مع يوم من أيام الدم العائد صارت أقل الطهر خمسة عشر يوماً. قال: ثم الثلاثة الأيام الباقية حيض جديد.
+</div>
+
+<h2>مثال المستحاضة</h2>
+
+<div class="case-card">
+  <div class="case-title">📋 مثال المستحاضة (اختلاط الحيض بالاستحاضة)</div>
+  <p>لو جاء الدم في اليوم الأول والثاني والثالث ثم حصل لها نقاء في اليوم الرابع والخامس والسادس والسابع والثامن والتاسع والعاشر، ثم عاد الدم في اليوم الحادي عشر والثاني عشر والثالث عشر والرابع عشر والخامس عشر والسادس عشر والسابع عشر.</p>
+</div>
+
+<!-- Timeline for Istihadah Example -->
+<div class="timeline-diagram">
+  <div class="card-title">📊 الجدول الزمني — مثال المستحاضة</div>
+  <div style="display:flex;gap:2px;margin:10px 0;">
+    <div class="timeline-segment hayd" style="flex:3;">يوم 1-3<br>دم 🩸</div>
+    <div class="timeline-segment tuhr" style="flex:7;">يوم 4-10<br>انقطاع (نقاء)</div>
+    <div class="timeline-segment hayd" style="flex:3;">يوم 11-15<br>دم</div>
+    <div class="timeline-segment fasad" style="flex:2;">يوم 16-17<br>دم</div>
+  </div>
+  <div class="timeline-labels">
+    <div class="timeline-legend"><div class="legend-color" style="background:#c0392b;"></div> حيض</div>
+    <div class="timeline-legend"><div class="legend-color" style="background:var(--primary-green);"></div> نقاء (طهر)</div>
+    <div class="timeline-legend"><div class="legend-color" style="background:#7f8c8d;"></div> استحاضة</div>
+  </div>
+</div>
+
+<div class="ruling-card">
+  <span class="ruling-label">الحكم</span>
+  <p>الدم عاد <span class="highlight">قبل الخمسة عشر</span>، إذن الكل إلى الخمسة عشر يكون حيضاً (النقاء المتخلل حيض على الأصح)، وما زاد فاستحاضة. هذه مستحاضة اختلط حيضها بالاستحاضة.</p>
+</div>
+
+<h3>كيف نعامل هذه المستحاضة؟ نسألها:</h3>
+
+<div class="flow-chart">
+  <div class="flow-step green-fill">السؤال الأول: هل أول مرة يأتيك الحيض أو قد جاء من قبل؟</div>
+  <div class="flow-arrow">↙ ↘</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+    <div>
+      <div class="flow-step" style="border-color:var(--primary-green);">أول مرة — مبتدأة</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step" style="border-color:var(--teal);">السؤال الثاني: هل ترين الدم بصفتين مختلفتين (قوي وضعيف) أو بصفة واحدة؟</div>
+      <div class="flow-arrow">↙ ↘</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div>
+          <div class="flow-step" style="border-color:var(--primary-green);font-size:13px;">بصفتين</div>
+          <div class="flow-arrow" style="font-size:16px;">↓</div>
+          <div class="flow-step green-fill" style="font-size:12px;">مبتدأة مميزة<br>تعمل بالتمييز</div>
+        </div>
+        <div>
+          <div class="flow-step" style="border-color:var(--gold);font-size:13px;">بصفة واحدة</div>
+          <div class="flow-arrow" style="font-size:16px;">↓</div>
+          <div class="flow-step gold-fill" style="font-size:12px;">مبتدأة غير مميزة<br>حيض يوم وليلة فقط</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="flow-step" style="border-color:var(--gold);">قد جاء من قبل — معتادة</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step" style="border-color:var(--teal);">السؤال الثاني: هل ترين الدم بصفتين أو بصفة واحدة؟</div>
+      <div class="flow-arrow">↙ ↘</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div>
+          <div class="flow-step" style="border-color:var(--primary-green);font-size:13px;">بصفتين</div>
+          <div class="flow-arrow" style="font-size:16px;">↓</div>
+          <div class="flow-step green-fill" style="font-size:12px;">معتادة مميزة<br>تعمل بالتمييز</div>
+        </div>
+        <div>
+          <div class="flow-step" style="border-color:var(--gold);font-size:13px;">بصفة واحدة</div>
+          <div class="flow-arrow" style="font-size:16px;">↓</div>
+          <div class="flow-step gold-fill" style="font-size:12px;">معتادة غير مميزة<br>نفصّل...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Detailed flow for Mu'tadah Ghayr Mumayyazah -->
+<h3>تفصيل المعتادة غير المميزة</h3>
+
+<div class="flow-chart">
+  <div class="flow-step green-fill">المعتادة غير المميزة — ترى الدم بصفة واحدة</div>
+  <div class="flow-arrow">↓</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+    <div class="flow-step" style="border-color:var(--primary-green);font-size:13px;">
+      <strong>ذاكرة للوقت والعدد</strong><br>
+      <span style="font-size:12px;color:#666;">تذكر متى يأتي الحيض وكم عدد أيامه</span>
+    </div>
+    <div class="flow-step" style="border-color:var(--gold);font-size:13px;">
+      <strong>ذاكرة للوقت ناسية للعدد</strong><br>
+      <span style="font-size:12px;color:#666;">تذكر الوقت لكن نسيت عدد الأيام</span>
+    </div>
+    <div class="flow-step" style="border-color:var(--teal);font-size:13px;">
+      <strong>ذاكرة للعدد ناسية للوقت</strong><br>
+      <span style="font-size:12px;color:#666;">تذكر عدد الأيام لكن نسيت الوقت</span>
+    </div>
+    <div class="flow-step" style="border-color:#c0392b;font-size:13px;">
+      <strong>ناسية للوقت والعدد</strong><br>
+      <span style="font-size:12px;color:#666;">المتحيرة المطلقة</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== SECTION 10: BOOK TEXT SUMMARY ===================== -->
+<h1>خلاصة أقسام المستحاضة من نص الكتاب</h1>
+
+<div class="quote-block">
+  <div class="quote-label">عبارة الكتاب</div>
+  إذا عبر الدم خمسة عشر — أي تجاوز خمسة عشر بمعنى اتصل باستحاضتها — فمستحاضة اختلط حيضها بالاستحاضة ترد إلى إحدى صور المستحاضة السبع وهي:
+</div>
+
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>القسم</th>
+      <th>البيان</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>١</td>
+      <td>المبتدأة المميزة</td>
+      <td>أول مرة يأتيها الدم وتراه بصفتين</td>
+    </tr>
+    <tr>
+      <td>٢</td>
+      <td>المبتدأة غير المميزة</td>
+      <td>أول مرة يأتيها الدم وتراه بصفة واحدة</td>
+    </tr>
+    <tr>
+      <td>٣</td>
+      <td>المعتادة المميزة</td>
+      <td>سبق لها حيض وترى الدم بصفتين</td>
+    </tr>
+    <tr>
+      <td>٤</td>
+      <td>المعتادة غير المميزة الذاكرة للوقت والعدد</td>
+      <td>تذكر حيضها وقتاً وقدراً</td>
+    </tr>
+    <tr>
+      <td>٥</td>
+      <td>المتحيرة الذاكرة للوقت الناسية للعدد</td>
+      <td>تذكر الوقت دون العدد</td>
+    </tr>
+    <tr>
+      <td>٦</td>
+      <td>المتحيرة الذاكرة للعدد الناسية للوقت</td>
+      <td>تذكر العدد دون الوقت</td>
+    </tr>
+    <tr>
+      <td>٧</td>
+      <td>المتحيرة مطلقاً</td>
+      <td>الناسية للوقت والعدد</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout-box">
+  <div class="callout-label">ملاحظة</div>
+  <p>المعتادة غير المميزة المراد التي تذكر حيضها وقتاً وقدراً — لم يكتب في الكتاب المعتادة غير المميزة، بل المراد التي تذكر حيضها وقتاً وقدراً بدريل الأقسام الثلاثة الآتية (الأقسام ٥-٧).</p>
+</div>
+
+<div class="benefit-box">
+  <div class="benefit-label">✦ خلاصة الدرس</div>
+  <p>ما وظيفتنا الآن؟ سندرس كل واحدة بحكمها: سندرس المبتدأة المميزة لوحدها والمبتدأة غير المميزة لوحدها والمعتادة المميزة لوحدها... إلخ. هذا الدرس مقدمة للدروس القادمة، لم ندخل في تفصيل أحكام كل قسم بعد.</p>
+</div>
+
+<!-- Closing -->
+<div class="dua-block">
+  والله أعلم<br>
+  صلّ اللهم وسلم وبارك على سيدنا محمد وآله وصحبه أجمعين<br>
+  والحمد لله رب العالمين
+</div>
+
+</div><!-- end main-content -->
+
+</body>
+</html>

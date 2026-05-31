@@ -1,0 +1,5 @@
+📚 To add another book in the future
+1. Create a new folder inside Books/, e.g. Books/My_Book/
+2. Place HTML lecture files with a consistent naming pattern, e.g. my_book_lecture01.html
+3. Add a new entry to the bookRegistry array in lib/data.ts:22-39 with its folder name, slug, titles, file regex pattern, and subtitle class name
+4. Rebuild and redeploy

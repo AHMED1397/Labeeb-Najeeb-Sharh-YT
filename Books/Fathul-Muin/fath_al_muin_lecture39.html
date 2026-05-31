@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf') format('truetype'); font-weight: normal; }
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf') format('truetype'); font-weight: bold; }
+@font-face { font-family: 'NotoNaskh'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf') format('truetype'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+
+body {
+  font-family: 'NotoNaskh', 'Amiri', serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #1a1a2e;
+  direction: rtl;
+  background: #fff;
+  text-align: justify;
+}
+
+.cover-header {
+  background: #1a5632;
+  color: white;
+  padding: 20px 14px;
+  text-align: center;
+  margin: 0 0 12px 0;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px);
+  border-bottom: 4px solid #c8a951;
+}
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 6px; border: none; font-family: 'Amiri', serif; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.9; margin: 4px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.92; margin: 6px 0 2px 0; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .creator { font-size: 11pt; opacity: 0.85; margin-top: 2px; }
+.cover-header .series { font-size: 11pt; opacity: 0.8; margin-top: 4px; }
+
+.toc {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 0 0 12px 0;
+}
+.toc-title {
+  font-family: 'Amiri', serif;
+  font-size: 14pt;
+  color: #1a5632;
+  text-align: center;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #c8a951;
+  padding-bottom: 4px;
+}
+.toc-item {
+  font-size: 10pt;
+  padding: 2px 0;
+  border-bottom: 1px dotted #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+h2.section-title {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0d7c3e;
+  border-bottom: 2px solid #0d7c3e;
+  padding-bottom: 5px;
+  margin: 18px 0 10px;
+}
+
+h3.sub-title {
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: #0a5c2e;
+  margin: 14px 0 8px;
+  padding-right: 10px;
+  border-right: 4px solid #0d7c3e;
+}
+
+h4.minor-title {
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #166534;
+  margin: 10px 0 6px;
+}
+
+p { margin: 5px 0; text-align: justify; }
+
+.definition-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-right: 4px solid #0d7c3e;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.rule-box {
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-right: 4px solid #d97706;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.exception-box {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-right: 4px solid #ea580c;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.evidence-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-right: 4px solid #2563eb;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.issue-box {
+  background: #fdf2f8;
+  border: 1px solid #fbcfe8;
+  border-right: 4px solid #db2777;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.comparison-box {
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  border-right: 4px solid #7c3aed;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.note-box {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-right: 4px solid #0284c7;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.poetry-box {
+  background: #faf5ff;
+  border: 1px solid #e9d5ff;
+  border-right: 4px solid #9333ea;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+  text-align: center;
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  line-height: 2.2;
+}
+
+.key-rule {
+  background: #dcfce7;
+  border: 2px solid #16a34a;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.box-label {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 4px;
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.label-def { background: #0d7c3e; }
+.label-rule { background: #d97706; }
+.label-exc { background: #ea580c; }
+.label-ev { background: #2563eb; }
+.label-issue { background: #db2777; }
+.label-comp { background: #7c3aed; }
+.label-note { background: #0284c7; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 13px;
+  table-layout: fixed;
+}
+
+th {
+  background: #0d7c3e;
+  color: #fff;
+  padding: 6px 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+td {
+  padding: 5px 8px;
+  border: 1px solid #d1d5db;
+  text-align: center;
+  vertical-align: top;
+}
+
+tr:nth-child(even) { background: #f0fdf4; }
+tr:nth-child(odd) { background: #fff; }
+
+.tree-container { margin: 12px 0; text-align: center; }
+.tree-root {
+  display: inline-block;
+  background: linear-gradient(135deg, #0d7c3e, #0a5c2e);
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+.tree-branches { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px; }
+.tree-branch {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  min-width: 80px;
+  text-align: center;
+}
+.tree-branch-num { font-family: 'Amiri', serif; font-weight: bold; color: #0d7c3e; font-size: 14px; }
+.tree-branch-label { font-size: 12px; color: #374151; }
+
+.compare-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.compare-card { flex: 1; min-width: 140px; border-radius: 8px; padding: 8px 10px; text-align: center; }
+.compare-card-green { background: #dcfce7; border: 1px solid #86efac; }
+.compare-card-red { background: #fef2f2; border: 1px solid #fca5a5; }
+.compare-card-gold { background: #fefce8; border: 1px solid #fde68a; }
+.compare-card-blue { background: #eff6ff; border: 1px solid #bfdbfe; }
+.compare-card-title { font-family: 'Amiri', serif; font-weight: bold; font-size: 14px; margin-bottom: 4px; }
+.compare-card-body { font-size: 12px; }
+
+.flow-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px; margin: 8px 0; }
+.flow-box { background: #0d7c3e; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-family: 'Amiri', serif; font-weight: bold; text-align: center; }
+.flow-arrow { font-size: 16px; color: #0d7c3e; font-weight: bold; }
+.flow-result { padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; text-align: center; }
+.flow-pure { background: #dcfce7; border: 1px solid #86efac; color: #166534; }
+.flow-impure { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+.flow-excused { background: #fefce8; border: 1px solid #fde68a; color: #92400e; }
+
+.highlight-green { background: #dcfce7; padding: 1px 4px; border-radius: 3px; }
+.highlight-gold { background: #fefce8; padding: 1px 4px; border-radius: 3px; }
+.highlight-red { background: #fef2f2; padding: 1px 4px; border-radius: 3px; }
+
+.verse-ref { font-family: 'Amiri', serif; font-size: 14px; color: #1e40af; text-align: center; margin: 6px 0; }
+.hadith-ref { font-family: 'Amiri', serif; font-size: 13px; color: #166534; text-align: center; margin: 6px 0; }
+
+.condition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.condition-item { border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.condition-num {
+  display: inline-block; background: #0d7c3e; color: #fff; min-width: 24px; height: 24px;
+  border-radius: 50%; text-align: center; line-height: 24px; font-family: 'Amiri', serif;
+  font-weight: bold; font-size: 12px; margin-left: 6px;
+}
+
+ul { margin: 4px 0; padding-right: 20px; }
+li { margin: 2px 0; }
+
+.level-flow { display: flex; flex-direction: column; gap: 4px; margin: 10px 0; }
+.level-item { display: flex; align-items: stretch; gap: 8px; }
+.level-num { 
+  min-width: 32px; height: 32px; background: #0d7c3e; color: #fff; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; font-family: 'Amiri', serif;
+  font-weight: bold; font-size: 14px; flex-shrink: 0;
+}
+.level-content { flex: 1; border-radius: 8px; padding: 6px 10px; }
+.level-1 { background: #dcfce7; border: 1px solid #86efac; }
+.level-2 { background: #f0fdf4; border: 1px solid #bbf7d0; }
+.level-3 { background: #fefce8; border: 1px solid #fde68a; }
+.level-4 { background: #fff7ed; border: 1px solid #fed7aa; }
+.level-5 { background: #fef2f2; border: 1px solid #fca5a5; }
+.level-6 { background: #fdf2f8; border: 1px solid #fbcfe8; }
+</style>
+</head>
+<body>
+
+<!-- ===== COVER HEADER (تابع) ===== -->
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس التاسع والثلاثون — تابع موالاة الفاتحة وأحكام الشكّ فيها وبدلها</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="creator">تنسيق: أحمد بن إرشاد</div>
+  <div class="series">الفتح على الإمام · السكوت والموالاة · أربع صور لا تقطع الموالاة · أحكام الشكّ في الفاتحة وأركان الصلاة · الترتيب في الفاتحة والتشهد · تجديدات التشهد · مراتب الفاتحة وبدلها</div>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. الصلاة على النبيّ عند سماع اسمه في الصلاة</span></div>
+  <div class="toc-item"><span>٢. الفتح على الإمام وتأثيره على موالاة الفاتحة</span></div>
+  <div class="toc-item"><span>٣. تقديم «سبحان الله» قبل الفتح يقطع الموالاة</span></div>
+  <div class="toc-item"><span>٤. السكوت الطويل في الفاتحة يقطع الموالاة</span></div>
+  <div class="toc-item"><span>٥. أربع صور لا تنقطع فيها موالاة الفاتحة</span></div>
+  <div class="toc-item"><span>٦. الشكّ في البسملة أثناء الفاتحة</span></div>
+  <div class="toc-item"><span>٧. أحكام الشكّ في الفاتحة: قبل التمام وبعده</span></div>
+  <div class="toc-item"><span>٨. وكالفاتحة في ذلك سائر الأركان</span></div>
+  <div class="toc-item"><span>٩. قراءة الفاتحة غافلاً وفطن عند صراط الذين</span></div>
+  <div class="toc-item"><span>١٠. وجوب الترتيب في الفاتحة</span></div>
+  <div class="toc-item"><span>١١. الترتيب في التشهد وتجديداته</span></div>
+  <div class="toc-item"><span>١٢. موالاة التشهد: خلاف ابن حجر والرّملي</span></div>
+  <div class="toc-item"><span>١٣. مراتب الفاتحة وبدلها (ستّ مراتب)</span></div>
+</div>
+
+<!-- ===== 1. الصلاة على النبي عند سماع اسمه ===== -->
+<h2 class="section-title">١. الصلاة على النبيّ عند سماع اسمه في الصلاة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>فلو قرأ المصلي آية أو سمع آية فيها اسم محمد صلّى الله عليه وسلّم لم تندب الصلاة عليه كما أفتى به النموي</b></p>
+</div>
+
+<p>هذه مسألة تُفرّع على ما سبق: هل تُستحبّ الصلاة على النبيّ صلّى الله عليه وسلّم إذا قرأ المصلي آية أو سمع آية فيها اسمه الكريم عليه الصلاة والسلام أثناء الصلاة؟</p>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف في المذهب</span>
+  <p><b>المعتمد في المذهب</b> — وهو المذكور في التحفة والنهاية — أنّه <b>لا تندب</b> الصلاة على النبيّ صلّى الله عليه وسلّم عند سماع اسمه في الصلاة. وهذا ما أفتى به النموي وما اعتمده المصنّف.</p>
+  <p><b>الرأي الآخر</b> — تندب الصلاة على النبيّ صلّى الله عليه وسلّم عند سماع اسمه، لكن <b>ليس بلفظ الاسم</b> أي ليس بلفظ «اللهمّ صلّ على محمّد» بل <b>بلفظ الضمير</b> فيقول: «اللهمّ صلّ عليه». وهذا الرأي ليس هو المعتمد.</p>
+</div>
+
+<h3 class="sub-title">التفريع على الرأي الثاني (غير المعتمد): هل يقاس ببقيّة الأنبياء؟</h3>
+
+<p>بناءً على الرأي الثاني الذي ليس بمعتمد — وهو استحباب الصلاة على النبيّ عند ذكره — هل يقاس ذلك ببقيّة الأنبياء كنوح وإبراهيم وموسى وعيسى عليهم السلام؟</p>
+
+<div class="note-box">
+  <span class="box-label label-note">قياس على الرأي الثاني</span>
+  <p>قال بعض العلماء بناءً على الرأي الثاني: <b>القياس أنها تستحب</b> لغير نبينا أيضاً. فمثلاً في قوله تعالى في سورة الأعلى: <span class="verse-ref">{صُحُفِ إِبْرَاهِيمَ وَمُوسَى}</span>، على الرأي الثاني يقول: «عليهما الصلاة والسلام». لكن هذا التفريع كلّه مبنيّ على الرأي غير المعتمد.</p>
+</div>
+
+<div class="key-rule">
+  المعتمد: لا تندب الصلاة على النبيّ صلّى الله عليه وسلّم عند سماع اسمه في الصلاة<br>
+  وما عدا ذلك تفريع على الرأي غير المعتمد
+</div>
+
+<!-- ===== 2. الفتح على الإمام ===== -->
+<h2 class="section-title">٢. الفتح على الإمام وتأثيره على موالاة الفاتحة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ولا بفتح عليه أي الإمام إذا توقف فيها بقصد القراءة ولو مع الفتح</b></p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">معنى النصّ</span>
+  <p><b>ولا بفتح عليه</b> أي لا تنقطع موالاة الفاتحة بالفتح على الإمام. فمثلاً: كنت أقرأ الفاتحة فقرأت بسم الله الرحمن الرحيم الحمد لله ربّ العالمين الرحمن الرحيم، فأخطأ الإمام في آية وسكت، ففتحت عليه ثمّ واصلت القراءة — <b>الموالاة لا تنقطع</b>، ولا يلزمني استئناف القراءة من أولها.</p>
+  <p><b>إذا توقف فيها</b> أي إذا توقف المأموم في الفاتحة — فالفاعل في قوله «توقف» يعود على المأموم. أي إذا أوقفت أنت المأموم قراءتك للفاتحة وفتحت على الإمام ثمّ واصلت القراءة فالموالاة لا تنقطع.</p>
+  <p><b>بقصد القراءة</b> أي توقف قاصداً مواصلة القراءة، لم يقصد قطع القراءة وإنّما بقصد القراءة والفتح على الإمام.</p>
+</div>
+
+<h3 class="sub-title">شرط عدم قطع الموالاة بالفتح على الإمام</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">شرط المصنّف</span>
+  <p><b>ومحله كما قال شيخنا إن سكت</b> — أي ومحلّ عدم قطع الفتح على الإمام للموالاة: أن يسكت الإمام. وأمّا لو كان الإمام يكرّر الآية يردّدها مرّة بعد مرّة ولا يسكت، ففتحت عليه، فإنّ الموالاة <b>تنقطع</b>.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">الإمام سكت</div>
+    <div class="compare-card-body">الفتح عليه مستحبّ<br>الموالاة <b>لا تنقطع</b><br>تواصل القراءة من حيث توقفت</div>
+  </div>
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">الإمام يكرّر الآية ولم يسكت</div>
+    <div class="compare-card-body">الفتح عليه <b>ليس مستحبّاً</b><br>الموالاة <b>تنقطع</b><br>يلزم استئناف الفاتحة من أولها</div>
+  </div>
+</div>
+
+<h3 class="sub-title">مثال تفصيلي</h3>
+
+<div class="note-box">
+  <span class="box-label label-note">مثال: الإمام يكرّر الآية</span>
+  <p>الإمام يقرأ في سورة الجمعة: <span class="verse-ref">{يُسَبِّحُ لِلَّهِ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ الْمَلِكِ الْقُدُّوسِ الْعَزِيزِ الْحَكِيمِ}</span> لكنه يقرأ «العزيز الحميد» ثمّ يعيد «العزيز الحميد، العزيز الحميد» — وأنت مأموم في نصف الفاتحة. هو يكرّر ولم يسكت. إذا قطعت قراءتك وفتحت عليه، تنقطع الموالاة ويجب عليك استئناف الفاتحة من أولها.</p>
+  <p><b>التعليل:</b> الفتح على الإمام يستحبّ متى؟ إذا سكت الإمام. أمّا ما دام الإمام يكرّر الآية فالفتح عليه ليس مستحبّاً.</p>
+</div>
+
+<!-- ===== 3. تقديم سبحان الله ===== -->
+<h2 class="section-title">٣. تقديم «سبحان الله» قبل الفتح يقطع الموالاة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وتقديم نحو سبحان الله قبل الفتح يقطعها على الأوجه</b></p>
+</div>
+
+<p>بعض المأمومين إذا أخطأ الإمام في القراءة قبل أن يفتح عليه يقول «سبحان الله» ثمّ يفتح على الإمام. يقول المصنّف: إذا قلت «سبحان الله» فإنّ هذا يقطع موالاة الفاتحة، وحينئذ يلزمك استئناف الفاتحة من أولها.</p>
+
+<div class="issue-box">
+  <span class="box-label label-issue">خلاف — على الأوجه</span>
+  <p>قوله <b>«على الأوجه»</b> يشير إلى وجه آخر أنّه <b>لا يقطع</b> الموالاة. لكن الأوجه — أي الأرجح — أنّه يقطعها.</p>
+  <p><b>التعليل:</b> لأنّ قول «سبحان الله» حينئذ بمعنى «تنبّه» — أي هو تنبيه للإمام وليس من القرآن، فيقطع الموالاة.</p>
+</div>
+
+<div class="key-rule">
+  تقديم «سبحان الله» قبل الفتح على الإمام يقطع موالاة الفاتحة على الأوجه<br>
+  لأنّه بمعنى «تنبّه» — وهو كلام أجنبي عن القراءة
+</div>
+
+<!-- ===== 4. السكوت الطويل ===== -->
+<h2 class="section-title">٤. السكوت الطويل في الفاتحة يقطع الموالاة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويعيد الفاتحة بتخلّل سكوت طال فيها بحيث زاد على سكتة الاستراحة بلا عذر فيهما من جهل أو سهو</b></p>
+</div>
+
+<p>إذا سكت سكوتاً طويلاً في أثناء الفاتحة انقطعت الموالاة فيلزمك استئناف الفاتحة من أولها. والسكوت الطويل هو ما زاد على سكتة الاستراحة.</p>
+
+<h3 class="sub-title">تفصيل أحوال السكوت في الفاتحة</h3>
+
+<div class="key-rule">
+  موالاة الفاتحة تنقطع بالسكوت في حالتين:<br>
+  <b>١.</b> إذا طال السكوت<br>
+  <b>٢.</b> إذا قصر السكوت مع نية القطع<br>
+  و<b>لا تنقطع</b> إذا قصر السكوت ولم ينوِ القطع
+</div>
+
+<table>
+  <tr>
+    <th>الصورة</th>
+    <th>المثال</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td><b>سكوت طويل</b></td>
+    <td>قرأ بسم الله الرحمن الرحيم الحمد لله ربّ العالمين الرحمن الرحيم ثمّ سكت سكوتاً طويلاً</td>
+    <td><span class="highlight-red">تنقطع الموالاة — يلزم إعادة الفاتحة من أولها</span></td>
+  </tr>
+  <tr>
+    <td><b>سكوت قصير مع نية القطع</b></td>
+    <td>سكت سكوتاً قصيراً لكن نوَى قطع القراءة</td>
+    <td><span class="highlight-red">تنقطع الموالاة — يلزم إعادة الفاتحة من أولها</span></td>
+  </tr>
+  <tr>
+    <td><b>سكوت قصير بلا نية القطع</b></td>
+    <td>سكت سكوتاً قصيراً ولم ينوِ القطع بل يريد المواصلة</td>
+    <td><span class="highlight-green">لا تنقطع الموالاة — يواصل القراءة</span></td>
+  </tr>
+</table>
+
+<div class="exception-box">
+  <span class="box-label label-exc">عذر الجهل والسهو</span>
+  <p>السكوت الطويل المذكور إنّما يقطع الموالاة إذا كان <b>بلا عذر</b>. أمّا إذا كان السكوت الطويل بعذر — كأن كان جاهلاً أو ساهياً — فإنّه <b>لا يقطع الموالاة</b>.</p>
+</div>
+
+<!-- ===== 5. أربع صور لا تنقطع فيها الموالاة ===== -->
+<h2 class="section-title">٥. أربع صور لا تنقطع فيها موالاة الفاتحة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>فلو كان تخلّل الذكر الأجنبي أو السكوت الطويل سهواً أو جهلاً، أو كان السكوت لتذكّر آية لم يضر، كما لو كرّر آية منها في محلّها، أو عاد إلى ما قرأه قبله واستمرّ</b></p>
+</div>
+
+<p>يذكر المصنّف أربع صور لا تنقطع فيها موالاة الفاتحة. وأداة الشرط «لو» وجوابها في قوله «لم يضر»:</p>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">١</span>
+    <b>تخلّل الذكر الأجنبي أو السكوت الطويل سهواً أو جهلاً</b><br>
+    <span style="font-size:12px;">إذا حصل تخلّل ذكر أجنبي أو سكوت طويل بسبب السهو أو الجهل فإنّه لا يقطع الموالاة — لأنّه معذور</span>
+  </div>
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">٢</span>
+    <b>السكوت لتذكّر آية</b><br>
+    <span style="font-size:12px;">إذا سكت لأجل تذكّر الآية التالية فإنّه لا يقطع الموالاة</span>
+  </div>
+  <div class="condition-item" style="background: #f0fdf4; border: 1px solid #bbf7d0;">
+    <span class="condition-num">٣</span>
+    <b>كرّر آية منها في محلّها</b><br>
+    <span style="font-size:12px;">مثال: قرأ مالك يوم الدين وكرّرها عدّة مرّات في محلّها — لا تنقطع الموالاة، ولو كان التكرار لغير عذر</span>
+  </div>
+  <div class="condition-item" style="background: #f0fdf4; border: 1px solid #bbf7d0;">
+    <span class="condition-num">٤</span>
+    <b>عاد إلى ما قرأه قبله واستمرّ</b><br>
+    <span style="font-size:12px;">مثال: قرأ إلى إيّاك نعبد وإيّاك نستعين ثمّ عاد إلى الرحمن الرحيم مالك يوم الدين إيّاك نعبد وإيّاك نستعين واستمرّ — لا تنقطع الموالاة</span>
+  </div>
+</div>
+
+<div class="issue-box">
+  <span class="box-label label-issue">فرع: لو عاد إلى ما قرأه ولم يستمرّ</span>
+  <p>يفهم من الصورة الرابعة أنّه <b>لو عاد إلى ما قرأه من قبل ولم يستمرّ فإنّه يقطع الموالاة</b>. صورة ذلك: يقرأ بسم الله الرحمن الرحيم الحمد لله ربّ العالمين الرحمن الرحيم مالك يوم الدين إيّاك نعبد وإيّاك نستعين — ثمّ يعود إلى الرحمن الرحيم الرحمن الرحيم فقط ولا يستمرّ — هنا تنقطع الموالاة لأنّه لم يستمرّ بعد العودة.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه: قوله «على الأوجه»</span>
+  <p>قوله في آخر المسألة <b>«على الأوجه»</b> يشير إلى وجود وجه آخر في الصورة الأخيرة — وهو أنّ العود إلى ما قرأه من قبل ولو مع عدم الاستمرار لا يقطع الموالاة. لكنّ الأوجه أنّه يقطعها إذا لم يستمرّ.</p>
+</div>
+
+<!-- ===== 6. الشك في البسملة ===== -->
+<h2 class="section-title">٦. الشكّ في البسملة أثناء الفاتحة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>فرع: لو شكّ في أثناء الفاتحة هل بسمل فأتمّها ثمّ ذكر أنّه بسمل أعاد كلّها على الأوجه</b></p>
+</div>
+
+<h3 class="sub-title">صورة المسألة</h3>
+
+<p>أنا أقرأ الفاتحة: بسم الله الرحمن الرحيم الحمد لله ربّ العالمين الرحمن الرحيم — هنا حصل لي شكّ: هل قرأت البسملة أم لم أقرأها؟ وأنا مستمرّ في القراءة: إيّاك نعبد وإيّاك نستعين اهدنا الصراط المستقيم — قرأت آيتين في أثناء الشكّ ثمّ تيقّنت أنّي قرأت البسملة. فهل أعيد الآيتين اللتين قرأتهما في أثناء الشكّ فقط، أم أعيد الفاتحة كلّها من أولها؟</p>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف بين الفقهاء</span>
+  <p><b>المصنّف (يتبع شيخه ابن حجر):</b> تعيد الفاتحة من أولها — لأنّ الموالاة انقطعت بقراءة الآيتين في أثناء الشكّ، فيلزم استئنافها.</p>
+  <p><b>الخطيب الشربيني:</b> يلزمه إعادة ما قرأه مع الشكّ فقط — أي الآيتين اللتين قرأهما أثناء الشكّ — ولا يلزم إعادة الفاتحة من أولها. <b>ولعلّ هذا أقرب.</b></p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">قوله «على الأوجه»</span>
+  <p>يشير لوجه آخر أنّه لا يعيدها كلّها وإنّما يعيد ما قرأه أثناء الشكّ فقط — وهو ما اعتمده الخطيب الشربيني.</p>
+</div>
+
+<!-- ===== 7. أحكام الشك في الفاتحة ===== -->
+<h2 class="section-title">٧. أحكام الشكّ في الفاتحة: قبل التمام وبعده</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ولا أثر لشكّ في ترك حرف فأكثر من الفاتحة أو آية فأكثر منها بعد تمامها، لأنّ الظاهر حينئذ مضيّها تامة. واستأنف وجوباً إن شكّ فيه قبله أي قبل التمام، كما لو شكّ هل قرأها أو لا، لأنّ الأصل عدم قراءتها</b></p>
+</div>
+
+<h3 class="sub-title">تفصيل أحوال الشكّ في الفاتحة</h3>
+
+<p>الشكّ في الفاتحة أو بعضها له حالتان كبيرتان: إمّا أن يكون الشكّ <b>بعد تمامها</b> (قبل الركوع)، وإمّا أن يكون <b>قبل تمامها</b> (في أثنائها). وكلّ حالة تتفرّع إلى: الشكّ في <b>أصل</b> الفاتحة أو الشكّ في <b>بعضها</b> (حرف أو آية).</p>
+
+<table>
+  <tr>
+    <th>متى حصل الشكّ</th>
+    <th>في ماذا الشكّ</th>
+    <th>الحكم</th>
+    <th>التعليل</th>
+  </tr>
+  <tr>
+    <td rowspan="2"><b>بعد تمام الفاتحة</b><br>(قبل الركوع)</td>
+    <td><b>في أصل الفاتحة</b><br>(هل قرأها أو لا؟)</td>
+    <td><span class="highlight-red">يلزمه قراءتها</span></td>
+    <td>لأنّ الأصل عدم الفعل</td>
+  </tr>
+  <tr>
+    <td><b>في حرف أو آية</b><br>(هل قرأ حرفاً أو آية؟)</td>
+    <td><span class="highlight-green">لا أثر لشكّه</span></td>
+    <td>لأنّ الشكّ في بعضها مما يكثر ولا ينضبط، فالأصل أنها مضت تامة على الصحة</td>
+  </tr>
+  <tr>
+    <td rowspan="2"><b>قبل تمام الفاتحة</b><br>(في أثنائها)</td>
+    <td><b>طال زمن الشكّ</b></td>
+    <td><span class="highlight-red">يلزمه استئنافها من أولها</span></td>
+    <td>لأنّ الموالاة انقطعت</td>
+  </tr>
+  <tr>
+    <td><b>قصر زمن الشكّ</b></td>
+    <td><span class="highlight-gold">يقرأ المشكوك فيه وما بعده فقط</span></td>
+    <td>لم تنقطع الموالاة فيقرأ من موضع الشكّ</td>
+  </tr>
+</table>
+
+<h3 class="sub-title">مثال تفصيلي</h3>
+
+<div class="note-box">
+  <span class="box-label label-note">أمثلة توضيحية</span>
+  <p><b>شكّ بعد التمام في أصل الفاتحة:</b> قبل أن يركع شكّ هل قرأ الفاتحة أو لم يقرأها أصلاً → يلزمه قراءتها لأنّ الأصل عدم الفعل.</p>
+  <p><b>شكّ بعد التمام في حرف:</b> بعد إتمام الفاتحة وقبل الركوع شكّ هل قرأ «الحمد لله» أو «الهمد لله» → لا يلزمه شيء لأنّ الأصل أنها مضت تامة.</p>
+  <p><b>شكّ قبل التمام وطال الزمن:</b> أثناء القراءة شكّ في حرف وطال زمن الشكّ → يلزمه استئناف الفاتحة من أولها لانقطاع الموالاة.</p>
+  <p><b>شكّ قبل التمام وقصر الزمن:</b> أثناء القراءة شكّ هل قرأ «الحمد» أو «الهمد» وقصر زمن الشكّ → يقرأ من موضع الشكّ وما بعده ولا يلزمه من أولها.</p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الإحالة إلى مكان آخر في الكتاب</span>
+  <p>أشار المصنّف إلى هذه المسألة إشارة في باب سنن الوضوء بقوله: <b>«فيه قياس ما يأتي في الشكّ بعد الفاتحة وقبل الركوع»</b> وذلك في صفحة ٢٦ السطر الرابع من الأسفل. وستأتي هذه المسألة مفصّلة في صفحة ٦٩ على طبعة الشيخ قاسم النوري.</p>
+  <p><b>فائدة:</b> وظيفة طالب العلم أن يكتب الإحالة ويربطها بموضع التفصيل ليفهمها عند المذاكرة وعند التدريس.</p>
+</div>
+
+<!-- ===== 8. وكالفاتحة في ذلك سائر الأركان ===== -->
+<h2 class="section-title">٨. وكالفاتحة في ذلك سائر الأركان</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وكالفاتحة في ذلك سائر الأركان، فلو شكّ في أصل السجود مثلاً أتى به، أو بعده في نحو وضع اليد لم يلزمه شيء</b></p>
+</div>
+
+<p>هذا التقسيم الذي ذكرناه في الفاتحة — من التفصيل بين الشكّ في أصل الركن والشكّ في صفته، وبين الشكّ قبل التمام وبعده — <b>ليس خاصّاً بالفاتحة بل يجري في جميع أركان الصلاة</b>.</p>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف: هل يجري في جميع الأركان؟</span>
+  <p><b>العلامة ابن حجر:</b> هذه القاعدة في <b>كلّ أركان الصلاة</b> — في الفاتحة والتشهد والسجود وغيرها.</p>
+  <p><b>العلامة الرّملي:</b> ليس في جميع الأركان، وإنّما هذه القاعدة تكون في <b>الفاتحة والتشهد فقط</b>.</p>
+  <p><b>المصنّف</b> يتبع هنا ابن حجر فيعمّم الحكم لسائر الأركان.</p>
+</div>
+
+<h3 class="sub-title">تطبيق القاعدة على السجود</h3>
+
+<table>
+  <tr>
+    <th>متى الشكّ</th>
+    <th>في ماذا الشكّ</th>
+    <th>المثال</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td><b>بعد التمام</b></td>
+    <td><b>في أصل السجود</b></td>
+    <td>بعد السجود شكّ هل سجد أو لم يسجد</td>
+    <td><span class="highlight-red">يلزمه السجود</span> — كالفاتحة</td>
+  </tr>
+  <tr>
+    <td><b>بعد التمام</b></td>
+    <td><b>في صفة السجود</b></td>
+    <td>بعد السجود شكّ هل سجد على الجبهة أو على العمامة، هل وضع يده أو لم يضع</td>
+    <td><span class="highlight-green">لا يلزمه شيء</span> — كالشكّ في حرف بعد التمام</td>
+  </tr>
+  <tr>
+    <td><b>قبل التمام</b></td>
+    <td><b>في صفة السجود</b></td>
+    <td>أثناء السجود شكّ هل وضع يده أو لا</td>
+    <td><span class="highlight-gold">يلزمه الفعل الآن</span> — كقراءة الحرف المشكوك فيه قبل التمام</td>
+  </tr>
+</table>
+
+<h3 class="sub-title">تطبيق القاعدة على التشهد</h3>
+
+<div class="note-box">
+  <span class="box-label label-note">أمثلة على التشهد</span>
+  <p><b>شكّ بعد التشهد وقبل السلام في أصله:</b> شكّ هل قرأ التشهد الأخير أو لم يقرأه → <b>يلزمه قراءته</b> كما لو شكّ في أصل الفاتحة.</p>
+  <p><b>شكّ بعد التشهد وقبل السلام في بعضه:</b> شكّ هل قرأ «ورحمة الله» أو لم يقرأها → <b>لا يلزمه شيء</b> لأنّه شكّ في حرف بعد التمام.</p>
+</div>
+
+<div class="key-rule">
+  القاعدة العامّة في الشكّ في أركان الصلاة:<br>
+  <b>شكّ بعد التمام في الأصل</b> → يلزمه الفعل<br>
+  <b>شكّ بعد التمام في الصفة</b> → لا أثر له<br>
+  <b>شكّ قبل التمام وطال</b> → استئناف من الأول<br>
+  <b>شكّ قبل التمام وقصر</b> → يفعل المشكوك فيه وما بعده
+</div>
+
+<!-- ===== 9. قراءة الفاتحة غافلاً ===== -->
+<h2 class="section-title">٩. قراءة الفاتحة غافلاً وفطن عند صراط الذين</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ولو قرأها غافلاً ففطن عند صراط الذين لزمه استئنافها</b></p>
+</div>
+
+<p>صورة المسألة: كان يصلّي وذهنه مشغول بأشياء أخرى، فهو يقرأ الفاتحة غافلاً لا يدري هل قرأها أم لا. ووصل إلى قوله تعالى <span class="verse-ref">{صِرَاطَ الَّذِينَ}</span> ولم يتيقّن قراءتها — أي يشكّ هل قرأها أو لم يقرأها.</p>
+
+<div class="key-rule">
+  حكم هذه الصورة: <b>يلزمه استئنافها</b> — أي إعادتها من أولها<br>
+  التعليل: لأنّ الأصل عدم الفعل
+</div>
+
+<!-- ===== 10. وجوب الترتيب في الفاتحة ===== -->
+<h2 class="section-title">١٠. وجوب الترتيب في الفاتحة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويجب الترتيب في الفاتحة بأن يأتي بها على نظمها المعروف</b></p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">معنى الترتيب</span>
+  <p>يجب الترتيب في الفاتحة بأن يأتي بها على نظمها المعروف: بسم الله الرحمن الرحيم الحمد لله ربّ العالمين الرحمن الرحيم... إلى آخرها. فلا يجوز تغيير ترتيب الآيات.</p>
+</div>
+
+<h3 class="sub-title">الترتيب في التشهد</h3>
+
+<div class="exception-box">
+  <span class="box-label label-exc">استثناء: التشهد</span>
+  <p><b>لا في التشهد</b> — أي لا يجب الترتيب في التشهد. يعني لو قرأ: السلام عليك أيّها النبيّ ورحمة الله وبركاته، السلام علينا وعلى عباد الله الصالحين، التحيات المباركات الصلوات الطيّبات لله — صحّ التشهد ولا يجب الترتيب.</p>
+  <p><b>ما لم يُخلّ بالمعنى</b> — أي بشرط ألاّ يكون ترك الترتيب مؤدّياً إلى فساد المعنى. فإذا أخلّ بالمعنى:</p>
+  <ul>
+    <li><b>وكان عالماً عامداً</b> → <span class="highlight-red">بطلت صلاته</span></li>
+    <li>مثال الإخلال: «أشهد لا إله إلاّ الله» بدل «أشهد أن لا إله إلاّ الله» — تغيّر المعنى</li>
+  </ul>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">الترتيب في الفاتحة</div>
+    <div class="compare-card-body"><b>واجب</b> مطلقاً<br>يجب الإتيان بها على نظمها المعروف</div>
+  </div>
+  <div class="compare-card compare-card-blue">
+    <div class="compare-card-title">الترتيب في التشهد</div>
+    <div class="compare-card-body"><b>غير واجب</b> ما لم يُخلّ بالمعنى<br>فإن أخلّ بالمعنى مع العلم والعمد → تبطل الصلاة<br>وإن لم يُخلّ بالمعنى → مستحبّ</div>
+  </div>
+</div>
+
+<h3 class="sub-title">مسألة: إضافة «سيدنا» قبل «محمد» في التشهد</h3>
+
+<p>لو قال: «أشهد أن لا إله إلاّ الله وأشهد أنّ <b>سيدنا</b> محمّداً رسول الله» — فإضافة «سيدنا» هذه استحبّها العلامة الرّملي، وبعضهم قال لا بأس بها، وبعضهم قال غير مستحبة — <b>ثلاثة أقوال في المذهب الشافعي</b>.</p>
+
+<!-- ===== 11. الترتيب في التشهد وتجديداته ===== -->
+<h2 class="section-title">١١. الترتيب في التشهد وتجديداته</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>لكن يشترط فيه رعاية تجديدات وموالاة</b> — أي يشترط في التشهد رعاية التجديدات والموالاة.</p>
+</div>
+
+<h3 class="sub-title">تجديدات التشهد</h3>
+
+<p>التشهد له صيغة مجزئة وصيغة كاملة:</p>
+
+<table>
+  <tr>
+    <th>الصيغة</th>
+    <th>النصّ</th>
+    <th>عدد التجديدات</th>
+  </tr>
+  <tr>
+    <td><b>المجزئة</b></td>
+    <td>التحيات لله الصلوات الطيّبات (مستحب: التحيات المباركات الصلوات الطيّبات لله) — السلام عليك أيّها النبيّ ورحمة الله وبركاته — السلام علينا وعلى عباد الله الصالحين — أشهد أن لا إله إلاّ الله وأنّ محمّداً رسول الله</td>
+    <td><b>١٦</b> تجديدة</td>
+  </tr>
+  <tr>
+    <td><b>الكاملة</b></td>
+    <td>التحيات المباركات الصلوات الطيّبات لله — السلام عليك أيّها النبيّ ورحمة الله وبركاته — السلام علينا وعلى عباد الله الصالحين — أشهد أن لا إله إلاّ الله وأشهد أنّ سيدنا محمّداً رسول الله</td>
+    <td><b>٢١</b> تجديدة</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">ما هي التجديدات؟</span>
+  <p>التجديدات هي المواضع التي يُجدّد فيها التشهد — أي الأجزاء المتمايزة التي يُعاد فيها التشهّد بتجديد النيّة والصيغة. وعددها ١٦ في الصيغة المجزئة و٢١ في الصيغة الكاملة.</p>
+</div>
+
+<!-- ===== 12. موالاة التشهد ===== -->
+<h2 class="section-title">١٢. موالاة التشهد: خلاف ابن حجر والرّملي</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>لكن يشترط فيه رعاية تجديدات وموالاة كالفاتحة</b></p>
+</div>
+
+<p>المصنّف يشترط الموالاة في التشهد كما في الفاتحة. وهذا يقتضي أنّه لو سكت سكوتاً طويلاً في أثناء التشهد تنقطع الموالاة ويلزمه استئنافه.</p>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف بين العلمين</span>
+  <p><b>العلامة الرّملي (وهو ما اعتمده المصنّف هنا):</b> الموالاة في التشهد <b>شرط</b> — فلو سكت سكوتاً طويلاً في أثناء التشهد يلزمه استئنافه من أوله.</p>
+  <p><b>العلامة ابن حجر (شيخ المصنّف):</b> الموالاة في التشهد <b>مستحبّة</b> لا شرط — فلو سكت سكوتاً طويلاً بين أجزاء التشهد لا يلزمه الاستئناف.</p>
+</div>
+
+<div class="issue-box">
+  <span class="box-label label-issue">مسألة: خروج المصنّف عن معتمد شيخه</span>
+  <p>عادة المصنّف أنّه يتبع معتمد شيخه ابن حجر، لكن هنا خرج عن هذه العادة واعتمد قول الرّملي بأنّ الموالاة في التشهد شرط. قال الشيخ: <b>هذه مسألة رقم ١٣ التي يخرج فيها المصنّف على معتمد شيخه</b>.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">ابن حجر</div>
+    <div class="compare-card-body">الموالاة في التشهد <b>مستحبّة</b><br>لا يلزم الاستئناف عند السكوت</div>
+  </div>
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">الرّملي (واعتمده المصنّف)</div>
+    <div class="compare-card-body">الموالاة في التشهد <b>شرط</b><br>يلزم الاستئناف عند السكوت الطويل</div>
+  </div>
+</div>
+
+<!-- ===== 13. مراتب الفاتحة وبدلها ===== -->
+<h2 class="section-title">١٣. مراتب الفاتحة وبدلها (ستّ مراتب)</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ومن جهل جميع الفاتحة ولم يمكنه تعلّمها قبل ضيق الوقت ولا قراءتها في نحو مصحف، لزمه قراءة سبع آيات ولو متفرّقة، لا ينقص حروفها عن حروف الفاتحة وهي بالبسملة والتشديدات مئة وستّة وخمسون حرفاً بإثبات ألف مالك. ولو قدر على بعض الفاتحة كرّره ليبلغ قدرها أن لم يقدر على بدل</b></p>
+</div>
+
+<h3 class="sub-title">المراتب الستّ لبدل الفاتحة</h3>
+
+<p>إذا عجز المسلم عن قراءة الفاتحة فإنّه ينتقل في المراتب التالية بالترتيب:</p>
+
+<div class="level-flow">
+  <div class="level-item">
+    <div class="level-num">١</div>
+    <div class="level-content level-1">
+      <b>قراءة الفاتحة</b> — هذا أوّل ما يجب عليه. فإن عجز انتقل إلى المرتبة الثانية.
+    </div>
+  </div>
+  <div class="level-item">
+    <div class="level-num">٢</div>
+    <div class="level-content level-2">
+      <b>قراءة بعض الفاتحة مع بدل من القرآن لباقيها</b> — إذا عجز عن بعض الفاتحة وليس عن كلّها، يقرأ ما يحفظه من الفاتحة ويأتي ببدل من القرآن عمّا لا يحفظه. مثال: يحفظ بسم الله الرحمن الرحيم الحمد لله ربّ العالمين الرحمن الرحيم فقط، فيقرأ هذا ويأتي ببدل من القرآن عن الباقي.
+    </div>
+  </div>
+  <div class="level-item">
+    <div class="level-num">٣</div>
+    <div class="level-content level-3">
+      <b>تكرار بعض الفاتحة ليبلغ قدرها</b> — إذا كان يحفظ بعض الفاتحة ولا يحفظ شيئاً آخر من القرآن، يكرّر ما يحفظه حتى يبلغ قدر الفاتحة. مثال: يحفظ بسم الله الرحمن الرحيم فقط، يكرّرها حتى يبلغ قدر الفاتحة.
+    </div>
+  </div>
+  <div class="level-item">
+    <div class="level-num">٤</div>
+    <div class="level-content level-4">
+      <b>قراءة سبع آيات من القرآن</b> — إذا لم يحفظ الفاتحة أصلاً ويحفظ غيرها من القرآن، يلزمه قراءة سبع آيات. ويُشترط: (أ) أن تكون سبع آيات ولو متفرّقة وليست على ترتيب المصحف، (ب) أن لا ينقص عدد حروفها عن حروف الفاتحة وهي ١٥٦ حرفاً بإثبات ألف مالك (أو ١٥٥ بقراءة ملك يوم الدين).
+    </div>
+  </div>
+  <div class="level-item">
+    <div class="level-num">٥</div>
+    <div class="level-content level-5">
+      <b>سبعة أذكار أو أدعية</b> — إذا كان لا يحفظ شيئاً من القرآن لا الفاتحة ولا غيرها، يأتي بسبعة أذكار أو أدعية.
+    </div>
+  </div>
+  <div class="level-item">
+    <div class="level-num">٦</div>
+    <div class="level-content level-6">
+      <b>الوقوف وجوباً قدر قراءة الفاتحة</b> — إذا كان لا يحفظ شيئاً لا من القرآن ولا من الأذكار، يقف وجوباً قدر قراءة الفاتحة (قراءة متوسطة).
+    </div>
+  </div>
+</div>
+
+<h3 class="sub-title">دليل اشتراط سبع آيات</h3>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p>قال الله تعالى: <span class="verse-ref">{وَلَقَدْ آتَيْنَاكَ سَبْعًا مِّنَ الْمَثَانِي وَالْقُرْآنَ الْعَظِيمَ}</span> — فالله عزّ وجلّ خصّ هذا العدد للفاتحة، فلذلك لا بدّ من سبع آيات.</p>
+</div>
+
+<h3 class="sub-title">شروط البدل (سبع آيات)</h3>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">١</span>
+    <b>أن تكون سبع آيات</b><br>
+    <span style="font-size:12px;">لا تكفي آية واحدة ولو كانت طويلة كآية الدّين</span>
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٢</span>
+    <b>ولو متفرّقة</b><br>
+    <span style="font-size:12px;">لا يشترط الترتيب على ترتيب المصحف — يجوز آية من البقرة وأخرى من آل عمران وهكذا</span>
+  </div>
+  <div class="condition-item" style="background: #fff7ed; border: 1px solid #fed7aa;">
+    <span class="condition-num">٣</span>
+    <b>لا ينقص حروفها عن حروف الفاتحة</b><br>
+    <span style="font-size:12px;">وهي بالبسملة والتشديدات ١٥٦ حرفاً بإثبات ألف مالك، أو ١٥٥ بقراءة ملك يوم الدين</span>
+  </div>
+  <div class="condition-item" style="background: #f0fdf4; border: 1px solid #bbf7d0;">
+    <span class="condition-num">٤</span>
+    <b>التفريق جائز ولو مع القدرة على التوالي</b><br>
+    <span style="font-size:12px;">المعتمد: جواز أن تكون الآيات متفرّقة ولو كان يستطيع أن يأتي بآيات متوالية. خلافاً للإمام الرافعي الذي اشترط التوالي عند القدرة</span>
+  </div>
+</div>
+
+<h3 class="sub-title">تنبيه: ضبط كلمة «مصحف»</h3>
+
+<div class="note-box">
+  <span class="box-label label-note">ضبط لغوي</span>
+  <p>كلمة <b>«مصحف»</b> مثلّثة الميم — يصحّ أن تقول: مَصحف ومُصحف ومِصحف، كله صحيح. وكذلك مخبَرة ومخبِرة، ومقبرة ومقبرة — يصحّ بالفتح والضمّ والكسر.</p>
+</div>
+
+<h3 class="sub-title">تنبيه: قراءة «أن» بدل «وأن» في المتن</h3>
+
+<div class="issue-box">
+  <span class="box-label label-issue">ضبط النصّ</span>
+  <p>قوله: <b>«وأن لم يقدر على بدل»</b> — الصواب <b>حذف الواو</b>، فيكون: «أن لم يقدر على بدل». وهذا لأنّه عطف على شرط محذوف، أي: إن قدر على بدل فعل، وإن لم يقدر على بدل كرّر بعض الفاتحة. فالواو زائدة في بعض النسخ والصواب حذفها.</p>
+</div>
+
+<div class="flow-row">
+  <div class="flow-box">يعرف الفاتحة</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-pure">١. يقرأ الفاتحة</div>
+</div>
+<div class="flow-row">
+  <div class="flow-box" style="background:#d97706;">عجز عن بعضها</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-excused">٢. يقرأ ما حفظ + بدل من القرآن</div>
+</div>
+<div class="flow-row">
+  <div class="flow-box" style="background:#d97706;">لا يحفظ غير الفاتحة</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-excused">٣. يكرّر بعض الفاتحة ليبلغ قدرها</div>
+</div>
+<div class="flow-row">
+  <div class="flow-box" style="background:#ea580c;">لا يحفظ الفاتحة</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-impure">٤. سبع آيات من القرآن</div>
+</div>
+<div class="flow-row">
+  <div class="flow-box" style="background:#db2777;">لا يحفظ قرآناً</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-impure">٥. سبعة أذكار أو أدعية</div>
+</div>
+<div class="flow-row">
+  <div class="flow-box" style="background:#7c3aed;">لا يحفظ شيئاً</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-impure">٦. يقف قدر قراءة الفاتحة</div>
+</div>
+
+</body>
+</html>

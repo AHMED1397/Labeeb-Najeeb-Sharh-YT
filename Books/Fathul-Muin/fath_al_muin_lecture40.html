@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf') format('truetype'); font-weight: normal; }
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf') format('truetype'); font-weight: bold; }
+@font-face { font-family: 'NotoNaskh'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf') format('truetype'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+
+body {
+  font-family: 'NotoNaskh', 'Amiri', serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #1a1a2e;
+  direction: rtl;
+  background: #fff;
+  text-align: justify;
+}
+
+.cover-page {
+  width: 100%; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: linear-gradient(135deg,#0d4a2e,#0a5c2e,#0d7c3e,#1a8f4e,#2ea06e);
+  text-align: center; color: white; padding: 40px 20px;
+  page-break-after: always;
+}
+
+.toc {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 0 0 12px 0;
+}
+.toc-title {
+  font-family: 'Amiri', serif;
+  font-size: 14pt;
+  color: #1a5632;
+  text-align: center;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #c8a951;
+  padding-bottom: 4px;
+}
+.toc-item {
+  font-size: 10pt;
+  padding: 2px 0;
+  border-bottom: 1px dotted #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+h2.section-title {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0d7c3e;
+  border-bottom: 2px solid #0d7c3e;
+  padding-bottom: 5px;
+  margin: 18px 0 10px;
+}
+
+h3.sub-title {
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: #0a5c2e;
+  margin: 14px 0 8px;
+  padding-right: 10px;
+  border-right: 4px solid #0d7c3e;
+}
+
+h4.minor-title {
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #166534;
+  margin: 10px 0 6px;
+}
+
+p { margin: 5px 0; text-align: justify; }
+
+.definition-box {
+  background: #f0fdf4; border: 1px solid #bbf7d0; border-right: 4px solid #0d7c3e;
+  padding: 10px 14px; margin: 10px 0; border-radius: 6px;
+}
+
+.rule-box {
+  background: #fefce8; border: 1px solid #fde68a; border-right: 4px solid #d97706;
+  padding: 10px 14px; margin: 10px 0; border-radius: 6px;
+}
+
+.exception-box {
+  background: #fff7ed; border: 1px solid #fed7aa; border-right: 4px solid #ea580c;
+  padding: 10px 14px; margin: 10px 0; border-radius: 6px;
+}
+
+.evidence-box {
+  background: #eff6ff; border: 1px solid #bfdbfe; border-right: 4px solid #2563eb;
+  padding: 10px 14px; margin: 10px 0; border-radius: 6px;
+}
+
+.issue-box {
+  background: #fdf2f8; border: 1px solid #fbcfe8; border-right: 4px solid #db2777;
+  padding: 10px 14px; margin: 10px 0; border-radius: 6px;
+}
+
+.comparison-box {
+  background: #f5f3ff; border: 1px solid #ddd6fe; border-right: 4px solid #7c3aed;
+  padding: 10px 14px; margin: 10px 0; border-radius: 6px;
+}
+
+.note-box {
+  background: #f0f9ff; border: 1px solid #bae6fd; border-right: 4px solid #0284c7;
+  padding: 10px 14px; margin: 10px 0; border-radius: 6px;
+}
+
+.poetry-box {
+  background: #faf5ff; border: 1px solid #e9d5ff; border-right: 4px solid #9333ea;
+  padding: 10px 14px; margin: 10px 0; border-radius: 6px;
+  text-align: center; font-family: 'Amiri', serif; font-size: 15px; line-height: 2.2;
+}
+
+.key-rule {
+  background: #dcfce7; border: 2px solid #16a34a;
+  padding: 10px 14px; margin: 10px 0; border-radius: 8px;
+  text-align: center; font-weight: bold; font-size: 15px;
+}
+
+.box-label {
+  font-family: 'Amiri', serif; font-weight: bold; font-size: 13px;
+  margin-bottom: 4px; display: inline-block; padding: 1px 8px;
+  border-radius: 4px; color: #fff;
+}
+
+.label-def { background: #0d7c3e; }
+.label-rule { background: #d97706; }
+.label-exc { background: #ea580c; }
+.label-ev { background: #2563eb; }
+.label-issue { background: #db2777; }
+.label-comp { background: #7c3aed; }
+.label-note { background: #0284c7; }
+
+table {
+  width: 100%; border-collapse: collapse; margin: 10px 0;
+  font-size: 13px; table-layout: fixed;
+}
+th {
+  background: #0d7c3e; color: #fff; padding: 6px 8px;
+  font-family: 'Amiri', serif; font-weight: bold; text-align: center;
+}
+td {
+  padding: 5px 8px; border: 1px solid #d1d5db;
+  text-align: center; vertical-align: top;
+}
+tr:nth-child(even) { background: #f0fdf4; }
+tr:nth-child(odd) { background: #fff; }
+
+.tree-container { margin: 12px 0; text-align: center; }
+.tree-root {
+  display: inline-block;
+  background: linear-gradient(135deg, #0d7c3e, #0a5c2e);
+  color: #fff; padding: 6px 18px; border-radius: 8px;
+  font-family: 'Amiri', serif; font-weight: bold; font-size: 15px;
+}
+.tree-branches { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px; }
+.tree-branch {
+  background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px;
+  padding: 6px 12px; min-width: 80px; text-align: center;
+}
+.tree-branch-num { font-family: 'Amiri', serif; font-weight: bold; color: #0d7c3e; font-size: 14px; }
+.tree-branch-label { font-size: 12px; color: #374151; }
+
+.compare-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.compare-card { flex: 1; min-width: 140px; border-radius: 8px; padding: 8px 10px; text-align: center; }
+.compare-card-green { background: #dcfce7; border: 1px solid #86efac; }
+.compare-card-red { background: #fef2f2; border: 1px solid #fca5a5; }
+.compare-card-gold { background: #fefce8; border: 1px solid #fde68a; }
+.compare-card-blue { background: #eff6ff; border: 1px solid #bfdbfe; }
+.compare-card-title { font-family: 'Amiri', serif; font-weight: bold; font-size: 14px; margin-bottom: 4px; }
+.compare-card-body { font-size: 12px; }
+
+.flow-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px; margin: 8px 0; }
+.flow-box { background: #0d7c3e; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-family: 'Amiri', serif; font-weight: bold; text-align: center; }
+.flow-arrow { font-size: 16px; color: #0d7c3e; font-weight: bold; }
+
+.highlight-green { background: #dcfce7; padding: 1px 4px; border-radius: 3px; }
+.highlight-gold { background: #fefce8; padding: 1px 4px; border-radius: 3px; }
+.highlight-red { background: #fef2f2; padding: 1px 4px; border-radius: 3px; }
+
+.verse-ref { font-family: 'Amiri', serif; font-size: 14px; color: #1e40af; text-align: center; margin: 6px 0; }
+.hadith-ref { font-family: 'Amiri', serif; font-size: 13px; color: #166534; text-align: center; margin: 6px 0; }
+
+.condition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.condition-item { border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.condition-num {
+  display: inline-block; background: #0d7c3e; color: #fff; min-width: 24px; height: 24px;
+  border-radius: 50%; text-align: center; line-height: 24px; font-family: 'Amiri', serif;
+  font-weight: bold; font-size: 12px; margin-left: 6px;
+}
+
+ul { margin: 4px 0; padding-right: 20px; }
+li { margin: 2px 0; }
+
+.dua-box {
+  background: #fffbeb; border: 2px solid #c8a951; border-radius: 10px;
+  padding: 12px 16px; margin: 10px 0; text-align: center;
+  font-family: 'Amiri', serif; font-size: 15px; line-height: 2;
+  color: #1a1a2e;
+}
+.dua-label {
+  display: inline-block; background: linear-gradient(135deg, #c8a951, #e8c84a);
+  color: #1a1a2e; padding: 2px 12px; border-radius: 4px;
+  font-weight: bold; font-size: 12px; margin-bottom: 6px;
+}
+
+.pronunciation-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 10px 0; }
+.pronunciation-item { border-radius: 8px; padding: 8px 10px; text-align: center; font-size: 14px; }
+.pron-best { background: #dcfce7; border: 2px solid #16a34a; }
+.pron-ok { background: #fefce8; border: 1px solid #fde68a; }
+.pron-bad { background: #fef2f2; border: 1px solid #fca5a5; }
+</style>
+</head>
+<body>
+
+<!-- ===== FULL-PAGE COVER (NEW LESSON) ===== -->
+<div class="cover-page">
+  <div style="background:linear-gradient(90deg,#c8a951,#e8c84a,#c8a951); height:6px; width:80%; border-radius:3px; margin-bottom:30px;"></div>
+  <h1 style="font-family:'Amiri',serif; font-size:28pt; color:white; margin:10px 0; border:none;">شرح فتح المعين</h1>
+  <div style="font-size:16pt; color:#c8a951; margin:8px 0;">للعلامة الفقيه المليباري</div>
+  <div style="background:rgba(255,255,255,0.15); border-radius:12px; padding:12px 30px; margin:15px 0;">
+    <div style="font-size:20pt; font-family:'Amiri',serif; font-weight:bold;">الدرس الأربعون — سنن الفاتحة</div>
+  </div>
+  <div style="font-size:14pt; color:#a8e6c3; margin:10px 0;">د. لبيب نجيب عبدالله</div>
+  <div style="font-size:12pt; color:rgba(255,255,255,0.8); margin-top:5px;">تنسيق: أحمد بن إرشاد</div>
+  <div style="background:linear-gradient(90deg,#c8a951,#e8c84a,#c8a951); height:6px; width:80%; border-radius:3px; margin-top:30px;"></div>
+  <div style="font-size:10pt; color:rgba(255,255,255,0.6); margin-top:15px;">سنة الافتتاح · شروطها الخمسة · سنة التعوذ · مقارنة بينهما · الوقف على رؤوس الآيات · سنة التأمين · سكوت الإمام في الجهرية</div>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. مقدمة: سنن الفاتحة وتصنيفها</span></div>
+  <div class="toc-item"><span>٢. سنة الافتتاح: حكمها ومكانتها</span></div>
+  <div class="toc-item"><span>٣. شروط استحباب دعاء الافتتاح الخمسة</span></div>
+  <div class="toc-item"><span>٤. المأموم يؤمّن مع الإمام ثم يقرأ الاستفتاح</span></div>
+  <div class="toc-item"><span>٥. مسألة فوت السورة: المصلحة المتحقّقة والموهومة</span></div>
+  <div class="toc-item"><span>٦. أفضل أدعية الاستفتاح وأسباب تفضيلها</span></div>
+  <div class="toc-item"><span>٧. إسراع المأموم وعدم تأنيث الضمير في دعاء الاستفتاح</span></div>
+  <div class="toc-item"><span>٨. إطالة دعاء الافتتاح وشروط المحصورين الأربعة</span></div>
+  <div class="toc-item"><span>٩. دعاء «اللهم باعد بيني وبين خطاياي»</span></div>
+  <div class="toc-item"><span>١٠. سنة التعوذ: وقتها وأحكامها</span></div>
+  <div class="toc-item"><span>١١. مقارنة بين سنة الافتتاح وسنة التعوذ</span></div>
+  <div class="toc-item"><span>١٢. الوقف على رؤوس الآيات</span></div>
+  <div class="toc-item"><span>١٣. سنة التأمين: نطقها ومعناها</span></div>
+  <div class="toc-item"><span>١٤. أحكام الجهر بالتأمين والمأموم مع إمامه</span></div>
+  <div class="toc-item"><span>١٥. فرع: سكوت الإمام في الجهرية لقراءة المأموم الفاتحة</span></div>
+</div>
+
+<!-- ===== 1. مقدمة: سنن الفاتحة ===== -->
+<h2 class="section-title">١. مقدمة: سنن الفاتحة وتصنيفها</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«وسنّ وقيل يجب، قوله بفرض أو نفل، ما عدا صلاة جنازة، افتتاح أي دعاؤه سرًا إن أمن فوات الوقت وغلب على ظنّ المأموم إدراك ركوع الإمام ما لم يشرع في تعوذ أو قراءة ولو سهواً أو يجلس مأموم مع إمامه»</b></p>
+</div>
+
+<p>شرع المصنّف رحمه الله تعالى في الكلام على سنن الفاتحة. وبعض العلماء يقول إنّ للفاتحة سنن اثنتان قبلها واثنتان بعدها:</p>
+
+<div class="tree-container">
+  <div class="tree-root">سنن الفاتحة (عند بعض العلماء)</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a;">
+      <div class="tree-branch-num">قبلها</div>
+      <div class="tree-branch-label">١. الافتتاح<br>٢. التعوذ</div>
+    </div>
+    <div class="tree-branch" style="background: #f0f9ff; border: 1px solid #bae6fd;">
+      <div class="tree-branch-num">بعدها</div>
+      <div class="tree-branch-label">٣. التأمين<br>٤. قراءة السورة</div>
+    </div>
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه</span>
+  <p>هذا الكلام فيه تجوّج — لأنّ الافتتاح ليس سنّة للفاتحة وإنّما هو سنّة <b>للصلاة</b>، ولأنّ قراءة السورة أيضاً لا تتعلّق مباشرة بالفاتحة. فعلى كلّ حال، بعد أن تكلم المصنّف على الفاتحة وشروطها كالترتيب والموالاة، شرع في الكلام على السنن.</p>
+</div>
+
+<!-- ===== 2. سنة الافتتاح ===== -->
+<h2 class="section-title">٢. سنة الافتتاح: حكمها ومكانتها</h2>
+
+<div class="definition-box">
+  <span class="box-label label-def">تعريف</span>
+  <p><b>الافتتاح</b> سمّي بذلك لأنّه مفتتح الصلاة — يُقال بعد تكبيرة الإحرام. وهو دعاء الاستفتاح.</p>
+</div>
+
+<h3 class="sub-title">حكم دعاء الافتتاح</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">الخلاف في الحكم</span>
+  <p>قال المصنّف: <b>«وسنّ وقيل يجب»</b> — إشارة إلى أنّ من أهل العلم من يقول بوجوب دعاء الافتتاح، وهي رواية عن الإمام أحمد <b>ليست معتمدة في مذهبه</b>. وإلا فالمعتمد في المذاهب الأربعة أنّ دعاء الافتتاح <b>مستحبّ</b>.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">المعتمد في المذاهب الأربعة</div>
+    <div class="compare-card-body">دعاء الافتتاح <b>مستحبّ</b><br>ليس واجباً</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">رواية عن الإمام أحمد</div>
+    <div class="compare-card-body">يُقال بوجوبه<br>لكنّها <b>غير معتمدة</b> في مذهبه</div>
+  </div>
+</div>
+
+<p>وقوله <b>«بفرض أو نفل»</b> يفيد أنّ دعاء الافتتاح مطلوب في صلاة الفرض وفي صلاة النفل على حدّ سواء.</p>
+
+<div class="key-rule">
+  دعاء الافتتاح مستحبّ بخمسة شروط<br>
+  في الفرض والنفل جميعاً
+</div>
+
+<!-- ===== 3. شروط الاستفتاح الخمسة ===== -->
+<h2 class="section-title">٣. شروط استحباب دعاء الافتتاح الخمسة</h2>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #fef2f2; border: 1px solid #fca5a5;">
+    <span class="condition-num">١</span>
+    <b>ألا يكون في صلاة جنازة</b><br>
+    <span style="font-size:12px;">لا يُستحبّ في صلاة الجنازة طلباً للتخفيف</span>
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٢</span>
+    <b>ألا يخاف فوت الوقت</b><br>
+    <span style="font-size:12px;">إن أمن فوات الوقت يُستحبّ، وإن خاف خروج الوقت فلا يُسنّ</span>
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٣</span>
+    <b>ألا يخاف فوت الفاتحة</b><br>
+    <span style="font-size:12px;">أن يغلب على ظنّ المأموم إدراك الفاتحة قبل ركوع الإمام</span>
+  </div>
+  <div class="condition-item" style="background: #f0f9ff; border: 1px solid #bae6fd;">
+    <span class="condition-num">٤</span>
+    <b>ألا يشرع في تعوّذ أو قراءة</b><br>
+    <span style="font-size:12px;">ولو سهواً — فإذا شرع فلا يعود للاستفتاح</span>
+  </div>
+  <div class="condition-item" style="background: #f0f9ff; border: 1px solid #bae6fd;">
+    <span class="condition-num">٥</span>
+    <b>ألا يجلس مأموم مع إمامه</b><br>
+    <span style="font-size:12px;">أي ما لم يجلس المأموم مع الإمام — فلو جلس فلا يُسنّ له الاستفتاح</span>
+  </div>
+</div>
+
+<h3 class="sub-title">الشرط الأوّل: ألا يكون في صلاة جنازة</h3>
+
+<p>لا يُستحبّ دعاء الافتتاح في صلاة الجنازة كما لا تُستحبّ قراءة السورة بعد الفاتحة فيها، طلباً <b>للتخفيف</b>.</p>
+
+<div class="exception-box">
+  <span class="box-label label-exc">استثناء — العلاّمة ابن حجر</span>
+  <p>استثنى العلاّمة ابن حجر ما لو كانت الصلاة على ميت <b>بعد أن دُفن</b> — كما جاء في الأحاديث أنّ النبيّ صلّى الله عليه وسلّم صلّى على المرأة التي كانت تقوم المسجد بعد أن دُفنت، وفي صحيح البخاري صلّى على قبر بعد أن دُفن بشهر. فقال: إذا صلّى على قبر أو صلّى على غائب <b>فيُستحبّ دعاء الاستفتاح</b>، لأنّه حينئذ لا يُطلب التخفيف.</p>
+</div>
+
+<h3 class="sub-title">الشرط الثاني: أمن فوات الوقت</h3>
+
+<p>إنّما يُستحبّ دعاء الافتتاح إذا أمن خروج الوقت. فإذا خاف أنّه إذا أتى بدعاء الافتتاح أن يخرج وقت الصلاة بأن يقع بعضها خارج الوقت، <b>فإنّه لا يُسنّ له الإتيان بدعاء الافتتاح</b>.</p>
+
+<h3 class="sub-title">الشرط الثالث: ألا يخاف فوت الفاتحة</h3>
+
+<div class="issue-box">
+  <span class="box-label label-issue">تصحيح العبارة</span>
+  <p>عبارة المصنّف: <b>«وغلب على ظنّ المأموم إدراك ركوع الإمام»</b> — <span class="highlight-red">هذه العبارة فيها خطأ</span>. صواب العبارة: <b>«وغلب على ظنّ المأموم إدراك الفاتحة قبل ركوع الإمام»</b> — سقطت كلمتان: <b>«الفاتحة قبل»</b>. فالمأموم إذا قرأ دعاء الاستفتاح وخاف أن تفوته الفاتحة، نقول: لا يُسنّ لك قراءته، تقرأ الفاتحة مباشرة.</p>
+</div>
+
+<h3 class="sub-title">الشرط الرابع: ألا يشرع في تعوّذ أو قراءة</h3>
+
+<p>لو كبّر تكبيرة الإحرام ثمّ شرع مباشرة في التعوّذ (أعوذ بالله من الشيطان الرجيم) فلا يُسنّ له أن يعود إلى دعاء الاستفتاح. <b>وحتى وإن شرع في التعوّذ سهواً</b> فلا يعود. ومثل ذلك ما لو شرع في القراءة — كبر مباشرة ثمّ بسم الله الرحمن الرحيم — فات دعاء الاستفتاح بل وفات التعوّذ أيضاً فلا يعود لهما بعد أن شرع في القراءة <b>سواء شرع عمداً أو سهواً</b>.</p>
+
+<h3 class="sub-title">الشرط الخامس: ألا يجلس مأموم مع إمامه</h3>
+
+<p>يسنّ دعاء الاستفتاح إذا أدركت الإمام قائماً. لكن لو جئت والإمام جالس — مثلاً الإمام في التشهد — فإنّك تكبّر تكبيرة الإحرام وتجلس معه في التشهد، فإذا قمت بعد ذلك <b>فلا يُستحبّ لك الإتيان بدعاء الاستفتاح</b> لأنّك أدركت الإمام وهو جالس.</p>
+
+<div class="key-rule">
+  الشروط الخمسة لاستحباب دعاء الافتتاح:<br>
+  ١. في غير صلاة الجنازة &nbsp; ٢. أمن فوت الوقت &nbsp; ٣. أمن فوت الفاتحة<br>
+  ٤. لم يشرع في تعوّذ أو قراءة &nbsp; ٥. لم يجلس مأموم مع إمامه
+</div>
+
+<!-- ===== 4. المأموم يؤمّن ===== -->
+<h2 class="section-title">٤. المأموم يؤمّن مع الإمام ثم يقرأ الاستفتاح</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«وإن أمن مع تأمينه»</b> — هذا غاية لبيان الاستحباب. أي يُستحبّ دعاء الاستفتاح حتّى ولو أمن المأموم مع إمامه.</p>
+</div>
+
+<h3 class="sub-title">صورة المسألة</h3>
+
+<p>جئت والإمام في تأمين الفاتحة — أنت كبّرت الله أكبر والإمام يقول آمين. تكبّر الله أكبر وتقول آمين مع الإمام. بعد أن تؤمّن مع الإمام تقرأ دعاء الاستفتاح. فتأمينك أيّها المأموم مع الإمام <b>لا يفوت عليك دعاء الاستفتاح</b>.</p>
+
+<div class="note-box">
+  <span class="box-label label-note">تقدير الكلام</span>
+  <p>«ويسنّ الافتتاح للمأموم وإن أمن مع إمامه» — أي ويسنّ الافتتاح للمأموم وإن أدرك تأمين إمامه، فيؤمّن مع إمامه وبعد تأمينه يقرأ دعاء الاستفتاح.</p>
+</div>
+
+<!-- ===== 5. مسألة فوت السورة ===== -->
+<h2 class="section-title">٥. مسألة فوت السورة: المصلحة المتحقّقة والموهومة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«وإن خاف المأموم فوت سورة حيث تُسنّ له»</b> — أي وإن خاف المأموم أن تفوته السورة التي بعد الفاتحة إذا قرأ دعاء الاستفتاح.</p>
+</div>
+
+<h3 class="sub-title">صورة المسألة</h3>
+
+<p>المسبوق جاء في صلاة الظهر وقد كبّر الإمام تكبيرة الإحرام. يقول المسبوق: لو قرأت دعاء الاستفتاح والفاتحة لا أستطيع أن أدرك السورة التي بعد الفاتحة. فهل أقرأ دعاء الاستفتاح وتفوتني السورة، أو أقرأ الفاتحة مباشرة لأدرك السورة التي بعدها؟</p>
+
+<div class="key-rule">
+  القاعدة: المصلحة المتحقّقة أولى بالمراعاة من المصلحة الموهومة<br>
+  <b>إدراك الافتتاح محقّق — وفوات السورة موهوم وقد لا يقع</b>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">مصلحة دعاء الافتتاح</div>
+    <div class="compare-card-body"><b>مصلحة متحقّقة</b><br>موجودة الآن<br>ف تُراعى وتُقدّم</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">مصلحة قراءة السورة</div>
+    <div class="compare-card-body"><b>مصلحة موهومة</b><br>قد تحصل وقد لا تحصل<br>قد يستطيع أن يأتي بالسورة القصيرة</div>
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">مرجع الفتوى</span>
+  <p>كما ذكر شيخنا في شرح العباب — والعباب مختصر لكتاب روضة الطالبين للإمام النووي، اختصرها المزجّد في كتاب اسمه العباب، وقام العلاّمة ابن حجر بشرح العباب في كتاب سمّاه الإيعاب (حوالي خمسة عشر مجلداً لم يُطبع بعد). وقال: إنّ إدراك الافتتاح محقّق وفوات السورة موهوم وقد لا يقع.</p>
+</div>
+
+<h3 class="sub-title">متى تُسنّ قراءة السورة للمأموم؟</h3>
+
+<p>تُسنّ قراءة السورة للمأموم في <b>الصلاة السرية</b> مطلقاً، وفي <b>الصلاة الجهرية إذا كان لا يسمع قراءة الإمام</b>.</p>
+
+<table>
+  <tr>
+    <th>نوع الصلاة</th>
+    <th>المأموم يسمع قراءة الإمام</th>
+    <th>المأموم لا يسمع قراءة الإمام</th>
+  </tr>
+  <tr>
+    <td><b>الصلاة السرية</b></td>
+    <td><span class="highlight-green">تُسنّ قراءة السورة</span></td>
+    <td><span class="highlight-green">تُسنّ قراءة السورة</span></td>
+  </tr>
+  <tr>
+    <td><b>الصلاة الجهرية</b></td>
+    <td><span class="highlight-gold">لا تُسنّ قراءة السورة</span></td>
+    <td><span class="highlight-green">تُسنّ قراءة السورة</span></td>
+  </tr>
+</table>
+
+<!-- ===== 6. أفضل أدعية الاستفتاح ===== -->
+<h2 class="section-title">٦. أفضل أدعية الاستفتاح وأسباب تفضيلها</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«وورد فيه أدعية وأفضلها ما رواه مسلم وهي: وجهت وجهي»</b></p>
+</div>
+
+<div class="dua-box">
+  <div class="dua-label">أفضل أدعية الاستفتاح</div>
+  <p><b>«وجّهت وجهي للذي فطر السماوات والأرض حنيفاً مسلماً وما أنا من المشركين، إن صلاتي ونسكي ومحياي ومماتي لله ربّ العالمين لا شريك له وبذلك أُمرت وأنا من المسلمين»</b></p>
+</div>
+
+<h3 class="sub-title">لماذا هذا الدعاء أفضلها؟</h3>
+
+<table>
+  <tr>
+    <th>السبب</th>
+    <th>البيان</th>
+  </tr>
+  <tr>
+    <td><b>أوّلاً</b></td>
+    <td>لأنّه ثابت في <b>صحيح مسلم</b></td>
+  </tr>
+  <tr>
+    <td><b>ثانياً</b></td>
+    <td>لأنّ النبيّ صلّى الله عليه وسلّم <b>كان يقوله في صلاته</b> (واظب عليه)</td>
+  </tr>
+  <tr>
+    <td><b>ثالثاً</b></td>
+    <td>لأنّه تضمّن <b>الإخلاص في العبادة</b> لله عزّ وجلّ</td>
+  </tr>
+</table>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">مقارنة مع حديث أبي هريرة</span>
+  <p>بعضهم فضّل حديث <b>«اللهم باعد بيني وبين خطاياي»</b> — وهذا الحديث هو <b>الدعاء الوحيد من أدعية الاستفتاح الذي اتّفق عليه الشيخان</b> (البخاري ومسلم). لكنّ الشافعيّة قدّموا حديث «وجّهت وجهي» لأنّ النبيّ صلّى الله عليه وسلّم واظب عليه، ولأنّه تضمّن الإخلاص في العبادة.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">عدد أدعية الاستفتاح</span>
+  <p>أدعية الاستفتاح قريب من عشرين دعاءً، والوحيد الذي اتّفق عليه البخاري ومسلم هو حديث أبي هريرة: «اللهم باعد بيني وبين خطاياي كما باعدت بين المشرق والمغرب».</p>
+</div>
+
+<!-- ===== 7. إسراع المأموم ===== -->
+<h2 class="section-title">٧. إسراع المأموم وعدم تأنيث الضمير في دعاء الاستفتاح</h2>
+
+<h3 class="sub-title">إسراع المأموم الذي يسمع قراءة إمامه</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«ويسنّ لمأموم يسمع قراءة إمامه الإسراع به»</b> — أي يُسنّ للمأموم الذي يسمع قراءة إمامه أن يُسرع بدعاء الاستفتاح حتى لا يبطئ القراءة فيه والإمام يقرأ الفاتحة.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">المأموم يسمع قراءة إمامه</div>
+    <div class="compare-card-body"><b>يُسنّ له الإسراع</b><br>بدعاء الاستفتاح<br>حتى لا تفوته الفاتحة</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">المأموم لا يسمع قراءة إمامه</div>
+    <div class="compare-card-body"><b>لا يُسنّ له الإسراع</b><br>سواء كان بعيداً عن إمامه<br>أو به صمم لا يسمع</div>
+  </div>
+</div>
+
+<h3 class="sub-title">تأنيث الضمير في دعاء الاستفتاح</h3>
+
+<div class="issue-box">
+  <span class="box-label label-issue">مسألة: المرأة في دعاء الاستفتاح</span>
+  <p>المرأة عندما تدعو بهذا الدعاء في الصلاة — هل تؤنّث الضمير فتقول «حنيفة مسلمة» أو تبقي الضمير كما هو «حنيفاً مسلماً»؟</p>
+  <p><b>الجواب:</b> قال الفقهاء: <b>لا تؤنّث الضمير</b> — تبقي الدعاء كما هو، قياساً على معنى «الشخص» لأنّ الشخص يُطلق على الذكر والأنثى.</p>
+</div>
+
+<!-- ===== 8. إطالة دعاء الافتتاح ===== -->
+<h2 class="section-title">٨. إطالة دعاء الافتتاح وشروط المحصورين الأربعة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«ويزيد ندباً المنفرد وإمام محصورين ما ورد في دعاء الافتتاح»</b> — أي يُستحبّ للمنفرد وإمام قوم محصورين أن يزيدوا من أدعية الاستفتاح ما ورد.</p>
+</div>
+
+<p>إذا قرّر إنسان أن يطيل دعاء الافتتاح فيأتي بهذا الدعاء ويضيف إليه أدعية أخرى — هل يُستحبّ له ذلك؟ الجواب: <b>يُستحبّ إذا كان منفرداً أو إمام قوم محصورين</b>. والمحصورون هم الذين لا ينضمّ إليهم أحد بعد دخولهم في الصلاة، حتى وإن كانوا ألفاً.</p>
+
+<h3 class="sub-title">شروط المحصورين الأربعة</h3>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #fef2f2; border: 1px solid #fca5a5;">
+    <span class="condition-num">١</span>
+    <b>غير أرقاء ولا نساء متزوّجات</b><br>
+    <span style="font-size:12px;">العبيد سيّادهم يطلبونهم للعمل، والنساء مأمورات بطاعة أزواجهنّ</span>
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٢</span>
+    <b>رضوا بالتطويل لفظاً</b><br>
+    <span style="font-size:12px;">لا يكفي سكوتهم — بناءً على قاعدة الإمام الشافعي: «لا يُنسب لساكت قول»</span>
+  </div>
+  <div class="condition-item" style="background: #f0f9ff; border: 1px solid #bae6fd;">
+    <span class="condition-num">٣</span>
+    <b>لم يطرأ غيرهم وإن قلّ حضوره</b><br>
+    <span style="font-size:12px;">حتى لو كان الذي سيأتي يأتي نادراً فلا يُطيل</span>
+  </div>
+  <div class="condition-item" style="background: #f0fdf4; border: 1px solid #bbf7d0;">
+    <span class="condition-num">٤</span>
+    <b>لم يكن المسجد مطروقاً</b><br>
+    <span style="font-size:12px;">المسجد المطروق = على الطريق ينزل فيه المسافرون ويمرّ فيه الناس</span>
+  </div>
+</div>
+
+<h3 class="sub-title">تفصيل الشرط الأوّل: الأرقاء والنساء المتزوّجات</h3>
+
+<p>لماذا؟ لأنّ العبيد سيّادهم يطلبونهم للعمل فلا يتأخّرون في الصلاة، ولأنّ النساء مأمورات بطاعة أزواجهنّ فلا يتأخّرون.</p>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه: الموظفون اليوم</span>
+  <p>هل مثل الأرقاء والنساء المتزوّجات اليوم الموظفون؟ الموظف الآن مستأجر في العمل — صاحب العمل استأجره. فكذلك الموظف <b>لحقّ من استأجره</b>، فلا يُسنّ الإطالة به لوجود حقّ الغير.</p>
+</div>
+
+<h3 class="sub-title">تفصيل الشرط الثاني: الرضا لفظاً</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف في إثبات الرضا</span>
+  <p>كيف نعرف رضاهم؟ هل يكفي سكوتهم أم لا بدّ من اللفظ؟</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">العلامة ابن حجر والمصنّف</div>
+    <div class="compare-card-body"><b>لا بدّ من اللفظ</b><br>لا يكفي السكوت<br>مبني على قاعدة الإمام الشافعي:<br>«لا يُنسب لساكت قول»</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">الرملي</div>
+    <div class="compare-card-body"><b>يكفي السكوت</b><br>إذا سكتوا كفى<br>خلافاً لابن حجر</div>
+  </div>
+</div>
+
+<div class="key-rule">
+  قاعدة فقهية: «لا يُنسب لساكت قول» — الإمام الشافعي<br>
+  الساكت لم يقل شيئاً — فلا بدّ من اللفظ لإثبات الرضا
+</div>
+
+<!-- ===== 9. دعاء اللهم باعد ===== -->
+<h2 class="section-title">٩. دعاء «اللهم باعد بيني وبين خطاياي»</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«ومنه ما رواه الشيخان: اللهم باعد بيني وبين خطاياي»</b></p>
+</div>
+
+<div class="dua-box">
+  <div class="dua-label">الدعاء الوحيد المتّفق عليه في الاستفتاح</div>
+  <p><b>«اللهم باعد بيني وبين خطاياي كما باعدت بين المشرق والمغرب، اللهم نقّني من خطاياي كما يُنقّى الثوب الأبيض من الدنس، اللهم اغسلني من خطاياي بالماء والثلج والبَرد»</b></p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">فضيلة هذا الدعاء</span>
+  <p>هذا الحديث هو <b>الدعاء الوحيد من أدعية الاستفتاح الذي أخرجه البخاري ومسلم</b> معاً — حديث أبي هريرة رضي الله عنه. ولذلك هو أصحّ أسانيد أدعية الاستفتاح.</p>
+</div>
+
+<!-- ===== 10. سنة التعوذ ===== -->
+<h2 class="section-title">١٠. سنة التعوّذ: وقتها وأحكامها</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«فبعد افتتاح وتكبير صلاة عيد إن أتى بهما يُسنّ تعوّذ»</b></p>
+</div>
+
+<h3 class="sub-title">متى يأتي بسنة التعوّذ؟</h3>
+
+<div class="flow-row">
+  <div class="flow-box">تكبيرة الإحرام</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box" style="background:#0a5c2e;">دعاء الاستفتاح</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box" style="background:#d97706;">التعوّذ</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">القراءة</div>
+</div>
+
+<p>سنة التعوّذ تكون <b>بعد دعاء الافتتاح</b>، وفي صلاة العيد تكون بعد التكبيرات الزوائد. وأمّا الافتتاح في صلاة العيد فيكون بعد تكبيرة الإحرام.</p>
+
+<div class="note-box">
+  <span class="box-label label-note">ترتيب صلاة العيد</span>
+  <p>تكبّر للإحرام → تقرأ دعاء الافتتاح → تأتي بالتكبيرات الزوائد → تأتي بالتعوّذ. أي أنّ الضمير في «إن أتى بهما» يعود على <b>الافتتاح</b> وعلى <b>التكبيرات الزوائد</b>.</p>
+</div>
+
+<h3 class="sub-title">أحكام التعوّذ</h3>
+
+<table>
+  <tr>
+    <th>الحكم</th>
+    <th>التفصيل</th>
+  </tr>
+  <tr>
+    <td><b>يُسنّ ولو في صلاة الجنازة</b></td>
+    <td>بخلاف دعاء الافتتاح الذي لا يُسنّ في صلاة الجنازة — أمّا التعوّذ فيُسنّ فيها</td>
+  </tr>
+  <tr>
+    <td><b>سرّاً ولو في الجهرية</b></td>
+    <td>يكون التعوّذ سرّاً مطلقاً سواء كانت الصلاة جهرية أو سرية</td>
+  </tr>
+  <tr>
+    <td><b>وإن جلس مع إمامه</b></td>
+    <td>لو جلس مأموم مع إمامه ثمّ قام — يُسنّ له التعوّذ (بخلاف الافتتاح)</td>
+  </tr>
+  <tr>
+    <td><b>في كلّ ركعة</b></td>
+    <td>لأنّه حقّ للقراءة — لكنّه <b>أكد في الركعة الأولى</b></td>
+  </tr>
+  <tr>
+    <td><b>ما لم يشرع في قراءة ولو سهواً</b></td>
+    <td>لو كبّر وشرع في القراءة مباشرة فات محلّ التعوّز</td>
+  </tr>
+  <tr>
+    <td><b>يُكره تركه</b></td>
+    <td>سواء في الركعة الأولى أو في غيرها</td>
+  </tr>
+</table>
+
+<div class="key-rule">
+  صاحب الزّبد: «وكلّ ركعة تعوّذ يُسر»<br>
+  التعوّذ في كلّ ركعة سرّاً — وهو أكد في الركعة الأولى
+</div>
+
+<!-- ===== 11. مقارنة الافتتاح والتعوذ ===== -->
+<h2 class="section-title">١١. مقارنة بين سنة الافتتاح وسنة التعوّذ</h2>
+
+<table>
+  <tr>
+    <th>وجه المقارنة</th>
+    <th>الافتتاح</th>
+    <th>التعوّذ</th>
+  </tr>
+  <tr>
+    <td><b>محمِله</b></td>
+    <td>حقّ <b>للصلاة</b></td>
+    <td>حقّ <b>للقراءة</b></td>
+  </tr>
+  <tr>
+    <td><b>في صلاة الجنازة</b></td>
+    <td><span class="highlight-red">لا يُسنّ</span></td>
+    <td><span class="highlight-green">يُسنّ</span></td>
+  </tr>
+  <tr>
+    <td><b>لو جلس مأموم مع إمامه</b></td>
+    <td><span class="highlight-red">لا يُسنّ</span></td>
+    <td><span class="highlight-green">يُسنّ</span></td>
+  </tr>
+  <tr>
+    <td><b>الركعات</b></td>
+    <td>الركعة الأولى فقط</td>
+    <td>كلّ ركعة</td>
+  </tr>
+  <tr>
+    <td><b>وقته في صلاة العيد</b></td>
+    <td>بعد تكبيرة الإحرام</td>
+    <td>بعد التكبيرات الزوائد</td>
+  </tr>
+</table>
+
+<h3 class="sub-title">لو تعارضتا: أيّهما أفضل؟</h3>
+
+<p>لو أنّ الإنسان ضاق عليه الوقت وأراد أحد الأمرين — إمّا دعاء الافتتاح أو التعوّذ — فأيّهما يُقدّم؟</p>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">تقديم الافتتاح (الأقرب)</div>
+    <div class="compare-card-body">
+      <b>أولاً:</b> الافتتاح قيل بوجوبه — والقول بوجوبه أقوى من القول بوجوب التعوّذ<br>
+      <b>ثانياً:</b> الافتتاح أكثر عملاً — والقاعدة: ما كان أكثر عملاً كان أعظم أجراً<br>
+      <b>الدليل:</b> فصل الوتر أفضل من وصله لأنّه أكثر عملاً
+    </div>
+  </div>
+  <div class="compare-card compare-card-blue">
+    <div class="compare-card-title">تقديم التعوّذ (قول آخر)</div>
+    <div class="compare-card-body">
+      بعض الفقهاء قال يُقدّم التعوّذ<br>
+      المسألة واسعة من ملاح العلم
+    </div>
+  </div>
+</div>
+
+<div class="key-rule">
+  القاعدة: «ما كان أكثر عملاً كان أعظم أجراً»<br>
+  ولذلك كان فصل الوتر أفضل من وصله
+</div>
+
+<!-- ===== 12. الوقف على رؤوس الآيات ===== -->
+<h2 class="section-title">١٢. الوقف على رؤوس الآيات</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«ويسنّ وقف على رأس كلّ آية حتّى على آخر البسملة خلافاً لجمع، منها أي من الفاتحة، وإن تعلّقت بما بعدها للاتّباع»</b></p>
+</div>
+
+<h3 class="sub-title">الأصل: الوقف عند رؤوس الآيات</h3>
+
+<p>اتّباعاً لهدي النبيّ صلّى الله عليه وسلّم حيث كان من هديه أنّه يقف عند رؤوس الآيات — فيقرأ: {بسم الله الرحمن الرحيم} يقف، {الحمد لله ربّ العالمين} يقف، وهكذا.</p>
+
+<h3 class="sub-title">الوقف على آخر البسملة</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف بين الشافعية</span>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">المعتمد: يُسنّ الوقف</div>
+    <div class="compare-card-body">يُستحبّ الوقف عند آخر البسملة<br>فاتّباع هدي النبيّ ﷺ أولى<br>فيقرأ: بسم الله الرحمن الرحيم — يقف</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">قول آخر: وصل البسملة بالحمد</div>
+    <div class="compare-card-body">قالوا: المستحبّ وصل البسملة بالحمد<br>ليُظهر أنّ البسملة آية من الفاتحة<br>لكن جاء في ذلك حديث ضعيف جدّاً</div>
+  </div>
+</div>
+
+<h3 class="sub-title">الوقف وإن تعلّقت الآية بما بعدها</h3>
+
+<p>يُسنّ الوقف على رؤوس الآيات <b>حتّى وإن كانت الآية متعلّقة بما بعدها</b> — للاتّباع. لكن <b>الأولى ألا يقف</b> على {أنعمت عليهم} لأنّها ليست رأس آية عند الشافعية، بل يصلها بما بعدها: {صراط الذين أنعمت عليهم غير المغضوب عليهم}.</p>
+
+<div class="note-box">
+  <span class="box-label label-note">خلاف في عدّ آيات الفاتحة</span>
+  <p><b>عند الشافعية:</b> البسملة آية من الفاتحة، و{صراط الذين أنعمت عليهم غير المغضوب عليهم ولا الضالّين} آية واحدة. فالوقف على {أنعمت عليهم} ليس بوقف ولا منتهى آية، فإن وقف عليه لم تُسنّ الإعادة من أوّل الآية.</p>
+  <p><b>عند من لا يرى البسملة آية:</b> يجعلون {صراط الذين أنعمت عليهم} آية، و{غير المغضوب عليهم} آية سادسة، فيكون الوقف على {أنعمت عليهم} وقفاً على رأس آية. لكن المصاحف المنتشرة في العالم الإسلامي جعلوها آية واحدة.</p>
+</div>
+
+<!-- ===== 13. سنة التأمين ===== -->
+<h2 class="section-title">١٣. سنة التأمين: نطقها ومعناها</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«ويسنّ تأمين أي قوله آمين بالتخفيف والمدّ»</b></p>
+</div>
+
+<h3 class="sub-title">نطق آمين</h3>
+
+<p>الأفصح والأشهر في نطق «آمين» أن تكون <b>الميم مخفّفة</b> و<b>الألف ممدودة</b> — آمين. ويجوز بدون مدّ (أمين)، ويجوز بتشديد الميم مع التخفيف.</p>
+
+<div class="pronunciation-grid">
+  <div class="pronunciation-item pron-best">
+    <b>آمين</b><br>
+    <span style="font-size:11px;">بالمدّ والتخفيف — <b>الأفصح</b></span>
+  </div>
+  <div class="pronunciation-item pron-ok">
+    <b>أمين</b><br>
+    <span style="font-size:11px;">بالقصر والتخفيف — جائز</span>
+  </div>
+  <div class="pronunciation-item pron-ok">
+    <b>أمّين</b><br>
+    <span style="font-size:11px;">بالقصر والتشديد — جائز</span>
+  </div>
+  <div class="pronunciation-item pron-ok">
+    <b>آمّين</b><br>
+    <span style="font-size:11px;">بالمدّ والتشديد — جائز</span>
+  </div>
+</div>
+
+<h3 class="sub-title">معنى آمين</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">تعريف</span>
+  <p><b>آمين</b> اسم فعل — بمعنى <b>«استجب»</b> — مبني على الفتح ويسكن عند الوقف. واسم الفعل هو ما دلّ على معنى الفعل ولم يقبل علامته.</p>
+</div>
+
+<h3 class="sub-title">قراءة آمين بمعنى «قاصدين»</h3>
+
+<div class="issue-box">
+  <span class="box-label label-issue">مسألة: نيّة المعنى</span>
+  <p>لو قرأها بمعنى <b>«قاصدين إليك يا ربّ»</b> — فصحّت صلاته، لأنّ معنى «قاصدين إليك فإنّك لا تخيب من قصدك» معنى صحيح.</p>
+  <p>أمّا لو قرأها <b>بغير إرادة المعنى السابق</b> — كأن أراد معنى آخر — <b>بطلت صلاته</b>.</p>
+</div>
+
+<h3 class="sub-title">زيادة «يا ربّ العالمين» بعد التأمين</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«وحسن زيادة ربّ العالمين عقبها في الأُمّ أي الفاتحة ولو خارج الصلاة»</b></p>
+</div>
+
+<div class="dua-box">
+  <div class="dua-label">ما يُقال بعد الفاتحة</div>
+  <p><b>«آمين يا ربّ العالمين»</b></p>
+</div>
+
+<p>هذا جاء عن الإمام الشافعي نصّ عليه في «الأُمّ»، ونقله عنه الإمام النووي في الروضة. ويُستحبّ حتّى خارج الصلاة — فمن قرأ الفاتحة خارج الصلاة يُستحبّ له أن يقول: آمين يا ربّ العالمين.</p>
+
+<h3 class="sub-title">بعد سكتة لطيفة</h3>
+
+<p>يقول آمين <b>بعد أن يسكت سكتة لطيفة</b> بقدر التنفّس، بشرط أن لا يتلفّظ بشيء بين الفاتحة وآمين.</p>
+
+<div class="exception-box">
+  <span class="box-label label-exc">استثناء</span>
+  <p><b>«ما لم يتلفّظ بشيء سوى ربّ اغفر لي»</b> — أي لو تلفّظ بشيء بين الفاتحة وآمين فات محلّ التأمين، <b>إلا إذا تلفّظ بقوله «ربّ اغفر لي»</b> فلا تفوت سنة التأمين.</p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p>لما رُوي في السنن عن وائل بن حجر رضي الله عنه أنّ رسول الله صلّى الله عليه وسلّم حين قرأ {غير المغضوب عليهم ولا الضالّين} قال: <b>«ربّ اغفر لي»</b> ثمّ أمّن. هذا الحديث رواه البيهقي:</p>
+  <ul>
+    <li><b>ضعّفه</b> بعضهم — ومنهم الحافظ القسطلاني في شرحه على صحيح البخاري</li>
+    <li><b>حسّنه</b> العلاّمة ابن حجر في تحفة المحتاج</li>
+  </ul>
+  <p>وبناءً على تحسينه — يُستحبّ أن يقول «ربّ اغفر لي» بين الفاتحة وآمين، وحتى على القول بضعفه فمن فضائل الأعمال يُستحبّ.</p>
+</div>
+
+<!-- ===== 14. الجهر بالتأمين ===== -->
+<h2 class="section-title">١٤. أحكام الجهر بالتأمين والمأموم مع إمامه</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«ويسنّ الجهر به في الجهرية حتّى للمأموم لقراءة إمامه تبعاً له»</b></p>
+</div>
+
+<h3 class="sub-title">الجهر بالتأمين</h3>
+
+<table>
+  <tr>
+    <th>المصلّي</th>
+    <th>الجهر في الجهرية</th>
+    <th>البيان</th>
+  </tr>
+  <tr>
+    <td><b>الإمام</b></td>
+    <td><span class="highlight-green">يجهر — مقطوع به</span></td>
+    <td>لا خلاف فيه</td>
+  </tr>
+  <tr>
+    <td><b>المنفرد</b></td>
+    <td><span class="highlight-green">يجهر — مقطوع به</span></td>
+    <td>لا خلاف فيه</td>
+  </tr>
+  <tr>
+    <td><b>المأموم</b></td>
+    <td><span class="highlight-gold">يجهر — فيه خلاف</span></td>
+    <td>المعتمد في المذهب أنّه يجهر — ولذلك قال «حتّى للمأموم»</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">قوله «لقراءة إمامه»</span>
+  <p>يفهم منه أنّ المأموم <b>لا يؤمّن لقراءة غير إمامه</b> — أي لا يتابع في التأمين إلا إمامه فقط.</p>
+</div>
+
+<h3 class="sub-title">المأموم يؤمّن مع تأمين إمامه</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«وسنّ لمأموم في الجهرية تأمين مع تأمين إمامه إن سمع قراءته»</b></p>
+</div>
+
+<p>يُسنّ للمأموم في الصلاة الجهرية أن يقارن تأمينه مع تأمين إمامه <b>إن سمع قراءته</b> — كأن يكون قريباً منه. أمّا لو كان بعيداً لا يسمع قراءة إمامه فلا يقارنه في التأمين.</p>
+
+<div class="issue-box">
+  <span class="box-label label-issue">مسألة: الإمام جهر في السرية</span>
+  <p>لو أنّ الإمام قرأ في صلاة الظهر جهراً — خالف السنّة — فوصل إلى موضع التأمين، <b>هل يُسنّ للمأموم أن يؤمّن معه؟ الجواب: لا يؤمّن معه</b>، لأنّ التأمين إنّما يُسنّ في الجهرية، وما فعله الإمام لا يغيّر حكم الصلاة من سرية إلى جهرية.</p>
+</div>
+
+<h3 class="sub-title">مقارنة تأمين الملائكة</h3>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الحديث</span>
+  <p><b>«إذا أمّن الإمام فأمّنوا فإنّه من وافق تأمينه تأمين الملائكة غُفر له ما تقدّم من ذنبه»</b></p>
+  <p>معنى «غُفر له ما تقدّم من ذنبه» — مذهب الجمهور أنّه <b>من الصغائر</b>، لا من الكبائر.</p>
+</div>
+
+<div class="key-rule">
+  ليس لنا ما يُسنّ فيه تحري مقارنة الإمام إلا التأمين<br>
+  فيُسنّ أن يتحرّى مقارنة الإمام فيؤمّن معه
+</div>
+
+<h3 class="sub-title">لو لم يتفق له الموافقة</h3>
+
+<p>وإذا لم يتفق له موافقة تأمين الإمام — أي أنّ الإمام أمّن سريعاً ولم تستطع أن توافقه — <b>فأمّن عقب تأمينه</b>، أي تؤمّن بعده.</p>
+
+<h3 class="sub-title">لو أخّر الإمام عن الزمن المسنون</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«وإن أخر إمامه عن الزمن المسنون فيه التأمين أمن المأموم جهراً»</b></p>
+</div>
+
+<p>الإمام انتهى من الفاتحة — كان المتوقع أن يسكت سكتة لطيفة ثمّ يقول آمين. لكن الإمام انتهى وسكت ولم يُؤمّن. هذا الزمن هو الذي يُسنّ فيه التأمين. فهل ينتظر المأموم الإمام أم يُؤمّن لوحده؟</p>
+
+<div class="key-rule">
+  إذا أخر الإمام عن الزمن المسنون فيه التأمين<br>
+  <b>أمّن المأموم جهراً ولا ينتظر تأمين الإمام</b>
+</div>
+
+<!-- ===== 15. فرع: سكوت الإمام ===== -->
+<h2 class="section-title">١٥. فرع: سكوت الإمام في الجهرية لقراءة المأموم الفاتحة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«يُسنّ للإمام أن يسكت في الجهرية بقدر قراءة المأموم الفاتحة إن علم أنّه يقرأها في سكتته»</b></p>
+</div>
+
+<h3 class="sub-title">شروط سكوت الإمام</h3>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">١</span>
+    <b>في الصلاة الجهرية فقط</b><br>
+    <span style="font-size:12px;">كالمغرب والعشاء والصبح</span>
+  </div>
+  <div class="condition-item" style="background: #f0f9ff; border: 1px solid #bae6fd;">
+    <span class="condition-num">٢</span>
+    <b>إن علم أنّ المأموم يقرأها</b><br>
+    <span style="font-size:12px;">أمّا لو علم أنّه لا يقرأ الفاتحة فلا يسكت</span>
+  </div>
+</div>
+
+<h3 class="sub-title">معنى السكوت</h3>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه مهمّ</span>
+  <p>المراد بالسكوت هنا <b>عدم الجهر</b> — ليس المراد أنّه لا يقرأ شيئاً. بل يقرأ الإمام سرّاً لكن لا يُشهر بالقراءة.</p>
+</div>
+
+<h3 class="sub-title">اشتغال الإمام في السكتة</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«وإن يشتغل في هذه السكتة بدعاء أو قراءة — وهي أو لا من الاشتغال بالدعاء»</b></p>
+</div>
+
+<p>يُستحبّ للإمام أن يشتغل في هذه السكتة بقراءة أو دعاء، والأولى <b>القراءة</b> على الدعاء. وحينئذ يراعي <b>الترتيب والموالاة</b> بين ما يقرأه في سكتته وبين ما سيجهر به بعدها.</p>
+
+<h3 class="sub-title">مراعاة ترتيب المصحف</h3>
+
+<p>يُستحبّ لمن يصلّي بالناس أن يقرأ على ترتيب المصحف — كأن يقرأ سورة الإخلاص ثمّ الفلق ثمّ الناس. فلو قرأ الفاتحة ثمّ قرأ سرّاً سورة الإخلاص، فلمّا غلب على ظنّه أنّ المأموم انتهى من الفاتحة يجهر بسورة الفلق مراعاة للترتيب.</p>
+
+<div class="exception-box">
+  <span class="box-label label-exc">خلاف الأولى</span>
+  <p>لو قرأ سرّاً سورة الإخلاص ثمّ جهر بسورة <b>سبّح اسم ربّك الأعلى</b> — ففي هذا خلاف الترتيب، لأنّه قرأ سورة الإخلاص ثمّ رجع إلى سورة قبلها في ترتيب المصحف. وهذا خلاف الأولى.</p>
+</div>
+
+<div class="key-rule">
+  يراعي الإمام في سكتته: الترتيب والموالاة<br>
+  بين ما يقرأه سرّاً في سكتته وبين ما يجهر به بعدها
+</div>
+
+<!-- ===== FOOTER ===== -->
+<div style="text-align:center; margin-top:20px; padding:10px; border-top:2px solid #0d7c3e; font-size:11px; color:#666;">
+  شرح فتح المعين للعلامة الفقيه المليباري — الدرس الأربعون — سنن الفاتحة<br>
+  د. لبيب نجيب عبدالله | تنسيق: أحمد بن إرشاد
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح الإبانة والإفاضة - الدرس الخامس عشر</title>
+<style>
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+  @bottom-center {
+    content: counter(page);
+    font-size: 12px;
+    color: #0d6b3e;
+  }
+}
+
+:root {
+  --primary: #0d6b3e;
+  --dark: #0a4f2e;
+  --gold: #d4a020;
+  --light-gold: #f0e6c0;
+  --teal: #0d7377;
+  --bg: #fefefe;
+  --body-text: #1a1a1a;
+  --border: #c8d6c0;
+  --card-bg: #f8faf7;
+  --shadow: rgba(13,107,62,0.1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Amiri', 'Traditional Arabic', 'Simplified Arabic', serif;
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--body-text);
+  background: var(--bg);
+  direction: rtl;
+}
+
+/* B&W Toggle */
+.bw-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1000;
+  background: var(--primary);
+  color: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: all 0.3s;
+}
+.bw-toggle:hover { background: var(--dark); transform: scale(1.1); }
+
+body.bw-mode {
+  --primary: #333;
+  --dark: #111;
+  --gold: #666;
+  --light-gold: #e0e0e0;
+  --teal: #444;
+  --bg: #fff;
+  --body-text: #000;
+  --border: #aaa;
+  --card-bg: #f5f5f5;
+  --shadow: rgba(0,0,0,0.15);
+}
+body.bw-mode .cover-page { background: #222 !important; }
+body.bw-mode .cover-page * { color: #fff !important; border-color: #888 !important; }
+body.bw-mode .evidence-box { border-color: #888 !important; background: #f0f0f0 !important; }
+body.bw-mode .timeline-bar { filter: grayscale(100%); }
+body.bw-mode .classification-tree { border-color: #888 !important; }
+
+/* Cover Page */
+.cover-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a4f2e 0%, #0d6b3e 30%, #0d7377 60%, #0a4f2e 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+}
+.cover-page::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a020' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.8;
+}
+.cover-badge {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark);
+  font-size: 18px;
+  font-weight: bold;
+  padding: 6px 28px;
+  border-radius: 20px;
+  margin-bottom: 25px;
+  position: relative;
+  z-index: 1;
+}
+.cover-title {
+  font-size: 28px;
+  color: var(--light-gold);
+  position: relative;
+  z-index: 1;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+.cover-book {
+  font-size: 22px;
+  color: var(--gold);
+  position: relative;
+  z-index: 1;
+  margin-bottom: 30px;
+  line-height: 1.7;
+}
+.cover-line {
+  width: 120px;
+  height: 3px;
+  background: var(--gold);
+  margin: 20px auto;
+  position: relative;
+  z-index: 1;
+}
+.cover-info {
+  font-size: 17px;
+  color: #c8e6c9;
+  position: relative;
+  z-index: 1;
+  line-height: 2.2;
+}
+.cover-ornament {
+  font-size: 36px;
+  color: var(--gold);
+  position: relative;
+  z-index: 1;
+  margin: 15px 0;
+  letter-spacing: 8px;
+}
+
+/* Main Content */
+.main-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+/* Section Headers */
+h1 {
+  font-size: 22px;
+  color: var(--primary);
+  border-bottom: 3px solid var(--gold);
+  padding-bottom: 10px;
+  margin: 35px 0 20px;
+  text-align: right;
+}
+h2 {
+  font-size: 19px;
+  color: var(--dark);
+  border-right: 5px solid var(--gold);
+  padding-right: 15px;
+  margin: 25px 0 15px;
+}
+h3 {
+  font-size: 17px;
+  color: var(--teal);
+  margin: 20px 0 12px;
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 12px;
+  text-align: justify;
+  text-indent: 1.5em;
+}
+p.no-indent { text-indent: 0; }
+
+/* Evidence Box */
+.evidence-box {
+  background: linear-gradient(135deg, #f0e6c0 0%, #faf6e8 100%);
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin: 18px 0;
+  position: relative;
+}
+.evidence-box::before {
+  content: '📖';
+  position: absolute;
+  top: -12px;
+  right: 18px;
+  background: var(--gold);
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.evidence-box .ev-label {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark);
+  padding: 2px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.evidence-box .ev-text {
+  font-size: 17px;
+  line-height: 2;
+  color: var(--dark);
+}
+
+/* Classification Tree */
+.classification-tree {
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  background: var(--card-bg);
+}
+.classification-tree .tree-title {
+  text-align: center;
+  font-size: 18px;
+  color: var(--primary);
+  font-weight: bold;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px dashed var(--border);
+}
+.tree-root {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.tree-node-root {
+  background: var(--primary);
+  color: #fff;
+  padding: 8px 22px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.tree-children {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+.tree-child {
+  background: var(--light-gold);
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 10px 18px;
+  text-align: center;
+  min-width: 120px;
+}
+.tree-child .child-title {
+  font-weight: bold;
+  color: var(--dark);
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+.tree-child .child-desc {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Ruling Card */
+.ruling-card {
+  border-right: 5px solid var(--primary);
+  background: var(--card-bg);
+  border-radius: 0 10px 10px 0;
+  padding: 15px 20px;
+  margin: 15px 0;
+  box-shadow: 0 2px 6px var(--shadow);
+}
+.ruling-card .ruling-label {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  padding: 2px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.ruling-card .ruling-text {
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+/* Comparison Card */
+.comparison-card {
+  display: flex;
+  gap: 0;
+  margin: 18px 0;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.comparison-card .comp-side {
+  flex: 1;
+  padding: 15px;
+  text-align: center;
+}
+.comparison-card .comp-side:first-child {
+  background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+  border-left: 2px solid var(--border);
+}
+.comparison-card .comp-side:last-child {
+  background: linear-gradient(135deg, #fff8e1, #fffde7);
+}
+.comparison-card .comp-label {
+  font-weight: bold;
+  font-size: 14px;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+.comparison-card .comp-text {
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* Definition Card */
+.definition-card {
+  background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+.definition-card .def-label {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  padding: 3px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.definition-card .def-text {
+  font-size: 16px;
+  line-height: 2;
+}
+
+/* Callout Box */
+.callout-box {
+  background: #fffde7;
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 15px 0;
+  position: relative;
+}
+.callout-box::before {
+  content: '⚠';
+  position: absolute;
+  top: -10px;
+  right: 15px;
+  background: var(--gold);
+  color: #fff;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+.callout-box .callout-title {
+  font-weight: bold;
+  color: #b8860b;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+/* Fiqh Principle Box */
+.fiqh-box {
+  background: linear-gradient(135deg, #e0f2f1, #e8f5e9);
+  border: 2px solid var(--teal);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 18px 0;
+  position: relative;
+}
+.fiqh-box::before {
+  content: '⚖';
+  position: absolute;
+  top: -12px;
+  right: 18px;
+  background: var(--teal);
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.fiqh-box .fiqh-label {
+  display: inline-block;
+  background: var(--teal);
+  color: #fff;
+  padding: 2px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.fiqh-box .fiqh-text {
+  font-size: 17px;
+  line-height: 2;
+  color: var(--dark);
+  font-weight: bold;
+}
+
+/* Numbered Steps */
+.numbered-steps {
+  counter-reset: step;
+  margin: 15px 0;
+}
+.numbered-steps .step-item {
+  counter-increment: step;
+  padding: 10px 20px 10px 10px;
+  margin-bottom: 8px;
+  background: var(--card-bg);
+  border-radius: 8px;
+  border-right: 4px solid var(--primary);
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.step-item::before {
+  content: counter(step);
+  background: var(--primary);
+  color: #fff;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: bold;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Benefit Box */
+.benefit-box {
+  background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 18px 0;
+}
+.benefit-box .benefit-label {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark);
+  padding: 2px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* Timeline Diagram */
+.timeline-container {
+  margin: 20px 0;
+  overflow-x: auto;
+}
+.timeline-bar {
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 8px;
+  min-height: 40px;
+  box-shadow: 0 2px 6px var(--shadow);
+}
+.timeline-segment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 4px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  min-width: 40px;
+  border-left: 1px solid rgba(255,255,255,0.3);
+}
+.timeline-segment.seg-hayd { background: #1b5e20; }
+.timeline-segment.seg-istihada { background: #c62828; }
+.timeline-segment.seg-tuhr { background: #1565c0; }
+.timeline-segment.seg-weak { background: #e65100; }
+.timeline-segment.seg-ihtiyat { background: #6a1b9a; }
+.timeline-segment.seg-ghusl { background: #4a148c; }
+.timeline-segment.seg-wudu { background: #0d47a1; }
+.timeline-legend {
+  display: flex;
+  gap: 15px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+}
+.legend-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+}
+
+/* Data Table */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+  font-size: 14px;
+}
+.data-table th {
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 12px;
+  text-align: center;
+  font-size: 14px;
+}
+.data-table td {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  text-align: center;
+  vertical-align: top;
+}
+.data-table tr:nth-child(even) { background: var(--card-bg); }
+
+/* Scholar Card */
+.scholar-card {
+  background: linear-gradient(135deg, #fff8e1, #fffde7);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+.scholar-card .scholar-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+
+/* Quote Block */
+.quote-block {
+  background: #fafafa;
+  border-right: 5px solid var(--gold);
+  padding: 15px 20px;
+  margin: 15px 0;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: #444;
+}
+.quote-block .quote-source {
+  font-style: normal;
+  font-weight: bold;
+  color: var(--primary);
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+/* Flow Chart */
+.flow-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin: 20px 0;
+  padding: 15px;
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+}
+.flow-node {
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 15px;
+  text-align: center;
+  min-width: 180px;
+}
+.flow-arrow {
+  font-size: 24px;
+  color: var(--gold);
+  line-height: 1;
+}
+.flow-branch {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.flow-branch .flow-node {
+  min-width: 140px;
+  font-size: 14px;
+}
+.flow-node.green { background: #2e7d32; }
+.flow-node.red { background: #c62828; }
+.flow-node.gold { background: #b8860b; }
+.flow-node.teal { background: var(--teal); }
+.flow-node.purple { background: #6a1b9a; }
+
+/* Conditions Grid */
+.conditions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin: 15px 0;
+}
+.condition-card {
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
+}
+.condition-card .cond-num {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  line-height: 28px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.condition-card .cond-title {
+  font-weight: bold;
+  color: var(--dark);
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+.condition-card .cond-desc {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* Case Card */
+.case-card {
+  background: #fff;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 15px 0;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+.case-card .case-label {
+  display: inline-block;
+  background: var(--teal);
+  color: #fff;
+  padding: 2px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.case-card .case-q {
+  font-weight: bold;
+  color: var(--dark);
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+.case-card .case-a {
+  background: #e8f5e9;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* Summary Box */
+.summary-box {
+  background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+  border: 3px solid var(--primary);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 25px 0;
+}
+.summary-box .summary-title {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+/* Highlight Text */
+.highlight { background: var(--light-gold); padding: 1px 4px; border-radius: 3px; }
+.strong { font-weight: bold; color: var(--primary); }
+.gold-text { color: var(--gold); font-weight: bold; }
+
+/* Ihtiyat Box */
+.ihtiyat-box {
+  background: linear-gradient(135deg, #f3e5f5, #ede7f6);
+  border: 2px solid #6a1b9a;
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 15px 0;
+  position: relative;
+}
+.ihtiyat-box::before {
+  content: '⚡';
+  position: absolute;
+  top: -10px;
+  right: 15px;
+  background: #6a1b9a;
+  color: #fff;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+.ihtiyat-box .ihtiyat-title {
+  font-weight: bold;
+  color: #4a148c;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+/* Nahw Note */
+.nahw-box {
+  background: #fff3e0;
+  border: 2px solid #e65100;
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 15px 0;
+  position: relative;
+}
+.nahw-box::before {
+  content: '✏';
+  position: absolute;
+  top: -10px;
+  right: 15px;
+  background: #e65100;
+  color: #fff;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+.nahw-box .nahw-title {
+  font-weight: bold;
+  color: #bf360c;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+/* Zone Diagram */
+.zone-diagram {
+  margin: 20px 0;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.zone-row {
+  display: flex;
+  min-height: 50px;
+}
+.zone-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 6px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+  border-left: 1px solid rgba(255,255,255,0.3);
+  min-width: 0;
+  flex-shrink: 1;
+}
+.zone-cell.z-hayd { background: #1b5e20; }
+.zone-cell.z-tuhr { background: #1565c0; }
+.zone-cell.z-ghtsl { background: #4a148c; }
+.zone-cell.z-wudu { background: #0d47a1; }
+.zone-label-row {
+  display: flex;
+  min-height: 30px;
+  background: var(--card-bg);
+  border-top: 2px solid var(--border);
+}
+.zone-label-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 6px;
+  font-size: 11px;
+  color: var(--dark);
+  text-align: center;
+  border-left: 1px solid var(--border);
+  font-weight: bold;
+}
+
+/* Day Grid */
+.day-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 4px;
+  margin: 15px 0;
+}
+.day-cell {
+  border-radius: 6px;
+  padding: 8px 4px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+  min-height: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.day-cell .day-num {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+.day-cell .day-ruling {
+  font-size: 10px;
+  line-height: 1.3;
+}
+.day-cell.d-hayd { background: #1b5e20; color: #fff; }
+.day-cell.d-tuhr { background: #1565c0; color: #fff; }
+.day-cell.d-ghusl { background: #4a148c; color: #fff; }
+.day-cell.d-wudu { background: #0d47a1; color: #fff; }
+.day-cell.d-truhr { background: #e8f5e9; color: #1b5e20; border: 2px solid #1b5e20; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .comparison-card { flex-direction: column; }
+  .comparison-card .comp-side:first-child { border-left: none; border-bottom: 2px solid var(--border); }
+  .tree-children { flex-direction: column; align-items: center; }
+  .flow-branch { flex-direction: column; align-items: center; }
+  .conditions-grid { grid-template-columns: 1fr; }
+  .cover-title { font-size: 22px; }
+  .cover-book { font-size: 18px; }
+  .day-grid { grid-template-columns: repeat(5, 1fr); }
+  .zone-row { flex-wrap: wrap; }
+}
+
+/* Print Styles */
+@media print {
+  .bw-toggle { display: none; }
+  .cover-page { page-break-after: always; }
+  h1, h2, h3 { page-break-after: avoid; }
+  .ruling-card, .evidence-box, .case-card, .comparison-card {
+    page-break-inside: avoid;
+  }
+  body { font-size: 14px; }
+}
+</style>
+</head>
+<body>
+
+<!-- B&W Toggle Button -->
+<button class="bw-toggle" onclick="toggleBW()" title="تبديل الأبيض والأسود">🌗</button>
+
+<script>
+function toggleBW() {
+  document.body.classList.toggle('bw-mode');
+}
+</script>
+
+<!-- ============ COVER PAGE ============ -->
+<div class="cover-page">
+  <div class="cover-badge">جديد</div>
+  <div class="cover-ornament">✦ ✦ ✦</div>
+  <div class="cover-title">شرح الإبانة والإفاضة<br>في أحكام الحيض والنفاس والاستحاضة<br>على مذهب الإمام الشافعي</div>
+  <div class="cover-line"></div>
+  <div class="cover-book">الدرس الخامس عشر</div>
+  <div class="cover-line"></div>
+  <div class="cover-info">
+    <strong>المؤلف:</strong> عبد الرحمن بن عبد الله عبد القادر السقاف<br>
+    <strong>الشارح:</strong> د. لبيب نجيب عبد الله<br>
+    <strong>المنشئ:</strong> أحمد بن إرشاد
+  </div>
+  <div class="cover-ornament">✦ ✦ ✦</div>
+</div>
+
+<!-- ============ MAIN CONTENT ============ -->
+<div class="main-content">
+
+<!-- ===== SECTION 1: مقدمة ===== -->
+<h1>مقدمة: المتحيرة — الذاكرة للوقت الناسية للعدد</h1>
+
+<p>نبدأ بسم الله الرحمن الرحيم، الحمد لله رب العالمين والصلاة والسلام الأتمان الأكملان على سيد المرسلين سيدنا محمد وعلى آله وصحبه الطيبين الطاهرين، شكر الله لك. أما بعد، فأسأل الله سبحانه وتعالى أن يمن علينا بالعلم النافع والعمل الصالح وأن يفقهنا في الدين وأن يفتح لنا فتوح العارفين وأن يرزقنا الإخلاص في الأقوال والأعمال، اللهم آمين.</p>
+
+<p>فلا زلنا في الدرس السابع، ووصلنا إلى الكلام على <span class="strong">المتحيرة التي هي ذاكرة للوقت ناسية للعدد</span>.</p>
+
+<div class="definition-card">
+  <span class="def-label">التعريف</span>
+  <div class="def-text">
+    <strong>المتحيرة الذاكرة للوقت الناسية للعدد:</strong> هي التي تقول مثلاً — قبل أن تستحاض، وطبعاً هي غير مميزة — كان الحيض يأتيني في أول الشهر لكن لا أدري كم عدد الأيام. فهي تعلم وقت مجيء الحيض فيما سبق لكن لا تعلم عدد الأيام التي كان الحيض يأتي فيها.
+  </div>
+</div>
+
+<h2>تفصيل حكمها: ثلاثة أجزاء</h2>
+
+<p>في حكمها تفصيل: عندها جزء يكون حيضاً بيقين، وعندها جزء يكون طهراً بيقين، وعندها جزء يحتمل أن يكون حيضاً ويحتمل أن يكون طهراً. كم صارت أجزاء؟ ثلاثة أجزاء. وبناءً على هذه الأجزاء الثلاثة تعطي كل جزء حكمه الذي يستحقه.</p>
+
+<div class="classification-tree">
+  <div class="tree-title">تقسيم أزمنة المتحيرة الذاكرة للوقت الناسية للعدد</div>
+  <div class="tree-root">
+    <span class="tree-node-root">أزمنة المتحيرة</span>
+  </div>
+  <div class="tree-children">
+    <div class="tree-child">
+      <div class="child-title">حيض بيقين</div>
+      <div class="child-desc">تثبت فيه جميع أحكام الحيض</div>
+    </div>
+    <div class="tree-child">
+      <div class="child-title">طهر بيقين</div>
+      <div class="child-desc">تثبت فيه أحكام الطاهر المستحاضة</div>
+    </div>
+    <div class="tree-child" style="border-color: #6a1b9a; background: #f3e5f5;">
+      <div class="child-title" style="color: #4a148c;">محتمل للحيض والطهر</div>
+      <div class="child-desc" style="text-align:right;">
+        ← احتياط (كالحائض في الوطء ومس المصحف وقراءة القرآن في غير الصلاة، وكالطاهر في العبادة المحتاجة للنية)
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="quote-block">
+  سادساً: المتحيرة الذاكرة لوقت عادتها والناسية لعدد عادتها. حكمها — يرحمك الله — أن لليقين من الطهر حكم الطهر، ولليقين من الحيض حكم الحيض. أما الزمن المحتمل للحيض والطهر فحكمها كالحائض في الوطء ومس المصحف وقراءة القرآن في غير الصلاة، وكالطاهر في العبادة المحتاجة للنية.
+  <div class="quote-source">نص الكتاب</div>
+</div>
+
+<div class="ihtiyat-box">
+  <div class="ihtiyat-title">مبدأ الاحتياط في الزمن المحتمل</div>
+  <p class="no-indent">الزمن المحتمل للحيض والطهر تأخذ فيه بمبدأ الاحتياط: فنجعلها <span class="strong">كالحائض في أمور</span> (الوطء ومس المصحف وقراءة القرآن في غير الصلاة) ونجعلها <span class="strong">كالطاهر في أمور</span> (في العبادات المحتاجة للنية).</p>
+</div>
+
+<h2>تفصيل الزمن المحتمل: احتمال الانقطاع وعدمه</h2>
+
+<div class="numbered-steps">
+  <div class="step-item">
+    <strong>إن احتمل الوقت انقطاعاً:</strong> وجب عليها <span class="strong">الغسل لكل فرض</span>، لأن احتمال الانقطاع يوجب الغسل.
+  </div>
+  <div class="step-item">
+    <strong>وإن لم يحتمل انقطاعاً:</strong> وجب عليها <span class="strong">الوضوء لكل فرض</span>، لأنها مستحاضة دائمة الحدث.
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه: سبق لسان الشيخ</div>
+  <p class="no-indent">نبه الشيخ على أنه سبق لسانه فقال: «وإن لم يحتمل انقطاعاً وجب عليها أن تغتسل لكل فرض» — ثم صحّح نفسه وقال: هذا غير صحيح، بل <span class="strong">يجب الوضوء لكل فرض</span> لأنها دائمة حدث مستحاضة، والمستحاضة تتوضأ لكل فرض.</p>
+</div>
+
+<!-- ===== SECTION 2: مثال الأول ===== -->
+<h1>المثال الأول: كان ابتداء حيضي من أول يوم من الشهر</h1>
+
+<div class="case-card">
+  <span class="case-label">المثال الأول</span>
+  <div class="case-q">قالت: كان ابتداء حيضي من أول يوم من الشهر ولا أذكر غير ذلك.</div>
+  <div class="case-a">
+    هذه امرأة تقول إن حيضها يبدأ في أول يوم من الشهر لكنها لا تعرف كم عدد أيام الحيض.
+  </div>
+</div>
+
+<h2>التخطيط والتقسيم</h2>
+
+<p>نرسم التخطيط: الأيام من 1 إلى 30. ماذا تقول في السؤال؟ كان حيضي من أول يوم من الشهر ولا أعلم غير ذلك.</p>
+
+<div class="numbered-steps">
+  <div class="step-item">
+    <strong>اليوم الأول — حيض بيقين:</strong> إذاً تاريخ واحد هذا حيض، مادام تاريخ واحد حيض، مادامت تقول أول يوم حيض.
+  </div>
+  <div class="step-item">
+    <strong>من بعد يوم 16 — طهر بيقين:</strong> أقصى الحيض 15 يوماً، فما بعد الخامس عشر طهر بيقين.
+  </div>
+  <div class="step-item">
+    <strong>من الثاني إلى الخامس عشر — منطقة محتملة:</strong> تحتمل الطهر والحيض، وفي كل يوم يمكن أن ينقطع الدم. فانقطاع الدم هنا موجود مع كل يوم.
+  </div>
+</div>
+
+<div class="timeline-container">
+  <div style="text-align:center; font-size:14px; color:var(--dark); margin-bottom:8px; font-weight:bold;">تخطيط المثال الأول: ابتداء الحيض من أول الشهر</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment seg-hayd" style="flex:1;">1</div>
+    <div class="timeline-segment seg-ghtsl" style="flex:14;">2 – 15 <br><span style="font-size:10px;">يحتمل الانقطاع</span></div>
+    <div class="timeline-segment seg-tuhr" style="flex:15;">16 – 30 <br><span style="font-size:10px;">طهر بيقين</span></div>
+  </div>
+  <div class="timeline-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#1b5e20;"></div> حيض بيقين</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#4a148c;"></div> يحتمل الانقطاع (غسل لكل فرض)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1565c0;"></div> طهر بيقين (وضوء لكل فرض)</div>
+  </div>
+</div>
+
+<h2>الأحكام المترتبة</h2>
+
+<div class="ruling-card">
+  <span class="ruling-label">حكم</span>
+  <div class="ruling-text">
+    <strong>اليوم الأول:</strong> يوم وليلة من أول شهر حيض بيقين — إذن يوم وليلة لا تصلي.<br>
+    <strong>من الثاني إلى الخامس عشر:</strong> تصير في طهر مشكوك فيه إلى آخر الخمسة عشر، فتصلي وتغتسل لكل فرض — لجواز انقطاع الدم.<br>
+    <strong>من بعد الخامس عشر:</strong> طهر بيقين إلى آخر الشهر — فتتوضأ لكل فريضة، لأنها مستحاضة طاهر.
+  </div>
+</div>
+
+<div class="quote-block">
+  مثال: قالت كان ابتداء حيضي من أول يوم من الشهر لا أذكر غير ذلك. فحكمها أن يوم وليلة من أول شهر حيض بيقين، وتصير في طهر مشكوك فيه إلى آخر الخمسة عشر، فتصلي وتغتسل لكل فرض لجواز انقطاع الدم. وما بعده — أي وما جاوز الخمسة عشر — طهر بيقين إلى آخر الشهر فتتوضأ لكل فريضة.
+  <div class="quote-source">نص الكتاب</div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه: تقسيم المسألة</div>
+  <p class="no-indent">ليس صعباً — فقط تنتبه: تقسم حالات المرأة. ما هو حيض بيقين تعطيها حكم الحائض بيقين. ما هو طهر بيقين تعطيها حكم الطاهر بيقين. ما يحتمل الانقطاع يجب عليها أن تغتسل لكل فرض. ما يحتمل الطروء — يعني ابتداء الحيض — تتوضأ لكل فرض.</p>
+</div>
+
+<!-- ===== SECTION 3: مثال الثاني ===== -->
+<h1>المثال الثاني: أعلم أني أحيض في الشهر مرة وأكون في سادسه حائضاً</h1>
+
+<div class="case-card">
+  <span class="case-label">المثال الثاني</span>
+  <div class="case-q">قالت: متحيرة أعلم أني أحيض في الشهر مرة وأكون في سادسه حائضاً.</div>
+  <div class="case-a">
+    هذه تعرف أنها تحيض في الشهر مرة واحدة، وتكون في اليوم السادس حائضاً. لكنها لا تعرف كم عدد أيام الحيض. هل تعرف الأيام التي تحيض فيها؟ لا تعرف. لكن تعرف الوقت — في العشر الأولى.
+  </div>
+</div>
+
+<h2>تحليل المثال: أربع مناطق</h2>
+
+<p>هي تقول إنني أحيض في الشهر مرة واحدة، يوم السادس هذا يكون حيضاً. نحن نعلم أن يوم السادس حيض لكن ما ندري يوم السادس هذا هل هو انتهاء حيض — أي هل الحيض ينتهي في السادس — أو الحيض أتاه في السادس، ما نعلم. نفترض افتراضين:</p>
+
+<div class="numbered-steps">
+  <div class="step-item">
+    <strong>الافتراض الأول:</strong> الحيض انتهى في السادس — فما قبل السادس يحتمل حصول الحيض (طرؤ)، لأن الحيض قد يكون بدأ في الأول أو الثاني أو الثالث أو الرابع أو الخامس.
+  </div>
+  <div class="step-item">
+    <strong>الافتراض الثاني:</strong> الحيض بدأ في السادس — فأقصاه خمسة عشر يوماً، يعني يستمر إلى يوم العشرين.
+  </div>
+</div>
+
+<p>وبذلك تنقسم الأيام إلى <span class="strong">أربع مناطق</span>:</p>
+
+<div class="classification-tree">
+  <div class="tree-title">المناطق الأربع للمثال الثاني</div>
+  <div class="tree-root">
+    <span class="tree-node-root">أيام الشهر (30 يوماً)</span>
+  </div>
+  <div class="tree-children">
+    <div class="tree-child" style="border-color: #0d47a1; background: #e3f2fd;">
+      <div class="child-title" style="color: #0d47a1;">المنطقة ①</div>
+      <div class="child-desc" style="text-align:right;">من الأول إلى الخامس<br><strong>يحتمل الطروء فقط</strong><br>→ <span class="strong">وضوء لكل فرض</span></div>
+    </div>
+    <div class="tree-child" style="border-color: #1b5e20; background: #e8f5e9;">
+      <div class="child-title" style="color: #1b5e20;">المنطقة ②</div>
+      <div class="child-desc" style="text-align:right;">اليوم السادس<br><strong>حيض بيقين</strong><br>→ <span class="strong">لا تصلي</span></div>
+    </div>
+    <div class="tree-child" style="border-color: #4a148c; background: #f3e5f5;">
+      <div class="child-title" style="color: #4a148c;">المنطقة ③</div>
+      <div class="child-desc" style="text-align:right;">من السابع إلى العشرين<br><strong>يحتمل الانقطاع</strong><br>→ <span class="strong">غسل لكل صلاة</span></div>
+    </div>
+    <div class="tree-child" style="border-color: #1565c0; background: #e3f2fd;">
+      <div class="child-title" style="color: #1565c0;">المنطقة ④</div>
+      <div class="child-desc" style="text-align:right;">من بعد العشرين<br><strong>طهر بيقين</strong><br>→ <span class="strong">وضوء لكل فرض</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-container">
+  <div style="text-align:center; font-size:14px; color:var(--dark); margin-bottom:8px; font-weight:bold;">تخطيط المثال الثاني: أحيض في السادس</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment seg-wudu" style="flex:5;">1 – 5<br><span style="font-size:10px;">يحتمل الطروء</span></div>
+    <div class="timeline-segment seg-hayd" style="flex:1;">6<br><span style="font-size:10px;">حيض</span></div>
+    <div class="timeline-segment seg-ghtsl" style="flex:14;">7 – 20<br><span style="font-size:10px;">يحتمل الانقطاع</span></div>
+    <div class="timeline-segment seg-tuhr" style="flex:10;">21 – 30<br><span style="font-size:10px;">طهر بيقين</span></div>
+  </div>
+  <div class="timeline-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#0d47a1;"></div> يحتمل الطروء فقط (وضوء لكل فرض)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1b5e20;"></div> حيض بيقين (لا تصلي)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#4a148c;"></div> يحتمل الانقطاع (غسل لكل فرض)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1565c0;"></div> طهر بيقين (وضوء لكل فرض)</div>
+  </div>
+</div>
+
+<h2>تفصيل أحكام المناطق</h2>
+
+<div class="ruling-card">
+  <span class="ruling-label">المنطقة ① — من الأول إلى الخامس</span>
+  <div class="ruling-text">
+    يحتمل الطروء فقط — أي حصول الحيض. لا يحتمل الانقطاع (لأن لو احتمل الانقطاع هنا سيكون قولها «وحيض في السادس» لغواً). فلا غسل عليها، لكن <span class="strong">تتوضأ لكل صلاة فرض</span> لأنها مستحاضة في طهر مشكوك فيه.
+  </div>
+</div>
+
+<div class="ruling-card">
+  <span class="ruling-label">المنطقة ② — اليوم السادس</span>
+  <div class="ruling-text">
+    حيض بيقين — <span class="strong">لا تصلي</span>.
+  </div>
+</div>
+
+<div class="ruling-card">
+  <span class="ruling-label">المنطقة ③ — من السابع إلى العشرين</span>
+  <div class="ruling-text">
+    يحتمل الانقطاع فقط دون الطروء — فتجب عليها <span class="strong">الغسل لكل صلاة فرض</span> لاحتمال انقطاع الدم.
+  </div>
+</div>
+
+<div class="ruling-card">
+  <span class="ruling-label">المنطقة ④ — من بعد العشرين</span>
+  <div class="ruling-text">
+    طهر بيقين — تتوضأ لكل صلاة فرض كالمستحاضة الطاهرة.
+  </div>
+</div>
+
+<div class="quote-block">
+  مثال: قالت متحيرة أعلم أني أحيض في الشهر مرة وأكون في سادسه حائضة. وحكمها أن السادس حيض بيقين والعشر الأخير طهر بيقين. ومن السادس إلى العشرين يحتمل الانقطاع دون الطروء. ومن الأول إلى السادس يحتمل الطروء فقط.
+  <div class="quote-source">نص الكتاب</div>
+</div>
+
+<h2>ملاحظة لغوية على عبارة «من السادس»</h2>
+
+<div class="nahw-box">
+  <div class="nahw-title">ملاحظة لغوية</div>
+  <p class="no-indent">قوله «ومن السادس إلى العشرين» — أظن أن صواب العبارة «من السابع»، لأن السادس هذا حيض بيقين، فلا يصح أن يُدخل في منطقة الاحتمال. إلا إذا كان على أن ما بعدها ليس داخلاً في المحدود — وهو الأشهر عند علماء اللغة. والأولى أن يقول «ومن السابع» لأن السادس حيض بيقين.</p>
+  <p class="no-indent">وكذلك قوله «ومن الأول إلى السادس» — يعني من الأول إلى الخامس — كلامه يجري على القاعدة اللغوية أن ما بعد «إلى» لا يدخل، أي من الأول مع الخامس.</p>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه: المنطقة الرابعة لم تُذكر صراحة في بعض النسخ</div>
+  <p class="no-indent">المنطقة الرابعة التي هي من بعد العشرين — حكمها طهر بيقين — لم يذكرها الشيخ في نسخته صراحة، لكنها موجودة في نص الكتاب. أظن بهذا التخطيط يسر عليك الفهم أسرع مما هو موجود.</p>
+</div>
+
+<!-- ===== SECTION 4: سابعاً ===== -->
+<h1>سابعاً: المتحيرة الناسية لوقت الحيض الذاكرة للعدد</h1>
+
+<p>هذه مقاربة للسادس. انظر ماذا قال:</p>
+
+<div class="definition-card">
+  <span class="def-label">التعريف</span>
+  <div class="def-text">
+    <strong>المتحيرة الذاكرة لعدد عادتها الناسية لوقت حيضها:</strong> هي التي تقول عادتي خمسة أيام — تعرف العادة — لكن لا أعرف خمسة أيام في أول الشهر أو في وسط الشهر أو في آخر الشهر. نسيت.
+  </div>
+</div>
+
+<h2>حكمها: نفس التقسيم الثلاثي</h2>
+
+<div class="numbered-steps">
+  <div class="step-item">
+    <strong>كل زمان تيقن فيه حيضها:</strong> ثبت فيه جميع أحكام الحيض.
+  </div>
+  <div class="step-item">
+    <strong>كل زمان تيقن فيه طهرها:</strong> ثبت فيه جميع أحكام الطاهر المستحاضة.
+  </div>
+  <div class="step-item">
+    <strong>كل زمان احتمل فيه الحيض والطهر:</strong> أوجبنا فيه الاحتياط الذي مر معكم في المتحيرة السادسة — نفس التقسيم.
+  </div>
+</div>
+
+<div class="comparison-card">
+  <div class="comp-side">
+    <div class="comp-label">السادس: ذاكرة للوقت ناسية للعدد</div>
+    <div class="comp-text">
+      تعلم <strong>متى</strong> يأتي الحيض<br>
+      لكن لا تعلم <strong>كم</strong> عدد الأيام
+    </div>
+  </div>
+  <div class="comp-side">
+    <div class="comp-label">السابع: ناسية للوقت ذاكرة للعدد</div>
+    <div class="comp-text">
+      تعلم <strong>كم</strong> عدد أيام الحيض<br>
+      لكن لا تعلم <strong>متى</strong> يأتي
+    </div>
+  </div>
+</div>
+
+<h2>تفصيل المنطقة المحتملة</h2>
+
+<div class="ihtiyat-box">
+  <div class="ihtiyat-title">الاحتياط في الزمن المحتمل</div>
+  <p class="no-indent">تنظر إلى المناطق: منطقة الحيض يقيناً → حكم الحائض. منطقة الطهر يقيناً → حكم المستحاضة. منطقة المشكوك فيها بين حيض وطهر — إن احتملت انقطاعاً أوجب عليها الغسل كل صلاة. إن احتملت طرؤاً فقط دون انقطاع أوجب عليها الوضوء كل صلاة فقط.</p>
+</div>
+
+<div class="numbered-steps">
+  <div class="step-item">
+    <strong>إن كان الزمان المحتمل للطهر والحيض يحتمل انقطاع الدم:</strong> وجب الغسل لكل صلاة فرض فريضة — لاحتمال انقطاع الدم قبلها.
+  </div>
+  <div class="step-item">
+    <strong>فإن علمت أنه كان ينقطع في وقت بعينه:</strong> كما مر معنا في المتحيرة المطلقة — ينقطع عند غروب الشمس مثلاً — نقول: إذاً يجب فقط أن تغتسلي بعد الغروب ولا يلزمك غسل سواها. وإن قالت لا أعلم متى كان ينقطع لزمها أن تغتسل لكل فرض.
+  </div>
+</div>
+
+<div class="quote-block">
+  ثم إن كان الزمان المحتمل للطهر والحيض يحتمل انقطاع الدم وجب الغسل لكل صلاة فرض فريضة لاحتمال انقطاع الدم قبلها. فإن علمت أنه كان ينقطع في وقت بعينه من ليل أو نهار اغتسلت كل يوم في ذلك الوقت ولا غسل عليها إلى مثل ذلك الوقت اليوم الثاني.
+  <div class="quote-source">نص الكتاب</div>
+</div>
+
+<div class="ruling-card">
+  <span class="ruling-label">حكم خاص</span>
+  <div class="ruling-text">
+    فإن علمت أنه كان ينقطع في وقت بعينه من ليل أو نهار اغتسلت كل يوم في ذلك الوقت، ولا غسل عليها إلى مثل ذلك الوقت اليوم الثاني — يعني لا يجب عليها غسل حتى يأتي مثل ذلك الوقت اليوم الثاني.
+  </div>
+</div>
+
+<!-- ===== SECTION 5: شرطا الحكم ===== -->
+<h1>شرطا الحكم المذكور</h1>
+
+<p>ويشترط للحكم المذكور — هذا الحكم الذي ذكرته لكم والذي لخصته لكم — شرطان:</p>
+
+<div class="conditions-grid">
+  <div class="condition-card" style="border-color: var(--primary); border-width: 2px;">
+    <div class="cond-num">١</div>
+    <div class="cond-title">أن تعلم قدر الدور</div>
+    <div class="cond-desc">مجموع حيضها وطهرها — كم مجموعهما؟ لأنها إذا لم تعلم قدر الدور — ما تعلم مثلاً أن دورها اثنين وعشرين يوماً — ما تعلم هذا المجموع ستكون متحيرة مطلقة.</div>
+  </div>
+  <div class="condition-card" style="border-color: var(--primary); border-width: 2px;">
+    <div class="cond-num">٢</div>
+    <div class="cond-title">أن تعلم ابتداء الدور</div>
+    <div class="cond-desc">الدور ابتدأ في يوم كذا. فلو لم تعلم ابتداءه كان لها حكم المتحيرة المطلقة أيضاً.</div>
+  </div>
+</div>
+
+<h2>تفصيل الشرط الأول: علم قدر الدور</h2>
+
+<div class="ruling-card">
+  <span class="ruling-label">تعليل</span>
+  <div class="ruling-text">
+    فلو قالت: حيضي خمسة عشر وابتداء دوري يوم كذا ولا أعرف قدر الدور — ما أدري كم — فلا فائدة فيما حفظت للاحتمال المذكور، لأنه يحتمل حصول الانقطاع في كل يوم وفي كل وقت والحيض في كل وقت. فحكمها <span class="strong">حكم المتحيرة المطلقة</span>.
+  </div>
+</div>
+
+<h2>تفصيل الشرط الثاني: علم ابتداء الدور</h2>
+
+<div class="ruling-card">
+  <span class="ruling-label">تعليل</span>
+  <div class="ruling-text">
+    فلو لم تعلم ابتداءه كان لها حكم المتحيرة المطلقة أيضاً. كأن قالت: كان حيضي خمسة عشر أضللتها — ما معنى أضللتها؟ نسيتها في دوري — ولا أعرف سوى ذلك. فلا فائدة فيما ذكرت — لماذا لا فائدة؟ لأن الاحتمال — الحيض والطهر والانقطاع — في كل وقت. في كل وقت يحتمل هذا. إذاً ما في فائدة.
+  </div>
+</div>
+
+<div class="comparison-card">
+  <div class="comp-side">
+    <div class="comp-label">تتحقق الشروط</div>
+    <div class="comp-text">
+      تعلم <strong>قدر الدور</strong> (المجموع) <strong>وابتداءه</strong><br>
+      → تقسم الأزمنة إلى أربع مناطق<br>
+      → حكم كل منطقة حسب احتمالها
+    </div>
+  </div>
+  <div class="comp-side">
+    <div class="comp-label">لا تتحقق الشروط</div>
+    <div class="comp-text">
+      لا تعلم قدر الدور أو لا تعلم ابتداءه<br>
+      → <span class="strong">حكم المتحيرة المطلقة</span><br>
+      → لا فائدة فيما حفظت لاحتمال الحيض والطهر في كل وقت
+    </div>
+  </div>
+</div>
+
+<!-- ===== SECTION 6: مثال الكتاب ===== -->
+<h1>مثال: كان حيضي ستة أيام من العشر الأول من كل شهر</h1>
+
+<div class="case-card">
+  <span class="case-label">مثال الكتاب</span>
+  <div class="case-q">قالت: كان حيضي ستة أيام من العشر الأول من كل شهر.</div>
+  <div class="case-a">
+    هي تقول حيضها ستة أيام في العشر الأول من كل شهر. لكن لا تعرف متى يبدأ — هل في اليوم الأول أو الثاني أو الثالث...؟
+  </div>
+</div>
+
+<h2>تحليل المناطق</h2>
+
+<p>نكتب أيام العشر الأول: 1، 2، 3، 4، 5، 6، 7، 8، 9، 10. هي تقول حيضي ستة أيام من العشر الأول. ما معنى هذا الكلام؟ يعني محتمل الحيض يبدأ في اليوم الأول، ولو بدأ في الأول متى ينتهي؟ السادس. ولو بدأ في الثاني ينتهي في السابع. ولو بدأ في الثالث ينتهي في الثامن. ولو بدأ في الرابع ينتهي في التاسع. ولو بدأ في الخامس ينتهي في العاشر. ولا يمكن أن يبدأ بعد الخامس لأنه لو بدأ في السادس لانتهى في الحادي عشر وهي قالت من العشر الأول.</p>
+
+<div class="day-grid">
+  <div class="day-cell d-wudu">
+    <div class="day-num">1</div>
+    <div class="day-ruling">يحتمل الطروء</div>
+  </div>
+  <div class="day-cell d-wudu">
+    <div class="day-num">2</div>
+    <div class="day-ruling">يحتمل الطروء</div>
+  </div>
+  <div class="day-cell d-wudu">
+    <div class="day-num">3</div>
+    <div class="day-ruling">يحتمل الطروء</div>
+  </div>
+  <div class="day-cell d-wudu">
+    <div class="day-num">4</div>
+    <div class="day-ruling">يحتمل الطروء</div>
+  </div>
+  <div class="day-cell d-hayd">
+    <div class="day-num">5</div>
+    <div class="day-ruling">حيض بيقين</div>
+  </div>
+  <div class="day-cell d-hayd">
+    <div class="day-num">6</div>
+    <div class="day-ruling">حيض بيقين</div>
+  </div>
+  <div class="day-cell d-ghusl">
+    <div class="day-num">7</div>
+    <div class="day-ruling">يحتمل الانقطاع</div>
+  </div>
+  <div class="day-cell d-ghusl">
+    <div class="day-num">8</div>
+    <div class="day-ruling">يحتمل الانقطاع</div>
+  </div>
+  <div class="day-cell d-ghusl">
+    <div class="day-num">9</div>
+    <div class="day-ruling">يحتمل الانقطاع</div>
+  </div>
+  <div class="day-cell d-ghusl">
+    <div class="day-num">10</div>
+    <div class="day-ruling">يحتمل الانقطاع</div>
+  </div>
+</div>
+
+<div class="timeline-container">
+  <div style="text-align:center; font-size:14px; color:var(--dark); margin-bottom:8px; font-weight:bold;">تخطيط المثال: ستة أيام حيض من العشر الأول</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment seg-wudu" style="flex:4;">1 – 4<br><span style="font-size:10px;">يحتمل الطروء</span></div>
+    <div class="timeline-segment seg-hayd" style="flex:2;">5 – 6<br><span style="font-size:10px;">حيض بيقين</span></div>
+    <div class="timeline-segment seg-ghtsl" style="flex:4;">7 – 10<br><span style="font-size:10px;">يحتمل الانقطاع</span></div>
+    <div class="timeline-segment seg-tuhr" style="flex:20;">11 – 30<br><span style="font-size:10px;">طهر بيقين</span></div>
+  </div>
+  <div class="timeline-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#0d47a1;"></div> يحتمل الطروء فقط (وضوء لكل فرض)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1b5e20;"></div> حيض بيقين (لا تصلي)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#4a148c;"></div> يحتمل الانقطاع (غسل لكل فرض)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1565c0;"></div> طهر بيقين (وضوء لكل فرض)</div>
+  </div>
+</div>
+
+<h2>لماذا الخامس والسادس حيض بيقين؟</h2>
+
+<div class="ruling-card">
+  <span class="ruling-label">تعليل</span>
+  <div class="ruling-text">
+    لأن لو قلنا الحيض يبدأ في السادس — الخامس لا يمكن أن يكون حيضاً لأنه لو بدأ في السادس فقد بدأ في آخر يوم ممكن. ولو بدأ في الخامس لا بد أن يكون السادس حيضاً. حتى لو قلنا بدأ في الأول ينتهي في السادس — بدأ في الثاني ينتهي في السابع — يعني السادس داخل في الحيض. إذن <span class="strong">الخامس والسادس حيض بيقين</span> على كل التقديرات.
+  </div>
+</div>
+
+<h2>الأحكام المترتبة</h2>
+
+<div class="numbered-steps">
+  <div class="step-item">
+    <strong>من الأول إلى الرابع:</strong> يحتمل ابتداء الحيض (طرؤ الحيض — حصول الحيض) — فلا غسل عليها لكن <span class="strong">تتوضأ لكل صلاة فرض</span>.
+  </div>
+  <div class="step-item">
+    <strong>الخامس والسادس:</strong> حيض بيقين — <span class="strong">لا تصلي</span>.
+  </div>
+  <div class="step-item">
+    <strong>من السابع إلى العاشر:</strong> يحتمل الانقطاع — فتجب عليها <span class="strong">الغسل لكل صلاة فرض</span>.
+  </div>
+  <div class="step-item">
+    <strong>من بعد العاشر:</strong> طهر بيقين — لأنها قالت حيضها من العشر الأول فما بعد العاشر طهر — <span class="strong">تتوضأ لكل صلاة فرض</span>.
+  </div>
+</div>
+
+<div class="quote-block">
+  ومن أمثلة المتحيرة الناسية لوقت الحيض الذاكرة للعدد ما لو قالت: كان حيضي ستة أيام من العشر الأول من كل شهر. فالخامس والسادس حيض بيقين. ومن السابع إلى العاشر يحتمل الانقطاع فتغتسل لكل صلاة. ومن الأول إلى الخامس يحتمل الطروء فلا غسل. ومن بعد العاشر تتوضأ لكل صلاة.
+  <div class="quote-source">نص الكتاب</div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه: القاعدة العامة</div>
+  <p class="no-indent">أكرر لك: ليس صعباً. افهم السؤال جيداً. انظر أين المنطقة التي هي حيض بيقين؟ أين المنطقة التي هي طهر بيقين؟ أين المنطقة التي تحتمل الانقطاع؟ أين المنطقة التي تحتمل الطروء؟ وأعطي كل منطقة حكمها. فقط.</p>
+</div>
+
+<!-- ===== SECTION 7: مثال إضافي ===== -->
+<h1>مثال إضافي: كان حيضي خمسة أيام من العشر الأول لكن لا أعلم ابتداءها</h1>
+
+<div class="case-card">
+  <span class="case-label">مثال إضافي</span>
+  <div class="case-q">قالت: كان حيضي خمسة أيام من العشر الأول، لكن لا أعلم ابتداءها، واليوم الأول كان طهراً.</div>
+  <div class="case-a">
+    هذه المرأة تقول إن حيضها خمسة أيام في العشر الأول لكنها لا تعلم متى يبدأ، واليوم الأول طهر يقين.
+  </div>
+</div>
+
+<h2>التقسيم</h2>
+
+<p>اليوم الأول طهر يقين — إذن أنت لك حكم المستحاضة تصلين وتتوضئين لكل صلاة فرض. أما السادس — على كل التقديرات لا بد أن يكون حيضاً — فالسادس حيض بيقين.</p>
+
+<div class="day-grid">
+  <div class="day-cell d-truhr">
+    <div class="day-num">1</div>
+    <div class="day-ruling">طهر بيقين</div>
+  </div>
+  <div class="day-cell d-wudu">
+    <div class="day-num">2</div>
+    <div class="day-ruling">يحتمل الطروء</div>
+  </div>
+  <div class="day-cell d-wudu">
+    <div class="day-num">3</div>
+    <div class="day-ruling">يحتمل الطروء</div>
+  </div>
+  <div class="day-cell d-wudu">
+    <div class="day-num">4</div>
+    <div class="day-ruling">يحتمل الطروء</div>
+  </div>
+  <div class="day-cell d-wudu">
+    <div class="day-num">5</div>
+    <div class="day-ruling">يحتمل الطروء</div>
+  </div>
+  <div class="day-cell d-hayd">
+    <div class="day-num">6</div>
+    <div class="day-ruling">حيض بيقين</div>
+  </div>
+  <div class="day-cell d-ghusl">
+    <div class="day-num">7</div>
+    <div class="day-ruling">يحتمل الانقطاع</div>
+  </div>
+  <div class="day-cell d-ghusl">
+    <div class="day-num">8</div>
+    <div class="day-ruling">يحتمل الانقطاع</div>
+  </div>
+  <div class="day-cell d-ghusl">
+    <div class="day-num">9</div>
+    <div class="day-ruling">يحتمل الانقطاع</div>
+  </div>
+  <div class="day-cell d-ghusl">
+    <div class="day-num">10</div>
+    <div class="day-ruling">يحتمل الانقطاع</div>
+  </div>
+</div>
+
+<div class="timeline-container">
+  <div style="text-align:center; font-size:14px; color:var(--dark); margin-bottom:8px; font-weight:bold;">تخطيط المثال الإضافي: خمسة أيام حيض من العشر الأول واليوم الأول طهر</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment seg-tuhr" style="flex:1;">1<br><span style="font-size:9px;">طهر</span></div>
+    <div class="timeline-segment seg-wudu" style="flex:4;">2 – 5<br><span style="font-size:10px;">يحتمل الطروء</span></div>
+    <div class="timeline-segment seg-hayd" style="flex:1;">6<br><span style="font-size:9px;">حيض</span></div>
+    <div class="timeline-segment seg-ghtsl" style="flex:4;">7 – 10<br><span style="font-size:10px;">يحتمل الانقطاع</span></div>
+    <div class="timeline-segment seg-tuhr" style="flex:20;">11 – 30<br><span style="font-size:10px;">طهر بيقين</span></div>
+  </div>
+  <div class="timeline-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#1565c0;"></div> طهر بيقين (وضوء لكل فرض)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#0d47a1;"></div> يحتمل الطروء فقط (وضوء لكل فرض)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1b5e20;"></div> حيض بيقين (لا تصلي)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#4a148c;"></div> يحتمل الانقطاع (غسل لكل فرض)</div>
+  </div>
+</div>
+
+<h2>تفصيل الأحكام</h2>
+
+<div class="numbered-steps">
+  <div class="step-item">
+    <strong>اليوم الأول:</strong> طهر بيقين — فلك حكم المستحاضة، تصلين وتتوضئين لكل صلاة فرض.
+  </div>
+  <div class="step-item">
+    <strong>من الثاني إلى الخامس:</strong> يحتمل الطروء — تتوضأ لكل صلاة فرض فقط.
+  </div>
+  <div class="step-item">
+    <strong>اليوم السادس:</strong> حيض بيقين — لا تصلي.
+  </div>
+  <div class="step-item">
+    <strong>من السابع إلى العاشر:</strong> يحتمل الانقطاع — يجب عليها أن تغتسل لكل صلاة فرض.
+  </div>
+  <div class="step-item">
+    <strong>ما بعد العاشر:</strong> طهر بيقين — حكم المستحاضة، تتوضأ لكل صلاة فرض.
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه: هذا مثال زائد على ما في الكتاب</div>
+  <p class="no-indent">هذا مثال زائد على ما في الكتاب أضافه الشيخ للتوضيح. والأصل في كل هذه المسائل أن تنظر إلى معطيات السؤال وتقسم الزمن إلى مناطق ثم تعطي كل منطقة حكمها.</p>
+</div>
+
+<!-- ===== SECTION 8: جدول مقارنة ===== -->
+<h1>جدول مقارنة: الأحكام حسب المناطق</h1>
+
+<div class="data-table" style="font-size:13px;">
+  <table>
+    <thead>
+      <tr>
+        <th>المنطقة</th>
+        <th>الوصف</th>
+        <th>الحكم</th>
+        <th>المثال الأول<br>(أول الشهر)</th>
+        <th>المثال الثاني<br>(السادس)</th>
+        <th>مثال ستة أيام<br>(العشر الأول)</th>
+        <th>المثال الإضافي<br>(خمسة أيام)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="background:#1b5e20; color:#fff; font-weight:bold;">حيض بيقين</td>
+        <td>تيقن الحيض</td>
+        <td>لا تصلي</td>
+        <td>اليوم الأول</td>
+        <td>اليوم السادس</td>
+        <td>الخامس والسادس</td>
+        <td>اليوم السادس</td>
+      </tr>
+      <tr>
+        <td style="background:#0d47a1; color:#fff; font-weight:bold;">يحتمل الطروء فقط</td>
+        <td>احتمال بدء الحيض</td>
+        <td>وضوء لكل فرض</td>
+        <td>—</td>
+        <td>1 – 5</td>
+        <td>1 – 4</td>
+        <td>2 – 5</td>
+      </tr>
+      <tr>
+        <td style="background:#4a148c; color:#fff; font-weight:bold;">يحتمل الانقطاع</td>
+        <td>احتمال انقطاع الدم</td>
+        <td>غسل لكل فرض</td>
+        <td>2 – 15</td>
+        <td>7 – 20</td>
+        <td>7 – 10</td>
+        <td>7 – 10</td>
+      </tr>
+      <tr>
+        <td style="background:#1565c0; color:#fff; font-weight:bold;">طهر بيقين</td>
+        <td>تيقن الطهر</td>
+        <td>وضوء لكل فرض</td>
+        <td>16 – 30</td>
+        <td>21 – 30</td>
+        <td>11 – 30</td>
+        <td>1، 11 – 30</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ===== SECTION 9: خلاصة ===== -->
+<h1>خلاصة الدرس</h1>
+
+<div class="summary-box">
+  <div class="summary-title">خلاصة قاعدة المتحيرة الذاكرة للوقت أو العدد</div>
+  
+  <div class="numbered-steps">
+    <div class="step-item">
+      <strong>اقسم أزمنة المرأة من خلال معطيات السؤال</strong> إلى: حيض بيقين، طهر بيقين، يحتمل الانقطاع، يحتمل الطروء.
+    </div>
+    <div class="step-item">
+      <strong>حيض بيقين:</strong> لا تصلي — تعطى حكم الحائض.
+    </div>
+    <div class="step-item">
+      <strong>طهر بيقين:</strong> تتوضأ لكل فرض — حكم المستحاضة الطاهر.
+    </div>
+    <div class="step-item">
+      <strong>يحتمل الانقطاع:</strong> تغتسل لكل صلاة فرض — لاحتمال انقطاع الدم.
+    </div>
+    <div class="step-item">
+      <strong>يحتمل الطروء فقط:</strong> تتوضأ لكل صلاة فرض — لأنها مستحاضة في طهر مشكوك.
+    </div>
+  </div>
+</div>
+
+<div class="benefit-box">
+  <span class="benefit-label">فائدة مهمة</span>
+  <p class="no-indent">يشترط لهذا الحكم شرطان: <span class="strong">(1) أن تعلم قدر الدور</span> — مجموع حيضها وطهرها، و<span class="strong">(2) أن تعلم ابتداء الدور</span> — متى يبدأ. فإن فقد أحدهما كان حكمها حكم المتحيرة المطلقة، لأنه يحتمل الحيض والطهر والانقطاع في كل وقت فلا فائدة فيما حفظت.</p>
+</div>
+
+<!-- ===== SECTION 10: خاتمة ===== -->
+<h1>خاتمة وتوصية</h1>
+
+<p>نكون بهذا انتهينا من الدرس السابع. نأخذ الدرس الثامن اليوم نختم الكتاب. أقول لكم شيئاً: لا بد أن تراجعوا الدرس السابع هذا جيداً — هذه مستحيلة — وسابع صور تقريباً المستحيلة نفس الصور السبع: مبتدأ مميزة، مبتدأ غير مميزة... نفس الصور السبع. إذا فهمت هذه الأحكام هي تقريباً بنسبة 95% نفس الأحكام هنا.</p>
+
+<p>ولديك اقرأ يعني غداً مثلاً سندرس المبتدأ المميزة — تمام — وذكر لها ستة أمثلة ما شاء الله ستة أمثلة، لا بد أن تقرأ المبتدأ المميز جيداً في المستحاضة — في مستحاضة الحيضة — تقرأ جيداً قبل أن تأتي لهنا حتى تفهم هذا جيداً ونمشي عليه سريعاً.</p>
+
+<p>نكتفي بهذا، والله أعلم، وصلى الله على سيدنا محمد وآله وصحبه أجمعين والحمد لله رب العالمين.</p>
+
+<div class="callout-box">
+  <div class="callout-title">توصية الشيخ</div>
+  <p class="no-indent">يمكنكم تصور هذا وتكتبوا وترسموا في دفاتركم مثل ما صنعت أنا هنا — لو قالت سائل بسم الله: كان حيضي خمسة أيام من العشر الأول لكن لا أعلم ابتداءها واليوم الأول كان طهراً — ستقدرون على تقسيم المناطق والأحكام.</p>
+</div>
+
+<!-- ===== جدول المناطق والأحكام للمثال الإضافي ===== -->
+<h2>ملخص تفصيلي: المثال الإضافي (خمسة أيام من العشر الأول)</h2>
+
+<div class="data-table">
+  <table>
+    <thead>
+      <tr>
+        <th>الأيام</th>
+        <th>المنطقة</th>
+        <th>الحكم</th>
+        <th>السبب</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td style="background:#1565c0; color:#fff; font-weight:bold;">طهر بيقين</td>
+        <td>تتوضأ لكل فرض</td>
+        <td>قالت اليوم الأول طهر</td>
+      </tr>
+      <tr>
+        <td>2 – 5</td>
+        <td style="background:#0d47a1; color:#fff; font-weight:bold;">يحتمل الطروء</td>
+        <td>تتوضأ لكل فرض</td>
+        <td>الحيض قد يبدأ في أي من هذه الأيام</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td style="background:#1b5e20; color:#fff; font-weight:bold;">حيض بيقين</td>
+        <td>لا تصلي</td>
+        <td>حتى لو بدأ في السادس = خمسة أيام فالسادس حيض قطعاً</td>
+      </tr>
+      <tr>
+        <td>7 – 10</td>
+        <td style="background:#4a148c; color:#fff; font-weight:bold;">يحتمل الانقطاع</td>
+        <td>تغتسل لكل فرض</td>
+        <td>لو بدأ في الثاني ينتهي في السابع = يحتمل الانقطاع</td>
+      </tr>
+      <tr>
+        <td>11 – 30</td>
+        <td style="background:#1565c0; color:#fff; font-weight:bold;">طهر بيقين</td>
+        <td>تتوضأ لكل فرض</td>
+        <td>حيضها من العشر الأول فقط فما بعده طهر</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="benefit-box">
+  <span class="benefit-label">خلاصة القاعدة</span>
+  <p class="no-indent">المنطقة التي تحتمل الانقطاع يجب عليها أن تغتسل لكل صلاة. والمنطقة التي يحتمل فيها الطروء فقط يجب عليها الوضوء لكل صلاة. أنت تقسم إلى أربع مجموعات من خلال معطيات السؤال تستطيع أن تقسم.</p>
+</div>
+
+</div><!-- end main-content -->
+
+</body>
+</html>

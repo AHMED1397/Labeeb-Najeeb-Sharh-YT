@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf') format('truetype'); font-weight: normal; }
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf') format('truetype'); font-weight: bold; }
+@font-face { font-family: 'NotoNaskh'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf') format('truetype'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+
+body {
+  font-family: 'NotoNaskh', 'Amiri', serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #1a1a2e;
+  direction: rtl;
+  background: #fff;
+  text-align: justify;
+}
+
+.cover-header {
+  background: #1a5632;
+  color: white;
+  padding: 20px 14px;
+  text-align: center;
+  margin: 0 0 12px 0;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px);
+  border-bottom: 4px solid #c8a951;
+}
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 6px; border: none; font-family: 'Amiri', serif; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.9; margin: 4px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.92; margin: 6px 0 2px 0; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .creator { font-size: 11pt; opacity: 0.85; margin-top: 2px; }
+.cover-header .series { font-size: 11pt; opacity: 0.8; margin-top: 4px; }
+
+.toc {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 0 0 12px 0;
+}
+.toc-title {
+  font-family: 'Amiri', serif;
+  font-size: 14pt;
+  color: #1a5632;
+  text-align: center;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #c8a951;
+  padding-bottom: 4px;
+}
+.toc-item {
+  font-size: 10pt;
+  padding: 2px 0;
+  border-bottom: 1px dotted #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+h2.section-title {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0d7c3e;
+  border-bottom: 2px solid #0d7c3e;
+  padding-bottom: 5px;
+  margin: 18px 0 10px;
+}
+
+h3.sub-title {
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: #0a5c2e;
+  margin: 14px 0 8px;
+  padding-right: 10px;
+  border-right: 4px solid #0d7c3e;
+}
+
+h4.minor-title {
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #166534;
+  margin: 10px 0 6px;
+}
+
+p { margin: 5px 0; text-align: justify; }
+
+.definition-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-right: 4px solid #0d7c3e;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.rule-box {
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-right: 4px solid #d97706;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.exception-box {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-right: 4px solid #ea580c;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.evidence-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-right: 4px solid #2563eb;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.issue-box {
+  background: #fdf2f8;
+  border: 1px solid #fbcfe8;
+  border-right: 4px solid #db2777;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.comparison-box {
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  border-right: 4px solid #7c3aed;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.note-box {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-right: 4px solid #0284c7;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.poetry-box {
+  background: #faf5ff;
+  border: 1px solid #e9d5ff;
+  border-right: 4px solid #9333ea;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+  text-align: center;
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  line-height: 2.2;
+}
+
+.key-rule {
+  background: #dcfce7;
+  border: 2px solid #16a34a;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.box-label {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 4px;
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.label-def { background: #0d7c3e; }
+.label-rule { background: #d97706; }
+.label-exc { background: #ea580c; }
+.label-ev { background: #2563eb; }
+.label-issue { background: #db2777; }
+.label-comp { background: #7c3aed; }
+.label-note { background: #0284c7; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 13px;
+  table-layout: fixed;
+}
+
+th {
+  background: #0d7c3e;
+  color: #fff;
+  padding: 6px 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+td {
+  padding: 5px 8px;
+  border: 1px solid #d1d5db;
+  text-align: center;
+  vertical-align: top;
+}
+
+tr:nth-child(even) { background: #f0fdf4; }
+tr:nth-child(odd) { background: #fff; }
+
+.tree-container { margin: 12px 0; text-align: center; }
+.tree-root {
+  display: inline-block;
+  background: linear-gradient(135deg, #0d7c3e, #0a5c2e);
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+.tree-branches { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px; }
+.tree-branch {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  min-width: 80px;
+  text-align: center;
+}
+.tree-branch-num { font-family: 'Amiri', serif; font-weight: bold; color: #0d7c3e; font-size: 14px; }
+.tree-branch-label { font-size: 12px; color: #374151; }
+
+.compare-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.compare-card { flex: 1; min-width: 140px; border-radius: 8px; padding: 8px 10px; text-align: center; }
+.compare-card-green { background: #dcfce7; border: 1px solid #86efac; }
+.compare-card-red { background: #fef2f2; border: 1px solid #fca5a5; }
+.compare-card-gold { background: #fefce8; border: 1px solid #fde68a; }
+.compare-card-blue { background: #eff6ff; border: 1px solid #bfdbfe; }
+.compare-card-title { font-family: 'Amiri', serif; font-weight: bold; font-size: 14px; margin-bottom: 4px; }
+.compare-card-body { font-size: 12px; }
+
+.flow-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px; margin: 8px 0; }
+.flow-box { background: #0d7c3e; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-family: 'Amiri', serif; font-weight: bold; text-align: center; }
+.flow-arrow { font-size: 16px; color: #0d7c3e; font-weight: bold; }
+.flow-result { padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; text-align: center; }
+.flow-pure { background: #dcfce7; border: 1px solid #86efac; color: #166534; }
+.flow-impure { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+.flow-excused { background: #fefce8; border: 1px solid #fde68a; color: #92400e; }
+
+.highlight-green { background: #dcfce7; padding: 1px 4px; border-radius: 3px; }
+.highlight-gold { background: #fefce8; padding: 1px 4px; border-radius: 3px; }
+.highlight-red { background: #fef2f2; padding: 1px 4px; border-radius: 3px; }
+
+.verse-ref { font-family: 'Amiri', serif; font-size: 14px; color: #1e40af; text-align: center; margin: 6px 0; }
+.hadith-ref { font-family: 'Amiri', serif; font-size: 13px; color: #166534; text-align: center; margin: 6px 0; }
+
+.condition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.condition-item { border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.condition-num {
+  display: inline-block; background: #0d7c3e; color: #fff; min-width: 24px; height: 24px;
+  border-radius: 50%; text-align: center; line-height: 24px; font-family: 'Amiri', serif;
+  font-weight: bold; font-size: 12px; margin-left: 6px;
+}
+
+ul { margin: 4px 0; padding-right: 20px; }
+li { margin: 2px 0; }
+</style>
+</head>
+<body>
+
+<!-- ===== COVER HEADER ===== -->
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس الثاني والثلاثون — تابع ستر العورة + الشرط الرابع: معرفة دخول الوقت</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="creator">تنسيق: أحمد بن إرشاد</div>
+  <div class="series">وجوب ستر العورة خارج الصلاة · عورات الرجل والمرأة · معرفة دخول الوقت · المواقيت · الواجب الموسّع والمضيّق</div>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. وجوب ستر العورة خارج الصلاة</span></div>
+  <div class="toc-item"><span>٢. العورة في الخلوة</span></div>
+  <div class="toc-item"><span>٣. جدول عورات الرجل (ثلاث عورات)</span></div>
+  <div class="toc-item"><span>٤. جدول عورات المرأة (أربع عورات)</span></div>
+  <div class="toc-item"><span>٥. جواز كشف العورة في الخلوة لأدنى حاجة</span></div>
+  <div class="toc-item"><span>٦. الشرط الرابع: معرفة دخول الوقت يقيناً أو ظنّاً</span></div>
+  <div class="toc-item"><span>٧. قاعدة: العبرة في العبادات بما في ظنّ المكلف وفي نفس الأمر</span></div>
+  <div class="toc-item"><span>٨. مواقيت الصلوات الخمس</span></div>
+  <div class="toc-item"><span>٩. تسمية صلاة الظهر</span></div>
+  <div class="toc-item"><span>١٠. وقت المغرب: القول القديم والجديد</span></div>
+  <div class="toc-item"><span>١١. وقت العشاء والشفق (أحمر/أصفر/أبيض)</span></div>
+  <div class="toc-item"><span>١٢. الفجر الصادق والكاذب</span></div>
+  <div class="toc-item"><span>١٣. الصلاة الوسطى وترتيب الصلوات فضلاً</span></div>
+  <div class="toc-item"><span>١٤. ترتيب الجماعات فضلاً</span></div>
+  <div class="toc-item"><span>١٥. صلوات الأنبياء عليهم السلام</span></div>
+  <div class="toc-item"><span>١٦. الواجب الموسّع والواجب المضيّق</span></div>
+  <div class="toc-item"><span>١٧. أداء الصلاة وقضاؤها: إدراك ركعة</span></div>
+  <div class="toc-item"><span>١٨. تطويل الصلاة حتى يخرج الوقت</span></div>
+</div>
+
+<!-- ===== 1. وجوب ستر العورة خارج الصلاة ===== -->
+<h2 class="section-title">١. وجوب ستر العورة خارج الصلاة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">فرع</span>
+  <p><b>يجب هذا الستر خارج الصلاة أيضاً ولو بثوب نجس أو حرير لم يجد غيره</b> — أي أنّ ستر العورة لا يقتصر وجوبه على الصلاة فقط، بل يجب ستر العورة حتى في خارج الصلاة.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">في الصلاة</div>
+    <div class="compare-card-body">لا يستتر بالثوب النجس<br>يصلّي عارياً ولا إعادة<br>لأنّ النجاسة أشدّ</div>
+  </div>
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">خارج الصلاة</div>
+    <div class="compare-card-body">يستتر ولو بثوب نجس أو حرير<br>لأنّ الستر واجب مطلقاً<br>والنجاسة أخفّ من كشف العورة</div>
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">حتى في الخلوة</span>
+  <p>يجب ستر العورة حتى لو كان خالياً — لكنّ الواجب في الخلوة أقلّ ممّا في الصلاة وفي حضور الناس، كما سيأتي بيانه.</p>
+</div>
+
+<!-- ===== 2. العورة في الخلوة ===== -->
+<h2 class="section-title">٢. العورة في الخلوة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>لكن الواجب فيها ستر سوأتي الرجل وما بين سرة وركبة غيره</b> — أي في الخلوة:</p>
+  <p><b>الرجل:</b> يجب عليه ستر <b>السوأتين</b> فقط (القُبُل والدُبُر).</p>
+  <p><b>غير الرجل (الحرة والأمة):</b> يجب عليها ستر <b>ما بين السرة والركبة</b>.</p>
+</div>
+
+<div class="key-rule">
+  الأمة في الخلوة تُلحق بالحرة لا بالرجل<br>
+  فالواجب عليها ستر ما بين السرة والركبة
+</div>
+
+<!-- ===== 3. عورات الرجل ===== -->
+<h2 class="section-title">٣. جدول عورات الرجل (ثلاث عورات)</h2>
+
+<table>
+  <tr>
+    <th>العورة</th>
+    <th>الموضع</th>
+    <th>البيان</th>
+  </tr>
+  <tr>
+    <td><b>السوأتان</b></td>
+    <td>في الخلوة</td>
+    <td>يجب ستر القُبُل والدُبُر فقط — ويجوز كشفهما لأدنى حاجة</td>
+  </tr>
+  <tr>
+    <td><b>ما بين السرة والركبة</b></td>
+    <td>في الصلاة + مع الرجال + مع النساء المحارم</td>
+    <td>ثلاثة مواضع تتّحد فيها العورة</td>
+  </tr>
+  <tr>
+    <td><b>جميع البدن</b></td>
+    <td>مع النساء الأجنبيّات (على ما اعتمده النووي)</td>
+    <td>الإمام النووي: يحرم على الأجنبيّة النظر إلى بدن الرجل عموماً</td>
+  </tr>
+</table>
+
+<h3 class="sub-title">أقوال الشافعية في عورة الرجل مع الأجنبيّات</h3>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">النووي (المعتمد)</div>
+    <div class="compare-card-body">عورة الرجل مع الأجنبيّات<br><b>جميع البدن</b><br>يحرم عليها النظر إليه</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">قول ثانٍ</div>
+    <div class="compare-card-body">عورة الرجل مع الأجنبيّات<br><b>ما بين السرة والركبة</b><br>كعورته مع الرجال</div>
+  </div>
+  <div class="compare-card compare-card-blue">
+    <div class="compare-card-title">قول ثالث</div>
+    <div class="compare-card-body">عورة الرجل مع الأجنبيّات<br><b>ما لا يبدو عند المهنة</b><br>يجوز لها رؤية الرأس والعنق والذراع والساق</div>
+  </div>
+</div>
+
+<!-- ===== 4. عورات المرأة ===== -->
+<h2 class="section-title">٤. جدول عورات المرأة (أربع عورات)</h2>
+
+<table>
+  <tr>
+    <th>العورة</th>
+    <th>الموضع</th>
+    <th>البيان</th>
+  </tr>
+  <tr>
+    <td><b>ما بين السرة والركبة</b></td>
+    <td>في الخلوة + عند المحارم + عند النساء المسلمات</td>
+    <td>ثلاثة مواضع — والأمة هنا كالحرة</td>
+  </tr>
+  <tr>
+    <td><b>ما لا يبدو عند المهنة</b></td>
+    <td>عند المرأة الكافرة أو الفاسقة التي لا تُؤتمن</td>
+    <td>يجوز لها كشف ما يظهر عادةً عند المهنة — لا صدرها ولا ظهرها</td>
+  </tr>
+  <tr>
+    <td><b>جميع البدن عدا الوجه والكفّين</b></td>
+    <td>في الصلاة + عند الرجال الأجانب (إذا لم يعلم بهم)</td>
+    <td>هذا هو الأصل — ولا يجب تغطية الوجه والكفّين</td>
+  </tr>
+  <tr>
+    <td><b>جميع البدن عدا الوجه والكفّين مع وجوب تغطيتهما</b></td>
+    <td>عند الرجال الأجانب إذا علمت أنّ أجنبيّاً ينظر</td>
+    <td>إذا علمت أنّ أجنبيّاً ينظر إلى يديها أو وجهها <b>وجبت التغطية</b></td>
+  </tr>
+</table>
+
+<div class="key-rule">
+  الفرق بين العورة الثالثة والرابعة:<br>
+  إذا لم تعلم بنظر الأجنبيّ: الوجه والكفّان ليسا بعورة<br>
+  إذا علمت بنظر الأجنبيّ: يجب تغطية الوجه والكفّين
+</div>
+
+<!-- ===== 5. جواز كشف العورة في الخلوة ===== -->
+<h2 class="section-title">٥. جواز كشف العورة في الخلوة لأدنى حاجة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>ويجوز — أي بلا كراهة — كشفها في الخلوة ولو في المسجد لأدنى غرض</b></p>
+</div>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">١</span>
+    <b>التبريد:</b> كشف العورة للتبرّد من الحرّ
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٢</span>
+    <b>صيانة الثوب من الدنس:</b> ككنس البيت والحماية من الغبار والوسخ
+  </div>
+  <div class="condition-item" style="background: #f0f9ff; border: 1px solid #bae6fd;">
+    <span class="condition-num">٣</span>
+    <b>الغسل:</b> كشف العورة لغسل البدن
+  </div>
+  <div class="condition-item" style="background: #fdf2f8; border: 1px solid #fbcfe8;">
+    <span class="condition-num">✓</span>
+    <b>ولو في المسجد:</b> إذا كان خالياً في المسجد واحتاج لكشف عورته جاز بلا كراهة
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">لغويّة</span>
+  <p>قوله <b>"من المسجد"</b> — هنا "من" بمعنى "في". ومن وردت بمعنى في في القرآن الكريم كقوله تعالى: <i>{يا أيّها الذين آمنوا إذا نودي للصلاة من يوم الجمعة}</i> — أي في يوم الجمعة.</p>
+</div>
+
+<!-- ===== 6. الشرط الرابع: معرفة دخول الوقت ===== -->
+<h2 class="section-title">٦. الشرط الرابع: معرفة دخول الوقت يقيناً أو ظنّاً</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ورابعها معرفة دخول وقت يقيناً أو ظنّاً</b> — أي يجب على المصلي أن يعرف أنّ الوقت قد دخل، إما بيقين أو بظنّ. فلا تصحّ الصلاة إذا صلّى بغير معرفة دخول الوقت.</p>
+</div>
+
+<div class="tree-container">
+  <div class="tree-root">معرفة دخول الوقت</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">باليقين</div>
+      <div class="tree-branch-label">المشاهدة بنفسه<br>أو إخبار ثقة عدل عن علم</div>
+    </div>
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a;">
+      <div class="tree-branch-num">بالظنّ</div>
+      <div class="tree-branch-label">الاجتهاد بحرفة أو ورد<br>كمن يعرف أنّ الشمس تغرب بعد قراءة خمسة أجزاء من القرآن</div>
+    </div>
+  </div>
+</div>
+
+<h3 class="sub-title">اليقين</h3>
+
+<p>يعرف دخول الوقت بيقين إما بأن يشاهد بنفسه — كأن يرى غروب الشمس أو طلوع الفجر الصادق أو غروب الشفق الأحمر — أو بأن يخبره <b>ثقة عدل</b> عن علم، فيقول: "أنا شاهدت غروب الشمس" أو "شاهدت طلوع الفجر الصادق".</p>
+
+<h3 class="sub-title">الظنّ</h3>
+
+<p>الاجتهاد بحرفة: كأن يعرف من نفسه أنّه إذا صلّى العصر ثم قرأ خمسة أجزاء من القرآن فإنّ المعتاد أنّ الشمس تغرب بعد الانتهاء من هذا القدر. أو الاجتهاد بورد: كأن يعرف أنّه إذا صلّى العصر ثم خاط ثوباً فإنّه ينتهي من خياطته عند غروب الشمس. هذا يعطيه <b>غلبة ظنّ</b> بدخول الوقت.</p>
+
+<!-- ===== 7. قاعدة العبرة في العبادات ===== -->
+<h2 class="section-title">٧. قاعدة: العبرة في العبادات بما في ظنّ المكلف وفي نفس الأمر</h2>
+
+<div class="key-rule">
+  في العبادات: لا بدّ من أمرين معاً<br>
+  ١. ما في ظنّ المكلف (أن يظنّ تحقّق الشرط)<br>
+  ٢. ما في نفس الأمر (أن يكون الشرط متحقّقاً واقعاً)<br>
+  في العقود: يكفي ما في نفس الأمر فقط
+</div>
+
+<table>
+  <tr>
+    <th>الحالة</th>
+    <th>ظنّ المكلف</th>
+    <th>نفس الأمر</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td><b>الأولى</b></td>
+    <td>ظنّ دخول الوقت</td>
+    <td>الوقت لم يدخل (كان غائماً)</td>
+    <td><span class="highlight-red">لا تصحّ</span></td>
+  </tr>
+  <tr>
+    <td><b>الثانية</b></td>
+    <td>ظنّ أنّ الوقت لم يدخل (تعمّد التأخير)</td>
+    <td>الوقت كان قد دخل</td>
+    <td><span class="highlight-red">لا تصحّ</span></td>
+  </tr>
+  <tr>
+    <td><b>الثالثة</b></td>
+    <td>ظنّ دخول الوقت</td>
+    <td>الوقت قد دخل فعلاً</td>
+    <td><span class="highlight-green">تصحّ</span></td>
+  </tr>
+</table>
+
+<h3 class="sub-title">مثال تطبيقي: الوضوء بماء</h3>
+
+<table>
+  <tr>
+    <th>ظنّ المكلف</th>
+    <th>نفس الأمر</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td>ظنّ أنّ الماء طهور</td>
+    <td>الماء نجس أو طاهر غير مطهّر</td>
+    <td><span class="highlight-red">لا يصحّ</span></td>
+  </tr>
+  <tr>
+    <td>ظنّ أنّ الماء غير طهور</td>
+    <td>الماء طهور</td>
+    <td><span class="highlight-red">لا يصحّ</span></td>
+  </tr>
+  <tr>
+    <td>ظنّ أنّ الماء طهور</td>
+    <td>الماء طهور فعلاً</td>
+    <td><span class="highlight-green">يصحّ</span></td>
+  </tr>
+</table>
+
+<h3 class="sub-title">الفرق بين العبادات والعقود</h3>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-blue">
+    <div class="compare-card-title">العبادات</div>
+    <div class="compare-card-body">العبرة بما في <b>ظنّ المكلف</b><br>وبما في <b>نفس الأمر</b> معاً<br>لا بدّ من الأمرين</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">العقود (المعاملات)</div>
+    <div class="compare-card-body">العبرة بما في <b>نفس الأمر فقط</b><br>لا يشترط ما في ظنّ المكلف</div>
+  </div>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">مثال في العقود</span>
+  <p>لو بعت بيت والدك وأنت تظنّه حيّاً — البيع لا يصحّ لأنّك تبيع ما لا تملك. لكن لو تبين أنّ والدك قد مات قبل البيع بشهر — البيع <b>يصحّ</b>، لأنّك كنت المالك فعلاً (ورثت البيت) وإن لم تعلم. فالعبرة في العقود بما في نفس الأمر.</p>
+</div>
+
+<!-- ===== 8. مواقيت الصلوات ===== -->
+<h2 class="section-title">٨. مواقيت الصلوات الخمس</h2>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p>قال الله سبحانه وتعالى: <span class="verse-ref">{إنّ الصلاة كانت على المؤمنين كتاباً موقوتاً}</span> وقال: <span class="verse-ref">{أقم الصلاة لدلوك الشمس إلى غسق الليل وقرآن الفجر إنّ قرآن الفجر كان مشهوداً}</span></p>
+</div>
+
+<h3 class="sub-title">كيف تعرف زوال الشمس؟</h3>
+
+<div class="flow-row">
+  <div class="flow-box">تناقص ظلّ العمود</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">قبل الزوال</div>
+</div>
+<div class="flow-row">
+  <div class="flow-box">توقّف الظلّ عن النقصان</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-excused">وقت الاستواء (ليس وقت صلاة)</div>
+</div>
+<div class="flow-row">
+  <div class="flow-box">بدأ الظلّ يزداد</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-pure">علامة الزوال = دخول وقت الظهر</div>
+</div>
+
+<table>
+  <tr>
+    <th>الصلاة</th>
+    <th>بداية الوقت</th>
+    <th>نهاية الوقت</th>
+  </tr>
+  <tr>
+    <td><b>الظهر</b></td>
+    <td>زوال الشمس (زيادة الظلّ بعد الاستواء)</td>
+    <td>مصير ظلّ كلّ شيء مثله غير ظلّ الاستواء</td>
+  </tr>
+  <tr>
+    <td><b>العصر</b></td>
+    <td>آخر وقت الظهر (ظلّ الشيء مثله)</td>
+    <td>غروب جميع قرص الشمس</td>
+  </tr>
+  <tr>
+    <td><b>المغرب</b></td>
+    <td>غروب الشمس</td>
+    <td>مغيب الشفق الأحمر (القول القديم — المعتمد)</td>
+  </tr>
+  <tr>
+    <td><b>العشاء</b></td>
+    <td>مغيب الشفق الأحمر</td>
+    <td>طلوع الفجر الصادق</td>
+  </tr>
+  <tr>
+    <td><b>الصبح</b></td>
+    <td>طلوع الفجر الصادق</td>
+    <td>طلوع بعض الشمس (ولا يشترط جميع القرص)</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">ظلّ الاستواء</span>
+  <p><b>ظلّ الاستواء:</b> الظلّ الموجود عند الاستواء — أي عندما تكون الشمس في وسط السماء. قد يختفي الظلّ تماماً أو يتناقص إلى حدّ معين لا يتناقص بعده. هذا الظلّ يُستثنى من حساب وقت الظهر — فقوله "غير ظلّ استواء" يعني أنّ ظلّ الاستواء لا يُحسب ضمن ظلّ الشيء مثله.</p>
+</div>
+
+<!-- ===== 9. تسمية صلاة الظهر ===== -->
+<h2 class="section-title">٩. تسمية صلاة الظهر</h2>
+
+<div class="definition-box">
+  <span class="box-label label-def">السبب</span>
+  <p><b>سمّيت بذلك لأنّها أوّل صلاة ظهرت</b> — أي لأنّها أوّل صلاة صلاّها النبيّ صلّى الله عليه وسلّم مع جبريل عليه السلام عندما علّمه المواقيت بعد عودته من الإسراء والمعراج. وكانت أوّل صلاة صلاّها جبريل بالنبيّ صلّى الله عليه وسلّم هي صلاة الظهر.</p>
+  <p>وكذلك لأنّ الله عزّ وجلّ بدأ بها في القرآن الكريم فقال: <span class="verse-ref">{أقم الصلاة لدلوك الشمس}</span> — أي لزوال الشمس.</p>
+</div>
+
+<!-- ===== 10. وقت المغرب ===== -->
+<h2 class="section-title">١٠. وقت المغرب: القول القديم والجديد</h2>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف في المذهب</span>
+  <p><b>القول القديم (المعتمد):</b> وقت المغرب يستمرّ إلى غياب الشفق الأحمر. قال صاحب الزّبد: <i>"والوقت يبقى في القديم الأظهر إلى العشاء بمغيب الأحمر"</i>.</p>
+  <p><b>القول الجديد:</b> وقت المغرب بمقدار أذان وإقامة وطهارة وستر عورة وصلاة خمس ركعات أو سبع ركعات — ثمّ يخرج وقت المغرب ويبقى فاصل ليس وقت مغرب ولا وقت عشاء.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">القول القديم (المعتمد)</div>
+    <div class="compare-card-body">وقت المغرب مستمرّ<br>إلى مغيب الشفق الأحمر<br>لا فاصل بين المغرب والعشاء</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">القول الجديد</div>
+    <div class="compare-card-body">وقت المغرب مقدّر<br>بأذان + إقامة + طهارة + صلاة<br>ثمّ فاصل قبل وقت العشاء</div>
+  </div>
+</div>
+
+<!-- ===== 11. وقت العشاء والشفق ===== -->
+<h2 class="section-title">١١. وقت العشاء والشفق (أحمر/أصفر/أبيض)</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>فوقت عشاء من مغيب الشفق — أي الشفق الأحمر</b> — "أل" في "الشفق" للعهد الذكري، أي الشفق المذكور قبل قليل.</p>
+</div>
+
+<h3 class="sub-title">أقوال الفقهاء في بداية وقت العشاء</h3>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">الجمهور (الشافعية)</div>
+    <div class="compare-card-body">وقت العشاء يبدأ<br>بمغيب الشفق <b>الأحمر</b></div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">إمام الحرمين</div>
+    <div class="compare-card-body">وقت العشاء يبدأ<br>بمغيب الشفق <b>الأصفر</b></div>
+  </div>
+  <div class="compare-card compare-card-blue">
+    <div class="compare-card-title">أبو حنيفة</div>
+    <div class="compare-card-body">وقت العشاء يبدأ<br>بمغيب الشفق <b>الأبيض</b></div>
+  </div>
+</div>
+
+<div class="flow-row">
+  <div class="flow-box">ترتيب غياب الشفق</div>
+</div>
+<div class="flow-row">
+  <div class="flow-result flow-impure">الأحمر (أوّلاً)</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-excused">الأصفر (ثانياً)</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-pure">الأبيض (ثالثاً)</div>
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">ندب التأخير (ابن حجر)</span>
+  <p><b>ينبغي استحباب تأخير صلاة العشاء لزوال الأصفر والأبيض</b> — خروجاً من الخلاف. فلو أخّرها إلى أن يغيب الشفق الأصفر والأبيض ثمّ صلّى، وقعت صلاته في وقت يتّفق الجميع على أنّه قد دخل.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">وقت الفضيلة</span>
+  <p>وقت الفضيلة في صلاة العشاء إلى <b>ثلث الليل</b>. ويمتدّ وقت العشاء إلى طلوع الفجر الصادق.</p>
+</div>
+
+<!-- ===== 12. الفجر الصادق والكاذب ===== -->
+<h2 class="section-title">١٢. الفجر الصادق والكاذب</h2>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">الفجر الصادق</div>
+    <div class="compare-card-body">معترض في الأفق عرضياً<br>يزداد بياضه كلّما مضى الوقت<br><b>يدخل به وقت الصلاة</b><br>ويحرم على الصائم الأكل والشرب</div>
+  </div>
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">الفجر الكاذب</div>
+    <div class="compare-card-body">مستطيل في السماء كذنب السرحان<br>يظهر ثمّ يتلاشى ويذهب<br><b>لا تترتّب عليه الأحكام</b><br>لا يدخل به وقت ولا يحرم على الصائم</div>
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">السرحان</span>
+  <p><b>السرحان</b> (بكسر السين): هو الذئب — شبّه الفقهاء الفجر الكاذب بذنب الذئب في شكله المستطيل.</p>
+</div>
+
+<!-- ===== 13. الصلاة الوسطى ===== -->
+<h2 class="section-title">١٣. الصلاة الوسطى وترتيب الصلوات فضلاً</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">النصّ</span>
+  <p><b>والعصر هي الصلاة الوسطى</b> — لصحّة الحديث به، كما في الصحيحين في قصّة الخندق: <i>"شغلونا عن الصلاة الوسطى صلاة العصر"</i>. سمّيت الوسطى لأنّها توسطت صلاتين ليليّتين وصلاتين نهاريّتين.</p>
+</div>
+
+<div class="key-rule">
+  ترتيب الصلوات من حيث الفضل (ذاتاً):<br>
+  <b>العصر → الصبح → العشاء → الظهر → المغرب</b>
+</div>
+
+<table>
+  <tr>
+    <th>الترتيب</th>
+    <th>الصلاة</th>
+    <th>السبب</th>
+  </tr>
+  <tr>
+    <td><b>١</b></td>
+    <td>العصر</td>
+    <td>هي الصلاة الوسطى — أفضل الصلوات</td>
+  </tr>
+  <tr>
+    <td><b>٢</b></td>
+    <td>الصبح</td>
+    <td>يلي العصر فضلاً</td>
+  </tr>
+  <tr>
+    <td><b>٣</b></td>
+    <td>العشاء</td>
+    <td>يلي الصبح</td>
+  </tr>
+  <tr>
+    <td><b>٤</b></td>
+    <td>الظهر</td>
+    <td>لها بدل وهو الجمعة — كوّن ابن حجر</td>
+  </tr>
+  <tr>
+    <td><b>٥</b></td>
+    <td>المغرب</td>
+    <td>ليس لها بدل — لكنّها أقلّ فضلاً من الظهر</td>
+  </tr>
+</table>
+
+<!-- ===== 14. ترتيب الجماعات ===== -->
+<h2 class="section-title">١٤. ترتيب الجماعات فضلاً</h2>
+
+<div class="key-rule">
+  ترتيب الجماعات من حيث الفضل:<br>
+  <b>الجمعة → صبح الجمعة → صبح غيرها → العشاء → العصر → الظهر → المغرب</b>
+</div>
+
+<table>
+  <tr>
+    <th>الترتيب</th>
+    <th>الجماعة</th>
+    <th>السبب</th>
+  </tr>
+  <tr>
+    <td><b>١</b></td>
+    <td>جماعة الجمعة</td>
+    <td>فرض عين — ليست فرض كفاية</td>
+  </tr>
+  <tr>
+    <td><b>٢</b></td>
+    <td>جماعة صبح الجمعة</td>
+    <td>ورد في الحديث: "أفضل الصلوات صلاة الصبح يوم الجمعة"</td>
+  </tr>
+  <tr>
+    <td><b>٣</b></td>
+    <td>جماعة صبح غيرها</td>
+    <td>أشقّ الجماعات — للاستيقاظ مبكّراً</td>
+  </tr>
+  <tr>
+    <td><b>٤</b></td>
+    <td>جماعة العشاء</td>
+    <td>أشقّ من جماعة العصر — لبرودة الليل وظلمته</td>
+  </tr>
+  <tr>
+    <td><b>٥</b></td>
+    <td>جماعة العصر</td>
+    <td>—</td>
+  </tr>
+  <tr>
+    <td><b>٦</b></td>
+    <td>جماعة الظهر</td>
+    <td>—</td>
+  </tr>
+  <tr>
+    <td><b>٧</b></td>
+    <td>جماعة المغرب</td>
+    <td>—</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">سرّ التفضيل</span>
+  <p><b>وإنّما فضّل جماعة الصبح والعشاء لأنّهما فيهما أشقّ</b> — والضمير في "لأنّها" يعود إلى <b>الجماعة</b> لا إلى الصلاة. فالصلاة في ذاتها قد تكون أفضل لكنّ الجماعة فيها قد تكون أسهل. والله يُضاعف الأجر على قدر المشقّة.</p>
+</div>
+
+<!-- ===== 15. صلوات الأنبياء ===== -->
+<h2 class="section-title">١٥. صلوات الأنبياء عليهم السلام</h2>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">عن الرافعي</span>
+  <p>كانت <b>الصبح</b> صلاة آدم، و<b>الظهر</b> صلاة داود، و<b>العصر</b> صلاة سليمان، و<b>المغرب</b> صلاة يعقوب، و<b>العشاء</b> صلاة يونس — عليهم الصلاة والسلام أجمعين.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">الصبح</div>
+    <div class="compare-card-body">صلاة <b>آدم</b><br>عليه السلام</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">الظهر</div>
+    <div class="compare-card-body">صلاة <b>داود</b><br>عليه السلام</div>
+  </div>
+  <div class="compare-card compare-card-blue">
+    <div class="compare-card-title">العصر</div>
+    <div class="compare-card-body">صلاة <b>سليمان</b><br>عليه السلام</div>
+  </div>
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">المغرب</div>
+    <div class="compare-card-body">صلاة <b>يعقوب</b><br>عليه السلام</div>
+  </div>
+  <div class="compare-card" style="background: #f5f3ff; border: 1px solid #ddd6fe;">
+    <div class="compare-card-title">العشاء</div>
+    <div class="compare-card-body">صلاة <b>يونس</b><br>عليه السلام</div>
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه</span>
+  <p>لم تجتمع الصلوات الخمس إلا لمحمد صلّى الله عليه وسلّم — كما مرّ في بداية كتاب الصلاة. ويُحتمل أنّ الكيفيّة تختلف من شريعة إلى شريعة أخرى، أي أنّ الصلاة موجودة لكنّ كيفيّتها قد تختلف.</p>
+</div>
+
+<!-- ===== 16. الواجب الموسع والمضيق ===== -->
+<h2 class="section-title">١٦. الواجب الموسّع والواجب المضيّق</h2>
+
+<div class="key-rule">
+  الواجب نوعان:<br>
+  <b>موسّع:</b> يتّسع وقته لفعل غيره من جنسه — كالصلاة<br>
+  <b>مضيّق:</b> لا يتّسع وقته لفعل غيره من جنسه — كصوم رمضان
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">الواجب الموسّع</div>
+    <div class="compare-card-body"><b>الصلاة</b> — وقت الظهر من الزوال إلى ظلّ الشيء مثله<br>يتّسع لفعل الظهر ولفعل صلاة أخرى من نفس الجنس في هذا الوقت</div>
+  </div>
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">الواجب المضيّق</div>
+    <div class="compare-card-body"><b>صوم رمضان</b> — لا يمكن أن تصوم صوماً آخر في رمضان<br>لو صمت نذراً أو كفارة في رمضان لا يصحّ<br>هذا الوقت لا يصلح إلا لصوم رمضان</div>
+  </div>
+</div>
+
+<h3 class="sub-title">وجوب العزم على المؤخّر</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p>الصلاة تجب بأوّل الوقت وجوباً موسّعاً — فله التأخير عن أوّله إلى وقت يسعها <b>بشرط أن يعزم على فعلها فيه</b>.</p>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف</span>
+  <p><b>الجمهور (الأكثرون من الشافعية):</b> يجب العزم على فعل الصلاة عند التأخير — فلو أخّرها وعزم ثمّ مات قبل فعلها في أثناء الوقت لا يأثم. ولو لم يعزم ومات قبل الفعل يأثم.</p>
+  <p><b>تقي الدين السبكي (الأظهر):</b> لا يجب العزم — ما دام أنّه سيصلّيها في وقتها لا يجب عليه العزم.</p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الحافظ السيوطي</span>
+  <p>قال في الكوكب الصادع: <i>"جميع وقت الظهر وقت أداء وعليه الأظهر لا يجب العزم على المؤخّر وقد عُزي وجوبه للأكثرين"</i>.</p>
+</div>
+
+<!-- ===== 17. أداء وقضاء ===== -->
+<h2 class="section-title">١٧. أداء الصلاة وقضاؤها: إدراك ركعة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">النصّ</span>
+  <p><b>ولو أدرك في الوقت ركعة لا دونها فالكل أداء وإلا فقضاء</b></p>
+</div>
+
+<div class="key-rule">
+  من أدرك ركعة كاملة في الوقت فالكلّ أداء<br>
+  ومن أدرك أقلّ من ركعة فالكلّ قضاء
+</div>
+
+<h3 class="sub-title">ما هي الركعة؟</h3>
+
+<p>الركعة هنا تعني: <b>قيام + ركوع + اعتدال + سجدة أولى + جلوس بين السجدتين + سجدة ثانية</b> — أي ركعة إلى الانتهاء من السجود، ليس المقصود الركوع فقط.</p>
+
+<table>
+  <tr>
+    <th>الصورة</th>
+    <th>الحكم</th>
+    <th>الإثم</th>
+  </tr>
+  <tr>
+    <td>أدرك ركعة كاملة في الوقت والباقي خارجه</td>
+    <td><span class="highlight-green">أداء</span></td>
+    <td><span class="highlight-red">يأثم</span> بإخراج بعضها عن الوقت بلا عذر</td>
+  </tr>
+  <tr>
+    <td>أدرك أقلّ من ركعة في الوقت</td>
+    <td><span class="highlight-red">قضاء</span></td>
+    <td><span class="highlight-red">يأثم</span> إذا أخرجها بلا عذر</td>
+  </tr>
+  <tr>
+    <td>أخرج بعضها عن الوقت بعذر (نوم/نسيان)</td>
+    <td>حسب ما أدرك</td>
+    <td><span class="highlight-green">لا يأثم</span></td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه دقيق</span>
+  <p>حتى لو أدرك ركعة في الوقت (فالكلّ أداء) — إلا أنّه <b>يأثم</b> بإخراج بعض الصلاة عن وقتها إذا كان بغير عذر. فهي أداء من حيث الحكم، لكنّه آثم من حيث التفريط في الوقت.</p>
+</div>
+
+<!-- ===== 18. تطويل الصلاة حتى يخرج الوقت ===== -->
+<h2 class="section-title">١٨. تطويل الصلاة حتى يخرج الوقت</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>لو شرع في غير الجمعة وقد بقي ما يسعها جاز له بلا كراهة أن يطيلها بالقراءة أو الذكر حتى يخرج الوقت</b></p>
+</div>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">١</span>
+    <b>غير الجمعة:</b> هذا الشرط الأوّل — أمّا الجمعة فلا يجوز تطويلها حتى يخرج وقتها
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٢</span>
+    <b>قد بقي ما يسعها:</b> هذا الشرط الثاني — أن يكون قد بقي من الوقت ما يسع الصلاة عند الشروع فيها
+  </div>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">فعل أبي بكر الصديق</span>
+  <p>صلّى أبو بكر الصديق رضي الله عنه بأصحابه صلاة الصبح يوماً فقرأ سورة البقرة حتّى كادت الشمس أن تطلع. فلمّا انقضى من صلاته قال له عمر: "إنّ الشمس تكاد أن تطلع!" فقال أبو بكر: <b><i>"لو طلعت لما وجدتنا غافلين"</i></b> — أي حتّى لو طلعت فنحن في ذكر وفي طاعة ما دمنا بدأنا العبادة في وقتها.</p>
+  <p>رواه الإمام الشافعي وعبد الرزاق والبيهقي — وفعل الصديق بمحضر كبار الصحابة ولم ينكروا عليه، وهو حجّة.</p>
+</div>
+
+</body>
+</html>

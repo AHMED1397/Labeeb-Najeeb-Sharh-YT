@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf') format('truetype'); font-weight: normal; }
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf') format('truetype'); font-weight: bold; }
+@font-face { font-family: 'NotoNaskh'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf') format('truetype'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+
+body {
+  font-family: 'NotoNaskh', 'Amiri', serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #1a1a2e;
+  direction: rtl;
+  background: #fff;
+  text-align: justify;
+}
+
+.cover-header {
+  background: #1a5632;
+  color: white;
+  padding: 20px 14px;
+  text-align: center;
+  margin: 0 0 12px 0;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px);
+  border-bottom: 4px solid #c8a951;
+}
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 6px; border: none; font-family: 'Amiri', serif; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.9; margin: 4px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.92; margin: 6px 0 2px 0; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .creator { font-size: 11pt; opacity: 0.85; margin-top: 2px; }
+.cover-header .series { font-size: 11pt; opacity: 0.8; margin-top: 4px; }
+
+.toc {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 0 0 12px 0;
+}
+.toc-title {
+  font-family: 'Amiri', serif;
+  font-size: 14pt;
+  color: #1a5632;
+  text-align: center;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #c8a951;
+  padding-bottom: 4px;
+}
+.toc-item {
+  font-size: 10pt;
+  padding: 2px 0;
+  border-bottom: 1px dotted #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+h2.section-title {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0d7c3e;
+  border-bottom: 2px solid #0d7c3e;
+  padding-bottom: 5px;
+  margin: 18px 0 10px;
+}
+
+h3.sub-title {
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: #0a5c2e;
+  margin: 14px 0 8px;
+  padding-right: 10px;
+  border-right: 4px solid #0d7c3e;
+}
+
+h4.minor-title {
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #166534;
+  margin: 10px 0 6px;
+}
+
+p { margin: 5px 0; text-align: justify; }
+
+.definition-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-right: 4px solid #0d7c3e;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.rule-box {
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-right: 4px solid #d97706;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.exception-box {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-right: 4px solid #ea580c;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.evidence-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-right: 4px solid #2563eb;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.issue-box {
+  background: #fdf2f8;
+  border: 1px solid #fbcfe8;
+  border-right: 4px solid #db2777;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.comparison-box {
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  border-right: 4px solid #7c3aed;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.note-box {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-right: 4px solid #0284c7;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.poetry-box {
+  background: #faf5ff;
+  border: 1px solid #e9d5ff;
+  border-right: 4px solid #9333ea;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+  text-align: center;
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  line-height: 2.2;
+}
+
+.key-rule {
+  background: #dcfce7;
+  border: 2px solid #16a34a;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.box-label {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 4px;
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.label-def { background: #0d7c3e; }
+.label-rule { background: #d97706; }
+.label-exc { background: #ea580c; }
+.label-ev { background: #2563eb; }
+.label-issue { background: #db2777; }
+.label-comp { background: #7c3aed; }
+.label-note { background: #0284c7; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 13px;
+  table-layout: fixed;
+}
+
+th {
+  background: #0d7c3e;
+  color: #fff;
+  padding: 6px 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+td {
+  padding: 5px 8px;
+  border: 1px solid #d1d5db;
+  text-align: center;
+  vertical-align: top;
+}
+
+tr:nth-child(even) { background: #f0fdf4; }
+tr:nth-child(odd) { background: #fff; }
+
+.tree-container { margin: 12px 0; text-align: center; }
+.tree-root {
+  display: inline-block;
+  background: linear-gradient(135deg, #0d7c3e, #0a5c2e);
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+.tree-branches { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px; }
+.tree-branch {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  min-width: 80px;
+  text-align: center;
+}
+.tree-branch-num { font-family: 'Amiri', serif; font-weight: bold; color: #0d7c3e; font-size: 14px; }
+.tree-branch-label { font-size: 12px; color: #374151; }
+
+.compare-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.compare-card { flex: 1; min-width: 140px; border-radius: 8px; padding: 8px 10px; text-align: center; }
+.compare-card-green { background: #dcfce7; border: 1px solid #86efac; }
+.compare-card-red { background: #fef2f2; border: 1px solid #fca5a5; }
+.compare-card-gold { background: #fefce8; border: 1px solid #fde68a; }
+.compare-card-blue { background: #eff6ff; border: 1px solid #bfdbfe; }
+.compare-card-title { font-family: 'Amiri', serif; font-weight: bold; font-size: 14px; margin-bottom: 4px; }
+.compare-card-body { font-size: 12px; }
+
+.flow-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px; margin: 8px 0; }
+.flow-box { background: #0d7c3e; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-family: 'Amiri', serif; font-weight: bold; text-align: center; }
+.flow-arrow { font-size: 16px; color: #0d7c3e; font-weight: bold; }
+.flow-result { padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; text-align: center; }
+.flow-pure { background: #dcfce7; border: 1px solid #86efac; color: #166534; }
+.flow-impure { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+.flow-excused { background: #fefce8; border: 1px solid #fde68a; color: #92400e; }
+
+.highlight-green { background: #dcfce7; padding: 1px 4px; border-radius: 3px; }
+.highlight-gold { background: #fefce8; padding: 1px 4px; border-radius: 3px; }
+.highlight-red { background: #fef2f2; padding: 1px 4px; border-radius: 3px; }
+
+.verse-ref { font-family: 'Amiri', serif; font-size: 14px; color: #1e40af; text-align: center; margin: 6px 0; }
+.hadith-ref { font-family: 'Amiri', serif; font-size: 13px; color: #166534; text-align: center; margin: 6px 0; }
+
+.condition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.condition-item { border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.condition-num {
+  display: inline-block; background: #0d7c3e; color: #fff; min-width: 24px; height: 24px;
+  border-radius: 50%; text-align: center; line-height: 24px; font-family: 'Amiri', serif;
+  font-weight: bold; font-size: 12px; margin-left: 6px;
+}
+
+ul { margin: 4px 0; padding-right: 20px; }
+li { margin: 2px 0; }
+
+.dua-box {
+  background: #fffbeb;
+  border: 2px solid #c8a951;
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin: 10px 0;
+  text-align: center;
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  line-height: 2;
+  color: #1a1a2e;
+}
+
+.pillar-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #0d7c3e, #0a5c2e);
+  color: white;
+  padding: 3px 14px;
+  border-radius: 20px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 0 4px;
+}
+</style>
+</head>
+<body>
+
+<!-- ===== COVER HEADER (تابع) ===== -->
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس الثالث والأربعون — تابع أركان الصلاة: الركوع والاعتدال</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="creator">تنسيق: أحمد بن إرشاد</div>
+  <div class="series">الركوع · أقله وأكمله · سننه · مراتب التسبيح · المكروهات · نية الهوي · الاعتدال · القنوت في الصبح</div>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. الركن الخامس: الركوع — تعريفه وأقله وأكمله</span></div>
+  <div class="toc-item"><span>٢. أقلّ الركوع للقائم والقاعد</span></div>
+  <div class="toc-item"><span>٣. سنن الركوع</span></div>
+  <div class="toc-item"><span>٤. مراتب التسبيح في الركوع والسجود</span></div>
+  <div class="toc-item"><span>٥. أدعية الركوع: اللهم لك ركعت وبك آمنت</span></div>
+  <div class="toc-item"><span>٦. سبحانك اللهم وبحمدك اللهم اغفر لي</span></div>
+  <div class="toc-item"><span>٧. أيّهما أفضل: التسبيح أم الدعاء؟</span></div>
+  <div class="toc-item"><span>٨. ما يكره في الركوع</span></div>
+  <div class="toc-item"><span>٩. سنن الركوع والسجود الخاصة بالذكر والأنثى</span></div>
+  <div class="toc-item"><span>١٠. تنبيه مهمّ: نية الهوي للركوع</span></div>
+  <div class="toc-item"><span>١١. ما يترتّب على الشكّ في الركوع</span></div>
+  <div class="toc-item"><span>١٢. الركن السادس: الاعتدال</span></div>
+  <div class="toc-item"><span>١٣. سنن الاعتدال</span></div>
+  <div class="toc-item"><span>١٤. القنوت في صلاة الصبح</span></div>
+</div>
+
+<!-- ===== 1. الركوع ===== -->
+<h2 class="section-title">١. الركن الخامس: الركوع — تعريفه وأقله وأكمله</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المتن</span>
+  <p><b>وخامسها ركوع بنحناء بحيث تنال راحتاه ركبتيه</b> — أي أنّ الركن الخامس من أركان الصلاة هو الركوع، وهو انحناء خاصّ يبلغ حدّاً تنال فيه الراحتان الركبتين.</p>
+</div>
+
+<h3 class="sub-title">تعريف الركوع</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">تعريف</span>
+  <p><b>لغةً:</b> الانحناء. وقيل: الخضوع. ومنه قوله تعالى لمريم عليها السلام: <span class="verse-ref">{يا مريم أقنتي لربك واسجدي واركعي مع الراكعين}</span> أي اخضعي مع الخاضعين.</p>
+  <p><b>شرعاً:</b> انحناء خاصّ — وهو المذكور في قول المصنّف: بحيث تنال راحتاه ركبتيه.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">فائدة</span>
+  <p>الركوع من خصائص هذه الأمة، لم يكن موجوداً في الأمم السابقة بخلاف السجود. فقوله تعالى {واركعي مع الراكعين} معناه الاخضعي مع الخاضعين.</p>
+</div>
+
+<h3 class="sub-title">دليل ركنية الركوع</h3>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الأدلّة</span>
+  <p><b>من القرآن:</b> قوله تعالى: <span class="verse-ref">{يا أيّها الذين آمنوا اركعوا واسجدوا واعبدوا ربّكم وافعلوا الخير لعلّكم تفلحون}</span></p>
+  <p><b>من السنّة:</b> قوله صلّى الله عليه وسلّم في حديث المسيء صلاته: <b>«ثمّ اركع حتى تطمئنّ راكعاً»</b></p>
+</div>
+
+<h3 class="sub-title">الراحتان: ما هما؟</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">تعريف الراحتين</span>
+  <p><b>الراحتان</b> هما ما عدا الأصابع من الكفّين. فالكفّ يشمل الراحة والأصابع. والمعتبر في الركوع أن تصل <b>الراحتان</b> إلى الركبتين، لا الأصابع فقط.</p>
+  <p>فلو كانت الأصابع تصل لكن الراحتان لا تصل — <b>لا يعتبر ركوعاً شرعاً</b>.</p>
+</div>
+
+<div class="key-rule">
+  المعتبر: وصول الراحتين (ما عدا الأصابع) إلى الركبتين<br>
+  لا يكفي وصول الأصابع فقط
+</div>
+
+<h3 class="sub-title">قيد: "لو أراد وضعهما عليهما"</h3>
+
+<p>قوله "لو أراد وضعهما عليهما" يُفهم منه أنّه لا يُشترط أن تصل الراحتان إلى الركبتين فعلاً — أي لا يُشترط أن يضع الراحتين على الركبتين. بل يكفي أن ينحني بحيث <b>لو أراد أن يلمس ركبتيه براحتيه لفعل ذلك</b>. والمراد أن يكون هذا الانحناء انحناءً طبيعياً من غير انخناس.</p>
+
+<div class="definition-box">
+  <span class="box-label label-def">معنى الانخناس</span>
+  <p>الانخناس هو أن يعطف ركبتيه وأن يبرز مقدّم صدره، فلا يكون الانحناء طبيعياً. والمقصود بالركوع الانحناء الطبيعي بحيث لو أراد ملامسة ركبتيه براحتيه لتمكّن من ذلك.</p>
+</div>
+
+<h3 class="sub-title">قيد: "عند اعتدال الخلقة"</h3>
+
+<p>الاعتبار بمن كان معتدل الخلقة، لأنّ:</p>
+<ul>
+  <li><b>طويل اليدين:</b> ربما تصل يداه إلى ركبتيه دون أن ينحني أصلًا</li>
+  <li><b>قصير اليدين:</b> ربما ينحني كثيراً ولا تلامس راحتاه ركبتيه</li>
+</ul>
+<p>فالاعتبار بمن كان معتدل الخلقة — لا بطويل اليدين ولا بقصيرهما.</p>
+
+<!-- ===== 2. أقل الركوع للقاعد ===== -->
+<h2 class="section-title">٢. أقلّ الركوع للقائم والقاعد</h2>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">مقارنة: أقلّ الركوع وأكمله</span>
+  <table>
+    <tr>
+      <th>الحالة</th>
+      <th>أقلّ الركوع</th>
+      <th>أكمل الركوع</th>
+    </tr>
+    <tr>
+      <td><b>القائم</b></td>
+      <td>أن ينحني بحيث تنال راحتاه ركبتيه لو أراد وضعهما عليهما</td>
+      <td>تسوية الظهر والعنق حتّى يصير كالصفيحة الواحدة (وهو ما يسنّ في الركوع)</td>
+    </tr>
+    <tr>
+      <td><b>القاعد</b></td>
+      <td>أن تحاذي جبهته ما قدّام ركبتيه</td>
+      <td>أن تحاذي جبهته موضع سجوده</td>
+    </tr>
+  </table>
+</div>
+
+<div class="key-rule">
+  أقلّ الركوع للقائم: انحناء بحيث تنال الراحتان الركبتين<br>
+  أكمل الركوع للقائم: تسوية الظهر والعنق (ما ذُكر في السنن)<br>
+  أقلّ الركوع للقاعد: تحاذي الجبهة ما قدّام الركبتين<br>
+  أكمل الركوع للقاعد: تحاذي الجبهة موضع السجود
+</div>
+
+<!-- ===== 3. سنن الركوع ===== -->
+<h2 class="section-title">٣. سنن الركوع</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المتن</span>
+  <p><b>وسنّ في الركوع تسوية ظهر وعنق وأخذ ركبتيه مع نصبهما وتفريقهما بكفّيه مع كشفهما وتفريقة أصابعهما تفريقاً وسطاً</b></p>
+</div>
+
+<div class="tree-container">
+  <div class="tree-root">سنن الركوع</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #f0fdf4; border-color: #bbf7d0;">
+      <div class="tree-branch-num">السنة ١</div>
+      <div class="tree-branch-label">تسوية الظهر والعنق<br>حتى يصيرا كالصفيحة الواحدة</div>
+    </div>
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a;">
+      <div class="tree-branch-num">السنة ٢</div>
+      <div class="tree-branch-label">أخذ الركبتين بالكفّين<br>مع نصبهما وتفريقهما</div>
+    </div>
+    <div class="tree-branch" style="background: #eff6ff; border: 1px solid #bfdbfe;">
+      <div class="tree-branch-num">السنة ٣</div>
+      <div class="tree-branch-label">كشف الكفّين<br>وتفريق الأصابع تفريقاً وسطاً</div>
+    </div>
+    <div class="tree-branch" style="background: #fdf2f8; border: 1px solid #fbcfe8;">
+      <div class="tree-branch-num">السنة ٤</div>
+      <div class="tree-branch-label">التسبيح والدعاء<br>(سيأتي تفصيله)</div>
+    </div>
+  </div>
+</div>
+
+<h3 class="sub-title">السنة الأولى: تسوية الظهر والعنق</h3>
+
+<p>أن يمدهما حتّى يصير كالصفيحة الواحدة — أي أن يستوي ظهره وعنقه بحيث لو صُبّ الماء على ظهره لاستقرّ، لكونه مستوياً.</p>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p>جاء في الحديث أنّ النبيّ صلّى الله عليه وسلّم <b>كان إذا ركع سوّى ظهره وعنقه</b> حتّى لو صبّ الماء على ظهره عليه الصلاة والسلام لا يستقرّ — أي لكونه مستوياً.</p>
+</div>
+
+<h3 class="sub-title">السنة الثانية: أخذ الركبتين</h3>
+
+<p>أن يأخذ ركبتيه بكفّيه — أي أن يقبض على ركبتيه بكفّيه. ويتضمّن ذلك:</p>
+<ul>
+  <li><b>نصب الركبتين:</b> أن يكون ناصباً لركبتيه غير عاطفهما</li>
+  <li><b>تفريق الركبتين:</b> أن يفرّق بين ركبتيه بنحو شبر</li>
+</ul>
+
+<h3 class="sub-title">السنة الثالثة: كشف الكفّين وتفريق الأصابع</h3>
+
+<ul>
+  <li><b>كشف الكفّين:</b> أن تكون كفّاه مكشوفتين عند الأخذ</li>
+  <li><b>تفريق الأصابع:</b> أن يفرّق أصابعه عند وضعهما على ركبتيه تفريقاً وسطاً — ليس تفريقاً مبالغاً فيه ولا مضمومة، بل تفريقاً وسطاً</li>
+</ul>
+
+<div class="note-box">
+  <span class="box-label label-note">إعراب</span>
+  <p>قوله <b>"بكفّيه"</b> يتعلّق بقوله <b>"وأخذ"</b> — أي أخذ ركبتيه بكفّيه.</p>
+</div>
+
+<h3 class="sub-title">السنة الرابعة: التسبيح في الركوع</h3>
+
+<p>ويُسنّ أن يقول في ركوعه: <b>سبحان ربّ العظيم وبحمده</b> — أي أُسبّح الله سبحانه وتعالى حال كوني متلبساً بحمده. ويقولها <b>ثلاثاً</b> للاتباع.</p>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p>في صحيح مسلم من حديث حذيفة رضي الله عنه أنّ النبيّ صلّى الله عليه وسلّم <b>كان يقول في ركوعه: سبحان ربّ العظيم وبحمده</b></p>
+</div>
+
+<!-- ===== 4. مراتب التسبيح ===== -->
+<h2 class="section-title">٤. مراتب التسبيح في الركوع والسجود</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وأقلّ التسبيح فيه وفي السجود مرّة ولو بنحو سبحان الله، وأكثره إحدى عشرة مرّة</b></p>
+</div>
+
+<table>
+  <tr>
+    <th>المرتبة</th>
+    <th>في الركوع</th>
+    <th>في السجود</th>
+  </tr>
+  <tr>
+    <td><b>أقلّ المراتب</b></td>
+    <td>سبحان الله (مرّة واحدة)</td>
+    <td>سبحان الله (مرّة واحدة)</td>
+  </tr>
+  <tr>
+    <td><b>أعلى من الأقلّ</b></td>
+    <td>سبحان ربّ العظيم</td>
+    <td>سبحان ربّ الأعلى</td>
+  </tr>
+  <tr>
+    <td><b>أفضل</b></td>
+    <td>سبحان ربّ العظيم وبحمده</td>
+    <td>سبحان ربّ الأعلى وبحمده</td>
+  </tr>
+  <tr>
+    <td><b>أكمل</b></td>
+    <td>سبحان ربّ العظيم وبحمده (ثلاثاً)</td>
+    <td>سبحان ربّ الأعلى وبحمده (ثلاثاً)</td>
+  </tr>
+  <tr>
+    <td><b>أكثر ذلك</b></td>
+    <td>سبحان ربّ العظيم وبحمده (إحدى عشرة مرّة)</td>
+    <td>سبحان ربّ الأعلى وبحمده (إحدى عشرة مرّة)</td>
+  </tr>
+</table>
+
+<div class="key-rule">
+  أكثر التسبيح إحدى عشرة مرّة — لمن؟<br>
+  <b>المنفرد</b> وإمام <b>قوم محصورين رضوا بالتطويل</b><br>
+  وأمّا إمام <b>قوم غير محصورين</b> أو محصورين <b>لم يرضوا بالتطويل</b> فأكثره <b>ثلاث مرّات</b>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">المنفرد</div>
+    <div class="compare-card-body">الأكثر: إحدى عشرة مرّة<br>يطيل كما يشاء</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">إمام محصورين رضوا بالتطويل</div>
+    <div class="compare-card-body">الأكثر: إحدى عشرة مرّة<br>رضوا لفظاً كما اعتمده ابن حجر</div>
+  </div>
+  <div class="compare-card compare-card-blue">
+    <div class="compare-card-title">إمام غير محصورين أو محصورين لم يرضوا</div>
+    <div class="compare-card-body">الأكثر: <b>ثلاث مرّات</b><br>وهو الغالب في مساجدنا</div>
+  </div>
+</div>
+
+<!-- ===== 5. أدعية الركوع ===== -->
+<h2 class="section-title">٥. أدعية الركوع: اللهم لك ركعت وبك آمنت</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويزيد من مرّ — ندباً استحباباً — اللهم لك ركعت وبك آمنت ولك أسلمت، خشع لك سمعي وبصري ومخّي وعظمي وعصبي وشعري وبشري وما استقلّت به قدمي</b></p>
+</div>
+
+<div class="dua-box">
+  اللهمّ لك ركعت وبك آمنت ولك أسلمت<br>
+  خشع لك سمعي وبصري ومخّي وعظمي وعصبي وشعري وبشري<br>
+  وما استقلّت به قدمي لله ربّ العالمين
+</div>
+
+<h3 class="sub-title">شرح الدعاء</h3>
+
+<p><b>"خشع لك سمعي وبصري ومخّي وعظمي وعصبي وشعري وبشري"</b> — هذه أجزاء خاصّة من الجسم: السمع، البصر، المخّ، العظم، العصب، الشعر، البشرة.</p>
+
+<p><b>"وما استقلّت به قدمي"</b> — معنى "استقلّت": حملت. أي وما حملته أقدامي — والأقدام تحمل جميع الجسد. فذكر <b>العامّ بعد الخاصّ</b>: خصّص أجزاء معيّنة ثمّ ذكر جميع الجسد.</p>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه من ابن حجر</span>
+  <p>قال العلاّمة ابن حجر رحمه الله: ينبغي أن يكون صادقاً عندما يقول "خشع لك سمعي وبصري" — فلا يقول بلسانه خشع لك وهو غير خاشع فيكون كاذباً في كلامه. <b>فليصدق عند قوله وخشع لك سمعي وبصري</b> حتى يكون خاشعاً قولاً وفعلاً.</p>
+</div>
+
+<h3 class="sub-title">من يزيد هذا الدعاء؟</h3>
+
+<p>يزيده <b>المنفرد</b> و<b>إمام قوم محصورين رضوا بالتطويل</b> — أي من مرّ ذكرهم في مراتب التسبيح.</p>
+
+<h3 class="sub-title">أصل "وما استقلّت به قدمي" في الحديث</h3>
+
+<p>منه قول الدعاء عند دخول القرية أو المدينة: <b>اللهمّ ربّ السماوات السبع وما أظللن وربّ الأرضين السبع وما أقللن</b> — أي وما حملت الأرضون.</p>
+
+<!-- ===== 6. سبحانك اللهم ===== -->
+<h2 class="section-title">٦. سبحانك اللهم وبحمدك اللهم اغفر لي</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويُسنّ فيه وفي السجود: سبحانك اللهم وبحمدك اللهم اغفر لي</b></p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p>في الصحيحين من حديث عائشة رضي الله عنها أنّه لمّا نزل على النبيّ صلّى الله عليه وسلّم قوله تعالى: <span class="verse-ref">{إذا جاء نصر الله والفتح ورأيت الناس يدخلون في دين الله أفواجاً فسبّح بحمد ربّك واستغفره إنّه كان توّاباً}</span> كان يقول في ركوعه وسجوده: <b>سبحانك اللهم وبحمدك اللهم اغفر لي</b> — يتأوّل القرآن.</p>
+</div>
+
+<h3 class="sub-title">ترتيب الأذكار في الركوع</h3>
+
+<p>كيف يُرتب المصلي بين التسبيح وهذا الذكر والدعاء؟</p>
+
+<div class="flow-row">
+  <div class="flow-box">التسبيح ثلاثاً</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box" style="background: #2563eb;">سبحانك اللهم وبحمدك اللهم اغفر لي</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box" style="background: #d97706;">اللهم لك ركعت وبك آمنت</div>
+</div>
+
+<p>قال بعض الفقهاء: الأفضل بعد التسبيح ثلاثاً أن يقول "سبحانك اللهم وبحمدك اللهم اغفر لي" ثمّ يأتي بالدعاء. فيجعل <b>التسبيح مع التسبيح ثمّ الدعاء بعد ذلك</b>.</p>
+
+<div class="key-rule">
+  الترتيب الأفضل:<br>
+  ١. سبحان ربّ العظيم وبحمده (ثلاثاً)<br>
+  ٢. سبحانك اللهم وبحمدك اللهم اغفر لي<br>
+  ٣. اللهم لك ركعت وبك آمنت ولك أسلمت...
+</div>
+
+<!-- ===== 7. التسبيح أم الدعاء ===== -->
+<h2 class="section-title">٧. أيّهما أفضل: التسبيح أم الدعاء؟</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ولو أراد الاقتصار على التسبيح والذكر فالتسبيح أفضل</b> — وذلك لمواظبة النبيّ صلّى الله عليه وسلّم على التسبيح.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">الاقتصار على التسبيح</div>
+    <div class="compare-card-body"><b>أفضل</b> إذا أراد الاقتصار على أحدهما<br>لمواظبة النبيّ صلّى الله عليه وسلّم</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">الاقتصار على الدعاء</div>
+    <div class="compare-card-body">أقلّ فضيلة من التسبيح<br>عند الاقتصار على أحدهما</div>
+  </div>
+</div>
+
+<div class="issue-box">
+  <span class="box-label label-issue">مسألة: ثلاث تسبيحات مع الدعاء أم زيادة التسبيح؟</span>
+  <p><b>ثلاث تسبيحات مع "اللهم لك ركعت" أفضل</b> من زيادة التسبيح إلى إحدى عشرة مرّة.</p>
+  <p><b>العلة:</b> لأنّه لو أتى بالتسبيح ثلاثاً ثمّ بالدعاء يكون <b>قد جمع بين سنتين</b>، بخلاف ما لو أتى بالتسبيح إحدى عشرة مرّة فإنّه يقتصر على <b>سنة واحدة</b>. وكونه يجمع بين سنتين أفضل من أن يقتصر على سنة واحدة.</p>
+</div>
+
+<div class="key-rule">
+  الجمع بين السنتين أفضل من الإكثار من إحداهما<br>
+  ثلاث تسبيحات + الدعاء > إحدى عشرة تسبيحة
+</div>
+
+<!-- ===== 8. المكروهات ===== -->
+<h2 class="section-title">٨. ما يكره في الركوع</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويكره الاقتصار على أقلّ الركوع والمبالغة في خفض الرأس عن الظهر فيه</b></p>
+</div>
+
+<table>
+  <tr>
+    <th>الرقم</th>
+    <th>المكروه</th>
+    <th>البيان</th>
+  </tr>
+  <tr>
+    <td><b>١</b></td>
+    <td>الاقتصار على أقلّ الركوع</td>
+    <td>أن ينحني بحيث تنال راحته ركبتيه فقط — وهو مجزئ لكن يُكره الاقتصار عليه، فالأولى الإتيان بأكمل الركوع</td>
+  </tr>
+  <tr>
+    <td><b>٢</b></td>
+    <td>المبالغة في خفض الرأس عن الظهر</td>
+    <td>كان النبيّ صلّى الله عليه وسلّم إذا ركع لم يشخّص رأسه ولم يصوّبه بل يجعل رأسه مستوياً مع ظهره</td>
+  </tr>
+  <tr>
+    <td><b>٣</b></td>
+    <td>قراءة القرآن في الركوع والسجود</td>
+    <td>إذا قرأ القرآن قاصداً التلاوة — أمّا إذا قصد الدعاء فلا يكره</td>
+  </tr>
+</table>
+
+<h3 class="sub-title">تفصيل: قراءة القرآن في الركوع والسجود</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">مقارنة</span>
+  <table>
+    <tr>
+      <th>النية</th>
+      <th>المثال</th>
+      <th>الحكم</th>
+    </tr>
+    <tr>
+      <td><b>قصد التلاوة</b></td>
+      <td>قرأ سورة الفاتحة وهو راكع أو ساجد</td>
+      <td><span class="highlight-red">مكروه</span></td>
+    </tr>
+    <tr>
+      <td><b>قصد الدعاء</b></td>
+      <td>قال في سجوده: {ربّنا آتنا في الدنيا حسنة وفي الآخرة حسنة وقنا عذاب النار} قاصداً الدعاء</td>
+      <td><span class="highlight-green">جائز</span></td>
+    </tr>
+  </table>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p>في صحيح مسلم عن ابن عبّاس رضي الله عنهما أنّ رسول الله صلّى الله عليه وسلّم قال: <b>«إنّي نهيت أن أقرأ القرآن راكعاً أو ساجداً»</b></p>
+</div>
+
+<!-- ===== 9. سنن خاصة بالذكر والأنثى ===== -->
+<h2 class="section-title">٩. سنن الركوع والسجود الخاصة بالذكر والأنثى</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويُسنّ لذكر أن يجافي مرفقيه عن جنبيه وبطنه عن فخذيه في الركوع والسجود. ولغيره أن يضمّ فيهما بعضه إلى بعض</b></p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">الذكر (الرجل)</div>
+    <div class="compare-card-body">
+      <b>يجافي مرفقيه عن جنبيه</b><br>
+      <b>وبطنه عن فخذيه</b><br>
+      في الركوع والسجود<br>
+      <span style="font-size:11px; color:#666;">(بشرط ألاّ يؤذي من بجانبه)</span>
+    </div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">غير الذكر (الأنثى)</div>
+    <div class="compare-card-body">
+      <b>تضمّ بعض جسدها إلى بعض</b><br>
+      في الركوع والسجود<br>
+      لأنّ ذلك أستر للمرأة
+    </div>
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">قيد مهمّ</span>
+  <p>مجافاة الرجل لمرفقيه عن جنبيه مشروطة <b>بألاّ يؤذي من بجانبه</b>. فإذا كان يؤذي من بجانبه فإنّه لا يفعل ذلك حتى لا يشوّش على من بجانبه.</p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">دليل الأنثى</span>
+  <p>رواه أبو داود في مراسيله أنّ رسول الله صلّى الله عليه وسلّم مرّ على امرأتين تصلّيان فقال: <b>«إذا سجدتما فضمما بعض اللحم إلى بعض»</b></p>
+</div>
+
+<h3 class="sub-title">ما هو المرسل؟</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">تعريف المرسل</span>
+  <p><b>المرسل:</b> ما سقط منه من فوق التابعي — أي سقط الصحابي من الإسناد. وقد صرّح الحافظ ابن حجر بأنّه وجد سبعة من التابعين يروي بعضهم عن بعض في حديث واحد.</p>
+</div>
+
+<div class="poetry-box">
+  ومرسلٌ منه الصحابيُّ سقطِ
+</div>
+
+<p>قال العلماء: الأولى أن نقول المرسل من سقط منه من فوق التابعي — لأنّنا لا ندري من الذي سقط: هل سقط صحابي أو تابعي؟ وإذا كان تابعياً فلا ندري هل هو ثقة أو ليس بثقة.</p>
+
+<!-- ===== 10. تنبيه مهم: نية الهوي ===== -->
+<h2 class="section-title">١٠. تنبيه مهمّ: نية الهوي للركوع</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>تنبيه: يجب أن لا يقصد بالهوي للركوع غيره</b></p>
+</div>
+
+<p>عندما يهوي المصلي للركوع، له أربع حالات:</p>
+
+<table>
+  <tr>
+    <th>الحالة</th>
+    <th>الوصف</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td><b>الأولى</b></td>
+    <td>قصد الركوع وحده</td>
+    <td><span class="highlight-green">يصحّ ✓</span></td>
+  </tr>
+  <tr>
+    <td><b>الثانية</b></td>
+    <td>قصد الركوع وغيره معاً (كإغلاق ميكروفون)</td>
+    <td><span class="highlight-green">يصحّ ✓</span></td>
+  </tr>
+  <tr>
+    <td><b>الثالثة</b></td>
+    <td>أطلق ولم يقصد شيئاً</td>
+    <td><span class="highlight-green">يصحّ ✓</span></td>
+  </tr>
+  <tr>
+    <td><b>الرابعة</b></td>
+    <td>قصد غير الركوع فقط</td>
+    <td><span class="highlight-red">لا يصحّ ✗</span></td>
+  </tr>
+</table>
+
+<div class="key-rule">
+  القاعدة:<br>
+  نية الصلاة تنسحب على جميع أفعالها<br>
+  تبطل الصلاة فقط إذا قصد غير الركوع وحده<br>
+  أمّا إذا قصد الركوع مع غيره أو أطلق فتصحّ
+</div>
+
+<h3 class="sub-title">مثال عمليّ</h3>
+
+<p>إذا كان في المسجد ميكروفون فيه مفتاح (سويتش) يصدر أذى، وهو عندما يركع يقصد الركوع وقصد أيضاً إغلاق المفتاح — فله مقصدان. <b>لا تبطل الصلاة</b> لأنّه قصد الركوع وغيره. لكن لو هوى <b>قاصداً إغلاق المفتاح فقط</b> — هنا تبطل الصلاة.</p>
+
+<h3 class="sub-title">مسألة: الهوي لسجود التلاوة ثمّ جعله ركوعاً</h3>
+
+<div class="exception-box">
+  <span class="box-label label-exc">لا يجزئ</span>
+  <p><b>فلو هوى لسجود تلاوة فلما بلغ حدّ الركوع جعله ركوعاً لم يكفِ</b> — لأنّ هويه الأوّل كان بقصد سجود التلاوة لا الركوع.</p>
+  <p><b>الحلّ:</b> يلزمه أن ينتصب ثمّ يركع — أي يعود إلى القيام ثمّ ينزل للركوع.</p>
+</div>
+
+<div class="flow-row">
+  <div class="flow-box" style="background: #ea580c;">هوى لسجود التلاوة</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box" style="background: #dc2626;">بلغ حدّ الركوع وجعله ركوعاً</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-impure">لا يجزئ ✗</div>
+</div>
+
+<div class="flow-row">
+  <div class="flow-box" style="background: #0d7c3e;">يعود إلى القيام (الانتصاب)</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">يركع قاصداً الركوع</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-pure">يصحّ ✓</div>
+</div>
+
+<h3 class="sub-title">نظائر: الاعتدال والسجود والجلوس بين السجدتين</h3>
+
+<p>نفس الحكم ينطبق على:</p>
+
+<table>
+  <tr>
+    <th>الفعل</th>
+    <th>المثال</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td><b>الاعتدال</b></td>
+    <td>رفع من الركوع فزعاً (رأى شيئاً) — لا يجزئه عن الاعتدال</td>
+    <td>يعود إلى الركوع ثمّ يرفع قاصداً الاعتدال</td>
+  </tr>
+  <tr>
+    <td><b>السجود</b></td>
+    <td>أصابه دوار فخرّ إلى الأرض من الاعتدال — لا يجزئه سجوداً</td>
+    <td>يعود إلى الاعتدال ثمّ يسجد</td>
+  </tr>
+  <tr>
+    <td><b>الجلوس بين السجدتين</b></td>
+    <td>ساجد فرعى شيئاً فقام من سجوده فزعاً — لا يجزئه عن القعود</td>
+    <td>يعود إلى السجود ثمّ يقعد</td>
+  </tr>
+</table>
+
+<h3 class="sub-title">مسألة المأموم الذي ظنّ سجود التلاوة</h3>
+
+<div class="issue-box">
+  <span class="box-label label-issue">مسألة خلافيّة</span>
+  <p>الإمام يقرأ في سورة العلق: <span class="verse-ref">{كلاّ لا تطعه واسجد واقترب}</span> — كبّر الإمام وركع، لكنّ المأموم ظنّ أنّ الإمام يريد سجود التلاوة فهوى بقصد السجود. فلما رأى الإمام لم يسجد بل استقرّ عند الركوع، جعل المأموم هويه ركوعاً. <b>هل يجزئه ذلك؟</b></p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">شيخ الإسلام زكريا الأنصاري<br>وابن حجر</div>
+    <div class="compare-card-body"><b>لا يجزئه</b><br>يلزمه أن يعود إلى الانتصاب<br>ثمّ يركع مرّة أخرى<br>لأنّه نوى غير الركوع</div>
+  </div>
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">العلامة الرملي</div>
+    <div class="compare-card-body"><b>يجزئه ذلك</b><br>لأنّه تابع إمامه<br>ويعذر بذلك<br>وهو أنفع للعوامّ</div>
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">فائدة عمليّة</span>
+  <p>يمكن الاستفادة من قول العلاّمة الرملي رحمه الله لتصحيح صلاة من يجهل هذه المسألة ويتصرّف هكذا — فإنّ صلاتهم تصحّ على ما اعتمده الرملي.</p>
+</div>
+
+<!-- ===== 11. الشك في الركوع ===== -->
+<h2 class="section-title">١١. ما يترتّب على الشكّ في الركوع</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ولو شكّ غير مأموم وهو ساجد هل ركع لزمه الانتصاب فوراً ثمّ الركوع</b></p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">معنى "غير مأموم"</span>
+  <p>غير المأموم هم: <b>الإمام</b> و<b>المنفرد</b>. وهذا من أساليب الاختصار في المتون — بدل أن يقول "ولو شكّ منفرد وإمام" (16 حرفاً) قال "غير مأموم" (7 أحرف).</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">غير المأموم (إمام أو منفرد)</div>
+    <div class="compare-card-body">
+      شكّ وهو ساجد: هل ركع؟<br>
+      <b>يلزمه الانتصاب فوراً وجوباً</b><br>
+      ثمّ الركوع<br>
+      <span style="color:#991b1b;">ولا يجوز القيام راكعاً مباشرةً</span>
+    </div>
+  </div>
+  <div class="compare-card compare-card-blue">
+    <div class="compare-card-title">المأموم</div>
+    <div class="compare-card-body">
+      شكّ هل ركع؟<br>
+      يتابع إمامه<br>
+>ويلزمه الإتيان بركعة بعد سلام إمامه
+    </div>
+  </div>
+</div>
+
+<div class="key-rule">
+  الشاكّ في الركوع وهو ساجد:<br>
+  غير المأموم → ينتصب فوراً وجوباً ثمّ يركع<br>
+  لا يجوز أن يقوم راكعاً بل يعود إلى القيام أوّلاً<br>
+  وإن لم يعد فوراً بطلت صلاته
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">أسلوب الاختصار في المتون</span>
+  <p>من أساليب الاختصار: قول المصنّف "واختلفوا في كذا... ثالثها كذا" — فيذكر القول الثالث فقط دون الأوّل والثاني. وتقدير الكلام: الأوّل المنع مطلقاً، والثاني الجواز مطلقاً، والثالث التفصيل. وهذا شائع في كتب المتون والمنظومات.</p>
+</div>
+
+<!-- ===== 12. الركن السادس: الاعتدال ===== -->
+<h2 class="section-title">١٢. الركن السادس: الاعتدال</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المتن</span>
+  <p><b>وسادسها اعتدال ولو في نفل على المعتمد</b> — أي أنّ الركن السادس من أركان الصلاة هو الاعتدال (القيام من الركوع)، حتّى في صلاة النفل على المعتمد في المذهب.</p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p>قول النبيّ صلّى الله عليه وسلّم في حديث المسيء صلاته: <b>«ثمّ ارفع حتى تعتدل قائماً»</b></p>
+</div>
+
+<h3 class="sub-title">خلاف في صلاة النفل</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف في المذهب</span>
+  <p>قوله "على المعتمد" يشعر بوجود خلاف:</p>
+  <table>
+    <tr>
+      <th>الرأي</th>
+      <th>القائل</th>
+      <th>المضمون</th>
+    </tr>
+    <tr>
+      <td><b>المعتمد</b></td>
+      <td>المذهب</td>
+      <td>الاعتدال ركن حتّى في صلاة النفل</td>
+    </tr>
+    <tr>
+      <td><b>الرأي الآخر</b></td>
+      <td>الأردبيلي في الأنوار وابن المقري</td>
+      <td>الاعتدال ليس بركن في صلاة النفل</td>
+    </tr>
+  </table>
+</div>
+
+<h3 class="sub-title">كيف يتحقّق الاعتدال؟</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">تعريف</span>
+  <p><b>يتحقّق الاعتدال بعود بعد الركوع لبدء</b> — أي أن يعود بعد الركوع إلى ما كان عليه قبل الركوع:</p>
+  <ul>
+    <li>إذا كان قبل الركوع <b>قائماً</b> — يعود إلى <b>القيام</b></li>
+    <li>إذا كان قبل الركوع <b>قاعداً</b> — يعود إلى <b>القعود</b></li>
+  </ul>
+</div>
+
+<h3 class="sub-title">الشكّ في إتمام الاعتدال</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ولو شكّ في إتمامه عاد إليه غير المأموم فوراً وجوباً، وإن لم يعد بطلت صلاته. والمأموم يأتي بركعة بعد سلام إمامه</b></p>
+</div>
+
+<table>
+  <tr>
+    <th>المصلّي</th>
+    <th>الحالة</th>
+    <th>الحكم</th>
+    <th>إذا لم يعد فوراً</th>
+  </tr>
+  <tr>
+    <td><b>الإمام أو المنفرد</b></td>
+    <td>شكّ في إتمام الاعتدال</td>
+    <td>يعود إلى الاعتدال فوراً وجوباً</td>
+    <td><span class="highlight-red">تبطل صلاته</span></td>
+  </tr>
+  <tr>
+    <td><b>المأموم</b></td>
+    <td>شكّ في إتمام الاعتدال</td>
+    <td>يلزمه الإتيان بركعة بعد سلام إمامه</td>
+    <td>لا تبطل صلاته</td>
+  </tr>
+</table>
+
+<div class="key-rule">
+  الأصل: عدم الاعتدال<br>
+  فإذا شكّ غير المأموم لزمه العود فوراً وجوباً<br>
+  لأنّ الأصل بقاء ما كان عليه (الركوع)
+</div>
+
+<!-- ===== 13. سنن الاعتدال ===== -->
+<h2 class="section-title">١٣. سنن الاعتدال</h2>
+
+<h3 class="sub-title">السنة الأولى: التسميع — سمع الله لمن حمده</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويُسنّ أن يقول في رفعه من الركوع: سمع الله لمن حمده</b> — أي تقبّل الله منه حمده. ويقولها عند الرفع من الركوع.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">سنّة مهجورة</span>
+  <p><b>يقولها كلّ مصلّ: الإمام والمأموم والمنفرد</b> — وهذا من مفردات الشافعيّة أنّ المأموم أيضاً يقول "سمع الله لمن حمده". فكثير من المأمومين يقتصرون على "ربّنا ولك الحمد" فقط، لكن <b>المذهب أنّ المأموم يقول التسميع أيضاً</b>.</p>
+</div>
+
+<h3 class="sub-title">الجهر بالتسميع</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">من يجهر بالتسميع؟</span>
+  <table>
+    <tr>
+      <th>المصلّي</th>
+      <th>يقول سمع الله لمن حمده</th>
+      <th>الجهر</th>
+    </tr>
+    <tr>
+      <td><b>الإمام</b></td>
+      <td>نعم</td>
+      <td><span class="highlight-green">يجهر جهراً</span></td>
+    </tr>
+    <tr>
+      <td><b>المبلغ</b></td>
+      <td>نعم — يقول <b>سمع الله لمن حمده</b></td>
+      <td><span class="highlight-green">يجهر إن احتيج إليه</span></td>
+    </tr>
+    <tr>
+      <td><b>المأموم</b></td>
+      <td>نعم</td>
+      <td>لا يجهر (لأنّه ذكر انتقال)</td>
+    </tr>
+    <tr>
+      <td><b>المنفرد</b></td>
+      <td>نعم</td>
+      <td>لا يجهر</td>
+    </tr>
+  </table>
+</div>
+
+<div class="exception-box">
+  <span class="box-label label-exc">تنبيه على خطأ شائع</span>
+  <p>المبلغ <b>يقول: سمع الله لمن حمده</b> — لا "ربّنا ولك الحمد" كما يفعل كثير من المبلغين. قال العلاّمة ابن حجر في التحفة إنّ فعل المبلغين بقولهم "ربّنا ولك الحمد" سببه <b>الجهل</b>، والأصل أنّ المبلغ يقول "سمع الله لمن حمده" لأنّه ذكر انتقال.</p>
+</div>
+
+<div class="key-rule">
+  ذكر الانتقال (سمع الله لمن حمده) يجهر به الإمام والمبلغ<br>
+  وأمّا حمد الاعتدال (ربّنا لك الحمد) فيُسَرّ به
+</div>
+
+<h3 class="sub-title">السنة الثانية: حمد الاعتدال — ربّنا لك الحمد</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وأن يقول بعد انتصاب للاعتدال: ربّنا لك الحمد ملء السماوات وملء الأرض وملء ما شئت من شيء بعد</b></p>
+</div>
+
+<p>إذا انتصب للاعتدال يقول: <b>ربّنا لك الحمد</b> — بدون الواو، وبدون "اللهمّ".</p>
+
+<div class="dua-box">
+  ربّنا لك الحمد<br>
+  ملء السماوات وملء الأرض<br>
+  وملء ما شئت من شيء بعد
+</div>
+
+<h3 class="sub-title">ما معنى "بعد"؟</h3>
+
+<p>"بعد" أي بعدهما — أي بعد السماوات والأرض <b>كالكرسيّ والعرش</b>:</p>
+<ul>
+  <li>ملء السماوات</li>
+  <li>ملء الأرض</li>
+  <li>ملء ما شئت من شيء بعد — أي وملء الكرسيّ وملء العرش</li>
+</ul>
+
+<h3 class="sub-title">إعراب "ملء"</h3>
+
+<table>
+  <tr>
+  <th>الإعراب</th>
+  <th>التقدير</th>
+  <th>البيان</th>
+  </tr>
+  <tr>
+  <td><b>بالرفع</b></td>
+  <td>صفة للحمد</td>
+  <td>ربّنا لك الحمد ملء — أي حمدٌ ملءُ السماوات</td>
+  </tr>
+  <tr>
+  <td><b>بالنصب</b></td>
+  <td>حال — أي مالئاً</td>
+  <td>بتقدير كون الحمد جسماً محسوساً. وفيه إشكال نحويّ لأنّ الحال غالباً نكرة و"ملء السماوات" مضاف فهو معرفة</td>
+  </tr>
+</table>
+
+<h3 class="sub-title">الزيادة في حمد الاعتدال</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وأن يزيد من مرّ: أهل الثناء والمجد أحقّ ما قال العبد وكلّنا لك عبد لا مانع لما أعطيت ولا معطي لما منعت ولا ينفع ذا الجدّ منك الجدّ</b></p>
+</div>
+
+<div class="dua-box">
+  أهل الثناء والمجد<br>
+  أحقّ ما قال العبد<br>
+  وكلّنا لك عبد<br>
+  لا مانع لما أعطيت ولا معطي لما منعت<br>
+  ولا ينفع ذا الجدّ منك الجدّ
+</div>
+
+<p>يزيده <b>المنفرد</b> و<b>إمام قوم محصورين رضوا بالتطويل</b>.</p>
+
+<h4 class="minor-title">شرح عبارات الدعاء</h4>
+
+<ul>
+  <li><b>"أهل الثناء والمجد":</b> منادى مضاف — تقديره: يا أهل الثناء والمجد. ويصحّ بالرفع (خبر لمبتدأ محذوف: أنت أهل الثناء والمجد)</li>
+  <li><b>"أحقّ ما قال العبد":</b> أحقّ مبتدأ، وخبره "لا مانع لما أعطيت" — أي أحقّ شيء قاله العبد هو "لا مانع لما أعطيت"</li>
+  <li><b>"وكلّنا لك عبد":</b> جملة اعتراضيّة</li>
+  <li><b>"لا مانع لما أعطيت":</b> أي إذا أراد الله سبحانه أن يعطي عبداً فلا أحد يمنع عطاءه</li>
+  <li><b>"ولا معطي لما منعت":</b> ولا أحد يعطي إذا منعت</li>
+  <li><b>"ولا ينفع ذا الجدّ منك الجدّ":</b> الجدّ بفتح الجيم = الغنى. أي صاحب الغنى لا ينفعه غناه منك</li>
+</ul>
+
+<!-- ===== 14. القنوت في الصبح ===== -->
+<h2 class="section-title">١٤. القنوت في صلاة الصبح</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وسنّ قنوت بصبح</b> — القنوت في صلاة الصبح سنة مؤكّدة عند الشافعيّة.</p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">تعريف القنوت</span>
+  <p><b>لغةً:</b> الدعاء بخير أو شرّ.</p>
+  <p><b>شرعاً:</b> ذكر مخصوص مجتمع على دعاء وثناء.</p>
+</div>
+
+<h3 class="sub-title">متى يقنت؟</h3>
+
+<p>يقنت <b>في اعتدال الركعة الثانية من صلاة الصبح</b> بعد الذكر الراتب — أي بعد أن يعتدل ويأتي بالذكر الراتب على الأوجه.</p>
+
+<div class="flow-row">
+  <div class="flow-box">يركع في الركعة الثانية</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">يرفع للاعتدال</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box" style="background:#d97706;">يقول الذكر الراتب (ربّنا لك الحمد...)</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box" style="background:#9333ea;">يقنت</div>
+</div>
+
+<h3 class="sub-title">دليل القنوت</h3>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الحديث</span>
+  <p><b>«ما زال النبيّ صلّى الله عليه وسلّم يقنت في الصبح حتى فارق الدنيا»</b></p>
+  <p>هذا الحديث صحّحه عدد من الحفاظ:</p>
+  <ul>
+    <li>الحافظ الدارقطني</li>
+    <li>الحافظ البيهقي</li>
+    <li>الحافظ المنذري</li>
+    <li>الإمام النووي</li>
+    <li>ابن الصلاح</li>
+    <li>ابن الملقن</li>
+    <li>ابن حجر الهيتمي</li>
+  </ul>
+  <p>ونقل الحافظ البيهقي عن الخلفاء الأربعة ما يدلّ على أنّهم كانوا يقنتون في صلاة الصبح.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">كلام الإمام النووي في المجموع</span>
+  <p>قال الإمام النووي رحمه الله: <i>"حديث صحيح رواه جماعة من الحفاظ وصحّحه، وممّن نصّ على صحّته الحافظ أبو عبد الله محمّد بن عليّ البُلخيّ، والحاكم أبو عبد الله في مواضع من كتبه، والبيهقي، ورواه الدارقطنيّ من طرق بأسانيد صحيحة"</i> — وصحّحه أيضاً الحافظ ابن الملقن ونقل تصحيحه عن ابن الصلاح.</p>
+</div>
+
+<h3 class="sub-title">مذاهب الفقهاء في قنوت الصبح</h3>
+
+<table>
+  <tr>
+    <th>المذهب</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td><b>الشافعيّ</b></td>
+    <td><span class="highlight-green">سنة مؤكّدة</span> — على اعتبار صحّة الحديث</td>
+  </tr>
+  <tr>
+    <td><b>المالكيّ</b></td>
+    <td><span class="highlight-green">يُستحبّ</span> — استحباب القنوت في الصبح</td>
+  </tr>
+  <tr>
+    <td><b>الحنفيّ</b></td>
+    <td><span class="highlight-red">لا يُشرع</span> — عدم القنوت في صلاة الصبح</td>
+  </tr>
+  <tr>
+    <td><b>الحنبليّ</b></td>
+    <td><span class="highlight-red">لا يُشرع</span> — عدم القنوت في صلاة الصبح</td>
+  </tr>
+</table>
+
+<div class="key-rule">
+  مذهبان كبيران معتبران يستحبّان القنوت في الصبح:<br>
+  <b>الشافعيّة والمالكيّة</b><br>
+  ومذهبان يمنعانه:<br>
+  <b>الحنفيّة والحنابلة</b>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح الإبانة والإفاضة - الدرس 08</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-green: #0d6b3e;
+  --dark-green: #0a4f2e;
+  --gold: #d4a020;
+  --light-gold: #f0e6c0;
+  --teal: #0d7377;
+  --bg: #fefefe;
+  --body-text: #1a1a1a;
+  --border: #c8d6c0;
+  --card-bg: #f8faf7;
+  --evidence-bg: #eef5eb;
+  --callout-bg: #fff8e7;
+  --definition-bg: #ebf5f5;
+  --comparison-bg: #f5f0eb;
+  --ruling-bg: #f0f5eb;
+  --scholar-bg: #f5f0f8;
+  --shadow: 0 2px 8px rgba(0,0,0,0.08);
+  --shadow-hover: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.bw-mode {
+  --primary-green: #333;
+  --dark-green: #1a1a1a;
+  --gold: #666;
+  --light-gold: #eee;
+  --teal: #444;
+  --bg: #fff;
+  --body-text: #000;
+  --border: #999;
+  --card-bg: #f5f5f5;
+  --evidence-bg: #f0f0f0;
+  --callout-bg: #f5f5f5;
+  --definition-bg: #f0f0f0;
+  --comparison-bg: #f0f0f0;
+  --ruling-bg: #f0f0f0;
+  --scholar-bg: #f0f0f0;
+  --shadow: 0 2px 8px rgba(0,0,0,0.1);
+  --shadow-hover: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+  font-size: 16px;
+  line-height: 2;
+  color: var(--body-text);
+  background: var(--bg);
+  direction: rtl;
+}
+
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+  @bottom-center {
+    content: counter(page);
+    font-size: 12px;
+    color: #888;
+  }
+}
+
+@media print {
+  body { font-size: 14px; line-height: 1.8; }
+  .bw-toggle { display: none !important; }
+  .cover-page { page-break-after: always; }
+  .section { page-break-inside: avoid; }
+  .scroll-top { display: none !important; }
+}
+
+.bw-toggle {
+  position: fixed; top: 15px; left: 15px; z-index: 1000;
+  background: var(--primary-green); color: white;
+  border: 2px solid var(--gold); border-radius: 50%;
+  width: 48px; height: 48px; cursor: pointer;
+  font-size: 18px; font-weight: bold;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: var(--shadow); transition: all 0.3s ease;
+  font-family: 'Noto Naskh Arabic', serif;
+}
+.bw-toggle:hover { background: var(--dark-green); box-shadow: var(--shadow-hover); transform: scale(1.1); }
+
+.cover-page {
+  min-height: 100vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 40%, var(--teal) 70%, var(--dark-green) 100%);
+  color: white; text-align: center; padding: 40px 30px;
+  position: relative; overflow: hidden; page-break-after: always;
+}
+.cover-page::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a020' fill-opacity='0.08'%3E%3Cpath d='M30 0L60 30L30 60L0 30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.cover-page::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 4px; background: linear-gradient(90deg, var(--gold), var(--light-gold), var(--gold));
+}
+.cover-ornament { font-size: 50px; color: var(--gold); margin-bottom: 20px; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+.cover-book-title { font-size: 28px; font-weight: 700; margin-bottom: 15px; text-shadow: 0 2px 8px rgba(0,0,0,0.3); line-height: 1.6; max-width: 700px; }
+.cover-lecture-badge { background: var(--gold); color: var(--dark-green); padding: 8px 30px; border-radius: 25px; font-size: 18px; font-weight: 700; margin: 20px 0; box-shadow: 0 3px 10px rgba(0,0,0,0.2); }
+.cover-lecture-title { font-size: 22px; font-weight: 600; margin-bottom: 30px; color: var(--light-gold); max-width: 600px; line-height: 1.6; }
+.cover-info { margin-top: 25px; font-size: 16px; line-height: 2.2; color: rgba(255,255,255,0.9); }
+.cover-info .label { color: var(--gold); font-weight: 600; }
+.cover-divider { width: 120px; height: 2px; background: var(--gold); margin: 20px auto; border: none; }
+.cover-badge-new { display: inline-block; background: var(--gold); color: var(--dark-green); padding: 4px 18px; border-radius: 15px; font-size: 14px; font-weight: 700; margin-bottom: 15px; }
+
+.main-content { max-width: 900px; margin: 0 auto; padding: 20px 15px 60px; }
+
+.section-header {
+  background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+  color: white; padding: 15px 25px; border-radius: 10px;
+  margin: 35px 0 20px; font-size: 22px; font-weight: 700;
+  box-shadow: var(--shadow); position: relative; overflow: hidden;
+}
+.section-header::before { content: ''; position: absolute; top: 0; right: 0; width: 6px; height: 100%; background: var(--gold); }
+.section-header .section-number {
+  display: inline-block; background: var(--gold); color: var(--dark-green);
+  width: 36px; height: 36px; border-radius: 50%; text-align: center;
+  line-height: 36px; font-size: 16px; margin-left: 12px; font-weight: 700;
+}
+
+.sub-header { font-size: 19px; font-weight: 700; color: var(--primary-green); border-bottom: 2px solid var(--gold); padding-bottom: 8px; margin: 25px 0 15px; }
+.sub-sub-header { font-size: 17px; font-weight: 600; color: var(--dark-green); margin: 20px 0 10px; padding-right: 15px; border-right: 4px solid var(--teal); }
+
+.body-text { font-size: 16px; line-height: 2; margin-bottom: 12px; text-align: justify; }
+.highlight { background: var(--light-gold); padding: 2px 6px; border-radius: 3px; font-weight: 600; }
+.green-highlight { color: var(--primary-green); font-weight: 700; }
+.gold-highlight { color: var(--gold); font-weight: 700; }
+.teal-highlight { color: var(--teal); font-weight: 600; }
+.red-highlight { color: #c0392b; font-weight: 700; }
+
+.classification-tree { background: var(--card-bg); border: 2px solid var(--primary-green); border-radius: 12px; padding: 25px; margin: 20px 0; box-shadow: var(--shadow); }
+.classification-tree .tree-title { text-align: center; font-size: 19px; font-weight: 700; color: var(--primary-green); margin-bottom: 20px; }
+.tree-root { background: linear-gradient(135deg, var(--primary-green), var(--dark-green)); color: white; text-align: center; padding: 12px 25px; border-radius: 8px; font-size: 17px; font-weight: 700; margin: 0 auto 5px; width: fit-content; position: relative; }
+.tree-connector { width: 2px; height: 20px; background: var(--primary-green); margin: 0 auto; }
+.tree-branches { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; position: relative; }
+.tree-branch { background: white; border: 2px solid var(--gold); border-radius: 10px; padding: 15px 20px; min-width: 180px; text-align: center; box-shadow: var(--shadow); transition: all 0.3s ease; }
+.tree-branch:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+.tree-branch .branch-name { font-size: 18px; font-weight: 700; color: var(--primary-green); margin-bottom: 8px; }
+.tree-branch .branch-desc { font-size: 14px; color: #555; line-height: 1.8; }
+.tree-branch .branch-icon { font-size: 28px; margin-bottom: 8px; }
+
+.ruling-card { background: var(--ruling-bg); border: 1px solid var(--border); border-radius: 10px; padding: 15px 20px; margin: 12px 0; box-shadow: var(--shadow); display: flex; align-items: flex-start; gap: 12px; }
+.ruling-card .ruling-badge { background: var(--primary-green); color: white; padding: 4px 14px; border-radius: 20px; font-size: 14px; font-weight: 700; white-space: nowrap; min-width: 80px; text-align: center; }
+.ruling-card .ruling-badge.red { background: #c0392b; }
+.ruling-card .ruling-badge.blue { background: var(--teal); }
+.ruling-card .ruling-badge.gold { background: var(--gold); color: var(--dark-green); }
+.ruling-card .ruling-content { flex: 1; line-height: 2; font-size: 16px; }
+
+.evidence-box { background: var(--evidence-bg); border: 2px solid var(--primary-green); border-radius: 12px; padding: 20px 25px; margin: 20px 0; position: relative; box-shadow: var(--shadow); }
+.evidence-box::before { content: '📖'; position: absolute; top: -14px; right: 20px; background: var(--evidence-bg); padding: 0 8px; font-size: 22px; }
+.evidence-box .evidence-label { font-size: 14px; font-weight: 700; color: var(--primary-green); margin-bottom: 10px; }
+.evidence-box .hadith-text { font-family: 'Amiri', serif; font-size: 18px; color: var(--dark-green); line-height: 2; margin: 10px 0; padding: 10px 15px; border-right: 4px solid var(--gold); background: rgba(212, 160, 32, 0.05); }
+
+.comparison-container { display: flex; gap: 15px; margin: 20px 0; flex-wrap: wrap; }
+.comparison-card { flex: 1; min-width: 220px; background: white; border-radius: 12px; padding: 20px; box-shadow: var(--shadow); border-top: 4px solid var(--primary-green); transition: all 0.3s ease; }
+.comparison-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+.comparison-card .card-title { font-size: 17px; font-weight: 700; margin-bottom: 10px; text-align: center; color: var(--primary-green); }
+.comparison-card .card-content { font-size: 15px; line-height: 1.9; color: #444; }
+.comparison-card .card-icon { text-align: center; font-size: 30px; margin-bottom: 10px; }
+
+.definition-card { background: var(--definition-bg); border: 2px solid var(--teal); border-radius: 12px; padding: 20px 25px; margin: 20px 0; position: relative; box-shadow: var(--shadow); }
+.definition-card::before { content: '📌'; position: absolute; top: -14px; right: 20px; background: var(--definition-bg); padding: 0 8px; font-size: 22px; }
+.definition-card .def-label { font-size: 14px; font-weight: 700; color: var(--teal); margin-bottom: 10px; letter-spacing: 1px; }
+.definition-card .def-text { font-size: 18px; font-weight: 600; color: var(--dark-green); line-height: 2.2; text-align: center; padding: 10px; }
+
+.callout-box { background: var(--callout-bg); border: 1px solid var(--gold); border-radius: 10px; padding: 15px 20px; margin: 15px 0; position: relative; box-shadow: var(--shadow); }
+.callout-box::before { content: '⚠️'; position: absolute; top: -12px; right: 15px; background: var(--callout-bg); padding: 0 6px; font-size: 20px; }
+.callout-box .callout-title { font-size: 15px; font-weight: 700; color: var(--gold); margin-bottom: 8px; }
+.callout-box .callout-content { font-size: 16px; line-height: 2; }
+
+.numbered-steps { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 20px 0; box-shadow: var(--shadow); }
+.numbered-steps .steps-title { font-size: 17px; font-weight: 700; color: var(--primary-green); margin-bottom: 15px; text-align: center; }
+.step-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; padding: 10px 15px; background: white; border-radius: 8px; border: 1px solid var(--border); }
+.step-item .step-number { background: var(--primary-green); color: white; min-width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; flex-shrink: 0; }
+.step-item .step-content { flex: 1; font-size: 16px; line-height: 2; }
+
+.scholar-card { background: var(--scholar-bg); border: 1px solid var(--border); border-radius: 10px; padding: 15px 20px; margin: 15px 0; box-shadow: var(--shadow); display: flex; align-items: flex-start; gap: 15px; }
+.scholar-card .scholar-icon { font-size: 32px; flex-shrink: 0; }
+.scholar-card .scholar-name { font-size: 17px; font-weight: 700; color: var(--primary-green); margin-bottom: 5px; }
+.scholar-card .scholar-info { font-size: 15px; line-height: 1.9; color: #444; }
+
+.benefit-box { background: linear-gradient(135deg, var(--light-gold), #fff8e7); border: 2px solid var(--gold); border-radius: 12px; padding: 20px 25px; margin: 20px 0; box-shadow: var(--shadow); position: relative; }
+.benefit-box::before { content: '💡'; position: absolute; top: -14px; right: 20px; background: var(--light-gold); padding: 0 8px; font-size: 22px; }
+.benefit-box .benefit-title { font-size: 16px; font-weight: 700; color: var(--gold); margin-bottom: 10px; }
+.benefit-box .benefit-content { font-size: 16px; line-height: 2; }
+
+.quote-block { background: var(--card-bg); border-right: 5px solid var(--gold); border-radius: 0 10px 10px 0; padding: 20px 25px; margin: 20px 0; font-family: 'Amiri', serif; font-size: 18px; line-height: 2.2; color: var(--dark-green); font-style: italic; position: relative; box-shadow: var(--shadow); }
+.quote-block::before { content: '❝'; position: absolute; top: 5px; right: 10px; font-size: 30px; color: var(--gold); font-style: normal; }
+.quote-block .quote-attribution { display: block; margin-top: 10px; font-size: 15px; color: var(--teal); font-style: normal; font-weight: 600; }
+
+.fiqh-principle { background: linear-gradient(135deg, #e8f5e9, #f1f8e9); border: 2px solid var(--primary-green); border-radius: 12px; padding: 20px 25px; margin: 20px 0; position: relative; box-shadow: var(--shadow); }
+.fiqh-principle::before { content: '⚖️'; position: absolute; top: -14px; right: 20px; background: #e8f5e9; padding: 0 8px; font-size: 22px; }
+.fiqh-principle .principle-title { font-size: 16px; font-weight: 700; color: var(--primary-green); margin-bottom: 10px; }
+.fiqh-principle .principle-content { font-size: 16px; line-height: 2; }
+
+.data-table { width: 100%; border-collapse: collapse; margin: 20px 0; background: white; border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); font-size: 15px; }
+.data-table th { background: var(--primary-green); color: white; padding: 12px 15px; font-weight: 700; text-align: center; font-size: 14px; }
+.data-table td { padding: 10px 15px; border: 1px solid var(--border); text-align: center; line-height: 1.8; }
+.data-table tr:nth-child(even) { background: var(--card-bg); }
+.data-table tr:hover { background: var(--light-gold); }
+
+.flow-chart { background: var(--card-bg); border: 2px solid var(--primary-green); border-radius: 12px; padding: 25px; margin: 20px 0; box-shadow: var(--shadow); }
+.flow-chart .flow-title { text-align: center; font-size: 19px; font-weight: 700; color: var(--primary-green); margin-bottom: 20px; }
+.flow-step { background: white; border: 2px solid var(--gold); border-radius: 10px; padding: 12px 18px; margin: 8px auto; max-width: 550px; text-align: center; font-size: 16px; font-weight: 600; line-height: 1.8; position: relative; }
+.flow-step.green-step { border-color: var(--primary-green); background: #e8f5e9; }
+.flow-step.red-step { border-color: #c0392b; background: #fde8e8; }
+.flow-step.blue-step { border-color: var(--teal); background: #e0f2f1; }
+.flow-arrow { text-align: center; font-size: 22px; color: var(--primary-green); margin: 5px 0; }
+
+.scenario-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; margin: 20px 0; }
+.scenario-card { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 18px; box-shadow: var(--shadow); border-top: 4px solid var(--teal); }
+.scenario-card .scenario-title { font-size: 16px; font-weight: 700; color: var(--teal); margin-bottom: 10px; }
+.scenario-card .scenario-content { font-size: 15px; line-height: 1.9; color: #444; }
+.scenario-card .scenario-ruling { margin-top: 10px; padding: 8px 12px; border-radius: 6px; font-weight: 700; text-align: center; }
+.scenario-card .scenario-ruling.obligatory { background: #e8f5e9; color: var(--primary-green); border: 1px solid var(--primary-green); }
+.scenario-card .scenario-ruling.not-obligatory { background: #fde8e8; color: #c0392b; border: 1px solid #c0392b; }
+
+.poetry-block { background: linear-gradient(135deg, #f3e5f5, #ede7f6); border: 2px solid #8e44ad; border-radius: 12px; padding: 20px 25px; margin: 20px 0; text-align: center; position: relative; box-shadow: var(--shadow); }
+.poetry-block::before { content: '📝'; position: absolute; top: -14px; right: 20px; background: #f3e5f5; padding: 0 8px; font-size: 22px; }
+.poetry-block .poetry-title { font-size: 15px; font-weight: 700; color: #8e44ad; margin-bottom: 10px; }
+.poetry-block .poetry-verse { font-family: 'Amiri', serif; font-size: 20px; font-weight: 700; color: var(--dark-green); line-height: 2.4; }
+.poetry-block .poetry-attribution { display: block; margin-top: 10px; font-size: 14px; color: var(--teal); font-weight: 600; }
+
+.cases-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin: 15px 0; }
+.case-card { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 15px 18px; box-shadow: var(--shadow); text-align: center; transition: all 0.3s ease; }
+.case-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.case-card .case-num { font-size: 14px; font-weight: 700; color: var(--gold); margin-bottom: 8px; }
+.case-card .case-title { font-size: 16px; font-weight: 700; color: var(--primary-green); margin-bottom: 8px; }
+.case-card .case-ruling { font-size: 15px; font-weight: 700; padding: 6px 12px; border-radius: 15px; display: inline-block; }
+.case-card .case-ruling.halal { background: #e8f5e9; color: var(--primary-green); border: 1px solid var(--primary-green); }
+.case-card .case-ruling.haram { background: #fde8e8; color: #c0392b; border: 1px solid #c0392b; }
+.case-card .case-ruling.makruh { background: var(--callout-bg); color: #b8860b; border: 1px solid var(--gold); }
+
+.scholar-comparison { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin: 15px 0; }
+.scholar-opinion-card { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 15px; box-shadow: var(--shadow); text-align: center; }
+.scholar-opinion-card .scholar-label { font-size: 15px; font-weight: 700; color: var(--primary-green); margin-bottom: 8px; }
+.scholar-opinion-card .scholar-detail { font-size: 14px; line-height: 1.8; color: #444; }
+.scholar-opinion-card .count-badge { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 13px; font-weight: 700; margin-top: 8px; }
+.scholar-opinion-card .count-badge.halal { background: #e8f5e9; color: var(--primary-green); }
+.scholar-opinion-card .count-badge.haram { background: #fde8e8; color: #c0392b; }
+
+.timeline-diagram { background: var(--card-bg); border: 2px solid var(--primary-green); border-radius: 12px; padding: 20px; margin: 20px 0; box-shadow: var(--shadow); }
+.timeline-diagram .timeline-title { text-align: center; font-size: 17px; font-weight: 700; color: var(--primary-green); margin-bottom: 15px; }
+.timeline-bar { display: flex; margin: 10px 0; border-radius: 8px; overflow: hidden; height: 40px; box-shadow: var(--shadow); }
+.timeline-segment { display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: white; text-align: center; padding: 0 6px; white-space: nowrap; }
+.timeline-segment.hayd { background: #c0392b; }
+.timeline-segment.tuhr { background: var(--primary-green); }
+.timeline-segment.fasad { background: #e67e22; }
+.timeline-segment.nifas { background: #8e44ad; }
+.timeline-segment.talaq { background: #e67e22; }
+.timeline-segment.label { background: transparent; color: var(--body-text); font-size: 12px; min-width: 60px; }
+.timeline-label { font-size: 13px; color: #666; text-align: center; margin-top: 5px; line-height: 1.6; }
+
+.page-footer { text-align: center; padding: 30px 0 20px; border-top: 2px solid var(--border); margin-top: 40px; font-size: 14px; color: #888; }
+
+.scroll-top { position: fixed; bottom: 20px; left: 20px; width: 44px; height: 44px; background: var(--primary-green); color: white; border: 2px solid var(--gold); border-radius: 50%; cursor: pointer; font-size: 20px; display: none; align-items: center; justify-content: center; box-shadow: var(--shadow); z-index: 999; transition: all 0.3s ease; }
+.scroll-top:hover { background: var(--dark-green); }
+
+@media (max-width: 768px) {
+  .cover-book-title { font-size: 22px; }
+  .cover-lecture-title { font-size: 18px; }
+  .section-header { font-size: 19px; }
+  .comparison-container { flex-direction: column; }
+  .tree-branches { flex-direction: column; align-items: center; }
+  .scenario-grid { grid-template-columns: 1fr; }
+  .cases-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.conditions-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; margin: 15px 0; }
+.condition-card { background: white; border: 2px solid var(--teal); border-radius: 10px; padding: 15px 18px; box-shadow: var(--shadow); text-align: center; transition: all 0.3s ease; }
+.condition-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.condition-card .cond-num { font-size: 14px; font-weight: 700; color: var(--teal); margin-bottom: 6px; }
+.condition-card .cond-title { font-size: 16px; font-weight: 700; color: var(--primary-green); margin-bottom: 8px; }
+.condition-card .cond-detail { font-size: 14px; line-height: 1.9; color: #444; }
+.condition-card .cond-ruling { font-size: 14px; font-weight: 700; padding: 4px 10px; border-radius: 12px; display: inline-block; margin-top: 6px; }
+
+.summary-box { background: linear-gradient(135deg, var(--primary-green), var(--dark-green)); color: white; border-radius: 12px; padding: 25px; margin: 20px 0; box-shadow: var(--shadow); position: relative; }
+.summary-box .summary-title { font-size: 18px; font-weight: 700; color: var(--light-gold); margin-bottom: 15px; text-align: center; }
+.summary-box .summary-content { font-size: 16px; line-height: 2; }
+.summary-box .summary-content strong { color: var(--gold); }
+
+.madhab-table { width: 100%; border-collapse: collapse; margin: 20px 0; background: white; border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); font-size: 15px; }
+.madhab-table th { background: var(--primary-green); color: white; padding: 12px 15px; font-weight: 700; text-align: center; font-size: 14px; }
+.madhab-table td { padding: 10px 15px; border: 1px solid var(--border); text-align: center; line-height: 1.8; }
+.madhab-table tr:nth-child(even) { background: var(--card-bg); }
+.madhab-table tr:hover { background: var(--light-gold); }
+
+</style>
+</head>
+<body>
+
+<!-- B&W Toggle Button -->
+<button class="bw-toggle" onclick="toggleBW()" title="تبديل الأبيض والأسود">ن</button>
+
+<!-- Scroll to Top -->
+<button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" id="scrollTopBtn">▲</button>
+
+<!-- ==================== COVER PAGE ==================== -->
+<div class="cover-page">
+  <div class="cover-ornament">✦ ❖ ✦</div>
+  <div class="cover-badge-new">جديد</div>
+  <div class="cover-book-title">الإبانة والإفاضة في أحكام الحيض والنفاس والاستحاضة<br>على مذهب الإمام الشافعي</div>
+  <div class="cover-lecture-badge">الدرس الثامن</div>
+  <div class="cover-lecture-title">المستحاضة وما يلزمها — صور دم الاستحاضة وأحكامها</div>
+  <hr class="cover-divider">
+  <div class="cover-info">
+    <span class="label">المؤلف:</span> عبد الرحمن بن عبد الله عبد القادر السقاف<br>
+    <span class="label">الشارح:</span> د. لبيب نجيب عبد الله<br>
+    <span class="label">المنظم:</span> أحمد بن إرشاد
+  </div>
+</div>
+
+<!-- ==================== MAIN CONTENT ==================== -->
+<div class="main-content">
+
+<!-- ===== Section 1: مقدمة — تقسيم دم الاستحاضة ===== -->
+<h1 class="section-header"><span class="section-number">1</span> مقدمة: تقسيم دم الاستحاضة والفرق بينه وبين دم الفساد</h1>
+
+<p class="body-text">
+بسم الله الرحمن الرحيم، الحمد لله رب العالمين والصلاة والسلام الأتمان الأكملان على سيد المرسلين سيدنا محمد وعلى آله وصحبه الطيبين الطاهرين، أما بعد، فأسأل الله سبحانه وتعالى أن يمن علينا بالعلم النافع والعمل الصالح وأن يفقهنا في الدين وأن يفتح لنا فتوح العارفين وأن يرزقنا الإخلاص في الأقوال والأعمال، اللهم آمين.
+</p>
+
+<p class="body-text">
+فنشرع بإذن الله تعالى في الدرس السادس، والحمد لله قطعنا أكثر من نصف هذا الكتاب ونسأل الله سبحانه وتعالى أن يعيننا على ما بقي منه. الدرس السادس في المستحاضة وما يلزمها.
+</p>
+
+<p class="body-text">
+قال: عرفنا في الدروس السابقة أن الدم الخارج من الفرج إما أن يكون حيضاً أو نفاساً أو استحاضة، <span class="green-highlight">ولا رابع لها</span>. وقوله «ولا رابع لها» بناءً على أنه لا فرق بين دم الاستحاضة ودم الفساد. وأما من يفرق فيجعل الدماء أربعة أنواع. إذا تقرر هذا، فإنما نفرق بين دم الاستحاضة ودم الفساد، فإنما فرقة — يعني — ليس من حيث الأحكام وإنما من حيث الاسم، وإلا فمن حيث الأحكام فإن دم الاستحاضة ودم الفساد من حيث الأحكام شيء واحد.
+</p>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه: الفرق بين دم الاستحاضة ودم الفساد</div>
+  <div class="callout-content">
+    الفرق بين دم الاستحاضة ودم الفساد هو فرق <strong>في الاسم فقط</strong> لا في الأحكام. فمن حيث الأحكام، دم الاستحاضة ودم الفساد شيء واحد. لكن من يفرق بينهما يجعل الدماء أربعة أنواع: حيض، نفاس، استحاضة، فساد.
+  </div>
+</div>
+
+
+<!-- ===== Section 2: صور دم الاستحاضة ===== -->
+<h1 class="section-header"><span class="section-number">2</span> صور دم الاستحاضة</h1>
+
+<p class="body-text">
+قال رحمه الله تعالى: ثم إن دم الاستحاضة منه ما يكون عقب الحيض أو النفاس وله صور سيأتي عنها. انتبه — سيقول لك إن دم المستحاضة أو دم الاستحاضة له صورتان عموماً، وإلا في الحقيقة له أربع صور سيتأتي بعد ذلك ذكرها. قال: ثم إن دم الاستحاضة منه ما يكون عقب الحيض والنفاس وله صور سيأتي الحديث عنها إن شاء الله في الدرسين القادمين السابع والثامن. وإما ألا يكون عقب حيض أو نفاس فهو أيضاً دم استحاضة ولكن لا تجري فيه الصور الآتية.
+</p>
+
+<p class="body-text">
+تفهم منه أن دم الاستحاضة يمكن أن تلخصه في ذهنك <span class="green-highlight">بصورتين كبيرتين</span>:
+</p>
+
+<!-- Classification Tree: صور دم الاستحاضة -->
+<div class="classification-tree">
+  <div class="tree-title">صور دم الاستحاضة</div>
+  <div class="tree-root">دم الاستحاضة</div>
+  <div class="tree-connector"></div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="branch-icon">🔴</div>
+      <div class="branch-name">الصورة الأولى: عقب حيض أو نفاس</div>
+      <div class="branch-desc">
+        إذا تجاوز الدم أكثر الحيض (15 يوماً)<br>
+        أو تجاوز الدم أكثر النفاس (60 يوماً)<br>
+        <strong>→ تُردّ المرأة إلى الصور السبع</strong><br>
+        (مستحاضة الحيض / مستحاضة النفاس)
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="branch-icon">🟠</div>
+      <div class="branch-name">الصورة الثانية: لا يكون عقب حيض أو نفاس</div>
+      <div class="branch-desc">
+        لها أربع صور فرعية:<br>
+        ١. نزل الدم لأقل من تسع سنين<br>
+        ٢. نزل الدم في وقت أقل الطهر<br>
+        ٣. دم طلق ولم يُحكم بأنه حيض<br>
+        ④. نقص الدم عن يوم وليلة<br>
+        <strong>→ لا تجري فيها الصور السبع</strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="sub-header">الصورة الأولى: دم الاستحاضة عقب الحيض أو النفاس</h2>
+
+<p class="body-text">
+ومعنى كونه عقب حيض أو نفاس أي أن الدم يتجاوز أكثر الحيض أو أن الدم يتجاوز أكثر النفاس. فحينئذ إذا تجاوز الدم أكثر الحيض أو أكثر النفاس فهذا دم استحاضة، تُردّ المرأة إلى الصور السبع الآتية إن شاء الله تعالى. مثال: جاءها الدم تسعة عشر يوماً — خمسة عشر حيض، ما زاد استحاضة. جاءها الدم بعد انفصال الولد عن الرحم سبعين يوماً — ستون نفاس، ما زاد استحاضة. فلاحظ أن الاستحاضة هنا جاءت عقب الحيض أو عقب النفاس.
+</p>
+
+<div class="ruling-card">
+  <span class="ruling-badge">قاعدة</span>
+  <div class="ruling-content">
+    إذا تجاوز الدم أكثر الحيض (15 يوماً) أو أكثر النفاس (60 يوماً) فهو دم استحاضة، وتُردّ المرأة إلى الصور السبع في مستحاضة الحيض أو الصور السبع في مستحاضة النفاس.
+  </div>
+</div>
+
+
+<h2 class="sub-header">الصورة الثانية: دم الاستحاضة الذي لا يكون عقب الحيض أو النفاس</h2>
+
+<p class="body-text">
+وهذه لها أربع صور:
+</p>
+
+<!-- Four sub-cases -->
+<div class="cases-grid">
+  <div class="case-card">
+    <div class="case-num">الصورة 1</div>
+    <div class="case-title">نزل الدم لأقل من تسع سنين</div>
+    <div class="case-desc" style="font-size:14px;line-height:1.8;color:#555;">
+      إذا نزل الدم لمن دون سن الحيض (قبل تمام تسع سنين قمرية تقريباً) فحكمه استحاضة. هل هذه الاستحاضة عقب حيض ونفاس؟ لا.
+    </div>
+    <div class="case-ruling halal">استحاضة</div>
+  </div>
+  <div class="case-card">
+    <div class="case-num">الصورة 2</div>
+    <div class="case-title">نزل الدم في وقت أقل الطهر</div>
+    <div class="case-desc" style="font-size:14px;line-height:1.8;color:#555;">
+      وهي المرأة التي عليها بقية طهر — جاءها الدم في وقت أقل الطهر (15 يوماً). هذا الدم ليس عقب حيض بل في نقاء كان.
+    </div>
+    <div class="case-ruling halal">استحاضة</div>
+  </div>
+  <div class="case-card">
+    <div class="case-num">الصورة 3</div>
+    <div class="case-title">دم الطلق ولم يُحكم بأنه حيض</div>
+    <div class="case-desc" style="font-size:14px;line-height:1.8;color:#555;">
+      الدم الذي يخرج من المرأة بسبب الولادة قبل انفصال الجنين عن الرحم. ما لم يُحكم بأنه حيض. متى يُحكم بأنه حيض؟ إذا بلغ يوماً وليلة أو اتصل بحيض قبله.
+    </div>
+    <div class="case-ruling halal">استحاضة</div>
+  </div>
+  <div class="case-card">
+    <div class="case-num">الصورة 4</div>
+    <div class="case-title">نقص الدم عن يوم وليلة</div>
+    <div class="case-desc" style="font-size:14px;line-height:1.8;color:#555;">
+      لأن أقل الحيض يوم وليلة (24 ساعة). فإذا نقص الدم عن ذلك فهو دم استحاضة.
+    </div>
+    <div class="case-ruling halal">استحاضة</div>
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه مهم: الفرق بين المرأة عليها بقية طهر والمستحاضة</div>
+  <div class="callout-content">
+    أريدك أن تفرق جيداً بين <strong>المرأة التي عليها بقية طهر</strong> و<strong>المرأة التي زاد الدم عن أكثر الحيض</strong>. التي زاد الدم عن أكثر الحيض هي التي تُردّ إلى صور المستحاضة السبع. أما المرأة التي عليها بقية طهر فلها أحكام المستحاضة لكن <strong>لا تُردّ إلى صور المستحاضة السبع</strong>.
+  </div>
+</div>
+
+<!-- مثال توضيحي: المرأة عليها بقية طهر -->
+<h3 class="sub-sub-header">مثال توضيحي: المرأة التي عليها بقية طهر</h3>
+
+<p class="body-text">
+امرأة طهرت من حيضها، بقي لها من أقل الطهر 9 أيام. نزل منها الدم في اليوم التاسع. هذه التسعة أيام — منها ستة أيام طهر (لأن المجموع مع هذا الدم لا يتجاوز خمسة عشر). لماذا طهر؟ لأن مجموعته مع هذا يتجاوز خمسة عشر. إذن هذه الستة طهر. نكمل مع التسعة — أقل الطهر خمسة عشر — كم يبقى؟ ثلاثة أيام حيض جديد.
+</p>
+
+<div class="timeline-diagram">
+  <div class="timeline-title">مثال: الدم نزل في وقت أقل الطهر</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment tuhr" style="width:40%">6 أيام طهر</div>
+    <div class="timeline-segment hayd" style="width:20%">3 حيض</div>
+    <div class="timeline-segment label" style="width:10%">← 9</div>
+  </div>
+  <div class="timeline-label">المجموع مع الدم الجديد = 15 يوماً (أقل الطهر) → 6 طهر + 3 حيض جديد</div>
+</div>
+
+<p class="body-text">
+لاحظ أن هذا الدم نزل في وقت أقل الطهر (15 يوماً). هل هذا الدم جاء عقب حيض؟ لا، في نقاء كان. إذن هذا دم استحاضة ليس عقب حيض.
+</p>
+
+
+<!-- ===== Section 3: حكم دم الطلق — هل يشترط 24 ساعة قبله؟ ===== -->
+<h1 class="section-header"><span class="section-number">3</span> حكم دم الطلق: هل يشترط أن يمضي 24 ساعة قبله؟</h1>
+
+<p class="body-text">
+الصورة الثالثة من الصورة الثانية: دم الطلق ولم نحكم بأنه حيض. انتبه لهذا — مهم — لأنه إذا حكمنا بأنه حيض أصبح حيضاً. متى نحكم بأنه حيض؟ إذا تقدم عليه حيض، أو اتصل بحيض كما مر معنا في الكلام على الطهر بين حيض ونفاس — قلنا قد لا يوجد طهر بينها، قد يتصل نفاسها بحيضها.
+</p>
+
+<p class="body-text">
+وهل يشترط أن يمضي للدم قبل الطلق يوم وليلة ليحكم عليه بأنه حيض أم لا يشترط؟ هنا حصل خلاف:
+</p>
+
+<!-- Scholar Comparison -->
+<div class="scholar-comparison">
+  <div class="scholar-opinion-card">
+    <div class="scholar-label">العلامة علي الشبراملسي</div>
+    <div class="scholar-detail">
+      في حشيته على النهاية<br>
+      <strong>يشترط</strong> أن يخرج الدم 24 ساعة <strong>قبل</strong> الطلق حتى نحكم على دم الطلق بأنه حيض
+    </div>
+    <div class="count-badge haram">يشترط</div>
+  </div>
+  <div class="scholar-opinion-card">
+    <div class="scholar-label">العلامة بن قاسم</div>
+    <div class="scholar-detail">
+      تلميذ الشيخ بن حجر، صاحب الحاشية على التحفة<br>
+      <strong>لا يشترط</strong>، بل يكفي أن يبلغ مع الطلق يوم وليلة، والمهم مجموع الساعات (قبل الطلق + الطلق) = 24 ساعة
+    </div>
+    <div class="count-badge halal">لا يشترط</div>
+  </div>
+</div>
+
+<h3 class="sub-sub-header">مثال تطبيقي على خلاف الشبراملسي وابن قاسم</h3>
+
+<p class="body-text">
+لو خرج لها دم 14 ساعة قبل الطلق، ثم خرج دم الطلق 10 ساعات:
+</p>
+
+<div class="timeline-diagram">
+  <div class="timeline-title">مثال: 14 ساعة قبل الطلق + 10 ساعات طلق = 24 ساعة</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment fasad" style="width:58%">14 ساعة دم قبل الطلق</div>
+    <div class="timeline-segment talaq" style="width:42%">10 ساعات دم طلق</div>
+  </div>
+  <div class="timeline-label">المجموع = 24 ساعة</div>
+</div>
+
+<div class="comparison-container">
+  <div class="comparison-card" style="border-top-color:#c0392b;">
+    <div class="card-title">عند العلامة الشبراملسي</div>
+    <div class="card-content">
+      <strong>ليس حيضاً</strong> — لأن الذي تقدم على الطلق أقل من 24 ساعة (14 ساعة فقط). يشترط أن يمر 24 ساعة قبل الطلق، وهذا لم يمر 24 ساعة قبل الطلق وإنما 24 ساعة مع الطلق.
+    </div>
+  </div>
+  <div class="comparison-card">
+    <div class="card-title">عند العلامة بن قاسم</div>
+    <div class="card-content">
+      <strong>هو حيض</strong> — لأن المهم مجموع الساعات (14 + 10 = 24 ساعة)، ولا يشترط أن تكون الـ24 ساعة كلها قبل الطلق، بل يكفي أن يبلغ مع الطلق يوم وليلة.
+    </div>
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">تفهم منه</div>
+  <div class="callout-content">
+    نحكم على دم الطلق بأنه حيض <strong>إذا اتصل بحيض قبله</strong>. وهل يشترط أن يمضي للدم قبل الطلق يوم وليلة أم لا؟ <strong>الشبراملسي:</strong> يشترط. <strong>بن قاسم:</strong> لا يشترط بل يكفي أن يبلغ مع الطلق يوم وليلة. والله أعلم.
+  </div>
+</div>
+
+
+<!-- ===== Section 4: نص الكتاب — قراءة المتن ===== -->
+<h1 class="section-header"><span class="section-number">4</span> نص الكتاب: قراءة المتن مع الشرح</h1>
+
+<div class="quote-block">
+  قال: ثم إن دم الاستحاضة منه ما يكون عقب الحيض أو النفاس وله صور سيأتي الحديث عنها إن شاء الله في الدرسين القادمين. وإما ألا يكون عقب حيض أو نفاس فهو أيضاً دم استحاضة ولكن لا تجري فيه الصور الآتية.
+  <span class="quote-attribution">— نص المؤلف</span>
+</div>
+
+<p class="body-text">
+أي لا تجري فيه الصور السبع التي ستأتي معك في الدرسين القادمين. ثم قال: وذلك كأن أتى قبل سن الحيض — هذه الصورة موجودة — يعني قبل تمام تسع سنين قمرية تقريباً. أو قبل طهر خمسة عشر — أي قبل طهر خمسة عشر — هذه المرأة التي عليها بقية طهر، يعني جاءها الدم في وقت أقل الطهر. أو نقص عن يوم وليلة — لأن أقل الحيض يوم وليلة. أو كان دم طلق ولم نحكم بأنه حيض.
+</p>
+
+<p class="body-text">
+تفهم منه أنك إذا حكمت أنه حيض خلاص الأمر واضح صار.
+</p>
+
+
+<!-- ===== Section 5: حكم المستحاضة إجمالاً ===== -->
+<h1 class="section-header"><span class="section-number">5</span> حكم المستحاضة إجمالاً</h1>
+
+<p class="body-text">
+حيث حكمنا بأن الدم استحاضة أو دم فساد، فإنه <span class="green-highlight">حدث دائم ينقض الوضوء ولا يمنع الصوم والصلاة</span>. فالمستحاضة — السؤال: ما الذي يجب عليها؟ قال: يجب عليها ثلاثة أمور:
+</p>
+
+<div class="numbered-steps">
+  <div class="steps-title">ما يجب على المستحاضة — إجمالاً</div>
+  <div class="step-item">
+    <span class="step-number">1</span>
+    <div class="step-content">
+      <span class="green-highlight">تغسل الدم</span> — أي تغسل فرجها
+    </div>
+  </div>
+  <div class="step-item">
+    <span class="step-number">2</span>
+    <div class="step-content">
+      <span class="green-highlight">وتربط على موضعه</span> — قوله تربط على موضعه يشمل <strong>الحشو</strong> (إدخال قطنة أو نحوها في الفرج) ويشمل <strong>التعصيب</strong> (أن تربط خرقة على الفرج)
+    </div>
+  </div>
+  <div class="step-item">
+    <span class="step-number">3</span>
+    <div class="step-content">
+      <span class="green-highlight">وتتوضأ لكل فرض</span>
+    </div>
+  </div>
+</div>
+
+<p class="body-text">
+هذه الأمور إجمالاً، تفصيلها بعد قليل. قال: وتصلي.
+</p>
+
+
+<!-- ===== Section 6: دليل ما يجب على المستحاضة ===== -->
+<h1 class="section-header"><span class="section-number">6</span> دليل ما يجب على المستحاضة — حديث فاطمة بنت أبي حبيش</h1>
+
+<div class="evidence-box">
+  <div class="evidence-label">حديث فاطمة بنت أبي حبيش — الدليل على ما يجب على المستحاضة</div>
+  <div class="hadith-text">
+    جاءت فاطمة بنت أبي حبيش إلى النبي ﷺ وقالت: يا رسول الله إن امرأة استحاضت فلا أطهر، أفأدع الصلاة؟ فقال لها رسول الله ﷺ: «لا، إنما ذلك عرق، وليس ذلك بالحيضة، فإذا أقبلت الحيضة فدعي الصلاة، فإذا ذهب قدرها فاغسلي عنك الدم وصلي»
+  </div>
+</div>
+
+<p class="body-text">
+هذا الحديث دليل على ماذا؟
+</p>
+
+<p class="body-text">
+دليل على <span class="green-highlight">وجوب غسل الدم</span> — قال: «فاغسلي عنك الدم وصلي». طيب أين الدليل على أنها تربط على الموضع؟ نقول: هذا مأخوذ من الأمر بغسل الدم، لأن غسل الدم إزالة للنجاسة، والربط على الموضع فيه <span class="green-highlight">تخفيف للنجاسة وتقليل لها</span>، فهو يؤدي نفس المقصود — غسل الدم إزالة وهذا فيه تخفيف وتقليل للنجاسة.
+</p>
+
+<p class="body-text">
+وطيب قال: «وتتوضأ لكل صلاة» لما جاء في بعض الروايات: «وتوضئي لكل صلاة» وهذه رواية في صحيح الإمام البخاري وسيأتي الحديث عنها بعد قليل.
+</p>
+
+<h3 class="sub-sub-header">ست فوائد من حديث فاطمة بنت أبي حبيش</h3>
+
+<div class="numbered-steps">
+  <div class="steps-title">الفوائد المستفادة من الحديث</div>
+  <div class="step-item">
+    <span class="step-number">1</span>
+    <div class="step-content">
+      <span class="green-highlight">ثبوت الحيض</span> — الحيض موجود في النساء، لأن النبي ﷺ قال: «فإذا أقبلت الحيضة»
+    </div>
+  </div>
+  <div class="step-item">
+    <span class="step-number">2</span>
+    <div class="step-content">
+      <span class="green-highlight">أن الحائض لا تصلي</span> — منع الحائض من الصلاة لأنه قال: «فدعي الصلاة»
+    </div>
+  </div>
+  <div class="step-item">
+    <span class="step-number">3</span>
+    <div class="step-content">
+      <span class="green-highlight">إثبات دم الاستحاضة</span> — لقوله ﷺ: «إنما ذلك عرق»
+    </div>
+  </div>
+  <div class="step-item">
+    <span class="step-number">4</span>
+    <div class="step-content">
+      <span class="green-highlight">أن المستحاضة يجب عليها أن تصلي</span> — لقوله: «فاغسلي عنك الدم وصلي»
+    </div>
+  </div>
+  <div class="step-item">
+    <span class="step-number">5</span>
+    <div class="step-content">
+      <span class="green-highlight">نجاسة الدم ووجوب غسله</span>
+    </div>
+  </div>
+  <div class="step-item">
+    <span class="step-number">6</span>
+    <div class="step-content">
+      <span class="green-highlight">أن المرأة تأخذ بالعادة</span> — لقوله ﷺ: «فإذا ذهب قدرها فاغسلي عنك الدم وصلي»
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== Section 7: تفصيل ما يلزم المستحاضة عند الصلاة ===== -->
+<h1 class="section-header"><span class="section-number">7</span> تفصيل ما يلزم المستحاضة عند إرادة الصلاة</h1>
+
+<p class="body-text">
+ثم قال: ما يلزم المستحاضة فعله إذا أرادت الصلاة. ما معنى ما يلزم؟ يعني ما يجب على المستحاضة. الآن سيفصل لك ما أجمله في هذا الموضع.
+</p>
+
+
+<!-- الأمر الأول -->
+<h2 class="sub-header">الأمر الأول: غسل الفرج قبل الوضوء</h2>
+
+<p class="body-text">
+أن تغسل المستحاضة فرجها قبل الوضوء. هذا الذي دل عليه الحديث: «فاغسلي عنك الدم». وقول الشيخ حفظه الله: «أن تغسل المستحاضة فرجها» — ذكر غسل الفرج خرج مخرج الغالب، وإن لا فلها أن تستعمل الحجر. وهذا مبني على المعتمد في المذهب أن الاستنجاء بالحجر يكون في الخارج المعتاد وفي الخارج النادر أيضاً.
+</p>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه: الاستنجاء بالحجر</div>
+  <div class="callout-content">
+    قول الشيخ حفظه الله: «أن تغسل المستحاضة فرجها قبل الوضوء» — خرج مخرج الغالب. وإن لا فلها أن تستعمل الأحجار بناءً على أن استعمال الحجر جائز في الخارج المعتاد وفي الخارج غير المعتاد.
+  </div>
+</div>
+
+
+<!-- الأمر الثاني -->
+<h2 class="sub-header">الأمر الثاني: حشو الفرج وجوباً</h2>
+
+<p class="body-text">
+ثانياً: أن تحشو فرجها وجوباً. ما معنى تحشو؟ أي أن تدخل في فرجها نحو قطنة. ما فائدة ذلك؟ تخفيف النجاسة أو تقليلها، وذلك دفعاً للنجس أو تخفيفاً له. واجب ذلك.
+</p>
+
+<p class="body-text">
+وإنما يجب حشو الفرج بنحو قطنة <span class="green-highlight">بالشروط الآتية</span>:
+</p>
+
+<div class="conditions-grid">
+  <div class="condition-card">
+    <div class="cond-num">الشرط 1</div>
+    <div class="cond-title">ألا تتأذى به تأذياً لا يُحتمل عادة</div>
+    <div class="cond-detail">
+      تتأذى بحشو فرجها بقطنة بأن يسبب لها ألماً أو كانت عندها التهابات أو نحو ذلك يسبب لها حرقة شديدة لا تحتمل — فهنا يسقط الوجوب.
+    </div>
+  </div>
+  <div class="condition-card">
+    <div class="cond-num">الشرط 2</div>
+    <div class="cond-title">ألا تكون صائمة</div>
+    <div class="cond-detail">
+      فلو كانت صائمة نقول: لا يجوز أن تدخلي القطنة إلى الفرج، لأن ذلك يؤدي إلى بطلان الصوم، لأن باطن الفرج من الجوف الذي إذا وصلت إليه عين فسد الصوم. والضابط في باب الصيام: كل عين وصلت إلى الجوف من منفذ مفتوح فالصوم يبطل، ومن الجوف القبل والدبر.<br><br>
+      <strong>فإن كانت صائمة فما الحكم؟</strong> يحرم — لا يجوز. تركت الحشو نهاراً وجوباً.<br>
+      <strong>ومحل وجوب الترك:</strong> إذا كان الصوم واجباً. أما إذا كان الصوم نفلاً فالصائم المتطوع أمير نفسه إن شاء صام وإن شاء أفطر.
+    </div>
+  </div>
+  <div class="condition-card">
+    <div class="cond-num">الشرط 3</div>
+    <div class="cond-title">أن تحتاج إليه</div>
+    <div class="cond-detail">
+      إذا كانت المرأة إذا ربطت خرقة انقطع الدم فلا يخرج دم — نكتفي بالعصب كما سيأتي. لكن إذا كان دمها كثيراً حتى لو لبست الحفاظ الذي يباع وما زال الدم — نقول: لا بد من الحشو.
+    </div>
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">مفهوم «نهاراً» — الحشو ليلاً واجب</div>
+  <div class="callout-content">
+    قول الشيخ: «فإن كانت صائمة تركت الحشو نهاراً» — قوله «نهاراً» هذا قيد بمفهومه أن يلزمها الحشو ليلاً، يعني في الصلوات التي تكون في غير وقت الصوم كصلاة المغرب والعشاء — ليس وقت الصوم، فما حكم الحشو؟ <strong>واجب</strong>. يؤخذ هذا من قول الشيخ حفظه الله «نهاراً» — مفهومه أما ليلاً.
+  </div>
+</div>
+
+<h3 class="sub-sub-header">نظم الشروط الثلاثة</h3>
+
+<div class="poetry-block">
+  <div class="poetry-title">نظم شروط حشو الفرج</div>
+  <div class="poetry-verse">
+    لغيرِ صومٍ حشوُ فرجٍ قد وجب<br>
+    لحاجةٍ إن لم يكن ثمّ عطبْ
+  </div>
+  <div class="poetry-attribution">— من نظم الفقير (الشارح)</div>
+</div>
+
+<p class="body-text">
+شرح النظم:
+</p>
+
+<div class="numbered-steps">
+  <div class="steps-title">شرح أبيات النظم</div>
+  <div class="step-item">
+    <span class="step-number">1</span>
+    <div class="step-content">
+      <strong>«لغير صوم»</strong> — الشرط الأول: ألا تكون صائمة
+    </div>
+  </div>
+  <div class="step-item">
+    <span class="step-number">2</span>
+    <div class="step-content">
+      <strong>«حشو فرج قد وجب»</strong> — حكم الحشو واجب إذا لم تكن صائمة
+    </div>
+  </div>
+  <div class="step-item">
+    <span class="step-number">3</span>
+    <div class="step-content">
+      <strong>«لحاجة»</strong> — الشرط الثاني: أن تحتاج إليه
+    </div>
+  </div>
+  <div class="step-item">
+    <span class="step-number">4</span>
+    <div class="step-content">
+      <strong>«إن لم يكن ثم عطب»</strong> — الشرط الثالث: ألا تتأذى (العطب = التأذي)
+    </div>
+  </div>
+</div>
+
+<p class="body-text">
+قال الناظم — من حاولت أن أنظم الشروط في بيت واحد حتى يسرع عليكم حفظها، فنظمتها قبل أن أتي إلى الدرس.
+</p>
+
+
+<!-- الأمر الثالث -->
+<h2 class="sub-header">الأمر الثالث: العصب (التعصيب)</h2>
+
+<p class="body-text">
+ثالثاً: أن تعصب بعد ذلك الفرج. قال: ويجب العصب بشرطين:
+</p>
+
+<div class="conditions-grid">
+  <div class="condition-card">
+    <div class="cond-num">الشرط 1</div>
+    <div class="cond-title">أن تحتاج إليه</div>
+    <div class="cond-detail">
+      بأن لم ينقطع الدم بالحشو. فإن انقطع الدم بالحشو لم يجب العصب. أي لو كانت المرأة إذا حشت الفرج بقطنة انقطع الدم ما يخرج الدم — لا تحتاج إلى العصب. لكن إذا كانت إذا حشت الفرج ما زال الدم يخرج — تحتاج.
+    </div>
+  </div>
+  <div class="condition-card">
+    <div class="cond-num">الشرط 2</div>
+    <div class="cond-title">ألا تتأذى به تأذياً لا يُحتمل عادة</div>
+    <div class="cond-detail">
+      فإن كان كذلك لم يجب. يعني تقريباً نفس الشروط السابقة <strong>ما عدا شرط ألا تكون صائمة</strong>، لأن العصبة ليس فيه إدخال شيء بخلاف الحشو فيه إدخال شيء.
+    </div>
+  </div>
+</div>
+
+<h3 class="sub-sub-header">هل يكفي الاقتصار على العصب؟</h3>
+
+<p class="body-text">
+ثم أتى بمسألة مهمة تحتاج إليها النساء كثيراً: هل يكفي الاقتصار على العصب؟ يعني لو قالت المرأة: لو أنني عصبت فقط — العصب كما قلت لك معناه أن تربط نحو خرقة على فرجها أي من الخارجي — هل يكفي العصب ولا حاجة إلى ولا يجب عليّ الحشو؟
+</p>
+
+<div class="ruling-card">
+  <span class="ruling-badge">حكم</span>
+  <div class="ruling-content">
+    الجواب: <strong>نعم يكفي الاقتصار على العصب إن منع الدم</strong>. يعني إذا كان العصب يمنع الدم فلا يجب الحشو. واعتمده العلامة الرملي. لما قالوا «اعتمده العلامة الرملي» — هذه الكلمة تشعر أن معتمد العلامة بن حجر أنه لا بد من الحشو، فكأن العلامة بن حجر يرى أن الحشو مقدم على العصب. العلامة الرملي يقول: إذا كف العصب لا يجب الحشو.
+  </div>
+</div>
+
+<div class="comparison-container">
+  <div class="comparison-card" style="border-top-color:var(--gold);">
+    <div class="card-icon">📖</div>
+    <div class="card-title">العلامة بن حجر</div>
+    <div class="card-content">
+      معتمده: <strong>لا بد من الحشو</strong>، الحشو مقدم على العصب
+    </div>
+  </div>
+  <div class="comparison-card">
+    <div class="card-icon">📖</div>
+    <div class="card-title">العلامة الرملي</div>
+    <div class="card-content">
+      معتمده: <strong>إذا كف العصب لا يجب الحشو</strong>، يكفي الاقتصار على العصب إن منع الدم
+    </div>
+  </div>
+</div>
+
+
+<!-- الأمر الرابع -->
+<h2 class="sub-header">الأمر الرابع: الوضوء بعد دخول وقت الصلاة</h2>
+
+<p class="body-text">
+رابعاً: أن تتوضأ بعد دخول وقت الصلاة. قال: «أن تتوضأ» — أيضاً خرج مخرج الغالب، وإن لا فمثل الوضوء في ذلك التيمم — كانت فاقدة للماء أو كانت عاجزة عن استعمال الماء. نفس الكلام — ألا تتيمم إلا بعد دخول وقت، بل تتيمم أولاً أو لا؟ لأن التيمم لا بد أن يكون بعد دخول الوقت مطلقاً، بخلاف الوضوء ففي حق السليم يجوز أن يقدم.
+</p>
+
+<div class="ruling-card">
+  <span class="ruling-badge blue">قاعدة</span>
+  <div class="ruling-content">
+    قوله «بعد دخول الوقت» هذا <strong>يعود للأمور الأربعة كلها</strong>، ليس للوضوء فقط. يعني لابد أن يكون غسل الفرج، وأن يكون الحشو، وأن يكون التعصيب، وأن يكون الوضوء — كل هذا لابد أن يكون بعد دخول الوقت.
+  </div>
+</div>
+
+<p class="body-text">
+ولا يجوز أن تتوضأ قبل دخول وقت الصلاة لأنها طهارة ضرورة — طهارة مميزة — مستحاضة — كطهارة المتيمم — طهارة ضرورة. وقبل دخول وقت الصلاة لا توجد ضرورة، فإن الخطاب إنما يتوجه إذا دخل وقت الصلاة.
+</p>
+
+
+<!-- الأمر الخامس -->
+<h2 class="sub-header">الأمر الخامس: الموالاة بين الكل</h2>
+
+<p class="body-text">
+خامساً: الموالاة بين الكل. ما معنى الموالاة؟ المتابعة بين هذه الأفعال، بحيث لا فاصل طويل بين كل فعل وآخر. كم مقدار الفاصل الطويل؟ مقدار الفاصل الطويل الذي يضر: <span class="red-highlight">ما يسع ركعتين بأخف ممكن</span> — تقريباً ثلاث دقائق.
+</p>
+
+<div class="flow-chart">
+  <div class="flow-title">ترتيب الموالاة بين الأفعال</div>
+  <div class="flow-step green-step">غسل الفرج</div>
+  <div class="flow-arrow">▼</div>
+  <div class="flow-step">المبادرة بالحشو بعد غسل الفرج</div>
+  <div class="flow-arrow">▼</div>
+  <div class="flow-step">العصب بعد الحشو</div>
+  <div class="flow-arrow">▼</div>
+  <div class="flow-step">الوضوء بعد العصب</div>
+  <div class="flow-arrow">▼</div>
+  <div class="flow-step">تجب الموالاة بين أفعال الوضوء</div>
+  <div class="flow-arrow">▼</div>
+  <div class="flow-step green-step">الصلاة</div>
+</div>
+
+<p class="body-text">
+فقال: «خامساً الموالاة بين الكل، فتجب المبادرة بالحشو بعد غسل الفرج». شوف هو يعطف بالفاء التي تفيد التعقيب. قال: «فالمبادرة بعد ذلك بالعصب». إذا يجب المبادرة بالحشو بعد غسل الفرج، فالعصب بعد الحشو، فالوضوء — أي فالوضوء بعد العصب. وتجب الموالاة بين أفعال الوضوء. قال: «فالصلاة». إذا هذه الأمور لابد أن يوالي بينها.
+</p>
+
+
+<h3 class="sub-sub-header">حكم تأخير الصلاة بعد الوضوء</h3>
+
+<p class="body-text">
+قال: ولا يجوز لها — أي للمستحاضة — أن تؤخر الصلاة لشيء إلا ما كان لمصلحة الصلاة. هذه المسألة ذكرتها لكم في شرح المقدمة الحضرمية.
+</p>
+
+<!-- Flow chart for delaying prayer -->
+<div class="flow-chart">
+  <div class="flow-title">حكم تأخير الصلاة بعد الوضوء للمستحاضة</div>
+  <div class="flow-step">المستحاضة بعد الوضوء</div>
+  <div class="flow-arrow">▼</div>
+  <div class="flow-step">أخرت الصلاة — لها حالتان:</div>
+  <div class="flow-arrow">↙</div>
+  <div style="display:flex;gap:15px;justify-content:center;flex-wrap:wrap;">
+    <div class="flow-step green-step" style="max-width:260px;">
+      <strong>الحالة الأولى:</strong><br>
+      التأخير لمصلحة الصلاة<br>
+      <span style="font-size:13px;">ستر العورة / إجابة المؤذن / سنة قبلية / انتظار جماعة / إقامة الصلاة</span><br>
+      <strong style="color:#0d6b3e;">لا يضر — ولو خرج الوقت</strong>
+    </div>
+    <div class="flow-step red-step" style="max-width:260px;">
+      <strong>الحالة الثانية:</strong><br>
+      التأخير لغير مصلحة الصلاة<br>
+      <span style="font-size:13px;">تفصيل:</span><br>
+      • دون أقل (لا يسع ركعتين) → <strong>لا يضر</strong><br>
+      • يسع ركعتين بأخف ممكن → <strong>لزمها إعادة جميع ما سبق</strong>
+    </div>
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">مثال: التأخير لمصلحة الصلاة</div>
+  <div class="callout-content">
+    نفترض أنها كانت نائمة، استيقظت وبقي من وقت العصر عشر دقائق ثم تغرب الشمس، فقامت غسلت الدم وحشت وجعلت العصابة وتوضأت ولبست ثيابها — خرج الوقت. نقول: ما في مشكلة، لا يلزمك التجديد الآن، لا يلزمك أن تعيدي مرة أخرى، حتى وإن خرج الوقت.
+  </div>
+</div>
+
+<div class="ruling-card">
+  <span class="ruling-badge red">تنبيه</span>
+  <div class="ruling-content">
+    قول الشيخ: «فإن أخرت لغير مصلحة الصلاة ضر» — قوله «ضر» هذا مقيد: ضر إذا كان التأخير بما يسع ركعتين بأخف ممكن، ليس ضر مطلقاً. هذا يحتاج كلام الشيخ هنا إلى تقييد. ثم قال: «ووجب عليها أن تعيد جميع ما تقدم» — أي الأمور الأربعة كلها تعيدها مرة أخرى.
+  </div>
+</div>
+
+
+<!-- الأمر السادس -->
+<h2 class="sub-header">الأمر السادس: الوضوء لكل فرض وتجديد الأمور</h2>
+
+<p class="body-text">
+سادساً: يجب عليها الوضوء لكل فرض. قال: ويجب على المستحاضة:
+</p>
+
+<div class="numbered-steps">
+  <div class="steps-title">ما يجب تجديده لكل فرض عيني</div>
+  <div class="step-item">
+    <span class="step-number">1</span>
+    <div class="step-content">
+      <span class="green-highlight">تجديد غسل الفرج</span> — <strong>على الأصح</strong> في المذهب
+    </div>
+  </div>
+  <div class="step-item">
+    <span class="step-number">2</span>
+    <div class="step-content">
+      <span class="green-highlight">تجديد حشو الفرج</span> — <strong>على الأصح</strong> في المذهب
+    </div>
+  </div>
+  <div class="step-item">
+    <span class="step-number">3</span>
+    <div class="step-content">
+      <span class="green-highlight">تجديد العصابة</span> — <strong>على الأصح</strong> في المذهب
+    </div>
+  </div>
+  <div class="step-item">
+    <span class="step-number">4</span>
+    <div class="step-content">
+      <span class="green-highlight">الوضوء لكل فرض عيني</span> — <strong>بلا خلاف في المذهب</strong>
+    </div>
+  </div>
+</div>
+
+<p class="body-text">
+«على الأصح فيها» يعود على الثلاث — تجديد هذه الثلاث على الأصح. ويجب الوضوء بلا خلاف في المذهب. يتوضأ لكل فرض عيني بلا خلاف في المذهب — صلاة الظهر، جاء وقت العصر — يجب بلا خلاف في المذهب أن تتوضأ وضوءاً جديداً للعصر.
+</p>
+
+<p class="body-text">
+السؤال: هذا الوضوء للعصر بلا خلاف في المذهب عرفنا، لكن هل تجديد الأمور الثلاثة أيضاً واجب؟ نعم، هذه الثلاثة واجبة لكن <span class="green-highlight">على الأصح في المذهب</span>. إذن هذه وجوبها فيه خلاف في المذهب — الأصح الوجوب. هذا الفرق — هذه على الأصح وهذه بلا خلاف في المذهب.
+</p>
+
+
+<h3 class="sub-sub-header">خلاف المذاهب في الوضوء لكل صلاة</h3>
+
+<p class="body-text">
+وخارج المذهب يوجد خلاف. يجب عليها أن تتوضأ لكل فرض عيني عند الشافعية — نقول في المذهب عند الشافعية — ووافقهم الجمهور. الجمهور ماذا قال؟ الجمهور يجب أن تتوضأ لكل صلاة — حنفية وحنابلة والشافعية أيضاً كلهم قالوا يجب أن تتوضأ لكل صلاة.
+</p>
+
+<table class="madhab-table">
+  <tr>
+    <th>المذهب</th>
+    <th>حكم الوضوء للمستحاضة</th>
+    <th>التفصيل</th>
+  </tr>
+  <tr>
+    <td><strong>الشافعية</strong></td>
+    <td>يجب الوضوء لكل صلاة فرض</td>
+    <td>بلا خلاف في المذهب</td>
+  </tr>
+  <tr>
+    <td><strong>الحنابلة</strong></td>
+    <td>يجب الوضوء لكل صلاة فرض</td>
+    <td>تتوضأ لكل صلاة فرض</td>
+  </tr>
+  <tr>
+    <td><strong>الحنفية</strong></td>
+    <td>توضأ لكل صلاة أي لوقت كل صلاة</td>
+    <td>هناك مقدر في الحديث: توضأ لكل صلاة أي توضأ لوقت كل صلاة. بالنسبة للمسافر وقت الظهر والعصر وقت واحد — إذا توضأت يمكن أن تصلي الظهر والعصر بذلك الوضوء لأن الوضوء للوقت وليس للصلاة</td>
+  </tr>
+  <tr>
+    <td><strong>المالكية</strong></td>
+    <td>لا يجب الوضوء لكل صلاة فرض</td>
+    <td>لا يجب إلا إذا انتقض الوضوء بناقض آخر (مثلاً لمست رجلاً أجنبياً أو نامت). لكنه يستحب. هذا أيسر من قول الجمهور — ذكرته لمن المرأة قد تحتاج إلى تقليده</td>
+  </tr>
+  <tr>
+    <td><strong>الظاهرية</strong></td>
+    <td>يجب الغسل لكل صلاة</td>
+    <td>قول صعب ينسب إلى الظاهرية. ستأتيك في أقسام المستحاضة — في بعض الصور يجب الغسل لكل صلاة</td>
+  </tr>
+</table>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه: الخلاف بين الحنفية والجمهور</div>
+  <div class="callout-content">
+    الحنفية وافقوا الجمهور من حيث المعنى العام، لكن في خلاف بسيط: الحنفية قالوا «توضأ لكل صلاة أي توضأ لوقت كل صلاة» فقالوا هناك مقدر في الحديث يوجد تقدير. بالنسبة للمسافر وقت الظهر والعصر وقت واحد — إذا توضأت يمكن أن تصلي الظهر والعصر بذلك الوضوء لأن الوضوء للوقت وليس للصلاة. من حيث المعنى العام يتفقون لكن فقط في قضية بسيطة بينهم خلاف.
+  </div>
+</div>
+
+
+<!-- ===== Section 8: دليل وجوب الوضوء لكل صلاة ===== -->
+<h1 class="section-header"><span class="section-number">8</span> دليل وجوب الوضوء لكل صلاة — حديث حمنة بنت جحش</h1>
+
+<div class="evidence-box">
+  <div class="evidence-label">حديث حمنة بنت جحش — رواية البخاري</div>
+  <div class="hadith-text">
+    جاءت حمنة بنت جحش إلى النبي ﷺ تسأله عن الاستحاضة، قالت: إني استحاض فلا أطهر، فقال لها النبي ﷺ: «وتوضئي لكل صلاة»
+  </div>
+</div>
+
+<p class="body-text">
+هذه الرواية «توضئي لكل صلاة» موجودة في صحيح البخاري. لكن بعض المحدثين كالإمام النسائي أعلها، والإمام مسلم عندما أخرج الحديث في صحيح مسلم أخرج الحديث إلا هذه اللفظة. قال: «وهنالك حرف ذكره حماد بن زيد تركته» — يعني هذه اللفظة هذه الزيادة «توضئي لكل صلاة» قال هذا موجود من رواية حماد بن زيد، لكن أنا أخرجت الحديث بدونها، أنا تركت هذه اللفظة، كأنه يشير إلى وجود علة فيها.
+</p>
+
+<p class="body-text">
+وذلك بعض المحدثين يمثلوا بهذا للحديث الشاذ — أن يروي الراوي الثقة لفظاً يخالفه ثقات آخرون. شايف يقول هذا شاذ. لكن في الحقيقة هذه الرواية «توضئي لكل صلاة» ثابتة، لم يتفرد بها حماد بل وافقه غير حماد. ولذلك الإمام البخاري — أجل أو من أجل أئمة المحدثين — أخرجها في الصحيح.
+</p>
+
+<div class="callout-box">
+  <div class="callout-title">تخريج الحديث</div>
+  <div class="callout-content">
+    <strong>الإمام البخاري:</strong> أخرج لفظة «توضئي لكل صلاة» في صحيحه.<br>
+    <strong>الإمام مسلم:</strong> أخرج الحديث دون هذه اللفظة، وترك زيادة حماد بن زيد، كأنه يشير إلى وجود علة.<br>
+    <strong>الإمام النسائي:</strong> أعل هذه الرواية.<br><br>
+    لكن الرواية ثابتة لم يتفرد بها حماد بل وافقه غيره، ولذلك البخاري أخرجها. وبها استدل الجمهور على وجوب الوضوء لكل صلاة.
+  </div>
+</div>
+
+<p class="body-text">
+كأن المالكية لم يأخذوا بهذه الرواية، ولذلك قالوا: لا يجب أن تتوضأ لكل صلاة لكن يستحب.
+</p>
+
+<p class="body-text">
+وحمنة عندما قال لها النبي ﷺ «توضئي لكل صلاة» ماذا كانت تفعل حمنة؟ كانت <span class="red-highlight">تغتسل لكل صلاة</span>. وكأن الظاهرية أخذوا بهذه الرواية فأوجبوا عليها أن تغتسل لكل صلاة.
+</p>
+
+
+<!-- ===== Section 9: تجديد الأمور الثلاثة — تفصيل الخلاف ===== -->
+<h1 class="section-header"><span class="section-number">9</span> تجديد الأمور الثلاثة — تفصيل الخلاف ومحله</h1>
+
+<p class="body-text">
+التجديد له حالتان:
+</p>
+
+<div class="flow-chart">
+  <div class="flow-title">حالتا تجديد الأمور الثلاثة (غسل الفرج / الحشو / العصابة)</div>
+  <div class="flow-step">التجديد لكل صلاة</div>
+  <div class="flow-arrow">↙</div>
+  <div style="display:flex;gap:15px;justify-content:center;flex-wrap:wrap;">
+    <div class="flow-step red-step" style="max-width:280px;">
+      <strong>الحالة الأولى:</strong><br>
+      ظهر الدم في جوانب الخرقة<br>
+      أو تحركت الخرقة من مكانها<br><br>
+      <strong style="color:#c0392b;">يجب تجديد الأمور الثلاثة قطعاً</strong><br>
+      <span style="font-size:13px;">(بلا خلاف في المذهب)</span>
+    </div>
+    <div class="flow-step blue-step" style="max-width:280px;">
+      <strong>الحالة الثانية:</strong><br>
+      لم يظهر الدم في الجوانب<br>
+      ولم تحصل حركة مؤثرة<br><br>
+      <strong>خلاف في المذهب:</strong><br>
+      <span style="font-size:14px;">• الأصح: يجب التجديد<br>• مقابل الأصح: لا يجب</span>
+    </div>
+  </div>
+</div>
+
+<p class="body-text">
+إذا ظهر الدم في جوانب الخرقة — يعني المرأة وضعت الخرقة وظهر الدم في الجوانب — أو أن الخرقة تحركت من مكانها، فحينئذ وجب تجديد الأمور الثلاثة قطعاً. ما معنى قطعاً؟ أي بلا خلاف في المذهب. هنا ليس محل الخلاف.
+</p>
+
+<p class="body-text">
+محل الخلاف: إذا لم يظهر الدم في الجوانب ولم يحصل تحرك. فهنا حصل خلاف: المعتمد وجوب التجديد مطلقاً. ومقابله — مقابل المعتمد — عدم الوجوب.
+</p>
+
+<div class="comparison-container">
+  <div class="comparison-card">
+    <div class="card-icon">✅</div>
+    <div class="card-title">الأصح (المعتمد)</div>
+    <div class="card-content">
+      <strong>يجب التجديد مطلقاً</strong> — لكل صلاة فرض يجب تجديد غسل الفرج والحشو والعصابة، سواء ظهر الدم أم لم يظهر.
+    </div>
+  </div>
+  <div class="comparison-card" style="border-top-color:var(--gold);">
+    <div class="card-icon">📋</div>
+    <div class="card-title">مقابل الأصح</div>
+    <div class="card-content">
+      <strong>لا يجب التجديد</strong> — <strong>التعليل:</strong> لأنه لا معنى — لا فائدة للأمر بإزالتها مع استقرارها. ما دام أن العصابة مستقرة ما الفائدة أن نزيلها ثم نعيدها؟
+    </div>
+  </div>
+</div>
+
+<h3 class="sub-sub-header">نص كلام المؤلف في التعليق</h3>
+
+<div class="quote-block">
+  ومقابل الأصح لا يجب تجديدها، لأنه لا معنى — أي لا فائدة — للأمر بإزالتها مع استقرارها. ومحل الخلاف بين الأصح والصحيح عند عدم ظهور دم على جوانبها مع بقائها في موضعها — من غير زوال له وقع — من غير أن تزول زوالاً أي تتحرك حركة تؤثر — هذا المقصود. قال: «وإلا» — أي وإن ظهر دم على جوانبها أو زالت عن موضعها زوالاً له وقع — «وإلا وجب تجديدها قطعاً» — أي بلا خلاف — لأن النجاسة قد كثرت مع التمكن من تقليلها.
+  <span class="quote-attribution">— نص المؤلف مع الشرح</span>
+</div>
+
+
+<!-- ===== Section 10: تجديد العصابة عند التلوث ===== -->
+<h1 class="section-header"><span class="section-number">10</span> تجديد العصابة عند التلوث</h1>
+
+<p class="body-text">
+قال بعد ذلك — هل للمستحاضة أن تتنفل؟ طبعاً هو ذكر هنا مسألة أخرى في التعليق: قال ويؤخذ من التعليل أن محل وجوب تجديدها عند تلوثها بما لا يُعفى عنه.
+</p>
+
+<p class="body-text">
+يعني الآن العصابة — العصابة التي عصبتها التي ربطت — هل يجب أن تجددها المرأة؟ يعني تغيرها بواحدة أخرى؟ هل يجب أن تغيرها بواحدة أخرى؟ نقول: إذا تلوثت بدم لا يُعفى عنه يجب أن تجددها بواحدة أخرى. وإن تلوثت بدم يُعفى عنه أو لم تتلوث بالدم أصلاً — لأنها هي تستعمل حشوة ربما ما تتلوث — فلا يجب.
+</p>
+
+<div class="ruling-card">
+  <span class="ruling-badge gold">حكم</span>
+  <div class="ruling-content">
+    <strong>إذا تلوثت العصابة بدم لا يُعفى عنه:</strong> يجب تجديدها بواحدة أخرى.<br>
+    <strong>إذا تلوثت بدم يُعفى عنه أو لم تتلوث أصلاً:</strong> لا يجب تجديدها.
+  </div>
+</div>
+
+
+<!-- ===== Section 11: خلاصة الدرس ===== -->
+<h1 class="section-header"><span class="section-number">11</span> خلاصة الدرس</h1>
+
+<div class="summary-box">
+  <div class="summary-title">📋 خلاصة ما يجب على المستحاضة عند إرادة الصلاة</div>
+  <div class="summary-content">
+    <strong>الأمر الأول:</strong> غسل الفرج قبل الوضوء — ويجوز الاستنجاء بالحجر على المعتمد.<br><br>
+    <strong>الأمر الثاني:</strong> حشو الفرج وجوباً بثلاثة شروط:<br>
+    ① ألا تتأذى به تأذياً لا يُحتمل عادة<br>
+    ② ألا تكون صائمة (فإن كانت صائمة تركته نهاراً وجوباً ويجب ليلاً)<br>
+    ③ أن تحتاج إليه<br><br>
+    <strong>الأمر الثالث:</strong> العصب بشرطين: أن تحتاج إليه (بان لم ينقطع الدم بالحشو)، وألا تتأذى به. ويكفي الاقتصار على العصب إن منع الدم (اعتمده الرملي).<br><br>
+    <strong>الأمر الرابع:</strong> الوضوء بعد دخول وقت الصلاة — و«بعد دخول الوقت» يعود للأمور الأربعة كلها. ويجوز التيمم لمن لا يستطيع.<br><br>
+    <strong>الأمر الخامس:</strong> الموالاة بين الكل — غسل الفرج → الحشو → العصب → الوضوء → الصلاة. ولا يجوز تأخير الصلاة لغير مصلحتها.<br><br>
+    <strong>الأمر السادس:</strong> تجديد الوضوء لكل فرض عيني <strong>بلا خلاف</strong> في المذهب. وتجديد غسل الفرج والحشو والعصابة <strong>على الأصح</strong> في المذهب.<br><br>
+    <strong>حالتا التجديد:</strong><br>
+    • ظهر الدم في الجوانب أو تحركت الخرقة → يجب التجديد قطعاً<br>
+    • لم يظهر الدم ولم تتحرك → الأصح: يجب / مقابل الأصح: لا يجب (لعدم فائدة الإزالة مع الاستقرار)<br><br>
+    <strong>تجديد العصابة:</strong> يجب عند التلوث بدم لا يُعفى عنه فقط.
+  </div>
+</div>
+
+<!-- Summary of Istihadah images -->
+<div class="benefit-box">
+  <div class="benefit-title">💡 فائدة: صور دم الاستحاضة الكبرى</div>
+  <div class="benefit-content">
+    <strong>الصورة الأولى:</strong> دم الاستحاضة عقب الحيض أو النفاس (تجاوز أكثرهما) → تُردّ المرأة إلى الصور السبع.<br>
+    <strong>الصورة الثانية:</strong> دم الاستحاضة الذي لا يكون عقب الحيض أو النفاس (4 صور فرعية) → لا تجري فيها الصور السبع.<br><br>
+    <strong>الفرق بين المرأة عليها بقية طهر والمستحاضة:</strong> التي زاد دمها عن أكثر الحيض تُردّ إلى الصور السبع. أما التي عليها بقية طهر فلها أحكام المستحاضة لكن لا تُردّ إلى الصور السبع.
+  </div>
+</div>
+
+
+<!-- Footer -->
+<div class="page-footer">
+  شرح الإبانة والإفاضة في أحكام الحيض والنفاس والاستحاضة — الدرس الثامن<br>
+  المؤلف: عبد الرحمن بن عبد الله عبد القادر السقاف | الشارح: د. لبيب نجيب عبد الله | المنظم: أحمد بن إرشاد
+</div>
+
+</div><!-- end main-content -->
+
+<script>
+function toggleBW() {
+  document.body.classList.toggle('bw-mode');
+}
+
+window.addEventListener('scroll', function() {
+  var btn = document.getElementById('scrollTopBtn');
+  if (window.pageYOffset > 300) {
+    btn.style.display = 'flex';
+  } else {
+    btn.style.display = 'none';
+  }
+});
+</script>
+
+</body>
+</html>

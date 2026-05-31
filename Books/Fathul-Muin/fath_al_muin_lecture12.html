@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('file:///home/z/my-project/fonts/Amiri-Regular.ttf'); }
+@font-face { font-family: 'Amiri-Bold'; src: url('file:///home/z/my-project/fonts/Amiri-Bold.ttf'); }
+@font-face { font-family: 'NotoNaskhArabic'; src: url('file:///home/z/my-project/fonts/NotoNaskhArabic.ttf'); }
+@page { size: A4; margin: 12mm 14mm; }
+:root {
+  --primary: #1a5632; --primary-light: #2d7a4a; --primary-dark: #0e3a20;
+  --secondary: #c8a951; --secondary-light: #e0c97a; --accent: #2c5f7c; --accent-light: #3d7fa3;
+  --bg: #fefefe; --text: #1a1a2e; --text-light: #4a4a5e; --border: #d4c9a8;
+  --table-alt: #f5f0e6; --highlight-bg: #fdf6e3; --danger: #8b1a1a;
+  --danger-light: #f8e8e8; --success-light: #e8f5e9;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; }
+body { font-family: 'NotoNaskhArabic', 'Traditional Arabic', serif; font-size: 11pt; line-height: 1.7; color: var(--text); background: var(--bg); direction: rtl; text-align: justify; }
+
+h1 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 18pt; color: var(--primary); margin: 14px 0 6px 0; }
+h2.section-title { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 14pt; color: var(--primary); margin: 12px 0 5px 0; border-bottom: 2px solid var(--secondary); padding-bottom: 3px; }
+h3.subsection-title { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 12pt; color: var(--accent); margin: 8px 0 4px 0; }
+p { margin: 3px 0; }
+
+/* Cover Header */
+.cover-header { background: var(--primary); color: white; padding: 18px 14px; text-align: center; margin: 0 0 12px 0; background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px); border-bottom: 4px solid var(--secondary); }
+.cover-header h1 { color: white; font-size: 20pt; margin-bottom: 5px; border: none; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.92; margin: 3px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.93; margin: 5px 0 2px 0; padding-top: 5px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .series { font-size: 10pt; opacity: 0.8; margin-top: 3px; }
+
+/* Table of Contents */
+.toc { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 6px; padding: 10px 14px; margin: 0 0 12px 0; }
+.toc-title { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 14pt; color: var(--primary); text-align: center; margin-bottom: 6px; border-bottom: 2px solid var(--secondary); padding-bottom: 4px; }
+.toc-item { font-size: 10pt; padding: 2px 0; border-bottom: 1px dotted #ccc; display: flex; justify-content: space-between; }
+
+/* Tables */
+.table-container { overflow-x: hidden; margin: 8px 0; page-break-inside: avoid; }
+table.styled-table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 10pt; }
+table.styled-table th, table.styled-table td { padding: 4px 7px; border: 1px solid #ddd; overflow-wrap: break-word; word-break: break-word; }
+table.styled-table th { background-color: var(--primary); color: white; text-align: right; font-size: 10pt; }
+table.styled-table tr:nth-child(even) { background-color: var(--table-alt); }
+
+/* Callouts */
+.callout { padding: 7px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; page-break-inside: avoid; }
+.callout-title { font-weight: bold; margin-bottom: 3px; font-size: 11pt; }
+.callout-body { color: #333; line-height: 1.7; font-size: 10.5pt; }
+.callout-ruling { background: var(--success-light); border-right: 4px solid var(--primary); }
+.callout-ruling .callout-title { color: var(--primary); }
+.callout-important { background: #e3f2fd; border-right: 4px solid var(--accent); }
+.callout-important .callout-title { color: var(--accent); }
+.callout-warning { background: #fff3cd; border-right: 4px solid var(--secondary); }
+.callout-warning .callout-title { color: #856404; }
+.callout-info { background: #d1ecf1; border-right: 4px solid #17a2b8; }
+.callout-info .callout-title { color: #0c5460; }
+
+/* Compare Box */
+.compare-box { display: flex; gap: 0; margin: 8px 0; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.1); max-width: 100%; flex-wrap: wrap; }
+.compare-side { flex: 1; min-width: 0; padding: 8px 10px; }
+.compare-side h3 { margin: 0 0 4px 0; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 3px; font-size: 11pt; color: white; }
+.compare-side p, .compare-side ul { font-size: 10.5pt; line-height: 1.6; color: white; margin: 2px 0; }
+.compare-side ul { padding-right: 16px; }
+.compare-side li { margin: 2px 0; }
+.compare-divider { width: 3px; background: var(--secondary); }
+
+/* Classification Group */
+.classification-group { display: grid; gap: 7px; margin: 8px 0; grid-template-columns: repeat(2, 1fr); page-break-inside: avoid; }
+.box-green { background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border: 2px solid var(--primary); border-radius: 8px; padding: 9px; }
+.box-green .box-title { font-family: 'Amiri-Bold', 'Amiri', serif; color: var(--primary); font-size: 11pt; font-weight: bold; margin-bottom: 3px; }
+.box-green .box-content { font-size: 10.5pt; line-height: 1.7; color: #333; }
+.box-blue { background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border: 2px solid var(--accent); border-radius: 8px; padding: 9px; }
+.box-blue .box-title { font-family: 'Amiri-Bold', 'Amiri', serif; color: var(--accent); font-size: 11pt; font-weight: bold; margin-bottom: 3px; }
+.box-blue .box-content { font-size: 10.5pt; line-height: 1.7; color: #333; }
+.box-gold { background: linear-gradient(135deg, #fdf6e3 0%, #f5e6b8 100%); border: 2px solid var(--secondary); border-radius: 8px; padding: 9px; }
+.box-gold .box-title { font-family: 'Amiri-Bold', 'Amiri', serif; color: #856404; font-size: 11pt; font-weight: bold; margin-bottom: 3px; }
+.box-gold .box-content { font-size: 10.5pt; line-height: 1.7; color: #333; }
+.box-red { background: linear-gradient(135deg, var(--danger-light) 0%, #f5d0d0 100%); border: 2px solid var(--danger); border-radius: 8px; padding: 9px; }
+.box-red .box-title { font-family: 'Amiri-Bold', 'Amiri', serif; color: var(--danger); font-size: 11pt; font-weight: bold; margin-bottom: 3px; }
+.box-red .box-content { font-size: 10.5pt; line-height: 1.7; color: #333; }
+
+/* Formula Box */
+.formula-box { background: var(--highlight-bg); border: 2px solid var(--secondary); border-radius: 8px; padding: 9px 13px; margin: 8px 0; page-break-inside: avoid; text-align: center; }
+.formula-box .formula-text { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 12pt; color: var(--primary); line-height: 1.8; }
+.formula-box .formula-note { font-size: 10pt; color: var(--text-light); margin-top: 3px; }
+
+/* Poetry Box */
+.poetry-box { background: #f9f5ec; border: 2px solid var(--secondary); border-radius: 8px; padding: 9px 15px; margin: 9px 0; text-align: center; page-break-inside: avoid; }
+.poetry-line, .poetry { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 12.5pt; color: var(--primary); line-height: 2.2; }
+
+/* Card Grid */
+.card-grid { display: grid; gap: 7px; margin: 9px 0; max-width: 100%; }
+.card-grid-5 { grid-template-columns: repeat(3, 1fr); }
+.card { padding: 9px; border-radius: 8px; text-align: center; max-width: 100%; overflow-wrap: break-word; }
+.card-number { font-size: 18px; font-weight: bold; margin-bottom: 2px; }
+.card-title { font-size: 10.5pt; font-weight: bold; }
+.card-desc { font-size: 9.5pt; margin-top: 2px; opacity: 0.92; line-height: 1.6; }
+
+/* Vertical Flow */
+.vertical-flow { display: flex; flex-direction: column; align-items: center; margin: 9px 0; page-break-inside: avoid; max-width: 100%; }
+.flow-step { padding: 7px 12px; border-radius: 6px; text-align: center; max-width: 300px; width: 90%; }
+.flow-arrow { color: var(--secondary); font-size: 14pt; margin: 1px 0; }
+
+/* Diagram Container */
+.diagram-container { background: #fafaf5; border: 2px solid var(--border); border-radius: 8px; padding: 12px; margin: 8px 0; page-break-inside: avoid; }
+
+/* Condition Grid */
+.condition-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin: 8px 0; page-break-inside: avoid; }
+.condition-item { background: var(--table-alt); border: 1px solid var(--border); border-radius: 6px; padding: 7px 9px; font-size: 10.5pt; line-height: 1.6; }
+.condition-item .cond-num { display: inline-block; background: var(--primary); color: white; width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 50%; font-size: 9pt; margin-left: 4px; }
+
+/* Section Number */
+.section-number { display: inline-block; background: var(--primary); color: white; width: 22px; height: 22px; line-height: 22px; text-align: center; border-radius: 50%; font-size: 10pt; margin-left: 5px; }
+
+/* Star Divider */
+.star-divider { text-align: center; margin: 10px 0; color: var(--secondary); font-size: 12pt; }
+
+/* Highlight */
+.highlight { background: var(--highlight-bg); padding: 1px 4px; border-radius: 3px; }
+.text-primary { color: var(--primary); font-weight: bold; }
+.text-danger { color: var(--danger); font-weight: bold; }
+.quran-verse { font-family: 'Amiri-Bold', 'Amiri', serif; color: var(--primary); font-size: 12pt; text-align: center; margin: 6px 0; }
+</style>
+</head>
+<body>
+
+<!-- COVER HEADER -->
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس الثاني عشر — سنن الوضوء</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="series">الشك في الوضوء · التسمية · السواك · غسل الكفين · أحكام البسملة</div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. الشك في تطهير عضو قبل الفراغ من الوضوء</span><span>١</span></div>
+  <div class="toc-item"><span>٢. الشك بعد الفراغ من الوضوء — في النية وغيرها</span><span>٢</span></div>
+  <div class="toc-item"><span>٣. قياس مسألة الشك على الصلاة</span><span>٢</span></div>
+  <div class="toc-item"><span>٤. سنن الوضوء — التسمية</span><span>٣</span></div>
+  <div class="toc-item"><span>٥. التسمية بماء مغصوب</span><span>٣</span></div>
+  <div class="toc-item"><span>٦. التسمية عند الحنابلة — خمسة مواضع</span><span>٤</span></div>
+  <div class="toc-item"><span>٧. ما يُسن قبل التسمية وبعدها</span><span>٥</span></div>
+  <div class="toc-item"><span>٨. ترك التسمية عمداً أو سهواً</span><span>٥</span></div>
+  <div class="toc-item"><span>٩. التسمية في الأكل والشرب والتأليف والذبح</span><span>٦</span></div>
+  <div class="toc-item"><span>١٠. أول سنن الوضوء: التسمية أم السواك؟</span><span>٧</span></div>
+  <div class="toc-item"><span>١١. غسل الكفين</span><span>٧</span></div>
+  <div class="toc-item"><span>١٢. السواك — أحكامه وفضائله</span><span>٨</span></div>
+  <div class="toc-item"><span>١٣. تخريج حديث السواك — سلسلة الكتب</span><span>٩</span></div>
+</div>
+
+<!-- SECTION 1 -->
+<h2 class="section-title"><span class="section-number">١</span> الشك في تطهير عضو قبل الفراغ من الوضوء</h2>
+
+<p>قال المصنف: <span class="highlight">"لو شك المتوضئ أو المغتسل في تطهير عضو قبل الفراغ من وضوئه أو غسله طهّره أي طهّر ذلك العضو وكذا ما بعده في الوضوء"</span></p>
+
+<p>إذا حصل شك في فرض من فروض الوضوء قبل الفراغ، فالأصل أن يغسل العضو المشكوك في تطهيره ويغسل ما بعده في الوضوء — لأن الترتيب واجب في الوضوء.</p>
+
+<div class="callout callout-ruling">
+  <div class="callout-title">القاعدة: الأصل العدم</div>
+  <div class="callout-body">الأصل أنك لم تغسل، فلذلك يجب عليك أن تغسل العضو المشكوك ويغسل ما بعده في الوضوء لوجوب الترتيب. أما في الغسل فلا يجب الترتيب فيغسل العضو المشكوك فقط.</div>
+</div>
+
+<p><b>مثال:</b> في أثناء الوضوء وهو يمسح الرأس شك هل غسل يديه أم لا — فإنه يغسل يديه ثم يمسح الرأس ويكمل.</p>
+
+<!-- SECTION 2 -->
+<h2 class="section-title"><span class="section-number">٢</span> الشك بعد الفراغ من الوضوء — في النية وغيرها</h2>
+
+<p>قال المصنف: <span class="highlight">"أو بعد الفراغ من وضوئه أو غسله لم يؤثر ولو كان الشك في النية لم يؤثر أيضاً على الأوجه"</span></p>
+
+<p>الشك بعد الفراغ له حالتان:</p>
+
+<div class="compare-box">
+  <div class="compare-side" style="background: var(--primary);">
+    <h3>الشك في غير النية (غسل الوجه، اليدين، الرأس، الرجلين)</h3>
+    <ul>
+      <li>لا يؤثر مطلقاً عند جميع العلماء</li>
+      <li>قاعدة: الشك بعد الفعل لا يؤثر</li>
+    </ul>
+  </div>
+  <div class="compare-divider"></div>
+  <div class="compare-side" style="background: var(--accent);">
+    <h3>الشك في النية (هل نوى رفع الحدث أم لا)</h3>
+    <ul>
+      <li>ابن حجر: لا يؤثر أيضاً على الأوجه</li>
+      <li>الرملي: يؤثر — يلزمه استئناف الوضوء لأنه شك في الأصل</li>
+    </ul>
+  </div>
+</div>
+
+<div class="poetry-box">
+  <div class="poetry-line">والشكُّ بعد الفعل لا يؤثرُ</div>
+  <div class="poetry-line">وهكذا إذِ الشكوكُ تكثُرُ</div>
+</div>
+
+<!-- SECTION 3 -->
+<h2 class="section-title"><span class="section-number">٣</span> قياس مسألة الشك على الصلاة</h2>
+
+<p>قال ابن حجر: قياس ما يأتي في الشك بعد الفاتحة وقبل الركوع — أنه لو شك بعد عضو في أصل غسله لزمه إعادته، أو بعضه لم تلزمه.</p>
+
+<div class="table-container">
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th style="width: 28%;">نوع الشك</th>
+        <th style="width: 22%;">الحكم</th>
+        <th style="width: 50%;">القياس من الصلاة</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>الشك في أصل غسل العضو (هل غسله أم لا)</td>
+        <td style="color: var(--danger); font-weight: bold;">يلزمه إعادته</td>
+        <td>كالشك في أصل الفاتحة — يلزمه قراءتها</td>
+      </tr>
+      <tr>
+        <td>الشك في بعض غسل العضو (هل غسله كاملاً أم بعضه)</td>
+        <td style="color: var(--primary); font-weight: bold;">لا تلزمه إعادة</td>
+        <td>كالشك في بعض الفاتحة — لا يلزمه إعادتها</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout callout-important">
+  <div class="callout-title">تنبيه مهم</div>
+  <div class="callout-body">فليحمل كلامهم الأول (الشك قبل الفراغ) على الشك في أصل العضو لا في بعضه — أي إذا شك في أصل غسل العضو لزمه إعادته، وإذا شك في غسل بعضه لم يلزمه.</div>
+</div>
+
+<!-- SECTION 4 -->
+<h2 class="section-title"><span class="section-number">٤</span> سنن الوضوء — التسمية</h2>
+
+<p>قال المصنف: <span class="highlight">"وسنن المتوضئ ولو بماء مغصوب على الأوجه تسمية أوله للاتباع"</span></p>
+
+<p>التسمية في الوضوء سنة عين — بخلاف التسمية على الطعام فإنها سنة كفاية، والتسمية في الجماع سنة كفاية (يكفي أن تحصل من واحد منهما).</p>
+
+<div class="formula-box">
+  <div class="formula-text">أقل التسمية: بسم الله — وأكملها: بسم الله الرحمن الرحيم</div>
+  <div class="formula-note">لأن التسمية صارت علماً على هذه الجملة</div>
+</div>
+
+<p>قال المصنف: <span class="highlight">"وأقلها بسم الله"</span> — ظاهره أنها لا تحصل بذكر آخر كالله أكبر أو سبحان الله. وقال الرملي: لا تحصل السنة إلا بقول "بسم الله".</p>
+
+<!-- SECTION 5 -->
+<h2 class="section-title"><span class="section-number">٥</span> التسمية بماء مغصوب</h2>
+
+<p>قال المصنف: <span class="highlight">"ولو بماء مغصوب على الأوجه"</span></p>
+
+<div class="compare-box">
+  <div class="compare-side" style="background: var(--primary);">
+    <h3>المعتمد (ابن حجر)</h3>
+    <p>تسن التسمية حتى مع الماء المغصوب — لأن تحريمه ليس ذاتياً بل عارضاً (لوجود الغصب)، فالتسمية تبقى على أصلها في الاستحباب</p>
+  </div>
+  <div class="compare-divider"></div>
+  <div class="compare-side" style="background: var(--accent);">
+    <h3>الخلاف</h3>
+    <p>من الفقهاء من يقول إن من يتوضأ بماء مغصوب لا تسن له التسمية — قياساً على المحرّم لذاته</p>
+  </div>
+</div>
+
+<div class="classification-group">
+  <div class="box-red">
+    <div class="box-title">المحرّم لذاته (كشرب الخمر)</div>
+    <div class="box-content">تحرم التسمية فيه</div>
+  </div>
+  <div class="box-gold">
+    <div class="box-title">المكروه لذاته</div>
+    <div class="box-content">تُكره التسمية فيه</div>
+  </div>
+  <div class="box-green">
+    <div class="box-title">المحرّم لعارض (كالماء المغصوب)</div>
+    <div class="box-content">تبقى التسمية على أصلها مستحبة</div>
+  </div>
+  <div class="box-blue">
+    <div class="box-title">المكروه لعارض</div>
+    <div class="box-content">تبقى التسمية مستحبة</div>
+  </div>
+</div>
+
+<!-- SECTION 6 -->
+<h2 class="section-title"><span class="section-number">٦</span> التسمية عند الحنابلة — خمسة مواضع</h2>
+
+<p>قال المصنف: <span class="highlight">"وتجب عند أحمد"</span></p>
+
+<p>تجب التسمية عند الحنابلة في خمسة مواضع من الطهارات:</p>
+
+<div class="card-grid card-grid-5">
+  <div class="card" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white;">
+    <div class="card-number">١</div>
+    <div class="card-title">الوضوء</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%); color: white;">
+    <div class="card-number">٢</div>
+    <div class="card-title">الغسل</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, var(--secondary) 0%, #b8943f 100%); color: white;">
+    <div class="card-number">٣</div>
+    <div class="card-title">التيمم</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); color: white;">
+    <div class="card-number">٤</div>
+    <div class="card-title">غسل اليدين عند القيام من نوم الليل</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, var(--danger) 0%, #a52a2a 100%); color: white;">
+    <div class="card-number">٥</div>
+    <div class="card-title">تغسيل الميت</div>
+  </div>
+</div>
+
+<div class="callout callout-info">
+  <div class="callout-title">تنبيه</div>
+  <div class="callout-body">الإمام أحمد نفسه قال عن حديث "لا وضوء لمن لم يذكر اسم الله عليه": "لا أعلم له إسناداً صحيحاً" — لكنه يرى الوجوب لأن مجموعة الطرق تدل على أن للحديث أصلاً. فالضعيف إذا كثرت طرقه وكان ضعفه منجبراً يرتقي إلى مرتبة الحسن لغيره.</div>
+</div>
+
+<div class="callout callout-ruling">
+  <div class="callout-title">قاعدة مهمة</div>
+  <div class="callout-body">تخلّف الدليل الخاص لا يعني ضعف المسألة — فقد يكون الدليل ضعيفاً لكن المسألة تثبت بأدلة أو بقواعد أخرى.</div>
+</div>
+
+<!-- SECTION 7 -->
+<h2 class="section-title"><span class="section-number">٧</span> ما يُسن قبل التسمية وبعدها</h2>
+
+<p>قال المصنف: <span class="highlight">"ويسن قبلها التعوّذ وبعدها الشهادتان والحمد لله الذي جعل الماء طهوراً"</span></p>
+
+<div class="vertical-flow">
+  <div class="flow-step" style="background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%); color: white;">
+    <b>التعوّذ:</b> أعوذ بالله من الشيطان الرجيم
+  </div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white;">
+    <b>التسمية:</b> بسم الله الرحمن الرحيم
+  </div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step" style="background: linear-gradient(135deg, var(--secondary) 0%, #b8943f 100%); color: white;">
+    <b>الشهادتان:</b> أشهد أن لا إله إلا الله وحده لا شريك له وأشهد أن محمداً عبده ورسوله
+  </div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step" style="background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); color: white;">
+    <b>الحمد:</b> الحمد لله الذي جعل الماء طهوراً
+  </div>
+</div>
+
+<div class="callout callout-info">
+  <div class="callout-title">كلام الإمام النووي</div>
+  <div class="callout-body">عن الشهادتين بعد التسمية قال النووي: "ذكر هذا أبو نصر من أصحابنا ولا أصل له وإن كان لا بأس به" — أي ليس له دليل، لكن كونه ذكراً لا بأس به.<br><br>
+  وعن حديث الدعاء عند غسل الأعضاء قال النووي: "لا أصل له" — وهذا يدل على أنه غير داخل في قاعدة العمل بالحديث الضعيف في الفضائل، لأن النووي لو رآه ضعيفاً منجبراً لما قال لا أصل له.</div>
+</div>
+
+<!-- SECTION 8 -->
+<h2 class="section-title"><span class="section-number">٨</span> ترك التسمية عمداً أو سهواً</h2>
+
+<p>قال المصنف: <span class="highlight">"ويسن لمن تركها أوله أن يأتي بها أثناءه قائلاً بسم الله أوله وآخره لا بعد فراغه"</span></p>
+
+<p>سواء تركها سهواً أو عمداً — يسن أن يأتي بها في أثناء الوضوء.</p>
+
+<div class="table-container">
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th style="width: 40%;">متى يتذكرها؟</th>
+        <th style="width: 60%;">الحكم</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>في أثناء الوضوء (قبل غسل القدمين)</td>
+        <td>يأتي بها — قائلاً: بسم الله أوله وآخره</td>
+      </tr>
+      <tr>
+        <td>بعد غسل القدمين وقبل أذكار الوضوء</td>
+        <td>خلاف: بعضهم قال فات محلها، وبعضهم قال يأتي بها ما لم يأتِ بالذكر بعده — وهذا أقرب</td>
+      </tr>
+      <tr>
+        <td>بعد الفراغ من الوضوء وأذكاره</td>
+        <td>لا يأتي بها</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>قوله <span class="highlight">"بسم الله أوله وآخره"</span> — النصب على نزع الخافض (أي في أوله وآخره). وفي رواية الترمذي: "بسم الله في أوله وآخره".</p>
+
+<!-- SECTION 9 -->
+<h2 class="section-title"><span class="section-number">٩</span> التسمية في الأكل والشرب والتأليف والذبح</h2>
+
+<p>قال المصنف: <span class="highlight">"وكذا في نحو الأكل والشرب والتأليف والاكتحال مما يُسن له تسمية"</span></p>
+
+<div class="table-container">
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th style="width: 16%;">الموضع</th>
+        <th style="width: 22%;">في الأول</th>
+        <th style="width: 28%;">في الأثناء</th>
+        <th style="width: 34%;">بعد الفراغ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="font-weight: bold;">الأكل والشرب</td>
+        <td>يُسن</td>
+        <td>يُسن</td>
+        <td>المعتمد: يُسن (لحديث: الشيطان يستقي ما أُكل ولم يُسمَّ عليه). ابن حجر: لا يُسن</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">التأليف</td>
+        <td>يُسن</td>
+        <td>يأتي بها نطقاً في أثنائه ويثبتها خطاً في أوله</td>
+        <td>لا يأتي بها</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">الجماع</td>
+        <td>يُسن في أوله</td>
+        <td>لا يأتي بها في أثنائه (للنهي عن الكلام حال الجماع)</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">الاكتحال</td>
+        <td>يُسن</td>
+        <td>يُسن</td>
+        <td>لا يُسن</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout callout-ruling">
+  <div class="callout-title">التسمية عند الذبح</div>
+  <div class="callout-body">مستحبة عند الشافعية (من مفردات المذهب) — ولو تركها عمداً أو سهواً حلت الذبيحة، لكن الترك عمداً مكروه. عند الحنابلة: تجب.<br><br>
+  هل يأتي بـ"بسم الله الرحمن الرحيم" عند الذبح؟ بعض الفقهاء قال يقتصر على "بسم الله" لأن الرحمن الرحيم يستدعي الرحمة والذبح ليس من آثارها. وردّ آخرون: بل يأتي بها لأن موت الشاة بالذبح أرحم لها من الموت بغيره — وفي الحديث: <span class="highlight">"وليحد أحدكم شفرته وليُرح ذبيحته"</span>.</div>
+</div>
+
+<!-- SECTION 10 -->
+<h2 class="section-title"><span class="section-number">١٠</span> أول سنن الوضوء: التسمية أم السواك؟</h2>
+
+<div class="compare-box">
+  <div class="compare-side" style="background: var(--primary);">
+    <h3>المنقول عن الشافع وكثير من الأصحاب (ومعه ابن حجر والنووي)</h3>
+    <p>أول السنن التسمية — فينوي معها عند غسل الكفين فيجتمع ثلاثة: نية القلب وذكر اللسان (التسمية) وفعل الجارحة (غسل الكفين)</p>
+  </div>
+  <div class="compare-divider"></div>
+  <div class="compare-side" style="background: var(--accent);">
+    <h3>جمع المتقدمون (ومعهم الرملي وصاحب الزبد)</h3>
+    <p>أول السنن السواك — ثم التسمية — وهذا يدل عليه صنيع النووي في المنهاج حيث قدّم السواك</p>
+  </div>
+</div>
+
+<div class="poetry-box">
+  <div class="poetry-line">والسننُ السواكُ ثم بَسْمَلَةٌ</div>
+  <div class="poetry-line">وغسلُ يَدَيْكَ قبل أن تُدخِلَهُما</div>
+</div>
+
+<!-- SECTION 11 -->
+<h2 class="section-title"><span class="section-number">١١</span> غسل الكفين</h2>
+
+<p>قال المصنف: <span class="highlight">"فغسل الكفين معناً إلى الكوعين"</span></p>
+
+<p>يغسل الكفين معاً لا يقدم الأيمن على الأيسر — لأن القاعدة أن ما سهل غسله معاً يغسل معاً (كالأذنين في المسح والكفين في الغسل).</p>
+
+<div class="callout callout-info">
+  <div class="callout-title">سنتان مختلفتان</div>
+  <div class="callout-body">
+    <b>١. غسل الكفين للوضوء</b> — يُسن مطلقاً سواء علم طهرهما أم لا، وسواء أراد غمسهما في الإناء أم لا<br><br>
+    <b>٢. غسل الكفين بعد الاستيقاظ من النوم</b> — يُسن لمن أراد غمسهما في الإناء إذا تردد في طهرهما<br><br>
+    الأكمل: أن يغسل ثلاثاً للاستيقاظ وثلاثاً لسنة الوضوء. ولو غسل ثلاثاً جامعاً بين النيتين أجزأه. وابن حجر يرى أنهما شيء واحد.
+  </div>
+</div>
+
+<div class="formula-box">
+  <div class="formula-text">الكوع: العظم الذي يلي الإبهام</div>
+  <div class="formula-text">الكروس: العظم الذي يلي الخنصر</div>
+  <div class="formula-text">البوع: العظم الذي يلي إبهام الرجل</div>
+</div>
+
+<div class="poetry-box">
+  <div class="poetry-line">وعظمٌ يلي إبهامٍ كُوعٌ وما يلي</div>
+  <div class="poetry-line">لخِنْصَرِه كُرْسُوعٌ والرِّزقُ ما وَسَطَا</div>
+  <div class="poetry-line">وعظمٌ يلي إبهامِ رِجْلٍ مُلَقَّبٌ</div>
+  <div class="poetry-line">بِبُوعٍ فخُذ بالعلم واحذر من الغلطِ</div>
+</div>
+
+<!-- SECTION 12 -->
+<h2 class="section-title"><span class="section-number">١٢</span> السواك — أحكامه وفضائله</h2>
+
+<p>قال المصنف: <span class="highlight">"فسواك"</span> — جعله بعد التسمية إشارة إلى أن السواك على معتمد ابن حجر يكون بعد التسمية وغسل الكفين وقبل المضمضة. وعلى معتمد الرملي يكون قبل ذلك.</p>
+
+<p>السواك يطلق ويراد به الفعل (الاستياك) ويطلق ويراد به العود نفسه. وردت في أحاديث كثيرة عن النبي ﷺ.</p>
+
+<p>الحافظ ابن الملقن (سراج الدين، توفي سنة ٨٠٤ هـ) خرّج أحاديث السواك في كتابه <span class="highlight">"البدر المنير في تخريج أحاديث الشرح الكبير"</span> — فجمع أكثر من مئة حديث في السواك.</p>
+
+<!-- SECTION 13 -->
+<h2 class="section-title"><span class="section-number">١٣</span> تخريج حديث السواك — سلسلة الكتب</h2>
+
+<div class="diagram-container">
+  <div class="vertical-flow">
+    <div class="flow-step" style="background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%); color: white;">
+      <b>الوجيز</b> (للغزالي، ت ٥٠٥ هـ)
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white;">
+      <b>الشرح الكبير / فتح العزيز</b> (للرافعي، ت ٦٣١ هـ) — مطبوع في ١٣ مجلداً
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step" style="background: linear-gradient(135deg, var(--secondary) 0%, #b8943f 100%); color: white;">
+      <b>البدر المنير</b> (لابن الملقن، ت ٨٠٤ هـ) — تخريج أحاديث الشرح الكبير، مطبوع في ٢٨ مجلداً
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step" style="background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); color: white;">
+      <b>التلخيص الحبير</b> (لابن حجر العسقلاني، ت ٨٥٢ هـ) — اختصار البدر المنير
+    </div>
+  </div>
+</div>
+
+<div class="callout callout-info">
+  <div class="callout-title">ابن الملقن</div>
+  <div class="callout-body">من أبدع أهل زمانه في حسن التصنيف. له شرح على صحيح البخاري (التوضيح) في أكثر من ٦٠ مجلداً، والإعلام بفوائد عمدة الأحكام في ٨ مجلدات. لمّا احترقت كتبه قال ابنه يسليه، فأنشد:<br><br>
+  <div class="poetry-line" style="font-size: 11pt;">"لا يَزعُقنَّكَ يا سراجَ الدِّينِ أن لَعِبَتْ *** بكُتُبِكَ السُّنَّةُ النِّيرانيَّةُ"</div>
+  <div class="poetry-line" style="font-size: 11pt;">"للهِ قد قَرَّبتَها فتقبَّلَتْ *** والنارُ مُسْرِعةٌ إلى القُرْبانِ"</div>
+  </div>
+</div>
+
+<div class="callout callout-important">
+  <div class="callout-title">التلخيص الحبير — ضبط الاسم</div>
+  <div class="callout-body">التلخيص الحبير — بفتح الحاء وكسر الباء (من الحُبور = السرور)، أي التلخيص الموصوف بكونه حبيراً. وليس "تلخيص الحبير" بالألف واللام — هذا خطأ شائع.</div>
+</div>
+
+<p><b>ابن حبان</b> (ت ٣٥٤ هـ): كتابه <span class="highlight">"التقاسيم والأنواع"</span> — اشتهر بـ"صحيح ابن حبان". رتّبه على ترتيب صعب حتى أعاد ابن البلبان ترتيبه على أبواب الفقه. كتب الحديث عن ألفي شيخ. قال الذهبي: "هذا مع ما كان عليه من قوة العربية وما يدقنه من علم الطب".</p>
+
+</body>
+</html>

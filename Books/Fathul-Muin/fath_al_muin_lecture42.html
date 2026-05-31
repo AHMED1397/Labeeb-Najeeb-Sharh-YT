@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf') format('truetype'); font-weight: normal; }
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf') format('truetype'); font-weight: bold; }
+@font-face { font-family: 'NotoNaskh'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf') format('truetype'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+
+body {
+  font-family: 'NotoNaskh', 'Amiri', serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #1a1a2e;
+  direction: rtl;
+  background: #fff;
+  text-align: justify;
+}
+
+.cover-header {
+  background: #1a5632;
+  color: white;
+  padding: 20px 14px;
+  text-align: center;
+  margin: 0 0 12px 0;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px);
+  border-bottom: 4px solid #c8a951;
+}
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 6px; border: none; font-family: 'Amiri', serif; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.9; margin: 4px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.92; margin: 6px 0 2px 0; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .creator { font-size: 11pt; opacity: 0.85; margin-top: 2px; }
+.cover-header .series { font-size: 11pt; opacity: 0.8; margin-top: 4px; }
+
+.toc {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 0 0 12px 0;
+}
+.toc-title {
+  font-family: 'Amiri', serif;
+  font-size: 14pt;
+  color: #1a5632;
+  text-align: center;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #c8a951;
+  padding-bottom: 4px;
+}
+.toc-item {
+  font-size: 10pt;
+  padding: 2px 0;
+  border-bottom: 1px dotted #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+h2.section-title {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0d7c3e;
+  border-bottom: 2px solid #0d7c3e;
+  padding-bottom: 5px;
+  margin: 18px 0 10px;
+}
+
+h3.sub-title {
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: #0a5c2e;
+  margin: 14px 0 8px;
+  padding-right: 10px;
+  border-right: 4px solid #0d7c3e;
+}
+
+h4.minor-title {
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #166534;
+  margin: 10px 0 6px;
+}
+
+p { margin: 5px 0; text-align: justify; }
+
+.definition-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-right: 4px solid #0d7c3e;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.rule-box {
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-right: 4px solid #d97706;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.exception-box {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-right: 4px solid #ea580c;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.evidence-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-right: 4px solid #2563eb;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.issue-box {
+  background: #fdf2f8;
+  border: 1px solid #fbcfe8;
+  border-right: 4px solid #db2777;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.comparison-box {
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  border-right: 4px solid #7c3aed;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.note-box {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-right: 4px solid #0284c7;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.poetry-box {
+  background: #faf5ff;
+  border: 1px solid #e9d5ff;
+  border-right: 4px solid #9333ea;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+  text-align: center;
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  line-height: 2.2;
+}
+
+.key-rule {
+  background: #dcfce7;
+  border: 2px solid #16a34a;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.box-label {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 4px;
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.label-def { background: #0d7c3e; }
+.label-rule { background: #d97706; }
+.label-exc { background: #ea580c; }
+.label-ev { background: #2563eb; }
+.label-issue { background: #db2777; }
+.label-comp { background: #7c3aed; }
+.label-note { background: #0284c7; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 13px;
+  table-layout: fixed;
+}
+
+th {
+  background: #0d7c3e;
+  color: #fff;
+  padding: 6px 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+td {
+  padding: 5px 8px;
+  border: 1px solid #d1d5db;
+  text-align: center;
+  vertical-align: top;
+}
+
+tr:nth-child(even) { background: #f0fdf4; }
+tr:nth-child(odd) { background: #fff; }
+
+.tree-container { margin: 12px 0; text-align: center; }
+.tree-root {
+  display: inline-block;
+  background: linear-gradient(135deg, #0d7c3e, #0a5c2e);
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+.tree-branches { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px; }
+.tree-branch {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  min-width: 80px;
+  text-align: center;
+}
+.tree-branch-num { font-family: 'Amiri', serif; font-weight: bold; color: #0d7c3e; font-size: 14px; }
+.tree-branch-label { font-size: 12px; color: #374151; }
+
+.compare-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.compare-card { flex: 1; min-width: 140px; border-radius: 8px; padding: 8px 10px; text-align: center; }
+.compare-card-green { background: #dcfce7; border: 1px solid #86efac; }
+.compare-card-red { background: #fef2f2; border: 1px solid #fca5a5; }
+.compare-card-gold { background: #fefce8; border: 1px solid #fde68a; }
+.compare-card-blue { background: #eff6ff; border: 1px solid #bfdbfe; }
+.compare-card-title { font-family: 'Amiri', serif; font-weight: bold; font-size: 14px; margin-bottom: 4px; }
+.compare-card-body { font-size: 12px; }
+
+.flow-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px; margin: 8px 0; }
+.flow-box { background: #0d7c3e; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-family: 'Amiri', serif; font-weight: bold; text-align: center; }
+.flow-arrow { font-size: 16px; color: #0d7c3e; font-weight: bold; }
+.flow-result { padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; text-align: center; }
+.flow-pure { background: #dcfce7; border: 1px solid #86efac; color: #166534; }
+.flow-impure { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+.flow-excused { background: #fefce8; border: 1px solid #fde68a; color: #92400e; }
+
+.highlight-green { background: #dcfce7; padding: 1px 4px; border-radius: 3px; }
+.highlight-gold { background: #fefce8; padding: 1px 4px; border-radius: 3px; }
+.highlight-red { background: #fef2f2; padding: 1px 4px; border-radius: 3px; }
+
+.verse-ref { font-family: 'Amiri', serif; font-size: 14px; color: #1e40af; text-align: center; margin: 6px 0; }
+.hadith-ref { font-family: 'Amiri', serif; font-size: 13px; color: #166534; text-align: center; margin: 6px 0; }
+
+.condition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.condition-item { border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.condition-num {
+  display: inline-block; background: #0d7c3e; color: #fff; min-width: 24px; height: 24px;
+  border-radius: 50%; text-align: center; line-height: 24px; font-family: 'Amiri', serif;
+  font-weight: bold; font-size: 12px; margin-left: 6px;
+}
+
+ul { margin: 4px 0; padding-right: 20px; }
+li { margin: 2px 0; }
+</style>
+</head>
+<body>
+
+<!-- ===== COVER HEADER (تابع - medium style) ===== -->
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس الثاني والأربعون — تابع أركان الصلاة: قراءة المأموم قبل الإمام والسور المعينة والجهر وتكبيرة الانتقال</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="creator">تنسيق: أحمد بن إرشاد</div>
+  <div class="series">المأموم يفرغ قبل الإمام · السور المعينة في الصلوات · مواضع الجهر والإسرار · تكبيرة الانتقال · التبليغ وأحكامه</div>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. ما يسن للمأموم إذا فرغ من الفاتحة أو التشهد قبل الإمام</span></div>
+  <div class="toc-item"><span>٢. السور المعينة في صلوات الجمعة</span></div>
+  <div class="toc-item"><span>٣. السور المعينة في ركعتي الفجر والمغرب والطواف وغيرها</span></div>
+  <div class="toc-item"><span>٤. فرع: ترك إحدى المعينتين في الأولى</span></div>
+  <div class="toc-item"><span>٥. فرع: الشروع في غير السورة المعينة</span></div>
+  <div class="toc-item"><span>٦. فرع: ضيق الوقت وسورتان قصيرتان</span></div>
+  <div class="toc-item"><span>٧. فرع: عدم حفظ إحدى المعينتين</span></div>
+  <div class="toc-item"><span>٨. فرع: المسبوق في صبح الجمعة</span></div>
+  <div class="toc-item"><span>٩. فرع: قراءة الإمام غير المعينتين والمسبوق</span></div>
+  <div class="toc-item"><span>١٠. تنبيه: مواضع الجهر بالقراءة</span></div>
+  <div class="toc-item"><span>١١. ضابط الجهر وحكم جهر المرأة</span></div>
+  <div class="toc-item"><span>١٢. كراهة الجهر عند التشويش وأحكام المسجد</span></div>
+  <div class="toc-item"><span>١٣. التوسط بين الجهر والإسرار في النوافل المطلقة ليلاً</span></div>
+  <div class="toc-item"><span>١٤. تكبيرة الانتقال وأحكامها</span></div>
+  <div class="toc-item"><span>١٥. مدّ التكبير وجهر الإمام به</span></div>
+  <div class="toc-item"><span>١٦. المبلّغ وأحكام نيّته</span></div>
+  <div class="toc-item"><span>١٧. التبليغ بدعة منكرة عند سماع صوت الإمام</span></div>
+</div>
+
+<!-- ===== 1. ما يسن للمأموم ===== -->
+<h2 class="section-title">١. ما يسن للمأموم إذا فرغ من الفاتحة أو التشهد قبل الإمام</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">فرع — نصّ المصنّف</span>
+  <p><b>يُسنّ لمأموم فرغ من الفاتحة في الثالثة أو الرابعة أو من التشهد الأوّل قبل الإمام أن يشتغل بدعاء فيهما أو قراءة في الأولى وهي أولى</b></p>
+</div>
+
+<p>ذكر المصنّف رحمه الله تعالى هذه المسألة التي ربّما يغفل عنها بعض الناس. فالمأموم إذا انتهى من الفاتحة قبل إمامه في الركعة الثالثة أو الرابعة، أو انتهى من التشهّد الأوّل قبل إمامه، فماذا يفعل؟</p>
+
+<h3 class="sub-title">المسألة الأولى: فراغ المأموم من الفاتحة قبل الإمام</h3>
+
+<p>إذا فرغ المأموم من الفاتحة في الركعة الثالثة أو الرابعة قبل إمامه، فله خياران:</p>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">القراءة (أولى)</div>
+    <div class="compare-card-body">يقرأ سورة بعد الفاتحة<br>في الركعة الثالثة أو الرابعة<br><b>هذا هو الأفضل</b></div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">الدعاء</div>
+    <div class="compare-card-body">يشتغل بالدعاء<br>بدلاً من القراءة<br>جائز لكنه دون القراءة</div>
+  </div>
+</div>
+
+<h3 class="sub-title">المسألة الثانية: فراغ المأموم من التشهّد الأوّل قبل الإمام</h3>
+
+<p>إذا انتهى المأموم من التشهّد الأوّل ومن الصلاة على النبيّ صلّى الله عليه وسلّم في التشهّد الأوّل قبل فراغ الإمام، فإنّه <b>يأتي بالدعاء</b>. وليس له هنا خيار القراءة كما في المسألة الأولى.</p>
+
+<div class="key-rule">
+  الخلاصة:<br>
+  فرغ من الفاتحة قبل الإمام ← قراءة سورة (أولى) أو دعاء<br>
+  فرغ من التشهّد الأوّل قبل الإمام ← دعاء فقط
+</div>
+
+<!-- ===== 2. السور المعينة في صلوات الجمعة ===== -->
+<h2 class="section-title">٢. السور المعينة في صلوات الجمعة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويُسنّ للحاضر في صلاة جمعة وعشائها سورة الجمعة والمنافقون، أو سبح وهل أتاك. وفي صبحها — أي الجمعة — إذا اتّسع الوقت: ألف لام ميم تنزيل السجدة وهل أتى. وفي مغربها: الكافرون والإخلاص</b></p>
+</div>
+
+<p>ذكر المصنّف ما ينبغي قراءته من السور المعينة في الصلوات المتعلّقة بيوم الجمعة. وقوله «للحاضر» يُخرج المسافر — وسيأتي الكلام عنه.</p>
+
+<h3 class="sub-title">جدول السور المعينة في صلوات الجمعة</h3>
+
+<table>
+  <tr>
+    <th>الصلاة</th>
+    <th>الركعة الأولى</th>
+    <th>الركعة الثانية</th>
+  </tr>
+  <tr>
+    <td><b>صلاة الجمعة</b></td>
+    <td>سورة الجمعة <b>أو</b> سبح (الأعلى)</td>
+    <td>سورة المنافقون <b>أو</b> هل أتاك (الغاشية)</td>
+  </tr>
+  <tr>
+    <td><b>عشاء ليلة الجمعة</b></td>
+    <td>سورة الجمعة <b>أو</b> سبح (الأعلى)</td>
+    <td>سورة المنافقون <b>أو</b> هل أتاك (الغاشية)</td>
+  </tr>
+  <tr>
+    <td><b>مغرب ليلة الجمعة</b></td>
+    <td>سورة الكافرون</td>
+    <td>سورة الإخلاص</td>
+  </tr>
+  <tr>
+    <td><b>صبح يوم الجمعة</b> (إذا اتّسع الوقت)</td>
+    <td>ألف لام ميم تنزيل السجدة</td>
+    <td>هل أتى على الإنسان</td>
+  </tr>
+</table>
+
+<h3 class="sub-title">توضيح: ليلة الجمعة</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">تعريف</span>
+  <p><b>ليلة الجمعة</b> هي الليلة التي تصبح في يومها على الجمعة. أي أنّ عشاء ليلة الجمعة هو صلاة العشاء التي تُصلّى قبل فجر يوم الجمعة، ومغرب ليلة الجمعة هو صلاة المغرب التي تُصلّى بعد غروب شمس يوم الخميس.</p>
+</div>
+
+<h3 class="sub-title">أدلّة السور المعينة</h3>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">حديث صحيح مسلم</span>
+  <p>عن النعمان بن بشير رضي الله عنهما قال: <b>«كان رسول الله صلّى الله عليه وسلّم يقرأ في العيدين وفي الجمعة بسبح اسم ربك الأعلى وهل أتاك حديث الغاشية»</b> وإذا اجتمع العيد والجمعة في يوم واحد يقرأ بهما أيضاً في الصلاتين.</p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">حديث البيهقي</span>
+  <p>أخرج البيهقي في السنن الكبير عن جابر بن سمرة رضي الله عنه ما يدلّ على قراءة الكافرون والإخلاص في صلاة المغرب ليلة الجمعة، وقراءة ألف لام ميم تنزيل السجدة وهل أتى في صبح الجمعة.</p>
+</div>
+
+<!-- ===== 3. السور المعينة في ركعتي الفجر والمغرب والطواف ===== -->
+<h2 class="section-title">٣. السور المعينة في ركعتي الفجر والمغرب والطواف وغيرها</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويُسنّ قراءتهما — أي سورة الكافرون والإخلاص — في صبح الجمعة وغيرها للمسافر. وفي ركعتي الفجر والمغرب والطواف والتحيّة والاستخارة والإحرام للاتّباع في الكلّ</b></p>
+</div>
+
+<p>بالنسبة للمسافر يُسنّ أن يقرأ الكافرون والإخلاص في صلاة الصبح وفي غيرها من الصلوات كصلاة المغرب والعشاء. وأمّا ركعتا الفجر والمغرب والطواف والتحيّة والاستخارة والإحرام فقد وردت السنّة بقراءة الكافرون والإخلاص فيهما جميعاً.</p>
+
+<table>
+  <tr>
+    <th>الصلاة</th>
+    <th>الركعة الأولى</th>
+    <th>الركعة الثانية</th>
+    <th>الدليل</th>
+  </tr>
+  <tr>
+    <td><b>ركعتا الفجر</b></td>
+    <td>الكافرون</td>
+    <td>الإخلاص</td>
+    <td>أخرجه الإمام أحمد في مسنده</td>
+  </tr>
+  <tr>
+    <td><b>ركعتا المغرب</b></td>
+    <td>الكافرون</td>
+    <td>الإخلاص</td>
+    <td>للأتّباع</td>
+  </tr>
+  <tr>
+    <td><b>ركعتا الطواف</b></td>
+    <td>الكافرون</td>
+    <td>الإخلاص</td>
+    <td>أخرجه الترمذي في سننه</td>
+  </tr>
+  <tr>
+    <td><b>تحيّة المسجد</b></td>
+    <td>الكافرون</td>
+    <td>الإخلاص</td>
+    <td>قياساً على ما تقدّم</td>
+  </tr>
+  <tr>
+    <td><b>ركعتا الاستخارة</b></td>
+    <td>الكافرون</td>
+    <td>الإخلاص</td>
+    <td>للأتّباع</td>
+  </tr>
+  <tr>
+    <td><b>ركعتا الإحرام</b></td>
+    <td>الكافرون</td>
+    <td>الإخلاص</td>
+    <td>للأتّباع</td>
+  </tr>
+</table>
+
+<!-- ===== 4. فرع: ترك إحدى المعينتين ===== -->
+<h2 class="section-title">٤. فرع: ترك إحدى المعينتين في الأولى</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">فرع — نصّ المصنّف</span>
+  <p><b>لو ترك إحدى المعينتين في الأولى أتى بهما في الثانية. أو قرأ في الأولى ما في الثانية قرأ فيها — أي في الثانية — ما في الأولى</b></p>
+</div>
+
+<p>المعينتان هما السورتان اللتان وردت قراءتهما بعينها في صلاة معيّنة. مثال: سورة الأعلى في الركعة الأولى من صلاة الجمعة وسورة الغاشية في الركعة الثانية.</p>
+
+<h3 class="sub-title">الصورة الأولى: ترك إحدى المعينتين</h3>
+
+<p>نفترض أنّه في صلاة الجمعة لم يقرأ سورة الأعلى في الركعة الأولى بل قرأ سورة أخرى كسورة المطففين مثلاً. قال المصنّف: <b>يأتي بهما في الثانية</b>، أي يقرأ في الركعة الثانية سورة الأعلى وسورة الغاشية معاً.</p>
+
+<h3 class="sub-title">الصورة الثانية: قراءة ما يسنّ في الثانية في الأولى</h3>
+
+<p>نفترض أنّه في الركعة الأولى من صلاة الجمعة قرأ هل أتاك حديث الغاشية — وهي السورة التي تُسنّ في الثانية. ففي هذه الحالة <b>يقرأ في الركعة الثانية سورة الأعلى</b> — وهي السورة التي تُسنّ في الأولى.</p>
+
+<div class="key-rule">
+  العلة في الحالتين: <b>ألّا تخلو صلاته عن السورتين المعينتين</b><br>
+  لأنّه وردت قراءة هاتين السورتين في هذه الصلاة فينبغي ألّا تخلو منهما
+</div>
+
+<div class="flow-row">
+  <div class="flow-box">ترك إحدى المعينتين في الأولى</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-pure">يقرأهما معاً في الثانية</div>
+</div>
+<div class="flow-row">
+  <div class="flow-box">قرأ ما يسنّ في الثانية في الأولى</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-excused">يقرأ ما يسنّ في الأولى في الثانية</div>
+</div>
+
+<!-- ===== 5. الشروع في غير المعينة ===== -->
+<h2 class="section-title">٥. فرع: الشروع في غير السورة المعينة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">فرع — نصّ المصنّف</span>
+  <p><b>ولو شرع في غير السورة المعينة ولو سهواً قطعها وقرأ المعينة ندباً</b></p>
+</div>
+
+<p>نفترض أنّه يصلّي الجمعة — ومعلوم أنّه يُسنّ فيها قراءة الأعلى في الأولى والغاشية في الثانية — لكنّه بعد الفاتحة افتتح سورة غير معيّنة كسورة التكوير مثلاً، سواء فعل ذلك عمداً أو سهواً. في الحالتين <b>ينبغي أن يقطع قراءته لهذه السورة غير المعينة وأن يعود إلى قراءة السورة التي تُسنّ قراءتها</b>.</p>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">شرع في غير المعينة عمداً</div>
+    <div class="compare-card-body">يقطعها ويقرأ المعينة<br><b>ندباً (استحباباً)</b></div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">شرع في غير المعينة سهواً</div>
+    <div class="compare-card-body">يقطعها ويقرأ المعينة<br><b>ندباً (استحباباً)</b></div>
+  </div>
+</div>
+
+<div class="key-rule">
+  الحكم في الحالتين واحد: <b>يقطع غير المعينة ندباً ويقرأ المعينة</b><br>
+  وسواء كان الشروع عمداً أو سهواً
+</div>
+
+<!-- ===== 6. ضيق الوقت ===== -->
+<h2 class="section-title">٦. فرع: ضيق الوقت وسورتان قصيرتان</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">فرع — نصّ المصنّف</span>
+  <p><b>وعند ضيق وقت سورتان قصيرتان أفضل من بعض الطويلتين المعينتين خلافاً للفارقي</b></p>
+</div>
+
+<p>مثال ذلك: في صلاة الصبح يوم الجمعة يُسنّ قراءة سورة السجدة في الأولى وسورة الإنسان في الثانية. فإذا ضاق وقت الصبح، فهل الأفضل أن يقتصر على قراءة جزء من السجدة في الأولى وجزء من الإنسان في الثانية، أو الأفضل أن يقرأ سورتين قصيرتين كاملتين؟</p>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">المعتمد: سورتان قصيرتان كاملتان</div>
+    <div class="compare-card-body">أفضل من بعض الطويلتين المعينتين<br>وهو ما اعتمده العلاّمة ابن حجر<br>لأنّ السورة الكاملة أفضل<br>حتى وإن كان بعض الطويلة أطول</div>
+  </div>
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">الفارقي: بعض المعينتين</div>
+    <div class="compare-card-body">يرى قراءة بعض السورتين المعينتين<br>ولو آية أو آيتين<br>وهذا خلاف المعتمد</div>
+  </div>
+</div>
+
+<h3 class="sub-title">ترجمة الفارقي</h3>
+
+<div class="note-box">
+  <span class="box-label label-note">ترجمة</span>
+  <p><b>أبو علي الحسن بن إبراهيم الفارقي</b> — تلميذ الشيخ أبي إسحاق الشيرازيّ وتلميذ أبي نصر بن الصبّاخ. كان يحفظ كتاب المهذّب لشيخه الأوّل عن ظهر قلب، ويحفظ كتاب الشامل لشيخه الثاني. وكان يراجع كلّ ليلة ربع كتاب المهذّب وربع كتاب الشامل من حفظه حتّى لا ينسى.</p>
+</div>
+
+<!-- ===== 7. عدم حفظ إحدى المعينتين ===== -->
+<h2 class="section-title">٧. فرع: عدم حفظ إحدى المعينتين</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">فرع — نصّ المصنّف</span>
+  <p><b>ولو لم يحفظ إلا إحدى المعينتين قرأها ويبدل الأخرى بسورة حفظها وإن فاته الولاء</b></p>
+</div>
+
+<p>مثال ذلك: لو كان يحفظ سورة الأعلى لكنّه لا يحفظ سورة الغاشية، فصلّى بالناس صلاة الجمعة. يقرأ في الركعة الأولى بعد الفاتحة سورة الأعلى، وفي الركعة الثانية يقرأ بدل الغاشية ما يحفظه من السور. وحينئذ <b>حتى لو فاته الولاء</b> — أي الترتيب — فليس بمشكلة.</p>
+
+<div class="definition-box">
+  <span class="box-label label-def">تعريف الولاء</span>
+  <p><b>الولاء</b> (بكسر الواو): هو الترتيب في القراءة بحسب ترتيب المصحف. فإذا لم يحفظ الغاشية وقرأ التي بعدها في المصحف كالفجر أو البلد، فقد فاته الولاء لكن لا بأس.</p>
+</div>
+
+<div class="key-rule">
+  لو لم يحفظ إلا إحدى المعينتين:<br>
+  يقرأها ويُبدل الأخرى بما يحفظ<br>
+  <b>ولو فاته الولاء (الترتيب)</b>
+</div>
+
+<!-- ===== 8. المسبوق في صبح الجمعة ===== -->
+<h2 class="section-title">٨. فرع: المسبوق في صبح الجمعة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">فرع — نصّ المصنّف</span>
+  <p><b>ولو اقتدى في ثانية صبح الجمعة مثلاً وسمع قراءة الإمام هل أتى فيقرأ في ثانيته إذا قام بعد سلام الإمام ألف لام ميم تنزيل السجدة</b> كما أفتى به الكمال الرّدّاد وتبعه شيخنا في فتاويه</p>
+</div>
+
+<p>جاء يوم الجمعة في صلاة الصبح والإمام في الركعة الثانية يقرأ سورة هل أتى على الإنسان. فدخل مع الإمام واستمع لقراءته. بعد أن سلّم الإمام قام المسبوق ليصلّي الركعة التي فاتته — فماذا يقرأ؟</p>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">رأيان للعلاّمة ابن حجر</span>
+  <p><b>الرأي الأوّل (في الفتاوى):</b> يقرأ سورة السجدة — لألّا تخلو صلاته عن السورتين المعينتين. وهو ما أفتى به الكمال الرّدّاد وتبعه ابن حجر في فتاويه.</p>
+  <p><b>الرأي الثاني (في التُحفة = شرح المنهاج):</b> ظاهر كلامه أنّه يقرأ ما تُسنّ قراءته في الركعة الثانية — أي سورة الإنسان — لأنّه قد سمعها مع الإمام فيعيد قراءتها.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">الأظهر (الفتاوى)</div>
+    <div class="compare-card-body">يقرأ سورة السجدة<br>لألّا تخلو صلاته عن السورتين<br>المعينتين — وهذا <b>أقرب</b></div>
+  </div>
+  <div class="compare-card compare-card-blue">
+    <div class="compare-card-title">ظاهر كلام التُحفة</div>
+    <div class="compare-card-body">يقرأ سورة الإنسان<br>لأنّه يقرأ ما يسنّ في الركعة<br>الثانية التي يقوم بها</div>
+  </div>
+</div>
+
+<p>ونصّ عبارة التُحفة: <i>«ولو اقتدى في الثانية فسمع قراءة الإمام للمنافقين فيها — أي في صلاة الجمعة — فظاهر أنّه يقرأ المنافقين في الثانية أيضاً»</i>. لكن <b>الأظهر والله أعلم أنّ ما في الفتاوى أقرب</b>، فإنّه يقرأ السجدة لألّا تخلو صلاته عن السورتين المعينتين.</p>
+
+<!-- ===== 9. قراءة الإمام غير المعينتين ===== -->
+<h2 class="section-title">٩. فرع: قراءة الإمام غير المعينتين والمسبوق</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">فرع — نصّ المصنّف</span>
+  <p><b>وإذا قرأ الإمام غيرهما — أي غير السجدة والإنسان — قرأهما المأموم في ثانيته</b></p>
+</div>
+
+<p>نفترض أنّ المأموم جاء في صلاة الصبح يوم الجمعة والإمام في الركعة الثانية يقرأ سورة القيامة — أي سورة غير المعينتين (السجدة والإنسان). بعد سلام الإمام يقوم المأموم ليصلّي ما فاته — فيُستحبّ له أن يقرأ في هذه الركعة <b>سورة السجدة وسورة الإنسان</b> لألّا تخلو صلاته عن هاتين السورتين المعينتين.</p>
+
+<h3 class="sub-title">أدرك الإمام في ركوع الثانية</h3>
+
+<p>لو أدرك الإمام في ركوع الركعة الثانية فكأنّه لم يقرأ شيئاً، فيقرأ <b>السجدة وهل أتى</b> في ثانيته — كما أفتى به شيخنا ابن حجر. وهذا الموضع فيه إشكال يمكن مراجعة حاشية الدمياطي فقد أورد عليه إشكالاً.</p>
+
+<div class="flow-row">
+  <div class="flow-box">إمام قرأ غير المعينتين</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-pure">المأموم يقرأهما في ثانيته</div>
+</div>
+<div class="flow-row">
+  <div class="flow-box">أدرك الإمام في ركوع الثانية</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-pure">يقرأ السجدة وهل أتى في ثانيته</div>
+</div>
+
+<!-- ===== 10. تنبيه: مواضع الجهر ===== -->
+<h2 class="section-title">١٠. تنبيه: مواضع الجهر بالقراءة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">تنبيه — نصّ المصنّف</span>
+  <p><b>يُسنّ الجهر بالقراءة لغير مأموم في صبح وأوليي العشاءين وجمعة وفيما يُقضى بين غروب الشمس وطلوعها وفي العيدين والتراويح ووتر رمضان وخسوف القمر</b></p>
+</div>
+
+<p>يُسنّ الجهر بالقراءة <b>لغير المأموم</b> — أي للإمام والمنفرد. وأمّا المأموم فلا يُسنّ له الجهر. وقد ذكر المصنّف مواضع الجهر وهي:</p>
+
+<h3 class="sub-title">الصلوات التي يُسنّ فيها الجهر</h3>
+
+<table>
+  <tr>
+    <th>الرقم</th>
+    <th>الصلاة</th>
+    <th>البيان</th>
+  </tr>
+  <tr>
+    <td><b>١</b></td>
+    <td>صلاة الصبح</td>
+    <td>في ركعتيها الأوليين</td>
+  </tr>
+  <tr>
+    <td><b>٢</b></td>
+    <td>أوليا المغرب</td>
+    <td>الركعتان الأوليان من المغرب</td>
+  </tr>
+  <tr>
+    <td><b>٣</b></td>
+    <td>أوليا العشاء</td>
+    <td>الركعتان الأوليان من العشاء</td>
+  </tr>
+  <tr>
+    <td><b>٤</b></td>
+    <td>صلاة الجمعة</td>
+    <td>في ركعتيها</td>
+  </tr>
+  <tr>
+    <td><b>٥</b></td>
+    <td>ما يُقضى بين غروب الشمس وطلوعها</td>
+    <td>العبرة بوقت القضاء — فلو قضى صلاة سرّيّة ليلاً جهر</td>
+  </tr>
+  <tr>
+    <td><b>٦</b></td>
+    <td>صلاة العيدين</td>
+    <td>ولو قضاءً — ولو كانت بعد الزوال</td>
+  </tr>
+  <tr>
+    <td><b>٧</b></td>
+    <td>صلاة التراويح</td>
+    <td>في رمضان</td>
+  </tr>
+  <tr>
+    <td><b>٨</b></td>
+    <td>وتر رمضان</td>
+    <td>سواء صلّى التراويح أم لم يصلّها</td>
+  </tr>
+  <tr>
+    <td><b>٩</b></td>
+    <td>خسوف القمر</td>
+    <td>صلاة كسوف القمر جهرية</td>
+  </tr>
+  <tr>
+    <td><b>١٠</b></td>
+    <td>صلاة الاستسقاء</td>
+    <td>ليلاً أو نهاراً</td>
+  </tr>
+  <tr>
+    <td><b>١١</b></td>
+    <td>ركعتا الطواف ليلاً</td>
+    <td>إذا صلاّهما ليلاً يجهر فيهما</td>
+  </tr>
+</table>
+
+<h3 class="sub-title">قاعدة: العبرة بوقت القضاء</h3>
+
+<div class="key-rule">
+  العبرة بوقت القضاء لا بوقت الأداء:<br>
+  <b>قضى سرّيّة ليلاً ← يجهر</b> (لأنّ الليل محلّ السكون)<br>
+  <b>قضى جهريّة نهاراً ← يُسرّ</b> (لأنّ النهار محلّ المعاش)<br>
+  <b>إلا صلاة العيد ← يجهر أداءً وقضاءً</b>
+</div>
+
+<p>اللّيل محلّ السكون فناسب الجهر ليكون أنشط للمصلّي وليتلذّذ بمناجاة المولى. والنهار محلّ المعاش ومحلّ الشواغل فناسب الإسرار. والمراد باللّيل هنا: <b>من غروب الشمس إلى طلوع الشمس</b> — وليس إلى طلوع الفجر.</p>
+
+<h3 class="sub-title">صلاة الكسوف (خسوف الشمس)</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف بين المذاهب</span>
+  <p><b>مذهب الجمهور</b> (الحنفيّة والمالكيّة والشافعيّة): صلاة الكسوف <b>صلاة سرّيّة</b> — يُسرّ فيها بالقراءة، لأنّ الكسوف يكون نهاراً.</p>
+  <p><b>الحنابلة:</b> يجهر بالقراءة في صلاة الكسوف — انفراداً عن الجمهور.</p>
+</div>
+
+<!-- ===== 11. ضابط الجهر وحكم المرأة ===== -->
+<h2 class="section-title">١١. ضابط الجهر وحكم جهر المرأة</h2>
+
+<div class="definition-box">
+  <span class="box-label label-def">ضابط الجهر</span>
+  <p><b>ضابط الجهر:</b> أن يسمع من كان قريباً منه. أي أنّ المصلّي يرفع صوته بحيث يسمعه من بجانبه — وهذا هو الجهر.</p>
+</div>
+
+<h3 class="sub-title">حكم جهر المرأة</h3>
+
+<table>
+  <tr>
+    <th>الحالة</th>
+    <th>الحكم</th>
+    <th>البيان</th>
+  </tr>
+  <tr>
+    <td><b>يوجد أجنبيّ يسمع صوتها</b></td>
+    <td><span class="highlight-gold">يُكره لها الجهر</span></td>
+    <td>كراهة لا تحريم — حتّى في مواضع الجهر</td>
+  </tr>
+  <tr>
+    <td><b>لا يوجد أجنبيّ</b></td>
+    <td><span class="highlight-green">يُسنّ لها الجهر</span></td>
+    <td>لكن جهرها <b>أقلّ من جهر الرجل</b></td>
+  </tr>
+</table>
+
+<!-- ===== 12. كراهة الجهر عند التشويش ===== -->
+<h2 class="section-title">١٢. كراهة الجهر عند التشويش وأحكام المسجد</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ولا يجهر مصلّ وغيره إن شوّش على نحو نائم أو مصلّ</b></p>
+</div>
+
+<p>هذه مسألة مهمّة خاصّة عند إقامة الدروس والمحاضرات في المساجد. فلا يجهر المصلّي أو غيره إذا شوّش على غيره — كنائم أو مصلّ أو نحوهما.</p>
+
+<h3 class="sub-title">مَن المقصود بـ"نحو نائم" و"نحو مصلّ"؟</h3>
+
+<div class="tree-container">
+  <div class="tree-root">نحو النائم ونحو المصلّي</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a;">
+      <div class="tree-branch-num">نحو النائم</div>
+      <div class="tree-branch-label">النائم نفسه<br>المريض<br>النّاعس</div>
+    </div>
+    <div class="tree-branch" style="background: #f0f9ff; border: 1px solid #bae6fd;">
+      <div class="tree-branch-num">نحو المصلّي</div>
+      <div class="tree-branch-label">الطّائف بالبيت<br>(يشبه المصلّي)<br>قال النبيّ ﷺ: «الطواف بالبيت صلاة»</div>
+    </div>
+  </div>
+</div>
+
+<h3 class="sub-title">حكم الجهر عند التشويش</h3>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">١</span>
+    <b>شوّش على غيره:</b> <span class="highlight-gold">يُكره الجهر</span> — كما في المجموع
+  </div>
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">٢</span>
+    <b>لم يشوّش:</b> لا كراهة
+  </div>
+</div>
+
+<h3 class="sub-title">بحث بعضهم: المنع من الجهر بحضرة المصلّي مطلقاً</h3>
+
+<div class="issue-box">
+  <span class="box-label label-issue">بحث غير معتمد لكنّه وجيه</span>
+  <p><b>بحث بعضهم</b> المنع من الجهر بقرآن أو غيره بحضرة المصلّي مطلقاً — أي سواء شوّش عليه أو لم يشوّش. وهذا ظاهر إذا كان في المسجد، <b>لأنّ المسجد وقف على المصلّين أصالةً دون الوعّاظ والقراء</b>.</p>
+  <p>فللمصلّي حقّ مُقدّم على حقّ الواعظ والمدرس. والأولى أن يتوقّف الدرس أو المحاضرة إذا اشتغل الناس بالفريضة أو الراتبة حتّى لا يحصل التشويش لهم في صلاتهم.</p>
+  <p>وكونه قال «بحث بعضهم» إشارة إلى أنّه <b>ليس معتمداً</b> لكنّه ذو وجاهة من النظر.</p>
+</div>
+
+<!-- ===== 13. التوسط في النوافل المطلقة ليلاً ===== -->
+<h2 class="section-title">١٣. التوسّط بين الجهر والإسرار في النوافل المطلقة ليلاً</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويتوسّط بين الجهر والإسرار في النوافل المطلقة ليلاً</b></p>
+</div>
+
+<p>إذا أراد أن يصلّي النوافل المطلقة ليلاً — أي ما شاء أن يصلّي — فإنّه لا يجهر ولا يُسرّ، بل يتوسّط. واختلف الفقهاء في معنى التوسّط:</p>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">الزّركشيّ</div>
+    <div class="compare-card-body">يتوسّط أي يجهر تارةً<br>ويُسرّ تارةً<br><b>مرة يجهر ومرة يُسرّ</b></div>
+  </div>
+  <div class="compare-card compare-card-blue">
+    <div class="compare-card-title">بعض الفقهاء</div>
+    <div class="compare-card-body">يرفع صوته بحيث يزيد<br>على إسماع نفسه<br>ولا يسمع من كان بقربه</div>
+  </div>
+</div>
+
+<p>والأولى أن يُضبط التوسّط بأنّه <b>تارةً يجهر بالقراءة وتارةً يُسرّ بها</b> — وهو ما اختاره الزّركشيّ رحمه الله. ويُسرّ بالقراءة إذا كان هناك نائم أو مريض أو مصلّ.</p>
+
+<!-- ===== 14. تكبيرة الانتقال ===== -->
+<h2 class="section-title">١٤. تكبيرة الانتقال وأحكامها</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وُسنّ لمنفرد وإمام ومأموم تكبير في كلّ خفض ورفع للاتّباع، لا في رفع من ركوع بل يرفع منه قائلاً عند رفعه: سمع الله لمن حمده</b></p>
+</div>
+
+<p>يُسنّ التكبير للانتقال من هيئة إلى هيئة في الصلاة — لكلّ من المنفرد والإمام والمأموم — في كلّ خفض (كالركوع والسجود) ورفع (كالقيام من السجود)، <b>إلا في رفع الركوع</b> فإنّه لا يُكبّر بل يقول: «سمع الله لمن حمده». ويُسنّ له أيضاً أن يقول: «ربّنا ولك الحمد».</p>
+
+<h3 class="sub-title">جدول أذكار الانتقال</h3>
+
+<table>
+  <tr>
+    <th>الحركة</th>
+    <th>الذكر</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td>الركوع (خفض)</td>
+    <td>الله أكبر</td>
+    <td><span class="highlight-green">يُسنّ التكبير</span></td>
+  </tr>
+  <tr>
+    <td>الرفع من الركوع</td>
+    <td>سمع الله لمن حمده</td>
+    <td><span class="highlight-gold">لا يُكبّر بل يحمد</span></td>
+  </tr>
+  <tr>
+    <td>السجود (خفض)</td>
+    <td>الله أكبر</td>
+    <td><span class="highlight-green">يُسنّ التكبير</span></td>
+  </tr>
+  <tr>
+    <td>الجلوس بين السجدتين (رفع)</td>
+    <td>الله أكبر</td>
+    <td><span class="highlight-green">يُسنّ التكبير</span></td>
+  </tr>
+  <tr>
+    <td>السجدة الثانية (خفض)</td>
+    <td>الله أكبر</td>
+    <td><span class="highlight-green">يُسنّ التكبير</span></td>
+  </tr>
+  <tr>
+    <td>القيام للركعة التالية (رفع)</td>
+    <td>الله أكبر</td>
+    <td><span class="highlight-green">يُسنّ التكبير</span></td>
+  </tr>
+</table>
+
+<!-- ===== 15. مدّ التكبير وجهر الإمام ===== -->
+<h2 class="section-title">١٥. مدّ التكبير وجهر الإمام به</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وُسنّ مدّه — أي التكبير — إلى أن يصل إلى المنتقل إليه. وإن فصل بجلسة الاستراحة. وُسنّ جهر به للانتقال كالتحرّم لإمام</b></p>
+</div>
+
+<h3 class="sub-title">مدّ التكبير</h3>
+
+<p>يُسنّ مدّ التكبير — أي مدّ الألف في لفظ الجلالة «الله» — من بداية الحركة إلى أن يصل إلى المنتقل إليه. فإذا كان في القيام وأراد الركوع يمدّ التكبير من القيام إلى الركوع: «الله أكبر». وإن فُصل بجلسة الاستراحة — أي إذا قام من السجود للركعة الثانية وجلس للاستراحة ثمّ نهض — فإنّه يكبر في كلّ ذلك حتّى وإن جلس للاستراحة.</p>
+
+<div class="note-box">
+  <span class="box-label label-note">شرط</span>
+  <p>بشرط أن لا يزيد مدّ التكبير على <b>سبع ألفات</b> — كما مرّ في تكبيرة الإحرام.</p>
+</div>
+
+<h3 class="sub-title">جهر الإمام بالتكبير</h3>
+
+<p>يُسنّ للإمام أن يجهر بتكبيرة الانتقال — كتكبيرة الإحرام. ويفهم من هذا أنّ <b>المأموم والمنفرد لا يُسنّ لهما الجهر</b> بالتكبير.</p>
+
+<!-- ===== 16. المبلغ وأحكام نيته ===== -->
+<h2 class="section-title">١٦. المبلّغ وأحكام نيّته</h2>
+
+<p>المبلّغ هو الشخص الذي يرفع صوته بالتكبير ليُبلغ الذين لا يسمعون تكبير الإمام — وهذا يحتاج إليه في المساجد الكبيرة خاصّةً عندما لم تكن أجهزة تكبير الصوت موجودة.</p>
+
+<h3 class="sub-title">أحكام نيّة المبلّغ</h3>
+
+<table>
+  <tr>
+    <th>النيّة</th>
+    <th>الحكم</th>
+    <th>البيان</th>
+  </tr>
+  <tr>
+    <td><b>نوى الذكر فقط</b></td>
+    <td><span class="highlight-green">لا تبطل صلاته</span></td>
+    <td>قصد الذكر فحسب</td>
+  </tr>
+  <tr>
+    <td><b>نوى الذكر والإسماع</b></td>
+    <td><span class="highlight-green">لا تبطل صلاته</span></td>
+    <td>قصد الأمرين معاً</td>
+  </tr>
+  <tr>
+    <td><b>نوى الإسماع فقط</b></td>
+    <td><span class="highlight-red">تبطل صلاته</span></td>
+    <td>قصد التبليغ دون الذكر</td>
+  </tr>
+  <tr>
+    <td><b>لم ينوِ شيئاً</b></td>
+    <td><span class="highlight-red">تبطل صلاته</span></td>
+    <td>أطلق ولم يقصد ذكراً ولا إسماعاً</td>
+  </tr>
+</table>
+
+<div class="key-rule">
+  أربع صور: في صورتين تبطل الصلاة وفي صورتين لا تبطل<br>
+  <b>لا تبطل:</b> نوى الذكر فقط أو نوى الذكر والإسماع<br>
+  <b>تبطل:</b> نوى الإسماع فقط أو لم ينوِ شيئاً
+</div>
+
+<!-- ===== 17. التبليغ بدعة منكرة ===== -->
+<h2 class="section-title">١٧. التبليغ بدعة منكرة عند سماع صوت الإمام</h2>
+
+<div class="issue-box">
+  <span class="box-label label-issue">مسألة مهمّة</span>
+  <p><b>قال بعضهم: إنّ التبليغ بدعة منكرة باتّفاق الأئمّة الأربعة حيث بلغ المأمومين صوت الإمام.</b> أي إذا كان المأمومون يسمعون صوت الإمام وتكبيراته لكنّ هناك من يُبلغ مع ذلك — فهذه بدعة منكرة باتّفاق الأئمّة الأربعة.</p>
+</div>
+
+<p>ذكر الشيخ أنّ هذه الظاهرة منتشرة في السودان كثيراً — حتّى لو كانوا سبعة أشخاص أو عشرة يوجد شخص يُبلغ تكبيرات الإمام مع أنّهم جميعاً يسمعون تكبيراته. وهذا هو المنكر — التبليغ مع سماع صوت الإمام. أمّا إذا لم يسمعوا صوت الإمام فالتبليغ جائز بل مطلوب.</p>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">المأمومون لا يسمعون الإمام</div>
+    <div class="compare-card-body">التبليغ <b>جائز ومطلوب</b><br>لحاجة المأمومين إلى معرفة<br>تكبيرات الإمام</div>
+  </div>
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">المأمومون يسمعون الإمام</div>
+    <div class="compare-card-body">التبليغ <b>بدعة منكرة</b><br>باتّفاق الأئمّة الأربعة<br>لعدم الحاجة إليه</div>
+  </div>
+</div>
+
+</body>
+</html>

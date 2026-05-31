@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf') format('truetype'); font-weight: normal; }
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf') format('truetype'); font-weight: bold; }
+@font-face { font-family: 'NotoNaskh'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf') format('truetype'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+
+body {
+  font-family: 'NotoNaskh', 'Amiri', serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #1a1a2e;
+  direction: rtl;
+  background: #fff;
+  text-align: justify;
+}
+
+.cover-header {
+  background: #1a5632;
+  color: white;
+  padding: 20px 14px;
+  text-align: center;
+  margin: 0 0 12px 0;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px);
+  border-bottom: 4px solid #c8a951;
+}
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 6px; border: none; font-family: 'Amiri', serif; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.9; margin: 4px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.92; margin: 6px 0 2px 0; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .creator { font-size: 11pt; opacity: 0.85; margin-top: 2px; }
+.cover-header .series { font-size: 11pt; opacity: 0.8; margin-top: 4px; }
+
+.toc {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 0 0 12px 0;
+}
+.toc-title {
+  font-family: 'Amiri', serif;
+  font-size: 14pt;
+  color: #1a5632;
+  text-align: center;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #c8a951;
+  padding-bottom: 4px;
+}
+.toc-item {
+  font-size: 10pt;
+  padding: 2px 0;
+  border-bottom: 1px dotted #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+h2.section-title {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0d7c3e;
+  border-bottom: 2px solid #0d7c3e;
+  padding-bottom: 5px;
+  margin: 18px 0 10px;
+}
+
+h3.sub-title {
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: #0a5c2e;
+  margin: 14px 0 8px;
+  padding-right: 10px;
+  border-right: 4px solid #0d7c3e;
+}
+
+h4.minor-title {
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #166534;
+  margin: 10px 0 6px;
+}
+
+p { margin: 5px 0; text-align: justify; }
+
+.definition-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-right: 4px solid #0d7c3e;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.rule-box {
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-right: 4px solid #d97706;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.exception-box {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-right: 4px solid #ea580c;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.evidence-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-right: 4px solid #2563eb;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.issue-box {
+  background: #fdf2f8;
+  border: 1px solid #fbcfe8;
+  border-right: 4px solid #db2777;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.comparison-box {
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  border-right: 4px solid #7c3aed;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.note-box {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-right: 4px solid #0284c7;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.poetry-box {
+  background: #faf5ff;
+  border: 1px solid #e9d5ff;
+  border-right: 4px solid #9333ea;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+  text-align: center;
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  line-height: 2.2;
+}
+
+.key-rule {
+  background: #dcfce7;
+  border: 2px solid #16a34a;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.box-label {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 4px;
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.label-def { background: #0d7c3e; }
+.label-rule { background: #d97706; }
+.label-exc { background: #ea580c; }
+.label-ev { background: #2563eb; }
+.label-issue { background: #db2777; }
+.label-comp { background: #7c3aed; }
+.label-note { background: #0284c7; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 13px;
+  table-layout: fixed;
+}
+
+th {
+  background: #0d7c3e;
+  color: #fff;
+  padding: 6px 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+td {
+  padding: 5px 8px;
+  border: 1px solid #d1d5db;
+  text-align: center;
+  vertical-align: top;
+}
+
+tr:nth-child(even) { background: #f0fdf4; }
+tr:nth-child(odd) { background: #fff; }
+
+.tree-container { margin: 12px 0; text-align: center; }
+.tree-root {
+  display: inline-block;
+  background: linear-gradient(135deg, #0d7c3e, #0a5c2e);
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+.tree-branches { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px; }
+.tree-branch {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  min-width: 80px;
+  text-align: center;
+}
+.tree-branch-num { font-family: 'Amiri', serif; font-weight: bold; color: #0d7c3e; font-size: 14px; }
+.tree-branch-label { font-size: 12px; color: #374151; }
+
+.compare-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.compare-card { flex: 1; min-width: 140px; border-radius: 8px; padding: 8px 10px; text-align: center; }
+.compare-card-green { background: #dcfce7; border: 1px solid #86efac; }
+.compare-card-red { background: #fef2f2; border: 1px solid #fca5a5; }
+.compare-card-gold { background: #fefce8; border: 1px solid #fde68a; }
+.compare-card-blue { background: #eff6ff; border: 1px solid #bfdbfe; }
+.compare-card-title { font-family: 'Amiri', serif; font-weight: bold; font-size: 14px; margin-bottom: 4px; }
+.compare-card-body { font-size: 12px; }
+
+.flow-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px; margin: 8px 0; }
+.flow-box { background: #0d7c3e; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-family: 'Amiri', serif; font-weight: bold; text-align: center; }
+.flow-arrow { font-size: 16px; color: #0d7c3e; font-weight: bold; }
+.flow-result { padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; text-align: center; }
+.flow-pure { background: #dcfce7; border: 1px solid #86efac; color: #166534; }
+.flow-impure { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+.flow-excused { background: #fefce8; border: 1px solid #fde68a; color: #92400e; }
+
+.highlight-green { background: #dcfce7; padding: 1px 4px; border-radius: 3px; }
+.highlight-gold { background: #fefce8; padding: 1px 4px; border-radius: 3px; }
+.highlight-red { background: #fef2f2; padding: 1px 4px; border-radius: 3px; }
+
+.verse-ref { font-family: 'Amiri', serif; font-size: 14px; color: #1e40af; text-align: center; margin: 6px 0; }
+.hadith-ref { font-family: 'Amiri', serif; font-size: 13px; color: #166534; text-align: center; margin: 6px 0; }
+
+.condition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.condition-item { border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.condition-num {
+  display: inline-block; background: #0d7c3e; color: #fff; min-width: 24px; height: 24px;
+  border-radius: 50%; text-align: center; line-height: 24px; font-family: 'Amiri', serif;
+  font-weight: bold; font-size: 12px; margin-left: 6px;
+}
+
+ul { margin: 4px 0; padding-right: 20px; }
+li { margin: 2px 0; }
+
+.dua-box {
+  background: #faf5ff;
+  border: 1px solid #e9d5ff;
+  border-right: 4px solid #7c3aed;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+  text-align: center;
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  line-height: 2;
+}
+
+.scholar-card {
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin: 8px 0;
+}
+.scholar-name { font-family: 'Amiri', serif; font-weight: bold; color: #92400e; font-size: 14px; }
+.scholar-info { font-size: 12px; color: #374151; }
+</style>
+</head>
+<body>
+
+<!-- ===== COVER HEADER (تابع) ===== -->
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس الخامس والأربعون — تابع أركان الصلاة: السجود والجلوس بين السجدتين والطمأنينة</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="creator">تنسيق: أحمد بن إرشاد</div>
+  <div class="series">سنن السجود · مكروهات السجود · أذكار السجود · الركن الثامن: الجلوس بين السجدتين · جلسة الاستراحة · الركن التاسع: الطمأنينة</div>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. لا يجب التحامل على أعضاء السجود بل يسن كشف غير الركبتين</span></div>
+  <div class="toc-item"><span>٢. سنة وضع الأنف في السجود والخلاف في وجوبه</span></div>
+  <div class="toc-item"><span>٣. ترتيب وضع أعضاء السجود</span></div>
+  <div class="toc-item"><span>٤. تفريق القدمين قدر شبر ونصبهما للقبلة</span></div>
+  <div class="toc-item"><span>٥. سنة فتح العينين في السجود</span></div>
+  <div class="toc-item"><span>٦. مكروهات السجود</span></div>
+  <div class="toc-item"><span>٧. أذكار السجود ومراتبها</span></div>
+  <div class="toc-item"><span>٨. الدعاء في السجود</span></div>
+  <div class="toc-item"><span>٩. تطويل السجود أفضل من تطويل الركوع</span></div>
+  <div class="toc-item"><span>١٠. الركن الثامن: الجلوس بين السجدتين</span></div>
+  <div class="toc-item"><span>١١. عدم قصد غير الرفع من السجود</span></div>
+  <div class="toc-item"><span>١٢. إدامة وضع اليدين على الأرض بين السجدتين</span></div>
+  <div class="toc-item"><span>١٣. لا يطوّل الجلوس بين السجدتين ولا الاعتدال</span></div>
+  <div class="toc-item"><span>١٤. سنة الافتراش في أربعة مواضع</span></div>
+  <div class="toc-item"><span>١٥. أذكار الجلوس بين السجدتين</span></div>
+  <div class="toc-item"><span>١٦. جلسة الاستراحة</span></div>
+  <div class="toc-item"><span>١٧. الاعتماد على اليدين في القيام من السجود</span></div>
+  <div class="toc-item"><span>١٨. الركن التاسع: الطمأنينة</span></div>
+</div>
+
+<!-- ===== 1. لا يجب التحامل ===== -->
+<h2 class="section-title">١. لا يجب التحامل على أعضاء السجود بل يسن كشف غير الركبتين</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ولا يجب التحامل عليها بل يسن كشف غير الركبتين</b> — هذه آخر مسألة في الدرس السابق. أي لا يجب التحامل على أعضاء السجود عدا الجبهة، بل يسن كشف الركبتين.</p>
+</div>
+
+<p>التحامل هو الضغط الشديد على أعضاء السجود. فلا يجب على المصلّي أن يضغط بجسمه على أعضاء السجود ضغطاً شديداً، بل يُسنّ أن يكشف الركبتين بحيث لا يكون عليهما ثوب يحول بينهما وبين الأرض.</p>
+
+<!-- ===== 2. سنة وضع الأنف ===== -->
+<h2 class="section-title">٢. سنة وضع الأنف في السجود والخلاف في وجوبه</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وسن في السجود وضع أنف بل يتأكد لخبر صحيح ومن ثم اختير وجوبه</b> — أي يُسنّ في السجود وضع الأنف على الأرض، بل يتأكد ذلك لثبوت خبر صحيح، ومن ثمّ اختار بعض العلماء وجوبه.</p>
+</div>
+
+<h3 class="sub-title">الأعضاء السبعة للسجود</h3>
+
+<p>الأعضاء السبعة التي أُمرنا بالسجود عليها هي: <b>الجبهة واليدان والركبتان والقدمان</b>. وأمّا الأنف فقد اختلف الفقهاء في السجود عليه: هل هو واجب أم مستحبّ؟ لأنّ النبيّ صلّى الله عليه وسلّم في بعض الروايات لمّا ذكر الجبهة أشار إلى أنفه.</p>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">جمهور الفقهاء</div>
+    <div class="compare-card-body">السجود على الأنف <b>مستحبّ</b> وليس واجباً<br>منهم الشافعية والمالكية</div>
+  </div>
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">المذهب الحنبلي</div>
+    <div class="compare-card-body">السجود على الأنف <b>واجب</b><br>انفرد المذهب الحنبلي بهذا القول</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">بعض الشافعية (اختيار)</div>
+    <div class="compare-card-body">اختاروا <b>وجوب</b> السجود على الأنف<br>ومنهم المصنّف نقلاً عن شيخه ابن حجر</div>
+  </div>
+</div>
+
+<div class="key-rule">
+  قول المصنّف: «بل يتأكد لخبر صحيح ومن ثمّ اختير وجوبه»<br>
+  أي أنّ بعض الشافعية اختاروا وجوب السجود على الأنف خروجاً من الخلاف
+</div>
+
+<!-- ===== 3. ترتيب وضع أعضاء السجود ===== -->
+<h2 class="section-title">٣. ترتيب وضع أعضاء السجود</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويسن وضع ركبتيه أولاً متفرّقتين قدر شبر ثمّ كفيه حذو منكبيه رافعاً ذراعيه عن الأرض وناشراً أصابعه مضمومة للقبلة ثمّ جبهته وأنفه معاً</b></p>
+</div>
+
+<p>أراد المصنّف رحمه الله أن يبيّن سنّة من سنن السجود وهي <b>ترتيب وضع أعضاء السجود</b>، أي كيف يضع أعضاء السجود عند النزول للسجود.</p>
+
+<h3 class="sub-title">الترتيب المشروع</h3>
+
+<div class="flow-row">
+  <div class="flow-box">الركبتان أولاً</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">الكفّان حذو المنكبين</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">الجبهة والأنف معاً</div>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p>أخذ بحديث <b>أبي هريرة</b> رضي الله عنه عند أهل السنن وفيه تقديم الركبتين على اليدين.</p>
+  <p>قال الحافظ ابن حجر رحمه الله في <b>بلوغ المرام</b>: إنّ حديث أبي هريرة الذي فيه وضع الركبتين أولاً قبل اليدين <b>أقوى</b> من حديث وائل بن حجر الذي فيه وضع اليدين قبل الركبتين.</p>
+</div>
+
+<h3 class="sub-title">تفصيل هيئة السجود</h3>
+
+<table>
+  <tr>
+    <th>العضو</th>
+    <th>الهيئة المشروعة</th>
+    <th>البيان</th>
+  </tr>
+  <tr>
+    <td><b>الركبتان</b></td>
+    <td>متفرّقتين قدر شبر</td>
+    <td>لا يلصقهما بل يفرّق بينهما مقدار شبر</td>
+  </tr>
+  <tr>
+    <td><b>الكفّان</b></td>
+    <td>حذو المنكبين</td>
+    <td>محاذيتان للمنكبين</td>
+  </tr>
+  <tr>
+    <td><b>الذراعان</b></td>
+    <td>مرفوعتان عن الأرض</td>
+    <td>لا يضع ذراعيه على الأرض</td>
+  </tr>
+  <tr>
+    <td><b>الأصابع</b></td>
+    <td>منشورة مضمومة للقبلة</td>
+    <td>غير قابضة، منشورة مستقبلة القبلة حتى يحصل الاستقرار</td>
+  </tr>
+  <tr>
+    <td><b>الجبهة والأنف</b></td>
+    <td>معاً</td>
+    <td>يضع الجبهة والأنف على الأرض في آن واحد</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه على هيئة الأصابع</span>
+  <p>يكون ناشراً أصابعه — أي ليس قابضاً لها — ومضمّها للقبلة. فلا يعجنها ولا يقبضها بل ينشرها هكذا حتى يحصل الاستقرار بالسجود عليها.</p>
+</div>
+
+<!-- ===== 4. تفريق القدمين ===== -->
+<h2 class="section-title">٤. تفريق القدمين قدر شبر ونصبهما للقبلة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وتفريق قدميه قدر شبر</b> — أي يُسنّ له عند السجود أن يفرّق بين قدميه قدر شبر.</p>
+</div>
+
+<h3 class="sub-title">مناقشة رواية «راصّاً قدميه»</h3>
+
+<p>قيل: أليس قد جاء في الحديث أنّ أمّ المؤمنين عائشة رضي الله عنها تحسّست النبيّ صلّى الله عليه وسلّم فوجدته يصلّي راصّاً عقبيه؟ ألا يدلّ هذا على أنّ القدمين متراصّتان في أثناء السجود؟</p>
+
+<div class="issue-box">
+  <span class="box-label label-issue">الجواب</span>
+  <p>رواية «راصّاً قدميه» <b>حُكم عليها بالشذوذ</b>. وجد عدد من المعاصرين يحكمون عليها بالشذوذ منهم <b>الشيخ بكر أبو زيد</b> رحمه الله وغيره.</p>
+</div>
+
+<div class="key-rule">
+  التفريق قدر شبر مستحبّ في ثلاثة مواضع:<br>
+  <b>السجود — الركوع — القيام</b><br>
+  كما قال صاحب الزّبد
+</div>
+
+<h3 class="sub-title">نصب القدمين وإبرازهما من الذيل</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ونصبهما</b> أي نصب قدميه موجهاً أصابعهما للقبلة <b>وإبرازهما من ذيله</b> — أي إذا كان يلبس ثوباً طويلاً فيستحبّ أن تكون القدمان بارزتين مكشوفتين من ذيل ثوبه.</p>
+</div>
+
+<!-- ===== 5. فتح العينين ===== -->
+<h2 class="section-title">٥. سنة فتح العينين في السجود</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويسن فتح عينيه حالة السجود</b> — أي لا يغمض عينيه في السجود.</p>
+</div>
+
+<h3 class="sub-title">حكم إغماض العينين في الصلاة</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف في الحكم</span>
+  <p>إغماض العينين في الصلاة مطلقاً — لا في خصوص السجود — فيه خلاف:</p>
+  <ul>
+    <li><b>بعض الفقهاء:</b> إغماض العينين <span class="highlight-red">مكروه</span> من غير حاجة</li>
+    <li><b>بعض الفقهاء:</b> إغماض العينين <span class="highlight-gold">خلاف الأولى</span></li>
+  </ul>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">تعقيب المحشّين</span>
+  <p>قال بعض المحشّين على الكتاب: إنّ تقييد المصنّف بـ«حالة السجود» لا حاجة إليه، لأنّ الكلام على إغماض العينين يتناول جميع الصلاة وليس السجود فقط. فإغماض العينين في الصلاة خلاف الأولى مطلقاً.</p>
+</div>
+
+<h3 class="sub-title">نسبة القول</h3>
+
+<div class="scholar-card">
+  <div class="scholar-name">العزّ بن عبد السلام — سلطان العلماء</div>
+  <div class="scholar-info">محمد بن عبد الله بن بهادر، أحد كبار الشافعية في عصره. توفي سنة 660 هـ وعمره تسع وأربعون سنة. صنّف في الفقه والقواعد الفقهية وأصول الفقه وعلوم القرآن (البرهان) وغيرها. مع قصر عمره غزّر علمه.</div>
+</div>
+
+<p>قال المصنّف: <b>ويسن فتح عينيه حالة السجود كما قاله ابن عبد السلام وأقرّه الزركشي</b> — أي أنّ العزّ بن عبد السلام قال باستحباب فتح العينين وأقرّه الزركشي على ذلك.</p>
+
+<!-- ===== 6. مكروهات السجود ===== -->
+<h2 class="section-title">٦. مكروهات السجود</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويكره مخالفة الترتيب المذكور</b> — أي الذي تقدّم ذكره في وضع أعضاء السجود. <b>وعدم وضع الأنف</b> — يكره عدم وضع الأنف لأنّ هناك من أوجبه وهو مذهب أحمد فخروجاً من الخلاف يكره تركه. <b>وقراءة القرآن</b> — يكره قراءة القرآن في السجود.</p>
+</div>
+
+<table>
+  <tr>
+    <th>المكروه</th>
+    <th>السبب</th>
+    <th>الدليل/التعليل</th>
+  </tr>
+  <tr>
+    <td><b>مخالفة الترتيب</b></td>
+    <td>ترك الترتيب المشروع في وضع الأعضاء</td>
+    <td>لو وضع اليدين قبل الركبتين فهو مكروه</td>
+  </tr>
+  <tr>
+    <td><b>عدم وضع الأنف</b></td>
+    <td>خروجًا من خلاف من أوجبه</td>
+    <td>المذهب الحنبلي يوجب وضع الأنف</td>
+  </tr>
+  <tr>
+    <td><b>قراءة القرآن</b></td>
+    <td>النهي عن قراءة القرآن في غير القيام</td>
+    <td>قول النبيّ صلّى الله عليه وسلّم: «إنّي نهيت أن أقرأ القرآن راكعاً وساجداً»</td>
+  </tr>
+</table>
+
+<div class="key-rule">
+  يكره قراءة القرآن في <b>كلّ المواضع غير القيام</b><br>
+  الركوع والسجود والجلوس وغيرها
+</div>
+
+<!-- ===== 7. أذكار السجود ===== -->
+<h2 class="section-title">٧. أذكار السجود ومراتبها</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وقول سبحان ربّ الأعلى وبحمده ثلاثاً</b> — أي يُسنّ أن يقول ذلك ثلاثاً في السجود للاتّباع.</p>
+</div>
+
+<h3 class="sub-title">مراتب أذكار السجود</h3>
+
+<table>
+  <tr>
+    <th>المرتبة</th>
+    <th>الذكر</th>
+    <th>البيان</th>
+  </tr>
+  <tr>
+    <td><b>الأدنى</b></td>
+    <td>سبحان الله</td>
+    <td>أقلّ المراتب</td>
+  </tr>
+  <tr>
+    <td><b>الثانية</b></td>
+    <td>سبحان ربّ الأعلى</td>
+    <td>أعلى من الأدنى</td>
+  </tr>
+  <tr>
+    <td><b>الثالثة</b></td>
+    <td>سبحان ربّ الأعلى وبحمده</td>
+    <td>أعلى من الثانية</td>
+  </tr>
+  <tr>
+    <td><b>الرابعة</b></td>
+    <td>سبحان ربّ الأعلى ثلاثاً</td>
+    <td>أعلى من الثالثة</td>
+  </tr>
+  <tr>
+    <td><b>الخامسة (أعلى)</b></td>
+    <td>سبحان ربّ الأعلى وبحمده ثلاثاً</td>
+    <td>أعلى المراتب</td>
+  </tr>
+</table>
+
+<h3 class="sub-title">ثبوت «وبحمده»</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف في ثبوت الزيادة</span>
+  <p><b>«سبحان ربّ الأعلى» و«سبحان ربّ العظيم»</b> — ثابتان في صحيح مسلم من حديث حذيفة.</p>
+  <p><b>زيادة «وبحمده»</b> — خارجة الصحيح، رواها أبو داود، وحصل خلاف في ثبوتها.</p>
+</div>
+
+<h3 class="sub-title">زيادة الدعاء للمنفرد والإمام</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويزيد من مرّ</b> — أي من مرّ معنا من منفرد وإمام قوم محصورين رضوا بتطويل — <b>ندباً: اللهمّ لك سجدت وبك آمنت ولك أسلمت، سجد وجهي للذي خلقه وصوّره وشقّ سمعه وبصره بحوله وقوته، تبارك الله أحسن الخالقين</b></p>
+</div>
+
+<!-- ===== 8. الدعاء في السجود ===== -->
+<h2 class="section-title">٨. الدعاء في السجود</h2>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الحديث</span>
+  <p><b>«أقرب ما يكون العبد من ربّه وهو ساجد فاجتهدوا في الدعاء»</b> — رواه مسلم</p>
+</div>
+
+<h3 class="sub-title">ممّا ورد من الدعاء في السجود</h3>
+
+<div class="dua-box">
+  اللهمّ إنّي أعوذ برضاك من سخطك وبمعافاتك من عقوبتك<br>
+  وأعوذ بك منك لا أحصي ثناءً عليك أنت كما أثنيت على نفسك<br><br>
+  اللهمّ اغفر لي ذنبي كلّه دقّه وجلّه أوّله وآخره علانيته وسرّه
+</div>
+
+<h3 class="sub-title">إعراب «أنت» في الدعاء</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">إعرابان صحيحان</span>
+  <p><b>«لا أحصي ثناءً عليك أنت كما أثنيت على نفسك»</b></p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">الإعراب الأوّل</div>
+    <div class="compare-card-body"><b>«أنت» توكيد</b> للضمير المتّصل في «عليك»<br>كما تقول: مررت بك أنت<br>فـ«أنت» توكيد للكاف</div>
+  </div>
+  <div class="compare-card compare-card-blue">
+    <div class="compare-card-title">الإعراب الثاني</div>
+    <div class="compare-card-body"><b>«أنت» مبتدأ</b> لخبر محذوف<br>التقدير: أنت مستحقّ ما أثنيت على نفسك<br>أو: أنت الذي أثنيت على نفسك<br>فتكون الكاف زائدة و«ما» موصولة</div>
+  </div>
+</div>
+
+<h3 class="sub-title">معنى «دقّه وجلّه»</h3>
+
+<p><b>دقّه</b> بكسر الدال: دقيقه. <b>جلّه</b> بكسر الجيم: جليله. وهذا كالتوكيد لقوله «كلّه»، وإلّا لما قال «اللهمّ اغفر لي ذنبي كلّه» لأنّ الكلّ يشمل الدقيق والجليل. لكنّ هذا من باب التوكيد والمبالغة في الدعاء.</p>
+
+<!-- ===== 9. تطويل السجود ===== -->
+<h2 class="section-title">٩. تطويل السجود أفضل من تطويل الركوع</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ الروضة</span>
+  <p><b>قال في الروضة: تطويل السجود أفضل من تطويل الركوع</b></p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">ملاحظة المصنّف</span>
+  <p>هذا الكلام نقله المصنّف بلفظه قبل كلامه على ركن قراءة الفاتحة، ثمّ أعاده هنا بلفظه أيضاً. وكان الأولى عدم إعادته مرّة أخرى مراعاةً للاختصار.</p>
+</div>
+
+<!-- ===== 10. الركن الثامن ===== -->
+<h2 class="section-title">١٠. الركن الثامن: الجلوس بين السجدتين</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وثامنها: جلوس بينهما</b> — أي بين السجدتين. <b>ولو في نفل على المعتمد</b></p>
+</div>
+
+<h3 class="sub-title">أقلّ الجلوس وأكمله</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">تعريف</span>
+  <p><b>أقلّ الجلوس بين السجدتين:</b> أن يستوي جالساً.</p>
+  <p><b>أكمله:</b> أن يستوي جالساً ويأتي بالذكر المشروع في هذا الموضع.</p>
+</div>
+
+<h3 class="sub-title">الخلاف في ركنية الجلوس بين السجدتين في النفل</h3>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">المعتمد في المذهب</div>
+    <div class="compare-card-body">الجلوس بين السجدتين <b>ركن في النفل</b><br>كما هو ركن في الفرض قطعاً</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">الأردبيلي في الأنوار</div>
+    <div class="compare-card-body">الجلوس بين السجدتين <b>ليس ركناً في النفل</b><br>وكذا الاعتدال ليس ركناً في النفل عنده<br>لكنّ هذا الرأي <b>غير معتمد</b> في المذهب</div>
+  </div>
+</div>
+
+<div class="key-rule">
+  المعتمد في المذهب الشافعي:<br>
+  <b>الاعتدال والجلوس بين السجدتين ركنان في صلاة النفل</b><br>
+  كما هما ركنان في صلاة الفرض
+</div>
+
+<div class="scholar-card">
+  <div class="scholar-name">كتاب الأنوار لأعمال الأبرار — الأردبيلي</div>
+  <div class="scholar-info">كتاب واسع في ثلاثة مجلّدات بتحقيق الشيخ د. خلف المطلق من فقهاء الشافعية في الكويت. يُقرأ عادةً بعد المنهاج لمن أراد التوسّع. مؤلّفه الأردبيلي توفي تقريباً سنة 737 هـ.</div>
+</div>
+
+<!-- ===== 11. عدم قصد غير الرفع ===== -->
+<h2 class="section-title">١١. عدم قصد غير الرفع من السجود</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويجب أن لا يقصد برفعه غيره</b> — أي إذا قام من السجدتين لا يقصد غير الرفع من السجود.</p>
+</div>
+
+<h3 class="sub-title">أحوال قصد الرفع</h3>
+
+<table>
+  <tr>
+    <th>الحالة</th>
+    <th>التفصيل</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td><b>قصد الرفع فقط</b></td>
+    <td>قصد رفع رأسه من السجود فقط</td>
+    <td><span class="highlight-green">يصحّ ويجزئه</span></td>
+  </tr>
+  <tr>
+    <td><b>قصد الرفع وغيره</b></td>
+    <td>قصد الرفع وأمراً آخر معه</td>
+    <td><span class="highlight-green">يصحّ ويجزئه</span></td>
+  </tr>
+  <tr>
+    <td><b>أطلق ولم يقصد شيئاً</b></td>
+    <td>لم يقصد شيئاً بعينه</td>
+    <td><span class="highlight-green">يصحّ ويجزئه</span></td>
+  </tr>
+  <tr>
+    <td><b>قصد غير الرفع</b></td>
+    <td>رفع رأسه بقصد آخر غير الجلوس بين السجدتين</td>
+    <td><span class="highlight-red">لا يجزئه</span> — يجب أن يعود للسجود ثمّ يرفع قاصداً الجلوس</td>
+  </tr>
+</table>
+
+<div class="exception-box">
+  <span class="box-label label-exc">مثال</span>
+  <p><b>لو رفع فزعاً</b> — «فزعاً» مفعول لأجله — أي رفع رأسه من السجود بسبب الفزع وليس بقصد الجلوس بين السجدتين، فإنّ رفعه لا يجزئه. بل يجب عليه أن يعود إلى السجود ثمّ يرفع رأسه قاصداً الجلوس بين السجدتين، أو قاصداً الجلوس وغيره، أو مطلقاً لا يقصد شيئاً.</p>
+</div>
+
+<!-- ===== 12. إدامة وضع اليدين ===== -->
+<h2 class="section-title">١٢. إدامة وضع اليدين على الأرض بين السجدتين</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ولا يضرّ إدامة وضع يديه على الأرض إلى السجدة الثانية اتّفاقاً خلافاً لمن وهم فيه</b></p>
+</div>
+
+<p>عندما يرفع رأسه من السجود لكن بقيت يداه على الأرض — أي جلس لكن لم يضع يديه على فخذيه وإنّما بقيت اليدان في الأرض — <b>يصحّ جلوسه بين السجدتين بالاتّفاق</b>، خلافاً لمن وهم في ذلك فظنّ بطلان الصلاة.</p>
+
+<div class="note-box">
+  <span class="box-label label-note">توضيح</span>
+  <p>قوله «ولا يضرّ» أي لا تبطل به الصلاة. وإلّا فهو <b>مكروه</b> — لو رفع رأسه من السجود وبقيت يداه في الأرض فهذا مكروه لكن لا يؤثّر على صحّة الصلاة.</p>
+</div>
+
+<!-- ===== 13. لا يطوّل ===== -->
+<h2 class="section-title">١٣. لا يطوّل الجلوس بين السجدتين ولا الاعتدال</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ولا يطوّله ولا اعتدالاً لأنّهما غير مقصودين لذاتهما</b> — أي لا يطوّل الجلوس بين السجدتين ولا الاعتدال، لأنّهما ليسا مقصودين لذاتهما بل شرعا للفصل.</p>
+</div>
+
+<h3 class="sub-title">سبب عدم التطويل</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">تعليل</span>
+  <p><b>الاعتدال:</b> شُرع للفصل بين الركوع والسجود.</p>
+  <p><b>الجلوس بين السجدتين:</b> شُرع للفصل بين السجدة الأولى والسجدة الثانية.</p>
+  <p>ولما كانا مقصودين للفصل لا لذاتهما، كانا <b>ركنين قصيرين</b> لا يُشرّع تطويلهما.</p>
+</div>
+
+<h3 class="sub-title">مقدار التطويل المُبطِل على المعتمد</h3>
+
+<table>
+  <tr>
+    <th>الركن</th>
+    <th>الذكر المشروع فيه</th>
+    <th>مقدار التطويل المُبطِل</th>
+  </tr>
+  <tr>
+    <td><b>الاعتدال</b></td>
+    <td>سمع الله لمن حمده، ربّنا لك الحمد ملء السماوات وملء الأرض وملء ما شئت من شيء بعد</td>
+    <td>لو زاد على الذكر المشروع <b>قدر قراءة الفاتحة</b> بقراءة متوسّطة عالماً عامداً <span class="highlight-red">بطلت صلاته</span></td>
+  </tr>
+  <tr>
+    <td><b>الجلوس بين السجدتين</b></td>
+    <td>ربّ اغفر لي وارحمني واجبرني وارفعني وارزقني واهدني وعافني، ربّ اغفرلي ثلاثاً</td>
+    <td>لو زاد على الذكر المشروع <b>قدر أقلّ التشهّد</b> عالماً عامداً <span class="highlight-red">بطلت صلاته</span></td>
+  </tr>
+</table>
+
+<h3 class="sub-title">الرأي الآخر: هما ركنان طويلان</h3>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">معتمد المذهب</div>
+    <div class="compare-card-body">الاعتدال والجلوس بين السجدتين<br><b>ركنان قصيران</b><br>تطويلهما بالقدر المذكور يُبطل الصلاة</div>
+  </div>
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">اختيار جماعة من الشافعية</div>
+    <div class="compare-card-body">الاعتدال والجلوس بين السجدتين<br><b>ركنان طويلان</b><br>لا يضرّ تطويلهما — ومنهم <b>الإمام النووي</b></div>
+  </div>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">دليل اختيار النووي</span>
+  <p>جاء في الصحيح أنّ النبيّ صلّى الله عليه وسلّم <b>كان إذا رفع رأسه من الركوع وقف حتى يظنّ الظانّ أنّه قد نسي</b> — أي لأنّه يطيل الاعتدال. <b>وإذا رفع رأسه من السجود فإنّه يجلس حتى يظنّ الظانّ أنّه قد نسي</b> — أي لأنّه يطيل الجلوس بين السجدتين. هذا الحديث يقوي اختيار أنّهما ركنان طويلان.</p>
+</div>
+
+<div class="exception-box">
+  <span class="box-label label-exc">استثناء: اعتدال الركعة الأخيرة</span>
+  <p>اعتدال الركعة الأخيرة <b>مستثنى</b> — لو طوّله لا يضرّ، لأنّ اعتدال الركعة الأخيرة قد ورد تطويله في السنّة بالقنوت، فهو مستثنى من المنع.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">تعقيب</span>
+  <p>لم يُشِر المصنّف رحمه الله إلى الرأي الثاني الذي اختاره عدد من الشافعية ومنهم الإمام النووي، ولو أشار إلى ذلك لكان أفضل وأحبّ.</p>
+</div>
+
+<!-- ===== 14. سنة الافتراش ===== -->
+<h2 class="section-title">١٤. سنة الافتراش في أربعة مواضع</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وسنّ فيه — أي الجلوس بين السجدتين — وفي تشهّد أول وجلسة استراحة وكذا في تشهّد أخير إن تعقبه سجود سهو: افتراش</b></p>
+</div>
+
+<h3 class="sub-title">موضعان يسنّ فيهما التورّك</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">تعريف الافتراش</span>
+  <p><b>الافتراش:</b> أن يجلس على كعب يسراه بحيث يلي ظهرها الأرض، وينصب اليمنى.</p>
+  <p><b>التورّك:</b> يُسنّ في التشهّد الأخير إذا كان بعده سلام (لا سجود سهو).</p>
+</div>
+
+<h3 class="sub-title">المواضع الأربعة التي يسنّ فيها الافتراش</h3>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #f0fdf4; border: 1px solid #bbf7d0;">
+    <span class="condition-num">١</span>
+    <b>الجلوس بين السجدتين</b>
+  </div>
+  <div class="condition-item" style="background: #f0fdf4; border: 1px solid #bbf7d0;">
+    <span class="condition-num">٢</span>
+    <b>التشهّد الأوّل</b>
+  </div>
+  <div class="condition-item" style="background: #f0fdf4; border: 1px solid #bbf7d0;">
+    <span class="condition-num">٣</span>
+    <b>جلسة الاستراحة</b>
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٤</span>
+    <b>التشهّد الأخير إن أعقبه سجود سهو</b>
+  </div>
+</div>
+
+<div class="tree-container">
+  <div class="tree-root">جلسة المصلي</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">يفترش</div>
+      <div class="tree-branch-label">١. بين السجدتين<br>٢. التشهّد الأول<br>٣. جلسة الاستراحة<br>٤. التشهّد الأخير + سجود سهو</div>
+    </div>
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a;">
+      <div class="tree-branch-num">يتورّك</div>
+      <div class="tree-branch-label">التشهّد الأخير<br>بعده سلام<br>(لا سجود سهو)</div>
+    </div>
+  </div>
+</div>
+
+<h3 class="sub-title">مصطلح «التشهّد الأوّل»</h3>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه لغوي</span>
+  <p>التعبير الجاري على ألسنة فقهائنا الشافعية هو <b>«التشهّد الأوّل»</b> ولا يستعملون مصطلح «التشهّد الأوسط» إلا نادراً. وأوّل من وجدته استعمل مصطلح «التشهّد الأوسط» هو <b>ابن الرفعة</b> في كفاية النبيه، وإلّا لا يُعرف أنّ أحداً قبله استعمله.</p>
+</div>
+
+<h3 class="sub-title">هيئة وضع اليدين</h3>
+
+<p>يضع كفّيه على فخذيه قريباً من ركبتيه بحيث تسامتهما رؤوس الأصابع، ناشراً أصابعه — أي ليس قابضاً لها — ويقول: <b>ربّ اغفر لي</b> إلى آخر الدعاء.</p>
+
+<!-- ===== 15. أذكار الجلوس ===== -->
+<h2 class="section-title">١٥. أذكار الجلوس بين السجدتين</h2>
+
+<div class="dua-box">
+  ربّ اغفر لي وارحمني واجبرني وارفعني وارزقني واهدني وعافني
+</div>
+
+<h3 class="sub-title">معنى «واجبرني»</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">معنى الجبر</span>
+  <p><b>الجبر</b> في اللغة: الإصلاح. ومنه سمّيت <b>الجبيرة</b> لأنّها تصلح العظم المكسور.</p>
+  <p><b>واجبرني</b> أي: عوّضني يا ربّ ما ذهب عنّي بسبب المصيبة. إذا أصابت الإنسان مصيبة — مات حبيب له أو ذهب ماله — يقول: يا ربّ اجبرني، أي عوّضني ما فاتني بسبب هذه المصيبة.</p>
+</div>
+
+<h3 class="sub-title">معنى «وارفعني»</h3>
+
+<p><b>وارفعني</b> أي ارفع قدري ومكانتي.</p>
+
+<h3 class="sub-title">تكرار «ربّ اغفر لي»</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويكرر قول «ربّ اغفر لي» ثلاثاً</b> — فيقول: ربّ اغفر لي، ربّ اغفر لي، ربّ اغفر لي.</p>
+</div>
+
+<div class="key-rule">
+  ظاهر النصّ أنّه <b>يجمع بين الدعائين</b> في الجلوس بين السجدتين:<br>
+  أوّلاً: ربّ اغفر لي وارحمني واجبرني وارفعني وارزقني واهدني وعافني<br>
+  ثمّ: ربّ اغفر لي، ربّ اغفر لي، ربّ اغفر لي<br>
+  وهو ما أشار إليه الإمام النووي في كتاب الأذكار
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه على خطأ في بعض النسخ</span>
+  <p>في بعض النسخ مكتوب <b>«ويكره»</b> بدلاً من <b>«ويكرر»</b> — وهذا <b>خطأ فاحش</b>. والصواب «ويكرر» كما في جميع النسخ المعتمدة. ويوجد في بيت الشيخ نسخة المطبوعة مع إعانة الطالبين مكتوب فيها «ويكره» وهو خطأ.</p>
+</div>
+
+<!-- ===== 16. جلسة الاستراحة ===== -->
+<h2 class="section-title">١٦. جلسة الاستراحة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وسنّ جلسة استراحة بقدر الجلوس بين السجدتين للاتّباع ولو في نفل وإن تركها الإمام خلافاً لشيخنا</b> — أي يُسنّ جلسة الاستراحة لقيام بعد سجود لغير تلاوة.</p>
+</div>
+
+<p>جلسة الاستراحة مستحبّة عند فقهاء الشافعية لثبوت الأحاديث بها، وبعض الأحاديث صحيح. <b>واستحباب جلسة الاستراحة ممّا انفرد به المذهب الشافعي عن بقية المذاهب</b>.</p>
+
+<p>وأشار صاحب الزّبد رحمه الله إلى جلسة الاستراحة فقال: <i>«وجلسة الراحة خفّضاها في كلّ ركعة تقوم عنها»</i></p>
+
+<h3 class="sub-title">الأمر الأوّل: متى تُشرع جلسة الاستراحة؟</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">القاعدة</span>
+  <p>تُشرع جلسة الاستراحة عند <b>إرادة قيام بعد سجود</b> — كلّ قيام بعد سجود يُسنّ فيه جلسة الاستراحة — <b>إلا سجود التلاوة</b> فلا يُسنّ بعدها جلسة استراحة لأنّها لم ترد عن النبيّ صلّى الله عليه وسلّم بعد سجود التلاوة.</p>
+</div>
+
+<h3 class="sub-title">تُسنّ حتى لو فوتّت سنة</h3>
+
+<p>حتى لو كان هذا القيام يفوت سنة، فإنّ جلسة الاستراحة تُسنّ. مثال ذلك: لو أراد أن لا يجلس للتشهّد الأوّل في الركعة الثانية — سجد السجدة الأولى، جلس بين السجدتين، سجد السجدة الثانية، أراد أن يقوم للثالثة مباشرة — هذا قيامه للثالثة قيام بعد سجود، <b>فيسنّ له جلسة الاستراحة</b> مع أنّه فوّت التشهّد الأوّل.</p>
+
+<h3 class="sub-title">الأمر الثاني: مقدار جلسة الاستراحة</h3>
+
+<div class="key-rule">
+  مقدار جلسة الاستراحة = مقدار الجلوس بين السجدتين<br>
+  أي: يستوي جالساً ويأتي بالذكر المشروع (ربّ اغفر لي...)<br>
+  لو زاد على القدر المشروع <b>يُكره</b><br>
+  ولو زاد بقدر أقلّ التشهّد <b>تبطل الصلاة</b> على المعتمد
+</div>
+
+<h3 class="sub-title">الخلاف مع الإمام في جلسة الاستراحة</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف بين المصنّف وشيخه</span>
+  <p>هذا <b>أوّل موضع</b> يصرّح فيه المليباري بمخالفة شيخه ابن حجر بقوله «خلافاً لشيخنا».</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">المصنّف (المليباري)</div>
+    <div class="compare-card-body">إذا ترك الإمام جلسة الاستراحة<br><b>يسنّ للمأموم أن يجلس</b><br>لأنّ التخلّف زمنه قصير</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">شيخه (ابن حجر)</div>
+    <div class="compare-card-body">إذا ترك الإمام جلسة الاستراحة<br><b>لا يُسنّ للمأموم أن يجلس</b><br>بل يتابع الإمام</div>
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">الفرق بين جلسة الاستراحة والتشهّد الأول</span>
+  <p>لو ترك الإمام التشهّد الأوّل وقام، <b>يلزمك أن تتابعه وتقوم</b> لأنّ التخلّف للتشهّد الأوّل زمنه طويل. لكن لو ترك الإمام جلسة الاستراحة وقام، <b>يسنّ لك أن تجلس</b> لأنّ التخلّف لجلسة الاستراحة زمنه قصير.</p>
+</div>
+
+<h3 class="sub-title">جلسة الاستراحة للشابّ والشيخ</h3>
+
+<p>يستحبّ الجلوس للاستراحة <b>ولو كان شابّاً</b> — بعض الفقهاء يقول إنّ جلسة الاستراحة تستحبّ للشيخ الكبير فقط، لكنّ الصواب أنّها تُستحبّ لكلّ مصلّ سواء كان شابّاً أو شيخاً.</p>
+
+<h3 class="sub-title">المسألة الأصوليّة: التعبد أم العادة؟</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">مسألة أصوليّة</span>
+  <p>إذا فعل النبيّ صلّى الله عليه وسلّم شيئاً يحتمل أنّه فعله <b>تعبّداً</b> ويحتمل أنّه فعله <b>عادةً وطبيعة</b> — فماذا نغلب؟</p>
+</div>
+
+<div class="key-rule">
+  قاعدة أصوليّة:<br>
+  <b>الأصل في أفعال النبيّ صلّى الله عليه وسلّم التشريع</b><br>
+  فإذا دار الأمر بين كون الفعل تعبّداً أو عادةً<br>
+  غُلّب جانب التعبّد فيُسنّ الاقتداء به
+</div>
+
+<h3 class="sub-title">تطبيقات هذه القاعدة</h3>
+
+<table>
+  <tr>
+    <th>الفعل النبويّ</th>
+    <th>الاحتمال</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td><b>جلسة الاستراحة</b></td>
+    <td>فعله لكبر سنّه (عادة) أو تشريعاً للأمّة (تعبّد)</td>
+    <td>تعبّد → يُسنّ لكلّ مصلّ شابّاً أو شيخاً</td>
+  </tr>
+  <tr>
+    <td><b>الذهاب للعيد من طريق والعودة من أخرى</b></td>
+    <td>عادةً أو تشريعاً</td>
+    <td>تعبّد → يُستحبّ الذهاب من طريق والعودة من أخرى</td>
+  </tr>
+  <tr>
+    <td><b>دخول مكّة من كداء والخروج من أخرى</b></td>
+    <td>عادةً أو تشريعاً</td>
+    <td>تعبّد → يُستحبّ ذلك</td>
+  </tr>
+</table>
+
+<!-- ===== 17. الاعتماد على اليدين ===== -->
+<h2 class="section-title">١٧. الاعتماد على اليدين في القيام من السجود</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويسنّ اعتماد على بطن كفيه في قيام من سجود وقعود</b> — أي يُسنّ أن يعتمد على يديه لا على ركبتيه عند القيام من السجود والقعود.</p>
+</div>
+
+<h3 class="sub-title">خلاف المذاهب في صفة القيام</h3>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">المذهب الشافعي</div>
+    <div class="compare-card-body">يعتمد على <b>اليدين</b><br>يضع راحتيه وأصابعه في الأرض<br>ثمّ ينهض بهذا الشكل</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">المذهب الحنبلي والمالكي</div>
+    <div class="compare-card-body">يعتمد على <b>الركبتين</b><br>يضع يديه على ركبتيه<br>ثمّ يقوم</div>
+  </div>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p>ثابت في حديث <b>مالك بن الحويرث</b> في صحيح البخاري: أنّ النبيّ صلّى الله عليه وسلّم كان إذا قام <b>اعتمد على يديه</b>. وفي بعض الروايات خارج الصحيح: «اعتمد على يديه <b>على هيئة العاجز</b>».</p>
+</div>
+
+<h3 class="sub-title">معنى «على هيئة العاجز» (أو العاجن)</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">التفسير الصحيح</span>
+  <p>ضُبطت بضبطين: <b>«العاجز»</b> و<b>«العاجن»</b>.</p>
+  <p><b>المعنى:</b> أنّه يعتمد على كفّيه وبطون أصابعه — يجلس للاستراحة ثمّ يضع راحتيه في الأرض ويقوم بهذا الشكل.</p>
+  <p><b>وليس المقصود</b> أنّه يفعل كالعاجن الذي يعجن الخبز — أي يضرب بيده هكذا — ليس هذا المقصود، بل المقصود أنّه يعتمد على يديه كهيئة الشيخ الكبير الذي يحتاج للاعتماد.</p>
+  <p>وسمّي الشيخ الكبير <b>«عاجزاً»</b> أو <b>«عاجناً»</b> عند العرب مجازاً — لأنّه كالذي يعجن من ضعفه وحاجته للاعتماد على يديه.</p>
+</div>
+
+<h3 class="sub-title">كلام ابن حجر في التحفة</h3>
+
+<div class="scholar-card">
+  <div class="scholar-name">العلامة ابن حجر — التحفة</div>
+  <div class="scholar-info">قال: «أن يعتمد في قيامه من السجود والقعود وللاستراحة أو التشهّد على بطن راحة وأصابع يديه موضوعتين بالأرض، لأنّه أعون — أي يعينه في القيام — وأشبه بالتواضع، مع ثبوته عنه صلّى الله عليه وسلّم».</div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">تفسير آخر</span>
+  <p>قال عدد من فقهاء الشافعية: إنّ المراد بـ«العاجن» هنا هو <b>الشيخ الكبير</b> — أي أنّ النبيّ صلّى الله عليه وسلّم كان يعتمد على يديه عند القيام كاعتماد الشيخ الكبير على يديه.</p>
+</div>
+
+<!-- ===== 18. الركن التاسع ===== -->
+<h2 class="section-title">١٨. الركن التاسع: الطمأنينة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وتاسعها: طمأنينة في كلّ من الركوع والسجودين والجلوس بينهما والاعتدال ولو كان في نفل</b></p>
+</div>
+
+<p>الركن التاسع من أركان الصلاة هو <b>الطمأنينة</b> — أي السكون والاستقرار — في كلّ من الركوع والسجود والجلوس بين السجدتين والاعتدال، ولو كانت الصلاة نفلاً.</p>
+
+<div class="note-box">
+  <span class="box-label label-note">خلافاً للأنوار</span>
+  <p>قوله «ولو كان في نفل» خلافاً لكتاب <b>الأنوار لأعمال الأبرار</b> للأردبيلي الذي يرى أنّ الجلوس بين السجدتين والاعتدال ليسا ركنين في النفل.</p>
+</div>
+
+<h3 class="sub-title">ضابط الطمأنينة</h3>
+
+<div class="key-rule">
+  ضابط الطمأنينة:<br>
+  <b>أن تستقرّ أعضاؤه بحيث ينفصل ممّا تقلّ إليه عمّا تقلّ عنه</b><br><br>
+  يطمئنّ في الاعتدال لينفصل عن الركوع<br>
+  يطمئنّ في السجود لينفصل عن الاعتدال<br>
+  يطمئنّ في الجلوس بين السجدتين لينفصل عن السجود<br>
+  وهكذا...
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">خاتمة الدرس</span>
+  <p>ينتهي هذا الدرس عند الركن التاسع (الطمأنينة)، وسيُترك الركن العاشر للدرس القادم لأنّ الكلام حوله طويل.</p>
+</div>
+
+</body>
+</html>

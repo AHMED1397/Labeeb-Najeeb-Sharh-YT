@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf') format('truetype'); font-weight: normal; }
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf') format('truetype'); font-weight: bold; }
+@font-face { font-family: 'NotoNaskh'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf') format('truetype'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+
+body {
+  font-family: 'NotoNaskh', 'Amiri', serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #1a1a2e;
+  direction: rtl;
+  background: #fff;
+  text-align: justify;
+}
+
+.cover-header {
+  background: #1a5632;
+  color: white;
+  padding: 20px 14px;
+  text-align: center;
+  margin: 0 0 12px 0;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px);
+  border-bottom: 4px solid #c8a951;
+}
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 6px; border: none; font-family: 'Amiri', serif; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.9; margin: 4px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.92; margin: 6px 0 2px 0; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .creator { font-size: 11pt; opacity: 0.85; margin-top: 2px; }
+.cover-header .series { font-size: 11pt; opacity: 0.8; margin-top: 4px; }
+
+.toc {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 0 0 12px 0;
+}
+.toc-title {
+  font-family: 'Amiri', serif;
+  font-size: 14pt;
+  color: #1a5632;
+  text-align: center;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #c8a951;
+  padding-bottom: 4px;
+}
+.toc-item {
+  font-size: 10pt;
+  padding: 2px 0;
+  border-bottom: 1px dotted #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+h2.section-title {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0d7c3e;
+  border-bottom: 2px solid #0d7c3e;
+  padding-bottom: 5px;
+  margin: 18px 0 10px;
+}
+
+h3.sub-title {
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: #0a5c2e;
+  margin: 14px 0 8px;
+  padding-right: 10px;
+  border-right: 4px solid #0d7c3e;
+}
+
+h4.minor-title {
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #166534;
+  margin: 10px 0 6px;
+}
+
+p { margin: 5px 0; text-align: justify; }
+
+.definition-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-right: 4px solid #0d7c3e;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.rule-box {
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-right: 4px solid #d97706;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.exception-box {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-right: 4px solid #ea580c;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.evidence-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-right: 4px solid #2563eb;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.issue-box {
+  background: #fdf2f8;
+  border: 1px solid #fbcfe8;
+  border-right: 4px solid #db2777;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.comparison-box {
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  border-right: 4px solid #7c3aed;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.note-box {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-right: 4px solid #0284c7;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.key-rule {
+  background: #dcfce7;
+  border: 2px solid #16a34a;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.box-label {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 4px;
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.label-def { background: #0d7c3e; }
+.label-rule { background: #d97706; }
+.label-exc { background: #ea580c; }
+.label-ev { background: #2563eb; }
+.label-issue { background: #db2777; }
+.label-comp { background: #7c3aed; }
+.label-note { background: #0284c7; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 13px;
+  table-layout: fixed;
+}
+
+th {
+  background: #0d7c3e;
+  color: #fff;
+  padding: 6px 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+td {
+  padding: 5px 8px;
+  border: 1px solid #d1d5db;
+  text-align: center;
+  vertical-align: top;
+}
+
+tr:nth-child(even) { background: #f0fdf4; }
+tr:nth-child(odd) { background: #fff; }
+
+.tree-container { margin: 12px 0; text-align: center; }
+.tree-root {
+  display: inline-block;
+  background: linear-gradient(135deg, #0d7c3e, #0a5c2e);
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+.tree-branches { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px; }
+.tree-branch {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  min-width: 80px;
+  text-align: center;
+}
+.tree-branch-num { font-family: 'Amiri', serif; font-weight: bold; color: #0d7c3e; font-size: 14px; }
+.tree-branch-label { font-size: 12px; color: #374151; }
+
+.compare-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.compare-card { flex: 1; min-width: 140px; border-radius: 8px; padding: 8px 10px; text-align: center; }
+.compare-card-green { background: #dcfce7; border: 1px solid #86efac; }
+.compare-card-red { background: #fef2f2; border: 1px solid #fca5a5; }
+.compare-card-gold { background: #fefce8; border: 1px solid #fde68a; }
+.compare-card-blue { background: #eff6ff; border: 1px solid #bfdbfe; }
+.compare-card-title { font-family: 'Amiri', serif; font-weight: bold; font-size: 14px; margin-bottom: 4px; }
+.compare-card-body { font-size: 12px; }
+
+.flow-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px; margin: 8px 0; }
+.flow-box { background: #0d7c3e; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-family: 'Amiri', serif; font-weight: bold; text-align: center; }
+.flow-arrow { font-size: 16px; color: #0d7c3e; font-weight: bold; }
+.flow-result { padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; text-align: center; }
+.flow-pure { background: #dcfce7; border: 1px solid #86efac; color: #166534; }
+.flow-impure { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+
+.highlight-green { background: #dcfce7; padding: 1px 4px; border-radius: 3px; }
+.highlight-gold { background: #fefce8; padding: 1px 4px; border-radius: 3px; }
+.highlight-red { background: #fef2f2; padding: 1px 4px; border-radius: 3px; }
+
+.verse-ref { font-family: 'Amiri', serif; font-size: 14px; color: #1e40af; text-align: center; margin: 6px 0; }
+
+.condition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.condition-item { border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.condition-num {
+  display: inline-block; background: #0d7c3e; color: #fff; min-width: 24px; height: 24px;
+  border-radius: 50%; text-align: center; line-height: 24px; font-family: 'Amiri', serif;
+  font-weight: bold; font-size: 12px; margin-left: 6px;
+}
+
+.excused-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.excused-item { background: #fefce8; border: 1px solid #fde68a; border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.excused-num {
+  display: inline-block; background: #d97706; color: #fff; width: 22px; height: 22px;
+  border-radius: 50%; text-align: center; line-height: 22px; font-family: 'Amiri', serif;
+  font-weight: bold; font-size: 12px; margin-left: 6px;
+}
+
+.dua-box {
+  background: #f5f3ff;
+  border: 2px solid #7c3aed;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 10px 0;
+  text-align: center;
+}
+.dua-box .dua-text {
+  font-family: 'Amiri', serif;
+  font-size: 18px;
+  color: #4c1d95;
+  margin: 6px 0;
+  line-height: 2;
+}
+.dua-box .dua-meaning {
+  font-size: 12px;
+  color: #6b21a8;
+  margin-top: 4px;
+}
+</style>
+</head>
+<body>
+
+<!-- ===== COVER HEADER ===== -->
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس الثلاثون — أحكام الاستنجاء وآداب قضاء الحاجة</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="creator">تنسيق: أحمد بن إرشاد</div>
+  <div class="series">الاستنجاء بالماء والحجر · شروط الحجر · آداب الخلاء · استقبال القبلة · الأذكار</div>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. تعريف الاستنجاء وأركانه</span><span>١</span></div>
+  <div class="toc-item"><span>٢. أحكام الاستنجاء التكليفية</span><span>١</span></div>
+  <div class="toc-item"><span>٣. الاستنجاء بالماء</span><span>٢</span></div>
+  <div class="toc-item"><span>٤. الاستنجاء بالحجر: المراتب الثلاث</span><span>٣</span></div>
+  <div class="toc-item"><span>٥. شروط الاستنجاء بالحجر (١١ شرطاً)</span><span>٤</span></div>
+  <div class="toc-item"><span>٦. آداب دخول الخلاء والانصراف</span><span>٧</span></div>
+  <div class="toc-item"><span>٧. آداب قضاء الحاجة: السكوت والبعد والاستتار</span><span>٨</span></div>
+  <div class="toc-item"><span>٨. المواضع المكروهة لقضاء الحاجة (أربعة)</span><span>٩</span></div>
+  <div class="toc-item"><span>٩. استقبال القبلة واستدبارها حال قضاء الحاجة</span><span>١١</span></div>
+  <div class="toc-item"><span>١٠. أذكار الخلاء</span><span>١٢</span></div>
+  <div class="toc-item"><span>١١. مسألة: الشكّ بعد الاستنجاء</span><span>١٣</span></div>
+</div>
+
+<!-- ===== 1. تعريف الاستنجاء ===== -->
+<h2 class="section-title">١. تعريف الاستنجاء وأركانه</h2>
+
+<div class="definition-box">
+  <span class="box-label label-def">لغةً</span>
+  <p><b>الاستنجاء:</b> مأخوذ من النجو بمعنى القطع.</p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">شرعاً</span>
+  <p><b>الاستنجاء:</b> إزالة الخارج النجس من الفرج عن الفرج بماء أو حجر.</p>
+</div>
+
+<p>من هذا التعريف يظهر أنّ للاستنجاء <b>أربعة أركان</b>:</p>
+
+<table>
+  <tr>
+    <th>الركن</th>
+    <th>التعريف</th>
+    <th>موضعه في التعريف</th>
+  </tr>
+  <tr>
+    <td><b>المُزيل</b></td>
+    <td>الشخص المستنجي</td>
+    <td>كلمة "إزالة" تستدعي وجود مزيل</td>
+  </tr>
+  <tr>
+    <td><b>المُزال</b></td>
+    <td>الخارج النجس الملوّث</td>
+    <td>"الخارج النجس"</td>
+  </tr>
+  <tr>
+    <td><b>المُزال به</b></td>
+    <td>الماء أو الحجر</td>
+    <td>"بماء أو حجر"</td>
+  </tr>
+  <tr>
+    <td><b>المُزال عنه</b></td>
+    <td>الفرج (القُبُل أو الدُبُر)</td>
+    <td>"عن الفرج"</td>
+  </tr>
+</table>
+
+<!-- ===== 2. أحكام الاستنجاء ===== -->
+<h2 class="section-title">٢. أحكام الاستنجاء التكليفية</h2>
+
+<p>الاستنجاء تدور عليه الأحكام التكليفية بحسب حال الخارج:</p>
+
+<table>
+  <tr>
+    <th>الحكم</th>
+    <th>الصورة</th>
+    <th>المثال</th>
+  </tr>
+  <tr>
+    <td><span class="highlight-red"><b>واجب</b></span></td>
+    <td>من كلّ خارج نجس ملوّث</td>
+    <td>بول أو غائط لوّث المحلّ</td>
+  </tr>
+  <tr>
+    <td><span class="highlight-green"><b>مندوب</b></span></td>
+    <td>من الطاهر كالمنيّ، أو من غير الملوّث</td>
+    <td>غائط يابس لم يلوّث المحلّ</td>
+  </tr>
+  <tr>
+    <td><span class="highlight-gold"><b>مكروه</b></span></td>
+    <td>الاستنجاء من الريح</td>
+    <td>خرجت ريح لا غير</td>
+  </tr>
+  <tr>
+    <td><span class="highlight-red"><b>حرام مع الإجزاء</b></span></td>
+    <td>الاستنجاء بمغصوب</td>
+    <td>غصب ماءً فاستنجى به — حرام لكنّه يجزئ</td>
+  </tr>
+  <tr>
+    <td><span class="highlight-red"><b>حرام بلا إجزاء</b></span></td>
+    <td>الاستنجاء بمطعوم آدميّ</td>
+    <td>استنجى بطعام — حرام ولا يجزئ</td>
+  </tr>
+</table>
+
+<h3 class="sub-title">هل الاستنجاء واجب على الفور؟</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الأصل</span>
+  <p><b>لا يجب على الفورية</b> إلا في حالتين:</p>
+  <p><b>الأولى:</b> إذا ضاق وقت الصلاة — فيجب فوراً ليتمكّن من الصلاة.</p>
+  <p><b>الثانية:</b> إذا كان تأخيره سيسبّب تضمّخاً بالنجاسة (تلوّث البدن أو الثوب بالنجاسة الباقية) — فيجب فوراً.</p>
+</div>
+
+<!-- ===== 3. الاستنجاء بالماء ===== -->
+<h2 class="section-title">٣. الاستنجاء بالماء</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">النصّ</span>
+  <p><b>يجب الاستنجاء من كلّ خارج ملوّث بماء ويكفي فيه غلبة ظنّ زوال النجاسة</b></p>
+</div>
+
+<div class="key-rule">
+  الاستنجاء بالماء: يكفي <b>غلبة الظنّ</b> في زوال النجاسة<br>
+  لا يُشترط اليقين
+</div>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">✓</span>
+    <b>غلب على ظنّه زوال النجاسة:</b> حصل الواجب وكفى. ولا يُسنّ له أن يشمّ يده بعد ذلك.
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">؟</span>
+    <b>شكّ هل زالت النجاسة:</b> يطلب منه أن يستنجي مرة ثانية وثالثة حتى يحصل له غلبة الظنّ.
+  </div>
+</div>
+
+<h3 class="sub-title">حكم شمّ اليد بعد الاستنجاء</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>ولا يُسنّ حينئذ شمّ يده</b> — أي إذا غلب على ظنّه زوال النجاسة لا يُسنّ أن يشمّ يده. فإن شمّها فوجد رائحة النجاسة فهو دليل على <b>نجاسة اليد</b> لا على نجاسة المحلّ.</p>
+  <p><b>استثناء (ابن حجر):</b> إلا إذا شمّ المكان الذي لاقى المحلّ من يده (كبطن الأصابع) فوجد رائحة النجاسة — فهذا دليل على <span class="highlight-red">نجاسة الموضعين</span>: اليد ومحلّ النجاسة.</p>
+</div>
+
+<h3 class="sub-title">الاسترخاء عند الاستنجاء</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>وينبغي الاسترخاء لألاّ يبقى أثرها في تضاعيف شرج المقعدة</b> — أي عند غسل المحلّ ينبغي أن يسترخي في عضلاته ليُزيل النجاسة من تضاعيف الأماكن الملتصقة. والإنبغاء هنا <b>للوجوب</b> لا للاستحباب.</p>
+</div>
+
+<!-- ===== 4. المراتب الثلاث ===== -->
+<h2 class="section-title">٤. الاستنجاء بالحجر: المراتب الثلاث</h2>
+
+<div class="tree-container">
+  <div class="tree-root">مراتب الاستنجاء</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">الأكمل</div>
+      <div class="tree-branch-label">الحجر ثم الماء<br>الحجر يزيل العين والماء يزيل الأثر</div>
+    </div>
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a;">
+      <div class="tree-branch-num">الثانية</div>
+      <div class="tree-branch-label">الماء فقط<br>يحتاج ملامسة النجاسة</div>
+    </div>
+    <div class="tree-branch" style="background: #f0f9ff; border-color: #bae6fd;">
+      <div class="tree-branch-num">الثالثة</div>
+      <div class="tree-branch-label">الحجر فقط<br>يجوز حتى مع وجود الماء — رخصة</div>
+    </div>
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">فائدة</span>
+  <p>الأكمل أن يستنجي بالحجر أوّلاً لأنّه لا يحتاج إلى ملامسة النجاسة بخلاف الماء مباشرة. ويجوز الاقتصار على الحجر فقط حتى مع وجود الماء لأنّه رخصة.</p>
+</div>
+
+<h3 class="sub-title">لماذا قال "بثلاث مسحات" لا "بثلاثة أحجار"؟</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">دقّة العبارة</span>
+  <p>قال المصنف <b>"بثلاث مسحات"</b> ولم يقل "بثلاثة أحجار" — ليشير إلى أنّه <b>يجزئ حجر واحد</b> له ثلاثة أطراف يُستنجى بكلّ طرف. بل لو كان الحجر له طرف واحد فاستنجى به ثم غسله وقلبه ثم استنجى به ثانية ثم ثالثة — <b>أجزأه</b>. فالمعتبر المسحات لا عدد الأحجار.</p>
+</div>
+
+<!-- ===== 5. شروط الحجر ===== -->
+<h2 class="section-title">٥. شروط الاستنجاء بالحجر (١١ شرطاً)</h2>
+
+<div class="key-rule">
+  شروط إجزاء الحجر في الاستنجاء = ١١ شرطاً<br>
+  ٤ تتعلّق بالحجر + ٤ تتعلّق بالخارج + ٣ تتعلّق بالمسح
+</div>
+
+<h3 class="sub-title">أولاً: شروط الحجر (٤ شروط)</h3>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">١</span>
+    <b>طاهر</b> — لا يصحّ الاستنجاء بنجس ولا بمتنجّس
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٢</span>
+    <b>جامد</b> — لا يصحّ بما فيه رطوبة أو بمائع غير الماء (كالمناديل المبلّلة)
+  </div>
+  <div class="condition-item" style="background: #f0f9ff; border: 1px solid #bae6fd;">
+    <span class="condition-num">٣</span>
+    <b>قالع</b> — يزيل النجاسة. لا يصحّ برخو أملس كالبلاستيك
+  </div>
+  <div class="condition-item" style="background: #fdf2f8; border: 1px solid #fbcfe8;">
+    <span class="condition-num">٤</span>
+    <b>غير محترم</b> — لا يصحّ بطعام آدميّ ولا طعام جنّ ولا كتب علم
+  </div>
+</div>
+
+<h3 class="sub-title">ثانياً: شروط الخارج (٤ شروط)</h3>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #fef2f2; border: 1px solid #fca5a5;">
+    <span class="condition-num">١</span>
+    <b>أن لا يجفّ</b> — فلو جفّ تعيّن الماء ولا يجزئ الحجر
+  </div>
+  <div class="condition-item" style="background: #fef2f2; border: 1px solid #fca5a5;">
+    <span class="condition-num">٢</span>
+    <b>أن لا يطرأ غيره</b> — كأن غسل ذكره ثم بال فاختلط البول بالماء المتبقّي — تعيّن الماء. <b>استثناء:</b> العرق معفوّ عنه.
+  </div>
+  <div class="condition-item" style="background: #fef2f2; border: 1px solid #fca5a5;">
+    <span class="condition-num">٣</span>
+    <b>أن لا ينتقل</b> — فلو سال من محلّه إلى مكان آخر تعيّن الماء
+  </div>
+  <div class="condition-item" style="background: #fef2f2; border: 1px solid #fca5a5;">
+    <span class="condition-num">٤</span>
+    <b>أن لا يجاوز الصفحة والحشفة</b> — الصفحة: ما ينضمّ من الأليين عند القيام. الحشفة: رأس الذكر. فلو جاوزهما تعيّن الماء
+  </div>
+</div>
+
+<h3 class="sub-title">ثالثاً: شروط المسح (٣ شروط)</h3>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">١</span>
+    <b>أن يكون المسح ثلاثاً</b> — فلو مسح مرة أو مرتين وحصل الإنقاء لا يكفي — لا بدّ من ثلاث. ولو مسح ثلاثاً ولم يحصل الإنقاء يمسح رابعة وخامسة حتى يحصل.
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٢</span>
+    <b>كلّ مسحة تعمّ المحلّ</b> — فلو اقتصر في المسحة على بعض الموضع لا تُحسب.
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٣</span>
+    <b>حصول الإنقاء</b> — أي زوال عين النجاسة. فلو مسح ثلاثاً ولم يحصل الإنقاء لا يكفي ويستمرّ حتى يحصل.
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">مجموع الشروط</span>
+  <p>المصنف ذكر <b>خمسة شروط</b> فقط من الأحد عشر: ثلاث مسحات، تعمّ المحلّ، مع تنقية (الإنقاء)، بجامد، قالع. وترك <b>ستّة شروط</b>: طاهر، غير محترم (من شروط الحجر)، وأربعة شروط الخارج.</p>
+</div>
+
+<!-- ===== 6. آداب دخول الخلاء ===== -->
+<h2 class="section-title">٦. آداب دخول الخلاء والانصراف</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الأدب الأول</span>
+  <p><b>يُقدّم يساره عند الدخول ويمينه عند الانصراف</b> — بعكس المسجد. ومثل الخلاء كلّ مكان فيه معصية كالبنوك الربوية ومواضع القمار — لأنّها مستقذرة شرعاً وإن كانت نظيفة حسّاً.</p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الحديث</span>
+  <p>قال النبيّ صلى الله عليه وسلم: <i>"أحبّ البلاد إلى الله مساجدها وأبغض البلاد إلى الله أسواقها"</i></p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">الخلاء</div>
+    <div class="compare-card-body">الدخول: <b>اليسرى</b><br>الخروج: <b>اليمنى</b></div>
+  </div>
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">المسجد</div>
+    <div class="compare-card-body">الدخول: <b>اليمنى</b><br>الخروج: <b>اليسرى</b></div>
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">إذا كان للحمام دهليز (ممرّ)</span>
+  <p>قال ابن حجر: <b>وإن كان له دهليز فإنّه يقدّم يساره في أوّله وعند قعوده</b> — أي يقدّم اليسار عند باب الحمام وعند مكان قضاء الحاجة.</p>
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الأدب الثاني</span>
+  <p><b>ويُنحّي ما عليه معظّم من قرآن واسم نبيّ أو ملك</b> — أي يُبعد ما كُتب عليه قرآن أو حديث أو مسائل فقه أو اسم نبيّ أو ملك. ولو كان الاسم مشتركاً (كعزيز وأحمد) فإن قُصد به المعظّم كُره، وإن قُصد به الشخص فلا يُكره.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">التسمية بأسماء الأنبياء والملائكة</span>
+  <p><b>لا تُكره التسمية</b> بأسماء الملائكة والأنبياء — كجبريل وميكائيل ومالك وشعيب. إنّما يُكره دخول الخلاء بما كُتب عليه هذه الأسماء تعظيماً.</p>
+</div>
+
+<!-- ===== 7. آداب قضاء الحاجة ===== -->
+<h2 class="section-title">٧. آداب قضاء الحاجة: السكوت والبعد والاستتار</h2>
+
+<h3 class="sub-title">السكوت</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>ويسكت حال خروج خارج ولو عن ذكر</b> — أي يستحبّ السكوت مطلقاً عن كلّ كلام في أثناء خروج الخارج (تبولاً أو تغوّطاً)، حتى عن الذكر والقرآن.</p>
+  <p><b>وفي غير حال خروج الخارج:</b> يسكت عن الذكر والقرآن فقط، أمّا الكلام بغيرهما فلا يُكره.</p>
+</div>
+
+<table>
+  <tr>
+    <th>الحال</th>
+    <th>السكوت عن الذكر والقرآن</th>
+    <th>الكلام بغيرهما</th>
+  </tr>
+  <tr>
+    <td><b>حال خروج الخارج</b></td>
+    <td><span class="highlight-green">يُسنّ السكوت</span></td>
+    <td><span class="highlight-green">يُسنّ السكوت</span></td>
+  </tr>
+  <tr>
+    <td><b>في غير حال الخروج</b></td>
+    <td><span class="highlight-green">يُسنّ السكوت</span></td>
+    <td><span class="highlight-gold">لا يُكره</span></td>
+  </tr>
+</table>
+
+<h3 class="sub-title">البعد والاستتار</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">البعد</span>
+  <p><b>ويبعد</b> — القدر الأقلّ: بحيث لا يُسمع له صوت ولا يُشمّ له ريح. والأكمل: بحيث لا يراه أحد. وفي سنن أبي داود: <i>"كان النبيّ صلى الله عليه وسلم إذا أراد البراز غاب فلا يراه أحد"</i>.</p>
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الاستتار</span>
+  <p><b>ويستتر</b> — عن أعين الناس. فإن كان قاعداً: يكفي ساتر ارتفاعه <b>ثلثا ذراع</b> (≈ ٣٢ سم). وإن كان قائماً: ساتر يستر إلى <b>سرّته</b>.</p>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">ساتران مختلفان</span>
+  <p><b>الساتر عن أعين الناس:</b> يشترط أن يكون <b>عريضاً</b> — ليمنع الناس من رؤية العورة.</p>
+  <p><b>الساتر عن القبلة:</b> لا يشترط أن يكون عريضاً — لأنّ الغرض إكرام القبلة لا ستر العورة، كالسترة في الصلاة. وفي الحديث: <i>"كان النبيّ صلى الله عليه وسلم إذا أراد قضاء حاجته حمل العنزة"</i>.</p>
+</div>
+
+<!-- ===== 8. المواضع المكروهة ===== -->
+<h2 class="section-title">٨. المواضع المكروهة لقضاء الحاجة (أربعة)</h2>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #fef2f2; border: 1px solid #fca5a5;">
+    <span class="condition-num">١</span>
+    <b>ماء مباح راكد غير مستبحر</b> — يُكره. والتفصيل في الجدول أدناه.
+  </div>
+  <div class="condition-item" style="background: #fef2f2; border: 1px solid #fca5a5;">
+    <span class="condition-num">٢</span>
+    <b>متحدّث (مكان يجلس فيه الناس للحديث)</b> — غير مملوك. فإن كان مملوكاً لغيره ولم يعلم رضاه حَرُم.
+  </div>
+  <div class="condition-item" style="background: #fef2f2; border: 1px solid #fca5a5;">
+    <span class="condition-num">٣</span>
+    <b>طريق مسلوك</b> — يُكره بالبول ويُحرّم بالغائط على قول. الطريق المهجور لا يُكره فيه.
+  </div>
+  <div class="condition-item" style="background: #fef2f2; border: 1px solid #fca5a5;">
+    <span class="condition-num">٤</span>
+    <b>تحت شجرة مثمرة</b> — سواء كان الثمر موجوداً أو لا. والكراهة في المكان الذي تصل إليه الثمرة عادةً إذا سقطت.
+  </div>
+</div>
+
+<h3 class="sub-title">تفصيل: قضاء الحاجة في الماء</h3>
+
+<table>
+  <tr>
+    <th>نوع الماء</th>
+    <th>نهاراً</th>
+    <th>ليلاً</th>
+  </tr>
+  <tr>
+    <td><b>ماء مباح راكد</b></td>
+    <td>مكروه</td>
+    <td>مكروه مطلقاً</td>
+  </tr>
+  <tr>
+    <td><b>ماء مباح جارٍ قليل</b></td>
+    <td>مكروه</td>
+    <td>مكروه مطلقاً</td>
+  </tr>
+  <tr>
+    <td><b>ماء مباح جارٍ كثير</b></td>
+    <td>خلاف الأولى</td>
+    <td>مكروه مطلقاً</td>
+  </tr>
+  <tr>
+    <td><b>ماء مباح مستبحر (كثير كنهر)</b></td>
+    <td>لا يُكره</td>
+    <td>مكروه مطلقاً</td>
+  </tr>
+  <tr>
+    <td><b>ماء مملوك له</b></td>
+    <td>مكروه</td>
+    <td>مكروه مطلقاً</td>
+  </tr>
+  <tr>
+    <td><b>ماء مملوك لغيره (عُلم رضاه)</b></td>
+    <td>مكروه</td>
+    <td>مكروه مطلقاً</td>
+  </tr>
+  <tr>
+    <td><b>ماء مملوك لغيره (لم يُعلم رضاه)</b></td>
+    <td><span class="highlight-red">حرام</span></td>
+    <td><span class="highlight-red">حرام</span></td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">ليلاً</span>
+  <p>يُكره قضاء الحاجة ليلاً في الماء <b>مطلقاً</b> — سواء كان راكداً أو جارياً قليلاً أو كثيراً مستبحراً — لأنّ الماء مأوى الشياطين ليلاً كما جاء في الأثر.</p>
+</div>
+
+<h3 class="sub-title">تفصيل: الملكية في المواضع الأربعة</h3>
+
+<table>
+  <tr>
+    <th>الموقف</th>
+    <th>غير مملوك</th>
+    <th>مملوك له</th>
+    <th>مملوك لغيره (عُلم رضاه)</th>
+    <th>مملوك لغيره (لم يُعلم رضاه)</th>
+  </tr>
+  <tr>
+    <td><b>الحكم</b></td>
+    <td>مكروه</td>
+    <td>مكروه</td>
+    <td>مكروه</td>
+    <td><span class="highlight-red">حرام</span></td>
+  </tr>
+</table>
+
+<div class="exception-box">
+  <span class="box-label label-exc">استثناء</span>
+  <p>لو كان المكان الذي يتحدّث فيه الناس يُقام فيه <b>معصية</b> — فلا يُكره قضاء الحاجة فيه، بل قيل يُستحبّ.</p>
+</div>
+
+<!-- ===== 9. استقبال القبلة ===== -->
+<h2 class="section-title">٩. استقبال القبلة واستدبارها حال قضاء الحاجة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">النصّ</span>
+  <p><b>ولا يستقبل عين القبلة ولا يستدبرها ويحرمان في غير المعد وحيث لا ساتر</b></p>
+</div>
+
+<div class="tree-container">
+  <div class="tree-root">حكم استقبال القبلة واستدبارها</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-label">مكان مُعدّ لقضاء الحاجة<br><b>لا كراهة ولا تحريم</b></div>
+    </div>
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a;">
+      <div class="tree-branch-label">غير مُعدّ + مع ساتر صحيح<br><b>مكروه</b></div>
+    </div>
+    <div class="tree-branch" style="background: #fef2f2; border-color: #fca5a5;">
+      <div class="tree-branch-label">غير مُعدّ + بلا ساتر (أو ساتر غير صحيح)<br><b>حرام</b></div>
+    </div>
+  </div>
+</div>
+
+<h3 class="sub-title">ما هو المكان المُعدّ؟</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">المُعدّ</span>
+  <p>كلّ مكان هيّئ لقضاء الحاجة — <b>بمجرّد إعداده وتهيئته</b> يصير معدّاً وإن لم يُقضَ فيه حاجة من قبل. وكذلك لو قضى حاجته في الصحراء مرة ثم عاد إلى نفس المكان — صار معدّاً لقضاء الحاجة.</p>
+</div>
+
+<h3 class="sub-title">شروط الساتر عن القبلة</h3>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">١</span>
+    <b>ارتفاعه ثلثا ذراع</b> — فلو كان أقلّ فكأن لا ساتر (يحرم الاستقبال)
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٢</span>
+    <b>أن يدنو منه</b> — المسافة بينه وبين الساتر لا تزيد عن <b>ثلاثة أذرع</b>. فلو زادت فكأن لا ساتر.
+  </div>
+</div>
+
+<h3 class="sub-title">تفريع: الاستقبال بالصدر أم بالفرج؟</h3>
+
+<div class="key-rule">
+  المعتبر في الاستقبال والاستدبار هنا: <b>الفرج</b> لا الصدر<br>
+  بخلاف الصلاة: المعتبر فيها استقبال الصدر
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">لا يضرّ</div>
+    <div class="compare-card-body">استقبل القبلة <b>بصدره</b><br>وحوّل فرجه عنها<br>→ لا يحرم</div>
+  </div>
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">يضرّ</div>
+    <div class="compare-card-body">استقبل بصره غير القبلة<br>وحوّل فرجه إلى القبلة<br>→ يحرم</div>
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه</span>
+  <p>هذا الحكم في <b>حال قضاء الحاجة</b> لا في حال الاستنجاء — فلو قضى حاجته ثم استقبل القبلة أو استدبرها حال الاستنجاء فلا كراهة ولا تحريم. وكذلك الساتر هنا لا يشترط أن يكون عريضاً لأنّ الغرض إكرام القبلة لا ستر العورة — فلو كان خالياً لا يراه أحد ولم يتّخذ ساتراً عن القبلة يحرم.</p>
+</div>
+
+<!-- ===== 10. أذكار الخلاء ===== -->
+<h2 class="section-title">١٠. أذكار الخلاء</h2>
+
+<h3 class="sub-title">عند الدخول</h3>
+
+<div class="dua-box">
+  <div class="dua-text">بِسْمِ الله، اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْخُبُثِ وَالْخَبَائِثِ</div>
+  <div class="dua-meaning">من ذكور الشياطين وإناثهم</div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">حكم الدعاء</span>
+  <p>يُسنّ هذا الدعاء <b>سواء دخل لقضاء الحاجة أو لغيره</b> (كأخذ شيء أو تنظيف) — لأنّ الخلاء مأوى الشياطين مطلقاً. ويُسنّ أن يقول <b>"بسم الله"</b> بدون زيادة "الرحمن الرحيم" قبل الدعاء.</p>
+</div>
+
+<h3 class="sub-title">عند الخروج</h3>
+
+<div class="dua-box">
+  <div class="dua-text">غُفْرَانَكَ</div>
+  <div class="dua-meaning">مفعول مطلق (أغفر غفرانك) أو مفعول به (أسألك غفرانك)</div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">ثلاثاً</span>
+  <p>يُستحبّ أن يقول <b>"غفرانك" ثلاثاً</b> — لأنّ النبيّ صلى الله عليه وسلم كان إذا دعا دعا ثلاثاً، ولأنّ النعم في الطعام ثلاث: نعمة تيسيره، ونعمة هضمه، ونعمة إخراجه — فناسب أن يأتي سؤال المغفرة ثلاثاً.</p>
+</div>
+
+<div class="dua-box">
+  <div class="dua-text">الْحَمْدُ لِلَّهِ الَّذِي أَذْهَبَ عَنِّي الْأَذَى وَعَافَانِي</div>
+  <div class="dua-meaning">يقولها إذا دخل لقضاء الحاجة. أمّا لو دخل لغير قضاء الحاجة فلا تناسب — فيقتصر على "غفرانك".</div>
+</div>
+
+<h3 class="sub-title">بعد الاستنجاء</h3>
+
+<div class="dua-box">
+  <div class="dua-text">اللَّهُمَّ طَهِّرْ قَلْبِي مِنَ النِّفَاقِ وَحَصِّنْ فَرْجِي مِنَ الْفَوَاحِشِ</div>
+  <div class="dua-meaning">جاء عن أمير المؤمنين عليّ بن أبي طالب رضي الله عنه بأربعة طرق كلّها ضعيفة (ذكره الحافظ الزبيدي). يقوله <b>بقلبه</b> لا بلسانه لأنّه لا يزال في الخلاء — كالمؤذّن إذا عطس في أثناء الأذان يحمد الله بقلبه.</div>
+</div>
+
+<!-- ===== 11. الشك بعد الاستنجاء ===== -->
+<h2 class="section-title">١١. مسألة: الشكّ بعد الاستنجاء</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">النصّ</span>
+  <p><b>قال البغويّ: لو شكّ بعد الاستنجاء هل غسل ذكره — لم تلزمه إعادته</b></p>
+</div>
+
+<div class="key-rule">
+  الشكّ بعد الفعل لا يؤثر — يُقدَّم الظاهر على الأصل<br>
+  كما مرّ في قاعدة الأصل والظاهر (الحالة الرابعة)
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">التشبيه</span>
+  <p><b>الشكّ بعد السلام في الصلاة:</b> هل تركت ركناً أم لا؟ — لا يؤثر، يُقدَّم الظاهر (أنّ الصلاة تمّت صحيحة).</p>
+  <p><b>الشكّ بعد الاستنجاء:</b> هل غسلت ذكرك أم لا؟ — لا يؤثر، يُقدَّم الظاهر (أنّه غسله).</p>
+  <p>في كلتا المسألتين: <b>الأصل عدم الفعل</b> لكنّ <b>الظاهر</b> أنّ الفعل تمّ — فيُقدَّم الظاهر.</p>
+</div>
+
+</body>
+</html>

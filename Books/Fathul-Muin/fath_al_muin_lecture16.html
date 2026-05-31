@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf'); }
+@font-face { font-family: 'Amiri-Bold'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf'); }
+@font-face { font-family: 'NotoNaskhArabic'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+body { font-family: 'NotoNaskhArabic', 'Amiri', serif; font-size: 14px; line-height: 1.8; color: #2c2c2c; direction: rtl; text-align: justify; }
+h1 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 18pt; color: #1a5632; margin: 14px 0 6px 0; }
+h2 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 15pt; color: #1a5632; margin: 12px 0 5px 0; border-bottom: 2px solid #c8a951; padding-bottom: 3px; }
+h3 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 12pt; color: #2c5f7c; margin: 8px 0 4px 0; }
+p { margin: 3px 0; }
+.cover-header { background: #1a5632; color: white; padding: 20px 14px; text-align: center; margin: 0 0 12px 0; background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px); border-bottom: 4px solid #c8a951; }
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 6px; border: none; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.9; margin: 4px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.92; margin: 6px 0 2px 0; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .series { font-size: 11pt; opacity: 0.8; margin-top: 4px; }
+.toc { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 6px; padding: 10px 14px; margin: 0 0 12px 0; }
+.toc-title { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 14pt; color: #1a5632; text-align: center; margin-bottom: 6px; border-bottom: 2px solid #c8a951; padding-bottom: 4px; }
+.toc-item { font-size: 10pt; padding: 2px 0; border-bottom: 1px dotted #ccc; display: flex; justify-content: space-between; }
+.table-container { overflow-x: hidden; margin: 8px 0; page-break-inside: avoid; }
+table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 10pt; }
+th, td { padding: 4px 8px; border: 1px solid #ddd; overflow-wrap: break-word; word-break: break-word; }
+th { background-color: #1a5632; color: white; text-align: right; font-size: 10pt; }
+.callout { padding: 8px 12px; margin: 8px 0; border-radius: 0 6px 6px 0; page-break-inside: avoid; }
+.callout-title { font-weight: bold; margin-bottom: 3px; font-size: 11pt; }
+.callout-body { color: #333; line-height: 1.7; font-size: 13px; }
+.callout-warning { background: #fff3cd; border-right: 4px solid #c8a951; }
+.callout-warning .callout-title { color: #856404; }
+.callout-ruling { background: #e8f5e9; border-right: 4px solid #1a5632; }
+.callout-ruling .callout-title { color: #1a5632; }
+.callout-important { background: #e3f2fd; border-right: 4px solid #2c5f7c; }
+.callout-important .callout-title { color: #2c5f7c; }
+.callout-danger { background: #f8d7da; border-right: 4px solid #c0392b; }
+.callout-danger .callout-title { color: #c0392b; }
+.callout-info { background: #d1ecf1; border-right: 4px solid #17a2b8; }
+.callout-info .callout-title { color: #0c5460; }
+.classification-group { display: grid; gap: 8px; margin: 8px 0; grid-template-columns: repeat(2, 1fr); page-break-inside: avoid; }
+.box-green { background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border: 2px solid #1a5632; border-radius: 8px; padding: 10px; }
+.box-green .box-title { font-family: 'Amiri-Bold', 'Amiri', serif; color: #1a5632; font-size: 11pt; font-weight: bold; margin-bottom: 4px; }
+.box-green .box-content { font-size: 12px; line-height: 1.7; color: #333; }
+.box-blue { background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border: 2px solid #2c5f7c; border-radius: 8px; padding: 10px; }
+.box-blue .box-title { font-family: 'Amiri-Bold', 'Amiri', serif; color: #2c5f7c; font-size: 11pt; font-weight: bold; margin-bottom: 4px; }
+.box-blue .box-content { font-size: 12px; line-height: 1.7; color: #333; }
+.box-gold { background: linear-gradient(135deg, #fdf6e3 0%, #f5e6b8 100%); border: 2px solid #c8a951; border-radius: 8px; padding: 10px; }
+.box-gold .box-title { font-family: 'Amiri-Bold', 'Amiri', serif; color: #856404; font-size: 11pt; font-weight: bold; margin-bottom: 4px; }
+.box-gold .box-content { font-size: 12px; line-height: 1.7; color: #333; }
+.box-red { background: linear-gradient(135deg, #f8e8e8 0%, #f5d0d0 100%); border: 2px solid #8b1a1a; border-radius: 8px; padding: 10px; }
+.box-red .box-title { font-family: 'Amiri-Bold', 'Amiri', serif; color: #8b1a1a; font-size: 11pt; font-weight: bold; margin-bottom: 4px; }
+.box-red .box-content { font-size: 12px; line-height: 1.7; color: #333; }
+.compare-box { display: flex; gap: 0; margin: 8px 0; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.1); max-width: 100%; flex-wrap: wrap; }
+.compare-side { flex: 1; min-width: 0; padding: 8px 10px; }
+.compare-side h3 { margin: 0 0 4px 0; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 3px; font-size: 11pt; color: white; }
+.compare-side p { font-size: 12px; line-height: 1.6; color: white; }
+.compare-divider { width: 3px; background: #c8a951; }
+.section-num { display: inline-block; background: #1a5632; color: white; width: 22px; height: 22px; line-height: 22px; text-align: center; border-radius: 50%; font-size: 11pt; margin-left: 5px; }
+.vertical-flow { display: flex; flex-direction: column; align-items: center; margin: 10px 0; page-break-inside: avoid; max-width: 100%; }
+.flow-step { padding: 7px 12px; border-radius: 6px; text-align: center; max-width: 280px; width: 90%; }
+.flow-arrow { color: #c8a951; font-size: 14pt; margin: 1px 0; }
+.poetry-box { background: #f9f5ec; border: 2px solid #c8a951; border-radius: 8px; padding: 10px 16px; margin: 10px 0; text-align: center; page-break-inside: avoid; }
+.poetry { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 13pt; color: #1a5632; line-height: 2.2; }
+.formula-box { background: #fdf6e3; border: 2px solid #c8a951; border-radius: 8px; padding: 10px 14px; margin: 8px 0; page-break-inside: avoid; text-align: center; }
+.formula-box .formula-text { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 12pt; color: #1a5632; line-height: 1.8; }
+.formula-box .formula-note { font-size: 10pt; color: #4a4a5e; margin-top: 4px; }
+.condition-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin: 8px 0; page-break-inside: avoid; }
+.condition-item { background: #f5f0e6; border: 1px solid #d4c9a8; border-radius: 6px; padding: 8px 10px; font-size: 11px; line-height: 1.6; }
+.condition-item .cond-num { display: inline-block; background: #1a5632; color: white; width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 50%; font-size: 10pt; margin-left: 4px; }
+.diagram-container { background: #fafaf5; border: 2px solid #d4c9a8; border-radius: 8px; padding: 12px; margin: 8px 0; page-break-inside: avoid; }
+.diagram-branch { display: flex; gap: 8px; margin: 6px 0; flex-wrap: wrap; }
+.diagram-node { flex: 1; min-width: 140px; padding: 8px; border-radius: 6px; font-size: 11px; line-height: 1.6; }
+.diagram-node.node-main { background: #1a5632; color: white; font-weight: bold; text-align: center; }
+.diagram-node.node-branch { background: #f5f0e6; border: 1px solid #c8a951; }
+.diagram-node.node-result { background: #e8f5e9; border: 1px solid #1a5632; }
+.diagram-node.node-warn { background: #f8e8e8; border: 1px solid #8b1a1a; }
+</style>
+</head>
+<body>
+
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس السادس عشر — التيمم ونواقض الوضوء</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="series">التيمم · أركانه · الجبيرة · مبطلات التيمم · نواقض الوضوء</div>
+</div>
+
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. التيمم — تعريفه وحكمه</span><span>١</span></div>
+  <div class="toc-item"><span>٢. أسباب التيمم: فقد الماء وخوف المحذور</span><span>٢</span></div>
+  <div class="toc-item"><span>٣. شروط التراب: طهور وله غبار</span><span>٣</span></div>
+  <div class="toc-item"><span>٤. أركان التيمم الخمسة</span><span>٤</span></div>
+  <div class="toc-item"><span>٥. مسألة: تيقن الماء آخر الوقت</span><span>٥</span></div>
+  <div class="toc-item"><span>٦. قاعدة: فضيلة ذات العبادة أولى من فضيلة زمانها</span><span>٦</span></div>
+  <div class="toc-item"><span>٧. مسألة الجبيرة — ثلاثة واجبات</span><span>٧</span></div>
+  <div class="toc-item"><span>٨. إعادة صلاة صاحب الجبيرة — خمس حالات</span><span>٨</span></div>
+  <div class="toc-item"><span>٩. التيمم لكل فرض فقط</span><span>٩</span></div>
+  <div class="toc-item"><span>١٠. سنن التيمم</span><span>١٠</span></div>
+  <div class="toc-item"><span>١١. مبطلات التيمم</span><span>١١</span></div>
+  <div class="toc-item"><span>١٢. نواقض الوضوء — أربعة أسباب</span><span>١٢</span></div>
+  <div class="toc-item"><span>١٣. الناقض الأول: خروج شيء غير المني</span><span>١٣</span></div>
+  <div class="toc-item"><span>١٤. مسألة معاصرة: إدخال المنظار الطبي</span><span>١٤</span></div>
+</div>
+
+<!-- 1 -->
+<h2><span class="section-num">١</span> التيمم — تعريفه وحكمه</h2>
+
+<p>قال المصنف: "تتمة: يتيمم عن الحدثين لفقد ماء أو خوف محذور من استعماله بتراب طهور له غبار".</p>
+
+<p>التيمم لغةً: القصد. وشرعاً: إيصال التراب إلى الوجه واليدين بشرائط مخصوصة. وهو رخصة إلا في حق المسافر العاصي بسفره فإنه يكون عزيمة. وهو من خصائص هذه الأمة — قال النبي صلى الله عليه وسلم: "أُعطيت خمساً لم يُعطهن أحد من الأنبياء قبلي" وذكر منها: "وجُعلت لي الأرض مسجداً وتربتها طهوراً".</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 20%;">الحكم</th>
+        <th style="width: 40%;">الحالة</th>
+        <th style="width: 40%;">البيان</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #e8f5e9;">
+        <td style="color: #28a745; font-weight: bold;">واجب</td>
+        <td>لم يجد الماء وجاء وقت الصلاة</td>
+        <td>يجب عليه التيمم للصلاة</td>
+      </tr>
+      <tr>
+        <td style="color: #2c5f7c; font-weight: bold;">مباح</td>
+        <td>لم يجد الماء في أول الوقت لكن يتيقن وجوده في آخره</td>
+        <td>إن شاء قدّم الصلاة بالتيمم وإن شاء انتظر</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="color: #c0392b; font-weight: bold;">حرام</td>
+        <td>تيمّم بتراب مغصوب أو موقوف</td>
+        <td>لأنه استعمل ما لا يحلّ له</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="poetry-box">
+  <div class="poetry">حرامه تراب مسجد وماء<br>في الشرع الاستعمال منه حرماء</div>
+  <div style="font-size: 10pt; color: #4a4a5e; margin-top: 4px;">صاحب الزبد — حرام التيمم من تراب المسجد الموقوف أو التراب المغصوب</div>
+</div>
+
+<p>والتيمم يكون بديلاً عن الحدثين: عن الحدث الأصغر (بدل الوضوء) وعن الحدث الأكبر (بدل الغسل). وليس بديلاً عن إزالة النجاسة — خلافاً لمذهب أحمد.</p>
+
+<!-- 2 -->
+<h2><span class="section-num">٢</span> أسباب التيمم: فقد الماء وخوف المحذور</h2>
+
+<p>قال المصنف: "لفقد ماء أو خوف محذور من استعماله".</p>
+
+<div class="classification-group">
+  <div class="box-green">
+    <div class="box-title">الفقد الحسي</div>
+    <div class="box-content">
+      أن لم يجد الماء أصلاً — الماء غير موجود. وكذلك إذا وجد الماء لكن تعذّر الوصول إليه — كأن يخاف من سبع أو نمر بجانب الماء.
+    </div>
+  </div>
+  <div class="box-blue">
+    <div class="box-title">الفقد الشرعي</div>
+    <div class="box-content">
+      أن يجد الماء لكن يمنع مانع شرعي من استعماله — كأن يكون الماء موقوفاً للشرب (مسبّلاً)، أو مملوكاً للغير ولم يأذن، أو كان مريضاً لا يقدر على استعماله.
+    </div>
+  </div>
+</div>
+
+<div class="callout callout-warning">
+  <div class="callout-title">خوف المحذور من استعمال الماء</div>
+  <div class="callout-body">
+    ضابط المحذور: أن يَشُقّ معه استعمال الماء. ويشمل:
+    <b>١.</b> الخوف على النفس — <b>٢.</b> الخوف على عضو من الأعضاء — <b>٣.</b> الخوف على منفعة عضو — <b>٤.</b> الخوف من زيادة المرض — <b>٥.</b> الخوف من تأخّر الشفاء — <b>٦.</b> الخوف من شين فاحش في عضو ظاهر. كل هذا عذر في ترك استعمال الماء.
+  </div>
+</div>
+
+<!-- 3 -->
+<h2><span class="section-num">٣</span> شروط التراب: طهور وله غبار</h2>
+
+<p>قال المصنف: "بتراب طهور له غبار".</p>
+
+<div class="condition-grid">
+  <div class="condition-item">
+    <span class="cond-num">١</span>
+    <b>أن يكون طهوراً (طاهراً ومُطهّراً)</b><br>
+    — فلا يصح التيمم بتراب متنجّس (فيه بول أو دم) ولا بتراب مقبرة نُبشت (لاختلاطه بأجزاء الميت) ولا بتراب مستعمل في حدث. قال تعالى: {فتيمموا صعيداً طيباً} أي طاهراً. والتراب المستعمل في إزالة نجاسة الكلب (الغسلة الأولى إلى الرابعة) يصير طاهراً غير طهور.
+  </div>
+  <div class="condition-item">
+    <span class="cond-num">٢</span>
+    <b>أن يكون له غبار</b><br>
+    — فلا يصح التيمم بتراب مبلّل فيه ندى أو رطوبة، لأنه ليس له غبار يعلق باليدين. ولا يصح بدقيق ولا برماد — لأن المصنف قيّده بـ"تراب".
+  </div>
+</div>
+
+<!-- 4 -->
+<h2><span class="section-num">٤</span> أركان التيمم الخمسة</h2>
+
+<p>قال المصنف: "وأركانه: نية استباحة الصلاة المفروضة مقرونة بنقل التراب، ومسح وجهه، ثم يديه".</p>
+
+<p>ذكر المصنف ثلاثة أركان ظاهراً، لكنها في الحقيقة خمسة:</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 8%;">الركن</th>
+        <th style="width: 30%;">الوصف</th>
+        <th style="width: 62%;">البيان</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #e8f5e9;">
+        <td style="font-weight: bold; text-align: center;">١</td>
+        <td style="font-weight: bold;">النية</td>
+        <td>نية استباحة الصلاة المفروضة — ولم يقل "نية رفع الحدث" لأن التيمم لا يرفع الحدث بل يُبيح الصلاة. تكون النية مقرونةً بنقل التراب (أي عند وضع اليدين على التراب) وتستمر حتى يمسح شيئاً من الوجه.</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold; text-align: center;">٢</td>
+        <td style="font-weight: bold;">نقل التراب</td>
+        <td>فلو حملت الريح التراب إلى وجهه فنوى وردّد التراب على وجهه لم يكفِ — لا بد أن ينقل التراب بيده.</td>
+      </tr>
+      <tr style="background-color: #e8f5e9;">
+        <td style="font-weight: bold; text-align: center;">٣</td>
+        <td style="font-weight: bold;">مسح الوجه</td>
+        <td>يجب مسح جميع الوجه ومنه ما استرسل من اللحية وما يكون أسفل الأنف وأعلى الشفة. ولا يجب إيصال التراب إلى منابت الشعر وخلاله (بخلاف الوضوء) لرقة الماء وغلظ التراب.</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold; text-align: center;">٤</td>
+        <td style="font-weight: bold;">الترتيب</td>
+        <td>أشار إليه بقوله "ثم" — فيجب الترتيب في التيمم سواء كان عن حدث أكبر أو أصغر.</td>
+      </tr>
+      <tr style="background-color: #e8f5e9;">
+        <td style="font-weight: bold; text-align: center;">٥</td>
+        <td style="font-weight: bold;">مسح اليدين إلى المرفقين</td>
+        <td>المعتمد في مذهب الشافعي إلى المرفقين — صح عن ابن عمر قولاً وفعلاً، وقوّي بالقياس على الوضوء. والقديم: إلى الكفين فقط (وهو ما يدل عليه حديث عمار في الصحيحان واختاره النووي). والمالكية: إلى الكفين ويستحب إلى المرفقين. والحنابلة: إلى الكفين.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 5 -->
+<h2><span class="section-num">٥</span> مسألة: تيقن الماء آخر الوقت</h2>
+
+<p>قال المصنف: "ولو تيقن ماء آخر الوقت فانتظاره أفضل، وإلا فتعجيل تيمم".</p>
+
+<p>لو تيقن وجود الماء في آخر الوقت فالأفضل الانتظار والصلاة بالوضوء. وإن لم يتيقن فالأفضل تعجيل التيمم في أول الوقت.</p>
+
+<div class="callout callout-ruling">
+  <div class="callout-title">الأفضل: الصلاة في أول الوقت بالتيمم ثم الإعادة بالوضوء في آخره</div>
+  <div class="callout-body">أفضل شيء أن يصلّي في أول الوقت بالتيمم لتحصيل فضيلة أول الوقت، ثم إذا وجد الماء في آخر الوقت أعاد الصلاة بالوضوء لتحصيل فضيلة الصلاة بالوضوء. وهذه مشروعية إعادة الصلاة كما مرّ في الوسيط.</div>
+</div>
+
+<h3>شروط كون الانتظار أفضل</h3>
+
+<div class="condition-grid">
+  <div class="condition-item">
+    <span class="cond-num">١</span>
+    <b>أن يتيقن وجود الماء في آخر الوقت</b> — أما لو شكّ فالأفضل التعجيل بالتيمم.
+  </div>
+  <div class="condition-item">
+    <span class="cond-num">٢</span>
+    <b>أن يكون في مكان الغالب فيه عدم الماء</b> — كالصحراء.
+  </div>
+  <div class="condition-item">
+    <span class="cond-num">٣</span>
+    <b>ألا يقترن أول الوقت بفضيلة أخرى</b> — كالجماعة. فلو كان في أول الوقت جماعة وفي آخر الوقت يصلي منفرداً، فالأفضل أن يصلّي بالتيمم جماعة في أول الوقت — لأن فضيلتي أول الوقت والجماعة أقوى.
+  </div>
+</div>
+
+<!-- 6 -->
+<h2><span class="section-num">٦</span> قاعدة: فضيلة ذات العبادة أولى من فضيلة زمانها</h2>
+
+<div class="formula-box">
+  <div class="formula-text">الفضيلة المتعلقة بذات العبادة أولى بالمراعاة<br>من الفضيلة المتعلقة بزمانها أو مكانها</div>
+  <div class="formula-note">من قسئيات قاعدة: تعارض المصلحتين وتقديم أولاهما</div>
+</div>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 35%;">المسألة</th>
+        <th style="width: 30%;">الأفضل</th>
+        <th style="width: 35%;">التعليل</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8f9fa;">
+        <td>نعاس شديد في أول الوقت</td>
+        <td>ينام ثم يصلّي في آخر الوقت</td>
+        <td>الخشوع أفضل من فضيلة أول الوقت</td>
+      </tr>
+      <tr>
+        <td>جائع وحضر الطعام</td>
+        <td>يأكل ثم يصلّي</td>
+        <td>الخشوع أفضل من فضيلة أول الوقت</td>
+      </tr>
+      <tr style="background-color: #f8f9fa;">
+        <td>الطواف بعيداً براحة أو قريباً بزحام</td>
+        <td>الطواف بعيداً براحة</td>
+        <td>الخشوع أفضل من فضيلة القرب</td>
+      </tr>
+      <tr>
+        <td>الصف الأول بزحام أو الثاني بخشوع</td>
+        <td>الصف الثاني بخشوع</td>
+        <td>الخشوع أولى من فضيلة المكان</td>
+      </tr>
+      <tr style="background-color: #f8f9fa;">
+        <td>صلاة بالتيمم أول الوقت أو بالوضوء آخره</td>
+        <td>الصلاة بالوضوء آخر الوقت</td>
+        <td>فضيلة ذات العبادة (الوضوء) أولى من فضيلة زمانها</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 7 -->
+<h2><span class="section-num">٧</span> مسألة الجبيرة — ثلاثة واجبات</h2>
+
+<p>قال المصنف: "وإذا امتنع استعماله في عضو وجب تيمم وغسل صحيح ومسح كل الساتر الضار نزعه".</p>
+
+<div class="vertical-flow">
+  <div class="flow-step" style="background: #1a5632; color: white;">١. غسل الصحيح من الأعضاء</div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step" style="background: #2c5f7c; color: white;">٢. مسح جميع الساتر (الجبيرة)</div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step" style="background: #c8a951; color: white;">٣. التيمم عند تطهير العضو المصاب</div>
+</div>
+
+<div class="callout callout-ruling">
+  <div class="callout-title">ترتيب الجبيرة في الحدث الأصغر</div>
+  <div class="callout-body">
+    مثال: جبيرة على يده اليسرى:<br>
+    يغسل الوجه → يغسل اليد اليمنى → يغسل الصحيح من اليسرى → يمسح على الساتر → يتيمم → يمسح الرأس → يغسل الرجلين.<br><br>
+    <b>شرط:</b> يجب أن يكون التيمم عند تطهير العضو المصاب — لا قبله ولا بعده.
+  </div>
+</div>
+
+<div class="compare-box">
+  <div class="compare-side" style="background: #1a5632;">
+    <h3>الحدث الأصغر</h3>
+    <p>يجب الترتيب — التيمم عند تطهير العضو المصاب لا قبل ولا بعد. ولو كان الساتر على عضوين تيمّم مرتين، وعلى ثلاثة أعضاء ثلاث مرات.</p>
+  </div>
+  <div class="compare-divider"></div>
+  <div class="compare-side" style="background: #2c5f7c;">
+    <h3>الحدث الأكبر (الجنابة)</h3>
+    <p>لا ترتيب — إن شاء قدّم التيمم ثم اغتسل وإن شاء اغتسل ثم تيمّم. وبدن الجنب عضو واحد فيتيمّم مرة واحدة ولو كان الساتر على أعضاء متعددة.</p>
+  </div>
+</div>
+
+<div class="poetry-box">
+  <div class="poetry">وجُنُباً خيّروه أن يقدما<br>غسلاً أو تيمّماً وليتيمّم مُحدِثٌ<br>إذ غُسل عليلُه ثم الوضوءُ أكملُ</div>
+  <div style="font-size: 10pt; color: #4a4a5e; margin-top: 4px;">صاحب الزبد</div>
+</div>
+
+<p>وإذا كان نزع الساتر لا يضرّ فنزعه واجب — لأنه إن لم يضرّ فلا عذر في ترك غسل العضو.</p>
+
+<!-- 8 -->
+<h2><span class="section-num">٨</span> إعادة صلاة صاحب الجبيرة — خمس حالات</h2>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 8%;">الحالة</th>
+        <th style="width: 35%;">الوصف</th>
+        <th style="width: 15%;">الحكم</th>
+        <th style="width: 42%;">البيان</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold; text-align: center;">١</td>
+        <td>الجبيرة على عضو تيمم (الوجه أو اليدين)</td>
+        <td style="color: #c0392b; font-weight: bold;">يعيد مطلقاً</td>
+        <td>سواء وضعها على طهارة أو حدث، وسواء أخذت من الصحيح أو لا</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold; text-align: center;">٢</td>
+        <td>الجبيرة على غير عضو تيمم وأخذت من الصحيح زيادة على قدر الاستمساك</td>
+        <td style="color: #c0392b; font-weight: bold;">يعيد مطلقاً</td>
+        <td>لأنها أخذت من الصحيح أكثر من اللازم</td>
+      </tr>
+      <tr style="background-color: #fff3cd;">
+        <td style="font-weight: bold; text-align: center;">٣</td>
+        <td>الجبيرة على غير عضو تيمم، أخذت قدر الاستمساك فقط، ووُضعت على حدث</td>
+        <td style="color: #856404; font-weight: bold;">يعيد</td>
+        <td>لأنها وُضعت على حدث — لو وُضعت على طهارة لم يُعد</td>
+      </tr>
+      <tr style="background-color: #d4edda;">
+        <td style="font-weight: bold; text-align: center;">٤</td>
+        <td>الجبيرة على غير عضو تيمم، أخذت قدر الاستمساك فقط، ووُضعت على طهارة</td>
+        <td style="color: #28a745; font-weight: bold;">لا يعيد</td>
+        <td>شرطان: قدر الاستمساك + وضعت على طهارة</td>
+      </tr>
+      <tr style="background-color: #d4edda;">
+        <td style="font-weight: bold; text-align: center;">٥</td>
+        <td>الجبيرة على غير عضو تيمم ولم تأخذ من الصحيح شيئاً (كالكريم على قدر الجرح فقط)</td>
+        <td style="color: #28a745; font-weight: bold;">لا يعيد</td>
+        <td>لأنها لم تأخذ شيئاً من الصحيح</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="formula-box">
+  <div class="formula-text">يعيد في ثلاث حالات — ولا يعيد في حالتين</div>
+  <div class="formula-note">"يعيد مطلقاً" = سواء وُضعت على طهر أو حدث. "يعيد" = في هذه الحالة فقط.</div>
+</div>
+
+<!-- 9 -->
+<h2><span class="section-num">٩</span> التيمم لكل فرض فقط</h2>
+
+<p>قال المصنف: "ولا يصلي به إلا فرضاً واحداً ولو نذراً".</p>
+
+<p>التيمم طهارة ضعيفة فلا يقوى على أداء فريضتين — فلا يصلي بالتيمم إلا فرضاً واحداً. ولو نذر صلاة لا يجمع بين الفرض العيني والنذر بتيمم واحد. ولو جمع بين الصلاتين (كالظهر والعصر) يتيمم لكل صلاة. وكذلك خطيب الجمعة يتيمم للخطبة ثم يتيمم مرة أخرى لصلاة الجمعة.</p>
+
+<div class="callout callout-ruling">
+  <div class="callout-title">لكنه يصلي مع الفرض ما شاء من النوافل وصلاة الجنازة</div>
+  <div class="callout-body">له أن يصلي بالتيمم فرضاً وما شاء من النوافل. ويصح أن يصلي مع الفرض صلوات جنائز — حتى لو صلّى أربع صلوات جنازة مع الظهر فلا بأس. لأن صلاة الجنازة فرض كفاية فأُعطيت حكم النفل في هذا الباب.</div>
+</div>
+
+<!-- 10 -->
+<h2><span class="section-num">١٠</span> سنن التيمم</h2>
+
+<p>ضابط سنن التيمم: يُسنّ فيه كل ما يُمكن أن يُأتى به في الوضوء إلا التثليث — فلا يُسنّ في التيمم تثليث مسح الوجه ولا اليدين.</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 50%;">السنة</th>
+        <th style="width: 50%;">البيان</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8f9fa;"><td>السواك</td><td>يُستحب في التيمم كما في الوضوء</td></tr>
+      <tr><td>التسمية</td><td>يقول: بسم الله الرحمن الرحيم</td></tr>
+      <tr style="background-color: #f8f9fa;"><td>تقديم اليمنى على اليسرى من اليدين</td><td>كما في الوضوء</td></tr>
+      <tr><td>تقديم أعلى الوجه على أسفله</td><td>كما في الوضوء</td></tr>
+      <tr style="background-color: #f8f9fa;"><td>تخفيف الغبار</td><td>يخفّف التراب بيديه — كما كان النبي يضرب إحدى يديه بالأخرى وينفخ</td></tr>
+      <tr><td>تفريق الأصابع في الضربة</td><td>في الضربة الأولى للوجه والثانية لليدين</td></tr>
+      <tr style="background-color: #f8f9fa;"><td>استقبال القبلة</td><td>كما في الوضوء</td></tr>
+      <tr><td>الدعاء بعده كما في الوضوء</td><td>الشهادتان والأذكار</td></tr>
+      <tr style="background-color: #fff3cd;"><td>نزع الخاتم في الضربة الأولى</td><td>سنة — ليحصل التيمم لجميع الوجه بجميع اليد</td></tr>
+      <tr style="background-color: #f8d7da;"><td>نزع الخاتم في الضربة الثانية</td><td style="color: #c0392b; font-weight: bold;">واجب — ليصل التراب إلى ما تحت الخاتم</td></tr>
+      <tr><td>الموالاة</td><td>كما في الوضوء</td></tr>
+      <tr style="background-color: #f8f9fa;"><td>تخليل الأصابع</td><td>واجب إن لم يصل التراب إلا به، مستحب إن وصل بدونه</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>ويُكره تكرار المسح وتكثير التراب — لأن النبي صلى الله عليه وسلم كان يخفّف التراب.</p>
+
+<!-- 11 -->
+<h2><span class="section-num">١١</span> مبطلات التيمم</h2>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 8%;">#</th>
+        <th style="width: 45%;">المبطل</th>
+        <th style="width: 47%;">البيان</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold; text-align: center;">١</td>
+        <td>كل ما يُبطل الوضوء</td>
+        <td>من نواقض الوضوء الأربعة</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold; text-align: center;">٢</td>
+        <td>توهّم الماء قبل الدخول في الصلاة</td>
+        <td>إذا توهّم وجود الماء قبل أن يدخل في الصلاة بطل تيممه</td>
+      </tr>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold; text-align: center;">٣</td>
+        <td>العلم بوجود الماء في أثناء الصلاة — مع كونه في مكان يغلب فيه وجود الماء (كالحضر)</td>
+        <td>أما في الصحراء فلا يبطل لأن الغالب فيها عدم الماء</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold; text-align: center;">٤</td>
+        <td>الردة عن الإسلام</td>
+        <td>تبطل التيمم لكنها لا تبطل الوضوء!</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="poetry-box">
+  <div class="poetry">ورِدّةٌ تُبطل لا وضوءَ قَد<br>تيمّمَ لكلّ فرضٍ فاعتنِ</div>
+  <div style="font-size: 10pt; color: #4a4a5e; margin-top: 4px;">صاحب الزبد — الردة تبطل التيمم لا الوضوء</div>
+</div>
+
+<!-- 12 -->
+<h2><span class="section-num">١٢</span> نواقض الوضوء — أربعة أسباب</h2>
+
+<p>قال المصنف: "ونواقضه، أي أسباب نواقض الوضوء أربعة".</p>
+
+<p>نواقض الوضوء أربعة فقط — حصراً تعبّدياً ليس مجال للاجتهاد. وما عداها لا ينقض الوضوء — فلا ينقضه البلوغ ولا القيد ولا الردة ولا أكل لحم الإبل على مذهب الجمهور (ومنهم الشافعية).</p>
+
+<div class="callout callout-info">
+  <div class="callout-title">خلاف: أكل لحم الإبل</div>
+  <div class="callout-body">ذهب الإمام أحمد والإمام النووي (من الشافعية) إلى أن أكل لحم الإبل ينقض الوضوء. والحنابلة يقولون: ينقض أكل لحم الإبل فقط لا كبدُها ولا قلبُها ولا مرقُها ولا لبنُها. ومذهب الشافعي المعتمد أنه لا ينقض.</div>
+</div>
+
+<!-- 13 -->
+<h2><span class="section-num">١٣</span> الناقض الأول: خروج شيء غير المني</h2>
+
+<p>قال المصنف: "أحدها: تيقن خروج شيء غير منيه".</p>
+
+<p>ينقض الوضوء خروج شيء من أحد السبيلين (القبل والدبر) — بشرط التيقن. فلو شكّ هل خرج منه شيء أو لا — فالأصل بقاء طهارته، لقاعدة: "اليقين لا يزول بالشك".</p>
+
+<div class="callout callout-important">
+  <div class="callout-title">المني لا ينقض الوضوء</div>
+  <div class="callout-body">خصّ المصنف المني من الخروج الناقض — لأن المني يوجب أعظم الأمرين (الغسل) فلا يوجب الأدنى (نقض الوضوء). فالمني يُخرج من كونه خارجاً من السبيلين (وهو وجه يُشارك فيه البول والغائط) لكنه يختص بكونه منياً (وهو أخص)، فإذا أوجب الأخص أعظم الأمرين لم يُوجب الأعم الأدنى.</div>
+</div>
+
+<!-- 14 -->
+<h2><span class="section-num">١٤</span> مسألة معاصرة: إدخال المنظار الطبي</h2>
+
+<p>من عبارة المصنف "خروج شيء" يُفهم أن الدخول لا ينقض الوضوء — فإدخال شيء في القبل أو الدبر لا ينقض الوضوء، لكن إخراجه ينقضه.</p>
+
+<div class="diagram-container">
+  <div style="text-align: center; margin-bottom: 8px;">
+    <div class="diagram-node node-main" style="display: inline-block; padding: 6px 16px;">إدخال منظار طبي أو دواء</div>
+  </div>
+  <div class="diagram-branch">
+    <div class="diagram-node node-result" style="flex: 1;">
+      <div style="font-weight: bold; color: #1a5632; margin-bottom: 4px;">الوضوء: لا ينتقض</div>
+      <div style="color: #333;">الإدخال لا ينقض الوضوء — فيجوز له مس المصحف ما دام المنظار في الداخل.</div>
+    </div>
+    <div class="diagram-node node-warn" style="flex: 1;">
+      <div style="font-weight: bold; color: #8b1a1a; margin-bottom: 4px;">الصلاة: لا تصح</div>
+      <div style="color: #333;">لأن المنظار متصل بنجاسة وبعضه ظاهر — والإنسان إذا كان شيء متصل بنجاسة بعضه ظاهر لا تصح صلاته. وليس لأنه محدث بل لوجود النجاسة المتصلة.</div>
+    </div>
+  </div>
+</div>
+
+<div class="callout callout-ruling">
+  <div class="callout-title">القاعدة: الدخول لا ينقض، الخروج ينقض</div>
+  <div class="callout-body">
+    <b>إدخال دواء في الدبر:</b> لا ينقض الوضوء. لكن إذا خرج الدواء بعد ذلك نُقض الوضوء لأنه صار خروجاً.<br>
+    <b>إدخال منظار:</b> لا ينقض الوضوء. وإذا أُخرج المنظار نُقض الوضوء.<br>
+    <b>ابتلاع خيط وصل إلى المعدة وبعضه ظاهر:</b> لا تصح الصلاة لأنه متصل بنجاسة.
+  </div>
+</div>
+
+</body>
+</html>

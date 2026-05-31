@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf'); }
+@font-face { font-family: 'Amiri-Bold'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf'); }
+@font-face { font-family: 'NotoNaskhArabic'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+body { font-family: 'NotoNaskhArabic', 'Amiri', serif; font-size: 14px; line-height: 1.8; color: #2c2c2c; direction: rtl; text-align: justify; }
+h1 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 18pt; color: #1a5632; margin: 14px 0 6px 0; }
+h2 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 15pt; color: #1a5632; margin: 12px 0 5px 0; border-bottom: 2px solid #c8a951; padding-bottom: 3px; }
+h3 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 12pt; color: #2c5f7c; margin: 8px 0 4px 0; }
+p { margin: 3px 0; }
+.cover-header { background: #1a5632; color: white; padding: 20px 14px; text-align: center; margin: 0 0 12px 0; background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px); border-bottom: 4px solid #c8a951; }
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 6px; border: none; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.9; margin: 4px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.92; margin: 6px 0 2px 0; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .series { font-size: 11pt; opacity: 0.8; margin-top: 4px; }
+.toc { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 6px; padding: 10px 14px; margin: 0 0 12px 0; }
+.toc-title { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 14pt; color: #1a5632; text-align: center; margin-bottom: 6px; border-bottom: 2px solid #c8a951; padding-bottom: 4px; }
+.toc-item { font-size: 10pt; padding: 2px 0; border-bottom: 1px dotted #ccc; display: flex; justify-content: space-between; }
+.table-container { overflow-x: hidden; margin: 8px 0; page-break-inside: avoid; }
+table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 10pt; }
+th, td { padding: 4px 8px; border: 1px solid #ddd; overflow-wrap: break-word; word-break: break-word; }
+th { background-color: #1a5632; color: white; text-align: right; font-size: 10pt; }
+.callout { padding: 8px 12px; margin: 8px 0; border-radius: 0 6px 6px 0; page-break-inside: avoid; }
+.callout-title { font-weight: bold; margin-bottom: 3px; font-size: 11pt; }
+.callout-body { color: #333; line-height: 1.7; font-size: 13px; }
+.callout-warning { background: #fff3cd; border-right: 4px solid #c8a951; }
+.callout-warning .callout-title { color: #856404; }
+.callout-ruling { background: #e8f5e9; border-right: 4px solid #1a5632; }
+.callout-ruling .callout-title { color: #1a5632; }
+.callout-important { background: #e3f2fd; border-right: 4px solid #2c5f7c; }
+.callout-important .callout-title { color: #2c5f7c; }
+.callout-danger { background: #f8d7da; border-right: 4px solid #c0392b; }
+.callout-danger .callout-title { color: #c0392b; }
+.callout-info { background: #d1ecf1; border-right: 4px solid #17a2b8; }
+.callout-info .callout-title { color: #0c5460; }
+.callout-definition { background: #e8f4f8; border-right: 4px solid #2c5f7c; }
+.callout-definition .callout-title { color: #1a3a5c; }
+.callout-success { background: #d4edda; border-right: 4px solid #28a745; }
+.callout-success .callout-title { color: #155724; }
+.card-grid { display: grid; gap: 8px; margin: 10px 0; max-width: 100%; }
+.card-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.card-grid-3 { grid-template-columns: repeat(2, 1fr); }
+.card-grid-4 { grid-template-columns: repeat(2, 1fr); }
+.card { padding: 10px; border-radius: 8px; text-align: center; max-width: 100%; overflow-wrap: break-word; }
+.card-number { font-size: 20px; font-weight: bold; margin-bottom: 3px; }
+.card-title { font-size: 11pt; font-weight: bold; }
+.card-desc { font-size: 9pt; margin-top: 3px; opacity: 0.9; line-height: 1.6; }
+.compare-box { display: flex; gap: 0; margin: 8px 0; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.1); max-width: 100%; flex-wrap: wrap; }
+.compare-side { flex: 1; min-width: 0; padding: 8px 10px; }
+.compare-side h3 { margin: 0 0 4px 0; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 3px; font-size: 11pt; color: white; }
+.compare-side p { font-size: 12px; line-height: 1.6; color: white; }
+.compare-divider { width: 3px; background: #c8a951; }
+.section-num { display: inline-block; background: #1a5632; color: white; width: 22px; height: 22px; line-height: 22px; text-align: center; border-radius: 50%; font-size: 11pt; margin-left: 5px; }
+.vertical-flow { display: flex; flex-direction: column; align-items: center; margin: 10px 0; page-break-inside: avoid; max-width: 100%; }
+.flow-step { padding: 7px 12px; border-radius: 6px; text-align: center; max-width: 280px; width: 90%; }
+.flow-arrow { color: #c8a951; font-size: 14pt; margin: 1px 0; }
+.poetry-box { background: #f9f5ec; border: 2px solid #c8a951; border-radius: 8px; padding: 10px 16px; margin: 10px 0; text-align: center; page-break-inside: avoid; }
+.poetry { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 13pt; color: #1a5632; line-height: 2.2; }
+.formula-box { background: #fdf6e3; border: 2px solid #c8a951; border-radius: 8px; padding: 10px 14px; margin: 8px 0; page-break-inside: avoid; text-align: center; }
+.formula-box .formula-text { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 12pt; color: #1a5632; line-height: 1.8; }
+.formula-box .formula-note { font-size: 10pt; color: #4a4a5e; margin-top: 4px; }
+.classification-group { display: grid; gap: 8px; margin: 8px 0; grid-template-columns: repeat(2, 1fr); page-break-inside: avoid; }
+.box-green { background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border: 2px solid #1a5632; border-radius: 8px; padding: 10px; }
+.box-green .box-title { font-family: 'Amiri-Bold', 'Amiri', serif; color: #1a5632; font-size: 11pt; font-weight: bold; margin-bottom: 4px; }
+.box-green .box-content { font-size: 12px; line-height: 1.7; color: #333; }
+.box-blue { background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border: 2px solid #2c5f7c; border-radius: 8px; padding: 10px; }
+.box-blue .box-title { font-family: 'Amiri-Bold', 'Amiri', serif; color: #2c5f7c; font-size: 11pt; font-weight: bold; margin-bottom: 4px; }
+.box-blue .box-content { font-size: 12px; line-height: 1.7; color: #333; }
+.box-gold { background: linear-gradient(135deg, #fdf6e3 0%, #f5e6b8 100%); border: 2px solid #c8a951; border-radius: 8px; padding: 10px; }
+.box-gold .box-title { font-family: 'Amiri-Bold', 'Amiri', serif; color: #856404; font-size: 11pt; font-weight: bold; margin-bottom: 4px; }
+.box-gold .box-content { font-size: 12px; line-height: 1.7; color: #333; }
+.box-red { background: linear-gradient(135deg, #f8e8e8 0%, #f5d0d0 100%); border: 2px solid #8b1a1a; border-radius: 8px; padding: 10px; }
+.box-red .box-title { font-family: 'Amiri-Bold', 'Amiri', serif; color: #8b1a1a; font-size: 11pt; font-weight: bold; margin-bottom: 4px; }
+.box-red .box-content { font-size: 12px; line-height: 1.7; color: #333; }
+.condition-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin: 8px 0; page-break-inside: avoid; }
+.condition-item { background: #f5f0e6; border: 1px solid #d4c9a8; border-radius: 6px; padding: 8px 10px; font-size: 11px; line-height: 1.6; }
+.condition-item .cond-num { display: inline-block; background: #1a5632; color: white; width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 50%; font-size: 10pt; margin-left: 4px; }
+.diagram-container { background: #fafaf5; border: 2px solid #d4c9a8; border-radius: 8px; padding: 12px; margin: 8px 0; page-break-inside: avoid; }
+.diagram-branch { display: flex; gap: 8px; margin: 6px 0; flex-wrap: wrap; }
+.diagram-node { flex: 1; min-width: 140px; padding: 8px; border-radius: 6px; font-size: 11px; line-height: 1.6; }
+.diagram-node.node-main { background: #1a5632; color: white; font-weight: bold; text-align: center; }
+.diagram-node.node-branch { background: #f5f0e6; border: 1px solid #c8a951; }
+.diagram-node.node-result { background: #e8f5e9; border: 1px solid #1a5632; }
+.diagram-node.node-warn { background: #f8e8e8; border: 1px solid #8b1a1a; }
+.madhhab-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin: 8px 0; page-break-inside: avoid; }
+.madhhab-card { border-radius: 8px; padding: 8px 10px; text-align: center; }
+.madhhab-name { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 11pt; font-weight: bold; margin-bottom: 3px; }
+.madhhab-ruling { font-size: 11px; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس الرابع عشر — سنن الوضوء (تابع)</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="series">تخليل اللحية · شعور الوجه · إطالة الغرة والتحجيل · التثليث · التيمن</div>
+</div>
+
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. شعور الوجه — عشرون شعراً</span><span>١</span></div>
+  <div class="toc-item"><span>٢. السنة التاسعة: تخليل اللحية الكثة</span><span>٢</span></div>
+  <div class="toc-item"><span>٣. كيفية تخليل اللحية</span><span>٢</span></div>
+  <div class="toc-item"><span>٤. تخليل أصابع اليدين بالتشبيك</span><span>٣</span></div>
+  <div class="toc-item"><span>٥. تخليل أصابع الرجلين</span><span>٤</span></div>
+  <div class="toc-item"><span>٦. أحكام التخليل — ثلاث حالات</span><span>٥</span></div>
+  <div class="toc-item"><span>٧. السنة الحادية عشرة: إطالة الغرة والتحجيل</span><span>٥</span></div>
+  <div class="toc-item"><span>٨. إطالة الغرة — القدر الأدنى والأكمل</span><span>٦</span></div>
+  <div class="toc-item"><span>٩. إطالة التحجيل — القدر الأدنى والأكمل</span><span>٦</span></div>
+  <div class="toc-item"><span>١٠. حديث الغر المحجلين</span><span>٧</span></div>
+  <div class="toc-item"><span>١١. مسألة المقطوع قدمه والتحجيل</span><span>٨</span></div>
+  <div class="toc-item"><span>١٢. السنة الثانية عشرة: التثليث</span><span>٨</span></div>
+  <div class="toc-item"><span>١٣. ما ثبت فيه التثليث وما لم يثبت</span><span>٩</span></div>
+  <div class="toc-item"><span>١٤. مسألة رد ماء الغسلة الثانية</span><span>١٠</span></div>
+  <div class="toc-item"><span>١٥. لا يجزئ التثليث قبل تمام الغسل ولا بعد تمام الوضوء</span><span>١٠</span></div>
+  <div class="toc-item"><span>١٦. كراهة النقص عن الثلاث والزيادة عليها</span><span>١١</span></div>
+  <div class="toc-item"><span>١٧. فرع: الشك أثناء الوضوء وبعد الفراغ</span><span>١٢</span></div>
+  <div class="toc-item"><span>١٨. السنة الثالثة عشرة: التيمن</span><span>١٣</span></div>
+</div>
+
+<!-- 1 -->
+<h2><span class="section-num">١</span> شعور الوجه — عشرون شعراً</h2>
+
+<p>شعور الوجه عشرون شعراً، كلها يجب غسل ظاهرها وباطنها إلا شعر اللحية والعارض للرجل — فإن كانا كثيفين وجب غسل ظاهرهما فقط ويستحب تخليل باطنهما، وإن كانا خفيفين وجب غسل ظاهرهما وباطنهما.</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 8%;">الرقم</th>
+        <th style="width: 32%;">اسم الشعر</th>
+        <th style="width: 30%;">الموقع</th>
+        <th style="width: 30%;">الحكم</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8f9fa;"><td style="text-align: center;">١-٢</td><td>الحاجبان</td><td>فوق العينين</td><td>يجب غسل ظاهره وباطنه وإن كثفا</td></tr>
+      <tr><td style="text-align: center;">٣-٦</td><td>الأهداب (أربعة)</td><td>حواف العينين — كل عين هدبان</td><td>يجب غسل ظاهره وباطنه وإن كثفا</td></tr>
+      <tr style="background-color: #f8f9fa;"><td style="text-align: center;">٧</td><td>الشارب</td><td>أعلى الشفة العليا</td><td>يجب غسل ظاهره وباطنه وإن كثفا</td></tr>
+      <tr><td style="text-align: center;">٨</td><td>العنفقة</td><td>أسفل الشفة السفلى</td><td>يجب غسل ظاهره وباطنه وإن كثفا</td></tr>
+      <tr style="background-color: #f8f9fa;"><td style="text-align: center;">٩-١٠</td><td>النّفكتان</td><td>جانبا الذقن</td><td>يجب غسل ظاهره وباطنه وإن كثفا</td></tr>
+      <tr><td style="text-align: center;">١١-١٢</td><td>شعرا الخدين</td><td>الخدان</td><td>يجب غسل ظاهره وباطنه وإن كثفا</td></tr>
+      <tr style="background-color: #f8f9fa;"><td style="text-align: center;">١٣</td><td>الغَمَم</td><td>الشعر النابت على الجبهة</td><td>يجب غسل ظاهره وباطنه وإن كثفا</td></tr>
+      <tr><td style="text-align: center;">١٤-١٥</td><td>العذاران</td><td>مقابل الأذنين</td><td>يجب غسل ظاهره وباطنه وإن كثفا</td></tr>
+      <tr style="background-color: #f8f9fa;"><td style="text-align: center;">١٦-١٧</td><td>السّبّالان</td><td>جانبا الشارب</td><td>يجب غسل ظاهره وباطنه وإن كثفا</td></tr>
+      <tr><td style="text-align: center;">١٨-١٩</td><td>العارضان</td><td>أسفل العذارين — على العظم الذي تنبت عليه الأسنان السفلاء</td><td>إن كثفا: غسل ظاهره فقط ويستحب تخليل باطنه. إن خفا: غسل ظاهره وباطنه</td></tr>
+      <tr style="background-color: #fff3cd;"><td style="text-align: center; font-weight: bold;">٢٠</td><td style="font-weight: bold;">اللحية</td><td>الذقن</td><td style="font-weight: bold;">إن كثفت: غسل ظاهرها فقط ويُسن تخليل باطنها. إن خفت: غسل ظاهرها وباطنها</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout callout-ruling">
+  <div class="callout-title">القاعدة</div>
+  <div class="callout-body">كل شعور الوجه يجب غسل ظاهرها وباطنها إلا شعر اللحية والعارض للرجل — فالغالب فيهما الكثافة فيجب غسل ظاهرهما فقط ويستحب تخليل باطنهما. ولو كانا خفيفين وجب غسل ظاهرهما وباطنهما. وأما ما كان الغالب فيه الخفة كالحاجب والعنفقة فيجب غسل ظاهره وباطنه وإن كثفا.</div>
+</div>
+
+<!-- 2 -->
+<h2><span class="section-num">٢</span> السنة التاسعة: تخليل اللحية الكثة</h2>
+
+<p>قال المصنف: "وتخليل لحية كثة". الكثة بمعنى الكثيفة. ومثل اللحية الكثة في ذلك العارض الكثيف — يُسن تخليل باطنهما. ولم يقل المصنف "اللحية الخفيفة" لأن اللحية الخفيفة يجب غسلها ظاهراً وباطناً فلا حاجة لتخليلها.</p>
+
+<div class="callout callout-warning">
+  <div class="callout-title">يكره ترك التخليل</div>
+  <div class="callout-body">قال الفقهاء: يكره ترك تخليل اللحية الكثة، لأن التخليل سنة مؤكدة ثبتت عن النبي صلى الله عليه وسلم.</div>
+</div>
+
+<!-- 3 -->
+<h2><span class="section-num">٣</span> كيفية تخليل اللحية</h2>
+
+<p>قال المصنف: "والأفضل كونه بأصابع يمنى، ومن أسفل رحيته، مع تفريقها، وبغرفة مستقلة للاتباع".</p>
+
+<div class="vertical-flow">
+  <div class="flow-step" style="background: #1a5632; color: white;">يخلل بأصابع يده اليمنى</div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step" style="background: #2c5f7c; color: white;">يبدأ من أسفل الرحية (من تحت الحنك)</div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step" style="background: #c8a951; color: white;">مع تفريق أصابعه (ليدخل الماء بين الشعر)</div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step" style="background: #1a5632; color: white;">بغرفة مستقلة غير غرفة الوجه — للاتباع</div>
+</div>
+
+<div class="callout callout-ruling">
+  <div class="callout-title">الدليل</div>
+  <div class="callout-body">جاء في سنن أبي داود أن النبي صلى الله عليه وسلم كان إذا توضأ أخذ ماءً فأدخله تحت حنكه وقال: "هكذا أمرني ربي".</div>
+</div>
+
+<h3>متى يخلل اللحية — خلاف بين الفقهاء</h3>
+
+<div class="compare-box">
+  <div class="compare-side" style="background: #1a5632;">
+    <h3>العلامة ابن حجر</h3>
+    <p>الأولى أن يغسل الوجه ثلاثاً ثم يخلل لحيته. أي يُتم غسل الوجه أولاً ثم يخلل بعد ذلك.</p>
+  </div>
+  <div class="compare-divider"></div>
+  <div class="compare-side" style="background: #2c5f7c;">
+    <h3>غيره من الفقهاء</h3>
+    <p>الأولى أن يخلل بعد كل غسلة — يغسل الوجه ثم يخلل، ثم يغسل ثم يخلل، ثم يغسل ثم يخلل. والأمر في ذلك واسع.</p>
+  </div>
+</div>
+
+<!-- 4 -->
+<h2><span class="section-num">٤</span> تخليل أصابع اليدين بالتشبيك</h2>
+
+<p>قال المصنف: "وتخليل أصابع اليدين بالتشبيك".</p>
+
+<p>الأفضل أن يكون تخليل أصابع اليدين بالتشبيك — بوضع بطن اليسرى على ظهر اليمنى (من الخلف)، ليخالف تشبيك العادة (تشبيك العبادة). فإذا وضع بطن اليسرى على ظهر اليمنى فإنه سيشبك اليمنى أولاً ثم اليسرى. ويستحب التشبيك ثلاثاً لأن النبي صلى الله عليه وسلم وضح ثلاثاً ثلاثاً — فيشبك اليمنى ثلاثاً ثم يشبك اليسرى ثلاثاً.</p>
+
+<div class="callout callout-important">
+  <div class="callout-title">التشبيك في المسجد — هل يكره؟</div>
+  <div class="callout-body">ورد في مسند الإمام أحمد: "إذا توضأ أحدكم فأحسن الوضوء ثم خرج إلى المسجد فلا يشبكن بين أصابعه فإنه في الصلاة". قال الفقهاء: التشبيك يكره بثلاثة قيود: أن يكون ينتظر الصلاة، وفي المسجد، ولغير حاجة. أما إذا احتاج لنحو التعليم — كتشبيك النبي صلى الله عليه وسلم حين قال: "المؤمنون في توادهم وتراحمهم" وشبك بين أصابعه — أو كان للتخليل في الوضوء، فلا يكره.</div>
+</div>
+
+<!-- 5 -->
+<h2><span class="section-num">٥</span> تخليل أصابع الرجلين</h2>
+
+<p>قال المصنف: "والرجلين بأي كيفية كانت".</p>
+
+<p>تخليل أصابع الرجلين يكون بأي كيفية كانت — لا يشترط فيه التشبيك كما في اليدين. والأفضل أن يخللها من أسفل بخنصر يده اليسرى، مبتدئاً بخنصر الرجل اليمنى ومختتماً بخنصر اليسرى.</p>
+
+<div class="vertical-flow">
+  <div class="flow-step" style="background: #1a5632; color: white;">يخلل من أسفل (من باطن الأصابع)</div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step" style="background: #2c5f7c; color: white;">بخنصر يده اليسرى</div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step" style="background: #c8a951; color: white;">يبدأ بخنصر الرجل اليمنى</div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step" style="background: #1a5632; color: white;">ينتهي بخنصر الرجل اليسرى</div>
+</div>
+
+<!-- 6 -->
+<h2><span class="section-num">٦</span> أحكام التخليل — ثلاث حالات</h2>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 8%;">الحالة</th>
+        <th style="width: 35%;">الوصف</th>
+        <th style="width: 15%;">الحكم</th>
+        <th style="width: 42%;">السبب</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #e8f5e9;">
+        <td style="font-weight: bold; text-align: center;">الأولى</td>
+        <td>الماء يصل بدون تخليل</td>
+        <td style="color: #28a745; font-weight: bold;">مستحب</td>
+        <td>التخليل سنة مستحبة لأن الماء يصل بدونه</td>
+      </tr>
+      <tr style="background-color: #fff3cd;">
+        <td style="font-weight: bold; text-align: center;">الثانية</td>
+        <td>الماء لا يصل إلا بالتخليل (كأصابع متقاربة)</td>
+        <td style="color: #856404; font-weight: bold;">واجب</td>
+        <td>لأن ما لا يتم الواجب إلا به فهو واجب</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold; text-align: center;">الثالثة</td>
+        <td>أصابع ملتحمة (متراصقة بالجلد) ويخاف من فتقها</td>
+        <td style="color: #c0392b; font-weight: bold;">يحرم فتقها</td>
+        <td>إذا خاف محذور تيمم (أي خاف على نفسه أو عضوه ضرراً) فإنه يحرم الفتق</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 7 -->
+<h2><span class="section-num">٧</span> السنة الحادية عشرة: إطالة الغرة والتحجيل</h2>
+
+<p>قال المصنف: "وإطالة الغرة والتحجيل".</p>
+
+<p>يحتاج هنا إلى بيان معنى الغرة والتحجيل، فإنهما في الشرع اسمان لما يجب غسله. فالغرة تكون في الوجه، والتحجيل يكون في اليدين والرجلين. والكلام هنا ليس على أصل الغرة والتحجيل (لأنها واجبة)، بل على <b>إطالتهما</b> — أي الزيادة على القدر الواجب.</p>
+
+<div class="callout callout-definition">
+  <div class="callout-title">تعريفان</div>
+  <div class="callout-body">
+    <b>الغرة:</b> اسم للقدر الواجب غسله في الوجه — سواء كان الواجب الأصلي أو الواجب باللازم (ما لا يتم الواجب إلا به).<br>
+    <b>التحجيل:</b> اسم للقدر الواجب غسله في اليدين والرجلين — من المرفق إلى أطراف الأصابع في اليدين، ومن الكعب إلى أطراف الأصابع في الرجلين.<br><br>
+    <b>إطالة الغرة والتحجيل:</b> غسل زيادة على القدر الواجب — وهذا هو المستحب (السنة)، وليس أصل الغرة والتحجيل.
+  </div>
+</div>
+
+<!-- 8 -->
+<h2><span class="section-num">٨</span> إطالة الغرة — القدر الأدنى والأكمل</h2>
+
+<p>قال المصنف: "وإطالة الغرة بأن يغسل مع الوجه مقدم رأسه وأذنيه وصفحتي عنقه".</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 25%;">القدر</th>
+        <th style="width: 40%;">في الغرة (الوجه)</th>
+        <th style="width: 35%;">ملاحظة</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold;">القدر الأدنى</td>
+        <td>أدنى زيادة على المقدار الواجب في الوجه</td>
+        <td>لم يذكره المصنف صراحة لكنه يدخل تحت ضابطه: "يحصل أقل الإطالة بغسل أدنى زيادة على الواجب"</td>
+      </tr>
+      <tr style="background-color: #d4edda;">
+        <td style="font-weight: bold;">القدر الأكمل</td>
+        <td>أن يغسل مع الوجه: مقدم الرأس + الأذنين + صفحتي العنق</td>
+        <td>هذا ما ذكره المصنف في عبارته</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 9 -->
+<h2><span class="section-num">٩</span> إطالة التحجيل — القدر الأدنى والأكمل</h2>
+
+<p>قال المصنف: "وطالة التحجيل بأن يغسل مع اليدين بعض العضدين ومع الرجلين بعض الساقين. وغايته استيعاب العضد والساق".</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 15%;">العضو</th>
+        <th style="width: 25%;">القدر الأدنى</th>
+        <th style="width: 25%;">القدر الأكمل (غايته)</th>
+        <th style="width: 35%;">البيان</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold;">اليدين</td>
+        <td>غسل بعض العضد (فوق المرفق)</td>
+        <td>استيعاب العضد إلى المنكب</td>
+        <td>المرفق هو الفرض، وما فوقه إلى بعض العضد أدنى الإطالة، وإلى المنكب أكملها</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">الرجلين</td>
+        <td>غسل بعض الساق (فوق الكعب)</td>
+        <td>استيعاب الساق إلى الركبة</td>
+        <td>الكعب هو الفرض، وما فوقه إلى بعض الساق أدنى الإطالة، وإلى الركبة أكملها</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="formula-box">
+  <div class="formula-text">يحصل أقل الإطالة بغسل أدنى زيادة على الواجب</div>
+  <div class="formula-note">وكمالها يحصل باستيعاب ما مرّ — في الغرة: مقدم الرأس والأذنين وصفحتي العنق. وفي التحجيل: العضد إلى المنكب والساق إلى الركبة.</div>
+</div>
+
+<!-- 10 -->
+<h2><span class="section-num">١٠</span> حديث الغر المحجلين</h2>
+
+<div class="poetry-box">
+  <div class="poetry">إن أمتي يدعون يوم القيامة غرّاً محجلين من آثار الوضوء<br>فمن استطاع منكم أن يطيل غرته فليفعل</div>
+  <div style="font-size: 10pt; color: #4a4a5e; margin-top: 4px;">خبر الشيخين (البخاري ومسلم) — وزاد مسلم: "وتحجيله"</div>
+</div>
+
+<p>معنى "غرّاً محجلين": بيض الوجوه والأيدي والأرجل من آثار الوضوء يوم القيامة. وفي الحديث حثّ على إطالة الغرة والتحجيل — "فمن استطاع منكم أن يطيل غرته فليفعل".</p>
+
+<div class="callout callout-info">
+  <div class="callout-title">مسألة: جملة "فمن استطاع منكم" — من كلام مَن؟</div>
+  <div class="callout-body">قال بعض المحدثين إنها من كلام أبي هريرة راوي الحديث وليست من كلام النبي صلى الله عليه وسلم (مدرجة). وقال بعضهم إنها من كلام النبي صلى الله عليه وسلم. والحافظ ابن حجر في الفتح له كلام حول هذا لكنه لم يصرّح بأحد القولين، فالأمر محتمل.</div>
+</div>
+
+<!-- 11 -->
+<h2><span class="section-num">١١</span> مسألة المقطوع قدمه والتحجيل</h2>
+
+<p>إذا كان شخص مقطوع القدم من نصف الساق — فالفرض غير موجود — فهل يُسن له التحجيل؟ صرّح فقهاء الشافعية أنه يُسن له التحجيل. وكذلك إذا كانت يده مقطوعة من العضد وبقي جزء منه إلى المنكب — يُسن له التحجيل.</p>
+
+<div class="callout callout-important">
+  <div class="callout-title">هذا خلاف القاعدة الفقهية: إذا سقط الأصل سقط الفرع</div>
+  <div class="callout-body">قد يُتوقع بناءً على القاعدة "إذا سقط الأصل سقط الفرع" أنه ما دام الفرض (الأصل) سقط بأن قُطعت القدم، فلا يُسن التحجيل (الفرع). لكن فقهاء الشافعية صرّحوا بأن التحجيل يُسنّ له حتى مع بتر العضو، والله أعلم.</div>
+</div>
+
+<p>كذلك لا يشترط أن يغسل الفرض أولاً ثم يطيل التحجيل — بل لو غسل القدر الأكمل في التحجيل أولاً ثم غسل الفرض تحصل السنة.</p>
+
+<!-- 12 -->
+<h2><span class="section-num">١٢</span> السنة الثانية عشرة: التثليث</h2>
+
+<p>قال المصنف: "وتثليث كل من مغسول وممسوح ودلك وتخليل وسواك وبسملة وذكر عقبه للاتباع في أكثر ذلك".</p>
+
+<p>التثليث سنة مشهورة — فقد ثبت أن النبي صلى الله عليه وسلم توضأ ثلاثاً ثلاثاً. والتثليث يشمل المغسول (الوجه واليدان والرجلان) والممسوح (الرأس والأذنان) والدلك والتخليل والسواك والبسملة والذكر الذي يُقال بعده.</p>
+
+<div class="callout callout-ruling">
+  <div class="callout-title">من مفردات المذهب الشافعي: تثليث مسح الرأس</div>
+  <div class="callout-body">ثبت في سنن أبي داود أن النبي صلى الله عليه وسلم مسح رأسه ثلاثاً. وهذا من مفردات المذهب الشافعي عن بقية المذاهب — فبقية المذاهب يقولون إن الرأس يمسح مرة واحدة، والمذهب الشافعي يقول يستحب أن يمسح ثلاثاً. والأكمل أن يستوعب الرأس بالمسح ويمسح ثلاثاً — فبالاستيعاب يحقق سنة الاستيعاب وبالتثليث يحقق سنة التثليث، ومراعاة خلاف الإمامين مالك وأحمد اللذين يقولان بوجوب استيعاب الرأس أولى.</div>
+</div>
+
+<!-- 13 -->
+<h2><span class="section-num">١٣</span> ما ثبت فيه التثليث وما لم يثبت</h2>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 50%;">ما ثبت فيه التثليث (للاتباع)</th>
+        <th style="width: 50%;">ما لم يثبت فيه التثليث (بالقياس)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #d4edda;">
+        <td>
+          <span style="display: inline-block; background: #1a5632; color: white; width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 50%; font-size: 9pt; margin-left: 3px;">١</span> العضو المغسول (الوجه واليدان والرجلان)<br>
+          <span style="display: inline-block; background: #1a5632; color: white; width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 50%; font-size: 9pt; margin-left: 3px;">٢</span> العضو الممسوح (الرأس والأذنان)<br>
+          <span style="display: inline-block; background: #1a5632; color: white; width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 50%; font-size: 9pt; margin-left: 3px;">٣</span> تخليل اللحية — ثبت في سنن البيهقي وقال البخاري: حسن<br>
+          <span style="display: inline-block; background: #1a5632; color: white; width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 50%; font-size: 9pt; margin-left: 3px;">٤</span> الذكر الذي يُقال بعده — جاء في بعض الأحاديث أنه يُقال ثلاثاً
+        </td>
+        <td>
+          <span style="display: inline-block; background: #c8a951; color: white; width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 50%; font-size: 9pt; margin-left: 3px;">١</span> الدلك — لم يثبت التثليث فيه<br>
+          <span style="display: inline-block; background: #c8a951; color: white; width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 50%; font-size: 9pt; margin-left: 3px;">٢</span> السواك — لم يثبت أن النبي استعمله ثلاثاً<br>
+          <span style="display: inline-block; background: #c8a951; color: white; width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 50%; font-size: 9pt; margin-left: 3px;">٣</span> البسملة — لم يثبت أن النبي قالها ثلاثاً<br><br>
+          <div style="background: #fff3cd; border: 1px solid #c8a951; border-radius: 4px; padding: 4px 6px; margin-top: 4px; font-size: 10px;">يُستحب التثليث فيها قياساً على ما ورد فيه التثليث، وأخذاً بإطلاق حديث: "كان النبي إذا توضأ توضأ ثلاثاً ثلاثاً"</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout callout-important">
+  <div class="callout-title">عبارة المصنف الدقيقة: "للاتباع في أكثر ذلك"</div>
+  <div class="callout-body">لم يقل المصنف "للاتباع في جميع ذلك" بل قال "في أكثر ذلك" — لأن التثليث لم يثبت في الكل بل في الأكثر. وما لم يثبت فيه صرّح غيره كشيخ ابن حجر أنه يُقاس على ما ثبت فيه.</div>
+</div>
+
+<h3>الخف والعمامة والجبيرة — خلاف</h3>
+
+<div class="compare-box">
+  <div class="compare-side" style="background: #1a5632;">
+    <h3>العلامة ابن حجر</h3>
+    <p>العمامة والجبيرة يمسحان مرة واحدة فقط — لا يُثلّث فيهما. والخف يكره فيه التكرار فيمسح مرة واحدة.</p>
+  </div>
+  <div class="compare-divider"></div>
+  <div class="compare-side" style="background: #2c5f7c;">
+    <h3>الرملي</h3>
+    <p>العمامة والجبيرة يمسحان ثلاثاً — أخذاً بإطلاق حديث: "كان يتوضأ ثلاثاً ثلاثاً". والخف يمسح مرة واحدة.</p>
+  </div>
+</div>
+
+<!-- 14 -->
+<h2><span class="section-num">١٤</span> مسألة رد ماء الغسلة الثانية</h2>
+
+<p>قال المصنف: "ولو ردّد ماء الغسلة الثانية حصل له أصل سنة التثليث كما استظهره شيخنا".</p>
+
+<div class="callout callout-ruling">
+  <div class="callout-title">الضابط: ماء الغسلة الأولى مستعمل، وماء الغسلة الثانية غير مستعمل</div>
+  <div class="callout-body">
+    <b>ماء الغسلة الأولى:</b> محكوم عليه بالاستعمال لأنه استُعمل في فرض الطهارة — فلو ردّد هذا الماء لا يحصل التثليث.<br><br>
+    <b>ماء الغسلة الثانية:</b> لا يُحكم عليه بالاستعمال لأنه في نفل طهارة وليس في فرض طهارة — فلو ردّد هذا الماء حصل أصل سنة التثليث.<br><br>
+    <b>وكمال السنة:</b> أن يأخذ لكل مرة ماءً مستقلاً جديداً — هذا الضابط في كل ما يُسن فيه التثليث.
+  </div>
+</div>
+
+<div class="formula-box">
+  <div class="formula-text">كمال السنة في التثليث: أن يأخذ ماءً جديداً في كل مرة</div>
+  <div class="formula-note">يحصل أصل السنة بردّد ماء الغسلة الثانية — لكن الكمال بأخذ ماء جديد كل مرة</div>
+</div>
+
+<!-- 15 -->
+<h2><span class="section-num">١٥</span> لا يجزئ التثليث قبل تمام الغسل ولا بعد تمام الوضوء</h2>
+
+<p>قال المصنف: "ولا يجزئ تثليث عضو قبل تمام واجب غسله، ولا بعد تمام الوضوء".</p>
+
+<div class="classification-group">
+  <div class="box-red">
+    <div class="box-title">لا يجزئ قبل تمام واجب غسله</div>
+    <div class="box-content">
+      لو غسل يده المرة الأولى وبقي موضع لم يصبه الماء (لمعة)، ثم غسل المرة الثانية وأصاب تلك اللمعة — لا تحسب هذه غسلة ثانية بل كلها تُعدّ أولى. لأن الغسلة الثانية لا تحصل إلا بعد تمام الغسلة الأولى. ومسألة اللمعة مرّت معنا سابقاً.
+    </div>
+  </div>
+  <div class="box-red">
+    <div class="box-title">لا يجزئ بعد تمام الوضوء</div>
+    <div class="box-content">
+      لو توضأ وضوءاً كاملاً مرة مرة (غسل كل عضو مرة)، ثم بعد إتمام الوضوء غسل كل عضو مرة ثانية ثم ثالثة — لا تحصل سنة التثليث. لأن سنة التثليث شرطها أن تكون قبل تمام الوضوء لا بعده.
+    </div>
+  </div>
+</div>
+
+<div class="callout callout-important">
+  <div class="callout-title">الفرق بين العضو المغسول والممسوح</div>
+  <div class="callout-body">القيد "قبل تمام واجب غسله" يشعر أن هذا الكلام في العضو المغسول لا الممسوح. فالرأس عضو ممسوح — يُحصل التثليث ولو مسح بعضه مرة مرتين ثلاثاً، لأن الاستيعاب في الممسوح ليس واجباً بخلاف المغسول فيجب فيه الاستيعاب.</div>
+</div>
+
+<!-- 16 -->
+<h2><span class="section-num">١٦</span> كراهة النقص عن الثلاث والزيادة عليها</h2>
+
+<p>قال المصنف: "ويكره النقص عن الثلاث كالزيادة عليها بنية الوضوء كما بحثه جمع، وتحرم من ماء موقوف على التطهر".</p>
+
+<div class="callout callout-danger">
+  <div class="callout-title">حديث: فمن زاد أو نقص فقد أساء وظلم</div>
+  <div class="callout-body">قال النبي صلى الله عليه وسلم: "هكذا الوضوء فمن زاد على هذا أو نقص فقد أساء وظلم". وفيه نهي عن النقص عن الثلاث. وثبت في صحيح البخاري أن النبي توضأ مرة مرة ومرتين مرتين — والجمع بين الأدلة أن فعله صلى الله عليه وسلم للبيان (بيان الجواز)، وإلا فالاقتصار على واحدة أو اثنتين مكروه. ولو نذر أن يتوضأ مرتين مرتين لا ينعقد نذره لأنه التزام مكروه ليس بقربة.</div>
+</div>
+
+<h3>شروط كراهة الزيادة على الثلاث</h3>
+
+<div class="condition-grid">
+  <div class="condition-item">
+    <span class="cond-num">١</span>
+    <b>أن تكون الزيادة متيقنة</b> — أي يتيقن أنها رابعة. فلو شكّ هل هذه ثانية أو ثالثة أخذ باليقين (الأقل) وأتى بالثالثة، ولا تكره لأنها مشكوك فيها وليست متيقنة.
+  </div>
+  <div class="condition-item">
+    <span class="cond-num">٢</span>
+    <b>أن تكون بنية الوضوء</b> — فلو زاد رابعة وخامسة بنية التبرد لا بنية الوضوء فلا تكره. والمصنف يقول: "كالزيادة عليها بنية الوضوء" إشارة إلى هذا الشرط.
+  </div>
+  <div class="condition-item">
+    <span class="cond-num">٣</span>
+    <b>أن يكون الماء غير موقوف ولا محتاج إليه لنحو شرب</b> — إن كان الماء موقوفاً على التطهر فالزيادة على الثلاث حرام لا مكروهة فقط. وكذا إن كان عنده ماء يحتاج إليه لعطش حيوان محترم. والمصنف يقول: "وتحرم من ماء موقوف" إشارة إلى هذا الشرط.
+  </div>
+</div>
+
+<div class="formula-box">
+  <div class="formula-text">الزيادة على الثلاث: مكروهة (بشروطها الثلاثة) — وحرام من ماء موقوف</div>
+  <div class="formula-note">النقص عن الثلاث مكروه أيضاً — لأن النبي صلى الله عليه وسلم توضأ ثلاثاً وقال: "فمن زاد أو نقص فقد أساء وظلم"</div>
+</div>
+
+<!-- 17 -->
+<h2><span class="section-num">١٧</span> فرع: الشك أثناء الوضوء وبعد الفراغ</h2>
+
+<p>قال المصنف: "فرع: يأخذ الشاك أثناء الوضوء في استيعاب أو عدد باليقين، وجوباً في الواجب وندباً في المندوب، ولو في الماء الموقوف".</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 25%;">نوع الشك</th>
+        <th style="width: 35%;">الحكم</th>
+        <th style="width: 40%;">البيان</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold;">الشك في الاستيعاب</td>
+        <td>يأخذ باليقين — وجوباً في الواجب وندباً في المندوب</td>
+        <td>لو شكّ هل استوعب العضو أو لا — يأخذ باليقين أنه لم يستوعب فيغسل</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">الشك في العدد</td>
+        <td>يأخذ باليقين (الأقل) ويردّد</td>
+        <td>لو شكّ هل غسل مرة أو مرتين — يأخذ باليقين أنها مرة ويغسل الثانية والثالثة</td>
+      </tr>
+      <tr style="background-color: #fff3cd;">
+        <td style="font-weight: bold;">في الواجب</td>
+        <td style="color: #856404; font-weight: bold;">وجوباً</td>
+        <td>مثال: الشك في الغسلة الأولى (في الفرض)</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">في المندوب</td>
+        <td style="color: #2c5f7c; font-weight: bold;">ندباً</td>
+        <td>مثال: الشك في الغسلة الثانية أو الثالثة (في السنة)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>الشك بعد الفراغ من الوضوء</h3>
+
+<div class="compare-box">
+  <div class="compare-side" style="background: #1a5632;">
+    <h3>العلامة ابن حجر</h3>
+    <p>لا يؤثر الشك بعد الفراغ من الوضوء في أي فرض من فروض الوضوء — سواء شكّ في غسل العضو أو في النية.</p>
+  </div>
+  <div class="compare-divider"></div>
+  <div class="compare-side" style="background: #2c5f7c;">
+    <h3>الرملي</h3>
+    <p>لا يؤثر الشك بعد الفراغ إلا في النية — فإذا شكّ في النية بعد الفراغ فإنه يؤثر عنده ويجب عليه الإعادة.</p>
+  </div>
+</div>
+
+<!-- 18 -->
+<h2><span class="section-num">١٨</span> السنة الثالثة عشرة: التيمن</h2>
+
+<p>قال المصنف: "وتيمن أي تقديم يمين على يسار في اليدين والرجلين".</p>
+
+<p>يُسنّ تقديم اليمين على اليسار في اليدين والرجلين — فتغسل اليد اليمنى قبل اليسرى، والرجل اليمنى قبل اليسرى. أما في غير اليدين والرجلين فيكون معاً — فالكفان يغسلهما معاً (في أول الوضوء)، والأذنان يمسحهما معاً.</p>
+
+<div class="callout callout-ruling">
+  <div class="callout-title">الأقطع يقدم الأيمن مطلقاً</div>
+  <div class="callout-body">الشخص الأقطع (مقطوع اليد) يقدم الأيمن مطلقاً في جميع أعضاء وضوئه. فإذا كانت يده اليمنى مقطوعة واستعمل اليسرى فقط — فعندما يأتي إلى الوجه يغسل الشقّ الأيمن من وجهه قبل الأيسر (إن لم يمكنه غسل الوجه جميعاً)، وفي الأذنين يغسل اليمنى ثم اليسرى، وهكذا في سائر الأعضاء.</div>
+</div>
+
+</body>
+</html>

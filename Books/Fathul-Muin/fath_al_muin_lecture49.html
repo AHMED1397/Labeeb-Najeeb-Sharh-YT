@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf') format('truetype'); font-weight: normal; }
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf') format('truetype'); font-weight: bold; }
+@font-face { font-family: 'NotoNaskh'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf') format('truetype'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+
+body {
+  font-family: 'NotoNaskh', 'Amiri', serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #1a1a2e;
+  direction: rtl;
+  background: #fff;
+  text-align: justify;
+}
+
+.cover-header {
+  background: #1a5632;
+  color: white;
+  padding: 20px 14px;
+  text-align: center;
+  margin: 0 0 12px 0;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px);
+  border-bottom: 4px solid #c8a951;
+}
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 6px; border: none; font-family: 'Amiri', serif; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.9; margin: 4px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.92; margin: 6px 0 2px 0; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .creator { font-size: 11pt; opacity: 0.85; margin-top: 2px; }
+.cover-header .series { font-size: 11pt; opacity: 0.8; margin-top: 4px; }
+
+.toc {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 0 0 12px 0;
+}
+.toc-title {
+  font-family: 'Amiri', serif;
+  font-size: 14pt;
+  color: #1a5632;
+  text-align: center;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #c8a951;
+  padding-bottom: 4px;
+}
+.toc-item {
+  font-size: 10pt;
+  padding: 2px 0;
+  border-bottom: 1px dotted #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+h2.section-title {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0d7c3e;
+  border-bottom: 2px solid #0d7c3e;
+  padding-bottom: 5px;
+  margin: 18px 0 10px;
+}
+
+h3.sub-title {
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: #0a5c2e;
+  margin: 14px 0 8px;
+  padding-right: 10px;
+  border-right: 4px solid #0d7c3e;
+}
+
+h4.minor-title {
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #166534;
+  margin: 10px 0 6px;
+}
+
+p { margin: 5px 0; text-align: justify; }
+
+.definition-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-right: 4px solid #0d7c3e;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.rule-box {
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-right: 4px solid #d97706;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.exception-box {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-right: 4px solid #ea580c;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.evidence-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-right: 4px solid #2563eb;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.issue-box {
+  background: #fdf2f8;
+  border: 1px solid #fbcfe8;
+  border-right: 4px solid #db2777;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.comparison-box {
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  border-right: 4px solid #7c3aed;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.note-box {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-right: 4px solid #0284c7;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.poetry-box {
+  background: #faf5ff;
+  border: 1px solid #e9d5ff;
+  border-right: 4px solid #9333ea;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+  text-align: center;
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  line-height: 2.2;
+}
+
+.key-rule {
+  background: #dcfce7;
+  border: 2px solid #16a34a;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.box-label {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 4px;
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.label-def { background: #0d7c3e; }
+.label-rule { background: #d97706; }
+.label-exc { background: #ea580c; }
+.label-ev { background: #2563eb; }
+.label-issue { background: #db2777; }
+.label-comp { background: #7c3aed; }
+.label-note { background: #0284c7; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 13px;
+  table-layout: fixed;
+}
+
+th {
+  background: #0d7c3e;
+  color: #fff;
+  padding: 6px 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+td {
+  padding: 5px 8px;
+  border: 1px solid #d1d5db;
+  text-align: center;
+  vertical-align: top;
+}
+
+tr:nth-child(even) { background: #f0fdf4; }
+tr:nth-child(odd) { background: #fff; }
+
+.tree-container { margin: 12px 0; text-align: center; }
+.tree-root {
+  display: inline-block;
+  background: linear-gradient(135deg, #0d7c3e, #0a5c2e);
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+.tree-branches { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px; }
+.tree-branch {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  min-width: 80px;
+  text-align: center;
+}
+.tree-branch-num { font-family: 'Amiri', serif; font-weight: bold; color: #0d7c3e; font-size: 14px; }
+.tree-branch-label { font-size: 12px; color: #374151; }
+
+.compare-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.compare-card { flex: 1; min-width: 140px; border-radius: 8px; padding: 8px 10px; text-align: center; }
+.compare-card-green { background: #dcfce7; border: 1px solid #86efac; }
+.compare-card-red { background: #fef2f2; border: 1px solid #fca5a5; }
+.compare-card-gold { background: #fefce8; border: 1px solid #fde68a; }
+.compare-card-blue { background: #eff6ff; border: 1px solid #bfdbfe; }
+.compare-card-title { font-family: 'Amiri', serif; font-weight: bold; font-size: 14px; margin-bottom: 4px; }
+.compare-card-body { font-size: 12px; }
+
+.flow-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px; margin: 8px 0; }
+.flow-box { background: #0d7c3e; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-family: 'Amiri', serif; font-weight: bold; text-align: center; }
+.flow-arrow { font-size: 16px; color: #0d7c3e; font-weight: bold; }
+.flow-result { padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; text-align: center; }
+.flow-pure { background: #dcfce7; border: 1px solid #86efac; color: #166534; }
+.flow-impure { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+.flow-excused { background: #fefce8; border: 1px solid #fde68a; color: #92400e; }
+
+.highlight-green { background: #dcfce7; padding: 1px 4px; border-radius: 3px; }
+.highlight-gold { background: #fefce8; padding: 1px 4px; border-radius: 3px; }
+.highlight-red { background: #fef2f2; padding: 1px 4px; border-radius: 3px; }
+
+.verse-ref { font-family: 'Amiri', serif; font-size: 14px; color: #1e40af; text-align: center; margin: 6px 0; }
+.hadith-ref { font-family: 'Amiri', serif; font-size: 13px; color: #166534; text-align: center; margin: 6px 0; }
+
+.condition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.condition-item { border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.condition-num {
+  display: inline-block; background: #0d7c3e; color: #fff; min-width: 24px; height: 24px;
+  border-radius: 50%; text-align: center; line-height: 24px; font-family: 'Amiri', serif;
+  font-weight: bold; font-size: 12px; margin-left: 6px;
+}
+
+ul { margin: 4px 0; padding-right: 20px; }
+li { margin: 2px 0; }
+</style>
+</head>
+<body>
+
+<!-- ===== COVER HEADER ===== -->
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس التاسع والأربعون — تابع أذكار ودعاء بعد الصلاة وآداب الدعاء</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="creator">تنسيق: أحمد بن إرشاد</div>
+  <div class="series">الذكر والدعاء سراً عقب الصلاة · جهر الإمام للتعليم · أدلّة الإسرار · آداب الدعاء الستة · أحكام الإمام بعد السلام</div>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. سنّ الذكر والدعاء سراً عقب الصلاة</span></div>
+  <div class="toc-item"><span>٢. هل يشمل الذكر والدعاء الفرض والنفل؟</span></div>
+  <div class="toc-item"><span>٣. ضابط السر ومعنى «عقبها»</span></div>
+  <div class="toc-item"><span>٤. المراتب الثلاث لفضيلة الذكر بعد الصلاة</span></div>
+  <div class="toc-item"><span>٥. استثناء جمع التقديم</span></div>
+  <div class="toc-item"><span>٦. الإسرار بالذكر والدعاء: المنفرد والمأموم والإمام</span></div>
+  <div class="toc-item"><span>٧. جهر الإمام لتعليم الحاضرين أو تأمينهم</span></div>
+  <div class="toc-item"><span>٨. اختيار المتولّي والأذرعي: الجهر مطلقاً</span></div>
+  <div class="toc-item"><span>٩. هل يرفع مأموم صوته لتعليم غيره؟</span></div>
+  <div class="toc-item"><span>١٠. كتاب إرشاد العباد والدلالة على الخير</span></div>
+  <div class="toc-item"><span>١١. حديث أبي أمامة: أسمع الدعاء</span></div>
+  <div class="toc-item"><span>١٢. إعراب «جوف الليل»: حذف المضاف وإقامة المضاف إليه</span></div>
+  <div class="toc-item"><span>١٣. معنى «دبر الصلوات» والاستدلال على الدعاء بعد السلام</span></div>
+  <div class="toc-item"><span>١٤. حديث أبي موسى: اربعوا على أنفسكم</span></div>
+  <div class="toc-item"><span>١٥. قول الشافعي في الأم: الإسرار بالذكر</span></div>
+  <div class="toc-item"><span>١٦. فائدة: حرمة المبالغة في الجهر المشتِّت</span></div>
+  <div class="toc-item"><span>١٧. الفروع الأربعة (مقدّمة)</span></div>
+  <div class="toc-item"><span>١٨. الفرع الأوّل: آداب الدعاء — افتتاحه بالحمد والصلاة على النبيّ</span></div>
+  <div class="toc-item"><span>١٩. الختم بالحمد والصلاة وبآمين</span></div>
+  <div class="toc-item"><span>٢٠. تأمين المأموم وإن حفظ الدعاء</span></div>
+  <div class="toc-item"><span>٢١. رفع اليدين الطاهرتين حذو المنكبين</span></div>
+  <div class="toc-item"><span>٢٢. مسح الوجه بهما بعد الدعاء</span></div>
+  <div class="toc-item"><span>٢٣. استقبال القبلة حالة الذكر أو الدعاء</span></div>
+  <div class="toc-item"><span>٢٤. أحكام الإمام بعد السلام: الانتقال والبقاء واستقبال القبلة</span></div>
+  <div class="toc-item"><span>٢٥. انصراف الإمام لا ينافي ندب الذكر عقبها</span></div>
+  <div class="toc-item"><span>٢٦. الذكر لا يفوت بفعل الراتبة</span></div>
+</div>
+
+<!-- ===== 1. سنّ الذكر والدعاء سراً عقب الصلاة ===== -->
+<h2 class="section-title">١. سنّ الذكر والدعاء سراً عقب الصلاة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وسنّة ذكر ودعاء سرّاً عقبها</b> — أي يُسنّ الإسرار بالذكر والدعاء بعد الصلاة، وذلك للمنفرد والمأموم والإمام الذي لم يُرد تعليم الحاضرين ولا تأمينهم لدعائه بسماعه.</p>
+</div>
+
+<p>ذكر المصنّف رحمه الله في هذا الموضع أنّه يُسنّ الإتيان بالأذكار والدعاء بعد الصلاة. وقوله «عقبها» أي عقب الصلاة، ظاهره أنّه يشمل صلاة الفرض والنفل.</p>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الأدلّة</span>
+  <p><b>وورد فيهما أحاديث كثيرة</b> — أي في الذكر والدعاء بعد الصلاة، ذكر المصنّف جملة منها في كتابه «إرشاد العباد» فقال: <b>فاطلبه فإنّه مهمّ</b>.</p>
+</div>
+
+<!-- ===== 2. هل يشمل الفرض والنفل ===== -->
+<h2 class="section-title">٢. هل يشمل الذكر والدعاء الفرض والنفل؟</h2>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف بين العلماء</span>
+  <p>الذكر والدعاء بعد الصلاة هل يشمل صلاة الفرض والنفل أم يختصّ بالمكتوبات؟ اختلف العلماء في ذلك:</p>
+</div>
+
+<table>
+  <tr>
+    <th>القول</th>
+    <th>القائل</th>
+    <th>البيان</th>
+  </tr>
+  <tr>
+    <td><b>التقييد بالمكتوبات</b></td>
+    <td>أكثر العلماء (الحافظ ابن حجر العسقلاني في فتح الباري)</td>
+    <td>قيدوا الأذكار والدعاء بالمكتوبات، لأنّه جاء في بعض الروايات تقييدها بالمكتوبات</td>
+  </tr>
+  <tr>
+    <td><b>الشمول للفرض والنفل</b></td>
+    <td>الحافظ ابن الملقن (شيخ الحافظ ابن حجر)</td>
+    <td>جعل الأحاديث المطلقة على إطلاقها فيشمل الفرض والنفل</td>
+  </tr>
+  <tr>
+    <td><b>تفصيل: الدعاء بعد الفرض والنفل، والذكر بعد الفرض فقط</b></td>
+    <td>بعض فقهاء الهند (صاحب حاشية على فتح المعين)</td>
+    <td>الدعاء يكون بعد الفرض والنفل، أمّا الذكر فيكون بعد الفرض فقط</td>
+  </tr>
+</table>
+
+<div class="key-rule">
+  المسألة واسعة والأقوال متعدّدة<br>
+  لكن ينبغي التنبيه لمن يقف على كلام آخر للفقهاء فيُضيفه
+</div>
+
+<!-- ===== 3. ضابط السر ومعنى عقبها ===== -->
+<h2 class="section-title">٣. ضابط السر ومعنى «عقبها»</h2>
+
+<h3 class="sub-title">ضابط السر</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">تعريف</span>
+  <p>ضابط السر كما مرّ معنا في القراءة: <b>أن يسمع الإنسان نفسه</b> فقط، فلا يسمع غيره.</p>
+</div>
+
+<h3 class="sub-title">معنى «عقبها» — توقيت الأذكار</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">تعريف</span>
+  <p>المراد بـ«عقبها» أي <b>بعدها</b> أي بعد الصلاة. والأكمل أن يأتي بالدعاء والذكر <b>عقب الصلاة وقبل السنّة الراتبة</b>.</p>
+</div>
+
+<div class="flow-row">
+  <div class="flow-box">الفرض</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box" style="background: #d97706;">الذكر والدعاء عقب الصلاة</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">السنّة الراتبة البعدية</div>
+</div>
+
+<!-- ===== 4. المراتب الثلاث ===== -->
+<h2 class="section-title">٤. المراتب الثلاث لفضيلة الذكر بعد الصلاة</h2>
+
+<div class="key-rule">
+  ثلاث مراتب لفضيلة الذكر والدعاء بعد الصلاة:<br>
+  <b>١. الكمال:</b> أن يأتي بهما قبل الراتبة<br>
+  <b>٢. أصل الفضيلة:</b> أن يؤخّرهما عن الراتبة<br>
+  <b>٣. الفوات:</b> أن يترك ذلك حتى خرج وقت الفرض
+</div>
+
+<table>
+  <tr>
+    <th>المرتبة</th>
+    <th>الصورة</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td><b>الكمال</b></td>
+    <td>يأتي بالذكر والدعاء قبل السنّة الراتبة البعدية</td>
+    <td><span class="highlight-green">أكمل ✕</span></td>
+  </tr>
+  <tr>
+    <td><b>أصل الفضيلة</b></td>
+    <td>يؤخّر الذكر والدعاء عن الراتبة فيأتي بالراتبة أوّلاً ثمّ الذكر</td>
+    <td><span class="highlight-gold">فاته الكمال وحصل له أصل الفضيلة</span></td>
+  </tr>
+  <tr>
+    <td><b>الفوات</b></td>
+    <td>ترك ذلك حتى خرج وقت الفرض (مثال: صلّى الظهر ولم يأتِ بالأذكار حتى خرج وقت الظهر)</td>
+    <td><span class="highlight-red">فات موضع الذكر الذي يكون عقب الصلاة</span></td>
+  </tr>
+</table>
+
+<!-- ===== 5. استثناء جمع التقديم ===== -->
+<h2 class="section-title">٥. استثناء جمع التقديم</h2>
+
+<div class="exception-box">
+  <span class="box-label label-exc">استثناء</span>
+  <p><b>يُستثنى من ذلك ما لو جمع بين الصلاتين جمع تقديم</b> — كأن جمع بين الظهر والعصر أو بين المغرب والعشاء تقديماً. لأنّه في جمع التقديم يشترط الموالاة بين الصلاتين، فانه يصلّي الصلاة الأولى (الظهر) ثمّ يصلّي الصلاة الثانية (العصر) وبعد العصر يأتي بأذكار الظهر والعصر. <b>والأكمل أن يأتي بالأذكار مرّتين</b> — مرّة لأذكار الظهر ومرّة لأذكار العصر.</p>
+</div>
+
+<!-- ===== 6. الإسرار بالذكر والدعاء ===== -->
+<h2 class="section-title">٦. الإسرار بالذكر والدعاء: المنفرد والمأموم والإمام</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم الأصلي</span>
+  <p>يُسنّ الإسرار بالذكر والدعاء لكلّ من:</p>
+  <ul>
+    <li><b>المنفرد</b> — سواء كان هذا المصلّي منفرداً واحداً</li>
+    <li><b>المأموم</b> — يسرّ بالذكر والدعاء</li>
+    <li><b>الإمام</b> — الأصل أن يسرّ بالذكر والدعاء</li>
+  </ul>
+</div>
+
+<p>لكن الإمام له حالتان استثنائيّتان يجهر فيهما بالذكر أو الدعاء، وسيأتي بيانهما.</p>
+
+<!-- ===== 7. جهر الإمام للتعليم ===== -->
+<h2 class="section-title">٧. جهر الإمام لتعليم الحاضرين أو تأمينهم</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وإمام لم يُرد تعليم الحاضرين ولا تأمينهم لدعائه بسماعه</b> — أي أنّ الإمام الأصل أن يسرّ بالذكر والدعاء، لكن إن أراد تعليم الحاضرين أو أراد منهم أن يؤمّنوا على دعائه إذا سمعوا دعاءه، فله حينئذ أن يجهر بالذكر والدعاء.</p>
+</div>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">١</span>
+    <b>تعليم الحاضرين</b><br>إذا كان بينهم من لا يعرف الأذكار أو الدعاء لجهله
+  </div>
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">٢</span>
+    <b>تأمين المأمومين على الدعاء</b><br>إذا أراد أن يؤمّن المأمومون على دعائه بسماعهم له
+  </div>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">دليل الإمام الشافعي</span>
+  <p>حمل الإمام الشافعي رحمه الله حديث ابن عباس في الصحيح: <b>«كنا نعرف انقضاء صلاة رسول الله صلّى الله عليه وسلّم بالتكبير»</b> على أنّ النبيّ صلّى الله عليه وسلّم كان يجهر بالتكبير لتعليم الحاضرين، ولمّا تعلّموا ترك ذلك عليه الصلاة والسلام.</p>
+  <p>فقال الشافعي: <b>يُسنّ للإمام أن يجهر بالذكر والدعاء إذا أراد تعليم الحاضرين أو أراد منهم أن يؤمّنوا على دعائه.</b></p>
+</div>
+
+<div class="key-rule">
+  معتمد مذهب الشافعيّة:<br>
+  يجهر الإمام بالذكر والدعاء لتعليم الحاضرين أو لتأمينهم<br>
+  فإذا تعلّموا رجع إلى الإسرار
+</div>
+
+<!-- ===== 8. اختيار المتولّي والأذرعي ===== -->
+<h2 class="section-title">٨. اختيار المتولّي والأذرعي: الجهر مطلقاً</h2>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">قول مخالف لمعتمد المذهب</span>
+  <p>بعض العوام الشافعيّة يجهرون بالذكر والدعاء مطلقاً حتى وإن تعلّم الناس. وهم بهذا يقلّدون بعض فقهاء الشافعيّة الذين اختاروا قولاً خلاف المذهب، منهم:</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">المتولّي (من المتقدّمين)</div>
+    <div class="compare-card-body">اختار أنّه يُسنّ للإمام أن يرفع صوته بالذكر والدعاء <b>مطلقاً</b><br>أي سواء وُجد من يُعلّمهم أو لا</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">علاء الدين بن العطار</div>
+    <div class="compare-card-body">تلميذ الإمام النووي وابن خالة الحافظ الذهبي من الرضاعة<br>له شرح على عدة الأحكام مطبوع في ثلاثة مجلّدات<br>اختار الجهر مطلقاً</div>
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">وجه استدلالهم</span>
+  <p>أخذ هؤلاء بمطلق حديث ابن عباس: «كنا نعرف انقضاء صلاة رسول الله صلّى الله عليه وسلّم بالتكبير» — فجعلوا الجهر مطلقاً بلا تقييد بالتعليم.</p>
+</div>
+
+<div class="key-rule">
+  معتمد المذهب: الجهر للتعليم والتأمين فقط<br>
+  اختيار المتولّي وابن العطار: الجهر مطلقاً (خلاف المعتمد)
+</div>
+
+<!-- ===== 9. هل يرفع مأموم صوته ===== -->
+<h2 class="section-title">٩. هل يرفع مأموم صوته لتعليم غيره؟</h2>
+
+<div class="issue-box">
+  <span class="box-label label-issue">مسألة</span>
+  <p>إذا كان من المأمومين من لا يعرف الأذكار أو الدعاء بعد الصلاة والإمام لم يجهر ليعلّمهم — هل يمكن لمأموم آخر أن يرفع صوته بالذكر والدعاء ليعلّم الآخرين؟ أم أنّ الأمر خاصّ بالإمام؟</p>
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الجواب</span>
+  <p>قوله «وإمام» <b>ليس قيداً</b>، فإذا كان الإمام لم يقم بذلك يمكن لمأموم آخر يعرف الذكر والدعاء أن يرفع صوته بهما ليتعلّم مأمومون لا يعلمون الذكر والدعاء.</p>
+</div>
+
+<!-- ===== 10. كتاب إرشاد العباد ===== -->
+<h2 class="section-title">١٠. كتاب إرشاد العباد والدلالة على الخير</h2>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه مهمّ</span>
+  <p>قال المصنّف: «ذكرت جملة منها في كتابي إرشاد العباد فاطلبه فإنّه مهمّ» — أي ابحث عن كتابي هذا واقرأ فيه فإنّه مهمّ. وقد يقول قائل: كيف يمدح كتابه؟ أليس هذا من تزكية النفس؟</p>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">ليس من تزكية النفس بل من الدلالة على الخير</span>
+  <p><b>هذا ليس من تزكية النفس بل من باب الدلالة على الخير</b>، والدالّ على الخير كفاعله. ومن الأمثلة على ذلك:</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">عبد الله بن مسعود رضي الله عنه</div>
+    <div class="compare-card-body">قال: «ما من آية في كتاب الله إلا وأنا أعلم أين أُنزلت ومتى أُنزلت، ولو أعلم رجلاً أعلم منّي بكتاب الله تبلغه الإبل لرحلت إليه»<br><b>هل كان يزكّي نفسه؟</b><br>لا — بل يريد أن يدلّ الناس على ما عنده من العلم ليستفيدوا منه</div>
+  </div>
+  <div class="compare-card compare-card-blue">
+    <div class="compare-card-title">ابن مالك رحمه الله</div>
+    <div class="compare-card-body">إمام العربيّة في زمانه وشيخ الإمام النووي، نظم ألفيّته ثمّ قال فيها:</div>
+  </div>
+</div>
+
+<div class="poetry-box">
+  تقرب الأقصى بلفظ مُجْزِدِ<br>
+  وتبسط البذل بوعد مُنْجِدِ<br>
+  وتقتضي الرضا بغير سخطي<br>
+  فائقة ألفيّة ابن معطي<br>
+  وهو بسبق حائز تفضيل<br>
+  مستوجب ثنائي جميل<br>
+  والله يقضي به بات وافي<br>
+  لكي يقضيه في درجات الآخرة
+</div>
+
+<div class="key-rule">
+  الدالّ على الخير له أجر فاعله<br>
+  من دلّ غيره على كتاب له أو بحث أو مسألة وقال اقرأ ستستفيد<br>
+  هذا ليس رياءً بل من الدلالة على العلم النافع
+</div>
+
+<!-- ===== 11. حديث أبي أمامة ===== -->
+<h2 class="section-title">١١. حديث أبي أمامة: أسمع الدعاء</h2>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">حديث أبي أمامة — رواه الترمذي</span>
+  <p>«قيل لرسول الله صلّى الله عليه وسلّم: أيّ الدعاء أسمع؟ قال: <b>جوف الليل ودبر الصلوات المكتوبات</b>»</p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">معنى «أسمع»</span>
+  <p>أي أسرع في الإجابة، أي أقرب إلى الإجابة، أي يستجيبه الله عزّ وجلّ.</p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">معنى «جوف الليل»</span>
+  <p>وسطه، أي <b>النصف الأخير من الليل</b> — نصف الثاني من الليل وسطه.</p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">معنى «دبر الصلوات المكتوبات»</span>
+  <p>أي بعد الصلوات المفروضة. والحديث دليل على <b>استحباب الدعاء بعد الصلاة</b>.</p>
+</div>
+
+<!-- ===== 12. إعراب جوف الليل ===== -->
+<h2 class="section-title">١٢. إعراب «جوف الليل»: حذف المضاف وإقامة المضاف إليه</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">مسألة نحويّة مهمّة</span>
+  <p>إعراب «جوف الليل»: <b>خبر مرفوع</b> لمبتدأ محذوف. التقدير: «دعاء جوف الليل أسمع» — فحُذف المضاف (دعاء) وأُقيم المضاف إليه (جوف) مقامه في الاستحقاق الرفع.</p>
+</div>
+
+<div class="key-rule">
+  قاعدة ابن مالك في الألفيّة:<br>
+  <b>وما يلي المضاف يأتي خلفاً عنه في الإعراب إذا ما حُذف</b><br>
+  أي: إذا حُذف المضاف أُقيم المضاف إليه مقامه في الإعراب
+</div>
+
+<div class="poetry-box">
+  وما يلي المضاف يأتي خلفاً<br>
+  عنه في الإعراب إذا ما حُذف
+</div>
+
+<p>فتقدير الكلام: أيّ الدعاء أسمع؟ (دعاء) جوف الليل أسمع. فحذفنا المضاف «دعاء» وأقمنا المضاف إليه «جوف» مقامه، فاستحقّ الرفع. و«ودبر الصلوات المكتوبات» معطوف عليه. و«أسمع» هو الخبر.</p>
+
+<div class="note-box">
+  <span class="box-label label-note">جواز النصب</span>
+  <p>يصحّ أيضاً نصب «جوف الليل» على أنّه مضاف إليه محذوف المضاف، أي: دعاء جوف الليل. وعليه فيكون تقدير المحذوف مضافاً إليه والجملة كلّها خبر.</p>
+</div>
+
+<!-- ===== 13. معنى دبر الصلوات ===== -->
+<h2 class="section-title">١٣. معنى «دبر الصلوات» والاستدلال على الدعاء بعد السلام</h2>
+
+<h3 class="sub-title">لماذا أورد المصنّف هذا الحديث؟</h3>
+
+<p>أورد المصنّف هذا الحديث ليستدلّ به على <b>استحباب الدعاء بعد الصلاة</b>، لأنّ الخلاف إنّما حصل في الدعاء — فبعض العلماء قال الدعاء يكون في صلب الصلاة ليس بعد السلام.</p>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">ترجيح الإمام البخاري</span>
+  <p>بوب الإمام البخاري رحمه الله في صحيحه: <b>«باب في الدعاء بعد السلام»</b> — وهذا يقوي مذهب القائلين باستحباب الدعاء بعد السلام.</p>
+</div>
+
+<h3 class="sub-title">إيراد على الحديث والجواب عنه</h3>
+
+<div class="issue-box">
+  <span class="box-label label-issue">إيراد</span>
+  <p>فإن قال قائل: إنّ «دبر» تطلق ويراد بها <b>آخر الشيء ممّا هو داخل فيه</b>، فيُحمل على أنّ المراد بعد التشهّد وقبل السلام لا بعد السلام.</p>
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الجواب — الحافظ ابن حجر في فتح الباري</span>
+  <p>قد جاءت كلمة «دبر» في الأذكار وقُلتم إنّ الأذكار بعد الصلاة <b>بالإجماع</b> — فالذكر بعد الصلاة إجماعيّ (سبحان الله ٣٣ والحمد لله ٣٣ والله أكبر ٣٣ وتمام المئة لا إله إلا الله). فإذا كان الذكر بعد الصلاة إجماعاً وورد بلفظ «دبر» فهذا مثله. <b>إلا أن يثبت خلاف ذلك</b>.</p>
+</div>
+
+<div class="key-rule">
+  دبر الصلوات = بعد الصلاة (بعد السلام)<br>
+  وقياساً على إجماع الأذكار بعد الصلاة الواردة بلفظ «دبر»<br>
+  يكون الدعاء أيضاً بعد السلام
+</div>
+
+<!-- ===== 14. حديث أبي موسى ===== -->
+<h2 class="section-title">١٤. حديث أبي موسى: اربعوا على أنفسكم</h2>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">حديث أبي موسى — رواه الشيخان</span>
+  <p>«كنا مع النبيّ صلّى الله عليه وسلّم فكنا إذا أشرفنا على وادٍ هلّلنا وكبّنا وارتفعت أصواتنا، فقال النبيّ صلّى الله عليه وسلّم: <b>يا أيّها الناس اربعوا على أنفسكم — ارفقوا بأنفسكم لا تشقّوا على أنفسكم — فإنّكم لا تدعون أصمّ ولا غائباً، إنّه معكم، إنّه سميع قريب</b>»</p>
+</div>
+
+<p>هذا الحديث احتجّ به البيهقي وغيره <b>للإسرار بالذكر والدعاء</b>. فأورد المصنّف حديثين:</p>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #eff6ff; border: 1px solid #bfdbfe;">
+    <span class="condition-num">١</span>
+    <b>حديث أبي أمامة</b><br>ليستدلّ به على <b>مشروعيّة الدعاء بعد الصلاة</b>
+  </div>
+  <div class="condition-item" style="background: #eff6ff; border: 1px solid #bfdbfe;">
+    <span class="condition-num">٢</span>
+    <b>حديث أبي موسى</b><br>ليستدلّ به على <b>سريّة الذكر والدعاء بعد الصلاة</b>
+  </div>
+</div>
+
+<!-- ===== 15. قول الشافعي في الأم ===== -->
+<h2 class="section-title">١٥. قول الشافعي في الأم: الإسرار بالذكر</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ الإمام الشافعي في كتاب الأم</span>
+  <p><b>«أختار للإمام والمأموم أن يذكر الله تعالى بعد الصلاة من الصلاة وفياء الذكر»</b> — هذا نصّ كلام الشافعي.</p>
+  <p><b>«إلا أن يكون إماماً يُريد أن يُتعلّم منه فيجهر حتّى يرى أنّه قد تعلّم منه ثمّ يسرّ»</b></p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">دليل الشافعي من القرآن</span>
+  <p>قال الشافعي: <b>فإنّ الله تعالى يقول: {ولا تجهر بصلاتك ولا تخافت بها}</b> — والله أعلم أنّ الدعاء لا تجهر حتّى تسمع غيرك ولا تخافت حتّى لا تسمع نفسك.</p>
+</div>
+
+<!-- ===== 16. فائدة حرمة المبالغة في الجهر ===== -->
+<h2 class="section-title">١٦. فائدة: حرمة المبالغة في الجهر المشتِّت للمصلّين</h2>
+
+<div class="exception-box">
+  <span class="box-label label-exc">فائدة مهمّة — شيخنا العلامة ابن حجر</span>
+  <p><b>أمّا المبالغة في الجهر بهما أي بالذكر والدعاء في المسجد بحيث يحصل تشويش على مُصلٍّ</b> — ظاهره ولو واحد مُصلٍّ ولو واحد — <b>فينبغي حرمتها</b>.</p>
+</div>
+
+<div class="key-rule">
+  المبالغة في رفع الصوت بالذكر والدعاء في المسجد<br>
+  بحيث يحصل تشويش على مصلٍّ واحد<br>
+  <b>ينبغي حرمتها</b><br>
+  وهذا ينطبق على المسبوقين الذين عليهم صلاة يُكملونها
+</div>
+
+<!-- ===== 17. الفروع الأربعة ===== -->
+<h2 class="section-title">١٧. الفروع الأربعة (مقدّمة)</h2>
+
+<p>ذكر المصنّف رحمه الله في هذا الموضع أربعة فروع:</p>
+
+<div class="tree-container">
+  <div class="tree-root">الفروع الأربعة</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">الفرع الأوّل</div>
+      <div class="tree-branch-label">آداب الدعاء<br>(سيُؤخذ اليوم)</div>
+    </div>
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a;">
+      <div class="tree-branch-num">الفرع الثاني</div>
+      <div class="tree-branch-label">حصول الثواب على الذكر<br>وإن جهل معناه</div>
+    </div>
+    <div class="tree-branch" style="background: #eff6ff; border: 1px solid #bfdbfe;">
+      <div class="tree-branch-num">الفرع الثالث</div>
+      <div class="tree-branch-label">انتقال المصلّي<br>عن موضع الصلاة</div>
+    </div>
+    <div class="tree-branch" style="background: #f5f3ff; border: 1px solid #ddd6fe;">
+      <div class="tree-branch-num">الفرع الرابع</div>
+      <div class="tree-branch-label">النفل في البيت أفضل<br>من النفل في المسجد</div>
+    </div>
+  </div>
+</div>
+
+<p>قال المصنّف: «نأخذ اليوم منها ما تيسّر وفي الدرس القادم نُكمل». فالفرع الأوّل هو في آداب الدعاء.</p>
+
+<!-- ===== 18. افتتاح الدعاء بالحمد والصلاة ===== -->
+<h2 class="section-title">١٨. الفرع الأوّل: آداب الدعاء — افتتاحه بالحمد والصلاة على النبيّ</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الأدب الأوّل</span>
+  <p><b>يُسنّ افتتاح الدعاء بالحمد لله والصلاة على النبيّ صلّى الله عليه وسلّم</b></p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">دليل حديث فضالة بن عبيد رضي الله عنه</span>
+  <p>«سمع رجلاً يدعو لم يحمد الله ولم يصلّ على نبيّه صلّى الله عليه وسلّم، فقال النبيّ عليه الصلاة والسلام: <b>عجّل هذا! عجّل هذا!</b> ثمّ قال: <b>إذا صلّى أحدكم فليبدأ بتحميد الله والثناء عليه ثمّ ليصلّ علي ثمّ ليدعو بما شاء</b>»</p>
+</div>
+
+<h3 class="sub-title">سورة الفاتحة كنموذج</h3>
+
+<p>وهذا ما علّمنا الله عزّ وجلّ في سورة الفاتحة:</p>
+
+<div class="flow-row">
+  <div class="flow-box">الحمد والثناء</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box" style="background: #d97706;">التوسّل بالعبادة</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">الدعاء</div>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">الحمد والثناء</div>
+    <div class="compare-card-body">بسم الله الرحمن الرحيم<br>الحمد لله ربّ العالمين<br>الرحمن الرحيم<br>مالك يوم الدين</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">التوسّل بالعبادة</div>
+    <div class="compare-card-body">إيّاك نعبد<br>وإيّاك نستعين</div>
+  </div>
+  <div class="compare-card compare-card-blue">
+    <div class="compare-card-title">الدعاء</div>
+    <div class="compare-card-body">اهدنا الصراط المستقيم<br>صراط الذين أنعمت عليهم<br>غير المغضوب عليهم<br>ولا الضالّين</div>
+  </div>
+</div>
+
+<!-- ===== 19. الختم بالحمد والصلاة وبآمين ===== -->
+<h2 class="section-title">١٩. الختم بالحمد والصلاة وبآمين</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الأدب الثاني</span>
+  <p><b>والختم بهما وبآمين</b> — أي يُستحبّ أن يختم الدعاء بالحمد لله والصلاة على النبيّ صلّى الله عليه وسلّم وبآمين.</p>
+</div>
+
+<h3 class="sub-title">ترتيب الختم</h3>
+
+<div class="flow-row">
+  <div class="flow-box">الدعاء</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box" style="background: #0a5c2e;">الحمد لله ربّ العالمين</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box" style="background: #0a5c2e;">الصلاة على النبيّ صلّى الله عليه وسلّم</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box" style="background: #d97706;">آمين يا ربّ العالمين</div>
+</div>
+
+<p>والظاهر أنّ ترتيبها هكذا في نهاية الدعاء: يقول <b>«والحمد لله ربّ العالمين وصلّى اللهمّ وسلّم على سيّدنا محمّد وآله وصحبه أجمعين اللهمّ آمين»</b> أو «آمين يا ربّ العالمين» ثمّ ينتهي من دعائه بهذا الترتيب: حمد ثمّ صلاة ثمّ تأمين.</p>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">دليل أهمّيّة الصلاة على النبيّ</span>
+  <p><b>«الدعاء معلّق بين السماء والأرض لا يُرفع إلا بالصلاة عليّ»</b></p>
+</div>
+
+<!-- ===== 20. تأمين المأموم ===== -->
+<h2 class="section-title">٢٠. تأمين المأموم وإن حفظ الدعاء</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الأدب الثالث</span>
+  <p><b>وتأمين مأموم سمع دعاء الإمام وإن حفظ ذلك</b> — أي يُستحبّ للمأموم أن يؤمّن إذا سمع دعاء الإمام، حتّى وإن كان المأموم يحفظ الدعاء.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه</span>
+  <p>مرّ معنا عند الكلام على الفاتحة أنّه يُستحبّ أن يقول <b>«آمين يا ربّ العالمين»</b> ولو كان خارج صلاة بزيادة «يا ربّ العالمين».</p>
+</div>
+
+<!-- ===== 21. رفع اليدين ===== -->
+<h2 class="section-title">٢١. رفع اليدين الطاهرتين حذو المنكبين</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الأدب الرابع</span>
+  <p><b>ورفع يديه الطاهرتين حذو منكبيه</b> — أي يُسنّ أن يرفع يديه الطاهرتين في الدعاء.</p>
+</div>
+
+<h3 class="sub-title">قيد الطهارة</h3>
+
+<p>قوله «الطاهرتين» قيد أخرج النجستين — فلو كان في يده نجاسة كدم مثلاً <b>فإنّه يُكره رفعها</b>. إنّما يُسنّ الرفع إذا كانت طاهرتين.</p>
+
+<h3 class="sub-title">كيفية الرفع وقدره</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">القدر المشروع</span>
+  <p>يرفع يديه <b>حذو منكبيه</b> — بهذا الشكل ملتصقتين. وقالوا: ينظر إليهما لأنّه لن ينظر إلى موضعهما سجناً (أي غلباً).</p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الأدلّة</span>
+  <p><b>حديث الرجل أشعث أغبر:</b> «يطيل السفر يمدّ يديه إلى السماء يقول يا ربّ يا ربّ» — دليل على استحباب رفع اليدين.</p>
+  <p><b>الحديث الآخر:</b> «إنّ الله حييّ كريم يستحي من عبده إذا رفع يديه أن يردّهما صفراً»</p>
+</div>
+
+<h3 class="sub-title">استثناء: الاشتداد في الدعاء</h3>
+
+<div class="exception-box">
+  <span class="box-label label-exc">استثناء</span>
+  <p><b>إلا إذا اشتدّ الأمر فله أن يبالغ بالرفع</b> — وعليه يُحمل رفع النبيّ صلّى الله عليه وسلّم في صلاة الاستسقاء، فإنّه عليه الصلاة والسلام <b>رفع يديه حتى رُئي بياض إبطيه</b>، أي أنّه بالغ في رفع يديه. <b>وجعل ظهورهما إلى السماء</b> بهذا الشكل في الاستسقاء.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">الأصل في الدعاء</div>
+    <div class="compare-card-body">رفع اليدين حذو المنكبين<br>باطنهما إلى السماء<br>ملتصقتين</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">الاستسقاء (اشتداد الأمر)</div>
+    <div class="compare-card-body">رفع حتى يُرى بياض الإبطين<br>ظهورهما إلى السماء<br>مبالغة في الرفع</div>
+  </div>
+</div>
+
+<!-- ===== 22. مسح الوجه ===== -->
+<h2 class="section-title">٢٢. مسح الوجه بهما بعد الدعاء</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الأدب الخامس</span>
+  <p><b>ومسح الوجه بهما بعده</b> — أي يُستحبّ بعد الدعاء أن يمسح وجهه بيديه.</p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل — حديث عمر عند الترمذي</span>
+  <p>«إذا مدّ يديه في الدعاء لم يردّهما حتى يمسح بهما وجهه»</p>
+  <p>قال الحافظ ابن حجر في بلوغ المرام: وله شواهد منها حديث ابن عباس عند أبي داود، <b>ومجموعها يقتضي أنّه حديث حسن</b>.</p>
+</div>
+
+<h3 class="sub-title">تفصيل مهمّ: خارج الصلاة وفي الصلاة</h3>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">خارج الصلاة</div>
+    <div class="compare-card-body"><b>يُسنّ</b> مسح الوجه باليدين بعد الدعاء<br>لثبوت الحديث الحسن</div>
+  </div>
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">في الصلاة</div>
+    <div class="compare-card-body"><b>لا يُسنّ</b> مسح الوجه<br>بل قال جماعة من الفقهاء:<br><b>يُكره</b> أن يمسح صدره بيديه<br>فما نراه أحياناً من بعض المصلّين<br>في القنوت بعد القنوت يمسح وجهه وصدره<br><b>هذا غير صحيح</b></div>
+  </div>
+</div>
+
+<!-- ===== 23. استقبال القبلة ===== -->
+<h2 class="section-title">٢٣. استقبال القبلة حالة الذكر أو الدعاء</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الأدب السادس</span>
+  <p><b>واستقبال القبلة حالة الذكر أو الدعاء</b> — أي يُسنّ أن يستقبل القبلة حال الذكر إذا أراد أن يذكر الله بقراءة القرآن أو تسبيح أو تهليل أو تحميد أو تكبير، وكذلك حال الدعاء.</p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل — حديث الاستسقاء</span>
+  <p>النبيّ صلّى الله عليه وسلّم لمّا خطب في الاستسقاء حتى إذا كان في الخطبة الثانية <b>استقبل القبلة فدعا</b> — كان يستقبل الناس ويخطبهم لكن لمّا جاء وقت الدعاء ترك استقبل الناس واستقبل القبلة وحال رداءه ودعا. فهذا يدلّ على أنّ السنّة عند الدعاء استقبال القبلة.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">فضيلة مجلس استقبل فيه القبلة</span>
+  <p>وأنتم تعلمون الأحاديث التي جاءت في أنّ <b>سيّد المجالس ما استُقبل فيه القبلة</b> فعند الذكر والدعاء من باب أولى.</p>
+</div>
+
+<h3 class="sub-title">حكم المنفرد والمأموم والإمام</h3>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">المنفرد</div>
+    <div class="compare-card-body">يسلّم ويبقى مستقبل القبلة<br>ويأتي بالأذكار والدعاء<br><b>لا إشكال</b></div>
+  </div>
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">المأموم</div>
+    <div class="compare-card-body">كذلك لا إشكال<br>يبقى مستقبل القبلة</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">الإمام</div>
+    <div class="compare-card-body">بعد السلام يستقبل الناس<br>كيف يستقبل القبلة؟<br><b>يأتي التفصيل</b></div>
+  </div>
+</div>
+
+<!-- ===== 24. أحكام الإمام بعد السلام ===== -->
+<h2 class="section-title">٢٤. أحكام الإمام بعد السلام: الانتقال والبقاء واستقبال القبلة</h2>
+
+<h3 class="sub-title">الأفضل للإمام: الانتقال من مُصلّاه</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم الأوّل</span>
+  <p>أوّل شيء يُسنّ للإمام إذا فرغ من صلاته أن <b>لا يُطيل اللبث في مُصلّاه بل يتحوّل من مُصلّاه إلى مكان آخر</b>. وهذا هدي النبيّ صلّى الله عليه وسلّم أنّه إذا فرغ من صلاته انتقل من المكان الذي صلّى فيه إلى مكان آخر.</p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل — قصّة ذي اليدين</span>
+  <p>في قصّة ذي اليدين أنّ النبيّ عليه الصلاة والسلام بعد أن سلّم من الركعتين <b>انتقل إلى مكان آخر</b> فقال له ذو اليدين: «يا رسول الله أقصرت الصلاة أم نسيت؟» إلى آخر القصّة. فهذا يدلّ على أنّ هديه عليه الصلاة والسلام أنّه بعد الفراغ من الصلاة لا يبقى في مُصلّاه وإنّما ينتقل إلى مكان آخر.</p>
+</div>
+
+<h3 class="sub-title">إذا لم ينتقل الإمام: جعل يمينه للمأمومين</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم الثاني — إذا ترك الأفضل</span>
+  <p>إذا كان هناك نساء في المسجد والإمام يريد أن يتأخّر ولا ينتقل حتى يتأخّر الناس، فالسنّة له أن <b>يجعل يمينه للمأمومين ويساره للقِبلة</b> بهذه الوضعية.</p>
+</div>
+
+<div class="key-rule">
+  الإمام إذا لم ينتقل من مُصلّاه:<br>
+  <b>يمينه للمأمومين ويساره للقِبلة</b><br>
+  فهو مستثنى من استحباب استقبال القبلة عند الدعاء
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">حكم الاستقبال وقت الدعاء</span>
+  <p>قال شيخنا: «ولو في الدعاء» — أي أنّه سيكون بهذا الوضعية وقت الدعاء أيضاً: يمينه للمأمومين ويساره للقِبلة. فهذه الصورة <b>مستثناة من استحباب استقبال القبلة عند الدعاء</b> بالنسبة للإمام الذي لا يريد القيام من مكان صلاته.</p>
+</div>
+
+<!-- ===== 25. انصراف الإمام لا ينافي الذكر ===== -->
+<h2 class="section-title">٢٥. انصراف الإمام لا ينافي ندب الذكر عقبها</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وانصرافه لا ينافي ندب الذكر له عقبها</b> — أي أنّ انصراف الإمام من مُصلّاه إلى مكان آخر لا يعني أنّ الذكر قد فاته. بل يمكن أن يأتي بالأذكار في ذلك الموضع الذي ينصرف إليه.</p>
+</div>
+
+<div class="key-rule">
+  الانصراف لا يُفوت الذكر<br>
+  يأتي بالذكر في محلّه الذي ينصرف إليه
+</div>
+
+<!-- ===== 26. الذكر لا يفوت بفعل الراتبة ===== -->
+<h2 class="section-title">٢٦. الذكر لا يفوت بفعل الراتبة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ولا يفوت بفعل الراتبة</b> — أي أنّ الذكر لا يفوت إذا قدّمت الراتبة البعدية على أذكار الصلاة. تقدير الكلام: ولا يفوت الذكر بفعل الراتبة.</p>
+</div>
+
+<div class="key-rule">
+  إنّما الفائت بفعل الراتبة <b>كماله لا غيره</b><br>
+  أي يفوت كمال الذكر لا أصله<br>
+  فمن صلّى الراتبة ثمّ أتى بالأذكار حصل له أصل الفضيلة
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">الذكر قبل الراتبة</div>
+    <div class="compare-card-body"><b>الكمال</b><br>يحصل له كمال الفضيلة<br>وأصل الفضيلة</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">الذكر بعد الراتبة</div>
+    <div class="compare-card-body">فاته الكمال<br>وحصل له <b>أصل الفضيلة</b><br>الذكر لا يفوت أصله</div>
+  </div>
+</div>
+
+</body>
+</html>

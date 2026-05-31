@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf') format('truetype'); font-weight: normal; }
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf') format('truetype'); font-weight: bold; }
+@font-face { font-family: 'NotoNaskh'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf') format('truetype'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+
+body {
+  font-family: 'NotoNaskh', 'Amiri', serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #1a1a2e;
+  direction: rtl;
+  background: #fff;
+  text-align: justify;
+}
+
+.cover-header {
+  background: #1a5632;
+  color: white;
+  padding: 20px 14px;
+  text-align: center;
+  margin: 0 0 12px 0;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px);
+  border-bottom: 4px solid #c8a951;
+}
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 6px; border: none; font-family: 'Amiri', serif; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.9; margin: 4px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.92; margin: 6px 0 2px 0; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .creator { font-size: 11pt; opacity: 0.85; margin-top: 2px; }
+.cover-header .series { font-size: 11pt; opacity: 0.8; margin-top: 4px; }
+
+.toc {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 0 0 12px 0;
+}
+.toc-title {
+  font-family: 'Amiri', serif;
+  font-size: 14pt;
+  color: #1a5632;
+  text-align: center;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #c8a951;
+  padding-bottom: 4px;
+}
+.toc-item {
+  font-size: 10pt;
+  padding: 2px 0;
+  border-bottom: 1px dotted #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+h2.section-title {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0d7c3e;
+  border-bottom: 2px solid #0d7c3e;
+  padding-bottom: 5px;
+  margin: 18px 0 10px;
+}
+
+h3.sub-title {
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: #0a5c2e;
+  margin: 14px 0 8px;
+  padding-right: 10px;
+  border-right: 4px solid #0d7c3e;
+}
+
+h4.minor-title {
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #166534;
+  margin: 10px 0 6px;
+}
+
+p { margin: 5px 0; text-align: justify; }
+
+.definition-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-right: 4px solid #0d7c3e;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.rule-box {
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-right: 4px solid #d97706;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.exception-box {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-right: 4px solid #ea580c;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.evidence-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-right: 4px solid #2563eb;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.issue-box {
+  background: #fdf2f8;
+  border: 1px solid #fbcfe8;
+  border-right: 4px solid #db2777;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.comparison-box {
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  border-right: 4px solid #7c3aed;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.note-box {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-right: 4px solid #0284c7;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.key-rule {
+  background: #dcfce7;
+  border: 2px solid #16a34a;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.box-label {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 4px;
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.label-def { background: #0d7c3e; }
+.label-rule { background: #d97706; }
+.label-exc { background: #ea580c; }
+.label-ev { background: #2563eb; }
+.label-issue { background: #db2777; }
+.label-comp { background: #7c3aed; }
+.label-note { background: #0284c7; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 13px;
+  table-layout: fixed;
+}
+
+th {
+  background: #0d7c3e;
+  color: #fff;
+  padding: 6px 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+td {
+  padding: 5px 8px;
+  border: 1px solid #d1d5db;
+  text-align: center;
+  vertical-align: top;
+}
+
+tr:nth-child(even) { background: #f0fdf4; }
+tr:nth-child(odd) { background: #fff; }
+
+.tree-container { margin: 12px 0; text-align: center; }
+.tree-root {
+  display: inline-block;
+  background: linear-gradient(135deg, #0d7c3e, #0a5c2e);
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+.tree-branches { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px; }
+.tree-branch {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  min-width: 80px;
+  text-align: center;
+}
+.tree-branch-num { font-family: 'Amiri', serif; font-weight: bold; color: #0d7c3e; font-size: 14px; }
+.tree-branch-label { font-size: 12px; color: #374151; }
+
+.compare-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.compare-card { flex: 1; min-width: 140px; border-radius: 8px; padding: 8px 10px; text-align: center; }
+.compare-card-green { background: #dcfce7; border: 1px solid #86efac; }
+.compare-card-red { background: #fef2f2; border: 1px solid #fca5a5; }
+.compare-card-gold { background: #fefce8; border: 1px solid #fde68a; }
+.compare-card-blue { background: #eff6ff; border: 1px solid #bfdbfe; }
+.compare-card-title { font-family: 'Amiri', serif; font-weight: bold; font-size: 14px; margin-bottom: 4px; }
+.compare-card-body { font-size: 12px; }
+
+.flow-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px; margin: 8px 0; }
+.flow-box { background: #0d7c3e; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-family: 'Amiri', serif; font-weight: bold; text-align: center; }
+.flow-arrow { font-size: 16px; color: #0d7c3e; font-weight: bold; }
+.flow-result { padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; text-align: center; }
+.flow-pure { background: #dcfce7; border: 1px solid #86efac; color: #166534; }
+.flow-impure { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+
+.highlight-green { background: #dcfce7; padding: 1px 4px; border-radius: 3px; }
+.highlight-gold { background: #fefce8; padding: 1px 4px; border-radius: 3px; }
+.highlight-red { background: #fef2f2; padding: 1px 4px; border-radius: 3px; }
+
+.verse-ref { font-family: 'Amiri', serif; font-size: 14px; color: #1e40af; text-align: center; margin: 6px 0; }
+
+.condition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.condition-item { border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.condition-num {
+  display: inline-block; background: #0d7c3e; color: #fff; min-width: 24px; height: 24px;
+  border-radius: 50%; text-align: center; line-height: 24px; font-family: 'Amiri', serif;
+  font-weight: bold; font-size: 12px; margin-left: 6px;
+}
+
+.excused-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.excused-item { background: #fefce8; border: 1px solid #fde68a; border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.excused-num {
+  display: inline-block; background: #d97706; color: #fff; width: 22px; height: 22px;
+  border-radius: 50%; text-align: center; line-height: 22px; font-family: 'Amiri', serif;
+  font-weight: bold; font-size: 12px; margin-left: 6px;
+}
+
+.scenario-grid { display: grid; grid-template-columns: 1fr; gap: 6px; margin: 10px 0; }
+.scenario-item { background: #fef2f2; border: 1px solid #fca5a5; border-radius: 8px; padding: 8px 10px; font-size: 13px; display: flex; gap: 8px; align-items: flex-start; }
+.scenario-num {
+  display: inline-block; background: #dc2626; color: #fff; min-width: 24px; height: 24px;
+  border-radius: 50%; text-align: center; line-height: 24px; font-family: 'Amiri', serif;
+  font-weight: bold; font-size: 12px; flex-shrink: 0;
+}
+</style>
+</head>
+<body>
+
+<!-- ===== COVER HEADER ===== -->
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس التاسع والعشرون — تابع ما يُعفى عنه من النجاسة وقاعدة الأصل والظاهر</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="creator">تنسيق: أحمد بن إرشاد</div>
+  <div class="series">قاعدة الأصل والظاهر · المعفوّات الإضافية · مبطلات الصلاة بحمل النجاسة · إعلام المصلي</div>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. الفرق بين القاعدة والضابط</span><span>١</span></div>
+  <div class="toc-item"><span>٢. قاعدة الأصل والظاهر (أصل القاعدة)</span><span>١</span></div>
+  <div class="toc-item"><span>٣. أمثلة القاعدة</span><span>٣</span></div>
+  <div class="toc-item"><span>٤. أحوال القاعدة الأربعة</span><span>٤</span></div>
+  <div class="toc-item"><span>٥. المعفوّ عنه: محلّ الاستجمار</span><span>٦</span></div>
+  <div class="toc-item"><span>٦. المعفوّ عنه: ونيم الذباب وبول وروث الخفاش</span><span>٧</span></div>
+  <div class="toc-item"><span>٧. المعفوّ عنه: ذرق الطيور (ثلاثة شروط)</span><span>٧</span></div>
+  <div class="toc-item"><span>٨. لا يُعفى عن بعر الفار (مع خلاف)</span><span>٨</span></div>
+  <div class="toc-item"><span>٩. مبطلات الصلاة بحمل النجاسة (ستّ صور)</span><span>٩</span></div>
+  <div class="toc-item"><span>١٠. فرع: إعلام المصلي وتعليم المُخلّ بواجب</span><span>١١</span></div>
+</div>
+
+<!-- ===== 1. القاعدة والضابط ===== -->
+<h2 class="section-title">١. الفرق بين القاعدة والضابط</h2>
+
+<div class="definition-box">
+  <span class="box-label label-def">القاعدة</span>
+  <p><b>القاعدة:</b> أمرٌ كليّ يندرج تحته جزئيات كثيرة <b>من أبواب متعدّدة</b> — كقاعدة "الأمور بمقاصدها" و"اليقين لا يزول بالشكّ" و"المشقّة تجلب التيسير" و"الضرر يُزال" و"العادة محكمة" — فهذه قواعد كبرى لها فروع في جميع أبواب الفقه: الطهارة والصلاة والزكاة والصيام والحجّ والبيع والنكاح.</p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">الضابط</span>
+  <p><b>الضابط:</b> أمرٌ كليّ يندرج تحته جزئيات <b>من باب واحد فقط</b> — كقولهم "ما صحّ بيعه صحّت هبته" (خاصّ بباب الهبة)، وقولهم "جميع الميتات نجسة إلا ثلاثاً: الآدمي والسمك والجراد" (خاصّ بباب النجاسات).</p>
+</div>
+
+<table>
+  <tr>
+    <th>الوصف</th>
+    <th>القاعدة</th>
+    <th>الضابط</th>
+  </tr>
+  <tr>
+    <td><b>التعريف</b></td>
+    <td>كليّ يندرج تحته جزئيات من أبواب متعدّدة</td>
+    <td>كليّ يندرج تحته جزئيات من باب واحد</td>
+  </tr>
+  <tr>
+    <td><b>المثال</b></td>
+    <td>الأمور بمقاصدها · المشقّة تجلب التيسير</td>
+    <td>ما صحّ بيعه صحّت هبته · جميع الميتات نجسة إلا ثلاثاً</td>
+  </tr>
+  <tr>
+    <td><b>المصطلح</b></td>
+    <td>اصطلاح المتأخّرين</td>
+    <td>اصطلاح المتأخّرين</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه</span>
+  <p>هذا التفريق بين القاعدة والضابط هو مصطلح <b>المتأخّرين</b> من الفقهاء. أمّا المتقدّمون فكانوا يطلقون "الضابط" على "القاعدة" و"القاعدة" على "الضابط" ولا يفرّقون بينهما.</p>
+</div>
+
+<!-- ===== 2. قاعدة الأصل والظاهر ===== -->
+<h2 class="section-title">٢. قاعدة الأصل والظاهر (أصل القاعدة)</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">النصّ</span>
+  <p><b>قاعدة مهمّة: وهي أنّ ما أصله الطهارة وغلب على الظنّ تنجّسه لغلبة النجاسة في مثله — فيه قولان معروفان: بقولي الأصل والظاهر أو الأصل والغالب. أرجحهما أنه طاهر عملاً بالأصل المتيقّن</b></p>
+</div>
+
+<div class="key-rule">
+  إذا تعارض الأصل والظاهر ← يُرجَّح الأصل<br>
+  لأن الأصل متيقّن والظاهر يختلف بالأحوال والأزمان
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">صورة القاعدة</span>
+  <p>إذا تعارض <b>الأصل</b> (الطهارة المتيقّنة) مع <b>الظاهر/الغالب</b> (غلبة النجاسة) — فأيّهما يُقدَّم؟ الجواب: <b>يُرجَّح الأصل</b> لأنه أضبط وأيقن، بخلاف الغالب فإنه يختلف باختلاف الأحوال والأزمان ففيه اضطراب.</p>
+</div>
+
+<h3 class="sub-title">قيود القاعدة</h3>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">١</span>
+    <b>"وغلب على الظنّ تنجّسه"</b> — تفهم منه أنّه لو <b>تيقّنّا</b> تنجّسه فنحكم باليقين ولا نعمل بالأصل. فإذا تيقّنا النجاسة حكمنا بها قطعاً.
+  </div>
+  <div class="condition-item" style="background: #f0f9ff; border: 1px solid #bae6fd;">
+    <span class="condition-num">٢</span>
+    <b>"لغلبة النجاسة في مثله"</b> — تفهم منه أنّه لو ظننا نجاسته <b>مستندين إلى سبب ظاهر محسوس</b> (كبول حيوان في ماء) فإنّا نحكم بالنجاسة — لأنّ الظنّ هنا مستند إلى سبب قويّ لا إلى مجرد غلبة.
+  </div>
+</div>
+
+<h3 class="sub-title">مثال توضيحي: الماء الكثير والحيوان</h3>
+
+<div class="issue-box">
+  <span class="box-label label-issue">الصورة</span>
+  <p>ماء كثير يبلغ قلتين — رأينا حيواناً يبول فيه ثم وجدنا تغيّراً في الماء. لكن لا ندري: هل التغيّر بسبب طول المدة (أشهر) أم بسبب بول الحيوان؟</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">الأصل</div>
+    <div class="compare-card-body">بقاء الماء على الطهارة</div>
+  </div>
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">الظاهر (سبب محسوس)</div>
+    <div class="compare-card-body">بول الحيوان سبب قويّ للتغيّر</div>
+  </div>
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p>هنا الظنّ مستند إلى <b>سبب ظاهر محسوس</b> (بول الحيوان) وليس إلى مجرد غلبة النجاسة في مثله — فنحكم <span class="highlight-red">بالنجاسة</span> لأنّه خرج عن حدّ القاعدة بقيد "لغلبة النجاسة في مثله".</p>
+</div>
+
+<!-- ===== 3. أمثلة القاعدة ===== -->
+<h2 class="section-title">٣. أمثلة القاعدة</h2>
+
+<table>
+  <tr>
+    <th>#</th>
+    <th>المثال</th>
+    <th>الأصل</th>
+    <th>الغالب/الظاهر</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td><b>١</b></td>
+    <td>ثياب خمّار</td>
+    <td>الطهارة</td>
+    <td>غالب إصابتها بالخمر</td>
+    <td><span class="highlight-green">يطهر</span> — يُقدَّم الأصل</td>
+  </tr>
+  <tr>
+    <td><b>٢</b></td>
+    <td>ثوب حائض</td>
+    <td>الطهارة</td>
+    <td>احتمال تلوّثه بدم الحيض</td>
+    <td><span class="highlight-green">يطهر</span></td>
+  </tr>
+  <tr>
+    <td><b>٣</b></td>
+    <td>ثياب صبيان</td>
+    <td>الطهارة</td>
+    <td>غلب تلوّثها بالبول والقيء</td>
+    <td><span class="highlight-green">يطهر</span></td>
+  </tr>
+  <tr>
+    <td><b>٤</b></td>
+    <td>أواني متديّنين بنجاسة</td>
+    <td>الطهارة</td>
+    <td>غالب تلوّثها (كمن يغتسلون بأبوال البقر)</td>
+    <td><span class="highlight-green">يطهر</span></td>
+  </tr>
+  <tr>
+    <td><b>٥</b></td>
+    <td>ورق يغلب نثره على نجس</td>
+    <td>الطهارة</td>
+    <td>الورق الملاصق لجدار طين فيه زبل</td>
+    <td><span class="highlight-green">يطهر</span></td>
+  </tr>
+  <tr>
+    <td><b>٦</b></td>
+    <td>لعاب صبي</td>
+    <td>الطهارة</td>
+    <td>الفم مكان للقيء والقيء نجس</td>
+    <td><span class="highlight-green">يطهر</span></td>
+  </tr>
+  <tr>
+    <td><b>٧</b></td>
+    <td>قوخ اشتُهر عمله بشحم الخنزير</td>
+    <td>الطهارة (من صوف)</td>
+    <td>يُدهَن بشحم الخنزير للمتانة</td>
+    <td><span class="highlight-green">يطهر</span></td>
+  </tr>
+  <tr>
+    <td><b>٨</b></td>
+    <td>جبن شامي اشتُهر عمله بإنفحة الخنزير</td>
+    <td>الطهارة</td>
+    <td>يُصنع بإنفحة الخنزير</td>
+    <td><span class="highlight-green">يطهر</span></td>
+  </tr>
+</table>
+
+<h3 class="sub-title">تفصيل: الجبن الشامي والإنفحة</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">الإنفحة</span>
+  <p><b>الإنفحة</b> (بكسر الهمزة): تطلق ويراد بها اللبن الذي في معدة الحيوان الرضيع، وتطلق أيضاً على <b>الغشاء</b> الموجود في المعدة. هذا الغشاء يُؤخذ عند ذبح الحيوان الرضيع ويُوضع على اللبن لصنع الجبن.</p>
+</div>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">✓</span>
+    <b>الإنفحة طاهرة</b> — إذا أُخذت من حيوان مذكّى لم يطعم غير اللبن
+  </div>
+  <div class="condition-item" style="background: #fef2f2; border: 1px solid #fca5a5;">
+    <span class="condition-num">✗</span>
+    <b>الإنفحة نجسة</b> — إذا أُخذت من حيوان غير مذكّى (ميت) أو من حيوان بدأ يأكل العشب أو من خنزير
+  </div>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p><b>وقد جاءه صلى الله عليه وسلم جبنة من أهل الشام فأكل منها ولم يسأل عن ذلك</b> — لم يقل: هل صُنعت بإنفحة خنزير أم بإنفحة حيوان آخر؟ وهذا دليل على تقديم الأصل (الطهارة) على الظاهر. ذكره شيخنا ابن حجر في شرح المنهاج المسمّى بتحفة المحتاج. رواه أبو داود في السنن.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">قوله "اشتُهر"</span>
+  <p>قوله <b>"اشتُهر عمله بإنفحة الخنزير"</b> — تفهم منه أنّه لو تيقّنا أنّه صُنع بإنفحة الخنزير فلا يعفى عنه ويحرم أكله. إنّما العفو عند <b>غلبة الظنّ</b> لا عند <b>اليقين</b>.</p>
+</div>
+
+<!-- ===== 4. أحوال القاعدة الأربعة ===== -->
+<h2 class="section-title">٤. أحوال القاعدة الأربعة</h2>
+
+<p>المصنف رحمه الله ذكر جزءاً من القاعدة (القسم الثالث فقط). وأحوال القاعدة الكاملة أربعة:</p>
+
+<div class="tree-container">
+  <div class="tree-root">أحوال تعارض الأصل والظاهر</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">١</div>
+      <div class="tree-branch-label">يُقدَّم الأصل <b>جزماً</b></div>
+    </div>
+    <div class="tree-branch" style="background: #fef2f2; border-color: #fca5a5;">
+      <div class="tree-branch-num">٢</div>
+      <div class="tree-branch-label">يُقدَّم الظاهر <b>جزماً</b></div>
+    </div>
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a;">
+      <div class="tree-branch-num">٣</div>
+      <div class="tree-branch-label">يُرجَّح الأصل (ذكره المصنف)</div>
+    </div>
+    <div class="tree-branch" style="background: #f0f9ff; border-color: #bae6fd;">
+      <div class="tree-branch-num">٤</div>
+      <div class="tree-branch-label">يُرجَّح الظاهر</div>
+    </div>
+  </div>
+</div>
+
+<h3 class="sub-title">الحالة الأولى: يُقدَّم الأصل جزماً</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الضابط</span>
+  <p>إذا كان الظاهر مجرّد <b>احتمال</b> لا يُلتفت إليه — ويُقدَّم الأصل جزماً قطعاً.</p>
+</div>
+
+<div class="excused-grid">
+  <div class="excused-item">
+    <span class="excused-num">١</span>
+    <b>متوضّئ شكّ هل أحدث أم لا</b> — الأصل بقاء الوضوء، والاحتمال لا يُلتفت إليه. فيبقى على وضوئه جزماً.
+  </div>
+  <div class="excused-item">
+    <span class="excused-num">٢</span>
+    <b>متزوّج شكّ هل طلق زوجته أم لا</b> — الأصل بقاء الزوجية، ومجرّد الاحتمال لا يُقدَّم على الأصل.
+  </div>
+</div>
+
+<h3 class="sub-title">الحالة الثانية: يُقدَّم الظاهر جزماً</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الضابط</span>
+  <p>إذا جعل <b>الشارع الظاهر سبباً</b> للحكم — فيُقدَّم الظاهر ويُترك الأصل جزماً.</p>
+</div>
+
+<div class="excused-grid">
+  <div class="excused-item">
+    <span class="excused-num">١</span>
+    <b>تقطع يد السارق بشهادة عدلين</b> — شهادة الشهود غلبة ظنّ لا يقين (لاحتمال الخطأ أو الكذب). لكنّ الشارع جعل الشهادة سبباً لثبوت السرقة، فنترك الأصل (البراءة) ونحكم بموجب الشهادة.
+  </div>
+  <div class="excused-item">
+    <span class="excused-num">٢</span>
+    <b>ثبوت هلال رمضان بشهادة عدل واحد</b> — يحتمل أنّه أخطأ أو كذب، لكنّ الشارع جعل شهادة العدل سبباً في ثبوت الشهر، فنترك الأصل (بقاء شعبان) ونأخذ بالشهادة.
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">فائدة</span>
+  <p>شهادة الشهود (خبر الآحاد) تُفيد <b>غلبة الظنّ</b> لا اليقين عند جماهير العلماء. أمّا خبر المتواتر فهو الذي يُفيد اليقين.</p>
+</div>
+
+<h3 class="sub-title">الحالة الثالثة: يُرجَّح الأصل (ما ذكره المصنف)</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الضابط</span>
+  <p>إذا حصل تعارض بين الأصل والغلبة <b>من غير نصب الشارع</b> — فيُرجَّح الأصل لأنه أضبط.</p>
+</div>
+
+<p>وهذا هو الذي ذكره المصنف في أمثلته: ثياب الخمّار والحائض والصبيان والمجانين والمتديّنين بالنجاسات والقوخ والجبن الشامي.</p>
+
+<h3 class="sub-title">الحالة الرابعة: يُرجَّح الظاهر</h3>
+
+<div class="issue-box">
+  <span class="box-label label-issue">الصورة</span>
+  <p>لو سلم من صلاته ثم شكّ بعد السلام في ركن: هل فعله أم لا؟ كأن شكّ هل قرأ الفاتحة أو سجد سجدتين أو قرأ التشهّد الأخير؟</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">الأصل</div>
+    <div class="compare-card-body">الأصل عدم الفعل<br>يلزمه الإتيان بما ترك</div>
+  </div>
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">الظاهر</div>
+    <div class="compare-card-body">الظاهر أنّ الصلاة تمّت صحيحة<br>لا يلزمه شيء</div>
+  </div>
+</div>
+
+<div class="key-rule">
+  يُرجَّح الظاهر بعد السلام — فلا يلزمه شيء<br>
+  إلا إذا شكّ في النيّة أو تكبيرة الإحرام — فلا يؤثّر الشكّ أيضاً كما مرّ
+</div>
+
+<!-- ===== 5. محل الاستجمار ===== -->
+<h2 class="section-title">٥. المعفوّ عنه: محلّ الاستجمار</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">النصّ</span>
+  <p><b>ويُعفى عن محلّ استجماره</b> — أي محلّ استجماره هو لا غيره. لو استجمر بالحجر فإنّ الحجر يزيل عين النجاسة لكن لا يزيل جميع الأثر، فيبقى أثر لا يزول بالحجر. هذا الأثر <b>يُعفى عنه</b>.</p>
+</div>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">١</span>
+    <b>في حقّ الشخص نفسه</b> — أثر الاستجمار يعفى عنه في حقّ المصلّي نفسه. ولو كان في ثوبه شيء التصق بموضع الاستجمار يُعفى عنه أيضاً.
+  </div>
+  <div class="condition-item" style="background: #fef2f2; border: 1px solid #fca5a5;">
+    <span class="condition-num">٢</span>
+    <b>لا في حقّ غيره</b> — فلو سجد المصلّي فصعد طفل مستجمر على ظهره بطلت صلاته، لأنّ أثر الاستجمار يعفى عنه في حقّه هو فقط لا في حقّ غيره.
+  </div>
+</div>
+
+<h3 class="sub-title">قيدان</h3>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">١</span>
+    <b>أن يكون في محلّه</b> — فلو انتقل الأثر عن محلّه وجاوز الصفحة (بالنسبة للدبر) أو الحشفة (بالنسبة للقُبُل) فلا يُعفى عنه.
+  </div>
+  <div class="condition-item" style="background: #f0f9ff; border: 1px solid #bae6fd;">
+    <span class="condition-num">٢</span>
+    <b>العفو في الصلاة لا في الماء</b> — لو سقط المستجمر في ماء قليل نجّسه، لأنّ العفو عنه في باب الصلاة لا في باب الماء.
+  </div>
+</div>
+
+<!-- ===== 6. ونيم الذباب وبول وروث الخفاش ===== -->
+<h2 class="section-title">٦. المعفوّ عنه: ونيم الذباب وبول وروث الخفاش</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">النصّ</span>
+  <p><b>وعن ونيم ذباب وبول وروث خفاش في المكان وكذا الثوب والبدن وإن كثرت لعسر الاحتراز عنها</b></p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">التعريفات</span>
+  <p><b>ونيم الذباب:</b> روث الذباب. <b>الخفاش (الوطواط):</b> حيوان يطير ليلاً (Bat). كلّ هذه الأشياء يعفى عنها في المكان والثوب والبدن وإن كثرت — <b>لعسر الاحتراز عنها</b> — أي لصعوبة التحرّز منها.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه</span>
+  <p>هذا العفو <b>بالنسبة للصلاة</b> (في المكان والثوب والبدن) لا بالنسبة للماء. فلو سقطت هذه الأشياء في ماء قليل نجّسته. وهذا من باب ما يُعفى عنه في الصلاة ولا يُعفى عنه في الماء — بعكس ميتة ما لا نفس له سائلة التي يُعفى عنها في الماء ولا يُعفى عنها في الصلاة.</p>
+</div>
+
+<!-- ===== 7. ذرق الطيور ===== -->
+<h2 class="section-title">٧. المعفوّ عنه: ذرق الطيور (ثلاثة شروط)</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">النصّ</span>
+  <p><b>ويُعفى عمّا جفّ من ذرق سائر الطيور في المكان الذي عمّت به البلوى</b></p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">ذرق الطيور</span>
+  <p><b>الذرق:</b> روث الطيور. وعند فقهاء الشافعية جميع الأرواث نجسة (بخلاف المالكية الذين يفرّقون بين ما يُؤكل لحمه وما لا يُؤكل). والمساجد في بعض القرى — خاصة المناطق الصحّية كالجوف ومأرب — قد لا يكون لها سقف كامل فتأتي الطيور وتتروّث فيها.</p>
+</div>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">١</span>
+    <b>أن يجفّ</b> — فلو كان رطباً لا يُعفى عنه. إنّما يُعفى عنه إذا جفّ.
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٢</span>
+    <b>أن تعمّ به البلوى</b> — أي تكثر في المكان. فلو كان المسجد مسقوفاً ودخل طائر فتروّث لا يُعفى عنه لقلّته. أمّا المسجد غير المسقوف الذي تكثر فيه الطيور فيُعفى عنه.
+  </div>
+  <div class="condition-item" style="background: #f0f9ff; border: 1px solid #bae6fd;">
+    <span class="condition-num">٣</span>
+    <b>أن لا يتعمّد ملامسته</b> — فلو تعمّد ملامسة الروث لا يُعفى عنه. ولم يذكره المصنف لكنّه شرط معتبر.
+  </div>
+  <div class="condition-item" style="background: #fef2f2; border: 1px solid #fca5a5;">
+    <span class="condition-num">ج</span>
+    <b>يُعفى عنه في المكان فقط</b> — لا في الثوب ولا في البدن على المعتمد. وقضيّة كلام المجموع (للإمام النووي) أنّه يُعفى عنه في الثوب والبدن أيضاً — لكنّه <b>ضعيف</b> والمعتمد تخصيصه بالمكان.
+  </div>
+</div>
+
+<!-- ===== 8. بعر الفار ===== -->
+<h2 class="section-title">٨. لا يُعفى عن بعر الفار (مع خلاف)</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">النصّ</span>
+  <p><b>ولا يُعفى عن بعر الفار ولو يابساً على الأوجه</b> — أي في الثوب والمكان والبدن. وما تقدّم من العفو عن روث الفئران إنّما هو <b>بالنسبة للماء</b> لا للصلاة.</p>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">توضيح التعارض الظاهري</span>
+  <p>مرّ معنا في درس سابق أنّ <b>روث الفئران يُعفى عنه في الماء</b> (في حياض الأخلية)، وهنا يقول <b>لا يُعفى عنه في الصلاة</b> — فكيف يجتمعان؟</p>
+  <p>الجواب: لا تعارض — فهناك العفو <b>بالنسبة للماء</b>، وهنا عدم العفو <b>بالنسبة للصلاة</b> (الثوب والبدن والمكان). والشيء قد يُعفى عنه في باب ولا يُعفى عنه في باب آخر.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">قول مخالف</span>
+  <p>أفتى شيخنا <b>ابن زياد</b> (عبد الرحمن بن زياد وجيه الدين) <b>بالعفو عن بعر الفار في المكان أيضاً</b> إذا عمّت به البلوى — كعمومها في ذرق الطيور — وبنفس الشروط: أن يجفّ وأن لا يتعمد ملامسته وأن تعمّ به البلوى. وهذا قول بعض المتأخّرين.</p>
+</div>
+
+<!-- ===== 9. مبطلات الصلاة ===== -->
+<h2 class="section-title">٩. مبطلات الصلاة بحمل النجاسة (ستّ صور)</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">النصّ</span>
+  <p><b>ولا تصحّ صلاة من حمل مستجمراً أو حيواناً بمنفذه نجس أو مذكّى غُسل مذبحه دون جوفه أو ميتاً طاهراً كآدمي وسمك لم يُغسل باطنه أو بيضة مذرة في باطنها دم — ولا صلاة قابض طرف متّصل بنجس وإن لم يتحرّك بحركته</b></p>
+</div>
+
+<div class="scenario-grid">
+  <div class="scenario-item">
+    <span class="scenario-num">١</span>
+    <div>
+      <b>حمل مستجمر</b> — كمن كان يسجد فصعد طفل مستجمر على ظهره. صلاته تبطل لأنّ أثر الاستجمار يعفى عنه في حقّ نفسه لا في حقّ غيره. ومن باب أولى لو حمله بيده.
+    </div>
+  </div>
+  <div class="scenario-item">
+    <span class="scenario-num">٢</span>
+    <div>
+      <b>حيوان بمنفذه نجس</b> — كمن حمل قطة في الصلاة وهذه القطة في مكان خروج روثها نجاسة. صلاته تبطل لحمله للنجاسة.
+    </div>
+  </div>
+  <div class="scenario-item">
+    <span class="scenario-num">٣</span>
+    <div>
+      <b>مذكّى غُسل مذبحه دون جوفه</b> — ذُبحت شاة وغُسل الدم عن مذبحها (مكان الذبح) لكن لم يُفتح بطنها ولم يُخرج ما فيه. صلاته تبطل لأنّ في باطن الحيوان نجاسة أصبح حكمها كالظاهرة.
+    </div>
+  </div>
+  <div class="scenario-item">
+    <span class="scenario-num">٤</span>
+    <div>
+      <b>ميت طاهر لم يُغسل باطنه</b> — كالآدمي الميت (ميتته طاهرة) أو السمك الميت (طاهر) لكنّ ما في باطنه نجس أصبح له حكم الظاهر. نُعلم من هذا أنّه لو غُسل باطنه وأُخرج ما فيه صحّت الصلاة. (شقّ بطن الآدمي لا يجوز إلا للضرورة كأن ماتت امرأة وفي بطنها جنين حيّ).
+    </div>
+  </div>
+  <div class="scenario-item">
+    <span class="scenario-num">٥</span>
+    <div>
+      <b>بيضة مذرة في باطنها دم</b> — البيضة الفاسدة التي في داخلها دم. لو صلّى وهو يحملها بطلت صلاته لحمله للنجاسة.
+    </div>
+  </div>
+  <div class="scenario-item">
+    <span class="scenario-num">٦</span>
+    <div>
+      <b>قابض طرف متّصل بنجس</b> — كأن يكون قابضاً على حبل مربوط بكلب. صلاته تبطل وإن لم يتحرّك الحيوان بحركته. نُعلم من قوله "قابض" أنّه لو لم يقبض — كأن جعل الحبل تحت قدمه — صلاته تصحّ لأنّه ليس حاملاً للنجاسة.
+    </div>
+  </div>
+</div>
+
+<div class="key-rule">
+  الضابط: حمل النجاسة أو القبض على ما يتّصل بنجس يُبطل الصلاة<br>
+  الاستثناء: ما لم يقصد الحمل أو يكون بغير قبض
+</div>
+
+<!-- ===== 10. فرع: إعلام المصلي ===== -->
+<h2 class="section-title">١٠. فرع: إعلام المصلّي وتعليم المُخلّ بواجب</h2>
+
+<h3 class="sub-title">أولاً: إعلام من بثوبه نجاسة</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">النصّ</span>
+  <p><b>لو رأى من يريد صلاة وبثوبه نجس غير معفوّ عنه — لزمه إعلامه</b></p>
+</div>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">١</span>
+    <b>غير معفوّ عنه</b> — لو كان النجس معفوّاً عنه فلا يجب إعلامه. إنّما يجب إذا كان غير معفوّ عنه.
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٢</span>
+    <b>يريد صلاة</b> — أي قبل أن يصلّي. أمّا لو كان في أثناء الصلاة فهل يجب إعلامه؟ يحتاج إلى بحث.
+  </div>
+</div>
+
+<h3 class="sub-title">الوجوب: عينيّ أم كفائيّ؟</h3>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">لو كان وحدك</div>
+    <div class="compare-card-body">يلزمك <b>لزوماً عينيّاً</b></div>
+  </div>
+  <div class="compare-card compare-card-blue">
+    <div class="compare-card-title">لو رآه جماعة</div>
+    <div class="compare-card-body">يلزمهم <b>لزوماً كفائيّاً</b> — إن قام واحد سقط الحرج عن الباقين، وإن لم يقم أحد أثموا جميعاً</div>
+  </div>
+</div>
+
+<h3 class="sub-title">ثانياً: تعليم المُخلّ بواجب عبادة</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">النصّ</span>
+  <p><b>وكذا يلزم تعليم من رآه يخل بواجب عبادة في رأي مقلّده</b> — أي يجب عليك أن تُعلّمه بالخلل الذي سيقع فيه بناءً على رأي من يقلّده.</p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">المثال</span>
+  <p>رأيت شخصاً يقلّد المذهب الشافعي لمس امرأة أجنبية ثم أراد الصلاة — فيجب عليك إعلامه بأنّ وضوءه انتقض بمسّ الأجنبية عند الشافعية ويجب عليه إعادته.</p>
+</div>
+
+<h3 class="sub-title">إشكال: الفرق بين إيقاظ النائم وإعلام المصلي</h3>
+
+<div class="issue-box">
+  <span class="box-label label-issue">الإشكال</span>
+  <p>مرّ معنا أنّ <b>إيقاظ النائم</b> في وقت الصلاة <b>مستحبّ</b> لا واجب — حتى وإن غلب على الظنّ أنّ نومه سيستمرّ إلى خروج الوقت. بينما <b>إعلام المصلّي</b> هنا <b>واجب</b>. فما الفرق بين المسألتين مع تقارب الصورة؟</p>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">الجواب المحتمل</span>
+  <p><b>النائم:</b> ليس مكلفاً في حالة النوم — فالإيقاظ مستحبّ.</p>
+  <p><b>المصلّي:</b> هو مكلف وسيُقدم على عبادة باطلة — فيجب إعلامه.</p>
+  <p>لكنّ الشيخ أشار إلى أنّ المسألة تحتاج إلى بحث وتحرير في نصوص الفقهاء.</p>
+</div>
+
+</body>
+</html>

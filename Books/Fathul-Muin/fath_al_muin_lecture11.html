@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf'); }
+@font-face { font-family: 'Amiri-Bold'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf'); }
+@font-face { font-family: 'NotoNaskhArabic'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+body { font-family: 'NotoNaskhArabic', 'Amiri', serif; font-size: 14px; line-height: 1.8; color: #2c2c2c; direction: rtl; text-align: justify; }
+h1 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 18pt; color: #1a5632; margin: 14px 0 6px 0; }
+h2 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 15pt; color: #1a5632; margin: 12px 0 5px 0; border-bottom: 2px solid #c8a951; padding-bottom: 3px; }
+h3 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 12pt; color: #2c5f7c; margin: 8px 0 4px 0; }
+p { margin: 3px 0; }
+.cover-header { background: #1a5632; color: white; padding: 20px 14px; text-align: center; margin: 0 0 12px 0; background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px); border-bottom: 4px solid #c8a951; }
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 6px; border: none; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.9; margin: 4px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.92; margin: 6px 0 2px 0; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .series { font-size: 11pt; opacity: 0.8; margin-top: 4px; }
+.toc { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 6px; padding: 10px 14px; margin: 0 0 12px 0; }
+.toc-title { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 14pt; color: #1a5632; text-align: center; margin-bottom: 6px; border-bottom: 2px solid #c8a951; padding-bottom: 4px; }
+.toc-item { font-size: 10pt; padding: 2px 0; border-bottom: 1px dotted #ccc; display: flex; justify-content: space-between; }
+.table-container { overflow-x: hidden; margin: 8px 0; page-break-inside: avoid; }
+table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 10pt; }
+th, td { padding: 4px 8px; border: 1px solid #ddd; overflow-wrap: break-word; word-break: break-word; }
+th { background-color: #1a5632; color: white; text-align: right; font-size: 10pt; }
+.callout { padding: 8px 12px; margin: 8px 0; border-radius: 0 6px 6px 0; page-break-inside: avoid; }
+.callout-title { font-weight: bold; margin-bottom: 3px; font-size: 11pt; }
+.callout-body { color: #333; line-height: 1.7; font-size: 13px; }
+.callout-warning { background: #fff3cd; border-right: 4px solid #c8a951; }
+.callout-warning .callout-title { color: #856404; }
+.callout-ruling { background: #e8f5e9; border-right: 4px solid #1a5632; }
+.callout-ruling .callout-title { color: #1a5632; }
+.callout-important { background: #e3f2fd; border-right: 4px solid #2c5f7c; }
+.callout-important .callout-title { color: #2c5f7c; }
+.callout-danger { background: #f8d7da; border-right: 4px solid #c0392b; }
+.callout-danger .callout-title { color: #c0392b; }
+.callout-info { background: #d1ecf1; border-right: 4px solid #17a2b8; }
+.callout-info .callout-title { color: #0c5460; }
+.callout-definition { background: #e8f4f8; border-right: 4px solid #2c5f7c; }
+.callout-definition .callout-title { color: #1a3a5c; }
+.callout-success { background: #d4edda; border-right: 4px solid #28a745; }
+.callout-success .callout-title { color: #155724; }
+.card-grid { display: grid; gap: 8px; margin: 10px 0; max-width: 100%; }
+.card-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.card-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.card-grid-4 { grid-template-columns: repeat(2, 1fr); }
+.card-grid-5 { grid-template-columns: repeat(2, 1fr); }
+.card { padding: 10px; border-radius: 8px; text-align: center; max-width: 100%; overflow-wrap: break-word; }
+.card-number { font-size: 20px; font-weight: bold; margin-bottom: 3px; }
+.card-title { font-size: 11pt; font-weight: bold; }
+.card-desc { font-size: 9pt; margin-top: 3px; opacity: 0.9; line-height: 1.6; }
+.compare-box { display: flex; gap: 0; margin: 8px 0; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.1); max-width: 100%; flex-wrap: wrap; }
+.compare-side { flex: 1; min-width: 0; padding: 8px 10px; }
+.compare-side h3 { margin: 0 0 4px 0; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 3px; font-size: 11pt; color: white; }
+.compare-side p { font-size: 12px; line-height: 1.6; color: white; }
+.compare-divider { width: 3px; background: #c8a951; }
+.section-num { display: inline-block; background: #1a5632; color: white; width: 22px; height: 22px; line-height: 22px; text-align: center; border-radius: 50%; font-size: 11pt; margin-left: 5px; }
+.vertical-flow { display: flex; flex-direction: column; align-items: center; margin: 10px 0; page-break-inside: avoid; max-width: 100%; }
+.flow-step { padding: 7px 12px; border-radius: 6px; text-align: center; max-width: 280px; width: 90%; }
+.flow-arrow { color: #c8a951; font-size: 14pt; margin: 1px 0; }
+.poetry-box { background: #f9f5ec; border: 2px solid #c8a951; border-radius: 8px; padding: 10px 16px; margin: 10px 0; text-align: center; page-break-inside: avoid; }
+.poetry { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 13pt; color: #1a5632; line-height: 2.2; }
+.formula-box { background: #fdf6e3; border: 2px solid #c8a951; border-radius: 8px; padding: 10px 14px; margin: 8px 0; page-break-inside: avoid; text-align: center; }
+.formula-box .formula-text { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 12pt; color: #1a5632; line-height: 1.8; }
+.formula-box .formula-note { font-size: 10pt; color: #4a4a5e; margin-top: 4px; }
+.classification-group { display: grid; gap: 8px; margin: 8px 0; grid-template-columns: repeat(2, 1fr); page-break-inside: avoid; }
+.box-green { background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border: 2px solid #1a5632; border-radius: 8px; padding: 10px; }
+.box-green .box-title { font-family: 'Amiri-Bold', 'Amiri', serif; color: #1a5632; font-size: 11pt; font-weight: bold; margin-bottom: 4px; }
+.box-green .box-content { font-size: 12px; line-height: 1.7; color: #333; }
+.box-blue { background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border: 2px solid #2c5f7c; border-radius: 8px; padding: 10px; }
+.box-blue .box-title { font-family: 'Amiri-Bold', 'Amiri', serif; color: #2c5f7c; font-size: 11pt; font-weight: bold; margin-bottom: 4px; }
+.box-blue .box-content { font-size: 12px; line-height: 1.7; color: #333; }
+.box-gold { background: linear-gradient(135deg, #fdf6e3 0%, #f5e6b8 100%); border: 2px solid #c8a951; border-radius: 8px; padding: 10px; }
+.box-gold .box-title { font-family: 'Amiri-Bold', 'Amiri', serif; color: #856404; font-size: 11pt; font-weight: bold; margin-bottom: 4px; }
+.box-gold .box-content { font-size: 12px; line-height: 1.7; color: #333; }
+.box-red { background: linear-gradient(135deg, #f8e8e8 0%, #f5d0d0 100%); border: 2px solid #8b1a1a; border-radius: 8px; padding: 10px; }
+.box-red .box-title { font-family: 'Amiri-Bold', 'Amiri', serif; color: #8b1a1a; font-size: 11pt; font-weight: bold; margin-bottom: 4px; }
+.box-red .box-content { font-size: 12px; line-height: 1.7; color: #333; }
+.condition-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin: 8px 0; page-break-inside: avoid; }
+.condition-item { background: #f5f0e6; border: 1px solid #d4c9a8; border-radius: 6px; padding: 8px 10px; font-size: 11px; line-height: 1.6; }
+.condition-item .cond-num { display: inline-block; background: #1a5632; color: white; width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 50%; font-size: 10pt; margin-left: 4px; }
+.diagram-container { background: #fafaf5; border: 2px solid #d4c9a8; border-radius: 8px; padding: 12px; margin: 8px 0; page-break-inside: avoid; }
+.diagram-branch { display: flex; gap: 8px; margin: 6px 0; flex-wrap: wrap; }
+.diagram-node { flex: 1; min-width: 140px; padding: 8px; border-radius: 6px; font-size: 11px; line-height: 1.6; }
+.diagram-node.node-main { background: #1a5632; color: white; font-weight: bold; text-align: center; }
+.diagram-node.node-branch { background: #f5f0e6; border: 1px solid #c8a951; }
+.diagram-node.node-result { background: #e8f5e9; border: 1px solid #1a5632; }
+.diagram-node.node-warn { background: #f8e8e8; border: 1px solid #8b1a1a; }
+.madhhab-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin: 8px 0; page-break-inside: avoid; }
+.madhhab-card { border-radius: 8px; padding: 8px 10px; text-align: center; }
+.madhhab-name { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 11pt; font-weight: bold; margin-bottom: 3px; }
+.madhhab-ruling { font-size: 11px; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس الحادي عشر — فروض الوضوء</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="series">غسل الشعور · مسألة اللمعة · مسح الرأس · مسح الخفين · الترتيب</div>
+</div>
+
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. غسل الشعور: الكثيف والخفيف</span><span>١</span></div>
+  <div class="toc-item"><span>٢. ضابط الكثافة والخفة في الشعر</span><span>٢</span></div>
+  <div class="toc-item"><span>٣. حكم شعر المرأة في الوضوء</span><span>٣</span></div>
+  <div class="toc-item"><span>٤. الرموش الصناعية — مسألة معاصرة</span><span>٣</span></div>
+  <div class="toc-item"><span>٥. غسل ما لا يتحقق غسل جميعه إلا بغسله</span><span>٤</span></div>
+  <div class="toc-item"><span>٦. الفرض الثالث: غسل اليدين مع المرفقين</span><span>٤</span></div>
+  <div class="toc-item"><span>٧. مسألة اللمعة — الصور الأربع</span><span>٥</span></div>
+  <div class="toc-item"><span>٨. الفرض الرابع: مسح الرأس</span><span>٦</span></div>
+  <div class="toc-item"><span>٩. مقدار المسح عند المذاهب الأربعة</span><span>٦</span></div>
+  <div class="toc-item"><span>١٠. مسح العمامة — رأي الإمام أحمد</span><span>٧</span></div>
+  <div class="toc-item"><span>١١. الشعر المستعار (الباروكة) — مسألة معاصرة</span><span>٧</span></div>
+  <div class="toc-item"><span>١٢. الفرض الخامس: غسل الرجلين ومسح الخفين</span><span>٨</span></div>
+  <div class="toc-item"><span>١٣. أحكام مسح الخفين الخمسة</span><span>٨</span></div>
+  <div class="toc-item"><span>١٤. غسل باطن الثقب والشق والشوكة</span><span>١٠</span></div>
+  <div class="toc-item"><span>١٥. التنفط وعقد الشعر والطبوع</span><span>١١</span></div>
+  <div class="toc-item"><span>١٦. الكنيولا (الإبر الطبية) — مسألة معاصرة</span><span>١٢</span></div>
+  <div class="toc-item"><span>١٧. الفرض السادس: الترتيب</span><span>١٢</span></div>
+</div>
+
+<!-- 1 -->
+<h2><span class="section-num">١</span> غسل الشعور: الكثيف والخفيف</h2>
+
+<p>قال المصنف: "ويجب غسل ظاهري وباطني كل من الشعور السابقة وإن كثفا لندرة الكثافة فيها لا باطن كثيف لحية وعارض".</p>
+
+<p>الشعور التي داخل حد الوجه تنقسم إلى قسمين:</p>
+
+<div class="classification-group">
+  <div class="box-green">
+    <div class="box-title">القسم الأول: ما غلبت كثافته</div>
+    <div class="box-content">شعر اللحية والعارض للرجل — حكمه محل تفسير: إن كان كثيفاً وجب غسل ظاهره فقط، وإن كان خفيفاً وجب غسل ظاهره وباطنه.</div>
+  </div>
+  <div class="box-blue">
+    <div class="box-title">القسم الثاني: ما غلبت خفته</div>
+    <div class="box-content">شعر الحاجب والعنفقة والأهداب — يجب غسل ظاهره وباطنه وإن كثفا.</div>
+  </div>
+</div>
+
+<p>الأصل في لحية الرجل أنها كثيفة، فلو كانت خفيفة وجب غسل ظاهرها وباطنها. أما ما كان الغالب فيه الخفة كشعر الحاجب والعنفقة فيجب غسل ظاهره وباطنه حتى وإن صار كثيفاً.</p>
+
+<!-- 2 -->
+<h2><span class="section-num">٢</span> ضابط الكثافة والخفة في الشعر</h2>
+
+<p>قال المصنف: "والكثيف ما لم ترَ البشرة من خلاله في مجلس التخاطب عرفاً"</p>
+
+<div class="formula-box">
+  <div class="formula-text">الكثيف: ما لم تُرَ البشرة من خلاله في مجلس التخاطب عرفاً</div>
+  <div class="formula-note">وقدّره بعض الفقهاء بثلاثة أذرع (تقريباً متر ونصف)</div>
+</div>
+
+<p><b>الخفيف:</b> ما تُرى البشرة من خلاله في مجلس التخاطب.</p>
+
+<div class="callout callout-ruling">
+  <div class="callout-title">الضابط</div>
+  <div class="callout-body">في مجلس التخاطب هو العرف. فإن كانت البشرة لا تُرى من خلال الشعر في مجلس التخاطب فهو كثيف، وإن كانت تُرى فهو خفيف.</div>
+</div>
+
+<p><b>ظاهر اللحية:</b> الطبقة العليا منها. <b>باطن اللحية:</b> ما بين الطبقات وما يلي الصدر.</p>
+
+<!-- 3 -->
+<h2><span class="section-num">٣</span> حكم شعر المرأة في الوضوء</h2>
+
+<p>المرأة إذا كان عندها شعر في وجهها — الغالب فيه الخفة، فيجب عليها غسله ظاهراً وباطناً وإن كثفا. ويُستحب لها إزالته.</p>
+
+<!-- 4 -->
+<h2><span class="section-num">٤</span> الرموش الصناعية</h2>
+
+<div class="callout callout-warning">
+  <div class="callout-title">مسألة معاصرة</div>
+  <div class="callout-body">الرموش الصناعية لا تثبت إلا بمادة لاصقة (صمغ)، وهذا الصمغ يغطي جزءاً مما يجب غسله في الوضوء، ففيه إشكال من حيث وصول الماء إلى البشرة.</div>
+</div>
+
+<!-- 5 -->
+<h2><span class="section-num">٥</span> غسل ما لا يتحقق غسل جميعه إلا بغسله</h2>
+
+<p>قال المصنف: "ويجب غسل ما لا يتحقق غسل جميعه إلا بغسله لأن ما لا يتم الواجب إلا به واجب"</p>
+
+<p>يجب غسل جزء زائد عن حد الوجه لتتحقق أنك غسلت الوجه كاملاً، لأن غسل الوجه لا يتم إلا إذا غسلت ما يجاوره. فما لا يتم الواجب إلا به فهو واجب.</p>
+
+<!-- 6 -->
+<h2><span class="section-num">٦</span> الفرض الثالث: غسل اليدين مع المرفقين</h2>
+
+<p>قال المصنف: "وثالثها غسل يديه من كفيه وذراعيه بكل مرفق للآية"</p>
+
+<p><b>مرفق:</b> بكسر الميم وفتح الفاء (أفصح)، ويصح العكس.</p>
+
+<p>يجب غسل جميع ما في محل الفرض من شعر وظفر وإن طالا، حتى وإن كان الشعر كثيفاً يجب غسله ظاهراً وباطناً (بخلاف شعر اللحية). ويجب غسل الأظافر وإن طالت لأنها داخلة في مسمى "أيديكم" المذكور في الآية.</p>
+
+<div class="callout callout-warning">
+  <div class="callout-title">الأظافر الصناعية</div>
+  <div class="callout-body">بعض النساء يضعن أظافر صناعية تلصق في هذا المكان فتكون طويلة — وهذه مانعة لوصول الماء ويجب إزالتها في الوضوء.</div>
+</div>
+
+<!-- 7 -->
+<h2><span class="section-num">٧</span> مسألة اللمعة — الصور الأربع</h2>
+
+<p><b>اللمعة:</b> الموضع الذي لم يصبه الماء في الوضوء والغسل.</p>
+
+<p>قال المصنف: "ولو نسي لمعة فانغسلت في تثليث أو إعادة وضوء لنسيان له لا تجديد واحتياط أجزأه"</p>
+
+<p>هذه المسألة لها أربع صور:</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 8%;">الصورة</th>
+        <th style="width: 42%;">الوصف</th>
+        <th style="width: 12%;">الحكم</th>
+        <th style="width: 38%;">السبب</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold; text-align: center;">١</td>
+        <td>نسي لمعة فغسلها في الغسلة الثانية أو الثالثة</td>
+        <td style="color: #28a745; font-weight: bold;">يجزئه</td>
+        <td>الغسلات الثلاث طهارة واحدة، ولا تحسب تلك الغسلة ثانية بل هي أولى</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold; text-align: center;">٢</td>
+        <td>نسي لمعة ثم نسي أنه توضأ فأعاد الوضوء بنية جازمة وغسل الموضع</td>
+        <td style="color: #28a745; font-weight: bold;">يجزئه</td>
+        <td>لأنه أعاد الوضوء بنية جازمة</td>
+      </tr>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold; text-align: center;">٣</td>
+        <td>نسي لمعة ثم جدّد الوضوء وغسل الموضع</td>
+        <td style="color: #c0392b; font-weight: bold;">لا يجزئه</td>
+        <td>نية التجديد نية لنفي الطهارة وليس لفرضها</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold; text-align: center;">٤</td>
+        <td>نسي لمعة ثم توضأ وضوء احتياط وغسل الموضع</td>
+        <td style="color: #c0392b; font-weight: bold;">لا يجزئه</td>
+        <td>نية الاحتياط غير جازمة</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout callout-important">
+  <div class="callout-title">القاعدة</div>
+  <div class="callout-body">يجزئه في حالتين (تثليث وإعادة لنسيان) ولا يجزئه في حالتين (تجديد واحتياط). وقوله "لا تجديد واحتياط" جملة اعتراضية.</div>
+</div>
+
+<!-- 8 -->
+<h2><span class="section-num">٨</span> الفرض الرابع: مسح الرأس</h2>
+
+<p>قال المصنف: "ورابعها مسح بعض رأسه كالنزعة والبياض الذي وراء الأذن ببشر أو شعر في حده ولو بعض شعرة واحدة للآية"</p>
+
+<p>يمسح الرأس ببشر أو شعر في حد الرأس. والنزعة (البياض الذي يحاذي الأذن) من الرأس فلو مسح عليها أجزأه.</p>
+
+<p>لا يجزئ مسح شعر يخرج عن حد الرأس — كشعر استرسل على الجبهة فمسحته فإن هذا لا يجزئ، لأن الآية علّقت الحكم بالرأس: {وامسحوا برؤوسكم}.</p>
+
+<!-- 9 -->
+<h2><span class="section-num">٩</span> مقدار المسح عند المذاهب الأربعة</h2>
+
+<div class="madhhab-grid">
+  <div class="madhhab-card" style="background: linear-gradient(135deg, #1a5632 0%, #2d7a4a 100%); color: white;">
+    <div class="madhhab-name">المذهب الشافعي</div>
+    <div class="madhhab-ruling">يجزئ مسح ولو بعض شعرة واحدة داخل حد الرأس — لأن الآية أطلقت المسح ولم تحدد مقداراً. وهو أيسر المذاهب.</div>
+  </div>
+  <div class="madhhab-card" style="background: linear-gradient(135deg, #2c5f7c 0%, #3d7fa3 100%); color: white;">
+    <div class="madhhab-name">المذهب الحنفي</div>
+    <div class="madhhab-ruling">يجب مسح ربع الرأس — لأن الناصية ليست مرادة بذاتها وإنما المراد قدرها.</div>
+  </div>
+  <div class="madhhab-card" style="background: linear-gradient(135deg, #c8a951 0%, #b8943f 100%); color: white;">
+    <div class="madhhab-name">المذهب المالكي</div>
+    <div class="madhhab-ruling">يجب مسح جميع الرأس.</div>
+  </div>
+  <div class="madhhab-card" style="background: linear-gradient(135deg, #8b1a1a 0%, #a52a2a 100%); color: white;">
+    <div class="madhhab-name">المذهب الحنبلي</div>
+    <div class="madhhab-ruling">يجب مسح جميع الرأس.</div>
+  </div>
+</div>
+
+<div class="callout callout-ruling">
+  <div class="callout-title">رأي الإمام البغوي (من فقهاء الشافعية)</div>
+  <div class="callout-body">ينبغي ألا يجزئ أقل من قدر الناصية (ما بين النزعتين) — لأن النبي صلى الله عليه وسلم لم يُنقل عنه أنه مسح أقل منها. و"ينبغي" هنا بمعنى "يجب" عند المتقدمين. وهو رواية عن أبي حنيفة، والمشهور في مذهبه وجوب مسح الربع.</div>
+</div>
+
+<!-- 10 -->
+<h2><span class="section-num">١٠</span> مسح العمامة — رأي الإمام أحمد</h2>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 50%;">المذهب</th>
+        <th style="width: 50%;">الحكم</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold;">الأئمة الثلاثة (أبو حنيفة ومالك والشافعي)</td>
+        <td>لا يجزئ الاقتصار على مسح العمامة</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">الإمام أحمد</td>
+        <td>يجزئ بشروط أربعة:
+          <div style="margin-top: 4px;">
+            <span style="display: inline-block; background: #1a5632; color: white; width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 50%; font-size: 9pt; margin-left: 3px;">١</span> أن تكون محنكة (ذات حنك على عادة عمائم العرب)<br>
+            <span style="display: inline-block; background: #1a5632; color: white; width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 50%; font-size: 9pt; margin-left: 3px;">٢</span> أن يكون لابسها ذكراً<br>
+            <span style="display: inline-block; background: #1a5632; color: white; width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 50%; font-size: 9pt; margin-left: 3px;">٣</span> أن تُلبس على طهارة<br>
+            <span style="display: inline-block; background: #1a5632; color: white; width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 50%; font-size: 9pt; margin-left: 3px;">٤</span> أن يمسح أكثر جوانبها
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 11 -->
+<h2><span class="section-num">١١</span> الشعر المستعار (الباروكة) — مسألة معاصرة</h2>
+
+<div class="diagram-container">
+  <div style="text-align: center; margin-bottom: 8px;">
+    <div class="diagram-node node-main" style="display: inline-block; padding: 6px 16px;">الشعر المستعار (الباروكة)</div>
+  </div>
+  <div class="diagram-branch">
+    <div class="diagram-node node-branch" style="flex: 1;">
+      <div style="font-weight: bold; color: #1a5632; margin-bottom: 4px;">الحالة الأولى: يغطي بعض الرأس</div>
+      <div style="color: #333;">يجزئ أن يمسح الجزء الذي لا يغطيه الشعر المستعار</div>
+    </div>
+    <div class="diagram-node node-branch" style="flex: 1;">
+      <div style="font-weight: bold; color: #1a5632; margin-bottom: 4px;">الحالة الثانية: يغطي جميع الرأس</div>
+      <div style="margin-top: 4px;">
+        <div style="background: #e8f5e9; border: 1px solid #1a5632; border-radius: 4px; padding: 4px 6px; margin: 3px 0;">إذا كان فيه مسامات/ثقوب يصل الماء منها إلى البشرة → يجزئ</div>
+        <div style="font-size: 10px; color: #666; margin: 2px 0;">نص ابن حجر في تحفة المحتاج: لو بلّ يده ووضعها على خرقة فوصل البلل إلى رأسه أجزأه</div>
+        <div style="background: #f8e8e8; border: 1px solid #8b1a1a; border-radius: 4px; padding: 4px 6px; margin: 3px 0;">إذا لم يكن فيه مسامات → لا يصح الوضوء، لا بد من نزعه ومسح الرأس</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 12 -->
+<h2><span class="section-num">١٢</span> الفرض الخامس: غسل الرجلين ومسح الخفين</h2>
+
+<p>قال المصنف: "وخامسها غسل رجليه بكل كعب من كل رجل للآية أو مسح خفيهما بشروطه"</p>
+
+<p>المصنف لم يذكر أحكام مسح الخفين إلا هذا الموضع فقط، مع أن هذه الأحكام لا تخلو منها المختصرات.</p>
+
+<!-- 13 -->
+<h2><span class="section-num">١٣</span> أحكام مسح الخفين الخمسة</h2>
+
+<div class="card-grid card-grid-5">
+  <div class="card" style="background: linear-gradient(135deg, #1a5632 0%, #2d7a4a 100%); color: white;">
+    <div class="card-number">١</div>
+    <div class="card-title">الحكم</div>
+    <div class="card-desc">يجوز المسح على الخفين والأفضل غسل القدمين (لأن الغسل هو الأصل) خلافاً للحنابلة. ويجب المسح إذا كان عنده ماء لا يكفي لغسل القدمين ويمكنه المسح.</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #2c5f7c 0%, #3d7fa3 100%); color: white;">
+    <div class="card-number">٢</div>
+    <div class="card-title">الشروط (أربعة مشهورة)</div>
+    <div class="card-desc" style="text-align: right;">
+      <span style="display: inline-block; background: rgba(255,255,255,0.3); width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 50%; font-size: 9pt; margin-left: 3px;">١</span> أن يُلبس بعد طهارة كاملة — لحديث المغيرة بن شعبة: "فإني أدخلتهما طاهرتين"<br>
+      <span style="display: inline-block; background: rgba(255,255,255,0.3); width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 50%; font-size: 9pt; margin-left: 3px;">٢</span> أن يكون قويين يمنعان نفوذ الماء — ومن هنا لا يصح المسح على الجوارب الرقيقة<br>
+      <span style="display: inline-block; background: rgba(255,255,255,0.3); width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 50%; font-size: 9pt; margin-left: 3px;">٣</span> أن يمكن متابعة المشي عليهما — يتردد الإنسان عليهما في قضاء حوائجه<br>
+      <span style="display: inline-block; background: rgba(255,255,255,0.3); width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 50%; font-size: 9pt; margin-left: 3px;">٤</span> أن يكون طاهرين — فلو كان من جلد ميتة لم يُدبغ لا يصح المسح عليه
+    </div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #c8a951 0%, #b8943f 100%); color: white;">
+    <div class="card-number">٣</div>
+    <div class="card-title">الكيفية</div>
+    <div class="card-desc">القدر الواجب مسح بعض أعلى ظاهر الخف مما يحاذي القدم. لا يجزئ مسح أسفل الخف أو حرفه أو عقبه فقط.</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #1a5632 0%, #2d7a4a 100%); color: white;">
+    <div class="card-number">٤</div>
+    <div class="card-title">المدة</div>
+    <div class="card-desc">المقيم يوم وليلة، والمسافر ثلاثة أيام بلياليها. تبدأ من نهاية الحدث.</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #8b1a1a 0%, #a52a2a 100%); color: white;">
+    <div class="card-number">٥</div>
+    <div class="card-title">المبطلات (ثلاثة)</div>
+    <div class="card-desc" style="text-align: right;">
+      <span style="display: inline-block; background: rgba(255,255,255,0.3); width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 50%; font-size: 9pt; margin-left: 3px;">١</span> انخلع الخف بنفسه أو خلعه<br>
+      <span style="display: inline-block; background: rgba(255,255,255,0.3); width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 50%; font-size: 9pt; margin-left: 3px;">٢</span> انتهت المدة — وإذا حصل الأول أو الثاني وهو في طهارة مسح، فالواجب غسل قدميه فقط ولا يجب إعادة الوضوء<br>
+      <span style="display: inline-block; background: rgba(255,255,255,0.3); width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 50%; font-size: 9pt; margin-left: 3px;">٣</span> حصل ما يوجب الغسل كجنابة — يجب نزع الخف والاغتسال
+    </div>
+  </div>
+</div>
+
+<div class="poetry-box">
+  <div class="poetry">والفرض مسح بعض علوٍّ من الخفِ<br>ونُدبَ مسحُ السفنِ منه والعقبِ</div>
+</div>
+
+<!-- 14 -->
+<h2><span class="section-num">١٤</span> غسل باطن الثقب والشق والشوكة</h2>
+
+<div class="compare-box">
+  <div class="compare-side" style="background: #2c5f7c;">
+    <h3>الثقب</h3>
+    <p>فتح مستدير في الجلد</p>
+  </div>
+  <div class="compare-divider"></div>
+  <div class="compare-side" style="background: #1a5632;">
+    <h3>الشق</h3>
+    <p>فتح مستطيل في الجلد</p>
+  </div>
+</div>
+
+<p>يجب غسل باطن الثقب والشق في الجلد ما لم يصل إلى اللحم. أما ما وصل إلى اللحم فلا يجب غسله. ويجب إزالة الوسخ والشمع إن كان.</p>
+
+<div class="callout callout-ruling">
+  <div class="callout-title">مسألة الشوكة</div>
+  <div class="callout-body">لو دخلت شوكة في رجله وظهر بعضها — وجب قلعها وغسل محلها (صار في حكم الظاهر). فإن استترت كلها — صارت في حكم الباطن ويصح وضوءه.</div>
+</div>
+
+<!-- 15 -->
+<h2><span class="section-num">١٥</span> التنفط وعقد الشعر والطبوع</h2>
+
+<p><b>التنفط:</b> الانتفاخات التي تظهر في اليد أو الرجل من العمل الشاق (غشاء من الجلد بداخله ماء).</p>
+
+<div class="formula-box">
+  <div class="formula-text">لو تنفط في رجل أو غيره: لم يجب غسل باطنه ما لم يتشقق</div>
+  <div class="formula-note">فإن تشقق وجب غسل باطنه ما لم يرتق (أي ما لم يلتئم)</div>
+</div>
+
+<div class="callout callout-important">
+  <div class="callout-title">عقد الشعر</div>
+  <div class="callout-body">يُعفى عن باطن عقد الشعر إذا انعقد بنفسه (قليله وكثيره). أما إذا عقده هو فلا يُعفى عنه وإن قلّ على المعتمد.</div>
+</div>
+
+<h3>الطبوع (القراد) — خلاف بين العلماء</h3>
+
+<div class="compare-box">
+  <div class="compare-side" style="background: #1a5632;">
+    <h3>شيخ الإسلام زكريا الأنصاري</h3>
+    <p>لا يُلحق بعقد الشعر — بل عليه التيمم (يتوضأ ويتيمم لما تحت الطبوع)</p>
+  </div>
+  <div class="compare-divider"></div>
+  <div class="compare-side" style="background: #2c5f7c;">
+    <h3>العلامة ابن حجر الهيتمي</h3>
+    <p>الذي يتجه العفو للضرورة. فإن أمكنه بحلق محله فالمتجه وجوبه ما لم يحصل به مُثلة (تشوه). والمُثلة في لحية الذكر لا تحتمل عادة، فلا يجب حلقها. أما في رأس الذكر فيجب الحلق.</p>
+  </div>
+</div>
+
+<!-- 16 -->
+<h2><span class="section-num">١٦</span> الكنيولا (الإبر الطبية) — مسألة معاصرة</h2>
+
+<div class="callout callout-warning">
+  <div class="callout-title">مسألة معاصرة: الكنيولا (الإبر الطبية)</div>
+  <div class="callout-body">إبرة جزء منها في الداخل وجزء في الخارج يوضع عليها بلستر، والماء لا يصل إلى ما تحتها. حكمها كالطبوع على رأي زكريا الأنصاري: يجب غسل ما استطاع والتيمم لما تحتها. ولا نقول بالعفو للضرورة لأن هذا عذر نادر والمساحة المغطاة أكبر من حجم حشرة صغيرة.</div>
+</div>
+
+<p>وكذلك المسامير في العظام — إذا استترت في البدن فالوضوء يصح مع وجودها.</p>
+
+<!-- 17 -->
+<h2><span class="section-num">١٧</span> الفرض السادس: الترتيب</h2>
+
+<p>قال المصنف: "وسادسها الترتيب كما ذكر من تقديم غسل الوجه فاليدين فالرأس فالرجلين للاتباع"</p>
+
+<p>وجه الدلالة: الله سبحانه ذكر أعضاء الوضوء في الآية بهذا الترتيب: غسل الوجه ثم غسل اليدين ثم مسح الرأس ثم غسل الرجلين. ولو كان الترتيب غير واجب لما كان لهذه الخلخلة في التركيب فائدة — فالمغسول والممسوح ذُكرا معاً ولم يُفرد الممسوح بذكر مستقل، مما يدل على وجوب الترتيب.</p>
+
+</body>
+</html>

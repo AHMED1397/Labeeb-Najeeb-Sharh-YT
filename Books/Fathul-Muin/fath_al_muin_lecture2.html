@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح فتح المعين - الدرس الثاني - خطبة الكتاب</title>
+<style>
+@page {
+  size: A4;
+  margin: 12mm 14mm;
+}
+
+@font-face {
+  font-family: 'NotoNaskhArabic';
+  src: url('file:///home/z/my-project/fonts/NotoNaskhArabic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Amiri';
+  src: url('file:///home/z/my-project/fonts/Amiri-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Amiri';
+  src: url('file:///home/z/my-project/fonts/Amiri-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+:root {
+  --primary: #1a5632;
+  --primary-light: #2d7a4a;
+  --primary-dark: #0e3a20;
+  --secondary: #c8a951;
+  --secondary-light: #e0c97a;
+  --accent: #2c5f7c;
+  --accent-light: #3d7fa3;
+  --bg: #fefefe;
+  --text: #1a1a2e;
+  --text-light: #4a4a5e;
+  --border: #d4c9a8;
+  --table-alt: #f5f0e6;
+  --highlight-bg: #fdf6e3;
+  --danger: #8b1a1a;
+  --danger-light: #f8e8e8;
+  --success-light: #e8f5e9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'NotoNaskhArabic', 'Traditional Arabic', serif;
+  font-size: 11pt;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  direction: rtl;
+  text-align: justify;
+}
+
+/* ===== COVER HEADER ===== */
+.cover-header {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: white;
+  padding: 18px 16px;
+  text-align: center;
+  margin: 0 0 10px 0;
+  background-image:
+    repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px),
+    repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px);
+  border-bottom: 4px solid var(--secondary);
+  border-radius: 0 0 8px 8px;
+}
+.cover-header h1 {
+  font-family: 'Amiri', serif;
+  color: white;
+  font-size: 22pt;
+  margin-bottom: 4px;
+  border: none;
+}
+.cover-header .subtitle {
+  font-family: 'Amiri', serif;
+  font-size: 14pt;
+  opacity: 0.95;
+  margin: 3px 0;
+}
+.cover-header .lecturer {
+  font-family: 'Amiri', serif;
+  font-size: 12pt;
+  opacity: 0.92;
+  margin: 6px 0 2px 0;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255,255,255,0.3);
+}
+.cover-header .series {
+  font-size: 10pt;
+  opacity: 0.8;
+  margin-top: 3px;
+  line-height: 1.6;
+}
+
+/* ===== TOC ===== */
+.toc {
+  background: #f8f9fa;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 14px;
+  margin: 0 0 10px 0;
+}
+.toc-title {
+  font-family: 'Amiri', serif;
+  font-size: 13pt;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 6px;
+  border-bottom: 2px solid var(--secondary);
+  padding-bottom: 4px;
+}
+.toc-item {
+  font-size: 10pt;
+  padding: 2px 0;
+  border-bottom: 1px dotted #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+.toc-sub {
+  padding-right: 25px;
+  font-size: 9pt;
+  color: var(--text-light);
+  border-bottom: 1px dotted #e0e0e0;
+}
+
+/* ===== HEADINGS ===== */
+h1.main-title {
+  font-family: 'Amiri', serif;
+  font-size: 17pt;
+  font-weight: bold;
+  color: var(--primary);
+  text-align: center;
+  margin: 12px 0 8px;
+  padding: 7px;
+  border-top: 3px solid var(--secondary);
+  border-bottom: 3px solid var(--secondary);
+  background: linear-gradient(135deg, #f8f5ec 0%, #fff 50%, #f8f5ec 100%);
+}
+
+h2.section-title {
+  font-family: 'Amiri', serif;
+  font-size: 14pt;
+  font-weight: bold;
+  color: var(--bg);
+  background: var(--primary);
+  padding: 6px 16px;
+  margin: 14px 0 8px;
+  border-radius: 0 8px 8px 0;
+  border-right: 5px solid var(--secondary);
+}
+
+h3.subsection-title {
+  font-family: 'Amiri', serif;
+  font-size: 12pt;
+  font-weight: bold;
+  color: var(--primary);
+  margin: 10px 0 5px;
+  padding: 4px 12px;
+  border-right: 3px solid var(--secondary);
+  background: linear-gradient(to left, var(--highlight-bg), transparent);
+}
+
+/* ===== PARAGRAPHS ===== */
+p {
+  margin: 3px 0;
+  text-align: justify;
+}
+
+p.indented {
+  padding-right: 30px;
+}
+
+/* ===== TABLES ===== */
+.table-container {
+  overflow-x: hidden;
+  margin: 6px 0;
+  page-break-inside: avoid;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 10pt;
+  margin: 6px 0;
+}
+
+th {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  color: var(--bg);
+  background: var(--primary);
+  padding: 4px 7px;
+  text-align: center;
+  border: 1px solid var(--primary-dark);
+  font-size: 10pt;
+}
+
+td {
+  padding: 4px 7px;
+  text-align: right;
+  border: 1px solid var(--border);
+  vertical-align: top;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+tr:nth-child(even) td { background: var(--table-alt); }
+tr:nth-child(odd) td { background: var(--bg); }
+
+table.styled-table th {
+  background: linear-gradient(to bottom, var(--primary), var(--primary-dark));
+}
+
+/* ===== CALLOUT BOXES ===== */
+.callout {
+  margin: 7px 0;
+  padding: 7px 11px;
+  border-radius: 6px;
+  position: relative;
+  page-break-inside: avoid;
+}
+.callout-title {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 10pt;
+  margin-bottom: 2px;
+  display: block;
+}
+.callout-ruling {
+  background: var(--highlight-bg);
+  border: 2px solid var(--secondary);
+  border-right: 6px solid var(--secondary);
+}
+.callout-important {
+  background: var(--success-light);
+  border: 2px solid var(--primary);
+  border-right: 6px solid var(--primary);
+}
+.callout-warning {
+  background: var(--danger-light);
+  border: 2px solid var(--danger);
+  border-right: 6px solid var(--danger);
+}
+.callout-info {
+  background: #d1ecf1;
+  border: 2px solid var(--accent);
+  border-right: 6px solid var(--accent);
+}
+.callout-info .callout-title { color: #0c5460; }
+
+/* ===== DIAGRAMS ===== */
+.diagram-container {
+  margin: 8px 0;
+  padding: 10px;
+  background: linear-gradient(135deg, #fafaf5 0%, #fff 100%);
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  page-break-inside: avoid;
+}
+.diagram-title {
+  font-family: 'Amiri', serif;
+  font-size: 11pt;
+  font-weight: bold;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 6px;
+}
+.diagram-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.diagram-node {
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 10pt;
+  text-align: center;
+}
+.diagram-node-primary { background: var(--primary); color: var(--bg); border: 2px solid var(--primary-dark); }
+.diagram-node-secondary { background: var(--secondary); color: var(--primary-dark); border: 2px solid #b8953a; }
+.diagram-node-accent { background: var(--accent); color: var(--bg); border: 2px solid var(--accent-light); }
+.diagram-connector { width: 2px; height: 8px; background: var(--primary); }
+.diagram-branch { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.diagram-branch-vertical { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+
+/* ===== CLASSIFICATION BOXES ===== */
+.classification-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  margin: 8px 0;
+}
+.classification-box {
+  flex: 1;
+  min-width: 140px;
+  max-width: 300px;
+  border: 2px solid;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.classification-box-header {
+  padding: 4px 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 10pt;
+  text-align: center;
+  color: var(--bg);
+}
+.classification-box-body {
+  padding: 5px 8px;
+  font-size: 10pt;
+}
+.classification-box-body ol { padding-right: 18px; margin: 0; }
+.classification-box-body li { margin-bottom: 2px; }
+.box-green .classification-box-header { background: var(--primary); }
+.box-green { border-color: var(--primary); }
+.box-green .classification-box-body { background: var(--success-light); }
+.box-gold .classification-box-header { background: var(--secondary); color: var(--primary-dark); }
+.box-gold { border-color: var(--secondary); }
+.box-gold .classification-box-body { background: var(--highlight-bg); }
+.box-blue .classification-box-header { background: var(--accent); }
+.box-blue { border-color: var(--accent); }
+.box-blue .classification-box-body { background: #e8f0f5; }
+.box-red .classification-box-header { background: var(--danger); }
+.box-red { border-color: var(--danger); }
+.box-red .classification-box-body { background: var(--danger-light); }
+
+/* ===== COMPARISON ===== */
+.compare-box {
+  display: flex;
+  gap: 0;
+  margin: 8px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  max-width: 100%;
+  flex-wrap: wrap;
+  page-break-inside: avoid;
+}
+.compare-side {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 10px;
+}
+.compare-side h3 {
+  margin: 0 0 4px 0;
+  border-bottom: 2px solid rgba(255,255,255,0.3);
+  padding-bottom: 3px;
+  font-size: 11pt;
+  color: white;
+}
+.compare-side p { font-size: 11px; line-height: 1.6; color: white; }
+.compare-divider { width: 3px; background: var(--secondary); }
+
+/* ===== FORMULA BOX ===== */
+.formula-box {
+  background: var(--highlight-bg);
+  border: 2px solid var(--secondary);
+  border-radius: 8px;
+  padding: 8px 14px;
+  margin: 8px 0;
+  text-align: center;
+  page-break-inside: avoid;
+}
+.formula {
+  font-family: 'Amiri', serif;
+  font-size: 13pt;
+  color: var(--primary);
+  direction: rtl;
+  display: inline-block;
+}
+
+/* ===== POETRY BOX ===== */
+.poetry-box {
+  background: var(--highlight-bg);
+  border: 2px solid var(--secondary);
+  border-radius: 8px;
+  padding: 8px 14px;
+  margin: 8px 0;
+  text-align: center;
+  page-break-inside: avoid;
+}
+.poetry-line {
+  font-family: 'Amiri', serif;
+  font-size: 12pt;
+  color: var(--primary);
+  line-height: 2;
+}
+
+/* ===== VERTICAL FLOW ===== */
+.vertical-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 8px 0;
+  page-break-inside: avoid;
+  max-width: 100%;
+}
+.flow-step {
+  padding: 5px 12px;
+  border-radius: 6px;
+  text-align: center;
+  max-width: 280px;
+  width: 90%;
+}
+.flow-arrow { color: var(--secondary); font-size: 14pt; margin: 1px 0; }
+
+/* ===== CARD GRID ===== */
+.card-grid { display: grid; gap: 6px; margin: 8px 0; max-width: 100%; }
+.card-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.card-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.card-grid-4 { grid-template-columns: repeat(2, 1fr); }
+.card {
+  padding: 8px;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+.card-number { font-size: 18px; font-weight: bold; margin-bottom: 2px; }
+.card-title { font-size: 10pt; font-weight: bold; }
+.card-desc { font-size: 9pt; margin-top: 2px; opacity: 0.9; line-height: 1.5; }
+
+/* ===== HIGHLIGHT ===== */
+.highlight {
+  background: linear-gradient(to top, var(--secondary-light) 0%, var(--secondary-light) 40%, transparent 40%);
+  padding: 0 3px;
+  font-weight: bold;
+}
+.text-primary { color: var(--primary); font-weight: bold; }
+.text-danger { color: var(--danger); font-weight: bold; }
+.text-accent { color: var(--accent); font-weight: bold; }
+.text-gold { color: var(--secondary); font-weight: bold; }
+
+/* ===== QURAN VERSE ===== */
+.quran-verse {
+  font-family: 'Amiri', serif;
+  font-size: 12pt;
+  color: var(--primary);
+  text-align: center;
+  margin: 8px 15px;
+  padding: 6px 15px;
+  border-top: 1px solid var(--secondary);
+  border-bottom: 1px solid var(--secondary);
+  line-height: 1.9;
+}
+
+/* ===== INTRO TEXT ===== */
+.intro-text {
+  font-family: 'Amiri', serif;
+  font-size: 11pt;
+  line-height: 1.7;
+  margin: 6px 0;
+  padding: 6px 10px;
+  background: linear-gradient(to left, #f8f5ec, transparent);
+  border-right: 3px solid var(--secondary);
+}
+
+/* ===== SECTION NUMBER ===== */
+.section-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--secondary);
+  color: var(--primary-dark);
+  border-radius: 50%;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 13pt;
+  margin-left: 8px;
+}
+
+/* ===== STAR DIVIDER ===== */
+.star-divider {
+  text-align: center;
+  margin: 8px 0;
+  color: var(--secondary);
+  font-size: 10pt;
+  letter-spacing: 4px;
+}
+
+/* ===== NUMBERED LIST ===== */
+ol.styled-list {
+  list-style: none;
+  counter-reset: item;
+  padding-right: 0;
+}
+ol.styled-list li {
+  counter-increment: item;
+  padding: 3px 34px 3px 8px;
+  margin: 2px 0;
+  position: relative;
+  background: var(--highlight-bg);
+  border-radius: 4px;
+  border-right: 3px solid var(--primary);
+}
+ol.styled-list li::before {
+  content: counter(item);
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--primary);
+  color: var(--bg);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 10pt;
+}
+
+/* ===== OPINION BOX ===== */
+.opinion-box {
+  display: flex;
+  gap: 6px;
+  margin: 6px 0;
+  flex-wrap: wrap;
+}
+.opinion-card {
+  flex: 1;
+  min-width: 140px;
+  padding: 5px 8px;
+  border-radius: 6px;
+  border: 2px solid var(--border);
+}
+.opinion-card-label {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 10pt;
+  color: var(--primary);
+  margin-bottom: 2px;
+  display: block;
+}
+
+/* ===== CONDITION CARDS ===== */
+.condition-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 5px;
+  margin: 6px 0;
+}
+.condition-card {
+  padding: 5px;
+  border: 2px solid var(--primary);
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--success-light), #fff);
+  text-align: center;
+}
+.condition-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: var(--primary);
+  color: var(--bg);
+  border-radius: 50%;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 9pt;
+  margin-bottom: 2px;
+}
+.condition-text {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 9pt;
+  color: var(--primary);
+}
+
+/* ===== TIMELINE ===== */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 8px 0;
+  page-break-inside: avoid;
+}
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 3px 0;
+}
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+.timeline-content { flex: 1; min-width: 0; }
+.timeline-year {
+  font-family: 'Amiri', serif;
+  font-size: 10pt;
+  color: var(--primary);
+  font-weight: bold;
+}
+.timeline-text { font-size: 10pt; line-height: 1.5; }
+
+/* ===== PRINT ===== */
+@media print {
+  body { font-size: 10pt; line-height: 1.6; }
+  h2.section-title { break-after: avoid; }
+  table { break-inside: avoid; }
+  .callout { break-inside: avoid; }
+  .diagram-container { break-inside: avoid; }
+  .classification-group { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== COVER HEADER ==================== -->
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس الثاني — تتمة خطبة الكتاب</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="series">الرحمن الرحيم · الحمد والشكر · الفرق بين النبي والرسول · تعريف الفقه · الإمام الشافعي</div>
+</div>
+
+<!-- ==================== TABLE OF CONTENTS ==================== -->
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>الرحمن الرحيم صفتان بنيتا للمبالغة — لماذا قُدّم الرحمن على الرحيم</span><span>١</span></div>
+  <div class="toc-item"><span>الحمد لله الذي هدانا — الفرق بين الحمد والشكر</span><span>٢</span></div>
+  <div class="toc-item"><span>الصلاة والسلام — معناهما من الله</span><span>٣</span></div>
+  <div class="toc-item"><span>محمد علم منقول من اسم مفعول مضعّف</span><span>٤</span></div>
+  <div class="toc-item"><span>الفرق بين الرسول والنبي — الأقوال الثلاثة</span><span>٥</span></div>
+  <div class="toc-item"><span>عدد الأنبياء والرسل</span><span>٦</span></div>
+  <div class="toc-item"><span>معنى الآل في المقامات الثلاثة</span><span>٧</span></div>
+  <div class="toc-item"><span>اسم الجمع وفرقه عن الجمع — "صاحب" نموذجاً</span><span>٨</span></div>
+  <div class="toc-item"><span>تعريف الصحابي</span><span>٩</span></div>
+  <div class="toc-item"><span>فهذا المؤلف الحاضر ذهناً — كتب المقدمة قبل التأليف</span><span>١٠</span></div>
+  <div class="toc-item"><span>المختصر — قلّ لفظه وكثر معناه</span><span>١١</span></div>
+  <div class="toc-item"><span>تعريف الفقه لغة واصطلاحاً</span><span>١٢</span></div>
+  <div class="toc-item"><span>استمداد الفقه من الأدلة</span><span>١٣</span></div>
+  <div class="toc-item"><span>ترجمة الإمام الشافعي — نسبه وشمائله</span><span>١٤</span></div>
+  <div class="toc-item"><span>مشايخ الإمام الشافعي — ابن حجر الهيتمي</span><span>١٥</span></div>
+</div>
+
+<!-- ==================== OPENING ==================== -->
+<div class="quran-verse">
+  بسم الله الرحمن الرحيم<br>
+  الحمد لله نحمده ونستعينه ونستغفره ونعوذ بالله من شرور أنفسنا وسيئات أعمالنا من يهدي الله فلا مضل له ومن يضلل فلا هادي له وأشهد أن لا إله إلا الله وحده لا شريك له وأشهد أن سيدنا محمداً صلى الله عليه وآله وسلم عبده ورسوله
+</div>
+
+<div class="callout callout-info">
+  <span class="callout-title">دعاء الافتتاح</span>
+  فأسأل الله سبحانه وتعالى أن يمنّ علينا بالعلم النافع والعمل الصالح وأن يفقهنا في الدين وأن يفتح لنا فتوح العارفين. اللهم آمين.
+</div>
+
+<p>هذا هو الدرس الثاني في شرح فتح المعين للعلامة الفقيه المليباري رحمه الله تعالى رحمة واسعة. توقفنا في الدرس السابق عند قوله: "والله علم للذات الواجب الوجود وأصله إله وهو اسم جنس لكل معبود ثم عُرّف بأل وحُذفت الهمزة ثم استُعمل في المعبود بحق وهو الاسم الأعظم عند الأكثر ولم يُسمَّ به غيره".</p>
+
+<!-- ==================== SECTION 1 ==================== -->
+<h2 class="section-title"><span class="section-number">١</span> الرحمن الرحيم صفتان بنيتا للمبالغة</h2>
+
+<p>قال المصنف رحمه الله: <span class="highlight">والرحمن الرحيم صفتان بنيتا للمبالغة من رحمة</span>. والمصنف يريد بذلك أن يجيب عن سؤال مقدّر: لماذا قُدّم الرحمن على الرحيم في البسملة؟ أي لماذا جاءت البسملة هكذا "بسم الله الرحمن الرحيم" ولم تكن "بسم الله الرحيم الرحمن"؟ والجواب لأوجه:</p>
+
+<div class="card-grid card-grid-2">
+  <div class="card" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white;">
+    <div class="card-number">١</div>
+    <div class="card-title">الرحمن أخصّ من الرحيم</div>
+    <div class="card-desc">الرحمن لا يُطلق إلا على الله عز وجل ولا يُسمّى به غيره، أما الرحيم فيُطلق على غيره</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%); color: white;">
+    <div class="card-number">٢</div>
+    <div class="card-title">الرحمن أبلغ من الرحيم</div>
+    <div class="card-desc">لأن زيادة المبنى تدل على زيادة المعنى غالباً، فالرحمن خمسة أحرف والرحيم أربعة</div>
+  </div>
+</div>
+
+<h3 class="subsection-title">وجهان في كون الرحمن أبلغ من الرحيم</h3>
+
+<p>أما كون الرحمن أبلغ من الرحيم فهو لوجهين:</p>
+
+<div class="compare-box">
+  <div class="compare-side" style="background: var(--primary);">
+    <h3>الوجه الأول: الكم (الكثرة)</h3>
+    <p><b>رحمن الدنيا والآخرة ورحيم الآخرة</b> — فكون الله رحمن الدنيا والآخرة يدخل في ذلك المؤمن والكافر، لأن في الدنيا المؤمن يُرحم والكافر يُرحم. فالرحمن أبلغ من ناحية الكم لأن رحمته تشمل الدنيا والآخرة</p>
+  </div>
+  <div class="compare-divider"></div>
+  <div class="compare-side" style="background: var(--accent);">
+    <h3>الوجه الثاني: الكيف (العظمة)</h3>
+    <p><b>الرحمن له النعم الجليلة العظيمة والدقيقة</b> — والرحيم له النعم الدقيقة فقط. فالرحمن يتضمن النعم الجسام العظام والنعم الدقيقة معاً، والرحيم يختص بالنعم الدقيقة</p>
+  </div>
+</div>
+
+<h3 class="subsection-title">قاعدة: زيادة المبنى تدل على زيادة المعنى غالباً</h3>
+
+<p>هذه القاعدة مقرّرة عند العلماء بثلاثة شروط:</p>
+
+<div class="condition-grid">
+  <div class="condition-card">
+    <div class="condition-number">١</div>
+    <div class="condition-text">اتحاد النوع</div>
+  </div>
+  <div class="condition-card">
+    <div class="condition-number">٢</div>
+    <div class="condition-text">اتحاد الاشتقاق</div>
+  </div>
+  <div class="condition-card">
+    <div class="condition-number">٣</div>
+    <div class="condition-text">ألا يكون من صفات الجبل</div>
+  </div>
+</div>
+
+<div class="callout callout-ruling">
+  <span class="callout-title">تنبيه: القاعدة ليست مطّردة دائماً</span>
+  <p>وجدت كلمات تساوى بناؤها والمعنى واحد، مثل: نهج ومنهج ومنهاج — البناء اختلف لكن المعنى واحد. فنقول: زيادة المبنى تدل على زيادة المعنى <span class="highlight">غالباً</span>. ولو اختلف الاشتقاق فلا مجال للقاعدة، مثل: زمن (المقعد) وزمان (الوقت) — الحروف واحدة لكن الاشتقاق يختلف.</p>
+</div>
+
+<div class="callout callout-info">
+  <span class="callout-title">طُرفة علمية</span>
+  <p>سُئل أحدهم: لماذا الدينار أفضل من الدرهم والدرهم أفضل من الفلس؟ فقال: لأن زيادة المبنى تدل على زيادة المعنى — الفلس ثلاثة أحرف والدرهم أربعة والدينار خمسة!</p>
+</div>
+
+<!-- ==================== SECTION 2 ==================== -->
+<h2 class="section-title"><span class="section-number">٢</span> الحمد لله الذي هدانا — الفرق بين الحمد والشكر</h2>
+
+<p>قال المصنف: <span class="highlight">الحمد لله الذي هدانا</span> أي دلنا لهذا التأليف، {وَمَا كُنَّا لِنَهْتَدِيَ لَوْلَا أَنْ هَدَانَا اللَّهُ} والحمد هو الوصف بالجميل. وبعضهم قال: الوصف بالجميل <b>باللسان</b> ليفرّق بين الحمد والشكر، لأن الشكر آلة اللسان والجوارح والقلب، وأما الحمد فآلته اللسان.</p>
+
+<p>وبين الحمد والشكر عموم وخصوص وجهي — أي هذا أعم من وجه وأخص من وجه:</p>
+
+<div class="compare-box">
+  <div class="compare-side" style="background: var(--primary);">
+    <h3>الشكر — أعمّ آلة وأخصّ سبباً</h3>
+    <p><b>آلة الشكر أعمّ:</b> يكون بالجوارح واللسان والقلب. قال الله: {اعْمَلُوا آلَ دَاوُودَ شُكْرًا}</p>
+    <p><b>سبب الشكر أخصّ:</b> لا يكون إلا بمقابل نعمة</p>
+  </div>
+  <div class="compare-divider"></div>
+  <div class="compare-side" style="background: var(--accent);">
+    <h3>الحمد — أخصّ آلة وأعمّ سبباً</h3>
+    <p><b>آلة الحمد أخصّ:</b> يكون باللسان (وبعضهم قال أيضاً بالقلب)</p>
+    <p><b>سبب الحمد أعمّ:</b> يكون بمقابل نعمة وبغير نعمة — كأن تحمد الرجل لعلمه (أمر ذاتي) أو لكرمه (أمر متعدٍّ)</p>
+  </div>
+</div>
+
+<div class="poetry-box">
+  <div class="poetry-line">أفادتكم النعماء مني ثلاثة</div>
+  <div class="poetry-line">يدي ولساني والضمير المحجّبا</div>
+</div>
+
+<div class="callout callout-important">
+  <span class="callout-title">القاعدة: بين الحمد والشكر عموم وخصوص وجهي</span>
+  <p>الشكر أعمّ آلة (ثلاث: القلب واللسان والجوارح) وأخصّ سبباً (النعمة فقط). والحمد أخصّ آلة (اللسان) وأعمّ سبباً (نعمة وغير نعمة). فكلّ شكر حمد من وجه وليس كلّ حمد شكراً، وكلّ حمد شكر من وجه وليس كلّ شكر حمداً.</p>
+</div>
+
+<!-- ==================== SECTION 3 ==================== -->
+<h2 class="section-title"><span class="section-number">٣</span> الصلاة والسلام — معناهما من الله</h2>
+
+<p>قال المصنف: <span class="highlight">والصلاة وهي من الله الرحمة المقرونة بالتعظيم</span> — وبعض أهل العلم يقولون: ثناؤه عليه في الملأ الأعلى، كما جاء عن أبي العالية. و<span class="highlight">السلام أي التسليم من كل آفة ونقص</span>.</p>
+
+<p>ثم قال: <span class="highlight">على سيدنا محمد رسول الله لكافة الثقلين</span>. وقوله "لكافة الثقلين" — وكلمة كافة الأولى أن تأتي حالاً وليست مسبوقة بحرف جر، كما في القرآن: {وَمَا أَرْسَلْنَاكَ إِلَّا كَافَّةً لِلنَّاسِ}. فتقول: "دعوت الطلاب كافة" أفضل من "دعوت كافة الطلاب".</p>
+
+<h3 class="subsection-title">رسالة النبي صلى الله عليه وسلم إلى الملائكة</h3>
+
+<p>النبي صلى الله عليه وسلم رسول إلى الجن والإنس إجماعاً. <span class="text-primary">وكذا إلى الملائكة على ما قاله جمع المحققون</span> منهم شيخ المصنف العلامة ابن حجر في تحفة المحتاج. ودلّ على هذا من القرآن قول الله سبحانه: {تَبَارَكَ الَّذِي نَزَّلَ الْفُرْقَانَ عَلَى عَبْدِهِ لِيَكُونَ لِلْعَالَمِينَ نَذِيرًا} والعالمين كل ما سوى الله — والملائكة من العالمين. بل ورسول إلى الجمادات، ففي صحيح مسلم أن النبي صلى الله عليه وسلم قال: "وأرسلت إلى الخلق كافة".</p>
+
+<div class="callout callout-ruling">
+  <span class="callout-title">خلاف العلماء في رسالته إلى الملائكة</span>
+  <p><b>المعتمد عند ابن حجر والخطيب الشربيني:</b> النبي مرسل إلى الملائكة — لتعظيمه بإيمانهم به والإشهاد بذكره عليه الصلاة والسلام.</p>
+  <p><b>خالفهم العلامة الرملي:</b> فقال إن النبي مرسل إلى الجن والإنس فقط. وأُجيب: مادام أن الملائكة معصومون فلماذا أُرسل إليهم؟ الجواب: لتعظيمه صلى الله عليه وسلم بإيمانهم به.</p>
+</div>
+
+<!-- ==================== SECTION 4 ==================== -->
+<h2 class="section-title"><span class="section-number">٤</span> محمد علم منقول من اسم مفعول مضعّف</h2>
+
+<p>قال المصنف: <span class="highlight">ومحمد علم منقول من اسم المفعول المضعّف</span> — والعلم المنقول هو الذي قد سبق أن استُعمل في غير العلمية، كما أشار ابن مالك في الألفية:</p>
+
+<div class="poetry-box">
+  <div class="poetry-line">ومنه منقول كفضل وأسد</div>
+  <div class="poetry-line">وَمُرْتَجَالٌ كَسَعْدٍ وَأَدَدْ</div>
+</div>
+
+<div class="compare-box">
+  <div class="compare-side" style="background: var(--primary);">
+    <h3>العلم المنقول</h3>
+    <p>ما سبق أن استُعمل في غير العلمية — مثل: ناصر (اسم فاعل)، فضل (صفة)، أسد (اسم حيوان إذا سُمّي به رجل)</p>
+  </div>
+  <div class="compare-divider"></div>
+  <div class="compare-side" style="background: var(--accent);">
+    <h3>العلم المرتجل</h3>
+    <p>ما لم يسبق أن استُعمل في غير العلمية — مثل: سعد وأدد. أي وُضع من أول أمره علماً ولم يُستعمل قبل ذلك في غير العلمية</p>
+  </div>
+</div>
+
+<p>فقوله "محمد علم منقول من اسم مفعول مضعّف" يعني أن محمد نُقل من "محمود" وهو اسم مفعول من حَمَّدَ (مضعّف العين). و"موضوع لمن كثرت خصاله الحميدة" — سُمّي به نبينا صلى الله عليه وسلم بإلهام من الله لجده عبد المطلب.</p>
+
+<!-- ==================== SECTION 5 ==================== -->
+<h2 class="section-title"><span class="section-number">٥</span> الفرق بين الرسول والنبي — الأقوال الثلاثة</h2>
+
+<p>قال المصنف: <span class="highlight">والرسول من البشر ذكر حر أوحي إليه بشرع وأمر بتبليغه وإن لم يكن له كتاب ولا نسخ كيوشع عليه السلام</span>. فإن لم يؤمر بالتبليغ فنبي. ثم قال: <span class="highlight">والرسول أفضل من النبي إجماعاً</span>.</p>
+
+<p>المصنف أفاد فائدتين: الأولى أن هناك فرقاً بين النبي والرسول، والثانية أن الرسول أفضل. وظاهر القرآن يردّ على من قال لا فرق بينهما، قال الله: {وَمَا أَرْسَلْنَا مِنْ قَبْلِكَ مِنْ رَسُولٍ وَلَا نَبِيٍّ} — العطف يقتضي المغايرة. وفي الفرق ثلاثة أقوال:</p>
+
+<div class="classification-group">
+  <div class="classification-box box-red">
+    <div class="classification-box-header">القول الأول: لا فرق</div>
+    <div class="classification-box-body">
+      <p>الرسول هو النبي والنبي هو الرسول — لكن ظاهر القرآن يردّه</p>
+    </div>
+  </div>
+  <div class="classification-box box-green">
+    <div class="classification-box-header">القول الثاني (المصنف)</div>
+    <div class="classification-box-body">
+      <p><b>الرسول:</b> أُمر بالتبليغ</p>
+      <p><b>النبي:</b> لم يُؤمر بالتبليغ</p>
+      <p style="margin-top:4px; font-size:9pt; color:var(--text-light);">قد يكون رسولاً وليس عنده كتاب ولا صحف كيوشع عليه السلام</p>
+    </div>
+  </div>
+  <div class="classification-box box-blue">
+    <div class="classification-box-header">القول الثالث</div>
+    <div class="classification-box-body">
+      <p><b>الرسول:</b> مَن بُعث بشرع جديد</p>
+      <p><b>النبي:</b> مَن بُعث ليُجدّد شرع من قبله</p>
+      <p style="margin-top:4px; font-size:9pt; color:var(--text-light);">كأنبياء بني إسرائيل الذين جدّدوا شريعة التوراة</p>
+    </div>
+  </div>
+</div>
+
+<div class="callout callout-important">
+  <span class="callout-title">نتيجة: الرسول أفضل من النبي إجماعاً</span>
+  <p>سواء قلنا الفرق بالتبليغ أو بالشرع الجديد، فالرسول أفضل من النبي إجماعاً. والحديث الصحيح الذي يذكر عدد الأنبياء والرسل يقوّي القول بالفرق بينهما.</p>
+</div>
+
+<!-- ==================== SECTION 6 ==================== -->
+<h2 class="section-title"><span class="section-number">٦</span> عدد الأنبياء والرسل</h2>
+
+<p>قال المصنف: <span class="highlight">وصحّ خبر أن عدد الأنبياء عليهم الصلاة والسلام مئة ألف وأربعة وعشرون ألفاً وأن عدد الرسل ثلاثمائة وخمسة عشر</span>. وهذا جزم من المصنف بصحة الحديث — وهو ما ذهب إليه شيخه العلامة ابن حجر أيضاً.</p>
+
+<div class="card-grid card-grid-2">
+  <div class="card" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white;">
+    <div class="card-number" style="font-size: 22px;">١٢٤,٠٠٠</div>
+    <div class="card-title">عدد الأنبياء</div>
+    <div class="card-desc">مئة ألف وأربعة وعشرون ألفاً</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%); color: white;">
+    <div class="card-number" style="font-size: 22px;">٣١٥</div>
+    <div class="card-title">عدد الرسل</div>
+    <div class="card-desc">ثلاثمائة وخمسة عشر — وقيل ثلاثمائة وثلاثة عشر (أكثر الروايات)</div>
+  </div>
+</div>
+
+<h3 class="subsection-title">خلاف العلماء في الجزم بالعدد</h3>
+
+<div class="compare-box">
+  <div class="compare-side" style="background: var(--primary);">
+    <h3>من صحّح الحديث (المصنف وابن حجر)</h3>
+    <p>يجوز الجزم بالعدد إذا صحّ الحديث. واستدلّوا بذلك على وجود فرق بين النبي والرسول.</p>
+  </div>
+  <div class="compare-divider"></div>
+  <div class="compare-side" style="background: var(--danger);">
+    <h3>من ضعّف الحديث (الدمياطي والثقاف)</h3>
+    <p>قالوا: الصحيح عدم الجزم بعدد الرسل والأنبياء. واستدلّوا بقوله تعالى: {وَلَقَدْ أَرْسَلْنَا رُسُلًا مِنْهُمْ مَنْ قَصَصْنَا عَلَيْكَ وَمِنْهُمْ مَنْ لَمْ نَقُصُصْ عَلَيْكَ} لكن الآية لا تدلّ على عدم الحصر بل على عدم القصص فقط.</p>
+  </div>
+</div>
+
+<div class="callout callout-ruling">
+  <span class="callout-title">ترجيح العلامة باصبرين</span>
+  <p>قال في حاشيته المخطوطة: "الأولى الإمساك" — ولم يقل "الصحيح عدم الجزم" كما قال الآخرون، لأن كلمة "الصحيح" يقابلها "الضعيف" في حق الحديث. فكان أدقّ في عبارته رحمه الله.</p>
+</div>
+
+<!-- ==================== SECTION 7 ==================== -->
+<h2 class="section-title"><span class="section-number">٧</span> معنى الآل في المقامات الثلاثة</h2>
+
+<p>قال المصنف: <span class="highlight">وعلى آله أي أقاربه المؤمنين من بني هاشم وبني المطلب</span>. وقيل هم كل مؤمن أي في مقام الدعاء ونحوه. واختير هذا القيل لخبر ضعيف فيه: "آل محمد كل تقي" — وقد جزم به النووي في شرح مسلم. وأحسن ما قيل في تعريف الآل أنه يختلف بحسب المقام:</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 20%;">المقام</th>
+        <th style="width: 30%;">معنى الآل</th>
+        <th style="width: 50%;">البيان</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: var(--success-light);">
+        <td style="font-weight: bold; color: var(--primary);">الزكاة والغنيمة والفيء</td>
+        <td>بنو هاشم وبنو المطلب</td>
+        <td>في المباحث المالية يُراد بالآل بنو هاشم وبنو المطلب — لأنهم مَن تُحرّم عليهم الصدقة</td>
+      </tr>
+      <tr style="background-color: #d1ecf1;">
+        <td style="font-weight: bold; color: var(--accent);">الدعاء</td>
+        <td>كل مؤمن ولو كان عاصياً</td>
+        <td>في مقام الدعاء يدخل كل مؤمن حتى العاصي — لأن العاصي أحوج إلى الدعاء من غيره فيدخل في الآل</td>
+      </tr>
+      <tr style="background-color: var(--highlight-bg);">
+        <td style="font-weight: bold; color: var(--secondary);">المدح والتزكية</td>
+        <td>كل تقيّ</td>
+        <td>إذا كان المقام مقام مدح كأن تقول: "سيروا على طريقة رسول الله وآله" — فالمراد الأتقياء، كأنك تقول: سيروا على طريق الأتقياء</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ==================== SECTION 8 ==================== -->
+<h2 class="section-title"><span class="section-number">٨</span> اسم الجمع وفرقه عن الجمع — "صاحب" نموذجاً</h2>
+
+<p>قال المصنف: <span class="highlight">وصاحب وهو اسم جمع لصاحب</span> أي بمعنى الصحابي. وكثير من الطلاب لا يفرّق بين الجمع واسم الجمع، والفرق بينهما دقيق:</p>
+
+<div class="diagram-container">
+  <div class="diagram-title">مخطط: أنواع اسم الجمع</div>
+  <div class="diagram-root">
+    <div class="diagram-node diagram-node-primary">اسم الجمع</div>
+    <div class="diagram-connector"></div>
+    <div class="diagram-branch">
+      <div class="diagram-branch-vertical">
+        <div class="diagram-node diagram-node-secondary" style="font-size: 10pt;">النوع الأول</div>
+        <div class="diagram-node" style="background: var(--success-light); border: 1px solid var(--primary); font-size: 10pt; padding: 6px 10px;">ما دلّ على كثير وليس له مفرد من لفظه</div>
+        <div class="diagram-node" style="background: #fff; border: 1px solid var(--border); font-size: 9pt; padding: 4px 8px; color: var(--text-light);">مثل: جيش (مفرده جندي)، قوم، طائفة، إبل، غنم</div>
+      </div>
+      <div class="diagram-branch-vertical">
+        <div class="diagram-node diagram-node-accent" style="font-size: 10pt;">النوع الثاني</div>
+        <div class="diagram-node" style="background: #e8f0f5; border: 1px solid var(--accent); font-size: 10pt; padding: 6px 10px;">له مفرد من لفظه لكنه ليس على وزن من أوزان الجموع</div>
+        <div class="diagram-node" style="background: #fff; border: 1px solid var(--border); font-size: 9pt; padding: 4px 8px; color: var(--text-light);">مثل: صاحب (مفرده صاحب)، راكب، خدم (مفرده خادم)</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="callout callout-important">
+  <span class="callout-title">الفرق بين الجمع واسم الجمع</span>
+  <p><b>الجمع:</b> له مفرد من لفظه وهو على وزن من أوزان الجموع (مثل: معلمون، معلمات).</p>
+  <p><b>اسم الجمع:</b> إما ليس له مفرد من لفظه أصلاً (مثل: جيش)، أو له مفرد لكنه ليس على وزن من أوزان الجموع (مثل: صاحب — مفردُه صاحب وليس على وزن جمع).</p>
+</div>
+
+<!-- ==================== SECTION 9 ==================== -->
+<h2 class="section-title"><span class="section-number">٩</span> تعريف الصحابي</h2>
+
+<p>قال المصنف: <span class="highlight">وصاحبه — أي الصحابي — وهو من اجتمع مؤمناً بالنبي صلى الله عليه وسلم</span>. وفي التعريف قيدان:</p>
+
+<div class="condition-grid">
+  <div class="condition-card">
+    <div class="condition-number">١</div>
+    <div class="condition-text">ولو أعمى — فلا تُشترط الرؤية</div>
+  </div>
+  <div class="condition-card">
+    <div class="condition-number">٢</div>
+    <div class="condition-text">وغير مميّز — فلا يُشترط التمييز</div>
+  </div>
+</div>
+
+<p>فينال شرف الصحبة من اجتمع بالنبي صلى الله عليه وسلم مؤمناً ولو كان أعمى — لأنه اجتمع به وإن لم يره — ولو كان صبياً غير مميّز لأنه اجتمع به حقيقة. ثم قال: <span class="highlight">الفائزين برضى الله تعالى</span> صفة لمن ذكر.</p>
+
+<!-- ==================== SECTION 10 ==================== -->
+<h2 class="section-title"><span class="section-number">١٠</span> فهذا المؤلف الحاضر ذهناً — كتب المقدمة قبل التأليف</h2>
+
+<p>قال المصنف: <span class="highlight">فهذا</span> — وفيها إشارة لطيفة: فهم اسم إشارة لمفرد مذكر، يقول العلماء: أسماء الإشارة تستعمل في المحسوسات حقيقة، فإذا استُعملت في غير المحسوس فهو مجاز. والمؤلف لما قال "فهذا" استعمل اسم الإشارة لشيء غير محسوس (الكتاب في ذهنه) فاستعماله من باب المجاز.</p>
+
+<p>وقوله "المؤلف الحاضر ذهناً" فيه إشارة إلى أنه <span class="highlight">كتب المقدمة قبل التأليف</span> لا بعده. لأنه قال "فهذا المؤلف" أي الحاضر في ذهنه — ولو كان قال "الحاضر أمامي" لقلنا كتب المقدمة بعد أن أكمل الكتاب. لكنه قال "الحاضر ذهناً" فكأن الكتاب قد استوعبه في ذهنه أولاً ثم كتب المقدمة وشرع في كتابة الكتاب.</p>
+
+<!-- ==================== SECTION 11 ==================== -->
+<h2 class="section-title"><span class="section-number">١١</span> المختصر — قلّ لفظه وكثر معناه</h2>
+
+<p>قال المصنف: <span class="highlight">مختصر</span> — أي قلّ لفظه وكثر معناه. وبعض العلماء يقول: المختصر ما قلّ لفظه سواء كثر المعنى أم لا. لكن المعتمد أن المختصر يجمع الأمرين: قلّة اللفظ وكثرة المعنى. وهذا من الاختصار الذي يُمدح فيه المصنف — فهو أورد علماً كثيراً في ألفاظ قليلة.</p>
+
+<div class="callout callout-ruling">
+  <span class="callout-title">تعريف المختصر</span>
+  <p><b>عند المصنف:</b> ما قلّ لفظه وكثر معناه — وهذا الاختصار المحمود.</p>
+  <p><b>عند بعضهم:</b> ما قلّ لفظه فقط سواء كثر المعنى أم لا.</p>
+</div>
+
+<!-- ==================== SECTION 12 ==================== -->
+<h2 class="section-title"><span class="section-number">١٢</span> تعريف الفقه لغة واصطلاحاً</h2>
+
+<p>قال المصنف: <span class="highlight">من الاختصار في الفقه</span>. والفقه لغة: الفهم. وبعضهم قال: الفقه الفهم الدقيق — فلا يقول أحد "فقهتُ أن السماء فوقنا" لأن هذا أمر لا يحتاج إلى ذكاء. وبعضهم قال: الفقه فهم مراد المتكلم من كلامه — وهذا أدقّ.</p>
+
+<h3 class="subsection-title">التعريف الاصطلاحي</h3>
+
+<div class="formula-box">
+  <div class="formula">الفقه: العلم بالأحكام الشرعية العملية المكتسَب من أدلتها التفصيلية</div>
+</div>
+
+<p>وفي التعريف قيود أربعة:</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 25%;">القيد</th>
+        <th style="width: 25%;">يُخرج</th>
+        <th style="width: 50%;">البيان</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="font-weight: bold; color: var(--primary);">الشرعية</td>
+        <td>غير الشرعية كالأحكام اللغوية</td>
+        <td>تخرج أحكام النحو والصرف واللغة لأنها ليست شرعية</td>
+      </tr>
+      <tr style="background-color: var(--table-alt);">
+        <td style="font-weight: bold; color: var(--primary);">العملية</td>
+        <td>الاعتقادية</td>
+        <td>تخرج أصول العقائد والإيمان لأنها أحكام اعتقادية لا عملية</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold; color: var(--primary);">المكتسَب</td>
+        <td>علم النبي والملائكة</td>
+        <td>علم النبي الحاصل بالوحي ليس فقهاً لأنه غير مكتسب — وكذلك علم الملائكة. وأما علم النبي الحاصل بالاجتهاد فيُعتبر فقهاً</td>
+      </tr>
+      <tr style="background-color: var(--table-alt);">
+        <td style="font-weight: bold; color: var(--primary);">من أدلتها التفصيلية</td>
+        <td>علم أصول الفقه</td>
+        <td>لأن أصول الفقه يبحث في الأدلة الإجمالية. والأدلة نفسها لكن ينظر إليها الفقيه من زاوية الجزئيات فتكون تفصيلية، وينظر إليها الأصولي من زاوية قواعد الاستدلال فتكون إجمالية</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout callout-info">
+  <span class="callout-title">توضيح: الأدلة الإجمالية والتفصيلية</span>
+  <p>الأدلة ليست نوعين مختلفين — بل هي نفس الأدلة. مثلاً: قوله تعالى {أقيموا الصلاة} — ينظر إليها الأصولي من جهة الأمر فيُفيد الوجوب إجمالاً، وينظر إليها الفقيه من جهة دلالتها على وجوب الصلاة تفصيلاً. فالأدلة واحدة لكن زاوية النظر مختلفة.</p>
+</div>
+
+<!-- ==================== SECTION 13 ==================== -->
+<h2 class="section-title"><span class="section-number">١٣</span> استمداد الفقه من الأدلة</h2>
+
+<p>استمداد الفقه — أي مصادره التي يستقي منها — ينقسم إلى قسمين:</p>
+
+<h3 class="subsection-title">الأدلة المتفق عليها</h3>
+
+<div class="card-grid card-grid-2">
+  <div class="card" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white;">
+    <div class="card-number">١</div>
+    <div class="card-title">الكتاب</div>
+    <div class="card-desc">القرآن الكريم — وهو أصل الأصول</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white;">
+    <div class="card-number">٢</div>
+    <div class="card-title">السنة</div>
+    <div class="card-desc">السنة النبوية المطهرة</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%); color: white;">
+    <div class="card-number">٣</div>
+    <div class="card-title">الإجماع</div>
+    <div class="card-desc">اتفاق مجتهدي الأمة في عصر على حكم شرعي</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%); color: white;">
+    <div class="card-number">٤</div>
+    <div class="card-title">القياس</div>
+    <div class="card-desc">إلحاق فرع بأصل في حكم لعلة جامعة</div>
+  </div>
+</div>
+
+<h3 class="subsection-title">الأدلة المختلف فيها</h3>
+
+<div class="condition-grid">
+  <div class="condition-card">
+    <div class="condition-text">الاستصحاب</div>
+  </div>
+  <div class="condition-card">
+    <div class="condition-text">قول الصحابي</div>
+  </div>
+  <div class="condition-card">
+    <div class="condition-text">الاستحسان</div>
+  </div>
+  <div class="condition-card">
+    <div class="condition-text">المصلحة المرسلة</div>
+  </div>
+  <div class="condition-card">
+    <div class="condition-text">عمل أهل المدينة</div>
+  </div>
+  <div class="condition-card">
+    <div class="condition-text">شرع من قبلنا</div>
+  </div>
+  <div class="condition-card">
+    <div class="condition-text">العُرف</div>
+  </div>
+</div>
+
+<p>وسبب الخلاف بين الأئمة أن كل واحد منهم له أصول وأدلة يختلف بها عن غيره. فالإمام مالك يرى أن عمل أهل المدينة حجّة وبنى عليه فروعاً، والإمام أبو حنيفة لا يراه حجّة. والإمام أبو حنيفة توسّع في الاستحسان، والمالكية يتوسّعون في المصلحة المرسلة. وبناءً على اختلاف هذه الأصول حصل خلاف فقهي في الفروع.</p>
+
+<p>وفائدة علم الفقه: <span class="highlight">امتثال أوامر الله تعالى واجتناب نواهيه</span>. لأن العلم إما أن يتعلّق بالله وأسمائه وصفاته، أو بالحلال والحرام (وهذا الفقه)، أو بذكر الآخرة وما بعد الموت — وهذه العلوم النافعة الثلاثة.</p>
+
+<!-- ==================== SECTION 14 ==================== -->
+<h2 class="section-title"><span class="section-number">١٤</span> ترجمة الإمام الشافعي — نسبه وشمائله</h2>
+
+<p>قال المصنف: <span class="highlight">على مذهب الإمام المجتهد أبي عبد الله محمد بن إدريس الشافعي رحمه الله تعالى ورضي عنه</span>. والإمام الشافعي هو ابن عم رسول الله صلى الله عليه وسلم — لأن عبد مناف الجد الرابع للنبي والجد العاشر للإمام الشافعي:</p>
+
+<div class="diagram-container">
+  <div class="diagram-title">نسب النبي والإمام الشافعي — الالتقاء عند عبد مناف</div>
+  <div class="diagram-root">
+    <div class="diagram-node diagram-node-primary" style="font-size: 11pt;">عبد مناف</div>
+    <div class="diagram-connector"></div>
+    <div class="diagram-branch">
+      <div class="diagram-branch-vertical">
+        <div class="diagram-node diagram-node-secondary" style="font-size: 10pt;">هاشم</div>
+        <div class="diagram-connector"></div>
+        <div class="diagram-node" style="background: var(--success-light); border: 1px solid var(--primary); font-size: 9pt; padding: 4px 8px;">عبد المطلب</div>
+        <div class="diagram-connector"></div>
+        <div class="diagram-node" style="background: var(--success-light); border: 1px solid var(--primary); font-size: 9pt; padding: 4px 8px;">عبد الله</div>
+        <div class="diagram-connector"></div>
+        <div class="diagram-node diagram-node-primary" style="font-size: 10pt;">النبي محمد صلى الله عليه وسلم</div>
+      </div>
+      <div class="diagram-branch-vertical">
+        <div class="diagram-node diagram-node-accent" style="font-size: 10pt;">المطلب</div>
+        <div class="diagram-connector"></div>
+        <div class="diagram-node" style="background: #e8f0f5; border: 1px solid var(--accent); font-size: 9pt; padding: 4px 8px;">هاشم بن المطلب</div>
+        <div class="diagram-connector"></div>
+        <div class="diagram-node" style="background: #e8f0f5; border: 1px solid var(--accent); font-size: 9pt; padding: 4px 8px;">... بنو المطلب</div>
+        <div class="diagram-connector"></div>
+        <div class="diagram-node diagram-node-accent" style="font-size: 10pt;">الإمام الشافعي</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3 class="subsection-title">نسب الإمام الشافعي الكامل</h3>
+
+<div class="formula-box">
+  <div class="formula" style="font-size: 11pt;">محمد بن إدريس بن عباس بن عثمان بن شافع بن السائب بن عبيد بن عبد يزيد بن هاشم بن المطلب</div>
+</div>
+
+<p>أول صحابي من أجداد الإمام الشافعي هو <span class="highlight">شافع</span> — ولذلك نُسب إليه ولم يُنسب إلى غيره من أجداده (كالعثماني أو العباسي)، لأنه أول أجداده من حيث الصحبة. وشافع أسلم هو وأبوه السائب يوم بدر، وكذلك عبيد وعبد يزيد أسلما. فاجتمع في نسب الإمام الشافعي <span class="text-primary">أربعة من الصحابة</span> — وهذا من النادر كما ذكر الحافظ البيهقي: "كلهم فازوا بشرف الصحبة".</p>
+
+<div class="poetry-box">
+  <div class="poetry-line">وبعد ذا فالعلم خيرُ رافعٍ</div>
+  <div class="poetry-line">لسانِ مَن في قِلْبِهِ يتَدافعُ</div>
+  <div class="poetry-line">فهو ابن عمِّ المصطفى ولم نجد</div>
+  <div class="poetry-line">له نظيراً في قريشٍ مجتهد</div>
+</div>
+<p style="text-align: center; font-size: 9pt; color: var(--text-light);">— من نظم العمرطي في نهاية التدريب</p>
+
+<h3 class="subsection-title">مواليد ووفيات الأئمة الأربعة</h3>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>الإمام</th>
+        <th>المولد (هـ)</th>
+        <th>الوفاة (هـ)</th>
+        <th>العمر</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: var(--success-light);">
+        <td style="font-weight: bold;">مالك</td>
+        <td>٩٣</td>
+        <td>١٧٩</td>
+        <td style="font-weight: bold; color: var(--primary);">~٨٦ سنة (الأطول عمراً)</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">أبو حنيفة</td>
+        <td>٨٠</td>
+        <td>١٥٠</td>
+        <td>٧٠ سنة</td>
+      </tr>
+      <tr style="background-color: var(--table-alt);">
+        <td style="font-weight: bold;">أحمد</td>
+        <td>١٦٤</td>
+        <td>٢٤١</td>
+        <td>٧٧ سنة</td>
+      </tr>
+      <tr style="background-color: var(--highlight-bg);">
+        <td style="font-weight: bold; color: var(--primary);">الشافعي</td>
+        <td>١٥٠</td>
+        <td>٢٠٤</td>
+        <td style="font-weight: bold; color: var(--danger);">٥٤ سنة (الأصغر عمراً)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout callout-info">
+  <span class="callout-title">لطيفة: وُلد الإمام الشافعي سنة ١٥٠ وهي السنة التي تُوفي فيها الإمام أبو حنيفة</span>
+  <p>حتى قال بعض الحنفية: "إن صاحبكم استحيا أن يخرج إلى الدنيا وإمامنا حيّ"! فردّ أحد الشافعية: "إن صاحبنا لنوره لم يخرج إلى الدنيا إلا بعد أن مات صاحبكم" — يعني لجلالته لا يأتي إلا بعد أن مات الإمام أبو حنيفة. على كل حال هذا من ملح العلم.</p>
+</div>
+
+<div class="poetry-box">
+  <div class="poetry-line">فَلِلنُّعْمَانِ قَانُونٌ وتَعْقُلُ مالكٌ</div>
+  <div class="poetry-line">وَلِلشَّافِعِ دَرٌّ وَرَمْلٌ لابنِ حَنْبَلِ</div>
+</div>
+<p style="text-align: center; font-size: 9pt; color: var(--text-light);">— نظم في تاريخ وفيات الأئمة (النعمان = أبو حنيفة ١٥٠هـ، مالك = ١٧٩هـ، الشافعي = ٢٠٤هـ، أحمد = ٢٤١هـ)</p>
+
+<!-- ==================== SECTION 15 ==================== -->
+<h2 class="section-title"><span class="section-number">١٥</span> مشايخ الإمام الشافعي — ابن حجر الهيتمي</h2>
+
+<p>قال المصنف: <span class="highlight">انتخبته من الكتب المعتمدة لشيخنا خاتمة المحققين شهاب الدين أحمد بن حجر الهيتمي</span>. وابن حجر الهيتمي هو خاتمة محققي الشافعية وعلم كبير من أعلام المذهب.</p>
+
+<div class="callout callout-important">
+  <span class="callout-title">ابن حجر الهيتمي — العملاق</span>
+  <p>شرح منهاج الطالبين — وهو مطبوع في عشرة مجلدات (أو أربعة وخمسة بدون حواشي) — <span class="highlight">كتبه في تسعة أشهر!</span> وهو يُعدّ من أصعب وأدق شروح المنهاج. رأس الهرم في المذهب الشافعي. وُلد سنة ٩٠٩ هـ وتُوفي سنة ٩٧٤ هـ.</p>
+</div>
+
+<h3 class="subsection-title">كتب ابن حجر الهيتمي</h3>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 30%;">الكتاب</th>
+        <th style="width: 25%;">نوعه</th>
+        <th style="width: 45%;">ملاحظة</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: var(--success-light);">
+        <td style="font-weight: bold; color: var(--primary);">تحفة المحتاج</td>
+        <td>شرح المنهاج</td>
+        <td>المُقدَّم عند اختلاف كتبه — أعتمد ما فيه</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">فتح الجواد</td>
+        <td>شرح الإرشاد</td>
+        <td>الإرشاد لابن المقري اليمني المتوفى سنة ٨٣٢ هـ — وهو من أذكى أهل زمانه حتى قال الحافظ ابن حجر العسقلاني: "ما رأيت أذكى منه"</td>
+      </tr>
+      <tr style="background-color: var(--table-alt);">
+        <td style="font-weight: bold;">سماع عنوان الشرف الوافي</td>
+        <td>كتاب عجيب</td>
+        <td>كتاب واحد تقرأ من فوق إلى تحت: فقه تقرأ من اليمين لليسار، نحو تقرأ بالعكس، تاريخ تقرأ باتجاه آخر، قوافي باتجاه آخر — مطبوع موجود في الإنترنت</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h3 class="subsection-title">اعتماد ابن حجر في البلاد</h3>
+
+<p>اعتمد ابن حجر الهيتمي في اليمن والحجاز والصومال وداغستان وإندونيسيا ودول شرق آسيا — فهؤلاء يعتمدون ما حققه العلامة ابن حجر في كتبه، خاصة تحفة المحتاج التي هي المرجع الأول عندهم.</p>
+
+<div class="callout callout-ruling">
+  <span class="callout-title">الفرق بين ابن حجر الهيتمي وابن حجر العسقلاني</span>
+  <p><b>ابن حجر الهيتمي:</b> شهاب الدين أحمد بن حجر — صاحب تحفة المحتاج شرح المنهاج، شافعي المذهب، توفي سنة ٩٧٤ هـ.</p>
+  <p><b>ابن حجر العسقلاني:</b> أحمد بن علي بن حجر — صاحب فتح الباري شرح صحيح البخاري، محدّث لا فقيه مذهب، توفي سنة ٨٥٢ هـ.</p>
+  <p>فإذا أُطلق "ابن حجر" في كتب الفقه فالمراد الهيتمي، وإذا أُطلق في كتب الحديث فالمراد العسقلاني.</p>
+</div>
+
+<div class="star-divider">✦ ✦ ✦</div>
+
+<div class="callout callout-important">
+  <span class="callout-title">ملاحظة: لا بد من حفظ النسب الشريف للنبي صلى الله عليه وسلم</span>
+  <p>قال الناظم: "واجب وواجب في حقّ ذي التكليف معرفة بالنسب الشريف". فمحمد المختار من خير العرب، أبوه عبد الله عبد المطلب وهاشم عبد مناف وقصيّ ثم كِلاب ثم مُرّة ثم كعب ثم لؤيّ إلى عدنان — هذا واجب على كل مكلّف.</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf') format('truetype'); font-weight: normal; }
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf') format('truetype'); font-weight: bold; }
+@font-face { font-family: 'NotoNaskh'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf') format('truetype'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+
+body {
+  font-family: 'NotoNaskh', 'Amiri', serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #1a1a2e;
+  direction: rtl;
+  background: #fff;
+  text-align: justify;
+}
+
+.cover-header {
+  background: #1a5632;
+  color: white;
+  padding: 20px 14px;
+  text-align: center;
+  margin: 0 0 12px 0;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px);
+  border-bottom: 4px solid #c8a951;
+}
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 6px; border: none; font-family: 'Amiri', serif; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.9; margin: 4px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.92; margin: 6px 0 2px 0; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .creator { font-size: 11pt; opacity: 0.85; margin-top: 2px; }
+.cover-header .series { font-size: 11pt; opacity: 0.8; margin-top: 4px; }
+
+.toc {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 0 0 12px 0;
+}
+.toc-title {
+  font-family: 'Amiri', serif;
+  font-size: 14pt;
+  color: #1a5632;
+  text-align: center;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #c8a951;
+  padding-bottom: 4px;
+}
+.toc-item {
+  font-size: 10pt;
+  padding: 2px 0;
+  border-bottom: 1px dotted #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+h2.section-title {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0d7c3e;
+  border-bottom: 2px solid #0d7c3e;
+  padding-bottom: 5px;
+  margin: 18px 0 10px;
+}
+
+h3.sub-title {
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: #0a5c2e;
+  margin: 14px 0 8px;
+  padding-right: 10px;
+  border-right: 4px solid #0d7c3e;
+}
+
+h4.minor-title {
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #166534;
+  margin: 10px 0 6px;
+}
+
+p { margin: 5px 0; text-align: justify; }
+
+.definition-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-right: 4px solid #0d7c3e;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.rule-box {
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-right: 4px solid #d97706;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.exception-box {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-right: 4px solid #ea580c;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.evidence-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-right: 4px solid #2563eb;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.issue-box {
+  background: #fdf2f8;
+  border: 1px solid #fbcfe8;
+  border-right: 4px solid #db2777;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.comparison-box {
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  border-right: 4px solid #7c3aed;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.note-box {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-right: 4px solid #0284c7;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.poetry-box {
+  background: #faf5ff;
+  border: 1px solid #e9d5ff;
+  border-right: 4px solid #9333ea;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+  text-align: center;
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  line-height: 2.2;
+}
+
+.key-rule {
+  background: #dcfce7;
+  border: 2px solid #16a34a;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.box-label {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 4px;
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.label-def { background: #0d7c3e; }
+.label-rule { background: #d97706; }
+.label-exc { background: #ea580c; }
+.label-ev { background: #2563eb; }
+.label-issue { background: #db2777; }
+.label-comp { background: #7c3aed; }
+.label-note { background: #0284c7; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 13px;
+  table-layout: fixed;
+}
+
+th {
+  background: #0d7c3e;
+  color: #fff;
+  padding: 6px 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+td {
+  padding: 5px 8px;
+  border: 1px solid #d1d5db;
+  text-align: center;
+  vertical-align: top;
+}
+
+tr:nth-child(even) { background: #f0fdf4; }
+tr:nth-child(odd) { background: #fff; }
+
+.tree-container { margin: 12px 0; text-align: center; }
+.tree-root {
+  display: inline-block;
+  background: linear-gradient(135deg, #0d7c3e, #0a5c2e);
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+.tree-branches { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px; }
+.tree-branch {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  min-width: 80px;
+  text-align: center;
+}
+.tree-branch-num { font-family: 'Amiri', serif; font-weight: bold; color: #0d7c3e; font-size: 14px; }
+.tree-branch-label { font-size: 12px; color: #374151; }
+
+.compare-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.compare-card { flex: 1; min-width: 140px; border-radius: 8px; padding: 8px 10px; text-align: center; }
+.compare-card-green { background: #dcfce7; border: 1px solid #86efac; }
+.compare-card-red { background: #fef2f2; border: 1px solid #fca5a5; }
+.compare-card-gold { background: #fefce8; border: 1px solid #fde68a; }
+.compare-card-blue { background: #eff6ff; border: 1px solid #bfdbfe; }
+.compare-card-teal { background: #f0fdfa; border: 1px solid #99f6e4; }
+.compare-card-title { font-family: 'Amiri', serif; font-weight: bold; font-size: 14px; margin-bottom: 4px; }
+.compare-card-body { font-size: 12px; }
+
+.flow-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px; margin: 8px 0; }
+.flow-box { background: #0d7c3e; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-family: 'Amiri', serif; font-weight: bold; text-align: center; }
+.flow-arrow { font-size: 16px; color: #0d7c3e; font-weight: bold; }
+.flow-result { padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; text-align: center; }
+.flow-pure { background: #dcfce7; border: 1px solid #86efac; color: #166534; }
+.flow-impure { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+.flow-excused { background: #fefce8; border: 1px solid #fde68a; color: #92400e; }
+
+.highlight-green { background: #dcfce7; padding: 1px 4px; border-radius: 3px; }
+.highlight-gold { background: #fefce8; padding: 1px 4px; border-radius: 3px; }
+.highlight-red { background: #fef2f2; padding: 1px 4px; border-radius: 3px; }
+
+.verse-ref { font-family: 'Amiri', serif; font-size: 14px; color: #1e40af; text-align: center; margin: 6px 0; }
+.hadith-ref { font-family: 'Amiri', serif; font-size: 13px; color: #166534; text-align: center; margin: 6px 0; }
+
+.condition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.condition-item { border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.condition-num {
+  display: inline-block; background: #0d7c3e; color: #fff; min-width: 24px; height: 24px;
+  border-radius: 50%; text-align: center; line-height: 24px; font-family: 'Amiri', serif;
+  font-weight: bold; font-size: 12px; margin-left: 6px;
+}
+
+ul { margin: 4px 0; padding-right: 20px; }
+li { margin: 2px 0; }
+
+.step-num {
+  display: inline-block; background: #0d7c3e; color: #fff; min-width: 22px; height: 22px;
+  border-radius: 50%; text-align: center; line-height: 22px; font-family: 'Amiri', serif;
+  font-weight: bold; font-size: 11px; margin-left: 4px;
+}
+</style>
+</head>
+<body>
+
+<!-- ===== COVER HEADER ===== -->
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس الخمسون — تابع فروع الصلاة: ثواب الذكر · الانتقال بين الصلاتين · النفل في البيت · أحكام السترة</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="creator">تنسيق: أحمد بن إرشاد</div>
+  <div class="series">ثواب الذكر بلا معرفة · الانتقال من موضع الصلاة · الفصل بين الصلاتين · النفل في البيت واستثناءاته · انتقال المأموم · مراتب السترة وأحكامها</div>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. ثواب الذكر وإن جهل معناه</span></div>
+  <div class="toc-item"><span>٢. خلاف الإسنوي: اشتراط معرفة المعنى</span></div>
+  <div class="toc-item"><span>٣. الفرق بين القرآن والأذكار</span></div>
+  <div class="toc-item"><span>٤. استحباب الانتقال من موضع الصلاة لموضع آخر</span></div>
+  <div class="toc-item"><span>٥. شرط الانتقال: حيث لم تعارضه فضيلة</span></div>
+  <div class="toc-item"><span>٦. الفصل بين الصلاتين بكلام إنسان</span></div>
+  <div class="toc-item"><span>٧. المراتب الثلاث في الانتقال والفصل</span></div>
+  <div class="toc-item"><span>٨. النفل في البيت أفضل</span></div>
+  <div class="toc-item"><span>٩. الاستثناءات الستة: متى يكون النفل في المسجد أفضل</span></div>
+  <div class="toc-item"><span>١٠. انتقال المأموم بعد انتقال الإمام</span></div>
+  <div class="toc-item"><span>١١. أحكام السترة: الحكم والاتفاق على الاستحباب</span></div>
+  <div class="toc-item"><span>١٢. مراتب السترة الأربع</span></div>
+  <div class="toc-item"><span>١٣. شروط السترة: الارتفاع والمسافة والعرض</span></div>
+  <div class="toc-item"><span>١٤. خلاف في بداية المسافة: العقب أم الأصابع</span></div>
+  <div class="toc-item"><span>١٥. الترتيب بين المراتب وترك الرتبة مع تيسّرها</span></div>
+  <div class="toc-item"><span>١٦. دليل مراتب السترة وحديث أبي داود</span></div>
+  <div class="toc-item"><span>١٧. قياس المصلى على الخط وتقديمه عليه</span></div>
+</div>
+
+<!-- ===== 1. ثواب الذكر ===== -->
+<h2 class="section-title">١. ثواب الذكر وإن جهل معناه</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">فرع — نصّ المصنّف</span>
+  <p><b>وقضية كلامهم حصول ثواب الذكر وإن جهل معناه</b> — أي أنّ مقتضى إطلاق كلام الفقهاء أنّ الإنسان يحصل له ثواب الذكر وإن لم يكن عارفاً بمعناه. فلو قال أحد «لا حول ولا قوة إلا بالله» وهو لا يعلم معناها، فإنّه يثاب على ذلك بمقتضى إطلاق الفقهاء.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">سعة ورحمة</span>
+  <p>هذا القول فيه سعة ورحمة، لأنّ كثيراً من العامّة يأتون بالأذكار ولا يعرفون معانيها. ربّما يقول الواحد منهم «لا حول ولا قوة إلا بالله» وهو لا يعلم ما معناها. فعلى هذا الرأي يثاب على ذلك وإن لم يكن عارفاً بالمعنى.</p>
+</div>
+
+<!-- ===== 2. خلاف الإسنوي ===== -->
+<h2 class="section-title">٢. خلاف الإسنوي: اشتراط معرفة المعنى</h2>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف بين الفقهاء</span>
+  <p>قال المصنّف: <b>«ونظر فيه الإسنوي»</b> — أي أنّ العلامة جمال الدين الإسنوي رحمه الله (من محقّقي الشافعية في القرن الثامن، توفّي سنة 772 هـ) قال في هذا القول نظر، أي اعترض عليه ولم يوافق.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">قضية كلام الفقهاء</div>
+    <div class="compare-card-body">يثاب على الذكر<br><b>وإن لم يعرف معناه</b><br>وهذا مقتضى إطلاقهم</div>
+  </div>
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">قول الإسنوي</div>
+    <div class="compare-card-body">لا يثاب على الذكر<br><b>إلا إذا كان عارفاً بمعناه</b><br>ولو إجمالاً ولو بوجه</div>
+  </div>
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">تفصيل الإسنوي</span>
+  <p>قال الإسنوي: <b>«لا بدّ أن يعرفه ولو بوجه»</b> — أي لا بدّ أن يعرف معنى الذكر ولو كان المعنى العامّ الإجماليّ. فمثلاً يعلم أنّ التسبيح تنزيه الله، وأنّ الحمد شكر لله — هذا المعنى العامّ يكفي.</p>
+</div>
+
+<!-- ===== 3. الفرق بين القرآن والأذكار ===== -->
+<h2 class="section-title">٣. الفرق بين القرآن والأذكار</h2>
+
+<div class="key-rule">
+  القرآن يُثاب قارئه وإن لم يعرف معناه — لأنّه متعبّد بلفظه<br>
+  أمّا الأذكار ففيها خلاف: إطلاق الفقهاء يثاب عليها مطلقاً، والإسنوي يشترط معرفة المعنى
+</div>
+
+<div class="exception-box">
+  <span class="box-label label-exc">تنبيه مهمّ</span>
+  <p>قال المصنّف: <b>«ولا يأتي هذا في القرآن للتعبد بلفظه فأثيب قارئه وإن لم يعرف معناه»</b> — أي أنّ هذا الخلاف بين الفقهاء والإسنوي لا يجري في القرآن، لأنّ القرآن متعبّد بلفظه، فقارئه يثاب وإن لم يعرف معناه. فلو قرأ <span class="verse-ref">{والعاديات ضبحاً}</span> ولم يعرف معنى العاديات والضبحا، فإنّه يثاب على قراءتها.</p>
+</div>
+
+<table>
+  <tr>
+    <th>النوع</th>
+    <th>حكم الثواب بدون معرفة المعنى</th>
+    <th>العلّة</th>
+  </tr>
+  <tr>
+    <td><b>القرآن الكريم</b></td>
+    <td><span class="highlight-green">يثاب مطلقاً</span> — وإن لم يعرف المعنى</td>
+    <td>متعبّد بلفظه</td>
+  </tr>
+  <tr>
+    <td><b>الأذكار (قول الفقهاء)</b></td>
+    <td><span class="highlight-green">يثاب</span> — وإن لم يعرف المعنى</td>
+    <td>مقتضى إطلاق كلامهم</td>
+  </tr>
+  <tr>
+    <td><b>الأذكار (قول الإسنوي)</b></td>
+    <td><span class="highlight-red">لا يثاب</span> إلا مع معرفة المعنى ولو إجمالاً</td>
+    <td>الأذكار ليست متعبّدة بلفظها كالقرآن</td>
+  </tr>
+</table>
+
+<div class="key-rule">
+  خلاصة المسألة:<br>
+  القرآن: يثاب عليه قارئه وإن لم يكن عارفاً بمعناه — إجماع<br>
+  الأذكار: قضية إطلاق الفقهاء أنّها كالقرآن يثاب عليها وإن لم يعرف المعنى<br>
+  وقال الإسنوي: لا بدّ أن يعرف معنى الذكر ولو إجمالاً
+</div>
+
+<!-- ===== 4. استحباب الانتقال ===== -->
+<h2 class="section-title">٤. استحباب الانتقال من موضع الصلاة لموضع آخر</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويندب أن ينتقل لفرض أو نفل من موضع صلاته ليشهد له الموضع</b> — أي يُستحبّ لمن صلّى في موضع ثمّ أراد صلاة أخرى أن ينتقل من ذلك الموضع إلى موضع آخر ليصلّي فيه، سواء كانت الصلاة الأولى فرضاً أو نفلاً، وسواء كانت الصلاة الثانية فرضاً أو نفلاً.</p>
+</div>
+
+<h3 class="sub-title">دليل الاستحباب</h3>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل من السنّة</span>
+  <p>ما جاء في <b>صحيح مسلم</b> أنّ النبيّ صلّى الله عليه وسلّم <b>أمر أن لا توصل صلاة بصلاة حتّى نتكلّم أو نخرج</b></p>
+</div>
+
+<h3 class="sub-title">العلة: شهود الموضع</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">العلة</span>
+  <p><b>ليشهد له الموضع</b> — أي أنّ المكان الذي صلّيت فيه يشهد لك يوم القيامة. قال الله تعالى في سورة الدخان عن هلاك قوم فرعون: <span class="verse-ref">{ما بكت عليهم السماء والأرض وما كانوا منذرين}</span> — قال أهل التفسير: المؤمن إذا مات بكى عليه مصعد عمله ويبكي عليه المكان الذي كان يصلّي فيه.</p>
+  <p>وقال الله عزّ وجل في سورة الزلزلة: <span class="verse-ref">{يومئذ تحدّث أخبارها}</span> أي تخبر الأرض بما فُعل عليها من خير ومن شرّ.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">علة أخرى</span>
+  <p>ولما في الانتقال من إحياء البقعة أو البقاء بالعبادة والصلاة — فالانتقال يُحيي بقعة أخرى بالعبادة.</p>
+</div>
+
+<!-- ===== 5. شرط الانتقال ===== -->
+<h2 class="section-title">٥. شرط الانتقال: حيث لم تعارضه فضيلة</h2>
+
+<div class="exception-box">
+  <span class="box-label label-exc">شرط مهمّ</span>
+  <p><b>حيث لم تعارضه فضيلة</b> — أي أنّ الانتقال مستحبّ ما لم يُفوّت فضيلة أعلى منه.</p>
+</div>
+
+<h3 class="sub-title">مثال: الصفّ الأوّل</h3>
+
+<p>لو أردت الانتقال لكنّ ذلك سيُخرجك من الصفّ الأوّل إلى الصفّ الثاني — فمراعاة الصفّ الأوّل مقدّمة على مراعاة سنّة الانتقال. فكونك تبقى في الصفّ الأوّل أولى بالمراعاة من كونك تنتقل.</p>
+
+<h3 class="sub-title">مثال: الزحام والضيق</h3>
+
+<p>لو صلّيت الراتبة القبلية في الصفّ الثاني وأردت الانتقال إلى الصفّ الأوّل لصلاة الظهر، لكن قدومك إلى الصفّ الأوّل سيؤدي إلى الزحام والضيق — فالأفضل ألّا تنتقل بل تبقى مكانك، لأنّ <b>الصلاة بطمأنينة خير من الصلاة مع الزحام</b>.</p>
+
+<div class="key-rule">
+  الفضيلة المتعلّقة بذات العبادة أولى بالمراعاة<br>
+  من الفضيلة المتعلّقة بالزمان أو المكان
+</div>
+
+<!-- ===== 6. الفصل بين الصلاتين ===== -->
+<h2 class="section-title">٦. الفصل بين الصلاتين بكلام إنسان</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>فإن لم ينتقل فصل بكلام إنسان</b> — أي إذا لم ينتقل وأراد أن يصلّي في نفس المكان، فلا يصلّ صلاة بصلاة بل يفصل بينهما بكلام إنسان. وذلك لما جاء في صحيح مسلم من أمر النبيّ صلّى الله عليه وسلّم <b>أن لا توصل صلاة بصلاة حتّى نتكلّم أو نخرج</b>.</p>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف في نوع الفاصل</span>
+  <p>يُفهم من قول المصنّف «بكلام إنسان» أنّه لو فصل بقراءة قرآن أو بأذكار فإنّ ذلك لا يعتبر فصلاً. لكن <b>جرى كثير من الفقهاء على خلاف ذلك</b> وقالوا: يحصل الفصل حتّى ولو كان بقراءة قرآن أو أذكار.</p>
+</div>
+
+<!-- ===== 7. المراتب الثلاث ===== -->
+<h2 class="section-title">٧. المراتب الثلاث في الانتقال والفصل</h2>
+
+<table>
+  <tr>
+    <th>المرتبة</th>
+    <th>الفعل</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td><b>الأولى (الأفضل)</b></td>
+    <td>الانتقال من موضع إلى موضع آخر — والأفضل الانتقال من المسجد ليصلّي النافلة في بيته</td>
+    <td><span class="highlight-green">أفضل المراتب</span></td>
+  </tr>
+  <tr>
+    <td><b>الثانية</b></td>
+    <td>البقاء في نفس الموضع والفصل بين الصلاتين بكلام إنسان</td>
+    <td><span class="highlight-gold">جائز</span></td>
+  </tr>
+  <tr>
+    <td><b>الثالثة</b></td>
+    <td>الفصل بين الصلاتين بقراءة قرآن أو أذكار (على قول كثير من الفقهاء)</td>
+    <td><span class="highlight-red">أضعف المراتب</span></td>
+  </tr>
+</table>
+
+<div class="flow-row">
+  <div class="flow-box">الصلاة الأولى</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-pure">الانتقال لموضع آخر ✓</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">الصلاة الثانية</div>
+</div>
+<div class="flow-row">
+  <div class="flow-box">الصلاة الأولى</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-excused">الفصل بكلام إنسان</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">الصلاة الثانية</div>
+</div>
+<div class="flow-row">
+  <div class="flow-box">الصلاة الأولى</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-impured">الفصل بقراءة/أذكار</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">الصلاة الثانية</div>
+</div>
+
+<div class="issue-box">
+  <span class="box-label label-issue">مسألة: الانتقال أثناء الصلاة</span>
+  <p>لو أنّه صلّى الظهر في نفس الموضع ثمّ قام يصلّي الراتبة في نفس المكان، وتذكّر أثناء صلاة الراتبة أنّه لم ينتقل — هل يُستحب له الانتقال أثناء الصلاة؟ قالوا: <b>يُستحب له أن ينتقل أثناء الصلاة بشرط أن تكون حركات لا تبطل الصلاة</b>، كخطوتين يخطوها فقط، لأنّ الخطوة والخطوتين لا تبطلان الصلاة.</p>
+</div>
+
+<!-- ===== 8. النفل في البيت أفضل ===== -->
+<h2 class="section-title">٨. النفل في البيت أفضل</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>والنفل لغير المعتكف في بيته أفضل</b> — أي أنّ صلاة النفل في البيت أفضل من صلاتها في المسجد. وذلك لقوله صلّى الله عليه وسلّم: <b>«خير صلاة المرء في بيته إلا المكتوبة»</b> وقوله: <b>«اجعلوا لبيوتكم نصيباً من صلاتكم»</b>.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">تتمّة نصّ المصنّف</span>
+  <p><b>إن أمن فوته أو تهاوناً به إلا في نافلة المبكر للجمعة أو ما سنّ فيه الجماعة أو ورد في المسجد كالضحى</b></p>
+</div>
+
+<!-- ===== 9. الاستثناءات الستة ===== -->
+<h2 class="section-title">٩. الاستثناءات الستة: متى يكون النفل في المسجد أفضل</h2>
+
+<div class="tree-container">
+  <div class="tree-root">النفل في البيت أفضل</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #fef2f2; border-color: #fca5a5;">
+      <div class="tree-branch-num">الاستثناء ١</div>
+      <div class="tree-branch-label">المعتكف<br>نافلته في المسجد أفضل</div>
+    </div>
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a;">
+      <div class="tree-branch-num">الاستثناء ٢</div>
+      <div class="tree-branch-label">خوف فوت النافلة<br>إن أخّرها للبيت خرج وقتها</div>
+    </div>
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a;">
+      <div class="tree-branch-num">الاستثناء ٣</div>
+      <div class="tree-branch-label">خوف التهاون<br>إن أخّرها للبيت تكاسل ولم يُصلّها</div>
+    </div>
+    <div class="tree-branch" style="background: #eff6ff; border-color: #bfdbfe;">
+      <div class="tree-branch-num">الاستثناء ٤</div>
+      <div class="tree-branch-label">نافلة المبكر للجمعة<br>نفل مطلق قبل دخول الوقت</div>
+    </div>
+    <div class="tree-branch" style="background: #f0fdf4; border-color: #bbf7d0;">
+      <div class="tree-branch-num">الاستثناء ٥</div>
+      <div class="tree-branch-label">ما سنّ فيه الجماعة<br>كالعِيدين والتراويح</div>
+    </div>
+    <div class="tree-branch" style="background: #f0fdfa; border-color: #99f6e4;">
+      <div class="tree-branch-num">الاستثناء ٦</div>
+      <div class="tree-branch-label">ما ورد استحبابه في المسجد<br>كالضحى وسنة الإحرام</div>
+    </div>
+  </div>
+</div>
+
+<table>
+  <tr>
+    <th>الرقم</th>
+    <th>الاستثناء</th>
+    <th>التفصيل</th>
+    <th>المثال</th>
+  </tr>
+  <tr>
+    <td><b>١</b></td>
+    <td>المعتكف</td>
+    <td>بالنسبة للمعتكف الأفضل أن تكون نافلته في المسجد</td>
+    <td>الرجل المعتكف في العشر الأواخر</td>
+  </tr>
+  <tr>
+    <td><b>٢</b></td>
+    <td>خوف الفوات</td>
+    <td>لو أخّرها للبيت خرج وقتها — فعلها في المسجد أفضل</td>
+    <td>من يخاف خروج وقت الراتبة إن أخّرها</td>
+  </tr>
+  <tr>
+    <td><b>٣</b></td>
+    <td>خوف التهاون</td>
+    <td>لو أخّرها للبيت تكاسل ولم يُصلّها — فعلها في المسجد أفضل بل لا يفعلها في البيت</td>
+    <td>من يعلم من نفسه التكاسل في البيت</td>
+  </tr>
+  <tr>
+    <td><b>٤</b></td>
+    <td>نافلة المبكّر للجمعة</td>
+    <td>يُسنّ لمن بكّر للجمعة أن يتنفّل نفلاً مطلقاً ما شاء قبل دخول الوقت</td>
+    <td>حديث أوس بن أوس الثقفي: «فصلّى ما قدر له أن يصلّي»</td>
+  </tr>
+  <tr>
+    <td><b>٥</b></td>
+    <td>ما سنّ فيه الجماعة</td>
+    <td>الصلوات التي تُسنّ فيها الجماعة — الأفضل فعلها في المسجد</td>
+    <td>صلاة العيدين، صلاة التراويح</td>
+  </tr>
+  <tr>
+    <td><b>٦</b></td>
+    <td>ما ورد استحبابه في المسجد</td>
+    <td>ما ورد الشرع باستحباب فعله في المسجد</td>
+    <td>صلاة الضحى، ركعتا الطواف، سنة الإحرام في مسجد الميقات</td>
+  </tr>
+</table>
+
+<h3 class="sub-title">تفصيل: نافلة المبكّر للجمعة</h3>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">حديث أوس بن أوس الثقفي</span>
+  <p>عند أبي داود وأهل السنن: <b>«من توضّأ يوم الجمعة فأحسن الوضوء ثمّ خرج إلى المسجد فصلّى ما قدر له أن يصلّي ثمّ أنصت للإمام ثمّ صلّى معه غُفر له ما بين الجمعة والجمعة وزيادة ثلاثة أيام»</b> — رواه مسلم. وقوله «فصلّى ما قدر له أن يصلّي» هذا نفل مطلق.</p>
+</div>
+
+<h3 class="sub-title">تفصيل: صلاة الضحى في المسجد</h3>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">حديث أبي داود</span>
+  <p><b>«من خرج لتسبيح الضحى لا يخرجه إلا ذلك كان له كأجر معتمر»</b> — أي من خرج لصلاة سبحة الضحى في المسجد كان له كأجر معتمر. فدلّ على أنّ فعل الضحى في المسجد أفضل من فعلها في البيت.</p>
+</div>
+
+<h3 class="sub-title">تفصيل: ما ورد استحبابه في المسجد</h3>
+
+<ul>
+  <li><b>ركعتا الطواف:</b> بعد الطواف بالبيت، الأفضل أن تُصلّى في المسجد</li>
+  <li><b>سنة الإحرام:</b> بعد الإحرام بالنسك وقبل التلبية، الأفضل أن تكون في مسجد الميقات</li>
+</ul>
+
+<div class="key-rule">
+  خلاصة: صلاة النفل في البيت أفضل إلا في ستّ صور:<br>
+  ١. المعتكف — نافلته في المسجد أفضل<br>
+  ٢. من خاف الفوات — نافلته في المسجد أفضل<br>
+  ٣. من خاف التهاون — نافلته في المسجد أفضل<br>
+  ٤. نافلة المبكر للجمعة — في المسجد أفضل<br>
+  ٥. ما سنّ فيه الجماعة — في المسجد أفضل<br>
+  ٦. ما ورد استحبابه في المسجد كالضحى — في المسجد أفضل
+</div>
+
+<!-- ===== 10. انتقال المأموم ===== -->
+<h2 class="section-title">١٠. انتقال المأموم بعد انتقال الإمام</h2>
+
+<div class="definition-box">
+  <span class="box-label label-def">بيان انتقال الإمام</span>
+  <p>السنّة للإمام إذا سلّم أن يستقبل القبلة بمقدار قوله: <b>أستغفر الله ثلاثاً، اللهم أنت السلام ومنك السلام تباركت يا ذا الجلال والإكرام</b>. فإذا انتهى من ذلك، يُستحبّ للإمام أن يقوم إلى موضع قريب — فإن لم يقم جعل يمينه للمأمومين ويساره إلى القبلة.</p>
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>يندب للمأموم أن ينتقل بعد انتقال الإمام</b> — أي يُستحبّ للمأموم أن يقوم أو ينتقل بعد أن ينتقل الإمام، سواء قام للصلاة أو للانصراف أو لغير ذلك.</p>
+</div>
+
+<div class="issue-box">
+  <span class="box-label label-issue">مسألة: انتقال المأموم قبل انتقال الإمام</span>
+  <p>لو أنّ المأموم انتقل قبل انتقال الإمام — أي أنّ الإمام قال السلام ولم يقل بعدُ «أستغفر الله» والمأموم سبقه — ما الحكم؟</p>
+  <p><b>الجواب:</b> كثيرون قالوا: خلاف الأولى. وبعضهم صرّح بالكراهة. لكن الذي صرّح به أكثر الفقهاء من الشافعية أنّه <b>خلاف الأولى</b>.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">الانتقال بعد الإمام</div>
+    <div class="compare-card-body"><b>مستحبّ (مندوب)</b><br>يتبع المأموم الإمام<br>في الانتقال</div>
+  </div>
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">الانتقال قبل الإمام</div>
+    <div class="compare-card-body"><b>خلاف الأولى</b><br>عند أكثر الشافعية<br>وقيل: مكروه</div>
+  </div>
+</div>
+
+<!-- ===== 11. أحكام السترة ===== -->
+<h2 class="section-title">١١. أحكام السترة: الحكم والاتفاق على الاستحباب</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ونُدِب لمصلٍّ توجّهٌ لنحو جدارٍ أو عمودٍ</b> — أي يُستحبّ اتّخاذ السترة للمصلّي. وهذا <b>نُقِل فيه الإجماع</b> على أنّه مستحبّ — قول عامّة أهل العلم.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">شمول الاستحباب</span>
+  <p>قالوا: ولو صلاة جنازة — حتّى في صلاة الجنازة يُستحبّ السترة. ولو سجدت تلاوة أو سجدت شكر — حتّى إذا أراد أن يسجد سجدة التلاوة أو سجدة الشكر يُستحبّ له أن يفعل ذلك إلى سترة.</p>
+</div>
+
+<!-- ===== 12. مراتب السترة ===== -->
+<h2 class="section-title">١٢. مراتب السترة الأربع</h2>
+
+<div class="flow-row">
+  <div class="flow-box" style="background: #0d7c3e;">المرتبة ١: جدار أو سارية</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box" style="background: #0a5c2e;">المرتبة ٢: عصا مغروزة أو متاع</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box" style="background: #166534;">المرتبة ٣: بسط مصلّى (سجّادة)</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box" style="background: #1a5632;">المرتبة ٤: خطّ في الأرض</div>
+</div>
+
+<table>
+  <tr>
+    <th>المرتبة</th>
+    <th>نوع السترة</th>
+    <th>التفصيل</th>
+    <th>المثال</th>
+  </tr>
+  <tr>
+    <td><b>الأولى</b></td>
+    <td>ما كان ثابتاً بنفسه</td>
+    <td>جدار أو سارية (عمود) — ما يثبت بنفسه ولا يحتاج إلى غرس</td>
+    <td>جدار المسجد، السارية (العمود)</td>
+  </tr>
+  <tr>
+    <td><b>الثانية</b></td>
+    <td>ما كان يُثبت في الأرض</td>
+    <td>شيء يُغرز في الأرض أو يُوضع كمتاع</td>
+    <td>عصا مغروزة، حقيبة موضوعة</td>
+  </tr>
+  <tr>
+    <td><b>الثالثة</b></td>
+    <td>بسط مصلّى</td>
+    <td>سجّادة يفرشها أمامَه — الأفصح فتح السين (سجّادة) ويصحّ ضمّها (سجّادة) وأمّا كسر السين فلحن</td>
+    <td>سجّادة المصلى</td>
+  </tr>
+  <tr>
+    <td><b>الرابعة</b></td>
+    <td>خطّ في الأرض</td>
+    <td>يخطّ خطّاً أمامه في ثلاثة أذرع عرضاً أو طولاً — والطول أولى</td>
+    <td>خطّ يخطّه بإصبعه أو بعصا</td>
+  </tr>
+</table>
+
+<h3 class="sub-title">تنبيه لغويّ: سجّادة</h3>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه لغويّ</span>
+  <p><b>الأفصح:</b> سجّادة بفتح السين — ويصحّ سجّادة بضمّ السين — وأمّا سجّادة بكسر السين فهو <b>لحن</b>.</p>
+</div>
+
+<!-- ===== 13. شروط السترة ===== -->
+<h2 class="section-title">١٣. شروط السترة: الارتفاع والمسافة والعرض</h2>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #f0fdf4; border: 1px solid #bbf7d0;">
+    <span class="condition-num">١</span>
+    <b>الارتفاع:</b> ثلثا ذراع فأكثر (≈32 سم)<br>
+    ورد في الحديث تقديره بمؤخرة الرحل
+  </div>
+  <div class="condition-item" style="background: #eff6ff; border: 1px solid #bfdbfe;">
+    <span class="condition-num">٢</span>
+    <b>المسافة:</b> ثلاثة أذرع فأقلّ بين السترة وعقب المصلّي (≈144 سم)<br>
+    الذراع ≈ 48 سم
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٣</span>
+    <b>العرض:</b> ليس له مقدار محدّد<br>
+    يصلح سترةً وإن كان رقيقاً — حتّى قيل وإن كان شعرة
+  </div>
+  <div class="condition-item" style="background: #f0fdfa; border: 1px solid #99f6e4;">
+    <span class="condition-num">٤</span>
+    <b>الدليل:</b> «استتروا ولو بسهم»<br>
+    والسهم لا يكون غليظاً بل دقيقاً
+  </div>
+</div>
+
+<table>
+  <tr>
+    <th>الشرط</th>
+    <th>المقدار</th>
+    <th>البيان</th>
+  </tr>
+  <tr>
+    <td><b>ارتفاع السترة</b></td>
+    <td>ثلثا ذراع فأكثر ≈ 32 سم</td>
+    <td>جاء في الحديث تقديره بمؤخرة الرحل بهذا المقدار تقريباً</td>
+  </tr>
+  <tr>
+    <td><b>المسافة بين المصلّي والسترة</b></td>
+    <td>ثلاثة أذرع فأقلّ ≈ 144 سم</td>
+    <td>تبدأ من عقب المصلّي — على معتمد ابن حجر</td>
+  </tr>
+  <tr>
+    <td><b>عرض السترة</b></td>
+    <td>لا مقدار محدّد</td>
+    <td>يصلح وإن كان رقيقاً — «استتروا ولو بسهم»</td>
+  </tr>
+</table>
+
+<!-- ===== 14. خلاف في بداية المسافة ===== -->
+<h2 class="section-title">١٤. خلاف في بداية المسافة: العقب أم الأصابع</h2>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف بين المحقّقين</span>
+  <p>المسافة الثلاثة أذرع — من أين تبدأ؟ من الأصابع أم من العقب؟</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">معتمد ابن حجر</div>
+    <div class="compare-card-body">المسافة تبدأ من <b>العقب</b><br>وهو ما جَرى عليه المصنّف في الكتاب<br>وهو ما اعتمده شيخه</div>
+  </div>
+  <div class="compare-card compare-card-blue">
+    <div class="compare-card-title">معتمد الرملي</div>
+    <div class="compare-card-body">المسافة تبدأ من <b>رؤوس الأصابع</b><br>وهو ما اعتمده العلامة الرملي</div>
+  </div>
+</div>
+
+<div class="key-rule">
+  ما في الكتاب جرى فيه المصنّف على معتمد شيخه العلامة ابن حجر رحمه الله<br>
+  أنّ المسافة تبدأ من العقب
+</div>
+
+<!-- ===== 15. الترتيب ===== -->
+<h2 class="section-title">١٥. الترتيب بين المراتب وترك الرتبة مع تيسّرها</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">قاعدة مهمّة</span>
+  <p><b>فمتى عدل عن رتبة إلى ما دونها مع القدرة عليها كانت كالعدم</b> — أي متى ترك رتبة وأخذ بالتي بعدها مع تيسّر الأولى، فإنّ السترة تكون كأنّها غير موجودة.</p>
+</div>
+
+<h3 class="sub-title">معنى «كالعدم»</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">تفسير «كالعدم»</span>
+  <p>أنّها كالعدم من وجدين:</p>
+  <ul>
+    <li><b>أوّلاً:</b> لا يحصل له ثواب سنّة السترة — لا ثواب في اتّخاذ السترة</li>
+    <li><b>ثانياً:</b> لا يُحرَّم على المارّ أن يمرّ بين يديه — لأنّه ترك المرتبة الأولى وانتقل إلى الثانية مع تيسّر الأولى</li>
+  </ul>
+</div>
+
+<h3 class="sub-title">مثال تطبيقيّ</h3>
+
+<div class="exception-box">
+  <span class="box-label label-exc">مثال</span>
+  <p>السنّة أوّلاً أن تصلّي إلى الجدار. الجدار موجود ومتيسّر. لكنك بدلاً من أن تصلّي إلى الجدار، غرزت خشبة أو نصبت متاعاً وصلّيت إليه مع أنّ الجدار موجود. يقول لك: هذه السترة وجودها وعدمها سواء!</p>
+</div>
+
+<div class="key-rule">
+  الترتيب المذكور هو المعتمد:<br>
+  الجدار → العصا/المتاع → المصلى → الخطّ<br>
+  خلافاً لما يُوهمه كلام ابن المقريّ أنّها سواء<br>
+  فمتى عدل عن رتبة مع القدرة عليها كانت كالعدم
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف: ابن المقريّ</span>
+  <p><b>إسماعيل بن أبي بكر المقريّ</b> رحمه الله (صاحب الإرشاد) — ظاهر كلامه في بعض كتبه أنّه لم يُرَتّب، أي أنّ تقديم أيّ مرتبة جائز ولا بأس به. لكن <b>المعتمد خلاف قوله</b>: أنّ الترتيب واجب.</p>
+</div>
+
+<!-- ===== 16. دليل السترة ===== -->
+<h2 class="section-title">١٦. دليل مراتب السترة وحديث أبي داود</h2>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">حديث أبي داود</span>
+  <p><b>«إذا صلّى أحدكم فليجعل أمام وجهه شيئاً، فإن لم يجد فلينصب عصاً، فإن لم يكن معه عصا فليخطّ خطّاً ثمّ لا يذر ما مرّ أمامه»</b></p>
+  <p>هذا الحديث يدلّ على الترتيب — لقوله «فإن لم يجد» مرّتين.</p>
+</div>
+
+<h3 class="sub-title">المراتب في الحديث</h3>
+
+<table>
+  <tr>
+    <th>المرتبة في الحديث</th>
+    <th>النصّ</th>
+    <th>المقابل في المذهب</th>
+  </tr>
+  <tr>
+    <td><b>الأولى</b></td>
+    <td>«فليجعل أمام وجهه شيئاً»</td>
+    <td>الجدار أو السارية</td>
+  </tr>
+  <tr>
+    <td><b>الثانية</b></td>
+    <td>«فإن لم يجد فلينصب عصاً»</td>
+    <td>العصا المغروزة أو المتاع</td>
+  </tr>
+  <tr>
+    <td><b>الثالثة</b></td>
+    <td>«فإن لم يكن معه عصا فليخطّ خطّاً»</td>
+    <td>الخطّ في الأرض</td>
+  </tr>
+  <tr>
+    <td><b>—</b></td>
+    <td>لم تذكر في الحديث</td>
+    <td>المصلى (السجّادة) — أثبتها المذهب بالقياس</td>
+  </tr>
+</table>
+
+<!-- ===== 17. قياس المصلى ===== -->
+<h2 class="section-title">١٧. قياس المصلى على الخطّ وتقديمه عليه</h2>
+
+<div class="definition-box">
+  <span class="box-label label-def">دليل المصلى: القياس الأوّلي</span>
+  <p>المصلى (السجّادة) لم يذكر في حديث أبي داود. فمن أين أتت الشافعية به؟ الجواب: <b>بالقياس الأوّلي على الخطّ</b>. فالسجّادة تحقق المقصود أكثر من الخطّ، فهي مقدّمة عليه من باب أولى.</p>
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«وقيس بالخطّ المصلى وقدّم على الخطّ لأنّه أظهر في المراد»</b> — أي أنّ المصلى أُثبت بالقياس على الخطّ وقدّم عليه لأنّه أظهر في المراد، أي أكثر منعاً للناس من المرور بين يدي المصلّي.</p>
+</div>
+
+<h3 class="sub-title">العلّة: أظهر في المراد</h3>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">المصلى (السجّادة)</div>
+    <div class="compare-card-body">الناس إذا رأت السجّادة <b>فهم مرون</b><br>فهي أظهر في المنع<br>لذلك قدّمت على الخطّ</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">الخطّ في الأرض</div>
+    <div class="compare-card-body">الناس ربّما <b>لا يتفطّنون</b> له<br>فهو أقلّ منعاً للمرور<br>لذلك أُخّر عن المصلى</div>
+  </div>
+</div>
+
+<h3 class="sub-title">كيفيّة الخطّ عند الشافعية</h3>
+
+<div class="note-box">
+  <span class="box-label label-note">كيفيّة الخطّ</span>
+  <p>عند الشافعية: <b>الأولى أن يخطّ الخطّ عن يمينه أو عن يساره</b> — هكذا بشكل طوليّ. وقال بعض الفقهاء: يخطّه عرضاً بشكل كالهلال — كما جاء عن الإمام أحمد رحمه الله أنّه قال: «يكون كالهلال».</p>
+  <p>وقول المصنّف: <b>«عرضاً أو طولاً وهو أولى»</b> — أي أنّ الخطّ الطوليّ أولى من العرضيّ عند الشافعية.</p>
+</div>
+
+<div class="issue-box">
+  <span class="box-label label-issue">حديث الخطّ ودرجته</span>
+  <p>بعض الحفّاظ حكموا على حديث الخطّ بالاضطراب — كالحافظ ابن الصلاح. لكن <b>الحافظ ابن حجر ردّ ذلك وحكم له بالحسن</b> كما في بلوغ المرام. فحديث الخطّ <b>حسن</b>.</p>
+</div>
+
+<div class="key-rule">
+  خلاصة أحكام السترة:<br>
+  ١. السترة مستحبّة بالإجماع — ولو في صلاة الجنازة وسجدتي التلاوة والشكر<br>
+  ٢. أربع مراتب مترتّبة: جدار/سارية → عصا/متاع → مصلى → خطّ<br>
+  ٣. الترتيب معتمد — من عدل عن رتبة مع القدرة كانت كالعدم<br>
+  ٤. ارتفاع السترة: ثلثا ذراع فأكثر | المسافة: ثلاثة أذرع فأقلّ | العرض: غير محدّد<br>
+  ٥. المسافة من العقب (معتمد ابن حجر) أو من الأصابع (معتمد الرملي)<br>
+  ٦. المصلى أُثبت بالقياس الأوّلي وقدّم على الخطّ لأنّه أظهر في المراد
+</div>
+
+<!-- ===== تنبيه للمصلّين ===== -->
+<div class="note-box">
+  <span class="box-label label-note">تنبيه للمصلّين</span>
+  <p>ما دام يوجد في المسجد جدار أو سارية، فلا تذهب تبحث عن خشبة تضعها أو كرسيّ المصحف تضعه سترةً — <b>الأفضل أن تصلّي إلى الجدار أو إلى العمود (السارية)</b>، لأنّ ترك المرتبة الأولى مع تيسّرها يجعل السترة كالعدم.</p>
+</div>
+
+</body>
+</html>

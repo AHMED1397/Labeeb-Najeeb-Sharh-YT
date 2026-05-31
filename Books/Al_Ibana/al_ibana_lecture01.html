@@ -1,0 +1,1753 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح الإبانة والإفاضة - الدرس 01</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-green: #0d6b3e;
+  --dark-green: #0a4f2e;
+  --gold: #d4a020;
+  --light-gold: #f0e6c0;
+  --teal: #0d7377;
+  --bg: #fefefe;
+  --body-text: #1a1a1a;
+  --border: #c8d6c0;
+  --card-bg: #f8faf7;
+  --evidence-bg: #eef5eb;
+  --callout-bg: #fff8e7;
+  --definition-bg: #ebf5f5;
+  --comparison-bg: #f5f0eb;
+  --ruling-bg: #f0f5eb;
+  --scholar-bg: #f5f0f8;
+  --shadow: 0 2px 8px rgba(0,0,0,0.08);
+  --shadow-hover: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.bw-mode {
+  --primary-green: #333;
+  --dark-green: #1a1a1a;
+  --gold: #666;
+  --light-gold: #eee;
+  --teal: #444;
+  --bg: #fff;
+  --body-text: #000;
+  --border: #999;
+  --card-bg: #f5f5f5;
+  --evidence-bg: #f0f0f0;
+  --callout-bg: #f5f5f5;
+  --definition-bg: #f0f0f0;
+  --comparison-bg: #f0f0f0;
+  --ruling-bg: #f0f0f0;
+  --scholar-bg: #f0f0f0;
+  --shadow: 0 2px 8px rgba(0,0,0,0.1);
+  --shadow-hover: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+  font-size: 16px;
+  line-height: 2;
+  color: var(--body-text);
+  background: var(--bg);
+  direction: rtl;
+}
+
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+}
+
+@media print {
+  body { font-size: 14px; line-height: 1.8; }
+  .bw-toggle { display: none !important; }
+  .cover-page { page-break-after: always; }
+  .section { page-break-inside: avoid; }
+}
+
+/* Page numbers */
+@page {
+  @bottom-center {
+    content: counter(page);
+    font-size: 12px;
+    color: #888;
+  }
+}
+
+/* B&W Toggle */
+.bw-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1000;
+  background: var(--primary-green);
+  color: white;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  font-family: 'Noto Naskh Arabic', serif;
+}
+.bw-toggle:hover {
+  background: var(--dark-green);
+  box-shadow: var(--shadow-hover);
+  transform: scale(1.1);
+}
+
+/* Cover Page */
+.cover-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 40%, var(--teal) 70%, var(--dark-green) 100%);
+  color: white;
+  text-align: center;
+  padding: 40px 30px;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+}
+
+.cover-page::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a020' fill-opacity='0.08'%3E%3Cpath d='M30 0L60 30L30 60L0 30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.cover-page::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold), var(--light-gold), var(--gold));
+}
+
+.cover-ornament {
+  font-size: 50px;
+  color: var(--gold);
+  margin-bottom: 20px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.cover-book-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  line-height: 1.6;
+  max-width: 700px;
+}
+
+.cover-lecture-badge {
+  background: var(--gold);
+  color: var(--dark-green);
+  padding: 8px 30px;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 20px 0;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.cover-lecture-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: var(--light-gold);
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.cover-info {
+  margin-top: 25px;
+  font-size: 16px;
+  line-height: 2.2;
+  color: rgba(255,255,255,0.9);
+}
+
+.cover-info .label {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.cover-divider {
+  width: 120px;
+  height: 2px;
+  background: var(--gold);
+  margin: 20px auto;
+  border: none;
+}
+
+.cover-badge-new {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark-green);
+  padding: 4px 18px;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/* Main Content */
+.main-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 15px 60px;
+}
+
+/* Section Headers */
+.section-header {
+  background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+  color: white;
+  padding: 15px 25px;
+  border-radius: 10px;
+  margin: 35px 0 20px;
+  font-size: 22px;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-header::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 6px;
+  height: 100%;
+  background: var(--gold);
+}
+
+.section-header .section-number {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark-green);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 36px;
+  font-size: 16px;
+  margin-left: 12px;
+  font-weight: 700;
+}
+
+/* Sub Headers */
+.sub-header {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--primary-green);
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 8px;
+  margin: 25px 0 15px;
+}
+
+.sub-sub-header {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--dark-green);
+  margin: 20px 0 10px;
+  padding-right: 15px;
+  border-right: 4px solid var(--teal);
+}
+
+/* Body Text */
+.body-text {
+  font-size: 16px;
+  line-height: 2;
+  margin-bottom: 12px;
+  text-align: justify;
+}
+
+.highlight {
+  background: var(--light-gold);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+.green-highlight {
+  color: var(--primary-green);
+  font-weight: 700;
+}
+
+.gold-highlight {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.teal-highlight {
+  color: var(--teal);
+  font-weight: 600;
+}
+
+/* Classification Tree */
+.classification-tree {
+  background: var(--card-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 25px;
+  margin: 20px 0;
+  box-shadow: var(--shadow);
+}
+
+.classification-tree .tree-title {
+  text-align: center;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 20px;
+}
+
+.tree-root {
+  background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+  color: white;
+  text-align: center;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0 auto 5px;
+  width: fit-content;
+  position: relative;
+}
+
+.tree-connector {
+  width: 2px;
+  height: 20px;
+  background: var(--primary-green);
+  margin: 0 auto;
+}
+
+.tree-branches {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.tree-branch {
+  background: white;
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 15px 20px;
+  min-width: 180px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.tree-branch:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+.tree-branch .branch-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 8px;
+}
+
+.tree-branch .branch-desc {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.8;
+}
+
+.tree-branch .branch-icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+/* Ruling Cards */
+.ruling-card {
+  background: var(--ruling-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 12px 0;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.ruling-card .ruling-badge {
+  background: var(--primary-green);
+  color: white;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  min-width: 80px;
+  text-align: center;
+}
+
+.ruling-card .ruling-content {
+  flex: 1;
+  line-height: 2;
+  font-size: 16px;
+}
+
+/* Evidence Box */
+.evidence-box {
+  background: var(--evidence-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 20px 25px;
+  margin: 20px 0;
+  position: relative;
+  box-shadow: var(--shadow);
+}
+
+.evidence-box::before {
+  content: '📖';
+  position: absolute;
+  top: -14px;
+  right: 20px;
+  background: var(--evidence-bg);
+  padding: 0 8px;
+  font-size: 22px;
+}
+
+.evidence-box .evidence-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 10px;
+}
+
+.evidence-box .quran-verse {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dark-green);
+  line-height: 2.2;
+  text-align: center;
+  margin: 10px 0;
+  padding: 10px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.evidence-box .hadith-text {
+  font-family: 'Amiri', serif;
+  font-size: 18px;
+  color: var(--dark-green);
+  line-height: 2;
+  margin: 10px 0;
+  padding: 10px 15px;
+  border-right: 4px solid var(--gold);
+  background: rgba(212, 160, 32, 0.05);
+}
+
+/* Comparison Cards */
+.comparison-container {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.comparison-card {
+  flex: 1;
+  min-width: 220px;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  border-top: 4px solid var(--primary-green);
+  transition: all 0.3s ease;
+}
+
+.comparison-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+.comparison-card.jewish {
+  border-top-color: #8B0000;
+}
+
+.comparison-card.christian {
+  border-top-color: #4169E1;
+}
+
+.comparison-card.islamic {
+  border-top-color: var(--primary-green);
+}
+
+.comparison-card .card-title {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.comparison-card.jewish .card-title { color: #8B0000; }
+.comparison-card.christian .card-title { color: #4169E1; }
+.comparison-card.islamic .card-title { color: var(--primary-green); }
+
+.comparison-card .card-content {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #444;
+}
+
+.comparison-card .card-icon {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+/* Definition Card */
+.definition-card {
+  background: var(--definition-bg);
+  border: 2px solid var(--teal);
+  border-radius: 12px;
+  padding: 20px 25px;
+  margin: 20px 0;
+  position: relative;
+  box-shadow: var(--shadow);
+}
+
+.definition-card::before {
+  content: '📌';
+  position: absolute;
+  top: -14px;
+  right: 20px;
+  background: var(--definition-bg);
+  padding: 0 8px;
+  font-size: 22px;
+}
+
+.definition-card .def-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--teal);
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.definition-card .def-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--dark-green);
+  line-height: 2.2;
+  text-align: center;
+  padding: 10px;
+}
+
+.definition-card .def-parts {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px dashed var(--border);
+}
+
+/* Callout Box */
+.callout-box {
+  background: var(--callout-bg);
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 15px 0;
+  position: relative;
+  box-shadow: var(--shadow);
+}
+
+.callout-box::before {
+  content: '⚠️';
+  position: absolute;
+  top: -12px;
+  right: 15px;
+  background: var(--callout-bg);
+  padding: 0 6px;
+  font-size: 20px;
+}
+
+.callout-box .callout-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.callout-box .callout-content {
+  font-size: 16px;
+  line-height: 2;
+}
+
+/* Numbered Steps */
+.numbered-steps {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: var(--shadow);
+}
+
+.numbered-steps .steps-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 10px 15px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.step-item .step-number {
+  background: var(--primary-green);
+  color: white;
+  min-width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.step-item .step-content {
+  flex: 1;
+  font-size: 16px;
+  line-height: 2;
+}
+
+.step-item .step-source {
+  font-size: 14px;
+  color: var(--teal);
+  font-weight: 600;
+}
+
+/* Scholar Card */
+.scholar-card {
+  background: var(--scholar-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 15px 0;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.scholar-card .scholar-icon {
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.scholar-card .scholar-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 5px;
+}
+
+.scholar-card .scholar-info {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #444;
+}
+
+/* Key Benefit Box */
+.benefit-box {
+  background: linear-gradient(135deg, var(--light-gold), #fff8e7);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 20px 25px;
+  margin: 20px 0;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.benefit-box::before {
+  content: '💡';
+  position: absolute;
+  top: -14px;
+  right: 20px;
+  background: var(--light-gold);
+  padding: 0 8px;
+  font-size: 22px;
+}
+
+.benefit-box .benefit-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.benefit-box .benefit-content {
+  font-size: 16px;
+  line-height: 2;
+}
+
+/* Quote Block */
+.quote-block {
+  background: var(--card-bg);
+  border-right: 5px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  padding: 20px 25px;
+  margin: 20px 0;
+  font-family: 'Amiri', serif;
+  font-size: 18px;
+  line-height: 2.2;
+  color: var(--dark-green);
+  font-style: italic;
+  position: relative;
+  box-shadow: var(--shadow);
+}
+
+.quote-block::before {
+  content: '❝';
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 30px;
+  color: var(--gold);
+  font-style: normal;
+}
+
+.quote-block .quote-attribution {
+  display: block;
+  margin-top: 10px;
+  font-size: 15px;
+  color: var(--teal);
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* Poetry Block */
+.poetry-block {
+  background: var(--card-bg);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 20px 30px;
+  margin: 20px 0;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.poetry-block .poetry-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.poetry-block .poetry-line {
+  font-family: 'Amiri', serif;
+  font-size: 18px;
+  line-height: 2.4;
+  color: var(--dark-green);
+  font-weight: 600;
+}
+
+.poetry-block .poetry-hemistich {
+  display: inline;
+}
+
+/* I'rab (Grammar) Box */
+.irab-box {
+  background: #f8f5ff;
+  border: 1px solid #d0c8e0;
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 15px 0;
+  font-size: 15px;
+  line-height: 2;
+}
+
+.irab-box .irab-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #6b5b95;
+  margin-bottom: 8px;
+}
+
+/* Eight Opinions Table */
+.opinions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.opinion-item {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: var(--shadow);
+}
+
+.opinion-item .opinion-num {
+  background: var(--gold);
+  color: var(--dark-green);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.opinion-item .opinion-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--dark-green);
+}
+
+/* Lessons Grid */
+.lessons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 12px;
+  margin: 15px 0;
+}
+
+.lesson-item {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.lesson-item:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.lesson-item.current-lesson {
+  border: 2px solid var(--gold);
+  background: var(--light-gold);
+}
+
+.lesson-item .lesson-num {
+  background: var(--primary-green);
+  color: white;
+  min-width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.lesson-item.current-lesson .lesson-num {
+  background: var(--gold);
+  color: var(--dark-green);
+}
+
+.lesson-item .lesson-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dark-green);
+  line-height: 1.6;
+}
+
+/* Arabic diacritical marks helper */
+.tashkeel {
+  font-size: 1.05em;
+}
+
+/* Inline note */
+.inline-note {
+  font-size: 14px;
+  color: var(--teal);
+  font-weight: 600;
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  padding: 30px 0 20px;
+  border-top: 2px solid var(--border);
+  margin-top: 40px;
+  font-size: 14px;
+  color: #888;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cover-book-title { font-size: 22px; }
+  .cover-lecture-title { font-size: 18px; }
+  .section-header { font-size: 19px; }
+  .comparison-container { flex-direction: column; }
+  .opinions-grid { grid-template-columns: repeat(2, 1fr); }
+  .lessons-grid { grid-template-columns: 1fr; }
+  .tree-branches { flex-direction: column; align-items: center; }
+}
+
+/* Superscript for footnote references */
+sup.ref {
+  font-size: 11px;
+  color: var(--teal);
+  font-weight: 700;
+  vertical-align: super;
+  margin: 0 2px;
+}
+
+/* Highlighted word */
+.word-highlight {
+  background: linear-gradient(transparent 60%, var(--light-gold) 60%);
+  font-weight: 600;
+  padding: 0 2px;
+}
+
+/* Box for the 4 elements of the definition */
+.elements-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 12px;
+  margin: 15px 0;
+}
+
+.element-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 15px 18px;
+  box-shadow: var(--shadow);
+  border-top: 3px solid var(--primary-green);
+}
+
+.element-card .element-num {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 5px;
+}
+
+.element-card .element-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 8px;
+}
+
+.element-card .element-desc {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #444;
+}
+
+/* Scroll-to-top */
+.scroll-top {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 44px;
+  height: 44px;
+  background: var(--primary-green);
+  color: white;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+.scroll-top:hover {
+  background: var(--dark-green);
+}
+
+</style>
+</head>
+<body>
+
+<!-- B&W Toggle Button -->
+<button class="bw-toggle" onclick="toggleBW()" title="تبديل الأبيض والأسود">ن</button>
+
+<!-- Scroll to Top -->
+<button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" id="scrollTopBtn">▲</button>
+
+<!-- ==================== COVER PAGE ==================== -->
+<div class="cover-page">
+  <div class="cover-ornament">✦ ❖ ✦</div>
+  <div class="cover-badge-new">جديد</div>
+  <div class="cover-book-title">الإبانة والإفاضة في أحكام الحيض والنفاس والاستحاضة<br>على مذهب الإمام الشافعي</div>
+  <div class="cover-lecture-badge">الدرس الأول</div>
+  <div class="cover-lecture-title">مقدمة عامة حول الدماء الخارجة من الفرج</div>
+  <hr class="cover-divider">
+  <div class="cover-info">
+    <span class="label">المؤلف:</span> عبد الرحمن بن عبد الله عبد القادر السقاف<br>
+    <span class="label">الشارح:</span> د. لبيب نجيب عبد الله<br>
+    <span class="label">المنظم:</span> أحمد بن إرشاد
+  </div>
+</div>
+
+<!-- ==================== MAIN CONTENT ==================== -->
+<div class="main-content">
+
+<!-- ===== Section 1: مقدمة الكتاب ودافع التأليف ===== -->
+<h1 class="section-header"><span class="section-number">1</span> مقدمة الكتاب ودافع التأليف</h1>
+
+<p class="body-text">
+بسم الله الرحمن الرحيم، الحمد لله رب العالمين حمداً يوافي نعمه ويكافي مزيده، بهذا افتتح الدكتور الفقيه عبد الرحمن بن عبد الله السقاف حفظه الله تعالى ونفع بعلومه في الدنيا والآخرة افتتح كتابه <span class="green-highlight">الإبانة والإفاضة في أحكام الحيض والنفاس والاستحاضة</span>، وعندما درسنا المقدمة الحضرمية وجئنا إلى ما يتعلق بالحيض من أحكام رأيتُ من المناسب أننا نقرأ هذه الرسالة في أحكام الحيض والنفاس والاستحاضة، لأن هذا الباب فيه مسائل مهمة قد يكون تعلمها واجباً على المسلم والمسلمة، قد يجب على المسلم أن يتعلمها حتى يجيب على الأسئلة التي تأتي إليه، ويجب على المسلمة أن تتعلمها لأنه يتعلق بهذا الباب الكثير من الأحكام في العبادات بل وفي غير العبادات أيضاً.
+</p>
+
+<p class="body-text">
+إذا تقرر هذا فهذه الرسالة رسالة نافعة مع وجازتها وإحكامها واقتصارها، والمؤلف رحمه الله تعالى عالم فقيه من علماء حضرموت، واختصر هذه الرسالة من رسالة شيخه العلامة محمد علي الخطيب نفع الله به، والعلامة محمد علي الخطيب يُعد من أعلام تريم في هذا العصر، من أكابر علماء تريم في هذا العصر، وما زال حياً أمده الله سبحانه وتعالى بالعافية. فنقرأ المقدمة ونشرح هذه الرسالة بما يسر الله سبحانه وتعالى وفتح على الفقير.
+</p>
+
+<p class="body-text">
+قال رحمه الله تعالى: <span class="green-highlight">بسم الله الرحمن الرحيم، الحمد لله رب العالمين حمداً يوافي نعمه ويكافئ مزيده، وصلى الله على سيدنا محمد وعلى آله وصحبه وسلم، أما بعد</span>.
+</p>
+
+<!-- ===== Section 2: قول "أما بعد" ومن بدأ بها ===== -->
+<h1 class="section-header"><span class="section-number">2</span> قول "أما بعد" ومن بدأ بها</h1>
+
+<p class="body-text">
+أما بعد: هذه فصل الخطاب، يؤتى بها للانتقال من أسلوب إلى أسلوب آخر، والإتيان بها من السنة لأن النبي صلى الله عليه وسلم ورد عنه في أحاديث كثيرة أنه كان يأتي بها. واختلف في من قالها ابتداءً:
+</p>
+
+<!-- Eight Opinions Grid -->
+<div class="opinions-grid">
+  <div class="opinion-item">
+    <span class="opinion-num">1</span>
+    <span class="opinion-name">نبي الله داود عليه السلام</span>
+  </div>
+  <div class="opinion-item">
+    <span class="opinion-num">2</span>
+    <span class="opinion-name">نبي الله يعقوب</span>
+  </div>
+  <div class="opinion-item">
+    <span class="opinion-num">3</span>
+    <span class="opinion-name">أيوب</span>
+  </div>
+  <div class="opinion-item">
+    <span class="opinion-num">4</span>
+    <span class="opinion-name">آدم</span>
+  </div>
+  <div class="opinion-item">
+    <span class="opinion-num">5</span>
+    <span class="opinion-name">قس</span>
+  </div>
+  <div class="opinion-item">
+    <span class="opinion-num">6</span>
+    <span class="opinion-name">سحبان</span>
+  </div>
+  <div class="opinion-item">
+    <span class="opinion-num">7</span>
+    <span class="opinion-name">كعب</span>
+  </div>
+  <div class="opinion-item">
+    <span class="opinion-num">8</span>
+    <span class="opinion-name">يعرب</span>
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه: الأقوال الثمانية في نظم</div>
+  <div class="callout-content">
+    <span class="green-highlight">أما بعد من كان بادئاً بها فعد أقوالاً داود أقرب</span> ويعقوب أيوب الصبور وآدم وقس وسحبان وكعب ويعرب. ثمانية أقوال، والأشهر أنه نبي الله داود عليه الصلاة والسلام.
+  </div>
+</div>
+
+<p class="body-text">
+قال: أما بعد. ومعناها: مهما يكون من شيء بعد حمد الله تعالى والصلاة على النبي صلى الله عليه وسلم والسلام عليه فكذا وكذا، ولذلك الإتيان بالفاء هذا واجب في اللغة. قال: أما بعد فقد...
+</p>
+
+<!-- ===== Section 3: حديث طلب العلم وفروض العين والكفاية ===== -->
+<h1 class="section-header"><span class="section-number">3</span> حديث طلب العلم وفروض العين والكفاية</h1>
+
+<div class="evidence-box">
+  <div class="evidence-label">حديث شريف</div>
+  <div class="hadith-text">
+    قال النبي صلى الله عليه وآله وسلم: <span class="green-highlight">طلب العلم فريضة على كل مسلم</span>
+  </div>
+</div>
+
+<p class="body-text">
+هذا الحديث رواه الإمام ابن ماجه. ابن ماجه وابن ماجه — ماجه وماجَه ومنده — هذا يُعرب بحركات مقدرة وهو من الأسماء الممنوعة من الصرف واضح، فهو اسم معرب ليس مبني بخلاف سيبويه، سيبويه هذا مبني، لكن ماجه منده سِيْبَه هذا معرب لكنه ممنوع من الصرف.
+</p>
+
+<p class="body-text">
+قال هنا: طلب العلم فريضة على كل مسلم. هذا الحديث ضعفه بعض الحفاظ وحسّن إسناده الحافظ أبو الحجاج المزي.
+</p>
+
+<!-- Scholar Card: الحافظ المزي -->
+<div class="scholar-card">
+  <div class="scholar-icon">🕌</div>
+  <div>
+    <div class="scholar-name">الحافظ أبو الحجاج المزي</div>
+    <div class="scholar-info">من كبار الحفاظ، توفي في سنة سبعمائة واثنين وأربعين، وهو والد زوجة الحافظ ابن كثير. فالحافظ ابن كثير صاحب التفسير متزوج بابنة الحافظ المزي.</div>
+  </div>
+</div>
+
+<p class="body-text">
+قال هنا: طلب العلم فريضة على كل مسلم. قلت لك حسّنه الحافظ المزي. والعلم بارك الله فيكم من أفضل العبادات، بل أفضل العبادات كما يقول العلامة ابن حجر في تحفة المحتاج في بداية التحفة:
+</p>
+
+<!-- Poetry/Quote Block: ابن حجر -->
+<div class="poetry-block">
+  <div class="poetry-title">العلم وأفضليته — العلامة ابن حجر</div>
+  <div class="poetry-line">إنَّ العِلْمَ ما كان منه فرضَ عَينٍ فطلبُه أفضلُ فروضِي العِيَان</div>
+  <div class="poetry-line">وما كان منه فرْض كِفَايَة فطلَبُه أفضلُ فروضِي القفايات</div>
+  <div class="poetry-line">وما كان منه مندوباً فطلبه أفضل مندوبات</div>
+</div>
+
+<div class="numbered-steps">
+  <div class="steps-title">أفضليّة طلب العلم بحسب مراتبه</div>
+  <div class="step-item">
+    <span class="step-number">1</span>
+    <div class="step-content">
+      ما كان منه <span class="green-highlight">فرض عين</span> فطلبه أفضل فروض العيان
+    </div>
+  </div>
+  <div class="step-item">
+    <span class="step-number">2</span>
+    <div class="step-content">
+      وما كان منه <span class="green-highlight">فرض كفاية</span> فطلبه أفضل فروض الكفايات
+    </div>
+  </div>
+  <div class="step-item">
+    <span class="step-number">3</span>
+    <div class="step-content">
+      وما كان منه <span class="green-highlight">مندوباً</span> فطلبه أفضل مندوبات
+    </div>
+  </div>
+</div>
+
+<p class="body-text">
+فهمتم له؟ ما كان منه فرض عين فطلبه أفضل فروض العيان، وما كان منه فرض كفاية فطلبه أفضل فروض الكفايات، وما كان منه مندوباً فطلبه أفضل مندوبات. فقال هنا: طلب العلم فريضة على كل مسلم، أي ومسلمة.
+</p>
+
+<!-- ===== Section 4: وجوب تعلم أحكام الحيض والنفاس والاستحاضة ===== -->
+<h1 class="section-header"><span class="section-number">4</span> وجوب تعلم أحكام الحيض والنفاس والاستحاضة</h1>
+
+<p class="body-text">
+قال: فالحديث يفيد وجوب تعلم العلم، ومن العلم الواجب على المرأة أن تتعلم ما تحتاج إليه من أحكام الحيض والنفاس والاستحاضة. فإن كان زوجها عالماً لزمه تعليمها — لزمه أي وجب عليه تعليمها — وإلا، أي وإن لم يكن زوجها عالماً أو كان عالماً لكنه لم يعلمها، إذن صورتان في قوله "وإلا": صورة الأولى: وإلا أي وإن لم يكن زوجها عالماً، أو كان عالماً لكنه لم يعلمها واضح.
+</p>
+
+<div class="callout-box">
+  <div class="callout-title">صورتا قوله "وإلا"</div>
+  <div class="callout-content">
+    <strong>الصورة الأولى:</strong> وإن لم يكن زوجها عالماً<br>
+    <strong>الصورة الثانية:</strong> أو كان عالماً لكنه لم يعلمها
+  </div>
+</div>
+
+<p class="body-text">
+فلها الخروج لسؤال العلماء. قال: "فلها" — التعبير بقوله "فلها" يشعر بالجواز لها أن تخرج، وكأنه يقول: لها أن تخرج ولها أن لا تخرج. قال: "فلها" — التعبير بقوله "فلها" يفيد ماذا؟ يشعر بماذا؟ بالجواز ليس بالوجوب. لكن انظر ماذا قال: <span class="green-highlight">فلها الخروج لسؤال العلماء، بل يجب عليها الخروج لسؤال العلماء</span>. إذن خروجها لسؤال العلماء عن هذه الأحكام الواجبة المتعلقة بالحيض والنفاس والاستحاضة ما حكمه؟ حكمه أنه واجب تمام. قال: بل يجب عليها الخروج لسؤال العلماء ويحرم على الزوج أن يمنعها. يجب عليها أن تخرج ويحرم على الزوج المنع فهمتم؟ إلا أن يسأل هو ويخبرها — إلا إذا كان هو سيسأل نيابة عنها ويخبرها بالجواب فهنا لا يجب عليها الخروج فهمتم أم لا؟ واضح.
+</p>
+
+<!-- ===== Section 5: حكم خروج المرأة لسؤال العلماء ===== -->
+<h1 class="section-header"><span class="section-number">5</span> حكم خروج المرأة لسؤال العلماء</h1>
+
+<div class="benefit-box">
+  <div class="benefit-title">🔑 قاعدة مهمة: خروج المرأة لسؤال العلماء</div>
+  <div class="benefit-content">
+    إذا تقرر هذا بارك الله فيكم، فخروج المرأة للسؤال عن الأحكام المتعلقة بالحيض والنفاس والاستحاضة — كما قال المصنف كما قال المؤلف رحمه الله تعالى — <span class="green-highlight">واجب</span>، ويحرم على الزوج منعها، ولا تكون المرأة ناشزاً بذلك فلا تسقط نفقتها بذلك الخروج.
+  </div>
+</div>
+
+<p class="body-text">
+معلوم أن من صور نشوز المرأة أنها تخرج من بيت الزوجية بلا إذن الزوج، وأن المرأة إذا نشزت سقط حقها في النفقة والقسم صح؟ لكن في هذه الصورة إذا خرجت لتسأل عن الأحكام الواجبة التي تتعلق بالحيض والنفاس والاستحاضة فهنا نقول: هذا خروج واجب عليها ويحرم عليك أيها الزوج أن تمنعها ما دمت أنك لا تسأل لها، ويحرم عليك أيها الزوج أن تمنعها، وبالتالي لا يسقط حقها في النفقة ولا في القسم فهموا ولا؟
+</p>
+
+<p class="body-text">
+بخلاف ما لو خرجت المرأة إلى مجلس ذكر مثلاً فإنها تعتبر ناشزة. فإذا كان هناك مجلس ذكر، حلقة قرآن، فالمرأة خرجت من بيت الزوج بلا إذن منه واضح؟ ولا؟ فإنها تعتبر ناشزة في حالة نشوز تعتبر ناشزة، بخلاف ما لو خرجت تسأل عن حكم واجب عليها تعلمه فلا تعتبر ناشزة تمام.
+</p>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه معاصر: السؤال بالوسائل الحديثة</div>
+  <div class="callout-content">
+    قال رحمه الله تعالى: "ويحرم على الزوج أن يمنعها إلا أن يسأله ويخبرها". تأتي مسألة اليوم: يمكن للمرأة أن تسأل عالماً عن هذه الأحكام دون أن تخرج — بمكالمة هاتفية أو برسالة واتساب أو نحو ذلك. فإذا تركت المرأة هذا وخرجت هل تكون ناشزة أو لا؟ <span class="green-highlight">الظاهر أنها تكون ناشزة</span> لماذا؟ لأن الفقهاء قالوا محل الخروج الذي لا يكون نشوزاً إذا كان الزوج لا يسأل لها، وإلا. قال: "إلا أن يسأله ويخبرها" — مفهوم هذا أنها إذا تمكنت من السؤال دون خروج، إذا تمكنت من التعلم دون خروج ومع ذلك خرجت فإنها تكون ناشزة. فالزوج إذا قال لها أنا أسأل لك وأخبرك وخرجت مع ذلك تكون ناشزة أو لا؟ كذلك إذا كان يمكن أن تحصل العلم دون خروج ومع ذلك خرجت فإنها تكون ماذا؟ ناشزة. فهم هذا أو لا؟ إن شاء الله.
+  </div>
+</div>
+
+<!-- Ruling Card -->
+<div class="ruling-card">
+  <div class="ruling-badge">واجب</div>
+  <div class="ruling-content">
+    خروج المرأة لسؤال العلماء عن أحكام الحيض والنفاس والاستحاضة واجب عليها إذا لم يكن زوجها يعلمها ولم يسأل لها
+  </div>
+</div>
+
+<div class="ruling-card">
+  <div class="ruling-badge">حرام</div>
+  <div class="ruling-content">
+    يحرم على الزوج أن يمنعها من الخروج لسؤال العلماء ما لم يسأل هو ويخبرها
+  </div>
+</div>
+
+<p class="body-text">
+قال رحمه الله تعالى: ثم إن تعلم هذه الأحكام يعد من الفقه الذي هو من علامة إرادة الله بعبده خيره، حيث جاء عنه صلى الله عليه وآله وسلم: <span class="green-highlight">من يُردِ الله به خيراً يفقّهه في الدين</span>. والحديث في الصحيحين.
+</p>
+
+<div class="irab-box">
+  <div class="irab-title">📝 إعراب الحديث: من يُردِ الله به خيراً يفقّهه في الدين</div>
+  <div>
+    <strong>مَن:</strong> اسم شرط جازم مبني على السكون في محل رفع مبتدأ — ولماذا في محل رفع مبتدأ؟ لأن بعده فعل استوفى مفعوله، وإذا جاء بعده فعل استوفى مفعوله فإنه يكون في محل رفع مبتدأ.<br>
+    <strong>يُردِ:</strong> فعل مضارع مجزوم وعلامة جزمه السكون الذي حذف للتقاء الساكنين.<br>
+    <strong>الله:</strong> فاعل.<br>
+    <strong>به:</strong> جار ومجرور.<br>
+    <strong>خيراً:</strong> مفعول به — وخيراً نكرة في سياق الشرط فتشمل جميع الخيرات، أو يقال خيراً نكرة جاء التنكير فيها للتعظيم، أي من يرد الله به خيراً عظيماً يفقهه في الدين.<br>
+    <strong>يفقّهه:</strong> جواب الشرط مجزوم وعلامة جزمه السكون، والفاعل مستتر تقديره هو، والهاء ضمير متصل مبني على الضم في محل نصب مفعول به.<br>
+    <strong>في الدين:</strong> جار ومجرور يتعلق بقوله يفقّهه.<br>
+    <strong>أين الخبر؟</strong> جملة يُردِ الله به خيراً يفقّهه في الدين في محل رفع خبر.
+  </div>
+</div>
+
+<p class="body-text">
+ونحن في أحكام الحيض وهذا أستاذ هذا ثقيل، يدخل الإعراب هنا وهناك لا بأس حتى يشتغل قليلاً. هذا فهمتم أم لا؟ عرفتم إعراب الحديث أو نعيده؟ يكفي هذا يكفي.
+</p>
+
+<p class="body-text">
+قال: ومساهمة في نشر العلم الواجب — انظر هذا <span class="green-highlight">دافع التأليف</span>، أسباب التأليف يذكر الدكتور الفقيه وفقه الله السبب الذي دعاه لتأليف هذه الرسالة — قال السبب: مساهمة في نشر العلم الواجب، إذن هذا ليس علم من العلم الذي هو ترف بل هذا علم واجب تمام. ومساهمة في نشر العلم الواجب وتبليغ الدعوة أعددت هذه الدروس الفقهية — أعددت هذه الدروسة، الدروسة عطف بيان أو بدل معرف بعد إشارة بأل يُعرب بياناً أو نعتاً أو بدل صح — قال هنا الفقهية في أحكام الحيض والنفاس والاستحاضة، وقد جمعت هذه الرسالة من كتب أئمتنا الشافعية رضوان الله تعالى عليهم أئمة الدنيا ونجوم السماء — الشافعية غير من العلماء لكن الشافعية نحبهم أكثر تمام — وأكثرها مستفاد من رسالة شيخنا العلامة محمد بن علي الخطيب حفظه الله تعالى ومتّعه به في خير وعافية اللهم أمين، والتي فتحت مغلق مسائل الحيض — ولعل الله عز وجل في المستقبل بعد أن نختم هذا الكتاب أن نقرأ رسالته — رسالته جميلة هي أقوى من هذا لكن إذا مهدنا لها بقراءة هذا الكتاب نستطيع بعد ذلك أن نقرأها إن شاء الله تمام — والتي فتحت مغلق مسائل الحيض.
+</p>
+
+<!-- ===== Section 6: تقسيم الدروس الثمانية ===== -->
+<h1 class="section-header"><span class="section-number">6</span> تقسيم الدروس الثمانية</h1>
+
+<p class="body-text">
+وقد قسمت هذه الدروس إلى ثمانية دروس كالآتي:
+</p>
+
+<div class="lessons-grid">
+  <div class="lesson-item current-lesson">
+    <span class="lesson-num">1</span>
+    <span class="lesson-title">مقدمة عامة حول الدماء الخارجة من الفرج</span>
+  </div>
+  <div class="lesson-item">
+    <span class="lesson-num">2</span>
+    <span class="lesson-title">سن الحيض وصفاته وألوانه ومدته</span>
+  </div>
+  <div class="lesson-item">
+    <span class="lesson-num">3</span>
+    <span class="lesson-title">الطهر من الحيض</span>
+  </div>
+  <div class="lesson-item">
+    <span class="lesson-num">4</span>
+    <span class="lesson-title">النفاس ومدته وما يتعلق به من أحكام</span>
+  </div>
+  <div class="lesson-item">
+    <span class="lesson-num">5</span>
+    <span class="lesson-title">ما يحرم بالحيض والنفاس</span>
+  </div>
+  <div class="lesson-item">
+    <span class="lesson-num">6</span>
+    <span class="lesson-title">التعريف بالمستحاضة وما يلزمها</span>
+  </div>
+  <div class="lesson-item">
+    <span class="lesson-num">7</span>
+    <span class="lesson-title">المستحاضة في الحيض</span>
+  </div>
+  <div class="lesson-item">
+    <span class="lesson-num">8</span>
+    <span class="lesson-title">المستحاضة في النفاس</span>
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه حول كلمة "مقدمة"</div>
+  <div class="callout-content">
+    مقدمة — يصح فيها كسر الدال وفتحها: <span class="green-highlight">مُقَدِّمَة</span> ومُقَدَّمَة. مُقَدِّمَة: تتقدم بنفسها فهي من الفعل اللازم. مُقَدَّمَة: قُدّمت على غيرها فهي من الفعل المتعدي تمام. وعادتهم عادة العلماء أنهم يسمون بعض المتون مقدمات لأن حق ذلك المثل أن يتقدم على بقية كتبه ذلك العلم كالمقدمة الحضرمية والمقدمة ابن آجروم في النحو — يتقدم الكتاب يقدم نفسه في ذلك العلم.
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه نحوي: الإعراب في عنوان الدرس الثاني</div>
+  <div class="callout-content">
+    سن الحيضي — وسنه بالكسر أو بالضم — بالرفع أو بالكسر بالجر — ما الذي سيكون؟ سن الحيضي وسن صفاته يستقيم؟ لا يستقيم صح. إذا هذا صوابه هكذا: <span class="green-highlight">الدرس الثاني: سن الحيض وصفاته وألوانه ومدته</span>. هنا تأتي أهمية النحو:
+  </div>
+</div>
+
+<div class="poetry-block">
+  <div class="poetry-title">أهمية النحو</div>
+  <div class="poetry-line">النحو يبسط من لسان الألكن والمرء يُكرِمه إذا لم يلحن</div>
+  <div class="poetry-line">وإذا أردت من العلوم أجلها فعليك منها بمقيم الألسن</div>
+</div>
+
+<p class="body-text">
+واضح إذا "صفاته" معطوف على إيش على "سن" وألوانه ومدته.
+</p>
+
+<div class="benefit-box">
+  <div class="benefit-title">💡 فائدة مهمة: الدرس السابع والثامن</div>
+  <div class="benefit-content">
+    الدرس السابع والدرس الثامن أهم درس يا عزيزي، ليس السبب فيه أحد دارسين في الكتاب. أما من الدرس الأول إلى السادس هذا ندرسه عادة في كتب الفقه تمام. ولك الكلام في الدروس الستة الأولى إنما هو يعني إيش بالنسبة لكم مذاكرة لما درستموه من قبل. لكن في السابع والثامن ربما يكون معلومات جديدة تمام، ونحتاج إلى سبورة وتشجير وإلى آخر.
+  </div>
+</div>
+
+<p class="body-text">
+قال: وأسأل الله تعالى — ولعل الأولى أن يقول والله أسأل لإفادة الحصر — قال: وأسأل الله تعالى أن يجعل هذا العمل خالصاً لوجهه الكريم، وأرجو وآمل ممن اطلع عليه فرأى فيه خطأً أن ينبهني عليه وقزاه الله خير القزاء — وهذا فيه أدب رفيع من المؤلف أنه دعا لمن وقف على خطأ فنبهه قبل أن ينبهه واضح — قبل أن ينبه دعا له — قال وقزاه الله خير القزاء. وقد آن أوان الشروع في المقصود بعون الملك المعبود. فإلى الدرس الأول.
+</p>
+
+<!-- ===== Section 7: أقسام الدم الخارج من الفرج ===== -->
+<h1 class="section-header"><span class="section-number">7</span> أقسام الدم الخارج من الفرج</h1>
+
+<p class="body-text">
+الدرس الأول: مقدمة عامة حول الدماء الخارجة من الفرج. الدم الخارج من فرج المرأة — وقال الله تعالى — إما أن يكون حيضاً أو نفاساً أو استحاضة، <span class="green-highlight">ولا رابع لها</span>. إذا هذا حصر.
+</p>
+
+<!-- Classification Tree: 3 Types of Blood -->
+<div class="classification-tree">
+  <div class="tree-title">أقسام الدم الخارج من فرج المرأة</div>
+  <div class="tree-root">الدم الخارج من الفرج</div>
+  <div class="tree-connector"></div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="branch-icon">🔴</div>
+      <div class="branch-name">دم الحيض</div>
+      <div class="branch-desc">يخرج من أقصى الرحم على سبيل الصحة من غير سبب في أوقات معلومة</div>
+    </div>
+    <div class="tree-branch">
+      <div class="branch-icon">🟤</div>
+      <div class="branch-name">دم النفاس</div>
+      <div class="branch-desc">يخرج بسبب الولادة</div>
+    </div>
+    <div class="tree-branch">
+      <div class="branch-icon">🟡</div>
+      <div class="branch-name">دم الاستحاضة</div>
+      <div class="branch-desc">يخرج بسبب انقطاع عرق اسمه العاذل — من أدنى الرحم</div>
+    </div>
+  </div>
+</div>
+
+<p class="body-text">
+وقوله رحمه الله "ولا رابع لها" هذا مبني على أنه لا فرق بين دم الاستحاضة ودم الفساد، وإلا فعلى قول بعض العلماء الذين يفرقون بين دم الاستحاضة ودم الفساد — حتى من علماء الشافعية الذين يفرقون بين دم الاستحاضة ودم الفساد — فستكون القسمة كم؟ رباعية أربعة أقسام. لكن من حيث الأحكام لا فرق بين دم الاستحاضة ودم الفساد واضح؟ ولذلك اشتهر عند الفقهاء أن الدم الخارج من فرج المرأة ثلاثة دماء فقط: دم الحيض ودم النفاس ودم الاستحاضة، باعتبار أن دم الاستحاضة ودم الفساد شيء واحد.
+</p>
+
+<p class="body-text">
+قال: ولكل من هذه الدماء تعريف يتميز به عن غيره وسوف نبينها إن شاء الله تعالى.
+</p>
+
+<!-- ===== Section 8: تعريف الحيض وشرحه ===== -->
+<h1 class="section-header"><span class="section-number">8</span> تعريف الحيض وشرحه</h1>
+
+<h2 class="sub-header">الحيض في اللغة</h2>
+
+<div class="definition-card">
+  <div class="def-label">📘 التعريف اللغوي</div>
+  <div class="def-text">الحيض لغة: السيلان. ومنه قولهم: حاض الوادي إذا سال.</div>
+</div>
+
+<h2 class="sub-header">الحيض في الشرع</h2>
+
+<div class="definition-card">
+  <div class="def-label">📕 التعريف الشرعي</div>
+  <div class="def-text">دم الحيض شرعاً: هو دم جبلة يخرج من أقصى رحم المرأة على سبيل الصحة من غير سبب في أوقات معلومة</div>
+</div>
+
+<p class="body-text">
+عرف الحيض في الشرع ولم يذكر التعريف اللغوي في اللغة، ولكن الحيض لغة السيلان ومنه قولهم حاض الوادي إذا سال هذا معناه في اللغة. قال: دم الحيض شرعاً هو دم جبلة يخرج من أقصى رحم المرأة على سبيل الصحة من غير سبب في أوقات معلومة. ومن أقصى رحم المرأة على سبيل الصحة — دم جبلة يخرج من أقصى أي أبعد رحم المرأة على سبيل الصحة. قوله "على سبيل الصحة" هذا معنى قول غيره من الفقهاء "دم طبيعة" فهو يخرج على سبيل الصحة والطبيعة. قال: من غير سبب في أوقات معلومة.
+</p>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه مهم: معنى "دم" في التعريف</div>
+  <div class="callout-content">
+    قال: دم الحيض هو دم جبلة. وقال "دم" — هذا يشمل كل ما يسمى دماً ولو لم يكن لونه على لون الدم <span class="green-highlight">كالصفرة والكدرة</span>. فالصفرة والكدرة حيض إذا تحققت فيها شروط الحيض. إذا لما قال هنا دم جبلة — المراد بالدم هنا كل ما يسمى دماً ولو لم يكن على لون الدم المعروف فيدخل في هذا الصفرة والكدرة وستأتي بيان هذه المسألة في الدروس القادمة — ما حكم الصفرة والكدرة في المذهب الشافعي — لكن أريد فقط أن أنبهك أن المراد بقولهم دم جبلة أن الدم هنا كل ما يسمى دماً ولو كان صفرة أو كدرة فلا تظن أن المراد بالدم هنا ما له اللون المعروف كاللون الأحمر مثلاً.
+  </div>
+</div>
+
+<p class="body-text">
+قال هنا: دم الحيض شرعاً دم جبلة يخرج من أقصى رحم المرأة، والرحم كالكيس المقلوب — شرحت لكم هذا من قبل لكن نرسمه في السبورة بهاد الشكل — فالحيض يخرج من أقصى رحم المرأة من هنا واضح هذا المراد.
+</p>
+
+<!-- ===== Section 9: أركان التعريف الأربعة ===== -->
+<h1 class="section-header"><span class="section-number">9</span> أركان التعريف الأربعة</h1>
+
+<p class="body-text">
+قال: شرح التعريف — الحيض في الشرع يتضمن في تعريفه أربعة أشياء:
+</p>
+
+<div class="elements-container">
+  <div class="element-card">
+    <div class="element-num">الركن الأول</div>
+    <div class="element-title">أنه دم جبلة</div>
+    <div class="element-desc">أي تقتضيه الطباع السليمة، فذات الطباع السليمة هي التي يخرج منها الحيض، إذا هو ليس علامة مرض.</div>
+  </div>
+  <div class="element-card">
+    <div class="element-num">الركن الثاني</div>
+    <div class="element-title">أنه يخرج من أقصى رحم المرأة</div>
+    <div class="element-desc">والأقصى هو الأبعد. انظر الخلاف ماذا — الخلاف الاستحاضة فإنه يخرج من أدنى الرحم فليخرج من أدنى الرحم تمام.</div>
+  </div>
+  <div class="element-card">
+    <div class="element-num">الركن الثالث</div>
+    <div class="element-title">أنه يخرج على سبيل الصحة من غير سبب</div>
+    <div class="element-desc">بخلاف دم النفاس والاستحاضة، فإن دم النفاس يخرج بسبب الولادة، ودم الاستحاضة يخرج بسبب انقطاع عرق اسمه العاذل. لكن دم الحيض يخرج بغير سبب واضح.</div>
+  </div>
+  <div class="element-card">
+    <div class="element-num">الركن الرابع</div>
+    <div class="element-title">أن له أوقات مخصوصة</div>
+    <div class="element-desc">ولذلك قال في التعريف "في أوقات معلومة". فله — أي الحيض — أقل وله أكثر وله غالب وله سن قبل بلوغ ذلك السن إذا نزل الدم لا يكون حيضاً تمام. فله سن ابتداء وهو تسع سنين قمرية تقريبية، والمعتمد في المذهب أنه ليس له سن انتهاء خلافاً لكثير من الفقهاء. مثلاً عند الحنابلة يقولون لا حيض بعد الخمسين، المالكية يقدرون بالستين واضح، الشافعية يقولون يمكن وجود الحيض من المرأة ما دامت حية. نعم الغالب انقطاع الحيض في 62 سنة عند الشافعية لكن من حيث الإمكان ممكن يعني ممكن يكون عند عمرها سبعين وينزل منها الحيض واضح. قال كما سيأتي إن شاء الله تعالى.</div>
+  </div>
+</div>
+
+<!-- ===== Section 10: الأصل في الحيض (الآية الكريمة) ===== -->
+<h1 class="section-header"><span class="section-number">10</span> الأصل في الحيض (الآية الكريمة)</h1>
+
+<p class="body-text">
+الأصل في الحيض — ما المراد بالأصل؟ فَلِمَ تأتي بمعنى الدليل، وتأتي بمعنى القاعدة المستمرة، وتأتي بمعنى الراجح، وتأتي بمعنى المقيس عليه صح ولا لا؟ وتأتي بمعنى المستصحب — خمسة معاني — تذكرون هذا في شرح المحلي على الورقات — خمسة معاني. ما هو المعنى المناسب هنا؟ <span class="green-highlight">الدليل</span> تمام. الأصل أي الدليل في الحيض.
+</p>
+
+<div class="evidence-box">
+  <div class="evidence-label">آية كريمة — سورة البقرة: 222</div>
+  <div class="quran-verse">
+    ﴿وَيَسْأَلُونَكَ عَنِ الْمَحِيضِ قُلْ هُوَ أَذًى فَاعْتَزِلُوا النِّسَاءَ فِي الْمَحِيضِ وَلَا تَقْرَبُوهُنَّ حَتَّى يَطْهُرْنَ فَإِذَا تَطَهَّرْنَ فَأْتُوهُنَّ مِنْ حَيْثُ أَمَرَكُمُ اللَّهُ إِنَّ اللَّهَ يُحِبُّ التَّوَّابِينَ وَيُحِبُّ الْمُتَطَهِّرِينَ﴾
+  </div>
+</div>
+
+<p class="body-text">
+هذه الآية ذكر الله عز وجل فيها كلمة المحيض مرتين: فقال <span class="green-highlight">وَيَسْأَلُونَكَ عَنِ الْمَحِيضِ</span> والمراد بالمحيض هنا مصدر الفعل هذا يحيض — المحيض — فالمراد بالمحيظ هنا المصدر. ثم قال عز وجل <span class="green-highlight">فَاعْتَزِلُوا النِّسَاءَ فِي الْمَحِيضِ</span> المراد بالمحيض هنا مكان الحيض كلمة بيت واضح — أي فاعتزلوا النساء في مكان الحيض. إذا جاءت كلمة المحيض هنا وهي نفس الكلمة لكن لها معنى ومعنى آخر فهموا أولاً — فالمحيض مرتين.
+</p>
+
+<!-- ===== Section 11: الأحكام الثلاثة المستفادة من الآية ===== -->
+<h1 class="section-header"><span class="section-number">11</span> الأحكام الثلاثة المستفادة من الآية</h1>
+
+<p class="body-text">
+قال: ففي هذه الآية بيّن الله تعالى حكم الحيض — ذكر الله عز وجل في هذه الآية ثلاثة أحكام سيذكرها المؤلف رفع الله قدره:
+</p>
+
+<div class="numbered-steps">
+  <div class="steps-title">الأحكام الثلاثة المستفادة من الآية الكريمة</div>
+  
+  <div class="step-item">
+    <span class="step-number">1</span>
+    <div class="step-content">
+      <strong>نجاسة دم الحيض</strong><br>
+      قال: وأخبرنا أولاً بنجاسة دم الحيض. من أين يستفاد هذا الحكم؟ قال بقوله تعالى <span class="word-highlight">قُلْ هُوَ أَذًى</span> — فوصف دم الحيض بكونه أذى يفيد نجاسته، والدماء نجسه واضح في مذاهب جماهير الفقهاء بل نُقل في ذلك الإجماع.
+      <div class="step-source">الدليل: ﴿قُلْ هُوَ أَذًى﴾</div>
+    </div>
+  </div>
+  
+  <div class="step-item">
+    <span class="step-number">2</span>
+    <div class="step-content">
+      <strong>أمر الأزواج باعتزال النساء في الحيض</strong><br>
+      ثم أمر الأزواج أن يعتزلوا النساء في الحيض — أن يعتزلوا مباشرة النساء فيما بين السرة والركبة واضح أم لا؟ هذا الحكم الثاني.
+      <div class="step-source">من الآية: ﴿فَاعْتَزِلُوا النِّسَاءَ فِي الْمَحِيضِ﴾ — ومن السنة: حديث "لك ما فوق الإزار" رواه أبو داود</div>
+    </div>
+  </div>
+  
+  <div class="step-item">
+    <span class="step-number">3</span>
+    <div class="step-content">
+      <strong>جواز قربان النساء بعد انقطاع الدم والاغتسال</strong><br>
+      قال: فإذا انقطع دم الحيض واغتسلت جاز له أن يقربها. فإذا انقطع دم الحيض — هذا الشرط الأول — من أين يأخذ هذا الشرط؟ من قوله تعالى <span class="word-highlight">حَتَّى يَطْهُرْنَ</span>. واغتسلت — من أين يأخذ هذا الشرط الثاني؟ من قوله <span class="word-highlight">فَإِذَا تَطَهَّرْنَ</span>. إذن لا بد من أمرين: الأمر الأول انقطاع الدم "حتى يطهرن" والأمر الثاني الاغتسال "فإذا تطهرن".
+      <div class="step-source">الدليل: ﴿حَتَّى يَطْهُرْنَ﴾ + ﴿فَإِذَا تَطَهَّرْنَ﴾</div>
+    </div>
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه دقيق: تفصيل الحكم الثاني</div>
+  <div class="callout-content">
+    انتبه معي هنا عندنا قضيتان: القضية الأولى الآية أمرت باعتزال النساء صح — فاعتزلوا النساء في المحيض — هذا مسلم هذا الحكم يستفاد من الآية. لكن هل الآية أمرت باعتزال النساء <span class="green-highlight">فيما بين السرة والركبة</span>؟ هل هذا يستفاد من الآية؟ لا. هذا يستفاد نعم من السنة ليس من الآية. إذا قول المؤلف وفقه الله "ثم أمر الأزواج أن يعتزلوا النساء في الحيض" إلى هنا الحكم مستفاد من الآية، أي يعتزلوا مباشرة النساء فيما بين السرة والركبة — هذا الحكم أفادته السنة حينما سئل النبي صلى الله عليه وآله وسلم ما يحل لرجل امرأته إذا حاضت فقال: <span class="green-highlight">"لك ما فوق الإزار"</span> رواه أبو داود — هذا يفيد هذا الحكم واضح أم لا؟
+  </div>
+</div>
+
+<!-- Comparison Cards: Jewish/Christian/Islamic approaches -->
+<h2 class="sub-header">مقارنة: معاملة الحائض في الأديان</h2>
+
+<p class="body-text">
+وليس المراد باعتزال النساء أن نهجرها في المطعم والمشرب والمسكن، فإن تلك عادة اليهود كما ورد في الحديث عن أنس أن اليهود كانوا إذا حاضت المرأة فيهم لم يؤاكنوهن ولم يجامعوهن في البيوت — ما معنى يجامعوهن؟ أن يساكنونهن ويسكنوا معهن في البيوت واضح؟ أي لم يكن يجتمعون معهن في السكنة في بيت واحد بل يخرجونهن من البيوت تمام.
+</p>
+
+<p class="body-text">
+فسأل أصحاب النبي صلى الله عليه وسلم النبي صلى الله عليه وسلم فأنزل الله تعالى: ﴿وَيَسْأَلُونَكَ عَنِ الْمَحِيضِ قُلْ هُوَ أَذًى فَاعْتَزِلُوا النِّسَاءَ فِي الْمَحِيضِ﴾. ولذلك العلامة البيضاوي رحمه الله تعالى في تفسيره ذكر أن هذا الحكم فيه <span class="green-highlight">توسط بين إفراط اليهود وتفريط النصارى</span>.
+</p>
+
+<div class="comparison-container">
+  <div class="comparison-card jewish">
+    <div class="card-icon">✡️</div>
+    <div class="card-title">اليهود — إفراط (تشدّد)</div>
+    <div class="card-content">
+      إذا حاضت فيهم المرأة أخرجوها من البيت حتى ينتهي حيضها ولا يسكنون معها — وهذا تشدد.
+    </div>
+  </div>
+  <div class="comparison-card christian">
+    <div class="card-icon">✝️</div>
+    <div class="card-title">النصارى — تفريط (تفلّت)</div>
+    <div class="card-content">
+      لا يحترزون من جماع النساء حتى في الحيض — واضح.
+    </div>
+  </div>
+  <div class="comparison-card islamic">
+    <div class="card-icon">☪️</div>
+    <div class="card-title">الإسلام — توسط (اعتدال)</div>
+    <div class="card-content">
+      فالإسلام توسط بين إفراط اليهود وتفريط النصارى — فحرم الجماع خلافاً للنصارى صح، لكن لم يأمر بإخراجهن من البيوت كما فعل اليهود واضح.
+    </div>
+  </div>
+</div>
+
+<p class="body-text">
+ولذلك قال هنا فأنزل الله تعالى: ﴿وَيَسْأَلُونَكَ عَنِ الْمَحِيضِ قُلْ هُوَ أَذًى فَاعْتَزِلُوا النِّسَاءَ فِي الْمَحِيضِ﴾ إلى آخر الآية. فقال رسول الله صلى الله عليه وسلم: <span class="green-highlight">"اصنعوا كل شيء إلا النكاح"</span> واضح.
+</p>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه لغوي: معنى "النكاح" عند الشافعية</div>
+  <div class="callout-content">
+    والنكاح المراد به هنا الجماع، وهذا عند الشافعية مجاز — إطلاق النكاح على الجماع عند الشافعية مجاز — لأن الحقيقة عند الشافعية أن النكاح يطلق على العقد، فالنكاح يطلق على العقد حقيقة ويطلق على الوطء الذي هو الجماع مجازاً فهموا أم لا؟ قال هنا وقوله صلى الله عليه وسلم "إلا النكاح" أي إلا الوطء.
+  </div>
+</div>
+
+<h2 class="sub-header">أدلة من السنة على عدم إخراج الحائض من البيت</h2>
+
+<div class="evidence-box">
+  <div class="evidence-label">حديث عائشة رضي الله عنها — الشرب</div>
+  <div class="hadith-text">
+    عن عائشة رضي الله عنها قالت: كنت أشرب وأنا حائض ثم أناوله النبي صلى الله عليه وسلم فيضع فاه على موضع فيّ فيشرب
+  </div>
+</div>
+
+<p class="body-text">
+أي أناول الإناء النبي صلى الله عليه وسلم فيضع فاه على موضع فيّ فيشرب — نفس المكان الذي وضعت فمي فيه يضع النبي عليه الصلاة والسلام فمه فيه تمام — وهذا تريد أم المؤمنين عائشة رضي الله عنها أن تشير إلى مكانتها وحب النبي صلى الله عليه وسلم لها — قالت فيضع فاه على موضع فيّ فيشرب.
+</p>
+
+<div class="evidence-box">
+  <div class="evidence-label">حديث عائشة رضي الله عنها — العرق</div>
+  <div class="hadith-text">
+    وأتعرق العرق ثم أناوله النبي صلى الله عليه وسلم فيضع فاه على موضع فيّ
+  </div>
+</div>
+
+<p class="body-text">
+والعرق هو العظم الذي بقي عليه بعض اللحم — العظم الذي بقي عليه إيش بعض اللحم — ما معنى أتعرق يعني إذا أخذت عظماً هكذا تأكل منه بهذا الشكل وبقي عليه لحم تمام. قال وأتعرق العرق تمام هكذا عرق وجمعه عراق — يعني العظام هذه التي يكون عليها لحم جمعه إيش؟ عراق عراق عراق تمام.
+</p>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه لغوي: العرق</div>
+  <div class="callout-content">
+    العرق — بفتح العين وسكون الراء — ليست العَرَق ولا العِرْق تمام. العَرَق العَرَق هذا شيء آخر ما يخرجه من الإنسان. والعِرْق — بكسر العين سكون الراء — العصب تمام. لكن هذا العَرْق وجمعه إيش؟ عراق تمام.
+  </div>
+</div>
+
+<p class="body-text">
+قالت: وأتعرق العرق وأنا حائض ثم أناوله النبي صلى الله عليه وسلم فيضع فاه — أي ثمهو مفعول به تمام — على موضع فيّ. وقولها "وأتعرق العرق" أي آخذ اللحم من العرق بأسناني كما شاء الله. وهذا أم المؤمنين تشير إلى ماذا؟ تشير بهذا إلى أن النبي عليه الصلاة والسلام لم يكن يخرجهن في حال الحيض بل كان عليه الصلاة والسلام يسكن معهن مع أن النبي عليه الصلاة والسلام ينزل عليه الوحي. بل سيأتي في الحديث الذي بعدهما يفيد هذا الحكم أيضاً. والأمر الثاني تشير إلى طهارة بدن الحائض وأن الحائض ليس بدنها نجس، وذلك قال العلماء: لا يكره أكل ما طبخته المرأة في الحيض — عجنت خبزة طبخت أرز — لا يكره لطهارة بدنها.
+</p>
+
+<div class="evidence-box">
+  <div class="evidence-label">حديث عائشة رضي الله عنها — القراءة</div>
+  <div class="hadith-text">
+    قالت: كان النبي صلى الله عليه وسلم يتكئ في حجري وأنا حائض فيقرأ القرآن
+  </div>
+</div>
+
+<p class="body-text">
+حجري — يصح بفتح الحاء وكسرها. وفي بعض الروايات الصحيح: كان صلى الله عليه وسلم يضع رأسه في حجري. فمعنى يتكئ أي برأسه تمام. قالت: كان النبي صلى الله عليه وسلم يتكئ في حجري وأنا حائض فيقرأ القرآن. قولها "وأنا حائض" جملة حالية — أي حال كوني حائضاً — جملة حالية من ياء المتكلم في قولها حجري — يعني صاحب الحال ياء المتكلم في قولها حجري تمام.
+</p>
+
+<p class="body-text">
+قال: كان النبي صلى الله عليه وسلم أو قالت: كان النبي صلى الله عليه و سلم يتكئ في حجري وأنا حائض فيقرأ القرآن. هذا الحديث نستفيد منه مسألتين — فيه فوائد كثيرة لكن نستفيد منه مسألتين — مسألة يعني الشاهد في الدرس هنا مسألتان:
+</p>
+
+<div class="numbered-steps">
+  <div class="steps-title">المسألتان المستفادتان من حديث عائشة (قراءة القرآن)</div>
+  
+  <div class="step-item">
+    <span class="step-number">1</span>
+    <div class="step-content">
+      <strong>جواز قراءة القرآن مع كون القارئ قريباً من موضع النجاسة</strong><br>
+      كان النبي عليه الصلاة والسلام يضع رأسه في حجر أم المؤمنين عائشة فيقرأ القرآن. أليس النبي عليه السلام قريب من موضع النجاسة أو لا؟ ومع ذلك يقرأ القرآن. إذا أفاد الحديث جواز قراءة القرآن مع كون القارئ للقرآن قريباً من موضع النجاسة.
+    </div>
+  </div>
+  
+  <div class="step-item">
+    <span class="step-number">2</span>
+    <div class="step-content">
+      <strong>أن الحائض لا تقرأ القرآن (على سبيل الإشارة)</strong><br>
+      دل هذا الحديث على سبيل الإشارة أن الحائض لا تقرأ القرآن واضح؟ على سبيل إيش؟ الإشارة. أن الحائض لا تقرأ القرآن. لماذا؟ كأن أم المؤمنين عائشة رضي الله عنها تشير إلى أن الحائض لا تقرأ القرآن لكن يجوز أن تكون قريبة ممن يقرأ القرآن. فهمت ولا لا؟
+    </div>
+  </div>
+</div>
+
+<p class="body-text">
+ولذلك يقول شيخ الإسلام زكريا رحمه الله تعالى في فتح المعابد: "قال فيه إشارة إلى أن الحائض لا تقرأ القرآن، لأن قولها — لأن قولها فيقرأ القرآن إنما يحسن ذكره إذا كان هنالك ما يوضح توهم منعه، فذكرها ذلك يمنع توهم أنه يمتنع مخالطتها والاتكاء في حجرها". يعني كأنها تقول: أنا ممنوعة من قراءة القرآن لكن هو يتكئ في حجري يضع رأسه في حجري فيقرأ القرآن لا مشكلة واضح له؟ أيوة. فهذا فيه إشارة يعني استنباط ليس بدلالة الظاهر وإنما بدلالة الإشارة.
+</p>
+
+<div class="callout-box">
+  <div class="callout-title">ملخص الأحكام المستفادة من الآية</div>
+  <div class="callout-content">
+    إذن كم حكم الآن استفدنا من الآية؟ شوفنا الآية نعيد للآية عندنا كم حكم؟ عندنا حكمان: الحكم الأول إيش؟ نجاسة دم الحيض استفيد من قوله تعالى "قل هو أذى". الأمر الثاني إيش؟ أمر الأزواج باعتزال النساء صح؟ وهذا الذي ذكره بقوله "ثم أمر الأزواج أن يعتزلوا النساء". إذن عندنا حكمان. ثم بين جل جلاله في الآية الكريمة أنه لا يجوز أن يأتي الزوج زوجته وهي حائض وهذا يندرج في الحكم الثاني. ثم قال فإذا — هذا الحكم الثالث الآن.
+  </div>
+</div>
+
+<!-- ===== Section 12: الأدلة من السنة النبوية ===== -->
+<h1 class="section-header"><span class="section-number">12</span> الأدلة من السنة النبوية</h1>
+
+<p class="body-text">
+قال: والأصل في الحيض من السنة النبوية عدة أحاديث منها قوله صلى الله عليه وسلم لفاطمة بنت أبي حبيش رضي الله عنها:
+</p>
+
+<div class="evidence-box">
+  <div class="evidence-label">حديث فاطمة بنت أبي حبيش رضي الله عنها</div>
+  <div class="hadith-text">
+    فإذا أقبلت الحيضة فاتركي الصلاة، فإذا ذهب قدرها فاغسلي عنك الدم وصلّي
+  </div>
+</div>
+
+<!-- ===== Section 13: الفوائد الأربعة من حديث فاطمة بنت أبي حبيش ===== -->
+<h1 class="section-header"><span class="section-number">13</span> الفوائد الأربعة من حديث فاطمة بنت أبي حبيش</h1>
+
+<p class="body-text">
+هذا الحديث بارك الله فيكم فيه ثلاث مسائل يمكن أن نستفيدها منها — ثم أضيفت الرابعة:
+</p>
+
+<div class="numbered-steps">
+  <div class="steps-title">الفوائد الأربعة من الحديث</div>
+  
+  <div class="step-item">
+    <span class="step-number">1</span>
+    <div class="step-content">
+      <strong>وجوب ترك الصلاة على الحائض</strong><br>
+      من أين يستفاد هذا؟ من قوله: <span class="word-highlight">فاتركي الصلاة</span>
+    </div>
+  </div>
+  
+  <div class="step-item">
+    <span class="step-number">2</span>
+    <div class="step-content">
+      <strong>نجاسة دم الحائض</strong><br>
+      من أين يستفاد هذا؟ <span class="word-highlight">فاغسلي عنك الدم</span> — فالأمر بالغسل يدل على النجاسة
+    </div>
+  </div>
+  
+  <div class="step-item">
+    <span class="step-number">3</span>
+    <div class="step-content">
+      <strong>وجوب الصلاة على المستحاضة</strong><br>
+      من أين يستفاد؟ من قوله: <span class="word-highlight">وصلّي</span> — قال فإذا ذهب قدرها أي قدر الحيضة تمام فاغسلي عنك الدم وصلّي — أي حتى وإن استمر الدم فيك فإنه دم إيش؟ استحاضة — فدل هذا على أن المستحاضة يجب عليها أن تصلي.
+    </div>
+  </div>
+  
+  <div class="step-item">
+    <span class="step-number">4</span>
+    <div class="step-content">
+      <strong>أن من عليه دم فإنه لا يترك الصلاة</strong><br>
+      لأنه أمر المستحاضة بالصلاة مع وجود الدم فهمتم ولا؟ واضح — أمر المستحاضة وقال "وصلّي" مع وجود الدم — فأفاد الحديث أن من كان عليه دم فإنه لا يمنع من الصلاة بل يصلي.
+    </div>
+  </div>
+</div>
+
+<div class="benefit-box">
+  <div class="benefit-title">🔑 ملخص الفوائد الأربعة</div>
+  <div class="benefit-content">
+    <strong>الفائدة الأولى:</strong> وجوب ترك الصلاة على الحائض<br>
+    <strong>الفائدة الثانية:</strong> نجاسة دم الحيض للأمر بالغسل<br>
+    <strong>الفائدة الثالثة:</strong> وجوب الصلاة على المستحاضة<br>
+    <strong>الفائدة الرابعة:</strong> أن من عليه دم فإنه لا يمنع من الصلاة<br>
+    أربعة فوائد.
+  </div>
+</div>
+
+<!-- ===== Section 14: الحكمة من الحيض ===== -->
+<h1 class="section-header"><span class="section-number">14</span> الحكمة من الحيض</h1>
+
+<div class="evidence-box">
+  <div class="evidence-label">حديث عائشة رضي الله عنها</div>
+  <div class="hadith-text">
+    إن هذا أمر كتبه الله على بنات آدم
+  </div>
+</div>
+
+<p class="body-text">
+قال: اعلم وفقني الله وإياك أن الحيض شيء كتبه الخالق جل جلاله وتعالت عظمته على بنات آدم اختباراً وابتلاءً وامتحاناً — كتبه الله عز وجل على بنات آدم ابتلاءً واختباراً — وكتب الله عز وجل على الرجال التعب في هذا الباب واضح أم لا؟ نعم. ولذلك الرجال يتعبون في فهم مسائله واضح وفي شرحها أيضاً وفي التأليف فيها، والنساء ابتلين حساً به. قال وثبت في الصحيح عن عائشة رضي الله عنها قالت: قال رسول الله صلى الله عليه وسلم في الحيض: <span class="green-highlight">"إن هذا أمر كتبه الله على بنات آدم"</span>.
+</p>
+
+<div class="benefit-box">
+  <div class="benefit-title">💡 الحكمة من الحيض</div>
+  <div class="benefit-content">
+    الحيض شيء كتبه الخالق جل جلاله على بنات آدم <span class="green-highlight">اختباراً وابتلاءً وامتحاناً</span>، وكتب الله عز وجل على الرجال التعب في هذا الباب — ولذلك الرجال يتعبون في فهم مسائله وفي شرحها وفي التأليف فيها، والنساء ابتلين حساً به.
+  </div>
+</div>
+
+<p class="body-text">
+قال رحمه الله: ثانياً النفاس — نترك هذا إن شاء الله للدرس القادم. نكتفي بهذا القدر والله أعلم. وصلّ اللهم وسلم وبارك على سيدنا محمد وآله وصحبه أجمعين والحمد لله رب العالمين.
+</p>
+
+<!-- ==================== FOOTER ==================== -->
+<div class="page-footer">
+  <p>شرح الإبانة والإفاضة في أحكام الحيض والنفاس والاستحاضة — الدرس الأول</p>
+  <p>المؤلف: عبد الرحمن بن عبد الله عبد القادر السقاف | الشارح: د. لبيب نجيب عبد الله | المنظم: أحمد بن إرشاد</p>
+</div>
+
+</div><!-- end main-content -->
+
+<script>
+// B&W Toggle
+function toggleBW() {
+  document.body.classList.toggle('bw-mode');
+  const btn = document.querySelector('.bw-toggle');
+  if (document.body.classList.contains('bw-mode')) {
+    btn.textContent = 'لون';
+    btn.style.background = '#333';
+  } else {
+    btn.textContent = 'ن';
+    btn.style.background = '#0d6b3e';
+  }
+}
+
+// Scroll to top button
+window.addEventListener('scroll', function() {
+  const scrollBtn = document.getElementById('scrollTopBtn');
+  if (window.scrollY > 500) {
+    scrollBtn.style.display = 'flex';
+  } else {
+    scrollBtn.style.display = 'none';
+  }
+});
+</script>
+
+</body>
+</html>

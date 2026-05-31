@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf') format('truetype'); font-weight: normal; }
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf') format('truetype'); font-weight: bold; }
+@font-face { font-family: 'NotoNaskh'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf') format('truetype'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+
+body {
+  font-family: 'NotoNaskh', 'Amiri', serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #1a1a2e;
+  direction: rtl;
+  background: #fff;
+  text-align: justify;
+}
+
+.cover-header {
+  background: #1a5632;
+  color: white;
+  padding: 20px 14px;
+  text-align: center;
+  margin: 0 0 12px 0;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px);
+  border-bottom: 4px solid #c8a951;
+}
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 6px; border: none; font-family: 'Amiri', serif; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.9; margin: 4px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.92; margin: 6px 0 2px 0; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .creator { font-size: 11pt; opacity: 0.85; margin-top: 2px; }
+.cover-header .series { font-size: 11pt; opacity: 0.8; margin-top: 4px; }
+
+.toc {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 0 0 12px 0;
+}
+.toc-title {
+  font-family: 'Amiri', serif;
+  font-size: 14pt;
+  color: #1a5632;
+  text-align: center;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #c8a951;
+  padding-bottom: 4px;
+}
+.toc-item {
+  font-size: 10pt;
+  padding: 2px 0;
+  border-bottom: 1px dotted #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+h2.section-title {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0d7c3e;
+  border-bottom: 2px solid #0d7c3e;
+  padding-bottom: 5px;
+  margin: 18px 0 10px;
+}
+
+h3.sub-title {
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: #0a5c2e;
+  margin: 14px 0 8px;
+  padding-right: 10px;
+  border-right: 4px solid #0d7c3e;
+}
+
+h4.minor-title {
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #166534;
+  margin: 10px 0 6px;
+}
+
+p { margin: 5px 0; text-align: justify; }
+
+.definition-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-right: 4px solid #0d7c3e;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.rule-box {
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-right: 4px solid #d97706;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.exception-box {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-right: 4px solid #ea580c;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.evidence-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-right: 4px solid #2563eb;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.issue-box {
+  background: #fdf2f8;
+  border: 1px solid #fbcfe8;
+  border-right: 4px solid #db2777;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.comparison-box {
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  border-right: 4px solid #7c3aed;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.note-box {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-right: 4px solid #0284c7;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.poetry-box {
+  background: #faf5ff;
+  border: 1px solid #e9d5ff;
+  border-right: 4px solid #9333ea;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+  text-align: center;
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  line-height: 2.2;
+}
+
+.key-rule {
+  background: #dcfce7;
+  border: 2px solid #16a34a;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.box-label {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 4px;
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.label-def { background: #0d7c3e; }
+.label-rule { background: #d97706; }
+.label-exc { background: #ea580c; }
+.label-ev { background: #2563eb; }
+.label-issue { background: #db2777; }
+.label-comp { background: #7c3aed; }
+.label-note { background: #0284c7; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 13px;
+  table-layout: fixed;
+}
+
+th {
+  background: #0d7c3e;
+  color: #fff;
+  padding: 6px 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+td {
+  padding: 5px 8px;
+  border: 1px solid #d1d5db;
+  text-align: center;
+  vertical-align: top;
+}
+
+tr:nth-child(even) { background: #f0fdf4; }
+tr:nth-child(odd) { background: #fff; }
+
+.tree-container { margin: 12px 0; text-align: center; }
+.tree-root {
+  display: inline-block;
+  background: linear-gradient(135deg, #0d7c3e, #0a5c2e);
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+.tree-branches { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px; }
+.tree-branch {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  min-width: 80px;
+  text-align: center;
+}
+.tree-branch-num { font-family: 'Amiri', serif; font-weight: bold; color: #0d7c3e; font-size: 14px; }
+.tree-branch-label { font-size: 12px; color: #374151; }
+
+.compare-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.compare-card { flex: 1; min-width: 140px; border-radius: 8px; padding: 8px 10px; text-align: center; }
+.compare-card-green { background: #dcfce7; border: 1px solid #86efac; }
+.compare-card-red { background: #fef2f2; border: 1px solid #fca5a5; }
+.compare-card-gold { background: #fefce8; border: 1px solid #fde68a; }
+.compare-card-blue { background: #eff6ff; border: 1px solid #bfdbfe; }
+.compare-card-title { font-family: 'Amiri', serif; font-weight: bold; font-size: 14px; margin-bottom: 4px; }
+.compare-card-body { font-size: 12px; }
+
+.flow-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px; margin: 8px 0; }
+.flow-box { background: #0d7c3e; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-family: 'Amiri', serif; font-weight: bold; text-align: center; }
+.flow-arrow { font-size: 16px; color: #0d7c3e; font-weight: bold; }
+.flow-result { padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; text-align: center; }
+.flow-pure { background: #dcfce7; border: 1px solid #86efac; color: #166534; }
+.flow-impure { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+.flow-excused { background: #fefce8; border: 1px solid #fde68a; color: #92400e; }
+
+.highlight-green { background: #dcfce7; padding: 1px 4px; border-radius: 3px; }
+.highlight-gold { background: #fefce8; padding: 1px 4px; border-radius: 3px; }
+.highlight-red { background: #fef2f2; padding: 1px 4px; border-radius: 3px; }
+
+.verse-ref { font-family: 'Amiri', serif; font-size: 14px; color: #1e40af; text-align: center; margin: 6px 0; }
+.hadith-ref { font-family: 'Amiri', serif; font-size: 13px; color: #166534; text-align: center; margin: 6px 0; }
+
+.condition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.condition-item { border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.condition-num {
+  display: inline-block; background: #0d7c3e; color: #fff; min-width: 24px; height: 24px;
+  border-radius: 50%; text-align: center; line-height: 24px; font-family: 'Amiri', serif;
+  font-weight: bold; font-size: 12px; margin-left: 6px;
+}
+
+ul { margin: 4px 0; padding-right: 20px; }
+li { margin: 2px 0; }
+</style>
+</head>
+<body>
+
+<!-- ===== COVER HEADER ===== -->
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس السابع والأربعون — تابع أركان الصلاة: التسليم والترتيب وأحكام السهو</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="creator">تنسيق: أحمد بن إرشاد</div>
+  <div class="series">رفع المسبحة · النظر إليها · التسليمة الأولى · التسليمة الثانية · قرن الرحمة · الالتفات · نية السلام · فروع · الترتيب · سهو غير المأموم · سهو المأموم</div>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. سنة رفع المسبحة وإمالتها وإدامة الرفع</span></div>
+  <div class="toc-item"><span>٢. سنة النظر إلى المسبحة</span></div>
+  <div class="toc-item"><span>٣. ركن التسليمة الأولى وصيغها</span></div>
+  <div class="toc-item"><span>٤. الصيغ التي لا تجزئ والصيغ المكروهة</span></div>
+  <div class="toc-item"><span>٥. سنة التسليمة الثانية</span></div>
+  <div class="toc-item"><span>٦. تحريم التسليمة الثانية بوجود منافٍ</span></div>
+  <div class="toc-item"><span>٧. قرن التسليمتين برحمة الله والخلاف في وبركاته</span></div>
+  <div class="toc-item"><span>٨. سنة الالتفات في التسليمتين</span></div>
+  <div class="toc-item"><span>٩. نية السلام وأحكامها التفصيلية</span></div>
+  <div class="toc-item"><span>١٠. فروع: السنن الخمس المتعلقة بالتسليم</span></div>
+  <div class="toc-item"><span>١١. ركن الترتيب بين الأركان</span></div>
+  <div class="toc-item"><span>١٢. استثناءات الترتيب</span></div>
+  <div class="toc-item"><span>١٣. حكم الإخلال بالترتيب عمداً: تقديم الفعلي والقولي</span></div>
+  <div class="toc-item"><span>١٤. الترتيب بين السنن</span></div>
+  <div class="toc-item"><span>١٥. سهو غير المأموم في الترتيب بترك ركن</span></div>
+  <div class="toc-item"><span>١٦. شك غير المأموم في ركن</span></div>
+  <div class="toc-item"><span>١٧. جهل الركن المتروك: الحالات الثلاث</span></div>
+  <div class="toc-item"><span>١٨. مسألة: المثل من الصلاة وغيرها</span></div>
+  <div class="toc-item"><span>١٩. سهو المأموم وشكه في قراءة الفاتحة</span></div>
+</div>
+
+<!-- ===== 1. سنة رفع المسبحة ===== -->
+<h2 class="section-title">١. سنة رفع المسبحة وإمالتها وإدامة الرفع</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وسنّ رفعها أي المسبحة مع إمالتها قليلاً عند «إلا الله» للاتباع، وإدامته أي الرفع فلا يضعها بل تبقى مرفوعة إلى القيامة</b></p>
+</div>
+
+<h3 class="sub-title">تفصيل المسألة</h3>
+
+<p>السنة أن يرفع المسبحة (السبّابة) عند قوله «إلا الله» في التشهّد، مع إمالتها قليلاً، وذلك للاتباع. والأفضل أن يقبض الإبهام بجنبها، بأن يضع رأس الإبهام عند أسفلها على حرف الراحة، كعاقد ثلاثة وخمسين.</p>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه</span>
+  <p>لو وضع اليمنى على غير الركبة يُشير بسبابته حينئذٍ. ولا يُسنّ رفعها خارج الصلاة عند «إلا الله» فإنّها (يعني السبّابة) لا تُرفع خارج الصلاة لعدم وروده.</p>
+</div>
+
+<div class="key-rule">
+  السنة: رفع المسبحة عند «إلا الله» مع إمالتها قليلاً وإدامة الرفع<br>
+  والأفضل: قبض الإبهام بجنبها · ولا يُسنّ رفعها خارج الصلاة
+</div>
+
+<!-- ===== 2. سنة النظر إلى المسبحة ===== -->
+<h2 class="section-title">٢. سنة النظر إلى المسبحة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وسنّ نظر إليها</b> — أي نظر إلى المسبحة، ويستمرّ ناظراً إليها إلى السلام.</p>
+</div>
+
+<h3 class="sub-title">بيان المسألة</h3>
+
+<p>يُسنّ قصر النظر إلى المسبحة حال رفعها. وهذا مستثنى من السنة العامّة في الصلاة وهي النظر إلى موضع السجود؛ ففي هذا الموضع يُستحبّ النظر إلى المسبحة بدلاً من موضع السجود.</p>
+
+<p>ولو كانت المسبحة مستورة بنحو كُمّ الثوب فإنّه يُسنّ النظر إليها كما قال شيخنا العلاّمة ابن حجر.</p>
+
+<div class="exception-box">
+  <span class="box-label label-exc">استثناء من النظر إلى موضع السجود</span>
+  <p>الأصل في الصلاة النظر إلى موضع السجود، لكن عند رفع المسبحة في التشهّد يُستثنى ذلك ويُسنّ النظر إلى المسبحة. ولو كانت مستورة بثوب ونحوه فكذلك يُسنّ النظر إليها.</p>
+</div>
+
+<!-- ===== 3. ركن التسليمة الأولى ===== -->
+<h2 class="section-title">٣. ركن التسليمة الأولى وصيغها</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وثالث عشرها تسليمة أولى</b> — أي من أركان الصلاة التسليمة الأولى. وأقلّها «السلام عليكم»، وله عشرة صيغ.</p>
+</div>
+
+<h3 class="sub-title">أقلّ التسليمة الأولى</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">أقلّ الواجب</span>
+  <p>أقلّ التسليمة الأولى أن يقول: <b>«السلام عليكم»</b> — بالتعريف والترتيب. وهذا للاتباع.</p>
+</div>
+
+<h3 class="sub-title">الصيغ العشرة للتسليمة الأولى</h3>
+
+<p>للتسليمة الأولى عشرة صيغ مرويّة، منها:</p>
+
+<table>
+  <tr>
+    <th>الرقم</th>
+    <th>الصيغة</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td><b>١</b></td>
+    <td>السلام عليكم</td>
+    <td><span class="highlight-green">أقلّ الواجب — يجزئ</span></td>
+  </tr>
+  <tr>
+    <td><b>٢</b></td>
+    <td>السلام عليكم ورحمة الله</td>
+    <td><span class="highlight-green">أفضل — يجزئ</span></td>
+  </tr>
+  <tr>
+    <td><b>٣</b></td>
+    <td>السلام عليكم ورحمة الله وبركاته</td>
+    <td><span class="highlight-gold">خلاف في غير الجنازة</span></td>
+  </tr>
+  <tr>
+    <td><b>٤</b></td>
+    <td>عليكم السلام</td>
+    <td><span class="highlight-gold">يجزئ مع الكراهة</span></td>
+  </tr>
+  <tr>
+    <td><b>٥</b></td>
+    <td>سلام عليكم</td>
+    <td><span class="highlight-red">لا يجزئ — تنكير</span></td>
+  </tr>
+  <tr>
+    <td><b>٦</b></td>
+    <td>سلام الله عليكم</td>
+    <td><span class="highlight-red">لا يجزئ</span></td>
+  </tr>
+  <tr>
+    <td><b>٧</b></td>
+    <td>سلامي عليكم</td>
+    <td><span class="highlight-red">لا يجزئ</span></td>
+  </tr>
+</table>
+
+<!-- ===== 4. الصيغ التي لا تجزئ والمكروهة ===== -->
+<h2 class="section-title">٤. الصيغ التي لا تجزئ والصيغ المكروهة</h2>
+
+<h3 class="sub-title">قوله «عليكم السلام»: يجزئ مع الكراهة</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويُكره «عليكم السلام»</b> — يُفيد أنّه يجزئ مع الكراهة. فلو قال «عليكم السلام» صحّ سلامه وبالتالي صحّت صلاته لكن يُكره له ذلك.</p>
+</div>
+
+<p>قوله «ويُكره عليكم السلام» إشارة إلى أنّه لا يُشترط الترتيب، أي لا يُشترط أن تقدّم «السلام عليكم»، فيصحّ أن تقول «عليكم السلام» لكن مع الكراهة.</p>
+
+<h3 class="sub-title">الصيغ التي لا تجزئ وتبطل الصلاة بالتعمد</h3>
+
+<div class="exception-box">
+  <span class="box-label label-exc">تحذير</span>
+  <p><b>ولا يجزئ «سلام عليكم» بالتنكير</b> — لأنّه وقع نكرة. ولا يجزئ «سلام الله عليكم» ولا «سلامي عليكم» أيضاً. <b>بل تبطل الصلاة إن تعمّد وعلم</b> بالصيغ الثلاث التي مرّت.</p>
+</div>
+
+<h3 class="sub-title">الفرق بين التشهّد والسلام في التنكير</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">مقارنة</span>
+  <p>في التشهّد يجزئ أن تقول «التحيّات لله سلام عليك أيّها النبيّ» <b>بالتنكير</b> لأنّه ورد في التشهّد بالتنكير. لكن لم يرد في السلام بالتنكير، فلذلك لا يجزئ «سلام عليكم».</p>
+</div>
+
+<div class="key-rule">
+  تبطل الصلاة بالصيغ الثلاث إن تعمّد وعلم:<br>
+  ١. سلام عليكم (تنكير) · ٢. سلام الله عليكم · ٣. سلامي عليكم<br>
+  وأمّا «عليكم السلام» فيجزئ مع الكراهة
+</div>
+
+<!-- ===== 5. سنة التسليمة الثانية ===== -->
+<h2 class="section-title">٥. سنة التسليمة الثانية</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وسُنّ تسليمة ثانية</b> — التسليم الثاني مُستحبّ، وهذا مذهب الجمهور، خلافاً للحنابلة الذين يرون وجوبها وهو من مفرداتهم.</p>
+</div>
+
+<h3 class="sub-title">إذا تركها الإمام</h3>
+
+<p>وإن ترك الإمام التسليمة الثانية — أي سلم تسليمة واحدة «السلام عليكم ورحمة الله» وسكت — يُسنّ للمأموم أن يُسلّم التسليمة الثانية. وهذا يُذكّرنا بمسألة جلسة الاستراحة التي تُسنّ للمأموم وإن تركها الإمام.</p>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف مذهبي</span>
+  <table>
+    <tr>
+      <th>المذهب</th>
+      <th>حكم التسليمة الثانية</th>
+    </tr>
+    <tr>
+      <td><b>الشافعيّة (الجمهور)</b></td>
+      <td><span class="highlight-green">سنّة مستحبّة</span></td>
+    </tr>
+    <tr>
+      <td><b>الحنابلة</b></td>
+      <td><span class="highlight-red">واجبة (من مفرداتهم)</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- ===== 6. تحريم التسليمة الثانية ===== -->
+<h2 class="section-title">٦. تحريم التسليمة الثانية بوجود منافٍ</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وتحرم إن عَرَض بعد الأولى منافٍ</b> — أي تحرم التسليمة الثانية إذا حصل بعد التسليمة الأولى ما يُنافي الصلاة.</p>
+</div>
+
+<h3 class="sub-title">المنافيات التي تُحرّم التسليمة الثانية</h3>
+
+<p>التسليمة الثانية من توابع الصلاة، فإذا حصل ما يُنافي الصلاة بعد التسليمة الأولى حَرُمت التسليمة الثانية. ومن المنافيات:</p>
+
+<table>
+  <tr>
+    <th>المنافي</th>
+    <th>البيان</th>
+  </tr>
+  <tr>
+    <td><b>الحدث</b></td>
+    <td>إذا أحدث بعد التسليمة الأولى — كأن سلّم ثمّ أحدث</td>
+  </tr>
+  <tr>
+    <td><b>الانحراف عن القبلة بالصدر</b></td>
+    <td>انحراف بصدره عن القبلة بعد التسليمة الأولى</td>
+  </tr>
+  <tr>
+    <td><b>خروج وقت الجمعة</b></td>
+    <td>إذا خرج وقت الجمعة فإنّها لا تُصلّى جمعة بل ظهراً</td>
+  </tr>
+  <tr>
+    <td><b>وجود عارٍ سترة</b></td>
+    <td>لو صلّى عارياً وسلّم التسليمة الأولى ثمّ أُلقي إليه ثوب — يجب أن يستر عورته قبل التسليمة الثانية، فإن سلّم دون ستر حرُم</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">صورة مسألة الستر</span>
+  <p>لو صلّى عارياً وعندما سلّم التسليمة الأولى أُلقي إليه ثوب — فالواجب أن يستر عورته إذا أراد أن يُسلّم التسليمة الثانية. فلو سلّم التسليمة الثانية دون أن يستر عورته مع أنّ الثوب موجود — حرُم عليه ذلك.</p>
+</div>
+
+<!-- ===== 7. قرن التسليمتين برحمة الله ===== -->
+<h2 class="section-title">٧. قرن التسليمتين برحمة الله والخلاف في وبركاته</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويُسنّ أن يقرن كلّ من التسليمتين برحمة الله</b> — أي يقول في الأولى والثانية «السلام عليكم ورحمة الله» دون «وبركاته» على المنقول في غير الجنازة.</p>
+</div>
+
+<h3 class="sub-title">الخلاف في زيادة «وبركاته»</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">ثلاثة أقوال في «وبركاته»</span>
+</div>
+
+<table>
+  <tr>
+    <th>القول</th>
+    <th>صاحبه</th>
+    <th>في الجنازة</th>
+    <th>في غير الجنازة</th>
+  </tr>
+  <tr>
+    <td><b>الأوّل</b></td>
+    <td>الإمام الرملي</td>
+    <td><span class="highlight-red">لا تُسنّ</span></td>
+    <td><span class="highlight-red">لا تُسنّ</span></td>
+  </tr>
+  <tr>
+    <td><b>الثاني</b></td>
+    <td>ابن حجر (المعتمد عنده)</td>
+    <td><span class="highlight-green">تُسنّ</span></td>
+    <td><span class="highlight-red">لا تُسنّ</span></td>
+  </tr>
+  <tr>
+    <td><b>الثالث</b></td>
+    <td>بعض الشافعيّة (أهل الحديث)</td>
+    <td><span class="highlight-green">تُسنّ</span></td>
+    <td><span class="highlight-green">تُسنّ</span></td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">اختيار المصنّف</span>
+  <p>قال المصنّف: <b>«ويُسنّ أن يقرن كلّ من التسليمتين برحمة الله أي معها دون وبركاته على المنقول في غير الجنازة، لكن اختير ندب زيادة وبركاته في غير الجنازة لثبوتها من عدّة طرق»</b> — وهذا يشير إلى الرأي الثالث.</p>
+</div>
+
+<div class="key-rule">
+  الرأي المختار عند المصنّف: تُسنّ زيادة «وبركاته» في الجنازة وغيرها<br>
+  لثبوتها من عدّة طرق
+</div>
+
+<!-- ===== 8. الالتفات في التسليمتين ===== -->
+<h2 class="section-title">٨. سنة الالتفات في التسليمتين</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ومع التفات فيهما</b> — أي ويُسنّ الالتفات في التسليمتين: ينظر إلى يمينه في التسليمة الأولى وإلى يساره في التسليمة الثانية.</p>
+</div>
+
+<div class="flow-row">
+  <div class="flow-box">التسليمة الأولى</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-pure">التفات إلى اليمين</div>
+  <div class="flow-arrow">·</div>
+  <div class="flow-box">التسليمة الثانية</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-pure">التفات إلى اليسار</div>
+</div>
+
+<!-- ===== 9. نية السلام ===== -->
+<h2 class="section-title">٩. نية السلام وأحكامها التفصيلية</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>يُسنّ لكلّ من الإمام والمأموم والمنفرد أن ينوي السلام على من التفت إليه</b> — أي ينوي السلام على من عن يمينه بالتسليمة الأولى وعن يساره بالتسليمة الثانية من ملائكة ومؤمنين إنس وجنّ.</p>
+</div>
+
+<h3 class="sub-title">نية السلام على من خلفه ومن أمامه</h3>
+
+<p>ينوي السلام على من خلفه ومن أمامه <b>بأيّ التسليمتين شاء</b>، لكن <b>بالأولى أفضل</b>.</p>
+
+<h3 class="sub-title">نية المأموم ردّ السلام على الإمام</h3>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">١</span>
+    <b>إن كان خلف الإمام:</b> ينوي الردّ بأيّ تسليمتين شاء (الأولى أو الثانية)
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٢</span>
+    <b>إن كان عن يمين الإمام:</b> ينوي الردّ بالتسليمة <b>الثانية</b> (التي إلى يساره)
+  </div>
+  <div class="condition-item" style="background: #f0f9ff; border: 1px solid #bae6fd;">
+    <span class="condition-num">٣</span>
+    <b>إن كان عن يسار الإمام:</b> ينوي الردّ بالتسليمة <b>الأولى</b> (التي إلى يمينه)
+  </div>
+  <div class="condition-item" style="background: #f5f3ff; border: 1px solid #ddd6fe;">
+    <span class="condition-num">٤</span>
+    <b>نيّة بعض المأمومين الردّ على بعض:</b> من على يمين المسلّم بالثانية ومن على يساره بالأولى، ومن خلفه ومن أمامه بأيّهما شاء وبالأولى أولى
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">فائدة النيّة</span>
+  <p>إن نويت هذا حزت الثواب، وإن سلّمت بدون استحضار لهذا يقع السلام مُجزئاً لكن الثواب ناقص، لأنّ الأعمال بالنّيّات ولكلّ امرئ ما نوى.</p>
+</div>
+
+<!-- ===== 10. فروع: السنن الخمس ===== -->
+<h2 class="section-title">١٠. فروع: السنن الخمس المتعلّقة بالتسليم</h2>
+
+<div class="tree-container">
+  <div class="tree-root">السنن الخمس في التسليم</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">١</div>
+      <div class="tree-branch-label">نية الخروج<br>من الصلاة</div>
+    </div>
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a;">
+      <div class="tree-branch-num">٢</div>
+      <div class="tree-branch-label">إدراج السلام<br>(الإسراع)</div>
+    </div>
+    <div class="tree-branch" style="background: #f0f9ff; border: 1px solid #bae6fd;">
+      <div class="tree-branch-num">٣</div>
+      <div class="tree-branch-label">ابتداؤه مستقبلاً<br>القبلة</div>
+    </div>
+    <div class="tree-branch" style="background: #f5f3ff; border: 1px solid #ddd6fe;">
+      <div class="tree-branch-num">٤</div>
+      <div class="tree-branch-label">إنهاؤه مع تمام<br>الالتفات</div>
+    </div>
+    <div class="tree-branch" style="background: #fef2f2; border: 1px solid #fca5a5;">
+      <div class="tree-branch-num">٥</div>
+      <div class="tree-branch-label">تسليم المأموم<br>بعد تسليمتي الإمام</div>
+    </div>
+  </div>
+</div>
+
+<h3 class="sub-title">السنّة الأولى: نيّة الخروج من الصلاة</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>يُسنّ نيّة الخروج من الصلاة بالتسليمة الأولى</b> — خروجاً من خلاف من أوجبها. وقد أوجبها اثنان: ابن سريج في التعليق، وأبو شقاع في متنه حيث جعل أركان الصلاة ثمانية عشر وجعل نيّة الخروج من أركانها.</p>
+</div>
+
+<h3 class="sub-title">السنّة الثانية: إدراج السلام</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">معنى الإدراج</span>
+  <p>يُسنّ أن يُدرج السلام — أي يُسرع فيه. والإدراج معناه الإسراع، كما يُسنّ ترتيل الأذان وإدراج الإقامة. فليس كما يفعل بعض الناس يمدّ السلام، بل السنّة الإدراج (الإسراع) في السلام.</p>
+</div>
+
+<h3 class="sub-title">السنّة الثالثة: ابتداؤه مستقبلاً القبلة</h3>
+
+<p>يُسنّ أن يبتدئ السلام وهو ما زال مستقبلاً بوجهه القبلة — يبدأ «السلام عليكم» قبل أن يلتفت، لا أن ينتظر حتى يكمل الالتفات ثمّ يقول «السلام عليكم».</p>
+
+<h3 class="sub-title">السنّة الرابعة: إنهاؤه مع تمام الالتفات</h3>
+
+<p>يُسنّ أن يُنهي السلام مع تمام الالتفات — أي يقول «السلام عليكم ورحمة الله» ثمّ يعود يستقبل القبلة ثمّ يقول «السلام عليكم ورحمة الله» بهذا الشكل.</p>
+
+<h3 class="sub-title">السنّة الخامسة: تسليم المأموم بعد تسليمتي الإمام</h3>
+
+<p>يُسنّ أن يُسلّم المأموم بعد تسليمتي الإمام. ولو سلّم المأموم قبل التسليمة الثانية صحّت صلاته.</p>
+
+<div class="note-box">
+  <span class="box-label label-note">حكم المسبوق</span>
+  <p>بالنسبة للمسبوق الذي سيقوم ويُصلّي ما بقي عليه: يُسنّ له أن يقوم <b>بعد التسليمتين</b>، ويجوز أن يقوم بعد الأولى وقبل الثانية، <b>ويحرم</b> عليه أن يقوم قبل التسليمة الأولى. وإذا قام قبل التسليمة الأولى دون أن ينوي المفارقة بطلت صلاته. وأمّا إذا نوى المفارقة فلا إشكال.</p>
+</div>
+
+<div class="key-rule">
+  حكم قيام المسبوق:<br>
+  بعد التسليمتين: سنّة · بعد الأولى وقبل الثانية: جائز · قبل الأولى: حرام يُبطل الصلاة إن لم ينوِ المفارقة
+</div>
+
+<!-- ===== 11. ركن الترتيب ===== -->
+<h2 class="section-title">١١. ركن الترتيب بين الأركان</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ورابع عشرها ترتيب بين أركانها</b> — الترتيب من أركان الصلاة. كما تقدّم ذكره.</p>
+</div>
+
+<h3 class="sub-title">هل الترتيب ركن فعلي؟</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف</span>
+  <p><b>قول:</b> الترتيب ركن فعلي — لأنّ الترتيب وضع الشيء في مرتبته، والوضع فعل، فهو ركن فعلي.</p>
+  <p><b>قول آخر:</b> الترتيب ليس جزءاً من الصلاة بل يُعدّ من أركانها تغليباً.</p>
+</div>
+
+<!-- ===== 12. استثناءات الترتيب ===== -->
+<h2 class="section-title">١٢. استثناءات الترتيب</h2>
+
+<p>يُستثنى من الترتيب ثلاثة أمور:</p>
+
+<table>
+  <tr>
+    <th>الاستثناء</th>
+    <th>الأركان المتقارنة</th>
+    <th>البيان</th>
+  </tr>
+  <tr>
+    <td><b>الأوّل</b></td>
+    <td>تكبيرة الإحرام مع النية والقيام</td>
+    <td>تكبيرة الإحرام تُقارنها النية — لا قبل ولا بعد — وتكون حال القيام، فلا ترتيب بينها</td>
+  </tr>
+  <tr>
+    <td><b>الثاني</b></td>
+    <td>قراءة الفاتحة مع القيام</td>
+    <td>قراءة الفاتحة تكون أثناء القيام، فهذان الركنان يكونان معاً لا ترتيب بينهما</td>
+  </tr>
+  <tr>
+    <td><b>الثالث</b></td>
+    <td>التشهّد الأخير والصلاة على النبيّ والتسليمة الأولى مع القعود</td>
+    <td>هذه الأركان الثلاثة تكون أثناء القعود فلا ترتيب بينها وبين القعود، لكن يجب الترتيب بين التشهّد الأخير والصلاة على النبيّ</td>
+  </tr>
+</table>
+
+<div class="tree-container">
+  <div class="tree-root">استثناءات الترتيب (ثلاثة)</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">١</div>
+      <div class="tree-branch-label">تكبيرة الإحرام<br>مع النية والقيام</div>
+    </div>
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a;">
+      <div class="tree-branch-num">٢</div>
+      <div class="tree-branch-label">الفاتحة<br>مع القيام</div>
+    </div>
+    <div class="tree-branch" style="background: #f0f9ff; border: 1px solid #bae6fd;">
+      <div class="tree-branch-num">٣</div>
+      <div class="tree-branch-label">التشهّد الأخير والصلاة<br>على النبيّ والتسليمة الأولى<br>مع القعود</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 13. الإخلال بالترتيب عمداً ===== -->
+<h2 class="section-title">١٣. حكم الإخلال بالترتيب عمداً: تقديم الفعلي والقولي</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>فإن تعمّد الإخلال بالترتيب بتقديم ركن فعليّ كأن سجد قبل الركوع بطلت صلاته</b></p>
+</div>
+
+<h3 class="sub-title">قاعدة تقديم الأركان</h3>
+
+<table>
+  <tr>
+    <th>الصورة</th>
+    <th>المثال</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td><b>تقديم ركن فعليّ على ركن فعليّ</b></td>
+    <td>سجد قبل الركوع</td>
+    <td><span class="highlight-red">تبطل الصلاة</span></td>
+  </tr>
+  <tr>
+    <td><b>تقديم ركن فعليّ على ركن قوليّ</b></td>
+    <td>سجد قبل القراءة</td>
+    <td><span class="highlight-red">تبطل الصلاة</span></td>
+  </tr>
+  <tr>
+    <td><b>تقديم ركن قوليّ على ركن قوليّ</b></td>
+    <td>صلّى على النبيّ قبل التشهّد الأخير</td>
+    <td><span class="highlight-green">لا تبطل</span> — لكن لا بدّ أن يأتي به على الترتيب مرّة أخرى</td>
+  </tr>
+  <tr>
+    <td><b>تقديم ركن قوليّ على ركن فعليّ</b></td>
+    <td>قرأ التشهّد الأخير بعد السجدة الأولى وقبل السجدة الثانية</td>
+    <td><span class="highlight-green">لا تبطل</span> — لكن لا بدّ أن يأتي به على الترتيب مرّة أخرى</td>
+  </tr>
+  <tr>
+    <td><b>تقديم السلام على غيره من الأركان</b></td>
+    <td>سلّم قبل التشهّد الأخير أو قبل الصلاة على النبيّ</td>
+    <td><span class="highlight-red">تبطل الصلاة</span> — استثناء من الأركان القوليّة</td>
+  </tr>
+</table>
+
+<div class="key-rule">
+  القاعدة:<br>
+  تقديم الركن الفعليّ على الفعليّ أو القوليّ ← تبطل الصلاة<br>
+  تقديم الركن القوليّ على القوليّ أو الفعليّ ← لا تبطل<br>
+  <b>استثناء:</b> تقديم السلام يُبطل الصلاة وإن كان قوليّاً
+</div>
+
+<h3 class="sub-title">علة التفريق</h3>
+
+<p>الفرق أنّ تقديم الركن الفعليّ <b>يُغيّر هيئة الصلاة ونظامها</b>، أمّا تقديم الركن القوليّ فلا يُغيّر هيئة الصلاة ونظامها. هذا كلّه في حالة التعمّد لا السهو.</p>
+
+<div class="note-box">
+  <span class="box-label label-note">ملاحظة مهمّة</span>
+  <p>هذا الحكم كلّه في حالة التعمّد. أمّا حالة السهو فلها حكم آخر سيأتي بيانه.</p>
+</div>
+
+<!-- ===== 14. الترتيب بين السنن ===== -->
+<h2 class="section-title">١٤. الترتيب بين السنن</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>والترتيب بين السنن كالسورة بعد الفاتحة والدعاء بعد التشهّد والصلاة شرط للاعتداد بسنّيّتها</b></p>
+</div>
+
+<p>الترتيب بين السنن شرط للاعتداد بسنّيّتها، فلو قدّم المتأخّر على المتقدّم فات محلّ المتقدّمة.</p>
+
+<table>
+  <tr>
+    <th>المثال</th>
+    <th>البيان</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td><b>قرأ السورة قبل الفاتحة</b></td>
+    <td>قدّم السورة التي تُقرأ بعد الفاتحة</td>
+    <td>لا يُعتدّ بقراءة تلك السورة — فات محلّها</td>
+  </tr>
+  <tr>
+    <td><b>أتى بالدعاء قبل التشهّد والصلاة</b></td>
+    <td>قدّم الدعاء الذي يكون بعد التشهّد والصلاة</td>
+    <td>لا تُعتدّ بتلك السنّة — فات محلّها</td>
+  </tr>
+  <tr>
+    <td><b>قدّم التعوّذ على دعاء الاستفتاح</b></td>
+    <td>قدّم التعوّذ على الاستفتاح</td>
+    <td>فات محلّ الاستفتاح — لأنّه يفوت بالتعوّذ والقراءة ولو سهواً</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">قاعدة في فوات السنن</span>
+  <p>دعاء الاستفتاح يفوت بالتعوّذ والقراءة ولو سهواً — فلو كبّر ثمّ شرع مباشرة في «أعوذ بالله» أو «بسم الله الرحمن الرحيم» فقد فات محلّ دعاء الاستفتاح.</p>
+</div>
+
+<!-- ===== 15. سهو غير المأموم ===== -->
+<h2 class="section-title">١٥. سهو غير المأموم في الترتيب بترك ركن</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ولو سها غير مأموم في الترتيب بترك ركن كأن سجد قبل الركوع أو ركع قبل الفاتحة لغى ما فعله حتّى يأتي بالمتروك</b></p>
+</div>
+
+<h3 class="sub-title">الحالة الأولى: تذكّره قبل بلوغ مثله</h3>
+
+<p>إن تذكّر قبل بلوغ مثله (من الركعة التالية) <b>أتى به</b> — أي يعود إلى المتروك ويأتي به ثمّ يُكمّل.</p>
+
+<div class="flow-row">
+  <div class="flow-box">ترك ركناً سهواً</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">تذكّر قبل بلوغ مثله</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-pure">يعود ويأتي بالمتروك ثمّ يُكمّل</div>
+</div>
+
+<h3 class="sub-title">أمثلة تطبيقية للإمام</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">ثلاثة أمثلة</span>
+</div>
+
+<table>
+  <tr>
+    <th>المثال</th>
+    <th>الموقف</th>
+    <th>عمل الإمام</th>
+    <th>عمل المأمومين</th>
+  </tr>
+  <tr>
+    <td><b>١</b></td>
+    <td>ترك الفاتحة وتذكّر في الركوع</td>
+    <td>يرجع إلى القيام ويقرأ الفاتحة ثمّ يركع</td>
+    <td>يبقون في حال الركوع ينتظرونه</td>
+  </tr>
+  <tr>
+    <td><b>٢</b></td>
+    <td>ترك الركوع وتذكّر في السجود</td>
+    <td>يعود إلى القيام ثمّ يركع</td>
+    <td>يبقون في حال السجود ينتظرونه</td>
+  </tr>
+  <tr>
+    <td><b>٣</b></td>
+    <td>ترك الفاتحة وتذكّر جالساً بين السجدتين</td>
+    <td>يعود إلى القيام ويقرأ الفاتحة</td>
+    <td><b>الأفضل أن يسجدوا وينتظروه في السجود</b> — حتى لا يطول الركن القصير</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">علة انتظار المأمومين في السجود (المثال الثالث)</span>
+  <p>الجلوس بين السجدتين ركن قصير، وإذا طال عن المقدار المعتبر تبطل الصلاة. فلا ينتظرونه في الجلوس بين السجدتين بل ينتظرونه في السجود.</p>
+</div>
+
+<h3 class="sub-title">الحالة الثانية: تذكّره بعد بلوغ مثله</h3>
+
+<p>وإلا — أي وإن لم يتذكّر حتى وصل إلى مثله من الركعة التالية — <b>أجزأه عن متروكه ولغى ما بينهما</b>، ويأتي بركعة في آخر صلاته.</p>
+
+<div class="flow-row">
+  <div class="flow-box">ترك ركناً سهواً</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">لم يتذكّر حتى بلغ مثله</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-excused">لغى ما بينهما + أتى بركعة في آخر الصلاة</div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">حال المأمومين في هذه الحالة</span>
+  <p>ينتظرونه في التشهّد حتى يأتي بركعة ثمّ يُسلّمون معه. وإن أرادوا مفارقته نَوَوا المفارقة وسلّموا. وهذا يحتاج فقهاً — يحتاج أن يكون الذي يُصلّي خلفه قد درس فتح المعين حتى يعرف هذه المسائل.</p>
+</div>
+
+<!-- ===== 16. شك غير المأموم ===== -->
+<h2 class="section-title">١٦. شكّ غير المأموم في ركن</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>أو شكّ هو في ركن هل فعل أم لا؟ كأن شكّ راكعاً هل قرأ الفاتحة أو ساجداً هل ركع أو اعتدل؟ أتى به فوراً وجوباً</b></p>
+</div>
+
+<h3 class="sub-title">حكم الشكّ</h3>
+
+<p>إذا شكّ غير المأموم (الإمام أو المنفرد) في ركن هل فعله أم لا — كأن شكّ في حال الركوع هل قرأ الفاتحة، أو شكّ في حال السجود هل ركع أو اعتدل — فإنّه <b>يأتي بالركن المشكوك فيه فوراً وجوباً</b> دون تأخير.</p>
+
+<h3 class="sub-title">حالتا الشكّ</h3>
+
+<table>
+  <tr>
+    <th>الحالة</th>
+    <th>البيان</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td><b>الشكّ قبل فعل مثله</b></td>
+    <td>شكّ في الركن قبل أن يصل إلى مثله من الركعة الأخرى</td>
+    <td>يأتي به وبما بعده</td>
+  </tr>
+  <tr>
+    <td><b>الشكّ بعد فعل مثله</b></td>
+    <td>لم يتذكّر حتى فعل مثله في ركعة أخرى</td>
+    <td>أجزأه عن متروكه ولغى ما بينهما</td>
+  </tr>
+</table>
+
+<div class="key-rule">
+  القاعدة في السهو والشكّ لغير المأموم:<br>
+  إن علم عين المتروك ومحله:<br>
+  · قبل بلوغ مثله ← يأتي به وبما بعده<br>
+  · بعد بلوغ مثله ← أجزأه ولغى ما بينهما + يأتي بركعة آخر الصلاة
+</div>
+
+<!-- ===== 17. جهل الركن المتروك ===== -->
+<h2 class="section-title">١٧. جهل الركن المتروك: الحالات الثلاث</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>هذا كلّه إن علم عين المتروك ومحله، فإن جهل عينه:</b></p>
+</div>
+
+<p>ما تقدّم من التفصيل كلّه في حالة ما إذا عُلم عين الركن المتروك ومحلّه. أمّا إذا ترك ركناً لكن لا يدري ما هو هذا الركن — هل ترك النية أم تكبيرة الإحرام أم الفاتحة أم السلام... — فهنا ثلاث حالات:</p>
+
+<h3 class="sub-title">الحالة الأولى: يحتمل أنّه النية أو تكبيرة الإحرام</h3>
+
+<div class="exception-box">
+  <span class="box-label label-exc">حالة ١</span>
+  <p><b>وجوّز أنّه النية أو تكبيرة الإحرام بطلت صلاته</b> — ولم يُشترط هنا طول فصل ولا مضي ركن. أي تبطل الصلاة فوراً لأنّ النية وتكبيرة الإحرام من أركان الافتتاح.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">فرق بين مسألتين</span>
+  <p><b>المسألة الأولى:</b> شكّ هل نوى نية معتبرة أم لا — هذه تبطل إذا طال الفصل. <b>المسألة الثانية (محلّ درسنا):</b> ترك ركناً وشكّ هل هو النية أم تكبيرة الإحرام أم غيرهما — هذه تبطل مطلقاً بدون اشتراط طول فصل.</p>
+</div>
+
+<h3 class="sub-title">الحالة الثانية: يحتمل أنّه السلام</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">حالة ٢</span>
+  <p><b>أو جوّز أنّه السلام يُسلّم</b> — أي يأتي بالسلام ليتحلّل من صلاته، <b>حتى وإن طال الفصل</b> على الأوجه.</p>
+</div>
+
+<h3 class="sub-title">الحالة الثالثة: يحتمل أنّه غير النية وتكبيرة الإحرام والسلام</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">حالة ٣</span>
+  <p><b>أو جوّز أنّه غيرهما (غير النية وتكبيرة الإحرام والسلام)</b> — أخذ بالأسوأ والأقلّ والأحوط، وبنى على ما فعله وتدارك الباقي من صلاته.</p>
+</div>
+
+<div class="tree-container">
+  <div class="tree-root">جهل الركن المتروك</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #fef2f2; border: 1px solid #fca5a5;">
+      <div class="tree-branch-num">يحتمل النية أو تكبيرة الإحرام</div>
+      <div class="tree-branch-label"><b>تبطل الصلاة</b><br>مطلقاً بدون اشتراط طول فصل</div>
+    </div>
+    <div class="tree-branch" style="background: #fefce8; border: 1px solid #fde68a;">
+      <div class="tree-branch-num">يحتمل السلام</div>
+      <div class="tree-branch-label"><b>يُسلّم</b><br>حتى وإن طال الفصل</div>
+    </div>
+    <div class="tree-branch" style="background: #f0f9ff; border: 1px solid #bae6fd;">
+      <div class="tree-branch-num">يحتمل غيرهما</div>
+      <div class="tree-branch-label"><b>يأخذ بالأسوأ</b><br>ويبني على ما فعله<br>ويتدارك الباقي</div>
+    </div>
+  </div>
+</div>
+
+<div class="key-rule">
+  ملخص الحالات الثلاث عند جهل الركن المتروك:<br>
+  ١. يحتمل النية/تكبيرة الإحرام ← تبطل مطلقاً<br>
+  ٢. يحتمل السلام ← يُسلّم ولو طال الفصل<br>
+  ٣. يحتمل غيرهما ← يأخذ بالأسوأ ويتدارك
+</div>
+
+<!-- ===== 18. المثل من الصلاة ===== -->
+<h2 class="section-title">١٨. مسألة: المثل من الصلاة وغيرها</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>نعم، إن لم يكن المثل من الصلاة كسجود تلاوة لم يُجزئه</b></p>
+</div>
+
+<h3 class="sub-title">بيان المسألة بالأمثلة</h3>
+
+<p>معنى «المثل» هو الركن الذي قام مقام الركن المتروك. وهنا فرق دقيق بين ما هو من الصلاة وما ليس منها:</p>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">مثال ١: سجود التلاوة</div>
+    <div class="compare-card-body">صلّى الركعة الأولى وسجد سجدة واحدة ثمّ قام. وفي الركعة الثانية قرأ سورة العلق ووصل إلى سجدة التلاوة فسجدها.<br><b>سجود التلاوة لا يقوم مقام سجود الركن</b><br>لأنّ سجود التلاوة ليس من الصلاة</div>
+  </div>
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">مثال ٢: جلسة الاستراحة</div>
+    <div class="compare-card-body">سجد السجدة الأولى ثمّ جلس جلسة الاستراحة وقام للثانية دون أن يسجد السجدة الثانية. تذكّر وهو قائم.<br><b>جلوس الاستراحة يقوم مقام الجلوس بين السجدتين</b><br>لأنّ جلسة الاستراحة جزء من الصلاة</div>
+  </div>
+</div>
+
+<h3 class="sub-title">العلة في التفريق</h3>
+
+<div class="key-rule">
+  الفرق بين المثالين:<br>
+  سجود التلاوة <b>ليس جزءاً من الصلاة</b> ← فلا يقوم مقام الركن<br>
+  جلسة الاستراحة <b>جزء من الصلاة</b> ← فتقوم مقام الفرض<br>
+  وإن كانت مستحبّة فهي من الصلاة فتُغني عن الجلوس بين السجدتين
+</div>
+
+<!-- ===== 19. سهو المأموم ===== -->
+<h2 class="section-title">١٩. سهو المأموم وشكّه في قراءة الفاتحة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>أمّا مأموم عَمَد أو شكّ قبل ركوعه</b> — المأموم تابع لإمامه، وله أحكام خاصّة في السهو والشكّ.</p>
+</div>
+
+<h3 class="sub-title">ثلاث حالات لشكّ المأموم في قراءة الفاتحة</h3>
+
+<table>
+  <tr>
+    <th>الحالة</th>
+    <th>الموقف</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td><b>الأولى</b></td>
+    <td>شكّ في قراءة الفاتحة وهو لا يزال قائماً</td>
+    <td><span class="highlight-green">يقرأ الفاتحة مرة ثانية</span> — لأنّ الأصل أنّه لم يقرأ</td>
+  </tr>
+  <tr>
+    <td><b>الثانية</b></td>
+    <td>شكّ بعد ركوع الإمام وقبل ركوع المأموم</td>
+    <td><span class="highlight-gold">يقرأ الفاتحة ويعذر في التخلف إلى ثلاثة أركان طويلة</span> — حتى لو اعتدل الإمام أو سجد</td>
+  </tr>
+  <tr>
+    <td><b>الثالثة</b></td>
+    <td>شكّ بعد أن ركع مع الإمام (ركعاً وهو راكع)</td>
+    <td><span class="highlight-red">يأتي بركعة بعد سلام الإمام</span></td>
+  </tr>
+</table>
+
+<div class="flow-row">
+  <div class="flow-box">شكّ المأموم في الفاتحة</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">لا يزال قائماً</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-pure">يقرأ الفاتحة</div>
+</div>
+
+<div class="flow-row">
+  <div class="flow-box">شكّ المأموم في الفاتحة</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">بعد ركوع الإمام وقبل ركوعه</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-excused">يقرأ ويعذر إلى ٣ أركان طويلة</div>
+</div>
+
+<div class="flow-row">
+  <div class="flow-box">شكّ المأموم في الفاتحة</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">بعد أن ركع مع الإمام</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-impure">يأتي بركعة بعد السلام</div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه على الإعذار بالتخلّف</span>
+  <p>في الحالة الثانية يعذر المأموم في التخلّف عن الإمام إلى ثلاثة أركان طويلة لأنّ التخلّف بسبب عذر — وهو الشكّ في قراءة الفاتحة. فحتى لو اعتدل الإمام أو سجد الإمام، يقرأ المأموم الفاتحة.</p>
+</div>
+
+<h3 class="sub-title">ترجيح: المأموم تابع لإمامه</h3>
+
+<div class="key-rule">
+  القاعدة الأساسية في المأموم:<br>
+  المأموم تابع لإمامه في السهو<br>
+  لكن له أحكام خاصّة في مسألة الفاتحة كما تقدّم<br>
+  يحتاج المأموم أن يدرس فقه الصلاة ليعرف أحكام السهو
+</div>
+
+<!-- ===== FOOTER ===== -->
+<div style="text-align:center; margin-top:20px; padding:10px; border-top:2px solid #0d7c3e; font-size:11px; color:#666;">
+  شرح فتح المعين — الدرس السابع والأربعون — د. لبيب نجيب عبدالله — تنسيق: أحمد بن إرشاد
+</div>
+
+</body>
+</html>

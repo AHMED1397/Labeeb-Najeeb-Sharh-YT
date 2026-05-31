@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf') format('truetype'); font-weight: normal; }
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf') format('truetype'); font-weight: bold; }
+@font-face { font-family: 'NotoNaskh'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf') format('truetype'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+
+body {
+  font-family: 'NotoNaskh', 'Amiri', serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #1a1a2e;
+  direction: rtl;
+  background: #fff;
+  text-align: justify;
+}
+
+.cover-page {
+  width: 100%; min-height: 100vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  background: linear-gradient(135deg, #0d4a2e, #0a5c2e, #0d7c3e, #1a8f4e, #2ea06e);
+  text-align: center; color: white; padding: 40px 20px;
+}
+.cover-page .gold-line {
+  background: linear-gradient(90deg, #c8a951, #e8c84a, #c8a951);
+  height: 6px; width: 80%; border-radius: 3px; margin-bottom: 30px;
+}
+.cover-page h1 { font-family: 'Amiri', serif; font-size: 28pt; color: white; margin: 10px 0; border: none; }
+.cover-page .subtitle { font-size: 16pt; color: #c8a951; margin: 8px 0; }
+.cover-page .topic-box {
+  background: rgba(255,255,255,0.15); border-radius: 12px; padding: 12px 30px; margin: 15px 0;
+}
+.cover-page .topic-title { font-size: 20pt; font-family: 'Amiri', serif; font-weight: bold; }
+.cover-page .lecturer { font-size: 14pt; color: #a8e6c3; margin: 10px 0; }
+.cover-page .creator { font-size: 12pt; color: rgba(255,255,255,0.8); margin-top: 5px; }
+
+.toc {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 0 0 12px 0;
+}
+.toc-title {
+  font-family: 'Amiri', serif;
+  font-size: 14pt;
+  color: #1a5632;
+  text-align: center;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #c8a951;
+  padding-bottom: 4px;
+}
+.toc-item {
+  font-size: 10pt;
+  padding: 2px 0;
+  border-bottom: 1px dotted #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+h2.section-title {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0d7c3e;
+  border-bottom: 2px solid #0d7c3e;
+  padding-bottom: 5px;
+  margin: 18px 0 10px;
+}
+
+h3.sub-title {
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: #0a5c2e;
+  margin: 14px 0 8px;
+  padding-right: 10px;
+  border-right: 4px solid #0d7c3e;
+}
+
+h4.minor-title {
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #166534;
+  margin: 10px 0 6px;
+}
+
+p { margin: 5px 0; text-align: justify; }
+
+.definition-box {
+  background: #f0fdf4; border: 1px solid #bbf7d0; border-right: 4px solid #0d7c3e;
+  padding: 10px 14px; margin: 10px 0; border-radius: 6px;
+}
+
+.rule-box {
+  background: #fefce8; border: 1px solid #fde68a; border-right: 4px solid #d97706;
+  padding: 10px 14px; margin: 10px 0; border-radius: 6px;
+}
+
+.exception-box {
+  background: #fff7ed; border: 1px solid #fed7aa; border-right: 4px solid #ea580c;
+  padding: 10px 14px; margin: 10px 0; border-radius: 6px;
+}
+
+.evidence-box {
+  background: #eff6ff; border: 1px solid #bfdbfe; border-right: 4px solid #2563eb;
+  padding: 10px 14px; margin: 10px 0; border-radius: 6px;
+}
+
+.issue-box {
+  background: #fdf2f8; border: 1px solid #fbcfe8; border-right: 4px solid #db2777;
+  padding: 10px 14px; margin: 10px 0; border-radius: 6px;
+}
+
+.comparison-box {
+  background: #f5f3ff; border: 1px solid #ddd6fe; border-right: 4px solid #7c3aed;
+  padding: 10px 14px; margin: 10px 0; border-radius: 6px;
+}
+
+.note-box {
+  background: #f0f9ff; border: 1px solid #bae6fd; border-right: 4px solid #0284c7;
+  padding: 10px 14px; margin: 10px 0; border-radius: 6px;
+}
+
+.poetry-box {
+  background: #faf5ff; border: 1px solid #e9d5ff; border-right: 4px solid #9333ea;
+  padding: 10px 14px; margin: 10px 0; border-radius: 6px;
+  text-align: center; font-family: 'Amiri', serif; font-size: 15px; line-height: 2.2;
+}
+
+.key-rule {
+  background: #dcfce7; border: 2px solid #16a34a;
+  padding: 10px 14px; margin: 10px 0; border-radius: 8px;
+  text-align: center; font-weight: bold; font-size: 15px;
+}
+
+.box-label {
+  font-family: 'Amiri', serif; font-weight: bold; font-size: 13px;
+  margin-bottom: 4px; display: inline-block; padding: 1px 8px;
+  border-radius: 4px; color: #fff;
+}
+
+.label-def { background: #0d7c3e; }
+.label-rule { background: #d97706; }
+.label-exc { background: #ea580c; }
+.label-ev { background: #2563eb; }
+.label-issue { background: #db2777; }
+.label-comp { background: #7c3aed; }
+.label-note { background: #0284c7; }
+
+table {
+  width: 100%; border-collapse: collapse; margin: 10px 0;
+  font-size: 13px; table-layout: fixed;
+}
+th {
+  background: #0d7c3e; color: #fff; padding: 6px 8px;
+  font-family: 'Amiri', serif; font-weight: bold; text-align: center;
+}
+td { padding: 5px 8px; border: 1px solid #d1d5db; text-align: center; vertical-align: top; }
+tr:nth-child(even) { background: #f0fdf4; }
+tr:nth-child(odd) { background: #fff; }
+
+.tree-container { margin: 12px 0; text-align: center; }
+.tree-root {
+  display: inline-block; background: linear-gradient(135deg, #0d7c3e, #0a5c2e);
+  color: #fff; padding: 6px 18px; border-radius: 8px;
+  font-family: 'Amiri', serif; font-weight: bold; font-size: 15px;
+}
+.tree-branches { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px; }
+.tree-branch {
+  background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px;
+  padding: 6px 12px; min-width: 80px; text-align: center;
+}
+.tree-branch-num { font-family: 'Amiri', serif; font-weight: bold; color: #0d7c3e; font-size: 14px; }
+.tree-branch-label { font-size: 12px; color: #374151; }
+
+.compare-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.compare-card { flex: 1; min-width: 140px; border-radius: 8px; padding: 8px 10px; text-align: center; }
+.compare-card-green { background: #dcfce7; border: 1px solid #86efac; }
+.compare-card-red { background: #fef2f2; border: 1px solid #fca5a5; }
+.compare-card-gold { background: #fefce8; border: 1px solid #fde68a; }
+.compare-card-blue { background: #eff6ff; border: 1px solid #bfdbfe; }
+.compare-card-title { font-family: 'Amiri', serif; font-weight: bold; font-size: 14px; margin-bottom: 4px; }
+.compare-card-body { font-size: 12px; }
+
+.flow-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px; margin: 8px 0; }
+.flow-box { background: #0d7c3e; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-family: 'Amiri', serif; font-weight: bold; text-align: center; }
+.flow-arrow { font-size: 16px; color: #0d7c3e; font-weight: bold; }
+.flow-result { padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; text-align: center; }
+.flow-pure { background: #dcfce7; border: 1px solid #86efac; color: #166534; }
+.flow-impure { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+.flow-excused { background: #fefce8; border: 1px solid #fde68a; color: #92400e; }
+
+.highlight-green { background: #dcfce7; padding: 1px 4px; border-radius: 3px; }
+.highlight-gold { background: #fefce8; padding: 1px 4px; border-radius: 3px; }
+.highlight-red { background: #fef2f2; padding: 1px 4px; border-radius: 3px; }
+
+.verse-ref { font-family: 'Amiri', serif; font-size: 14px; color: #1e40af; text-align: center; margin: 6px 0; }
+.hadith-ref { font-family: 'Amiri', serif; font-size: 13px; color: #166534; text-align: center; margin: 6px 0; }
+
+.condition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.condition-item { border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.condition-num {
+  display: inline-block; background: #0d7c3e; color: #fff; min-width: 24px; height: 24px;
+  border-radius: 50%; text-align: center; line-height: 24px; font-family: 'Amiri', serif;
+  font-weight: bold; font-size: 12px; margin-left: 6px;
+}
+
+ul { margin: 4px 0; padding-right: 20px; }
+li { margin: 2px 0; }
+
+.page-break { page-break-before: always; }
+</style>
+</head>
+<body>
+
+<!-- ===== FULL-PAGE COVER (NEW LESSON) ===== -->
+<div class="cover-page">
+  <div class="gold-line"></div>
+  <h1>شرح فتح المعين</h1>
+  <div class="subtitle">للعلامة الفقيه المليباري</div>
+  <div class="topic-box">
+    <div class="topic-title">الدرس الثامن والثلاثون — قراءة الفاتحة: أحكامها وشروطها</div>
+  </div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="creator">تنسيق: أحمد بن إرشاد</div>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. مراجعة: ركعة المسبوق وتحمّل الإمام الفاتحة</span></div>
+  <div class="toc-item"><span>٢. قراءة الفاتحة مع البسملة — البسملة آية من الفاتحة</span></div>
+  <div class="toc-item"><span>٣. البسملة آية من كلّ سورة غير براءة</span></div>
+  <div class="toc-item"><span>٤. البسملة في سورة براءة — خلاف ابن حجر والرملي</span></div>
+  <div class="toc-item"><span>٥. التجديدات في الفاتحة — عددها وأحكامها</span></div>
+  <div class="toc-item"><span>٦. عدد حروف الفاتحة وكلماتها</span></div>
+  <div class="toc-item"><span>٧. الحروف غير الموجودة في الفاتحة</span></div>
+  <div class="toc-item"><span>٨. مراعاة مخارج الحروف وإبدالها</span></div>
+  <div class="toc-item"><span>٩. اللحن في القراءة: أنواعه وأحكامه</span></div>
+  <div class="toc-item"><span>١٠. الأحكام التفصيلية للّحن المغيّر للمعنى</span></div>
+  <div class="toc-item"><span>١١. خلاف المتقدّمين والمتأخّرين: الهمد لله والقاف</span></div>
+  <div class="toc-item"><span>١٢. تخفيف المشدّد وتشديد المخفّف</span></div>
+  <div class="toc-item"><span>١٣. تخفيف إيّاك — مسألة الكفر</span></div>
+  <div class="toc-item"><span>١٤. الوقفة اللطيفة بين السين والتاء من نستعين</span></div>
+  <div class="toc-item"><span>١٥. الموالاة في الفاتحة — ما يقطعها وما لا يقطعها</span></div>
+</div>
+
+<!-- ===== 1. مراجعة: ركعة المسبوق ===== -->
+<h2 class="section-title">١. مراجعة: ركعة المسبوق وتحمّل الإمام الفاتحة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">مراجعة — نصّ المصنّف</span>
+  <p><b>ورابعها قراءة فاتحة كلّ ركعة في قيامها</b> — أي رابع أركان الصلاة قراءة الفاتحة في كلّ ركعة في قيامها. وقوله «في كلّ ركعة» أي من صلاة سرّيّة أو جهريّة، صلاة مفروضة أو نافلة، صلاة إمام أو مأموم أو منفرد.</p>
+</div>
+
+<h3 class="sub-title">ركعة المسبوق</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">تعريف</span>
+  <p><b>المسبوق</b> هو من لم يدرك مع الإمام زمناً يتّسع لقراءة الفاتحة. قال المصنّف: <b>«فلا تجب عليه فيها»</b> أي لا تجب عليه الفاتحة في الركعة التي لم يدرك فيها زمناً يسع الفاتحة من قيام الإمام، سواء كان في الركعة الأولى أو في غيرها.</p>
+</div>
+
+<h3 class="sub-title">شروط تحمّل الإمام الفاتحة عن المسبوق</h3>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">١</span>
+    <b>أن يكون الإمام متطهّراً</b> — فلو كان الإمام محدثاً لم يتحمّل عنه
+  </div>
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">٢</span>
+    <b>أن تكون الركعة ليست زائدة</b> — فلو صلّى الإمام ركعة زائدة لم يتحمّل
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">تفصيل</span>
+  <p>لو تأخّر مسبوق لم يشتغل بسنّة — كدعاء الافتتاح — لإتمام الفاتحة، فلم يدرك الإمام إلا وهو معتدل، <b>غُلبت ركعته</b>. وحينئذ لا يركع بل يدخل مباشرة مع الإمام في الاعتدال ويأتي بركعة في آخر الصلاة.</p>
+</div>
+
+<!-- ===== 2. قراءة الفاتحة مع البسملة ===== -->
+<h2 class="section-title">٢. قراءة الفاتحة مع البسملة — البسملة آية من الفاتحة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«مع بسملة»</b> أي مع قراءة البسملة، <b>«فإنّها آية منها»</b> أي البسملة آية من الفاتحة. لأنّه صلّى الله عليه وسلّم قرأها ثمّ الفاتحة، أي قرأ البسملة ثمّ قرأ الفاتحة، وعدّها آية منها.</p>
+</div>
+
+<div class="key-rule">
+  مذهب فقهاء الشافعية: البسملة آية من الفاتحة وآية من كلّ سورة<br>
+  وهو الأصل المعتدّ عند الشافعية
+</div>
+
+<h3 class="sub-title">ثبوت البسملة: عملي حكمي لا اعتقادي</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">تفصيل مهمّ</span>
+  <p>ثبوت البسملة آية من الفاتحة <b>ثبوت حكميّ عمليّ</b> وليس ثبوتاً اعتقاديّاً. فمن نفاها وقال إنّ البسملة ليست آية <b>لا يكفر</b> بذلك. لكنّ ثبوتها العمليّ يعني أنّ من لم يقرأ البسملة في الفاتحة <b>لا تصحّ صلاته</b> عند الشافعية.</p>
+</div>
+
+<div class="issue-box">
+  <span class="box-label label-issue">مسألة: الصلاة خلف من لا يقرأ البسملة</span>
+  <p>لا تصحّ الصلاة خلف رجل لا يقرأ بسم الله الرحمن الرحيم، لأنّنا نعتقد أنّ صلاته لا تصحّ. فهذا من ثمرات القول بأنّ البسملة آية من الفاتحة.</p>
+</div>
+
+<!-- ===== 3. البسملة آية من كل سورة ===== -->
+<h2 class="section-title">٣. البسملة آية من كلّ سورة غير براءة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«وكذا من كلّ سورة غير براءة»</b> — أي أنّ البسملة آية من كلّ سورة غير سورة براءة. فلذلك لا تحصل سنّيّة قراءة السورة كاملة إلا إذا قرأ البسملة.</p>
+</div>
+
+<h3 class="sub-title">ثلاثة أقوال في البسملة</h3>
+
+<table>
+  <tr>
+    <th>القول</th>
+    <th>البيان</th>
+    <th>القائل</th>
+  </tr>
+  <tr>
+    <td><b>الأوّل (المعتدّ)</b></td>
+    <td>البسملة آية من الفاتحة ومن كلّ سورة</td>
+    <td><span class="highlight-green">فقهاء الشافعية</span></td>
+  </tr>
+  <tr>
+    <td><b>الثاني</b></td>
+    <td>البسملة آية من الفاتحة فقط وليست آية من غيرها</td>
+    <td><span class="highlight-gold">رأي في المذهب الشافعي</span></td>
+  </tr>
+  <tr>
+    <td><b>الثالث</b></td>
+    <td>البسملة ليست آية لا من الفاتحة ولا من غيرها</td>
+    <td><span class="highlight-red">فقهاء خارج المذهب</span></td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">مثال تطبيقي</span>
+  <p>لو قرأ سورة الكوثر: <i>«إنّا أعطيناك الكوثر فصلّ لربّك وانحر إنّ شانئك هو الأبتر»</i> ولم يقرأ البسملة — <b>لا يكون قد قرأ السورة</b> لأنّ البسملة آية منها. وعليه فإنّ عدد الآيات في سورة الكوثر <b>أربع آيات</b> لا ثلاث.</p>
+</div>
+
+<!-- ===== 4. البسملة في سورة براءة ===== -->
+<h2 class="section-title">٤. البسملة في سورة براءة — خلاف ابن حجر والرملي</h2>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف بين العلاّمة ابن حجر والرملي</span>
+  <p>سورة براءة ليست البسملة في أوّلها، ووقع خلاف بين العلاّمة ابن حجر والرملي في حكم الإتيان بالبسملة فيها:</p>
+</div>
+
+<table>
+  <tr>
+    <th>الموضع</th>
+    <th>ابن حجر (المعتمد)</th>
+    <th>الرملي</th>
+  </tr>
+  <tr>
+    <td><b>في أوّل سورة براءة</b></td>
+    <td><span class="highlight-red">محرّمة</span></td>
+    <td><span class="highlight-gold">مكروهة</span></td>
+  </tr>
+  <tr>
+    <td><b>في أثناء سورة براءة</b></td>
+    <td><span class="highlight-gold">مكروهة</span></td>
+    <td><span class="highlight-green">مسنونة</span></td>
+  </tr>
+</table>
+
+<div class="key-rule">
+  إذا تقرّر أنّ البسملة في أثناء سورة براءة مسنونة عند الرملي<br>
+  يُفهم أنّ البسملة في أثناء <b>كلّ سورة</b> من القرآن مسنونة<br>
+  وهذا ما يذهب إليه الشافعية: يُسنّ الإتيان بالاستعاذة والبسملة<br>
+  حتى لو قرأ من أثناء السورة — ولا يقتصر على التعوّذ فقط
+</div>
+
+<!-- ===== 5. التجديدات في الفاتحة ===== -->
+<h2 class="section-title">٥. التجديدات في الفاتحة — عددها وأحكامها</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«ومع تجديدات فيها وهي أربع عشرة»</b> — أي يأتي بالفاتحة مع التجديدات وعددها أربع عشرة تجديدة. لأنّ الحرف المشدّد بحرفين، فإذا خفّف حرفاً مشدّداً بطل منها حرف، وتبطل صلاته إن غيّر المعنى وعلم وتعمّد.</p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">معنى التجديدة</span>
+  <p>التجديدة هي الحرف المشدّد الذي يُعدّ بحرفين. فإذا خفّفه القارئ بطل منه حرف. وعدد التجديدات في الفاتحة <b>أربع عشرة</b> تجديدة.</p>
+</div>
+
+<div class="exception-box">
+  <span class="box-label label-exc">مثال: تخفيف إيّاك</span>
+  <p>لو قرأ <b>«إيّاك»</b> بالتخفيف فقال <b>«إياك»</b> — فمعناها «ضوء الشمس»، فكأنّه يقول: نعبد ضوء الشمس. هذا يُغيّر المعنى كثيراً لأنّه خفّف حرفاً مشدّداً. فإذا تعمّد وعلم بطلت صلاته.</p>
+</div>
+
+<!-- ===== 6. عدد حروف الفاتحة وكلماتها ===== -->
+<h2 class="section-title">٦. عدد حروف الفاتحة وكلماتها</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«ومع رعاية حروف فيها وهي على قراءة ملكي بلا ألف مئة وواحد وأربعون حرفاً»</b> أي أنّ عدد حروف الفاتحة على قراءة <b>«ملكي»</b> (بلا ألف) <b>١٤١ حرفاً</b>.</p>
+</div>
+
+<table>
+  <tr>
+    <th>القراءة</th>
+    <th>عدد الحروف بدون تجديدات</th>
+    <th>عدد الحروف مع التجديدات</th>
+  </tr>
+  <tr>
+    <td><b>ملك يوم الدين</b> (بلا ألف)</td>
+    <td><span class="highlight-green">١٤١ حرفاً</span></td>
+    <td><span class="highlight-green">١٥٥ حرفاً</span></td>
+  </tr>
+  <tr>
+    <td><b>مالك يوم الدين</b> (بألف)</td>
+    <td><span class="highlight-gold">١٤٢ حرفاً</span></td>
+    <td><span class="highlight-gold">١٥٦ حرفاً</span></td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">تفصيل القراءتين</span>
+  <p>في الفاتحة جاءت القراءتان: <b>«ملك يوم الدين»</b> و<b>«مالك يوم الدين»</b>. أمّا في سورة الناس فجاءت قراءة <b>«مالك الناس»</b> فقط، لا يوجد في سورة الناس قراءة أخرى.</p>
+  <p>عدد كلمات الفاتحة: <b>٢٩ كلمة</b>.</p>
+</div>
+
+<!-- ===== 7. الحروف غير الموجودة في الفاتحة ===== -->
+<h2 class="section-title">٧. الحروف غير الموجودة في الفاتحة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">مسألة مهمّة</span>
+  <p>ليس جميع الحروف العربيّة موجودة في الفاتحة — بل هناك <b>سبعة أحرف</b> غير موجودة فيها. والحروف التي تكونت منها كلمات الفاتحة تُسمّى <b>«أيام الفاتحة»</b> وعددها <b>٢٢ حرفاً</b> (الباقي من أصل ٢٩).</p>
+</div>
+
+<div class="tree-container">
+  <div class="tree-root">حروف الفاتحة (٢٩ حرفاً عربيّاً)</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">موجودة (٢٢)</div>
+      <div class="tree-branch-label">أيام الفاتحة<br>الحروف الموجودة في الفاتحة</div>
+    </div>
+    <div class="tree-branch" style="background: #fef2f2; border-color: #fca5a5;">
+      <div class="tree-branch-num">غير موجودة (٧)</div>
+      <div class="tree-branch-label">ثاء · جيم · خاء<br>زاي · شين · ضاد · فاء</div>
+    </div>
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">وسيلة حفظ الحروف السبعة</span>
+  <p>يُمكن حفظ الحروف السبعة غير الموجودة في الفاتحة بالعبارة: <b>«ثجّ وخزّ وشضفاء»</b> — أي:</p>
+  <ul>
+    <li><b>ثجّ</b>: ثاء وجيم</li>
+    <li><b>خزّ</b>: خاء وزاي (والخزّ هو الحرير)</li>
+    <li><b>شضفاء</b>: شين وضاد وفاء (والشضفاء: ضاق العيش)</li>
+  </ul>
+</div>
+
+<!-- ===== 8. مراعاة مخارج الحروف ===== -->
+<h2 class="section-title">٨. مراعاة مخارج الحروف وإبدالها</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«ومخارجها أي الحروف كمخرج ضاد وغيرها»</b> — أي لا بدّ من إخراج الحروف من مخارجها. فلو أبدل <b>قادر</b> أو <b>من أمكنه التعلّم</b> حرفاً بآخر، ولو ضاداً بضاء، أو لحن لحناً يُغيّر المعنى — ترتبت عليه أحكام.</p>
+</div>
+
+<h3 class="sub-title">مخرج الضاد والضاء</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">التفرقة بين الضاد والضاء</span>
+  <p><b>مخرج الضاد</b>: حافة اللسان مع الأضراس. ومن صفاته الاستطالة.</p>
+  <p><b>مخرج الضاء</b>: طرف اللسان مع أطراف الثنايا.</p>
+  <p>فالمخرج يختلف، والاستطالة صفة في الضاد غير موجودة في الضاء. وهذان الحرفان لعسر التمييز بينهما نصّ عليهما الفقهاء.</p>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف في إبدال الضاد بالضاء</span>
+  <p><b>الأصحّ</b> عند الشافعية: لا تصحّ قراءة من أبدل واحداً منهما بالآخر.</p>
+  <p><b>الصحيح</b> (الرأي المقابل): يُعفى في حقّ من لم يستطع التمييز بينهما. واختار هذا فخر الدين الرازي، وقرّره الحافظ ابن كثير في تفسيره، واختاره بعض فقهاء اليمن كعبد الله بن سعد اليافعي.</p>
+</div>
+
+<h3 class="sub-title">أمثلة على إبدال الحروف</h3>
+
+<table>
+  <tr>
+    <th>الإبدال</th>
+    <th>المثال</th>
+    <th>الملاحظة</th>
+  </tr>
+  <tr>
+    <td>الذال → زاي</td>
+    <td>«الذين» يقرؤها «الزين»</td>
+    <td>يكثر في لسان بعض المصريّين</td>
+  </tr>
+  <tr>
+    <td>الغين → قاف</td>
+    <td>نطق الغين قافاً</td>
+    <td>موجود في بعض الأعاجم</td>
+  </tr>
+  <tr>
+    <td>الحاء → هاء</td>
+    <td>«الحمد لله» يقرؤها «الهمد لله»</td>
+    <td>موجود عند بعض الأمم</td>
+  </tr>
+</table>
+
+<!-- ===== 9. اللحن في القراءة ===== -->
+<h2 class="section-title">٩. اللحن في القراءة: أنواعه وأحكامه</h2>
+
+<div class="definition-box">
+  <span class="box-label label-def">تعريف اللحن</span>
+  <p>اللحن هو الخطأ في قراءة القرآن، وهو ينقسم إلى قسمين:</p>
+</div>
+
+<div class="tree-container">
+  <div class="tree-root">اللحن في الصلاة</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">لا يُغيّر المعنى</div>
+      <div class="tree-branch-label">مثال: فتح دال «نعبد»<br>أو ضمّ كاف «إيّاك»<br><b>لا تبطل الصلاة مطلقاً</b><br>ولو علم وتعمّد</div>
+    </div>
+    <div class="tree-branch" style="background: #fef2f2; border-color: #fca5a5;">
+      <div class="tree-branch-num">يُغيّر المعنى</div>
+      <div class="tree-branch-label">مثال: كسر تاء «أنعمت»<br>أو ضمّها<br><b>تفصيل الأحكام يأتي</b></div>
+    </div>
+  </div>
+</div>
+
+<h3 class="sub-title">القسم الأوّل: اللحن الذي لا يُغيّر المعنى</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«وكذا لاحن لحناً لا يغير المعنى كفتح دال نعبد»</b> — أي ومثل العاجز الذي لا تبطل قراءته، اللاحن لحناً لا يُغيّر المعنى. فلا تبطل الصلاة حتّى لو كان قادراً عالماً بالتحريم متعمّداً. <b>الصلاة تصحّ</b>.</p>
+</div>
+
+<h3 class="sub-title">الحكم التكليفي والوضعي</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">الفرق بين الحكمين</span>
+  <p>يجب التفرقة بين الحكم <b>الوضعي</b> (صحّة الصلاة) والحكم <b>التكليفي</b> (حلال أو حرام):</p>
+  <ul>
+    <li><b>الحكم الوضعي</b>: الصلاة صحيحة</li>
+    <li><b>الحكم التكليفي</b>:
+      <ul>
+        <li>إن تعمّد → <span class="highlight-red">حرام</span> مع الصحّة</li>
+        <li>إن لم يتعمّد → <span class="highlight-gold">مكروه</span> (وهذا حكم استشكله بعض المحشّين إذ كيف يُوصف بالكراهة مع عدم التعمّد؟)</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="issue-box">
+  <span class="box-label label-issue">إشكال وردّ</span>
+  <p><b>الإشكال</b>: كيف يُحكم بالكراهة مع أنّه لم يتعمّد؟ الإنسان إذا فعل الشيء خطأً بغير عمد لا يوجد حكم — فكيف يوصف بالكراهة؟</p>
+  <p><b>الردّ</b>: بعض المحشّين عقب على المصنّف هنا فقال: «وحكمه بالكراهة مع عدم التعمّد محلّ نظر». لكن نتفق على أنّه إن تعمّد فحرام مع الصحّة.</p>
+</div>
+
+<!-- ===== 10. الأحكام التفصيلية للّحن المغيّر ===== -->
+<h2 class="section-title">١٠. الأحكام التفصيلية للّحن المغيّر للمعنى</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«فإن تعمّد ذلك وعلم تحريمه بطلت صلاته»</b> — أي إذا لحن لحناً يُغيّر المعنى وعلم وتعمّد، بطلت صلاته.</p>
+</div>
+
+<h3 class="sub-title">أمثلة اللحن المغيّر للمعنى</h3>
+
+<table>
+  <tr>
+    <th>المثال</th>
+    <th>الصواب</th>
+    <th>اللحن</th>
+    <th>التغيير</th>
+  </tr>
+  <tr>
+    <td><b>كسر تاء أنعمت</b></td>
+    <td>أنعمتَ (فتح)</td>
+    <td>أنعمتِ (كسر) أو أنعمتُ (ضم)</td>
+    <td>يُغيّر المعنى</td>
+  </tr>
+  <tr>
+    <td><b>كسر كاف إيّاك</b></td>
+    <td>إيّاكَ (فتح)</td>
+    <td>إيّاكِ (كسر)</td>
+    <td>يُغيّر المعنى</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه: ضمّ كاف إيّاك لا يُغيّر المعنى</span>
+  <p>أمّا ضمّ كاف «إيّاك» في قراءتها «إيّاكُ» فهذا <b>لا يُغيّر المعنى</b>، وبالتالي لا تبطل الصلاة. وهذا ما نصّ عليه المصنّف بقوله: <b>«وكسر كاف إيّاك لا ضمّها»</b>.</p>
+</div>
+
+<h3 class="sub-title">التصنيف الشامل لأحكام اللحن</h3>
+
+<table>
+  <tr>
+    <th>الحالة</th>
+    <th>الحكم الوضعي</th>
+    <th>التفصيل</th>
+  </tr>
+  <tr>
+    <td><b>لحن لا يُغيّر المعنى</b></td>
+    <td><span class="highlight-green">الصلاة صحيحة</span></td>
+    <td>ولو كان قادراً عالماً متعمّداً — لكن تعمّده حرام مع الصحّة</td>
+  </tr>
+  <tr>
+    <td><b>لحن يُغيّر المعنى + علم وتعمّد</b></td>
+    <td><span class="highlight-red">تبطل الصلاة</span></td>
+    <td>العلم بالتحريم والتعمّد</td>
+  </tr>
+  <tr>
+    <td><b>لحن يُغيّر المعنى + لم يعلم أو لم يتعمّد</b></td>
+    <td><span class="highlight-gold">تبطل قراءة تلك الكلمة</span></td>
+    <td>ثمّ ينظر: إن ركع ولم يُعدها عامداً بطلت صلاته، وإن أعادها فتفصيل</td>
+  </tr>
+  <tr>
+    <td><b>عاجز لم يمكنه التعلّم</b></td>
+    <td><span class="highlight-green">لا تبطل قراءته مطلقاً</span></td>
+    <td>سواء غيّر المعنى أو لم يُغيّره — لا تبطل مطلقاً</td>
+  </tr>
+</table>
+
+<h3 class="sub-title">تفصيل: إذا بطلت قراءة الكلمة</h3>
+
+<div class="flow-row">
+  <div class="flow-box">لحن مُغيّر + لم يعلم/لم يتعمّد</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box" style="background: #d97706;">بطلت قراءة الكلمة</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">هل أعادها؟</div>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">ركع ولم يُعد الكلمة عامداً</div>
+    <div class="compare-card-body"><b>تبطل الصلاة</b><br>لأنّه ركع ولم يصحّح<br>القراءة عامداً</div>
+  </div>
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">أعاد الكلمة على الصواب</div>
+    <div class="compare-card-body"><b>ينظر في الفصل</b><br>إن طال الفصل → يجب استئناف القراءة من أولها<br>إن لم يطل → يعيد الكلمة وما بعدها فقط</div>
+  </div>
+</div>
+
+<div class="key-rule">
+  القاعدة في إعادة الكلمة بعد اللحن المغيّر:<br>
+  <b>إن طال الفصل</b> بين اللحن والإعادة → وجب استئناف القراءة من أولها لاختلال الموالاة<br>
+  <b>وإن لم يطل الفصل</b> → أعاد تلك الكلمة وما بعدها فقط
+</div>
+
+<h3 class="sub-title">العاجز المقصّر</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">تعريف العاجز المقصّر</span>
+  <p><b>العاجز المقصّر</b> هو من أمكنه التعلّم فلم يتعلّم. أي كان يستطيع أن يتعلّم لكنّه لم يتعلّم — فهو عاجز لكنّه مقصّر في حقّ نفسه.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">حكم العاجز المقصّر</span>
+  <p>العاجز المقصّر له حكم القادر في تخفيف المشدّد. فلو خفّف مشدّداً كأن قرأ «الرّحمن» بفكّ الإدغام بطلت صلاته إن تعمّد وعلم، وإلا بطلت قراءة تلك الكلمة ثمّ التفصيل كما سبق.</p>
+</div>
+
+<!-- ===== 11. خلاف المتقدمين والمتأخرين ===== -->
+<h2 class="section-title">١١. خلاف المتقدّمين والمتأخّرين: الهمد لله والقاف</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«ووقع خلاف بين المتقدّمين والمتأخّرين في الهمد لله وفي النطق بالقاف المتردّد بينها وبين الكاف»</b> — هذه العبارة تشعر أنّ الخلاف قويّ في هذه المسائل.</p>
+</div>
+
+<h3 class="sub-title">المسألة الأولى: الهمد لله (إبدال الحاء هاء)</h3>
+
+<p>بعض الأمم يقرؤون <b>«الهمد لله»</b> بدلاً من <b>«الحمد لله»</b> — أي يُبدلون الحاء هاء. وهذا موجود خاصّة عند بعض الشيبان في بعض المساجد.</p>
+
+<h3 class="sub-title">المسألة الثانية: القاف المتردّدة</h3>
+
+<p>بعض النّاس ينطقون بالقاف متردّدة بين القاف والكاف — كلهجة أهل حضرموت الذين لا يقولون «قاف» وإنّما ينطقونها بين القاف والكاف.</p>
+
+<h3 class="sub-title">أقوال الفقهاء في المسألتين</h3>
+
+<table>
+  <tr>
+    <th>العالم</th>
+    <th>المسألة الأولى (الهمد لله)</th>
+    <th>المسألة الثانية (القاف المتردّدة)</th>
+  </tr>
+  <tr>
+    <td><b>ابن حجر (المعتمد)</b></td>
+    <td><span class="highlight-red">تبطل الصلاة</span></td>
+    <td><span class="highlight-red">تبطل الصلاة</span></td>
+  </tr>
+  <tr>
+    <td><b>شيخ الإسلام زكريا الأنصاري</b></td>
+    <td>—</td>
+    <td><span class="highlight-green">تصحّ الصلاة (مع كراهة)</span></td>
+  </tr>
+  <tr>
+    <td><b>الخطيب الشربيني والرملي</b></td>
+    <td>—</td>
+    <td><span class="highlight-green">تصحّ الصلاة (مع كراهة)</span> — تبعوا زكريا</td>
+  </tr>
+  <tr>
+    <td><b>القاضي حسين وابن الرفعة</b></td>
+    <td><span class="highlight-green">تصحّ الصلاة</span></td>
+    <td>—</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">علماء بارزون</span>
+  <p><b>القاضي حسين</b> (ت. نحو ٤٣٠ هـ): أحد كبار فقهاء الشافعية المتقدّمين.</p>
+  <p><b>ابن الرفعة</b> (ت. ٧١٠ هـ): فقيه ضليع في الفقه الشافعي، حتّى لمّا التقى به تقيّ الدين ابن تيمية قال: «رأيت رجلاً يُقطر من لحيته الفقه الشافعي».</p>
+</div>
+
+<div class="exception-box">
+  <span class="box-label label-exc">استثناء: تعذّر التعلّم</span>
+  <p>قال ابن حجر: تبطل الصلاة في المسألتين <b>«إلا أن تعذّر عليه التعلّم قبل خروج الوقت»</b> — أي إن عجز عن التعلّم وخرج الوقت فلا تبطل صلاته.</p>
+</div>
+
+<!-- ===== 12. تخفيف المشدد وتشديد المخفف ===== -->
+<h2 class="section-title">١٢. تخفيف المشدّد وتشديد المخفّف</h2>
+
+<h3 class="sub-title">تخفيف المشدّد</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«ولو خفّف قادر أو عاجز مقصّر مشدّداً كأن قرأ الرّحمن بفكّ الإدغام بطلت صلاته إن تعمّد وعلم، وإلا فقراءته لتلك الكلمة»</b> — أي لو خفّف حرفاً مشدّداً كأن قرأ «الرّحمن» بفكّ الإدغام، فإن كان قادراً أو عاجزاً مقصّراً:</p>
+  <ul>
+    <li>إن تعمّد وعلم بالتحريم → <span class="highlight-red">بطلت صلاته</span></li>
+    <li>وإلا (لم يعلم أو لم يتعمّد) → <span class="highlight-gold">بطلت قراءة تلك الكلمة</span> ثمّ التفصيل السابق</li>
+  </ul>
+</div>
+
+<h3 class="sub-title">تشديد المخفّف</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«ولو شدّد مخفّفاً صحّ»</b> — أي لو شدّد حرفاً مخفّفاً كأن قرأ «الحمد» فشدّد الميم: «الحمدّ» — <b>تصحّ الصلاة</b>. لأنّ غايته أنّه زاد حرفاً لكنّه لم ينقص.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">صلاة الوأواء والفأفاء</span>
+  <p>يقول الفقهاء: تصحّ صلاة <b>الوأواء</b> (الذي يزيد حرف الواو) و<b>الفأفاء</b> (الذي يزيد حرف الفاء) — لأنّ الزيادة لا تُبطل الصلاة.</p>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">مقارنة: تخفيف المشدّد مقابل تشديد المخفّف</span>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">تخفيف المشدّد</div>
+    <div class="compare-card-body">ينقص حرفاً من القرآن<br><b>قد يُبطل الصلاة</b><br>إن تعمّد وعلم: تبطل<br>وإلا: تبطل قراءة الكلمة</div>
+  </div>
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">تشديد المخفّف</div>
+    <div class="compare-card-body">يزيد حرفاً على القرآن<br><b>الصلاة صحيحة</b><br>لكن يحرم تعمّده<br>كما في اللحن غير المغيّر</div>
+  </div>
+</div>
+
+<div class="key-rule">
+  تشديد المخفّف: صحّة مع تحريم التعمّد<br>
+  وهو كاللحن الذي لا يُغيّر المعنى: الحكم الوضعي الصحّة، والحكم التكليفي الحرمة إن تعمّد
+</div>
+
+<!-- ===== 13. تخفيف إياك ===== -->
+<h2 class="section-title">١٣. تخفيف إيّاك — مسألة الكفر</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«ولو خفّف إيّاك عامداً عالماً معناه كفر»</b> — لأنّ معنى «إيّاك» بالتخفيف أي «إياك» أي <b>ضوء الشمس</b>، فكأنّه يقول: نعبد ضوء الشمس. فلو كان عالماً عامداً <b>يكفر</b>.</p>
+</div>
+
+<div class="exception-box">
+  <span class="box-label label-exc">إذا لم يكن عالماً أو لم يتعمّد</span>
+  <p><b>«وإلا»</b> أي وإن لم يكن عالماً أو لم يتعمّد — <b>سُجد للسهو</b>. لماذا؟ لأنّ عندنا قاعدة:</p>
+</div>
+
+<div class="key-rule">
+  القاعدة: ما كان عمدُه يُبطل الصلاة، فإن فُعل سهواً يُسنّ له سجود السهو<br>
+  <b>تخفيف إيّاك عمدُه يُبطل الصلاة بل يُبطل الإسلام</b><br>
+  فإذا قاله سهواً → يُسنّ له سجود السهو
+</div>
+
+<!-- ===== 14. الوقفة اللطيفة ===== -->
+<h2 class="section-title">١٤. الوقفة اللطيفة بين السين والتاء من نستعين</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«ويحرم تعمّده كوقفة لطيفة بين السين والتاء من نستعين»</b> — بعضهم يقرأ بطريقة الترتيل المبسوط فيقرأ: «وإيّاك نستعـ ـعين» فيقف وقفة بسيطة بعد السين وقبل التاء.</p>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">حكم الوقفة</span>
+  <p>هذه الوقفة حكمها <b>التحريم لكن مع صحّة الصلاة</b> — مثل المسألة السابقة (تشديد المخفّف). فكلاهما: الحكم الوضعي صحّة الصلاة، والحكم التكليفي حرمة التعمّد.</p>
+</div>
+
+<div class="poetry-box">
+  قال صاحب الزّبد:<br>
+  <b>ولا لسجوده وتأمينٍ</b><br>
+  <b>ولا سؤاله لمّا إمامه تلا</b>
+</div>
+
+<!-- ===== 15. الموالاة في الفاتحة ===== -->
+<h2 class="section-title">١٥. الموالاة في الفاتحة — ما يقطعها وما لا يقطعها</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«ومع رعاية موالاتها فيها بأن لا يفصل بين شيء منها وما بعده بأكثر من سكتة التنفّس أو العي»</b> — أي لا بدّ من حصول الموالات في الفاتحة، بأن يأتي بكلماتها على الولاء. ومعنى العي: ضدّ البيان، ويُطلق على التعب أيضاً.</p>
+</div>
+
+<h3 class="sub-title">ما يقطع الموالاة</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«فيعيد قراءة الفاتحة بتخلّل ذكر أجنبيّ لا يتعلّق بالصلاة فيها وإن قلّ»</b> — إذا أتى بذكر أجنبيّ عن الصلاة في أثناء الفاتحة، يقطع الموالاة، وعليه إعادة الفاتحة من أولها.</p>
+</div>
+
+<div class="tree-container">
+  <div class="tree-root">ما يقطع موالاة الفاتحة</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #fef2f2; border-color: #fca5a5;">
+      <div class="tree-branch-num">مثال ١</div>
+      <div class="tree-branch-label">بعض آية من غيرها<br>قرأ آية من موضع آخر<br>في وسط الفاتحة</div>
+    </div>
+    <div class="tree-branch" style="background: #fef2f2; border-color: #fca5a5;">
+      <div class="tree-branch-num">مثال ٢</div>
+      <div class="tree-branch-label">حمد العاطس<br>قال «الحمد لله»<br>في أثناء الفاتحة</div>
+    </div>
+  </div>
+</div>
+
+<h3 class="sub-title">مثال تفصيلي: آية من غير الفاتحة</h3>
+
+<div class="exception-box">
+  <span class="box-label label-exc">مثال</span>
+  <p>لو كان يقرأ: <i>«بسم الله الرحمن الرحيم، الحمد لله ربّ العالمين، الرحمن الرحيم، مالك يوم الدين، <b>تبارك الذي بيده الملك وهو على كلّ شيء قدير</b>، إيّاك نعبد وإيّاك نستعين»</i> — أتى بآية من موضع آخر (سورة الملك) في وسط الفاتحة. هذا يُخلّ بالموالاة، فعليه إعادة الفاتحة من أولها.</p>
+</div>
+
+<h3 class="sub-title">مثال تفصيلي: حمد العاطس</h3>
+
+<div class="issue-box">
+  <span class="box-label label-issue">إشكال: حمد العاطس في الفاتحة</span>
+  <p>حمد الله للعاطس في الصلاة <b>مسنون</b> كما هو مسنون خارجها — لكن كيف يكون مسنوناً في أثناء الفاتحة مع أنّه يقطع الموالاة؟</p>
+  <p><b>الجواب الأقرب</b>: عند قراءة الفاتحة <b>ليس مسنوناً</b> أن تقول الحمد لله للعاطس، لأنّه يؤدّي إلى الإخلال بشرط الموالاة. وإنّما يكون مسنوناً في غير الفاتحة (في الركوع أو السجود أو التشهّد مثلاً).</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">العلة</span>
+  <p>لماذا يقطع حمد العاطس الموالاة؟ لأنّ <b>اشتغاله بذكر آخر غير الفاتحة يُشعر بالإعراض</b> عنها. فكونك تقرأ الفاتحة ثمّ تقول «الحمد لله» للعاطس يُشعر بالإعراض عن قراءة الفاتحة. ولذلك اختلّ شرط الموالاة فعليك إعادة الفاتحة من أولها.</p>
+</div>
+
+<h3 class="sub-title">ما لا يقطع الموالاة</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«ولا يعيد الفاتحة بتخلّل ما له تعلّق بالصلاة»</b> — أي إذا أتى بذكر يتعلّق بالصلاة في أثناء الفاتحة، لا يقطع الموالاة ولا يجب إعادة الفاتحة (على سبيل الوجوب، وإنّما يُندب).</p>
+</div>
+
+<table>
+  <tr>
+    <th>المثال</th>
+    <th>البيان</th>
+    <th>يقطع الموالاة؟</th>
+  </tr>
+  <tr>
+    <td><b>تأمين لقراءة إمامه الفاتحة</b></td>
+    <td>كنت تقرأ الفاتحة فقال الإمام آمين فأمّنت معه ثمّ واصلت</td>
+    <td><span class="highlight-green">لا يقطع</span></td>
+  </tr>
+  <tr>
+    <td><b>سجود لتلاوة إمامه</b></td>
+    <td>سجد الإمام لآية سجدة وأنت تقرأ الفاتحة فسجدت معه ثمّ قمت وواصلت</td>
+    <td><span class="highlight-green">لا يقطع</span></td>
+  </tr>
+  <tr>
+    <td><b>دعاء سؤال رحمة</b></td>
+    <td>قرأ الإمام آية رحمة فسألت الله رحمته وأنت تقرأ الفاتحة</td>
+    <td><span class="highlight-green">لا يقطع</span></td>
+  </tr>
+  <tr>
+    <td><b>استعاذة من عذاب</b></td>
+    <td>قرأ الإمام آية عذاب فاستعذت من عذابه وأنت تقرأ الفاتحة</td>
+    <td><span class="highlight-green">لا يقطع</span></td>
+  </tr>
+  <tr>
+    <td><b>قول «بلى» لقراءة إمامه</b></td>
+    <td>قرأ الإمام آية فيها أمر بالتسبيح فقلت «سبحان الله»</td>
+    <td><span class="highlight-green">لا يقطع</span></td>
+  </tr>
+</table>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p>إنّ النبيّ صلّى الله عليه وسلّم كان من هدْه أنّه <b>إذا مرّ بآية فيها تسبيح سبّح، وإذا مرّ بآية فيها رحمة سأل، وإذا مرّ بآية فيها عذاب استعاذ</b>.</p>
+</div>
+
+<h3 class="sub-title">تفصيل: «لقراءة إمامه» — لفّ ونشر مرتّب</h3>
+
+<div class="note-box">
+  <span class="box-label label-note">لفّ ونشر مرتّب</span>
+  <p>قوله «لقراءة إمامه» يعود على جميع ما سبق:</p>
+  <ul>
+    <li><b>تأمين</b> → لقراءة إمامه الفاتحة</li>
+    <li><b>سجود</b> → لآية السجدة من قراءة إمامه</li>
+    <li><b>دعاء</b> → للآية التي يُسنّ فيها ما ذُكر، لكلّ من القارئ والسامع، مأموماً أو غيره، في صلاة أو خارجها</li>
+  </ul>
+</div>
+
+<h3 class="sub-title">مسألة: تأمين لقراءة غير إمامه</h3>
+
+<div class="issue-box">
+  <span class="box-label label-issue">تفريع مهمّ</span>
+  <p>لو أمنّ لقراءة <b>غير إمامه</b> — كأن يصلّي منفرداً وبجانبه شخص يقرأ الفاتحة فقال «آمين» وأمّن معه — فهل يقطع الموالاة؟</p>
+  <p><b>الجواب: نعم يقطع الموالاة</b>، لأنّ قول المصنّف «لتلاوة إمامه» يُفهم أنّ ما ليس لتلاوة إمامه يقطع الموالاة. فلا يقطع الموالاة إذا أمنّ لقراءة إمامه فقط.</p>
+</div>
+
+<h3 class="sub-title">إعادة الفاتحة: وجوب أم ندب؟</h3>
+
+<div class="note-box">
+  <span class="box-label label-note">دقّة العبارة</span>
+  <p>قول المصنّف «ولا يعيد الفاتحة» أي ولا يعيدها على سبيل <b>الوجوب</b>، لكن على سبيل <b>الندب</b> يُطلب ذلك. فلو أعاد الفاتحة بعد التخلّل الذي لا يقطع الموالاة فهو <b>مُستحبّ</b> لكن ليس واجباً.</p>
+  <p>مثال: كان يقرأ الفاتحة وسجد إمامه سجود تلاوة، قطع الفاتحة وسجد مع إمامه ثمّ قام. لو واصل القراءة فلا مشكلة، ولو أعاد القراءة من أولها فهذا مستحبّ.</p>
+</div>
+
+<div class="key-rule">
+  خلاصة الموالاة في الفاتحة:<br>
+  <b>ذكر أجنبيّ لا يتعلّق بالصلاة</b> → يقطع الموالاة → يجب إعادة الفاتحة من أولها<br>
+  <b>ذكر يتعلّق بالصلاة</b> → لا يقطع الموالاة → لا يجب الإعادة (وتُندب)<br>
+  <b>التعليل</b>: اشتغال الذكر الأجنبي يُشعر بالإعراض عن الفاتحة
+</div>
+
+</body>
+</html>

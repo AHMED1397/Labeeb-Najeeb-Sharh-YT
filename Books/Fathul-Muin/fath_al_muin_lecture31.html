@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf') format('truetype'); font-weight: normal; }
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf') format('truetype'); font-weight: bold; }
+@font-face { font-family: 'NotoNaskh'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf') format('truetype'); }
+
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+
+body {
+  font-family: 'NotoNaskh', 'Amiri', serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #1a1a2e;
+  direction: rtl;
+  background: #fff;
+  text-align: justify;
+}
+
+@page { size: A4; margin: 12mm 14mm; }
+
+/* ===== FRONT PAGE ===== */
+.front-page {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(160deg, #0d7c3e 0%, #0a5c2e 25%, #0e6b5a 50%, #1a8c4e 75%, #2ecc71 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 30px 20px;
+  page-break-after: always;
+}
+
+.front-page::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, #d4a017, #f0c040, #d4a017, #f0c040, #d4a017);
+}
+
+.front-page::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, #d4a017, #f0c040, #d4a017, #f0c040, #d4a017);
+}
+
+.front-gold-badge {
+  background: linear-gradient(135deg, #d4a017, #f0c040);
+  color: #1a1a2e;
+  padding: 6px 28px;
+  border-radius: 20px;
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.front-turquoise-badge {
+  background: linear-gradient(135deg, #0e8a7a, #14b8a6);
+  color: #fff;
+  padding: 5px 22px;
+  border-radius: 18px;
+  font-family: 'Amiri', serif;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.front-green-badge {
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  color: #fff;
+  padding: 5px 20px;
+  border-radius: 16px;
+  font-family: 'Amiri', serif;
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+
+.front-title {
+  font-family: 'Amiri', serif;
+  font-size: 36px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  margin: 10px 0;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+}
+
+.front-subtitle {
+  font-family: 'Amiri', serif;
+  font-size: 22px;
+  color: #f0c040;
+  text-align: center;
+  margin: 8px 0 16px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.front-lecturer {
+  font-family: 'Amiri', serif;
+  font-size: 18px;
+  color: #a7f3d0;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.front-decoration {
+  font-size: 28px;
+  color: #f0c040;
+  margin: 12px 0;
+  letter-spacing: 8px;
+}
+
+.front-lesson-num {
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+  color: #d1fae5;
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* ===== CONTENT PAGES ===== */
+.content-wrapper {
+  padding: 0;
+}
+
+.page-header {
+  background: linear-gradient(135deg, #0d7c3e, #0a5c2e);
+  color: #fff;
+  padding: 8px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0 0 8px 8px;
+  margin: 0 0 12px 0;
+}
+
+.page-header-title {
+  font-family: 'Amiri', serif;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.page-header-lecturer {
+  font-family: 'Amiri', serif;
+  font-size: 11px;
+  color: #a7f3d0;
+}
+
+/* ===== TOC ===== */
+.toc {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 0 0 12px 0;
+}
+.toc-title {
+  font-family: 'Amiri', serif;
+  font-size: 14pt;
+  color: #1a5632;
+  text-align: center;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #c8a951;
+  padding-bottom: 4px;
+}
+.toc-item {
+  font-size: 10pt;
+  padding: 2px 0;
+  border-bottom: 1px dotted #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ===== SECTION HEADINGS ===== */
+h2.section-title {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0d7c3e;
+  border-bottom: 2px solid #0d7c3e;
+  padding-bottom: 5px;
+  margin: 18px 0 10px;
+}
+
+h3.sub-title {
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: #0a5c2e;
+  margin: 14px 0 8px;
+  padding-right: 10px;
+  border-right: 4px solid #0d7c3e;
+}
+
+h4.minor-title {
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #166534;
+  margin: 10px 0 6px;
+}
+
+p { margin: 5px 0; text-align: justify; }
+
+/* ===== CONTENT BOXES ===== */
+.definition-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-right: 4px solid #0d7c3e;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.rule-box {
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-right: 4px solid #d97706;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.exception-box {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-right: 4px solid #ea580c;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.evidence-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-right: 4px solid #2563eb;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.issue-box {
+  background: #fdf2f8;
+  border: 1px solid #fbcfe8;
+  border-right: 4px solid #db2777;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.comparison-box {
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  border-right: 4px solid #7c3aed;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.poetry-box {
+  background: #faf5ff;
+  border: 1px solid #e9d5ff;
+  border-right: 4px solid #9333ea;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+  text-align: center;
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  line-height: 2.2;
+}
+
+.note-box {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-right: 4px solid #0284c7;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.key-rule {
+  background: #dcfce7;
+  border: 2px solid #16a34a;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.box-label {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 4px;
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.label-def { background: #0d7c3e; }
+.label-rule { background: #d97706; }
+.label-exc { background: #ea580c; }
+.label-ev { background: #2563eb; }
+.label-issue { background: #db2777; }
+.label-comp { background: #7c3aed; }
+.label-note { background: #0284c7; }
+.label-key { background: #16a34a; }
+
+/* ===== TABLES ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 13px;
+  table-layout: fixed;
+}
+
+th {
+  background: #0d7c3e;
+  color: #fff;
+  padding: 6px 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+td {
+  padding: 5px 8px;
+  border: 1px solid #d1d5db;
+  text-align: center;
+  vertical-align: top;
+}
+
+tr:nth-child(even) { background: #f0fdf4; }
+tr:nth-child(odd) { background: #fff; }
+
+/* ===== CLASSIFICATION TREE ===== */
+.tree-container { margin: 12px 0; text-align: center; }
+.tree-root {
+  display: inline-block;
+  background: linear-gradient(135deg, #0d7c3e, #0a5c2e);
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+.tree-branches { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px; }
+.tree-branch {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  min-width: 80px;
+  text-align: center;
+}
+.tree-branch-num { font-family: 'Amiri', serif; font-weight: bold; color: #0d7c3e; font-size: 14px; }
+.tree-branch-label { font-size: 12px; color: #374151; }
+.tree-sub { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-top: 6px; }
+.tree-leaf {
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* ===== COMPARISON GRID ===== */
+.compare-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.compare-card { flex: 1; min-width: 140px; border-radius: 8px; padding: 8px 10px; text-align: center; }
+.compare-card-green { background: #dcfce7; border: 1px solid #86efac; }
+.compare-card-red { background: #fef2f2; border: 1px solid #fca5a5; }
+.compare-card-gold { background: #fefce8; border: 1px solid #fde68a; }
+.compare-card-blue { background: #eff6ff; border: 1px solid #bfdbfe; }
+.compare-card-title { font-family: 'Amiri', serif; font-weight: bold; font-size: 14px; margin-bottom: 4px; }
+.compare-card-body { font-size: 12px; }
+
+/* ===== FLOW DIAGRAM ===== */
+.flow-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px; margin: 8px 0; }
+.flow-box { background: #0d7c3e; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-family: 'Amiri', serif; font-weight: bold; text-align: center; }
+.flow-arrow { font-size: 16px; color: #0d7c3e; font-weight: bold; }
+.flow-result { padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; text-align: center; }
+.flow-pure { background: #dcfce7; border: 1px solid #86efac; color: #166534; }
+.flow-impure { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+.flow-excused { background: #fefce8; border: 1px solid #fde68a; color: #92400e; }
+
+/* ===== CONDITION GRID ===== */
+.condition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.condition-item { border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.condition-num {
+  display: inline-block; background: #0d7c3e; color: #fff; min-width: 24px; height: 24px;
+  border-radius: 50%; text-align: center; line-height: 24px; font-family: 'Amiri', serif;
+  font-weight: bold; font-size: 12px; margin-left: 6px;
+}
+
+/* ===== INLINE HIGHLIGHTS ===== */
+.highlight-green { background: #dcfce7; padding: 1px 4px; border-radius: 3px; }
+.highlight-gold { background: #fefce8; padding: 1px 4px; border-radius: 3px; }
+.highlight-red { background: #fef2f2; padding: 1px 4px; border-radius: 3px; }
+
+.verse-ref {
+  font-family: 'Amiri', serif;
+  font-size: 14px;
+  color: #1e40af;
+  text-align: center;
+  margin: 6px 0;
+}
+
+.hadith-ref {
+  font-family: 'Amiri', serif;
+  font-size: 13px;
+  color: #166534;
+  text-align: center;
+  margin: 6px 0;
+}
+
+ul { margin: 4px 0; padding-right: 20px; }
+li { margin: 2px 0; }
+</style>
+</head>
+<body>
+
+<!-- ===== FRONT PAGE ===== -->
+<div class="front-page">
+  <div class="front-gold-badge">شرح فتح المعين</div>
+  <div class="front-turquoise-badge">للعلامة الفقيه المليباري</div>
+  <div class="front-decoration">✦ ✦ ✦</div>
+  <div class="front-title">سَتْرُ العَوْرَة</div>
+  <div class="front-subtitle">الشرط الثالث من شروط صحة الصلاة</div>
+  <div class="front-decoration">◆ ◆ ◆</div>
+  <div class="front-lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="front-green-badge">الفقه الشافعي</div>
+  <div class="front-lesson-num">الدرس الحادي والثلاثون</div>
+  <div style="font-family: 'Amiri', serif; font-size: 13px; color: #d1fae5; margin-top: 8px;">تنسيق: أحمد بن إرشاد</div>
+</div>
+
+<!-- ===== CONTENT ===== -->
+<div class="content-wrapper">
+
+<div class="page-header">
+  <div class="page-header-title">شرح فتح المعين ـ ستر العورة</div>
+  <div class="page-header-lecturer">د. لبيب نجيب عبدالله | تنسيق: أحمد بن إرشاد</div>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. تعريف العورة: لغةً وشرعاً</span></div>
+  <div class="toc-item"><span>٢. عورة الرجل في الصلاة</span></div>
+  <div class="toc-item"><span>٣. عورة الأمة في الصلاة</span></div>
+  <div class="toc-item"><span>٤. عورة الحرة في الصلاة</span></div>
+  <div class="toc-item"><span>٥. خلاف الفقهاء في عورة المرأة (ثلاثة مذاهب)</span></div>
+  <div class="toc-item"><span>٦. وجوب ستر العورة عن النفس ولو خالياً في ظلمة</span></div>
+  <div class="toc-item"><span>٧. دليل اشتراط ستر العورة</span></div>
+  <div class="toc-item"><span>٨. نفي القبول: نفي الصحة أم نفي الثواب؟</span></div>
+  <div class="toc-item"><span>٩. تفسير الحائض بالبالغة وعورة الصبية المميزة</span></div>
+  <div class="toc-item"><span>١٠. وجوب ستر جزء من السرة والركبة</span></div>
+  <div class="toc-item"><span>١١. شروط الساتر (أربعة شروط)</span></div>
+  <div class="toc-item"><span>١٢. ما لا يُشترط في الساتر</span></div>
+  <div class="toc-item"><span>١٣. وجوب الستر من أعلى والجوانب لا من الأسفل</span></div>
+  <div class="toc-item"><span>١٤. العاجز عن ستر العورة (ثلاث صور)</span></div>
+  <div class="toc-item"><span>١٥. لو قَدَر على ساتر بعض العورة</span></div>
+  <div class="toc-item"><span>١٦. الصلاة في الحرير والتطين</span></div>
+  <div class="toc-item"><span>١٧. اقتداء المكتسي بالعاري وغصب الثوب</span></div>
+  <div class="toc-item"><span>١٨. حكم الصلاة بثوب مغصوب (أربعة أقوال)</span></div>
+  <div class="toc-item"><span>١٩. ما يُسنّ للمصلي من اللباس</span></div>
+  <div class="toc-item"><span>٢٠. لو كان عنده ثوبان فقط</span></div>
+</div>
+
+<!-- ===== 1. تعريف العورة ===== -->
+<h2 class="section-title">١. تعريف العورة: لغةً وشرعاً</h2>
+
+<div class="definition-box">
+  <span class="box-label label-def">لغةً</span>
+  <p><b>العورة:</b> النقص — أي الشيء المنقوص أو المُستور الذي يُستحيا منه.</p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">شرعاً</span>
+  <p>للعورة عند الفقهاء <b>معنيان</b>:</p>
+</div>
+
+<table>
+  <tr>
+    <th>المعنى</th>
+    <th>التعريف</th>
+    <th>موضع الذكر</th>
+  </tr>
+  <tr>
+    <td><b>الأول</b></td>
+    <td>ما <b>يجب ستره</b> في الصلاة</td>
+    <td>باب شروط الصلاة (هنا)</td>
+  </tr>
+  <tr>
+    <td><b>الثاني</b></td>
+    <td>ما <b>يحرُم النظر إليه</b></td>
+    <td>كتاب النكاح (باب النظر للمخطوبة)</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه</span>
+  <p>المعنيان مختلفان: فقد يكون الشيء يجب ستره ولا يحرم النظر إليه، وقد يحرم النظر إليه ولا يجب ستره. وسيأتي بيان المعنى الثاني — إن شاء الله — عند الكلام على كتاب النكاح.</p>
+</div>
+
+<!-- ===== 2. عورة الرجل ===== -->
+<h2 class="section-title">٢. عورة الرجل في الصلاة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ثالثها ستر رجل ولو صبياً وأمة ولو مكاتبة وأم ولد ما بين سرة وركبة لهما</b></p>
+</div>
+
+<div class="key-rule">
+  عورة الرجل في الصلاة: ما بين السرة والركبة<br>
+  شاملاً البالغ والصبيّ المميّز
+</div>
+
+<h3 class="sub-title">دلالة "ولو صبياً"</h3>
+
+<p>كلمة <b>"رجل"</b> هنا ليست بمعنى البالغ بل بمعنى <b>الذّكر</b> — بدليل قوله <b>"ولو صبياً"</b>. فالصبيّ المميّز (كابن سبع أو ثمان أو تسع سنين) إذا صلّى فعورته أيضاً ما بين سرته وركبته. ولو كانت كلمة "رجل" هنا بمعنى البالغ لما كان لقوله "ولو صبياً فائدة.</p>
+
+<div class="definition-box">
+  <span class="box-label label-def">قاعدة نحوية</span>
+  <p>قوله <b>"ولو صبياً"</b>: "صبياً" خبر كان المحذوفة مع اسمها، والغالب حذف كان واسمها وإبقاء الخبر بعد <b>"ولو"</b>، كما قال النحاة: <i>"وبعد أن ولو كثيراً ذا اشتهر"</i>.</p>
+</div>
+
+<!-- ===== 3. عورة الأمة ===== -->
+<h2 class="section-title">٣. عورة الأمة في الصلاة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>وأمة ولو مكاتبة وأم ولد</b> — عورة الأمة في الصلاة ما بين السرة والركبة، ولو كانت الأمة <b>مكاتبة</b> (بينها وبين سيدها كتابة) أو كانت <b>أم ولد</b> (مستولدة).</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">الرجل (الذّكر)</div>
+    <div class="compare-card-body">ما بين السرة والركبة<br>سواء بالغ أو صبيّ</div>
+  </div>
+  <div class="compare-card compare-card-blue">
+    <div class="compare-card-title">الأمة</div>
+    <div class="compare-card-body">ما بين السرة والركبة<br>ولو مكاتبة أو أم ولد</div>
+  </div>
+</div>
+
+<p>قوله <b>"لهما"</b> — أي للرجل والأمة — فالضمير يعود إليهما. والجامع بينهما أنّ عورة كلّ منهما ما بين السرة والركبة.</p>
+
+<!-- ===== 4. عورة الحرة ===== -->
+<h2 class="section-title">٤. عورة الحرة في الصلاة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وستر حرة ولو صغيرة غير وجه وكفين ظهرهما وبطنهما إلى الكوعين</b></p>
+</div>
+
+<div class="key-rule">
+  عورة الحرة في الصلاة: جميع البدن <b>غير الوجه والكفين</b><br>
+  ولو كانت صغيرة غير مميّزة
+</div>
+
+<h3 class="sub-title">تفصيل ما يظهر منها</h3>
+
+<table>
+  <tr>
+    <th>الموضع</th>
+    <th>الحكم</th>
+    <th>البيان</th>
+  </tr>
+  <tr>
+    <td><b>الوجه</b></td>
+    <td><span class="highlight-green">ليس بعورة</span></td>
+    <td>حدّ الوجه: من منابت شعر الرأس المعتاد إلى الذقن واللّحيين عرضاً</td>
+  </tr>
+  <tr>
+    <td><b>الكفّان: ظهرهما وبطنهما إلى الكوعين</b></td>
+    <td><span class="highlight-green">ليس بعورة</span></td>
+    <td>يَجوز إظهار ظهر الكفّ وبطنه إلى الكوع (مفصل الرسغ) في الصلاة</td>
+  </tr>
+  <tr>
+    <td><b>أسفل الوجه (ما تحت الذقن)</b></td>
+    <td><span class="highlight-red">عورة يجب سترها</span></td>
+    <td>ليس داخلاً في حدّ الوجه — ويُغفل عنه كثير من النساء</td>
+  </tr>
+  <tr>
+    <td><b> القدمان</b></td>
+    <td><span class="highlight-red">عورة يجب سترها</span></td>
+    <td>يكفي سترهما بالأرض، لكن إن ظهرتا في أثناء السجود بطلت الصلاة</td>
+  </tr>
+</table>
+
+<div class="exception-box">
+  <span class="box-label label-exc">تحذير</span>
+  <p><b>ما يغفل عنه كثير من النساء:</b> أسفل الوجه (ما تحت الذقن إلى الرقبة) ليس من الوجه بل هو عورة يجب سترها في الصلاة. وكذلك القدمان يجب سترهما، ويكفي وضعهما على الأرض، لكن لو انكشفتا أثناء السجود بطلت الصلاة.</p>
+</div>
+
+<h3 class="sub-title">الصغيرة غير المميّزة</h3>
+
+<p>قوله <b>"ولو صغيرة"</b> — أي أنّ كلّ أنثى تصلّي — سواء بلغت أو كانت مميّزة لم تبلغ — فعورتها جميع البدن غير الوجه والكفين. فكلمة "الحائض" في الحديث خرجت مخرج الغالب وليست للقيد.</p>
+
+<!-- ===== 5. خلاف الفقهاء ===== -->
+<h2 class="section-title">٥. خلاف الفقهاء في عورة المرأة (ثلاثة مذاهب)</h2>
+
+<div class="tree-container">
+  <div class="tree-root">عورة المرأة في الصلاة</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #fef2f2; border-color: #fca5a5;">
+      <div class="tree-branch-num">الحنابلة</div>
+      <div class="tree-branch-label">أشدّ الأقوال<br>جميع البدن <b>عدا الوجه</b><br>حتى الكفّين يجب سترهما</div>
+    </div>
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a;">
+      <div class="tree-branch-num">الشافعية والمالكية</div>
+      <div class="tree-branch-label">جميع البدن <b>عدا الوجه والكفين</b><br>القدمان عورة<br><b>فرق:</b> الشافعية: كشف القدم يبطل<br>المالكية: كشف القدم لا يبطل</div>
+    </div>
+    <div class="tree-branch" style="background: #f0f9ff; border-color: #bae6fd;">
+      <div class="tree-branch-num">الحنفية</div>
+      <div class="tree-branch-label">أيسر الأقوال<br>القدم <b>ليس بعورة</b><br>لا يجب على المرأة تغطية قدميها</div>
+    </div>
+  </div>
+</div>
+
+<h3 class="sub-title">الفرق بين الشافعية والمالكية في القدم</h3>
+
+<table>
+  <tr>
+    <th>المسألة</th>
+    <th>الشافعية</th>
+    <th>المالكية</th>
+  </tr>
+  <tr>
+    <td><b>قدم المرأة عورة؟</b></td>
+    <td>نعم، عورة</td>
+    <td>نعم، عورة</td>
+  </tr>
+  <tr>
+    <td><b>كشف القدم في الصلاة</b></td>
+    <td><span class="highlight-red">تبطل الصلاة</span></td>
+    <td><span class="highlight-gold">لا تبطل الصلاة</span></td>
+  </tr>
+</table>
+
+<!-- ===== 6. ستر العورة عن النفس ===== -->
+<h2 class="section-title">٦. وجوب ستر العورة عن النفس ولو خالياً في ظلمة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>ولو خالياً في ظلمة</b> — يجب ستر العورة ولو صلّى خالياً في مكان مظلم لوحده. ويجب ستر العورة عن كلّ أحد <b>ولو عن نفسه</b>.</p>
+</div>
+
+<div class="exception-box">
+  <span class="box-label label-exc">مثال</span>
+  <p>لو كان يصلّي فرأى عورته من جيب قميصه عندما ركع — فإنّ صلاته <b>تبطل</b>، لأنّه يجب ستر العورة ولو من نفسه، فمن باب أولى عن غيره.</p>
+</div>
+
+<!-- ===== 7. دليل اشتراط الستر ===== -->
+<h2 class="section-title">٧. دليل اشتراط ستر العورة</h2>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الحديث</span>
+  <p>قال النبيّ صلّى الله عليه وسلّم: <b><i>"لا يقبل الله صلاة حائض إلا بخمار"</i></b></p>
+  <p>نفي القبول هنا بمعنى <b>نفي الصحّة</b> — لا يقبل أي لا تصحّ. ومن هنا جاء اشتراط ستر العورة كشرط من شروط صحّة الصلاة.</p>
+</div>
+
+<p>وفّسر المصنّف <b>"الحائض"</b> بالبالغة، لأنّ الحائض في الأصل لا تصلّي أصلاً، فكيف يقال "لا يقبل الله صلاة حائض"؟ الجواب: المراد بالحائض هنا <b>من بلغت سنّ المحيض</b> لا المرأة في حال الحيض.</p>
+
+<div class="note-box">
+  <span class="box-label label-note">تشبيه</span>
+  <p>هذا كقول النبيّ صلّى الله عليه وسلّم: <i>"غسل الجمعة واجب على كلّ محتلم"</i> — أي كلّ من بلغ الاحتلام، وليس المقصود أنّه في حال جنابة.</p>
+</div>
+
+<!-- ===== 8. نفي القبول ===== -->
+<h2 class="section-title">٨. نفي القبول: نفي الصحة أم نفي الثواب؟</h2>
+
+<div class="key-rule">
+  نفي القبول في النصوص الشرعية له معنيان:<br>
+  ١. نفي الصحة (لا تصحّ العبادة أصلاً)<br>
+  ٢. نفي الثواب (تصحّ لكن لا يُثاب عليها)
+</div>
+
+<table>
+  <tr>
+    <th>المعنى</th>
+    <th>المثال</th>
+    <th>البيان</th>
+  </tr>
+  <tr>
+    <td><b>نفي الصحة</b></td>
+    <td><i>"إنّ الله لا يقبل صلاة أحدكم إذا أحدث حتى يتوضّأ"</i></td>
+    <td>الصلاة لا تصحّ أصلاً مع الحدث — فيجب إعادتها</td>
+  </tr>
+  <tr>
+    <td><b>نفي الثواب</b></td>
+    <td><i>"من شرب الخمر لم تُقبل له صلاة أربعين صباحاً"</i></td>
+    <td>الصلاة تصحّ لكنّه لا يُثاب عليها مدّة أربعين يوماً — فلا يؤمر بالقضاء</td>
+  </tr>
+  <tr>
+    <td><b>نفي الصحة (هنا)</b></td>
+    <td><i>"لا يقبل الله صلاة حائض إلا بخمار"</i></td>
+    <td>ستر العورة شرط صحّة — فبدونه لا تصحّ الصلاة</td>
+  </tr>
+</table>
+
+<!-- ===== 9. تفسير الحائض ===== -->
+<h2 class="section-title">٩. تفسير الحائض بالبالغة وعورة الصبية المميزة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">القاعدة</span>
+  <p>فّسر المصنّف <b>"الحائض"</b> بالبالغة — والمراد بالبالغة هنا <b>الأنثى مطلقاً</b>، سواء بلغت أو كانت مميّزة لم تبلغ. فكلمة "الحائض" خرجت مخرج الغالب وليست للقيد.</p>
+</div>
+
+<div class="key-rule">
+  كلّ أنثى تصلّي — بلغت أو لم تبلغ — فعورتها جميع البدن غير الوجه والكفين
+</div>
+
+<p>لو قلنا إنّ المراد بالحائض البالغة فقط، لزم أنّ الصبية المميّزة (كابنة تسع سنين) لا يجب عليها ستر رأسها كالمرأة البالغة — وهذا غير صحيح. بل كلّ أنثى تصلّي يجب عليها ستر جميع بدنها غير الوجه والكفين.</p>
+
+<!-- ===== 10. ستر جزء من السرة والركبة ===== -->
+<h2 class="section-title">١٠. وجوب ستر جزء من السرة والركبة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>ويجب ستر جزء منهما</b> — أي ستر جزء من السرة وجزء من الركبة — ليتحقّق به ستر العورة، لأنّه لا يمكن أن يستر ما بين السرة والركبة إلا إذا ستر جزءاً من كلّ منهما. وما لا يتمّ الواجب إلا به فهو واجب.</p>
+</div>
+
+<div class="flow-row">
+  <div class="flow-box">ستر العورة واجب</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">لا يتحقّق إلا بستر جزء من السرة والركبة</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-pure">وجوب ستر جزء منهما</div>
+</div>
+
+<!-- ===== 11. شروط الساتر ===== -->
+<h2 class="section-title">١١. شروط الساتر (أربعة شروط)</h2>
+
+<div class="key-rule">
+  شروط الساتر في الصلاة = ٤ شروط<br>
+  ١. لا يصف اللون ـ ٢. ذا جرم ـ ٣. يشمل ما يجب ستره ـ ٤. طاهر
+</div>
+
+<h3 class="sub-title">الشرط الأول: أن لا يصف لون البشرة</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">النصّ</span>
+  <p><b>بما لا يصف لوناً</b> — أي أن يكون الساتر لا يصف لون البشرة في <b>مجلس التخاطب</b> (مسافة متر إلى متر ونصف تقريباً) ل<b>معتدل البصر</b>.</p>
+</div>
+
+<table>
+  <tr>
+    <th>القيد</th>
+    <th>المعنى</th>
+  </tr>
+  <tr>
+    <td><b>مجلس التخاطب</b></td>
+    <td>المسافة المعتادة بين المتخاطبين — تقريباً متر إلى متر ونصف</td>
+  </tr>
+  <tr>
+    <td><b>معتدل البصر</b></td>
+    <td>لا لضعيف البصر (الذي قد لا يرى البشرة ولو بثوب شفّاف) ولا لقويّ البصر (الذي قد يرى البشرة من ثوب لا يصفها عند المعتدل)</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">العالم أحمد بن موسى بن عجيل</span>
+  <p>ضبط هذا الشرط بهذين القيدين الإمام <b>أحمد بن موسى بن عجيل</b> — أبو العبّاس، من كبار فقهاء الشافعية في اليمن، توفّي سنة ٧٩٠ هـ. كان فقيهاً ظليعاً مشهوراً بالزهد والعبادة، فجمع بين الفقه والعبادة. سمّيت قريته <b>"بيت الفقيه"</b> في محافظة الحديدة باسمه إلى اليوم.</p>
+</div>
+
+<h3 class="sub-title">حكم ما يحكي حجم الأعضاء</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>ويكفي ما يحكي لحجم الأعضاء لكنّه خلاف الأولى</b> — أي لا يشترط أن يكون الساتر واسعاً فضفاضاً. فلو كان ضيّقاً يصف حجم الأعضاء (كالسراويل الضيّقة) فإنّ الصلاة تصحّ فيه.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">للرجل</div>
+    <div class="compare-card-body">خلاف الأولى<br>(مكروه تنزيهاً)</div>
+  </div>
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">للمرأة</div>
+    <div class="compare-card-body">مكروه<br>(أشدّ كراهة من الرجل)</div>
+  </div>
+</div>
+
+<h3 class="sub-title">الشرط الثاني: أن يكون ذا جرم</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">البيان</span>
+  <p><b>ذا جرم</b> — أي أن يُحسّ ويُلمس. فلو وضع ألواناً وأصباغاً على جسده كالحنّاء فغطّى عورته بالألوان وصلّى — لم تصحّ صلاته لأنّ الليس له جرم (ليس له كثافة ماديّة).</p>
+</div>
+
+<h3 class="sub-title">الشرط الثالث: أن يشمل ما يجب ستره</h3>
+
+<p>أن يكون الساتر شاملاً لجميع ما يجب ستره — فبالنسبة للذّكر شاملاً لما بين السرة والركبة، وبالنسبة للأمة كذلك، وبالنسبة للحرة شاملاً لجميع بدنها عدا الوجه والكفّين.</p>
+
+<h3 class="sub-title">الشرط الرابع: أن يكون طاهراً</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>أن يكون الساتر طاهراً</b> — فلو لم يجد إلا ثوباً متنجّساً صلّى عارياً ولا إعادة عليه، لأنّ عناية الشريعة بالبعد عن النجاسة <b>أشدّ</b> من عنايتها بستر العورة.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">دليل الأولوية</span>
+  <p>نحن درسنا الطهارة من النجاسة ما يقارب <b>ستّة دروس</b> (من الدرس ٢٣ إلى ٢٩)، بينما ستر العورة ننهي أحكامه في <b>درس واحد</b>. هذا يدلّ على أنّ عناية الشريعة بالنّجاسات أشدّ وأوسع من عنايتها بستر العورة.</p>
+</div>
+
+<!-- ===== 12. ما لا يشترط في الساتر ===== -->
+<h2 class="section-title">١٢. ما لا يُشترط في الساتر</h2>
+
+<div class="tree-container">
+  <div class="tree-root">ما لا يُشترط في الساتر</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">١</div>
+      <div class="tree-branch-label">أن يكون حلالاً<br><b>مذهب الجمهور والشافعية:</b> لا يشترط<br><b>مذهب أحمد:</b> يشترط</div>
+    </div>
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">٢</div>
+      <div class="tree-branch-label">أن يكون ثوباً<br>يجزئ أوراق الشجر والطين وغيرهما</div>
+    </div>
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">٣</div>
+      <div class="tree-branch-label">خلّوه من النقوش والتصاوير<br>تصحّ الصلاة مع الكراهة</div>
+    </div>
+  </div>
+</div>
+
+<h3 class="sub-title">تفصيل المسائل المتعلّقة</h3>
+
+<table>
+  <tr>
+    <th>المسألة</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td><b>الصلاة بثوب حرير (للرجل)</b></td>
+    <td>تصحّ — ليس من شروط الساتر أن يكون حلالاً</td>
+  </tr>
+  <tr>
+    <td><b>الصلاة بثوب مغصوب</b></td>
+    <td>تصحّ عند الجمهور — والإثم في الغصب لا في الصلاة</td>
+  </tr>
+  <tr>
+    <td><b>الستر بأوراق الشجر مع وجود الثياب</b></td>
+    <td>يجزئ — لكن الأولى استعمال الثياب</td>
+  </tr>
+  <tr>
+    <td><b>الصلاة بثوب فيه نقوش أو تصاوير</b></td>
+    <td>تصحّ مع الكراهة</td>
+  </tr>
+  <tr>
+    <td><b>الصلاة باللّثام على الفم والأنف</b></td>
+    <td>تصحّ مع الكراهة إن لم تكن حاجة. أمّا مع الحاجة (كوباء كورونا) فلا كراهة</td>
+  </tr>
+  <tr>
+    <td><b>الصلاة منتقبة (للمرأة)</b></td>
+    <td>تصحّ مع الكراهة — إلا إذا علمت أنّ أجنبيّاً ينظر إليها فلا كراهة. وعند السجود يجب أن تباشر الأرض بجبهتها</td>
+  </tr>
+  <tr>
+    <td><b>الصلاة بثوب يصف حجم العورة (للرجل)</b></td>
+    <td>خلاف الأولى</td>
+  </tr>
+  <tr>
+    <td><b>الصلاة بثوب يصف حجم العورة (للمرأة)</b></td>
+    <td>مكروه</td>
+  </tr>
+</table>
+
+<!-- ===== 13. الستر من أعلى والجوانب ===== -->
+<h2 class="section-title">١٣. وجوب الستر من أعلى والجوانب لا من الأسفل</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>ويجب الستر من أعلى والجوانب لا من الأسفل</b> — يجب أن تستر العورة من الأعلى ومن الجوانب، أمّا من الأسفل فلا يجب.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">مثال: يُضرّ</div>
+    <div class="compare-card-body">شخص يصلّي في الأعلى يلبس إزارة<br>شخص في الأسفل رأى فخذه من الجوانب أو الأعلى<br>→ <b>تبطل الصلاة</b></div>
+  </div>
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">مثال: لا يُضرّ</div>
+    <div class="compare-card-body">الشخص نفسه في الأعلى<br>شخص في الأسفل رأى فخذه من الأسفل فقط<br>→ <b>لا تبطل الصلاة</b></div>
+  </div>
+</div>
+
+<!-- ===== 14. العاجز عن ستر العورة ===== -->
+<h2 class="section-title">١٤. العاجز عن ستر العورة (ثلاث صور)</h2>
+
+<div class="key-rule">
+  العاجز عن ستر العورة يصلّي وجوباً عارياً بلا إعادة<br>
+  في ثلاث صور
+</div>
+
+<div class="tree-container">
+  <div class="tree-root">صور العجز عن ستر العورة</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #fef2f2; border-color: #fca5a5;">
+      <div class="tree-branch-num">الصورة ١</div>
+      <div class="tree-branch-label">ليس عنده <b>ساتر أصلاً</b><br>لا ثوب ولا أوراق شجر ولا طين</div>
+    </div>
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a;">
+      <div class="tree-branch-num">الصورة ٢</div>
+      <div class="tree-branch-label">عنده ساتر <b>متنجّس</b> لا يقدر على ماء لتطهيره</div>
+    </div>
+    <div class="tree-branch" style="background: #f0f9ff; border-color: #bae6fd;">
+      <div class="tree-branch-num">الصورة ٣</div>
+      <div class="tree-branch-label">عنده ثوب طاهر لكنّه <b>في مكان نجس</b><br>(كزريبة فيها أرواث وأبوال)</div>
+    </div>
+  </div>
+</div>
+
+<h3 class="sub-title">تفصيل الصورة الثالثة: مكان نجس</h3>
+
+<div class="issue-box">
+  <span class="box-label label-issue">المسألة</span>
+  <p>عنده ثوب طاهر لكنّه محبوس في مكان نجس (كزريبة الأبقار). هو بين خيارين:</p>
+  <p><b>الخيار الأول:</b> يلبس الثوب ويصلّي فوق النجاسة.</p>
+  <p><b>الخيار الثاني:</b> يخلع الثوب ويفرشه ويصلّي عارياً على الثوب الطاهر.</p>
+</div>
+
+<div class="key-rule">
+  يصلّي عارياً على الثوب الطاهر<br>
+  لأنّ عناية الشارع بالبعد عن النجاسات أشدّ من عنايته بستر العورة
+</div>
+
+<h3 class="sub-title">ماذا لو أمكنه تطهير الثوب المتنجّس وإن خرج الوقت؟</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>لا من أمكنه تطهيره وإن خرج الوقت</b> — أي إذا أمكنه تطهير الثوب المتنجّس بالماء ولو خرج وقت الصلاة — فإنّه <b>يطهّره وجوباً ويصلّي فيه وإن خرج الوقت</b>. ولا يجوز له أن يصلّي بالثوب المتنجّس في الوقت.</p>
+</div>
+
+<!-- ===== 15. لو قدر على ساتر بعض العورة ===== -->
+<h2 class="section-title">١٥. لو قَدَر على ساتر بعض العورة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>ولو قدر على ساتر بعض العورة لزمه الستر بما وجد</b> — أي لو وجد ساتراً لا يكفي لستر جميع العورة بل يسر بعضها فقط — يجب عليه أن يستر ما أطاق، لقوله تعالى: <i>{فاتّقوا الله ما استطعتم}</i>، ولقوله صلّى الله عليه وسلّم: <i>"وما أمرتكم به فأتوا منه ما استطعتم"</i>.</p>
+</div>
+
+<div class="key-rule">
+  ترتيب الأولوية في الستر عند الضّيق:<br>
+  <b>السوأتان → القُبُل → الدُبُر → ما بقي من العورة</b>
+</div>
+
+<table>
+  <tr>
+    <th>الأولوية</th>
+    <th>الموضع</th>
+    <th>السبب</th>
+  </tr>
+  <tr>
+    <td><b>الأولى</b></td>
+    <td>السوأتان (القبل والدبر معاً)</td>
+    <td>لأنّهما أغلظ، وللإجماع على وجوب سترهما بخلاف الفخذ (فيه خلاف)</td>
+  </tr>
+  <tr>
+    <td><b>الثانية</b></td>
+    <td>القُبُل</td>
+    <td>لأنّه الذي يحصل به استقبال القبلة، والعناية به أشدّ. ولأنّ فم الفرج يستتر بالأليتين</td>
+  </tr>
+  <tr>
+    <td><b>الثالثة</b></td>
+    <td>الدُبُر</td>
+    <td>لأنّه يستتر بالأليتين غالباً، بخلاف القُبُل</td>
+  </tr>
+  <tr>
+    <td><b>الرابعة</b></td>
+    <td>ما بقي من العورة</td>
+    <td>على الترتيب بحسب ما تيسّر</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">قاعدة فقهية</span>
+  <p>هذا من باب <b>تقديم المصلحة العليا</b> و<b>ارتكاب المفسدة الأدنى دفعاً للمفسدة العظمى</b> — فما كان متّفقاً على وجوب ستره يُقدَّم على ما فيه خلاف.</p>
+</div>
+
+<!-- ===== 16. الصلاة في الحرير والتطين ===== -->
+<h2 class="section-title">١٦. الصلاة في الحرير والتطين</h2>
+
+<h3 class="sub-title">لا يصلّي عارياً مع وجود حرير</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>ولا يصلّي عارياً مع وجود حرير بل لابساً له</b> — أي يجب على الرجل إذا لم يجد ساتراً غير الحرير أن يلبسه ويصلّي فيه، <b>ولا يصلّي عارياً</b>. لأنّ الحرير وإن كان حراماً على الرجال فإنّه <b>يباح للحاجة</b>، وعدم وجود الساتر للصلاة حاجة تُجوّز للرجل لبس الحرير.</p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p>رخّص النبيّ صلّى الله عليه وسلّم لبعض أصحابه أن يلبسوا الحرير <b>للحاجة</b> عندما كان بهم حكّة — فمن الحاجة عدم وجود الساتر للصلاة.</p>
+</div>
+
+<h3 class="sub-title">يلزم التطين</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>ويلزم التطين لو عدم الثوب ونحوه</b> — أي إذا لم يجد ثوباً ولا ما يشبهه (كأوراق الشجر) لزمه أن يطين عورته: يخلط الماء مع التراب ليصنع طيناً ويغطّي به العورة ويصلّي.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه</span>
+  <p>قد يُفهم من عبارة المصنّف أنّه لا يجوز التطين إلا إذا فقد الثوب — وهذا <b>غير مراد</b>. بل يجوز للإنسان أن يطين ويصلّي وقد طيّن مكان العورة <b>حتى وإن كانت الثياب موجودة</b>. ويجوز أيضاً أن يغطّي عورته بأوراق الشجر ويصلّي ولو كانت الثياب موجودة.</p>
+</div>
+
+<!-- ===== 17. اقتداء المكتسي بالعاري ===== -->
+<h2 class="section-title">١٧. اقتداء المكتسي بالعاري وغصب الثوب</h2>
+
+<h3 class="sub-title">يصحّ اقتداء مكتسٍ بعارٍ</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>ويجوز لمكتس اقتداء بعارٍ</b> — يصحّ للشخص المكتسي (الذي يلبس ثيابه) أن يقتدي بإمام عارٍ في الصلاة. لأنّ العاري <b>لا تجب عليه الإعادة</b>، ومن لا تجب عليه الإعادة يصحّ الاقتداء به.</p>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">الضابط</span>
+  <p><b>من تجب عليه الإعادة</b> — لا يصحّ الاقتداء به (كصاحب الجبيرة على عضو تيمّم — لأنّه يعيد).</p>
+  <p><b>من لا تجب عليه الإعادة</b> — يصحّ الاقتداء به (كالعاري — لأنّه لا يعيد).</p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">نصّ الزّبد</span>
+  <p>قال صاحب الزّبد رحمه الله:</p>
+  <div class="poetry-box" style="margin-top: 4px;">
+    ولا تصحّ قدوة بمقتدي<br>
+    ولا بمن تلزمه الإعادة<br>
+    ولا بمن قام إلى زيادة
+  </div>
+</div>
+
+<h3 class="sub-title">ليس للعاري غصب الثوب</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>وليس للعاري غصب الثوب</b> — لا يجوز للعاري أن يغصب ثوب غيره ليصلّي فيه، لأنّ الضرورة غير موجودة: الشريعة رخّصت له أن يصلّي عارياً ولا إعادة عليه.</p>
+</div>
+
+<!-- ===== 18. حكم الصلاة بثوب مغصوب ===== -->
+<h2 class="section-title">١٨. حكم الصلاة بثوب مغصوب (أربعة أقوال)</h2>
+
+<p>لو غصب العاري ثوباً وصلّى فيه — ما حكم صلاته؟ اختلف العلماء على <b>أربعة أقوال</b>:</p>
+
+<table>
+  <tr>
+    <th>القول</th>
+    <th>الحكم</th>
+    <th>البيان</th>
+    <th>القائل</th>
+  </tr>
+  <tr>
+    <td><b>الأول</b></td>
+    <td><span class="highlight-green">تصحّ بلا ثواب</span></td>
+    <td>برئت الذمّة لكن بلا ثواب — لأنّه عصى بالغصب</td>
+    <td>الأكثرون (السيوطي)</td>
+  </tr>
+  <tr>
+    <td><b>الثاني</b></td>
+    <td><span class="highlight-gold">تصحّ ويثاب لكنه يأثم</span></td>
+    <td>الصلاة صحيحة ويثاب عليها، لكنّه يأثم لغصب الثوب — وهذا أعدل الأقوال</td>
+    <td>بعض الفقهاء</td>
+  </tr>
+  <tr>
+    <td><b>الثالث</b></td>
+    <td><span class="highlight-red">لا تصحّ لكنّ الطلب سقط</span></td>
+    <td>الصلاة غير صحيحة لكنّ سقط الطلب وبرئت الذمّة — فلا تلزمه الإعادة</td>
+    <td>قول ثالث</td>
+  </tr>
+  <tr>
+    <td><b>الرابع</b></td>
+    <td><span class="highlight-red">لا تصحّ ولا يثاب</span></td>
+    <td>الصلاة لا تصحّ ولا ثواب فيها — أشدّ الأقوال</td>
+    <td>الحنابلة</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">خلاصة</span>
+  <p>الأقرب والأعدل هو <b>القول الثاني</b>: الصلاة تصحّ ويثاب عليها لكنّه يأثم لغصب الثوب — لأنّ ذنب الغصب منفصل عن عبادة الصلاة. وأمّا الصلاة في مكان مُعتدًى (كغصب أرض) ففيها خلاف مشابه: الأكثرون على أنّها تصحّ بلا ثواب، وقيل لا تصحّ لكنّ الطلب سقط، والحنابلة: لا تصحّ ولا يثاب.</p>
+</div>
+
+<!-- ===== 19. ما يسن للمصلي ===== -->
+<h2 class="section-title">١٩. ما يُسنّ للمصلّي من اللباس</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">النصّ</span>
+  <p><b>ويسنّ للمصلّي أن يلبس أحسن ثيابه ويرتدي ويتعمّم ويتقمّص ويتطيلس</b></p>
+</div>
+
+<div class="tree-container">
+  <div class="tree-root">ما يُسنّ للمصلّي من اللباس</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">١</div>
+      <div class="tree-branch-label">يلبس <b>أحسن ثيابه</b><br>لقوله تعالى: {خذوا زينتكم عند كلّ مسجد}</div>
+    </div>
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a;">
+      <div class="tree-branch-num">٢</div>
+      <div class="tree-branch-label"><b>يرتدي</b> — يلبس الرّداء<br>ما يُغطّي أعلى البدن</div>
+    </div>
+    <div class="tree-branch" style="background: #f0f9ff; border-color: #bae6fd;">
+      <div class="tree-branch-num">٣</div>
+      <div class="tree-branch-label"><b>يتعمّم</b> — يلبس العمامة</div>
+    </div>
+    <div class="tree-branch" style="background: #fdf2f8; border-color: #fbcfe8;">
+      <div class="tree-branch-num">٤</div>
+      <div class="tree-branch-label"><b>يتقمّص</b> — يلبس القميص</div>
+    </div>
+    <div class="tree-branch" style="background: #f5f3ff; border-color: #ddd6fe;">
+      <div class="tree-branch-num">٥</div>
+      <div class="tree-branch-label"><b>يتطيلس</b> — يلبس الطيلسان<br>ثوب يلبس في أعلى البدن يستر بعض الرأس والبدن — عادة علماء الشام</div>
+    </div>
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">بيان</span>
+  <p>العرب عادتهم أن يلبسوا <b>إزاراً</b> في الأسفل و<b>رداءً</b> في الأعلى. ثمّ تطوّر فصار له أزرار (كالقميص الحديث). فما يُغطّي أسفل البدن يسمّى <b>إزاراً</b> وما يُغطّي أعلاه يسمّى <b>رداءً</b>.</p>
+</div>
+
+<!-- ===== 20. لو كان عنده ثوبان ===== -->
+<h2 class="section-title">٢٠. لو كان عنده ثوبان فقط</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>ولو كان عنده ثوبان فقط لبس أحدهما وارتدى بالآخر</b> — أي يلبس أحدهما إزاراً ويجعل الآخر رداءً. هذا هو الأفضل لأنّه يجمع بين الإزار والرداء.</p>
+</div>
+
+<div class="poetry-box">
+  <span class="box-label label-exc" style="margin-bottom:6px;">شعر: عمر بن معد يكرب</span><br>
+  ليس الجمال بمئزر فاعلم وإن رُديتَ بِرداءِ<br>
+  إنّ الجمال معادلٌ ومناقبٌ أورثنا حمدا
+</div>
+
+<div class="poetry-box">
+  <span class="box-label label-exc" style="margin-bottom:6px;">شعر: الإمام الشافعي رحمه الله</span><br>
+  عليّ ثياب لو يُباع جميعُها بفلسٍ لكان الفلسُ منهنّ أكثرا<br>
+  وفيهنّ نفسٌ داخلٌ وعزيمةٌ كانت أجلّ وأكبرا<br>
+  وما ضرّ سيفاً يوماً أخلاقُ غمدهِ إذا كان عضباً أينما وجّهته فرى
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">شرح أبيات الشافعي</span>
+  <p><b>البيت الأول:</b> ثيابي رخيصة جدّاً — لو بِيعت كلّها بفلس واحد لكان الفلس أكثر منها قيمة.</p>
+  <p><b>البيت الثاني:</b> لكنّ فيها نفساً عزيزة وعزيمة قويّة هي أجَلّ وأكبر من الثياب.</p>
+  <p><b>البيت الثالث:</b> وما يضرّ السيف القاطع أن يكون غمده (كيسه) قديماً — المهم أنّ السيف يقطع أينما وجّهته. أي أنّ قيمة الإنسان بعمله وعلمه لا بثيابه.</p>
+</div>
+
+</div>
+</body>
+</html>

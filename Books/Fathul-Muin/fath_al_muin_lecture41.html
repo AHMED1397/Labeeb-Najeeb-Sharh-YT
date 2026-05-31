@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf') format('truetype'); font-weight: normal; }
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf') format('truetype'); font-weight: bold; }
+@font-face { font-family: 'NotoNaskh'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf') format('truetype'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+
+body {
+  font-family: 'NotoNaskh', 'Amiri', serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #1a1a2e;
+  direction: rtl;
+  background: #fff;
+  text-align: justify;
+}
+
+.cover-header {
+  background: #1a5632;
+  color: white;
+  padding: 20px 14px;
+  text-align: center;
+  margin: 0 0 12px 0;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px);
+  border-bottom: 4px solid #c8a951;
+}
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 6px; border: none; font-family: 'Amiri', serif; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.9; margin: 4px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.92; margin: 6px 0 2px 0; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .creator { font-size: 11pt; opacity: 0.85; margin-top: 2px; }
+.cover-header .series { font-size: 11pt; opacity: 0.8; margin-top: 4px; }
+
+.toc {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 0 0 12px 0;
+}
+.toc-title {
+  font-family: 'Amiri', serif;
+  font-size: 14pt;
+  color: #1a5632;
+  text-align: center;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #c8a951;
+  padding-bottom: 4px;
+}
+.toc-item {
+  font-size: 10pt;
+  padding: 2px 0;
+  border-bottom: 1px dotted #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+h2.section-title {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0d7c3e;
+  border-bottom: 2px solid #0d7c3e;
+  padding-bottom: 5px;
+  margin: 18px 0 10px;
+}
+
+h3.sub-title {
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: #0a5c2e;
+  margin: 14px 0 8px;
+  padding-right: 10px;
+  border-right: 4px solid #0d7c3e;
+}
+
+h4.minor-title {
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #166534;
+  margin: 10px 0 6px;
+}
+
+p { margin: 5px 0; text-align: justify; }
+
+.definition-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-right: 4px solid #0d7c3e;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.rule-box {
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-right: 4px solid #d97706;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.exception-box {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-right: 4px solid #ea580c;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.evidence-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-right: 4px solid #2563eb;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.issue-box {
+  background: #fdf2f8;
+  border: 1px solid #fbcfe8;
+  border-right: 4px solid #db2777;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.comparison-box {
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  border-right: 4px solid #7c3aed;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.note-box {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-right: 4px solid #0284c7;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.poetry-box {
+  background: #faf5ff;
+  border: 1px solid #e9d5ff;
+  border-right: 4px solid #9333ea;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+  text-align: center;
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  line-height: 2.2;
+}
+
+.key-rule {
+  background: #dcfce7;
+  border: 2px solid #16a34a;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.box-label {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 4px;
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.label-def { background: #0d7c3e; }
+.label-rule { background: #d97706; }
+.label-exc { background: #ea580c; }
+.label-ev { background: #2563eb; }
+.label-issue { background: #db2777; }
+.label-comp { background: #7c3aed; }
+.label-note { background: #0284c7; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 13px;
+  table-layout: fixed;
+}
+
+th {
+  background: #0d7c3e;
+  color: #fff;
+  padding: 6px 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+td {
+  padding: 5px 8px;
+  border: 1px solid #d1d5db;
+  text-align: center;
+  vertical-align: top;
+}
+
+tr:nth-child(even) { background: #f0fdf4; }
+tr:nth-child(odd) { background: #fff; }
+
+.tree-container { margin: 12px 0; text-align: center; }
+.tree-root {
+  display: inline-block;
+  background: linear-gradient(135deg, #0d7c3e, #0a5c2e);
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+.tree-branches { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px; }
+.tree-branch {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  min-width: 80px;
+  text-align: center;
+}
+.tree-branch-num { font-family: 'Amiri', serif; font-weight: bold; color: #0d7c3e; font-size: 14px; }
+.tree-branch-label { font-size: 12px; color: #374151; }
+
+.compare-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.compare-card { flex: 1; min-width: 140px; border-radius: 8px; padding: 8px 10px; text-align: center; }
+.compare-card-green { background: #dcfce7; border: 1px solid #86efac; }
+.compare-card-red { background: #fef2f2; border: 1px solid #fca5a5; }
+.compare-card-gold { background: #fefce8; border: 1px solid #fde68a; }
+.compare-card-blue { background: #eff6ff; border: 1px solid #bfdbfe; }
+.compare-card-title { font-family: 'Amiri', serif; font-weight: bold; font-size: 14px; margin-bottom: 4px; }
+.compare-card-body { font-size: 12px; }
+
+.flow-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px; margin: 8px 0; }
+.flow-box { background: #0d7c3e; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-family: 'Amiri', serif; font-weight: bold; text-align: center; }
+.flow-arrow { font-size: 16px; color: #0d7c3e; font-weight: bold; }
+.flow-result { padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; text-align: center; }
+.flow-pure { background: #dcfce7; border: 1px solid #86efac; color: #166534; }
+.flow-impure { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+.flow-excused { background: #fefce8; border: 1px solid #fde68a; color: #92400e; }
+
+.highlight-green { background: #dcfce7; padding: 1px 4px; border-radius: 3px; }
+.highlight-gold { background: #fefce8; padding: 1px 4px; border-radius: 3px; }
+.highlight-red { background: #fef2f2; padding: 1px 4px; border-radius: 3px; }
+
+.verse-ref { font-family: 'Amiri', serif; font-size: 14px; color: #1e40af; text-align: center; margin: 6px 0; }
+.hadith-ref { font-family: 'Amiri', serif; font-size: 13px; color: #166534; text-align: center; margin: 6px 0; }
+
+.condition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.condition-item { border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.condition-num {
+  display: inline-block; background: #0d7c3e; color: #fff; min-width: 24px; height: 24px;
+  border-radius: 50%; text-align: center; line-height: 24px; font-family: 'Amiri', serif;
+  font-weight: bold; font-size: 12px; margin-left: 6px;
+}
+
+ul { margin: 4px 0; padding-right: 20px; }
+li { margin: 2px 0; }
+</style>
+</head>
+<body>
+
+<!-- ===== COVER HEADER ===== -->
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس الحادي والأربعون — تابع سنن الصلاة: قراءة الآية بعد الفاتحة وأحكامها</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="creator">تنسيق: أحمد بن إرشاد</div>
+  <div class="series">سنّ القراءة بعد الفاتحة · البسملة من أثناء السورة · المفاضلة بين السور · ترتيب المصحف · أحكام المأموم</div>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. سنّ قراءة آية فأكثر بعد الفاتحة</span></div>
+  <div class="toc-item"><span>٢. البسملة عند قراءة آية من أثناء السورة</span></div>
+  <div class="toc-item"><span>٣. ما يحصل به أصل سنة القراءة بعد الفاتحة</span></div>
+  <div class="toc-item"><span>٤. المفاضلة: سورة كاملة أفضل من بعض طويلة</span></div>
+  <div class="toc-item"><span>٥. استثناء: حيث ورد قراءة البعض كما في التراويح</span></div>
+  <div class="toc-item"><span>٦. كراهة ترك الآية رعايةً لمن أوجبها</span></div>
+  <div class="toc-item"><span>٧. تقديم الآية قبل الفاتحة</span></div>
+  <div class="toc-item"><span>٨. مواضع لا يُشرع فيها قراءة شيء بعد الفاتحة</span></div>
+  <div class="toc-item"><span>٩. من يلحن لحناً يُغيّر المعنى</span></div>
+  <div class="toc-item"><span>١٠. سنّ قراءة السورة في الركعتين الأوليين</span></div>
+  <div class="toc-item"><span>١١. المسبوق وتدارك السورة</span></div>
+  <div class="toc-item"><span>١٢. تطويل القراءة في الأولى على الثانية</span></div>
+  <div class="toc-item"><span>١٣. القراءة على ترتيب المصحف والتوالي</span></div>
+  <div class="toc-item"><span>١٤. تعارض الترتيب وتطويل الأولى</span></div>
+  <div class="toc-item"><span>١٥. من تُسنّ له قراءة الآية: الإمام والمنفرد والمأموم</span></div>
+  <div class="toc-item"><span>١٦. مأموم لم يسمع قراءة إمامه أو سمع صوتاً لا يميّز حروفه</span></div>
+  <div class="toc-item"><span>١٧. تأخير فاتحة المأموم عن فاتحة إمامه</span></div>
+  <div class="toc-item"><span>١٨. ما يشتغل به المأموم وقت الانتظار وكراهة الشروع بالفاتحة قبل الإمام</span></div>
+</div>
+
+<!-- ===== 1. سنّ قراءة آية فأكثر بعد الفاتحة ===== -->
+<h2 class="section-title">١. سنّ قراءة آية فأكثر بعد الفاتحة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«وسنّ آية فأكثر والأولى ثلاث بعدها»</b> — أي بعد الفاتحة. نصّ المصنّف رحمه الله بعد أن فرغ من مسائل الفاتحة وسننها على أنّه يُسنّ قراءة آية فأكثر بعد الفاتحة.</p>
+</div>
+
+<h3 class="sub-title">هل تحصل السنة بأقلّ من آية؟</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف</span>
+  <p><b>ظاهر عبارة المصنّف:</b> أنّ السنة لا تحصل بأقلّ من آية، لأنّه قال «وسنّ آية فأكثر»، فلو قرأ بعض آية — كبعض آية الدّين مثلاً — فظاهر العبارة أنّ السنة لا تحصل.</p>
+  <p><b>ما نصّ عليه غيره من الفقهاء:</b> أنّ السنة <b>تحصل</b> بقراءة بعض آية إن أفادت، أي إذا كان بعض الآية مفيداً فالسنة تحصل بذلك.</p>
+</div>
+
+<div class="key-rule">
+  تحصل السنة بقراءة بعض آية إن أفادت<br>
+  والأفضل آية كاملة · وأفضل منها ثلاث آيات · وأفضل منها سورة قصيرة
+</div>
+
+<h3 class="sub-title">مراتب الفضل في القراءة بعد الفاتحة</h3>
+
+<div class="flow-row">
+  <div class="flow-box" style="background: #166534;">بعض آية مفيدة</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">آية كاملة</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">ثلاث آيات</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box" style="background: #d97706;">سورة قصيرة</div>
+</div>
+
+<p>وقوله «والأولى ثلاث» أي أنّ الثلاث أولى أفضل من الآية الواحدة. و«بعدها» أي بعد الفاتحة، فتُقرأ الآية أو السورة بعد الفاتحة لا قبلها.</p>
+
+<!-- ===== 2. البسملة عند قراءة آية من أثناء السورة ===== -->
+<h2 class="section-title">٢. البسملة عند قراءة آية من أثناء السورة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«ويُسنّ لمن قرأها من أثناء سورة البسملة»</b> — الضمير في «قرأها» يعود إلى الآية. أي إذا قرأت آية من أثناء سورة — من منتصفها أو من بعد الآية الأولى — يُسنّ أن تأتي بالبسملة. نصّ عليه الشافعيّ.</p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">مثال</span>
+  <p>قرأت الفاتحة وقلت آمين، ثمّ أردت قراءة آية الكرسيّ — يُسنّ أن تأتي بالبسملة فتقول: «بسم الله الرحمن الرحيم الله لا إله إلا هو الحيّ القيّوم». أمّا البسملة من بداية السورة فهذا واضح.</p>
+</div>
+
+<h3 class="sub-title">هل البسملة في الصلاة وخارجها؟</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف بين العلاّمين</span>
+  <p><b>ظاهر عبارة المصنّف (وما اعتمده ابن حجر):</b> أنّه لو قرأ آية من أثناء السورة تأتي بالبسملة سواء كنت في الصلاة أو خارج الصلاة.</p>
+  <p><b>الرملّيّ:</b> إنّ قراءة البسملة إذا قرأت الآية من أثناء السورة إنّما يكون <b>خارج الصلاة</b>، أمّا في الصلاة فتقرأ الآية مباشرة ولا تأتي بالبسملة.</p>
+</div>
+
+<!-- ===== 3. ما يحصل به أصل السنة ===== -->
+<h2 class="section-title">٣. ما يحصل به أصل سنة القراءة بعد الفاتحة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«ويحصل أصل السنة»</b> — أي أصل سنة قراءة آية بعد الفاتحة، ويحصل بثلاثة أمور:</p>
+</div>
+
+<table>
+  <tr>
+    <th>الأمر</th>
+    <th>البيان</th>
+    <th>التفصيل</th>
+  </tr>
+  <tr>
+    <td><b>الأوّل</b></td>
+    <td>بتكرير سورة واحدة في الركعتين</td>
+    <td>لو قرأت نفس السورة في الركعة الأولى وأعدتها في الثانية تحصل أصل السنة</td>
+  </tr>
+  <tr>
+    <td><b>الثاني</b></td>
+    <td>بإعادة الفاتحة إن لم يحفظ غيرها</td>
+    <td>من لا يحفظ إلا الفاتحة يعيد قراءتها مرة أخرى وتحصل أصل السنة. ومفهومه: إن كان يحفظ غيرها فلا تحصل السنة بإعادة الفاتحة</td>
+  </tr>
+  <tr>
+    <td><b>الثالث</b></td>
+    <td>بقراءة البسملة</td>
+    <td>لو قرأ الفاتحة واكتفى بقراءة البسملة حصلت أصل السنة، لا بقصد كون البسملة أوّل الفاتحة، لأنّ البسملة جزء آية في سورة النمل وآية من أوّل كلّ سورة</td>
+  </tr>
+</table>
+
+<div class="key-rule">
+  أصل سنة القراءة بعد الفاتحة يحصل بأحد ثلاثة:<br>
+  ١. تكرير السورة نفسها في الركعتين<br>
+  ٢. إعادة الفاتحة لمن لم يحفظ غيرها<br>
+  ٣. قراءة البسملة (لا بقصد كونها من الفاتحة)
+</div>
+
+<!-- ===== 4. المفاضلة ===== -->
+<h2 class="section-title">٤. المفاضلة: سورة كاملة أفضل من بعض طويلة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«وسورة كاملة حيث لم يرد البعض كما في التراويح أفضل من بعض طويلة وإن طال»</b> — أي أنّ السورة الكاملة القصيرة أفضل من بعض سورة أطول، وإن طال البعض على رأي من يرى ذلك (كابن حجر).</p>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف بين الفقهاء</span>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">الرملّيّ: بعض سورة أطول أفضل</div>
+    <div class="compare-card-body">نظر إلى كثرة الحروف<br>ففضّل بعض السورة الأطول<br>لكثرة الحروف فيها</div>
+  </div>
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">ابن حجر: السورة الكاملة القصيرة أفضل</div>
+    <div class="compare-card-body">لعلّين:<br>١. <b>الاتباع:</b> غالب هدي النبيّ ﷺ قراءة سورة كاملة في الركعة<br>٢. <b>كلّ سورة لها مبدأ ومقطع ظاهران</b> وتجتمع على فكرة واحدة</div>
+  </div>
+</div>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">مثال</span>
+  <p>آية الدّين أطول آية في القرآن لكنّها آية، وسورة الكوثر سورة قصيرة — فآية الدّين أطول من الكوثر. أيهما أفضل؟ على رأي ابن حجر: سورة الكوثر الكاملة أفضل. على رأي الرملّيّ: آية الدّين أفضل لكثرة الحروف.</p>
+</div>
+
+<p>وقوله «وإن طال» أي وإن طال البعض على معتمد الشيخ ابن حجر رحمه الله.</p>
+
+<!-- ===== 5. استثناء التراويح ===== -->
+<h2 class="section-title">٥. استثناء: حيث ورد قراءة البعض كما في التراويح</h2>
+
+<div class="exception-box">
+  <span class="box-label label-exc">استثناء من الأصل</span>
+  <p><b>«حيث لم يرد البعض كما في التراويح»</b> — في بعض الصلوات ورد قراءة بعض السورة في الركعة، فيُستثنى ذلك. ومن أمثلته:</p>
+</div>
+
+<table>
+  <tr>
+    <th>المثال</th>
+    <th>البيان</th>
+  </tr>
+  <tr>
+    <td><b>صلاة التراويح</b></td>
+    <td>يُسنّ قراءة جميع القرآن في رمضان في التراويح، ولابدّ حينئذ من قراءة بعض السورة في الركعة</td>
+  </tr>
+  <tr>
+    <td><b>صلاة الصبح</b></td>
+    <td>كان النبيّ ﷺ يقرأ في الركعة الأولى بالثلاثين ويقرأ في الثانية قل آمنوا بالله وما أُنزل علينا من سورة البقرة، ويقرأ آية من الفجر في الركعة الأخرى</td>
+  </tr>
+</table>
+
+<!-- ===== 6. كراهة ترك الآية ===== -->
+<h2 class="section-title">٦. كراهة ترك الآية رعايةً لمن أوجبها</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«ويُكره تركها رعايةً لمن أوجبها»</b> — أي يُكره ترك قراءة الآية بعد الفاتحة، رعايةً لخلاف من أوجبها من العلماء.</p>
+</div>
+
+<h3 class="sub-title">من الذي أوجب قراءة شيء بعد الفاتحة؟</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">مذهب الحنفيّة</span>
+  <p>الحنفيّة عندهم الصلاة فيها فروض وفيها واجبات وفيها سنن. <b>الواجب</b> عندهم أقلّ من الفرض وأعلى من السنة. فالفرض ما ثبت بدليل قطعيّ والواجب ما ثبت بدليل ظنّيّ. وعندهم <b>قراءة شيء من القرآن بعد الفاتحة واجب</b> — وهذا من المسائل التي فرّقوا فيها بين الفرض والواجب.</p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل على عدم الوجوب</span>
+  <p>ثبت في الصحيحين أنّ النبيّ ﷺ قال: <b>«من قرأ بأُمّ الكتاب فقد أجزأت عنه، ومن زاد فهو أفضل»</b> — فهذا يدلّ على أنّ القراءة بعد الفاتحة ليست واجبة.</p>
+</div>
+
+<div class="key-rule">
+  القراءة بعد الفاتحة سُنّة لا واجب<br>
+  لكن يُكره تركها خروجاً من خلاف الحنفيّة الذين أوجبوها
+</div>
+
+<!-- ===== 7. تقديم الآية قبل الفاتحة ===== -->
+<h2 class="section-title">٧. تقديم الآية قبل الفاتحة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«وخرج بقوله "بعدها" ما لو قدّمها عليها فلا تُحسب بل يُكره ذلك»</b> — أي أنّ قوله «بعدها» قيد أخرج ما لو قرأ الآية قبل الفاتحة.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">الآية بعد الفاتحة</div>
+    <div class="compare-card-body">تُسنّ قراءتها<br>وتحصل السنة<br>وهذا هو الأصل</div>
+  </div>
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">الآية قبل الفاتحة</div>
+    <div class="compare-card-body">لا تُحسب قراءتها<br>ويُكره ذلك<br>لأنّها خلاف الترتيب المشروع</div>
+  </div>
+</div>
+
+<!-- ===== 8. مواضع لا يُشرع فيها قراءة شيء بعد الفاتحة ===== -->
+<h2 class="section-title">٨. مواضع لا يُشرع فيها قراءة شيء بعد الفاتحة</h2>
+
+<div class="exception-box">
+  <span class="box-label label-exc">أربعة مواضع</span>
+  <p>ذكر الشيخ أربعة مواضع لا يُشرع فيها قراءة شيء من القرآن بعد الفاتحة:</p>
+</div>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #fef2f2; border: 1px solid #fca5a5;">
+    <span class="condition-num">١</span>
+    <b>صلاة الجنازة:</b> يُكره قراءة شيء بعد الفاتحة
+  </div>
+  <div class="condition-item" style="background: #fef2f2; border: 1px solid #fca5a5;">
+    <span class="condition-num">٢</span>
+    <b>فاقد الطهورين إذا كان جنباً:</b> يُحرّم عليه قراءة شيء بعد الفاتحة
+  </div>
+  <div class="condition-item" style="background: #fef2f2; border: 1px solid #fca5a5;">
+    <span class="condition-num">٣</span>
+    <b>الركعة الثالثة والرابعة:</b> يُكره قراءة شيء بعد الفاتحة في المكتوبات
+  </div>
+  <div class="condition-item" style="background: #fef2f2; border: 1px solid #fca5a5;">
+    <span class="condition-num">٤</span>
+    <b>المأموم إذا كان يسمع قراءة إمامه:</b> يُكره له القراءة وقيل يُحرّم
+  </div>
+</div>
+
+<table>
+  <tr>
+    <th>الموضع</th>
+    <th>الحكم</th>
+    <th>البيان</th>
+  </tr>
+  <tr>
+    <td><b>صلاة الجنازة</b></td>
+    <td><span class="highlight-gold">مكروه</span></td>
+    <td>لا يُشرع قراءة شيء بعد الفاتحة</td>
+  </tr>
+  <tr>
+    <td><b>فاقد الطهورين (جُنب)</b></td>
+    <td><span class="highlight-red">حرام</span></td>
+    <td>يُحرّم عليه قراءة شيء بعد الفاتحة</td>
+  </tr>
+  <tr>
+    <td><b>الركعة الثالثة والرابعة</b></td>
+    <td><span class="highlight-gold">مكروه</span></td>
+    <td>في الثلاثيّة كالمغرب والرباعيّة كالظهر والعشاء</td>
+  </tr>
+  <tr>
+    <td><b>المأموم يسمع قراءة إمامه</b></td>
+    <td><span class="highlight-gold">مكروه</span> وقيل <span class="highlight-red">حرام</span></td>
+    <td>إذا كان يسمع قراءة إمامه في الصلاة الجهريّة</td>
+  </tr>
+</table>
+
+<!-- ===== 9. من يلحن لحناً يُغيّر المعنى ===== -->
+<h2 class="section-title">٩. من يلحن لحناً يُغيّر المعنى</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«وينبغي أن لا يقرأ غير الفاتحة من يلحن فيه لحناً يُغيّر المعنى وإن عجز عن التعلّم، لأنّه يتكلّم بما ليس بقرآن بلا ضرورة، وترك السورة جائز»</b></p>
+</div>
+
+<h3 class="sub-title">معنى «ينبغي»: هل هو يُستحبّ أو يجب؟</h3>
+
+<div class="issue-box">
+  <span class="box-label label-issue">مسألة دقيقة</span>
+  <p>كلمة «ينبغي» تحتمل أن يكون بمعنى <b>يُستحبّ</b> وتحتمل أن يكون بمعنى <b>يجب</b>. فكيف نعرف المعنى المراد؟</p>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">دلالة التعليل</span>
+  <p><b>التعليل يفيد الوجوب:</b> قال «لأنّه يتكلّم بما ليس بقرآن بلا ضرورة» — هذا يفيد أنّ المعنى يجب، لأنّ الكلام بما ليس بقرآن بلا ضرورة محرّم.</p>
+  <p><b>قوله «ومقتضى كلام الإمام الحرمة» يفيد الاستحباب:</b> لأنّه كأنّه يقول: أنا أقول ينبغي (استحباب) وكلام الإمام يقتضي الحرمة. فكأنّ بين قوله وقول الإمام خلافاً. لكن عبارة الشيخ ابن حجر تفيد التحريم، وهو المعتمد في المذهب.</p>
+</div>
+
+<div class="key-rule">
+  المعتمد في المذهب: <b>يجب</b> على من يلحن لحناً يُغيّر المعنى<br>
+  أن لا يقرأ غير الفاتحة — لأنّه يتكلّم بما ليس بقرآن بلا ضرورة<br>
+  وترك السورة بعد الفاتحة جائز
+</div>
+
+<h3 class="sub-title">تفصيل المسألة</h3>
+
+<p>لو قال شخص: «إذا قرأت شيئاً من القرآن بعد الفاتحة سألحن لحناً يُغيّر المعنى» — نقول له: <b>يجب أن لا تقرأ</b>، لأنّك إذا قرأت ولحنت لحناً يُغيّر المعنى تتكلّم بما ليس بقرآن، وقراءتك للسورة بعد الفاتحة ليس أمراً ضرورياً فيجوز أن تترك ذلك. لذلك قال: «لأنّه يتكلّم بما ليس بقرآن بلا ضرورة، وترك السورة جائز».</p>
+
+<!-- ===== 10. سنّ قراءة السورة في الركعتين الأوليين ===== -->
+<h2 class="section-title">١٠. سنّ قراءة السورة في الركعتين الأوليين من رباعيّة أو ثلاثيّة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«وتُسنّ في الركعتين الأوليين من رباعيّة أو ثلاثيّة، ولا تُسنّ في الأخيرتين»</b> — أي تُسنّ قراءة السورة في الأولى والثانية من صلاة الظهر والعصر والعشاء، والأولى والثانية من صلاة المغرب. ولا تُسنّ في الثالثة والرابعة. وهذا في المكتوبات.</p>
+</div>
+
+<h3 class="sub-title">في النوافل: ثلاث كيفيّات</h3>
+
+<p>لو صلّى قبل الظهر أربع ركعات نافلة، فله ثلاث كيفيّات:</p>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">١</span>
+    <b>ركعتان بسلام ثمّ ركعتان بسلام</b><br>
+    — يُسنّ قراءة السورة بعد الفاتحة في كلّ ركعة (واتّفقت هذه الكيفية على أنّها الأفضل)
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٢</span>
+    <b>أربع ركعات بسلام واحد مع التشهّد الأوّل</b><br>
+    — يُسنّ قراءة السورة فيما قبل التشهّد الأوّل (الركعة الأولى والثانية)
+  </div>
+  <div class="condition-item" style="background: #f0f9ff; border: 1px solid #bae6fd;">
+    <span class="condition-num">٣</span>
+    <b>أربع ركعات بسلام واحد لا يجلس إلا في الأخير</b><br>
+    — يُسنّ قراءة السورة في كلّ الركعات
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">عبارة ابن حجر في فتح الجواد</span>
+  <p>«ولو اقتصر مُتنفّل على تشهّد — أي جلس في تشهّد أخير فقط — سُنّت السورة في الكلّ، أو على أكثر — أي جلس في تشهّدين أو على أكثر — سُنّت فيما قبل التشهّد الأوّل»</p>
+</div>
+
+<!-- ===== 11. المسبوق ===== -->
+<h2 class="section-title">١١. المسبوق وتدارك السورة</h2>
+
+<div class="exception-box">
+  <span class="box-label label-exc">استثناء</span>
+  <p><b>«إلا لمسبوق بأن لم يُدرك الأوليين مع الإمام فيقرأها في باقي صلاته إذا تداركها»</b> — المسبوق يُسنّ له أن يقرأ بعد الفاتحة في الثالثة والرابعة التي يقضيها، بشرطين:</p>
+</div>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">١</span>
+    <b>أن لم يكن قرأها فيما أدركه:</b> لو تمكّنت من قراءة السورة في الركعتين اللتين أدركتهما مع الإمام فلا تقرأها بعد ذلك
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٢</span>
+    <b>أن لم تسقط عنه لكونه مسبوقاً فيما أدركه:</b> لو أدرك الإمام راكعاً فسقطت عنه الفاتحة، فالسورة من باب أولى تسقط
+  </div>
+</div>
+
+<h3 class="sub-title">مثال توضيحيّ</h3>
+
+<p>نفترض أنّني جئت والإمام كبّر لصلاة الظهر فكبّرت وقرأت الفاتحة، لكن الإمام ركع ولم أُدرك قراءة السورة بعدها — تسقط عني السورة لأنّ الإمام تحمّل عني الفاتحة فالسورة من باب أولى.</p>
+
+<p>أمّا لو جئت وأدركت مع الإمام الركعة الثالثة والرابعة (اللتين هما الأولى والثانية بالنسبة لي)، وقرأت الفاتحة ولم أتمكّن من السورة لأنّ الإمام ركع — فبعد أن أقوم لقضاء الثالثة والرابعة أقرأ الفاتحة وأتدارك السورة التي بعد الفاتحة.</p>
+
+<div class="key-rule">
+  المسبوق يتدارك السورة فيما يقضي بشرطين:<br>
+  ١. أن لا يكون قرأها فيما أدركه مع الإمام<br>
+  ٢. أن لم تسقط عنه لكون الإمام تحمّل عنه الفاتحة<br>
+  فإذا تحمّل الإمام الفاتحة فالسورة من باب أولى
+</div>
+
+<!-- ===== 12. تطويل الأولى ===== -->
+<h2 class="section-title">١٢. تطويل القراءة في الأولى على الثانية</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«ويُسنّ أن يُطوّل قراءة الأولى على الثانية»</b> — أي يُسنّ أن تكون قراءة الركعة الأولى أطول من قراءة الركعة الثانية.</p>
+</div>
+
+<h3 class="sub-title">مقدار التطويل</h3>
+
+<p>لم يذكر المصنّف مقدار التطويل، لكن ذكره بعض الفقهاء فقال: بحيث تكون الركعة الثانية كالنصف من الركعة الأولى أو قريباً منها. فإذا كانت في الأولى قدر ثلاثين آية فإنّ الثانية تكون قدر خمسة عشر آية.</p>
+
+<h3 class="sub-title">استثناء: ورود النصّ بتطويل الثانية</h3>
+
+<div class="exception-box">
+  <span class="box-label label-exc">استثناء</span>
+  <p><b>«ما لم يرد نصّ بتطويل الثانية»</b> — إذا ورد في النصّ أن تكون الثانية أطول من الأولى فنتبع النصّ.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">صلاة العيد والجمعة</div>
+    <div class="compare-card-body">يُسنّ أن يقرأ في الأولى<b>سبّح اسم ربّك الأعلى</b><br>وفي الثانية <b>هل أتاك حديث الغاشية</b><br>والغاشية أطول من الأعلى<br>فنتبع النصّ</div>
+  </div>
+  <div class="compare-card compare-card-blue">
+    <div class="compare-card-title">تأخّر المأمومون في السجود</div>
+    <div class="compare-card-body">إذا تأخّر المأمومون في السجود لعارض<br>يُسنّ تطويل الثانية حتى يدركوا القراءة<br>ولو طالت الثانية على الأولى</div>
+  </div>
+</div>
+
+<!-- ===== 13. ترتيب المصحف ===== -->
+<h2 class="section-title">١٣. القراءة على ترتيب المصحف والتوالي</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«وأن يقرأ على ترتيب المصحف»</b> — أي يقرأ السور على حسب ترتيبها في المصحف. فهذه سنّة يهملها بعض الأئمّة. و«على التوالي» أي أن يقرأ سورة ثمّ التي تليها ثمّ التي تليها.</p>
+</div>
+
+<h3 class="sub-title">أمثلة على الترتيب والتوالي</h3>
+
+<div class="flow-row">
+  <div class="flow-box">الإسراء</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">الكهف</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">مريم</div>
+</div>
+
+<div class="flow-row">
+  <div class="flow-box">الإنسان</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">المرسلات</div>
+</div>
+
+<div class="flow-row">
+  <div class="flow-box">الأعلى</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">الغاشية</div>
+</div>
+
+<p>فعدم الترتيب خلاف الأولى. فمثلاً قراءة النازعات ثمّ النبأ خلاف الأفضل. والترتيب يكون بقراءة السورة ثمّ التي تليها مباشرة لا أن ينتقل إلى سورة أبعد.</p>
+
+<h3 class="sub-title">استثناء: إذا كانت التي تليها أطول</h3>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه</span>
+  <p><b>«ما لم تكن التي تليها أطول»</b> — فلو كانت السورة التالية أطول فتركها ليس خلاف الأفضل. مثال: لو قرأ في الأولى سورة مريم والتي تليها طه — وطه أطول من مريم — فترك طه وقرأ غيرها ليس خلاف الأفضل، لأنّ مراعاة تطويل الأولى تقتضي ذلك.</p>
+</div>
+
+<!-- ===== 14. تعارض الترتيب وتطويل الأولى ===== -->
+<h2 class="section-title">١٤. تعارض الترتيب وتطويل الأولى</h2>
+
+<div class="issue-box">
+  <span class="box-label label-issue">مسألة دقيقة</span>
+  <p><b>«ولو تعارض الترتيب وتطويل الأولى كأن قرأ الإخلاص، فهل يقرأ الفلق مراعاةً للترتيب، أو الكوثر نظراً لتطويل الأولى؟ كلّ محتمل، والأقرب الأوّل»</b></p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">الأقرب: مراعاة الترتيب</div>
+    <div class="compare-card-body">يقرأ الإخلاص ثمّ الفلق<br>مراعاةً لترتيب المصحف<br>قاله شيخنا (ابن حجر)<br>في شرح المنهاج (تحفة المحتاج)</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">الاحتمال الآخر</div>
+    <div class="compare-card-body">يقرأ الإخلاص ثمّ الكوثر<br>نظراً لتطويل الأولى<br>لكنّ الفلق أطول من الإخلاص<br>فيتعارض مع تطويل الأولى</div>
+  </div>
+</div>
+
+<h3 class="sub-title">الجمع بين الأمرين</h3>
+
+<div class="note-box">
+  <span class="box-label label-note">قول بعض الفقهاء</span>
+  <p>يمكن الجمع بين المصلحتين: يقرأ <b>ثلاث آيات من سورة الفلق</b> فيحقّق الترتيب (قرأ التي تلي الإخلاص) وحقّق تطويل الأولى (لأنّ الثلاث آيات أقلّ من سورة الإخلاص كاملة). فتحقّق له الأمران معاً.</p>
+</div>
+
+<!-- ===== 15. من تُسنّ له قراءة الآية ===== -->
+<h2 class="section-title">١٥. من تُسنّ له قراءة الآية: الإمام والمنفرد والمأموم</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«وإنّما تُسنّ قراءة الآية لإمام ومنفرد وغير مأموم سمع قراءة إمامه في الجهريّة، فتُكره له وقيل تُحرّم»</b></p>
+</div>
+
+<div class="tree-container">
+  <div class="tree-root">قراءة الآية بعد الفاتحة — من تُسنّ له؟</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">الإمام</div>
+      <div class="tree-branch-label">تُسنّ له القراءة</div>
+    </div>
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">المنفرد</div>
+      <div class="tree-branch-label">تُسنّ له القراءة</div>
+    </div>
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a;">
+      <div class="tree-branch-num">المأموم</div>
+      <div class="tree-branch-label">تفصيل حسب حاله<br>انظر الجدول أدناه</div>
+    </div>
+  </div>
+</div>
+
+<h3 class="sub-title">تفصيل أحوال المأموم</h3>
+
+<table>
+  <tr>
+    <th>حال المأموم</th>
+    <th>الحكم</th>
+    <th>البيان</th>
+  </tr>
+  <tr>
+    <td><b>يسمع قراءة إمامه في الجهريّة</b></td>
+    <td><span class="highlight-gold">يُكره</span> وقيل <span class="highlight-red">يُحرّم</span></td>
+    <td>كالصلاة الصبح حيث يجهر الإمام بالقراءة</td>
+  </tr>
+  <tr>
+    <td><b>يسمع قراءة إمامه في السرّيّة</b></td>
+    <td><span class="highlight-gold">لا تُسنّ (المعتمد)</span></td>
+    <td>لو جهر الإمام في صلاة الظهر — فالمعتمد أنّ المأموم لا يقرأ ولو خالف الإمام السنة بالجهر</td>
+  </tr>
+  <tr>
+    <td><b>لم يسمع قراءة إمامه</b></td>
+    <td><span class="highlight-green">يُسنّ له القراءة سرّاً</span></td>
+    <td>يقرأ السورة بعد الفاتحة سرّاً</td>
+  </tr>
+  <tr>
+    <td><b>سمع صوتاً لا يميّز حروفه</b></td>
+    <td><span class="highlight-green">يُسنّ له القراءة سرّاً</span></td>
+    <td>يسمع صوتاً لكنّ الحروف غير ظاهرة — فكأنّه لم يسمع</td>
+  </tr>
+</table>
+
+<h3 class="sub-title">مسألة: المأموم يسمع إمامه في السرّيّة</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف — والمصنّف خالف المعتمد</span>
+  <p><b>ظاهر عبارة المصنّف:</b> أنّه إذا سمع قراءة إمامه في السرّيّة (كأن جهر الإمام في الظهر) فإنّه يقرأ، لأنّه قيّد الكلام بقوله «في الجهريّة»، ومفهومه أنّ السرّيّة لا يمنع. واعتباراً بالمشروع — أي أنّ المشروع للإمام الإسرار لا الجهر، فكأنّ جهره لغو.</p>
+  <p><b>المعتمد في المذهب:</b> لا يُسنّ له قراءتها اعتباراً بفعل الإمام — ما دام الإمام جهر فأيّها المأموم تسكت وتنصت لقراءة إمامه، حتّى ولو خالف الإمام السنة وجهر بالقراءة في صلاة الظهر. <b>هذه من المسائل التي خالف فيها المصنّف معتمد المذهب.</b></p>
+</div>
+
+<!-- ===== 16. مأموم لم يسمع قراءة إمامه ===== -->
+<h2 class="section-title">١٦. مأموم لم يسمع قراءة إمامه أو سمع صوتاً لا يميّز حروفه</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«أمّا مأموم لم يسمعها — أي لم يسمع قراءة إمامه — أو سمع صوتاً لا يميّز حروفه فيقرأ سرّاً»</b></p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">معنى «لا يميّز حروفه»</span>
+  <p>أي يسمع صوتاً لكنّ الحروف غير ظاهرة وغير واضحة — في هذه الحالة يُسنّ للمأموم أن يقرأ السورة التي بعد الفاتحة سرّاً.</p>
+</div>
+
+<!-- ===== 17. تأخير فاتحة المأموم ===== -->
+<h2 class="section-title">١٧. تأخير فاتحة المأموم عن فاتحة إمامه</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«لكن يُسنّ له — كما في أولي السرّيّة — تأخير فاتحته عن فاتحة إمامه إن ظنّ إدراكها قبل ركوعه»</b></p>
+</div>
+
+<h3 class="sub-title">حالتان يُسنّ فيهما تأخير الفاتحة</h3>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">المأموم الذي لا يسمع قراءة إمامه</div>
+    <div class="compare-card-body">يُسنّ له أن يتأخّر في قراءة الفاتحة<br>حتّى ينتهي الإمام ثمّ يقرأها بعد ذلك<br>بشرط أن يظنّ إدراكها قبل ركوع الإمام</div>
+  </div>
+  <div class="compare-card compare-card-blue">
+    <div class="compare-card-title">المأموم في الأوليين من السرّيّة</div>
+    <div class="compare-card-body">كصلاة الظهر — يُسنّ للمأموم أن ينتظر قليلاً<br>حتّى يظنّ أنّ الإمام قد شرع في الفاتحة<br>ثمّ يقرأ هو الفاتحة</div>
+  </div>
+</div>
+
+<div class="key-rule">
+  يُسنّ للمأموم تأخير فاتحته عن فاتحة إمامه<br>
+  بشرط: أن يظنّ إدراكها قبل ركوع الإمام<br>
+  وفي وقت الانتظار يشتغل بالدعاء أو الذكر لا القراءة
+</div>
+
+<!-- ===== 18. ما يشتغل به وقت الانتظار ===== -->
+<h2 class="section-title">١٨. ما يشتغل به المأموم وقت الانتظار وكراهة الشروع بالفاتحة قبل الإمام</h2>
+
+<h3 class="sub-title">ماذا يفعل المأموم وقت الانتظار؟</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>«وحينئذ يشتغل بالدعاء أو الذكر لا القراءة»</b> — أي في الوقت الذي ينتظر فيه المأموم انتهاء الإمام من الفاتحة، يشتغل إمّا بالدعاء وإمّا بالذكر، ولا يشتغل بالقراءة.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">يشتغل بـ</div>
+    <div class="compare-card-body"><b>الذكر</b> — كالتسبيح والتحميد<br><b>الدعاء</b> — أيّ دعاء مشروع</div>
+  </div>
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">لا يشتغل بـ</div>
+    <div class="compare-card-body"><b>القراءة</b> — لأنّ القراءة<br>لا تتقدّم على الفاتحة<br>وقد مرّ أنّه يُكره تقديم الآية على الفاتحة</div>
+  </div>
+</div>
+
+<h3 class="sub-title">كراهة الشروع بالفاتحة قبل الإمام</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">قول المتولّي وأقرّه ابن الرفعة</span>
+  <p><b>«يُكره الشروع بالفاتحة من المأموم قبله — أي قبل الإمام»</b> — أي يُكره أن يبدأ المأموم بقراءة الفاتحة قبل أن يبدأ الإمام بقراءة الفاتحة.</p>
+</div>
+
+<div class="key-rule">
+  قاعدة في قراءة المأموم:<br>
+  ١. لا يبدأ الفاتحة قبل إمامه (مكروه)<br>
+  ٢. إذا تأخّر عن إمامه يشتغل بالذكر أو الدعاء لا بالقراءة<br>
+  ٣. إذا لم يسمع قراءة إمامه يُسنّ له القراءة سرّاً بعد الفاتحة
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">أهمّية فقه الإمام في الصلاة</span>
+  <p>هذه المسائل الكثيرة المتعلّقة بقراءة ما بعد الفاتحة تدلّ على أهمّية أن يكون الإمام فقيهاً. وفي الحديث: <b>«يؤمّ القوم أقرؤهم لكتاب الله»</b> — قالوا: أقرؤهم <b>أفقههم</b>. فالصلاة تحتاج إلى فقه، وانظر إلى كمية المسائل المتعلّقة بقراءة ما بعد الفاتحة وحدها.</p>
+</div>
+
+</body>
+</html>

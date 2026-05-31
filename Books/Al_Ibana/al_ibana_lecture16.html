@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح الإبانة والإفاضة - الدرس السادس عشر - الأخير</title>
+<style>
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+  @bottom-center {
+    content: counter(page);
+    font-size: 12px;
+    color: #0d6b3e;
+  }
+}
+
+:root {
+  --primary: #0d6b3e;
+  --dark: #0a4f2e;
+  --gold: #d4a020;
+  --light-gold: #f0e6c0;
+  --teal: #0d7377;
+  --bg: #fefefe;
+  --body-text: #1a1a1a;
+  --border: #c8d6c0;
+  --card-bg: #f8faf7;
+  --shadow: rgba(13,107,62,0.1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Amiri', 'Traditional Arabic', 'Simplified Arabic', serif;
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--body-text);
+  background: var(--bg);
+  direction: rtl;
+}
+
+/* B&W Toggle */
+.bw-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1000;
+  background: var(--primary);
+  color: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: all 0.3s;
+}
+.bw-toggle:hover { background: var(--dark); transform: scale(1.1); }
+
+body.bw-mode {
+  --primary: #333;
+  --dark: #111;
+  --gold: #666;
+  --light-gold: #e0e0e0;
+  --teal: #444;
+  --bg: #fff;
+  --body-text: #000;
+  --border: #aaa;
+  --card-bg: #f5f5f5;
+  --shadow: rgba(0,0,0,0.15);
+}
+body.bw-mode .cover-page { background: #222 !important; }
+body.bw-mode .cover-page * { color: #fff !important; border-color: #888 !important; }
+body.bw-mode .evidence-box { border-color: #888 !important; background: #f0f0f0 !important; }
+body.bw-mode .timeline-bar { filter: grayscale(100%); }
+body.bw-mode .classification-tree { border-color: #888 !important; }
+
+/* Cover Page */
+.cover-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a4f2e 0%, #0d6b3e 30%, #0d7377 60%, #0a4f2e 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+}
+.cover-page::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a020' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.8;
+}
+.cover-badge {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark);
+  font-size: 18px;
+  font-weight: bold;
+  padding: 6px 28px;
+  border-radius: 20px;
+  margin-bottom: 25px;
+  position: relative;
+  z-index: 1;
+}
+.cover-title {
+  font-size: 28px;
+  color: var(--light-gold);
+  position: relative;
+  z-index: 1;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+.cover-book {
+  font-size: 22px;
+  color: var(--gold);
+  position: relative;
+  z-index: 1;
+  margin-bottom: 30px;
+  line-height: 1.7;
+}
+.cover-line {
+  width: 120px;
+  height: 3px;
+  background: var(--gold);
+  margin: 20px auto;
+  position: relative;
+  z-index: 1;
+}
+.cover-info {
+  font-size: 17px;
+  color: #c8e6c9;
+  position: relative;
+  z-index: 1;
+  line-height: 2.2;
+}
+.cover-ornament {
+  font-size: 36px;
+  color: var(--gold);
+  position: relative;
+  z-index: 1;
+  margin: 15px 0;
+  letter-spacing: 8px;
+}
+
+/* Main Content */
+.main-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+/* Section Headers */
+h1 {
+  font-size: 22px;
+  color: var(--primary);
+  border-bottom: 3px solid var(--gold);
+  padding-bottom: 10px;
+  margin: 35px 0 20px;
+  text-align: right;
+}
+h2 {
+  font-size: 19px;
+  color: var(--dark);
+  border-right: 5px solid var(--gold);
+  padding-right: 15px;
+  margin: 25px 0 15px;
+}
+h3 {
+  font-size: 17px;
+  color: var(--teal);
+  margin: 20px 0 12px;
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 12px;
+  text-align: justify;
+  text-indent: 1.5em;
+}
+p.no-indent { text-indent: 0; }
+
+/* Evidence Box */
+.evidence-box {
+  background: linear-gradient(135deg, #f0e6c0 0%, #faf6e8 100%);
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin: 18px 0;
+  position: relative;
+}
+.evidence-box::before {
+  content: '📖';
+  position: absolute;
+  top: -12px;
+  right: 18px;
+  background: var(--gold);
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.evidence-box .ev-label {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark);
+  padding: 2px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.evidence-box .ev-text {
+  font-size: 17px;
+  line-height: 2;
+  color: var(--dark);
+}
+
+/* Classification Tree */
+.classification-tree {
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  background: var(--card-bg);
+}
+.classification-tree .tree-title {
+  text-align: center;
+  font-size: 18px;
+  color: var(--primary);
+  font-weight: bold;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px dashed var(--border);
+}
+.tree-root {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.tree-node-root {
+  background: var(--primary);
+  color: #fff;
+  padding: 8px 22px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.tree-children {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+.tree-child {
+  background: var(--light-gold);
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 10px 18px;
+  text-align: center;
+  min-width: 120px;
+}
+.tree-child .child-title {
+  font-weight: bold;
+  color: var(--dark);
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+.tree-child .child-desc {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Ruling Card */
+.ruling-card {
+  border-right: 5px solid var(--primary);
+  background: var(--card-bg);
+  border-radius: 0 10px 10px 0;
+  padding: 15px 20px;
+  margin: 15px 0;
+  box-shadow: 0 2px 6px var(--shadow);
+}
+.ruling-card .ruling-label {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  padding: 2px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.ruling-card .ruling-text {
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+/* Comparison Card */
+.comparison-card {
+  display: flex;
+  gap: 0;
+  margin: 18px 0;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.comparison-card .comp-side {
+  flex: 1;
+  padding: 15px;
+  text-align: center;
+}
+.comparison-card .comp-side:first-child {
+  background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+  border-left: 2px solid var(--border);
+}
+.comparison-card .comp-side:last-child {
+  background: linear-gradient(135deg, #fff8e1, #fffde7);
+}
+.comparison-card .comp-label {
+  font-weight: bold;
+  font-size: 14px;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+.comparison-card .comp-text {
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* Definition Card */
+.definition-card {
+  background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+.definition-card .def-label {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  padding: 3px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.definition-card .def-text {
+  font-size: 16px;
+  line-height: 2;
+}
+
+/* Callout Box */
+.callout-box {
+  background: #fffde7;
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 15px 0;
+  position: relative;
+}
+.callout-box::before {
+  content: '⚠';
+  position: absolute;
+  top: -10px;
+  right: 15px;
+  background: var(--gold);
+  color: #fff;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+.callout-box .callout-title {
+  font-weight: bold;
+  color: #b8860b;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+/* Fiqh Principle Box */
+.fiqh-box {
+  background: linear-gradient(135deg, #e0f2f1, #e8f5e9);
+  border: 2px solid var(--teal);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 18px 0;
+  position: relative;
+}
+.fiqh-box::before {
+  content: '⚖';
+  position: absolute;
+  top: -12px;
+  right: 18px;
+  background: var(--teal);
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.fiqh-box .fiqh-label {
+  display: inline-block;
+  background: var(--teal);
+  color: #fff;
+  padding: 2px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.fiqh-box .fiqh-text {
+  font-size: 17px;
+  line-height: 2;
+  color: var(--dark);
+  font-weight: bold;
+}
+
+/* Numbered Steps */
+.numbered-steps {
+  counter-reset: step;
+  margin: 15px 0;
+}
+.numbered-steps .step-item {
+  counter-increment: step;
+  padding: 10px 20px 10px 10px;
+  margin-bottom: 8px;
+  background: var(--card-bg);
+  border-radius: 8px;
+  border-right: 4px solid var(--primary);
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.step-item::before {
+  content: counter(step);
+  background: var(--primary);
+  color: #fff;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: bold;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Benefit Box */
+.benefit-box {
+  background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 18px 0;
+}
+.benefit-box .benefit-label {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark);
+  padding: 2px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* Timeline Diagram */
+.timeline-container {
+  margin: 20px 0;
+  overflow-x: auto;
+}
+.timeline-bar {
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 8px;
+  min-height: 40px;
+  box-shadow: 0 2px 6px var(--shadow);
+}
+.timeline-segment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 4px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  min-width: 40px;
+  border-left: 1px solid rgba(255,255,255,0.3);
+}
+.timeline-segment.seg-nifas { background: #1b5e20; }
+.timeline-segment.seg-hayd { background: #2e7d32; }
+.timeline-segment.seg-istihada { background: #c62828; }
+.timeline-segment.seg-tuhr { background: #1565c0; }
+.timeline-segment.seg-weak { background: #e65100; }
+.timeline-segment.seg-ihtiyat { background: #6a1b9a; }
+.timeline-segment.seg-ghusl { background: #4a148c; }
+.timeline-segment.seg-wudu { background: #0d47a1; }
+.timeline-segment.seg-mashkuk { background: #880e4f; }
+.timeline-legend {
+  display: flex;
+  gap: 15px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+}
+.legend-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+}
+
+/* Data Table */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+  font-size: 14px;
+}
+.data-table th {
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 12px;
+  text-align: center;
+  font-size: 14px;
+}
+.data-table td {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  text-align: center;
+  vertical-align: top;
+}
+.data-table tr:nth-child(even) { background: var(--card-bg); }
+
+/* Scholar Card */
+.scholar-card {
+  background: linear-gradient(135deg, #fff8e1, #fffde7);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+.scholar-card .scholar-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+
+/* Quote Block */
+.quote-block {
+  background: #fafafa;
+  border-right: 5px solid var(--gold);
+  padding: 15px 20px;
+  margin: 15px 0;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: #444;
+}
+.quote-block .quote-source {
+  font-style: normal;
+  font-weight: bold;
+  color: var(--primary);
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+/* Flow Chart */
+.flow-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin: 20px 0;
+  padding: 15px;
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+}
+.flow-node {
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 15px;
+  text-align: center;
+  min-width: 180px;
+}
+.flow-arrow {
+  font-size: 24px;
+  color: var(--gold);
+  line-height: 1;
+}
+.flow-branch {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.flow-branch .flow-node {
+  min-width: 140px;
+  font-size: 14px;
+}
+.flow-node.green { background: #2e7d32; }
+.flow-node.red { background: #c62828; }
+.flow-node.gold { background: #b8860b; }
+.flow-node.teal { background: var(--teal); }
+.flow-node.purple { background: #6a1b9a; }
+
+/* Conditions Grid */
+.conditions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin: 15px 0;
+}
+.condition-card {
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
+}
+.condition-card .cond-num {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  line-height: 28px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.condition-card .cond-title {
+  font-weight: bold;
+  color: var(--dark);
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+.condition-card .cond-desc {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* Case Card */
+.case-card {
+  background: #fff;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 15px 0;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+.case-card .case-label {
+  display: inline-block;
+  background: var(--teal);
+  color: #fff;
+  padding: 2px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.case-card .case-q {
+  font-weight: bold;
+  color: var(--dark);
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+.case-card .case-a {
+  background: #e8f5e9;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* Summary Box */
+.summary-box {
+  background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+  border: 3px solid var(--primary);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 25px 0;
+}
+.summary-box .summary-title {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+/* Highlight Text */
+.highlight { background: var(--light-gold); padding: 1px 4px; border-radius: 3px; }
+.strong { font-weight: bold; color: var(--primary); }
+.gold-text { color: var(--gold); font-weight: bold; }
+
+/* Ihtiyat Box */
+.ihtiyat-box {
+  background: linear-gradient(135deg, #f3e5f5, #ede7f6);
+  border: 2px solid #6a1b9a;
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 15px 0;
+  position: relative;
+}
+.ihtiyat-box::before {
+  content: '⚡';
+  position: absolute;
+  top: -10px;
+  right: 15px;
+  background: #6a1b9a;
+  color: #fff;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+.ihtiyat-box .ihtiyat-title {
+  font-weight: bold;
+  color: #4a148c;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+/* Farewell Box */
+.farewell-box {
+  background: linear-gradient(135deg, #fff8e1, #f0e6c0);
+  border: 3px solid var(--gold);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 25px 0;
+  position: relative;
+}
+.farewell-box::before {
+  content: '🌟';
+  position: absolute;
+  top: -14px;
+  right: 18px;
+  background: var(--gold);
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+}
+.farewell-box .farewell-title {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--dark);
+  margin-bottom: 12px;
+}
+
+/* Zone Diagram */
+.zone-diagram {
+  margin: 20px 0;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.zone-row {
+  display: flex;
+  min-height: 50px;
+}
+.zone-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 6px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+  border-left: 1px solid rgba(255,255,255,0.3);
+  min-width: 0;
+  flex-shrink: 1;
+}
+.zone-cell.z-nifas { background: #1b5e20; }
+.zone-cell.z-hayd { background: #2e7d32; }
+.zone-cell.z-tuhr { background: #1565c0; }
+.zone-cell.z-istihada { background: #c62828; }
+.zone-cell.z-ghusl { background: #4a148c; }
+.zone-cell.z-wudu { background: #0d47a1; }
+.zone-cell.z-mashkuk { background: #880e4f; }
+.zone-label-row {
+  display: flex;
+  min-height: 30px;
+  background: var(--card-bg);
+  border-top: 2px solid var(--border);
+}
+.zone-label-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 6px;
+  font-size: 11px;
+  color: var(--dark);
+  text-align: center;
+  border-left: 1px solid var(--border);
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .comparison-card { flex-direction: column; }
+  .comparison-card .comp-side:first-child { border-left: none; border-bottom: 2px solid var(--border); }
+  .tree-children { flex-direction: column; align-items: center; }
+  .flow-branch { flex-direction: column; align-items: center; }
+  .conditions-grid { grid-template-columns: 1fr; }
+  .cover-title { font-size: 22px; }
+  .cover-book { font-size: 18px; }
+  .zone-row { flex-wrap: wrap; }
+}
+
+/* Print Styles */
+@media print {
+  .bw-toggle { display: none; }
+  .cover-page { page-break-after: always; }
+  h1, h2, h3 { page-break-after: avoid; }
+  .ruling-card, .evidence-box, .case-card, .comparison-card {
+    page-break-inside: avoid;
+  }
+  body { font-size: 14px; }
+}
+</style>
+</head>
+<body>
+
+<!-- B&W Toggle Button -->
+<button class="bw-toggle" onclick="toggleBW()" title="تبديل الأبيض والأسود">🌗</button>
+
+<script>
+function toggleBW() {
+  document.body.classList.toggle('bw-mode');
+}
+</script>
+
+<!-- ============ COVER PAGE ============ -->
+<div class="cover-page">
+  <div class="cover-badge">جديد</div>
+  <div class="cover-ornament">✦ ✦ ✦</div>
+  <div class="cover-title">شرح الإبانة والإفاضة<br>في أحكام الحيض والنفاس والاستحاضة<br>على مذهب الإمام الشافعي</div>
+  <div class="cover-line"></div>
+  <div class="cover-book">الدرس السادس عشر — الأخير</div>
+  <div class="cover-line"></div>
+  <div class="cover-info">
+    <strong>المؤلف:</strong> عبد الرحمن بن عبد الله عبد القادر السقاف<br>
+    <strong>الشارح:</strong> د. لبيب نجيب عبد الله<br>
+    <strong>المنشئ:</strong> أحمد بن إرشاد
+  </div>
+  <div class="cover-ornament">✦ ✦ ✦</div>
+</div>
+
+<!-- ============ MAIN CONTENT ============ -->
+<div class="main-content">
+
+<!-- ===== SECTION 1: مقدمة ===== -->
+<h1>مقدمة: الدرس الثامن — المستحاضة في النفاس</h1>
+
+<p>بسم الله الرحمن الرحيم، ونحن نرجو الإخلاص في الأقوال والأعمال، اللهم آمين. فهذا هو محل الشروع في الدرس الثامن من هذا الكتاب النافع كتاب الإبانة والإفاضة في أحكام الحيض والنفاس والاستحاضة لفضيلة الدكتور عبد الرحمن سقاف حفظه الله تعالى ونفع بعلومه في الدنيا والآخرة، اللهم آمين.</p>
+
+<p>قال رحمه الله تعالى: <span class="strong">الدرس الثامن: المستحاضة في النفاس</span>. عرفنا أن أكثر النفاس ستون يوماً، فإذا زاد دم النفاس على ستين يوماً فهذه المرأة مستحاضة اختلط نفاسها بالاستحاضة.</p>
+
+<div class="fiqh-box">
+  <span class="fiqh-label">القاعدة الأساسية</span>
+  <div class="fiqh-text">
+    فيكون حكمها كحكم الحائض إذا عبر دمها الخمسة عشر. فالحائض إذا عبر دمها الخمسة عشر فإنها مستحاضة ترد إلى إحدى صور المستحاضة السبع.
+  </div>
+</div>
+
+<div class="classification-tree">
+  <div class="tree-title">صور المستحاضة في النفاس السبع</div>
+  <div class="tree-root">
+    <span class="tree-node-root">المستحاضة في النفاس</span>
+  </div>
+  <div class="tree-children">
+    <div class="tree-child">
+      <div class="child-title">① المبتدأة المميزة</div>
+      <div class="child-desc">لم يسبق لها نفاس + ترى دماً قوياً وضعيفاً</div>
+    </div>
+    <div class="tree-child">
+      <div class="child-title">② المبتدأة غير المميزة</div>
+      <div class="child-desc">لم يسبق لها نفاس + ترى الدم بصفة واحدة</div>
+    </div>
+    <div class="tree-child">
+      <div class="child-title">③ المعتادة المميزة</div>
+      <div class="child-desc">سبق لها نفاس + ترى دماً قوياً وضعيفاً</div>
+    </div>
+    <div class="tree-child">
+      <div class="child-title">④ المعتادة غير المميزة</div>
+      <div class="child-desc">سبق لها نفاس + ترى الدم بصفة واحدة</div>
+    </div>
+    <div class="tree-child" style="border-color: #6a1b9a; background: #f3e5f5;">
+      <div class="child-title" style="color: #4a148c;">⑤ المتحيرة المطلقة</div>
+      <div class="child-desc">نسيت عادتها قدراً ووقتاً</div>
+    </div>
+    <div class="tree-child" style="border-color: #6a1b9a; background: #f3e5f5;">
+      <div class="child-title" style="color: #4a148c;">⑥ المتحيرة الذاكرة للوقت الناسية للعدد</div>
+      <div class="child-desc">تعرف وقت النفاس ولا تعلم قدره</div>
+    </div>
+    <div class="tree-child" style="border-color: #6a1b9a; background: #f3e5f5;">
+      <div class="child-title" style="color: #4a148c;">⑦ المتحيرة الذاكرة للعدد الناسية للوقت</div>
+      <div class="child-desc">تعلم قدر النفاس ولا تعلم متى يبدأ</div>
+    </div>
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه مهم</div>
+  <p class="no-indent">من أتقن معرفة هذه الصور السبع مع معرفة أحكامها في الدرس الماضي (الدرس السابع) فهذا الدرس سيكون سهلاً جداً بالنسبة له. ومن لم يتقن يحتاج أن يتقن أولاً قبل أن يقرأ هذا الدرس. وظني أنكم قد أتقنتم الدرس الماضي.</p>
+</div>
+
+<!-- ===== SECTION 2: المبتدأة المميزة ===== -->
+<h1>أولاً: المبتدأة المميزة في النفاس</h1>
+
+<div class="definition-card">
+  <span class="def-label">التعريف</span>
+  <div class="def-text">
+    <strong>المبتدأة:</strong> هي التي لم يسبق لها نفاس من قبل. أول مرة يأتيها النفاس. هناك المبتدأة التي لم يسبقها حيض من قبل، هنا التي لم يسبقها نفاس من قبل.<br>
+    <strong>المميزة:</strong> هي التي ترى دماً قوياً وضعيفاً.
+  </div>
+</div>
+
+<h2>حكمها</h2>
+
+<p>وحكمها أن <span class="strong">القوي هو النفاس والضعيف وإن طال طهر</span>، قل الضعيف أو قوّيه أو كثرته. واضح. لكن بشرطين.</p>
+
+<div class="conditions-grid">
+  <div class="condition-card">
+    <div class="cond-num">1</div>
+    <div class="cond-title">ألا يجاوز القوي ستين يوماً</div>
+    <div class="cond-desc">وهذا الشرط ذكرناه في شروط التمييز في المستحاضة. فإذا جاوز القوي الستين فقدت شرط التمييز.</div>
+  </div>
+  <div class="condition-card">
+    <div class="cond-num">2</div>
+    <div class="cond-title">ألا يسبق الدمين نقاء يبلغ خمسة عشر فأكثر</div>
+    <div class="cond-desc">ألا يسبق القوي والضعيف نقاء يبلغ خمسة عشر يوماً فأكثر. فإن سبقهما نقاء خمسة عشر فأكثر فيكون الدم القادم حيضاً وفترة النقاء هذه طهر.</div>
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه: الفرق بين شروط التمييز هنا وفي الحيض</div>
+  <p class="no-indent">هنا لا يأتي شرط أن القوي يزيد على يوم وليلة كما في شروط التمييز في الحيض. لماذا؟ لأن أقل النفاس لحظة، فهذا الشرط لا يأتي هنا. فلا نقول يشترط للقوي أنه لا يجاوز يوماً وليلة. الشرط في القوي هنا أنه لا يجاوز أكثر النفاس وهو ستون يوماً.</p>
+</div>
+
+<h2>الشرط الثاني بالتفصيل: النقاء قبل الدمين</h2>
+
+<p>ويشترط أن لا يسبق الدمين — القوي والضعيف — نقاء يبلغ خمسة عشر فأكثر. صورة المسألة: لو أنها ولدت وبعد الولادة لم ينزل منها الدم عشرين يوماً، ثم نزل منها الدم عشرين يوماً أسود، ثم نزل منها الدم أحمر. ايش حكم هذه؟ نقول هذه <span class="strong">ليس لها نفاس</span>. لماذا؟ لأنه فصل بين نزول الدم وبين الولادة أكثر من خمسة عشر يوماً.</p>
+
+<div class="ruling-card">
+  <span class="ruling-label">حكم</span>
+  <div class="ruling-text">
+    <strong>إذا سبقهما نقاء خمسة عشر فأكثر:</strong> يكون الدم القادم حيضاً وفترة النقاء هذه طهر. لكن الأسود هذا لا يكون كله حيضاً، بل هذه مستحاضة غير مميزة لأنها رأت الدم بصفة واحدة وتجاوز الخمسة عشر. بعد ذلك تنظر: هل هي معتادة فترد إلى عادتها؟ أو هي مبتدأة فنحيضها يوماً وليلة؟ بحسب الدروس السابقة.
+  </div>
+</div>
+
+<div class="ruling-card">
+  <span class="ruling-label">حكم</span>
+  <div class="ruling-text">
+    <strong>إذا كان النقاء أقل من خمسة عشر يوماً:</strong> لو أنها ولدت وبعد عشرة أيام نزل منها الدم، فهذا الدم الذي نزل دم نفاس لأنه نزل قبل مضي خمسة عشر يوماً. لكن العشرة الأيام التي كانت نقاء بعد الولادة وقبل نزول الدم حكمها حكم الطاهرات.
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">إحالة إلى درس النفاس</div>
+  <p class="no-indent">وهذا مرة معنا في درس النفاس — في «متى تبدأ مدة النفاس». رأت نفساء دم النفاس بعد الولادة بعشرة أيام. فمن حيث العدد نقول إن النفاس له عشرة أيام، أي أن هذه الأيام العشرة تحسب في العدد. لكن من حيث الحكم قالوا: من حيث حكم النفاس لا يبدأ إلا من رؤية الدم. فالعشرة الأيام السابقة على رؤية الدم حكمها حكم الطاهرات.</p>
+</div>
+
+<!-- ===== SECTION 3: الأمثلة الستة ===== -->
+<h1>الأمثلة التطبيقية للمبتدأة المميزة (ستة أمثلة)</h1>
+
+<p>ثم قال: ونذكر هنا بعض الأمثلة التطبيقية ليقاس عليها ما عداها من المسائل. ذكر ستة أمثلة.</p>
+
+<!-- مثال 1 -->
+<h2>المثال الأول</h2>
+
+<div class="case-card">
+  <span class="case-label">المثال الأول</span>
+  <div class="case-q">رأت بعد الولادة عشرين يوماً دماً أسود ثم رأت بعده خمسين يوماً أحمر.</div>
+  <div class="case-a">
+    فهي مستحاضة مميزة في النفاس — لماذا مميزة؟ رأت الدم قوياً وضعيفاً.<br>
+    <strong>فنفاسها العشرون يوماً الأسود</strong> التي هي القوي، <strong>والضعيف وهي الخمسون يوماً الأحمر طهر</strong> — لماذا طهر؟ لأنه جاوز الستين.<br>
+    وإنما حكمنا بالتمييز لأن وجدنا شرطه، وهو عدم مجاوزة القوي ستين يوماً — القوي الذي هو الأسود لم يجاوز ستين يوماً.
+  </div>
+</div>
+
+<div class="timeline-container">
+  <div style="text-align:center; font-size:14px; color:var(--dark); margin-bottom:8px; font-weight:bold;">المثال الأول: 20 أسود + 50 أحمر (المجموع 70)</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment seg-nifas" style="flex:20;">1 – 20<br><span style="font-size:10px;">أسود = نفاس</span></div>
+    <div class="timeline-segment seg-tuhr" style="flex:50;">21 – 70<br><span style="font-size:10px;">أحمر = طهر (جاوز 60)</span></div>
+  </div>
+  <div class="timeline-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#1b5e20;"></div> نفاس (القوي)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1565c0;"></div> طهر (الضعيف جاوز الستين)</div>
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">تفهم من هذا الكلام</div>
+  <p class="no-indent">لو جاءها الدم أسود عشرين يوماً ثم جاءها الدم أحمر ثلاثين يوماً وانقطع، فالكل نفاس — لأنه حصل انقطاع قبل الأكثر قبل ستين يوماً.</p>
+</div>
+
+<!-- مثال 2 -->
+<h2>المثال الثاني</h2>
+
+<div class="case-card">
+  <span class="case-label">المثال الثاني</span>
+  <div class="case-q">رأت امرأة بعد الولادة يومين دماً ثم نقاء خمسة عشر يوماً ثم دماً أسود عشرين يوماً ثم أحمر خمسين يوماً.</div>
+  <div class="case-a">
+    <strong>اليومان الأول والثاني نفاس</strong> — واضح لأنه دم خرج عقب الولادة بعد فراغ الرحم.<br>
+    <strong>والنقاء طهر</strong> — لماذا؟ لأنه خمسة عشر يوماً.<br>
+    <strong>ثم بعد ذلك فهي مستحاضة في الحيض</strong> فقدت شرط التمييز وهو مجاوزة القوي أكثر النفاس. فالأسود جاوز الستين (لأنه من الولادة يُحسب العدد). فإما أن تكون مستحاضة في الحيض مبتدأة — فإذا كانت مبتدأة نجعل حيضها يوماً وليلة والباقي استحاضة. أو معتادة — فإذا كانت معتادة وقالت عادتي مثلاً أنني أحيض خمسة أيام نجعل حيضها خمسة أيام والباقي استحاضة. حسب ما تقدم في الدرس السابق.
+  </div>
+</div>
+
+<div class="timeline-container">
+  <div style="text-align:center; font-size:14px; color:var(--dark); margin-bottom:8px; font-weight:bold;">المثال الثاني: 2 دم + 15 نقاء + 20 أسود + 50 أحمر</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment seg-nifas" style="flex:2;">1–2<br><span style="font-size:10px;">نفاس</span></div>
+    <div class="timeline-segment seg-tuhr" style="flex:15;">3–17<br><span style="font-size:10px;">نقاء طهر</span></div>
+    <div class="timeline-segment seg-istihada" style="flex:20;">18–37<br><span style="font-size:10px;">أسود (استحاضة)</span></div>
+    <div class="timeline-segment seg-istihada" style="flex:50;">38–87<br><span style="font-size:10px;">أحمر (استحاضة)</span></div>
+  </div>
+  <div class="timeline-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#1b5e20;"></div> نفاس</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1565c0;"></div> نقاء طهر (15 يوماً)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#c62828;"></div> استحاضة (فقدت شرط التمييز)</div>
+  </div>
+</div>
+
+<!-- القاعدة قبل المثال 3 -->
+<h2>قاعدة مهمة: إذا خرج الدم بعد الولادة ضعيفاً ثم قوياً</h2>
+
+<p>إذا خرج الدم بعد الولادة ضعيفاً ثم قوياً، فله — أي الضعيف — حالتان:</p>
+
+<div class="numbered-steps">
+  <div class="step-item">
+    <strong>الحالة الأولى: أن يكون الضعيف أقل من خمسة عشر يوماً</strong> — فالضعيف مع القوي كله نفاس، لأنه يستحيل الحكم بالنفاس للقوي وحده دون الضعيف، إذ نزل القوي بعد مضي خمسة عشر يوماً من الولادة.
+  </div>
+  <div class="step-item">
+    <strong>الحالة الثانية: أن يكون الضعيف خمسة عشر يوماً فأكثر</strong> — فالقوي وحده نفاس، لأنه يمكن الحكم عليه بالنفاس وحده إذ نزل قبل مضي خمسة عشر يوماً.
+  </div>
+</div>
+
+<div class="fiqh-box">
+  <span class="fiqh-label">قاعدة فقهية</span>
+  <div class="fiqh-text">
+    إذا خرج الدم بعد الولادة ضعيفاً ثم قوياً:<br>
+    — إن كان الضعيف أقل من 15 يوماً: الضعيف مع القوي نفاس (يستحيل جعل القوي وحده نفاساً)<br>
+    — إن كان الضعيف 15 يوماً فأكثر: القوي وحده نفاس (يمكن جعل القوي وحده نفاساً)
+  </div>
+</div>
+
+<!-- مثال 3 -->
+<h2>المثال الثالث</h2>
+
+<div class="case-card">
+  <span class="case-label">المثال الثالث</span>
+  <div class="case-q">لو رأت بعد الولادة عشرين يوماً أشقر ثم أربعين يوماً أسود ثم عشرين أحمر.</div>
+  <div class="case-a">
+    <strong>فالددمان الأولان وهما الأشقر والأسود نفاس.</strong> وذلك لأنه يستحيل الحكم بالنفاس للأسود بدون الأشقر — من المستحيل أن تجعل الأسود نفاساً دون الأشقر، لأن الأسود لم يخرج إلا بعد عشرين يوماً، وشرط كونه نفاساً أن يخرج قبل أن تمضي خمسة عشر يوماً. فالأشقر هنا أقل من خمسة عشر يوماً بالنسبة للأسود، فلا يمكن جعل الأسود وحده نفاساً.<br>
+    <strong>وأما الأحمر فطهر.</strong>
+  </div>
+</div>
+
+<div class="timeline-container">
+  <div style="text-align:center; font-size:14px; color:var(--dark); margin-bottom:8px; font-weight:bold;">المثال الثالث: 20 أشقر + 40 أسود + 20 أحمر</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment seg-nifas" style="flex:20;">1–20<br><span style="font-size:10px;">أشقر (ضعيف)</span></div>
+    <div class="timeline-segment seg-nifas" style="flex:40;">21–60<br><span style="font-size:10px;">أسود (قوي)</span></div>
+    <div class="timeline-segment seg-tuhr" style="flex:20;">61–80<br><span style="font-size:10px;">أحمر = طهر</span></div>
+  </div>
+  <div class="timeline-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#1b5e20;"></div> نفاس (ضعيف + قوي = 60 يوماً)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1565c0;"></div> طهر</div>
+  </div>
+</div>
+
+<div class="comparison-card">
+  <div class="comp-side">
+    <div class="comp-label">المثال الثالث (الضعيف أقل من 15)</div>
+    <div class="comp-text">الأشقر (20 يوماً) يسبق الأسود — الأشقر نفسه أكثر من 15 لكنه من بداية الولادة. لا يمكن جعل الأسود وحده نفاساً لأنه جاء بعد 20 يوماً. فالضعيف مع القوي نفاس.</div>
+  </div>
+  <div class="comp-side">
+    <div class="comp-label">لو كان الأشقر 10 أيام فقط</div>
+    <div class="comp-text">لو ولدت وبعد الولادة خرج عشرة أيام أشقر ثم خرج أسود — هل يمكن أن تجعل الأسود وحده نفاساً؟ يمكن، لأنه نزل قبل أن تمضي خمسة عشر يوماً. فالقوي وحده نفاس.</div>
+  </div>
+</div>
+
+<!-- مثال 4 -->
+<h2>المثال الرابع</h2>
+
+<div class="case-card">
+  <span class="case-label">المثال الرابع</span>
+  <div class="case-q">لو رأت بعد الولادة دماً أحمر خمسة عشر يوماً ثم أسود أربعين يوماً ثم أحمر أو أشقر واستمر وزاد على الستين.</div>
+  <div class="case-a">
+    <strong>فالددمان الأولان نفاس</strong> — وحُسب الضعيف مع القوي هنا — وهما الخمسة عشر الأحمر والأربعين الأسود. وذلك للسبب السابق في المثال السابق — أنه يستحيل أن تجعل القوي وحده نفاساً إلا إذا كان معه الضعيف، لأن الأسود لم يأتِ إلا بعد خمسة عشر يوماً فلا يمكن أن يكون وحده نفاساً.<br>
+    <strong>وما عداه طهر.</strong>
+  </div>
+</div>
+
+<div class="timeline-container">
+  <div style="text-align:center; font-size:14px; color:var(--dark); margin-bottom:8px; font-weight:bold;">المثال الرابع: 15 أحمر + 40 أسود + ما زاد (جاوز 60)</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment seg-nifas" style="flex:15;">1–15<br><span style="font-size:10px;">أحمر (ضعيف)</span></div>
+    <div class="timeline-segment seg-nifas" style="flex:40;">16–55<br><span style="font-size:10px;">أسود (قوي)</span></div>
+    <div class="timeline-segment seg-tuhr" style="flex:20;">56–<br><span style="font-size:10px;">أحمر/أشقر = طهر</span></div>
+  </div>
+  <div class="timeline-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#1b5e20;"></div> نفاس (55 يوماً: ضعيف + قوي)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1565c0;"></div> طهر (ما عداه)</div>
+  </div>
+</div>
+
+<!-- مثال 5 -->
+<h2>المثال الخامس</h2>
+
+<div class="case-card">
+  <span class="case-label">المثال الخامس</span>
+  <div class="case-q">لو رأت بعد الولادة دماً أسود ثم دماً أحمر ثم دماً أصفر واستمر وجاوز الستين.</div>
+  <div class="case-a">
+    فالمستحاضة في هذا المثال حكمها <span class="strong">حكم من رأت قوياً ثم ضعيفاً ثم أضعف منه</span>. ونحن قد درسنا أنها لو رأت قوياً ثم ضعيفاً ثم أضعف منه أنها تجعل القوي مع الضعيف حيضاً هناك بثلاثة شروط.<br><br>
+    <strong>وحكمها أن القوي وما يناسبه من الضعيف نفاس</strong> بشرط ألا يزيد مجموعهما على أكثر النفاس.<br><br>
+    مثال: لو أنها رأت ثلاثين يوماً أسود ثم عشرة أحمر ثم أصفر وجاوز الستين — فنفاسها أربعون يوماً (الأسود + الأحمر). نجعل القوي مع ما يناسبه من الضعيف نفاساً بشرط أنه لا يجاوز الستين.<br><br>
+    أما لو أن الأحمر مثلاً جاءها خمسين يوماً — ثلاثين يوماً أسود وخمسين يوماً أحمر — فنفاسها الأسود فقط، نفس المثال السابق.
+  </div>
+</div>
+
+<div class="timeline-container">
+  <div style="text-align:center; font-size:14px; color:var(--dark); margin-bottom:8px; font-weight:bold;">المثال الخامس: 30 أسود + 10 أحمر + أصفر (جاوز 60)</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment seg-nifas" style="flex:30;">1–30<br><span style="font-size:10px;">أسود (قوي)</span></div>
+    <div class="timeline-segment seg-nifas" style="flex:10;">31–40<br><span style="font-size:10px;">أحمر (ضعيف)</span></div>
+    <div class="timeline-segment seg-tuhr" style="flex:20;">41–<br><span style="font-size:10px;">أصفر = طهر</span></div>
+  </div>
+  <div class="timeline-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#1b5e20;"></div> نفاس (قوي + ما يناسبه من ضعيف = 40)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1565c0;"></div> طهر (الأضعف)</div>
+  </div>
+</div>
+
+<!-- مثال 6 -->
+<h2>المثال السادس</h2>
+
+<div class="case-card">
+  <span class="case-label">المثال السادس</span>
+  <div class="case-q">لو رأت بعد الولادة عشرة أحمر ثم ثلاثين أسود ثم ثلاثين أصفر.</div>
+  <div class="case-a">
+    فحكمها مستحاضة في النفاس وهي مميزة فنحكم لها بالتمييز.<br>
+    <strong>فنفاسها الثلاثون الأسود فقط</strong> — يجعل القوي وحده نفاس فقط. لماذا؟ لأنه الآن يمكن أن تجعل القوي وحده نفاساً، إذ نزل الأسود — إذ جاءها الأسود — قبل خمسة عشر يوماً، قبل أن تمضي خمسة عشر يوماً من الولادة.<br><br>
+    <strong>والأحمر الذي قبلها مع الأصفر الذي بعدها استحاضة.</strong> فالأحمر الذي نزل قبل والأصفر الذي جاء بعد هذا مستحاضة.
+  </div>
+</div>
+
+<div class="timeline-container">
+  <div style="text-align:center; font-size:14px; color:var(--dark); margin-bottom:8px; font-weight:bold;">المثال السادس: 10 أحمر + 30 أسود + 30 أصفر</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment seg-istihada" style="flex:10;">1–10<br><span style="font-size:10px;">أحمر = استحاضة</span></div>
+    <div class="timeline-segment seg-nifas" style="flex:30;">11–40<br><span style="font-size:10px;">أسود = نفاس</span></div>
+    <div class="timeline-segment seg-istihada" style="flex:30;">41–70<br><span style="font-size:10px;">أصفر = استحاضة</span></div>
+  </div>
+  <div class="timeline-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#1b5e20;"></div> نفاس (القوي وحده)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#c62828;"></div> استحاضة (قبل القوي وبعده)</div>
+  </div>
+</div>
+
+<div class="comparison-card">
+  <div class="comp-side">
+    <div class="comp-label">المثال السادس</div>
+    <div class="comp-text">الأحمر <strong>أقل من 15 يوماً</strong> (10 أيام فقط) — فلم يستحل — أي ليس مستحيلاً الحكم على ما بعده بكونه نفاساً. فالأسود يمكن أن يكون وحده نفاساً لأنه نزل قبل مضي 15 يوماً.</div>
+  </div>
+  <div class="comp-side">
+    <div class="comp-label">المثال الثالث والرابع</div>
+    <div class="comp-text">فإنه <strong>يستحيل</strong> الحكم على الأسود بأنه نفاس دون أن تحكم على ما قبله، لأن ما قبله استمر عشرين يوماً — فلا يمكن جعل الأسود وحده نفاساً لأنه نزل بعد مضي أكثر من 15 يوماً من الولادة.</div>
+  </div>
+</div>
+
+<div class="benefit-box">
+  <span class="benefit-label">فائدة: الفرق بين المثال السادس والمثالين الثالث والرابع</span>
+  <p class="no-indent">الفرق أن الأحمر في المثال السادس أقل من خمسة عشر يوماً (عشرة أيام) فلم يستحل — أي ليس مستحيلاً الحكم على ما بعده بكونه نفاساً. في خلاف المثال الثالث والرابع فإنه يستحيل الحكم على الأسود بأنه نفاس دون أن تحكم على ما قبله، لأن ما قبله استمر عشرين يوماً. ولو أنه وضع لنا القاعدة ثم أتى بالأمثلة لأسهل علينا، لكنه أشار إليها في التعليق.</p>
+</div>
+
+<!-- ===== SECTION 4: المبتدأة غير المميزة ===== -->
+<h1>ثانياً: المبتدأة غير المميزة في النفاس</h1>
+
+<div class="definition-card">
+  <span class="def-label">التعريف</span>
+  <div class="def-text">
+    <strong>المبتدأة:</strong> هي التي لم يسبق لها نفاس.<br>
+    <strong>غير المميزة:</strong> أي أنها رأت الدم بصفة واحدة، أو فقدت شرط التمييز بأن زاد الدم القوي على ستين يوماً.<br><br>
+    فلها صورتان:<br>
+    <strong>الصورة الأولى:</strong> أن ترى الدم بصفة واحدة حتى يجاوزه الستين.<br>
+    <strong>الصورة الثانية:</strong> أن فقدت شرط التمييز (بأن زاد القوي على ستين يوماً).
+  </div>
+</div>
+
+<h2>حكمها</h2>
+
+<p>وحكمها أن <span class="strong">نفاسها هو أقل النفاس</span>، كما أن حيضها هناك جعلناه أقل الحيض. يعني نفس الذي هناك هنا. قال: وحكمها أن نفاسها هو أقل النفاس وهو <span class="strong">لحظة</span> (مجرّد دفع الدم).</p>
+
+<p>ثم ننظر: إذا نقول لها الآن نفاسك لحظة — مجرّد دفع الدم. طيب وبعد دفعة الدم هذه وبعد هذه اللحظة ما العمل؟ نقول:</p>
+
+<div class="numbered-steps">
+  <div class="step-item">
+    <strong>إن كانت معتادة في الحيض:</strong> طهرت بعد اللحظة عادة طهرها من آخر شهر. ثم تحيض عادة حيضها. مثال: لو قالت كان الدور عندي في آخر شهر خمسة وعشرين يوماً — خمسة أيام حيض وعشرين يوماً طهر — نقول خلاص الآن الدور هنا ينطبق: خمسة أيام حيض وعشرين يوماً طهر.
+  </div>
+  <div class="step-item">
+    <strong>إن كانت مبتدأة في الحيض:</strong> طهرت بعد اللحظة تسعة وعشرين يوماً. ثم حاضت يوماً وليلة. ثم تطهر تسعة وعشرين وهكذا.
+  </div>
+</div>
+
+<div class="ruling-card">
+  <span class="ruling-label">قاعدة</span>
+  <div class="ruling-text">
+    المبتدأة غير المميزة في النفاس ترد إلى حكم المستحاضة المبتدأة غير المميزة أو المستحاضة المعتادة غير المميزة — نفس الصورة التي هناك (الصورة الثانية والصورة الرابعة من الدرس السابق).
+  </div>
+</div>
+
+<!-- مثال 1 للمبتدأة غير المميزة -->
+<h2>المثال الأول</h2>
+
+<div class="case-card">
+  <span class="case-label">المثال الأول</span>
+  <div class="case-q">لو رأت مبتدأة في النفاس بعد ولادتها سبعين يوماً أسود ثم عشرة أحمر، وهي مبتدأة في الحيض.</div>
+  <div class="case-a">
+    فهذه مبتدأة غير مميزة في النفاس — لماذا؟ لأنها فقدت شرط التمييز، لأن الدم القوي زاد على الستين (رأت الدم بصفة واحدة وتجاوز الأكثر).<br><br>
+    <strong>فحكمها أنها ترد إلى أقل النفاس وهو لحظة.</strong> وبما أنها مبتدأة في الحيض فتطهر بعد اللحظة تسعة وعشرين يوماً — لأن هذا حكم المبتدأة غير المميزة: طهرها تسعة وعشرين يوماً وحيضها يوماً وليلة. ثم تحيض يوماً وليلة ثم تطهر تسعة وعشرين وهكذا.
+  </div>
+</div>
+
+<div class="timeline-container">
+  <div style="text-align:center; font-size:14px; color:var(--dark); margin-bottom:8px; font-weight:bold;">المثال الأول: مبتدأة غير مميزة — 70 أسود + 10 أحمر (مبتدأة في الحيض)</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment seg-nifas" style="flex:1;">لحظة<br><span style="font-size:9px;">نفاس</span></div>
+    <div class="timeline-segment seg-tuhr" style="flex:29;">29 يوماً طهر</div>
+    <div class="timeline-segment seg-hayd" style="flex:1;">1 يوم<br><span style="font-size:9px;">حيض</span></div>
+    <div class="timeline-segment seg-tuhr" style="flex:29;">29 يوماً طهر</div>
+    <div class="timeline-segment seg-hayd" style="flex:1;">1 يوم<br><span style="font-size:9px;">حيض</span></div>
+  </div>
+  <div class="timeline-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#1b5e20;"></div> نفاس (لحظة)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1565c0;"></div> طهر (29 يوماً)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#2e7d32;"></div> حيض (يوم وليلة)</div>
+  </div>
+</div>
+
+<!-- مثال 2 للمبتدأة غير المميزة -->
+<h2>المثال الثاني</h2>
+
+<div class="case-card">
+  <span class="case-label">المثال الثاني</span>
+  <div class="case-q">لو رأت مبتدأة في النفاس بعد ولادتها سبعين يوماً أحمر وهي معتادة في الحيض (عادة طهرها عشرون يوماً وحيضها خمسة أيام).</div>
+  <div class="case-a">
+    فهذه مبتدأة غير مميزة — أول مرة يأتيها النفاس لم يسبق لها نفاس من قبل، غير مميزة لأنها رأت الدم بصفة واحدة وتجاوز الأكثر.<br><br>
+    <strong>فحكمها أنها ترد إلى أقل النفاس وهو لحظة.</strong> ثم تطهر بعده عادة طهرها — كم كانت عادة طهرك؟ قالت آخر مرة كان الطهر جاء عشرين يوماً — تطهرين عشرين يوماً. وكم عادة الحيض؟ قالت خمسة أيام بعد العشرين يوماً — هذه خمسة أيام حيض.<br><br>
+    إذن: اللحظة هذه بعد الولادة نحكم عليها بأنها نفاس، وبعد اللحظة هذه عشرون يوماً طهر، وبعد العشرين يوماً خمسة أيام حيض. لماذا؟ لأن عادتها في الطهر عشرون يوماً وعادتها في الحيض خمسة أيام.
+  </div>
+</div>
+
+<div class="timeline-container">
+  <div style="text-align:center; font-size:14px; color:var(--dark); margin-bottom:8px; font-weight:bold;">المثال الثاني: مبتدأة غير مميزة — 70 أحمر (معتادة: 20 طهر + 5 حيض)</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment seg-nifas" style="flex:1;">لحظة<br><span style="font-size:9px;">نفاس</span></div>
+    <div class="timeline-segment seg-tuhr" style="flex:20;">20 يوماً طهر</div>
+    <div class="timeline-segment seg-hayd" style="flex:5;">5 أيام<br><span style="font-size:9px;">حيض</span></div>
+    <div class="timeline-segment seg-tuhr" style="flex:20;">20 يوماً طهر</div>
+    <div class="timeline-segment seg-hayd" style="flex:5;">5 أيام<br><span style="font-size:9px;">حيض</span></div>
+  </div>
+  <div class="timeline-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#1b5e20;"></div> نفاس (لحظة)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1565c0;"></div> طهر (20 يوماً حسب العادة)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#2e7d32;"></div> حيض (5 أيام حسب العادة)</div>
+  </div>
+</div>
+
+<!-- ===== SECTION 5: المعتادة المميزة ===== -->
+<h1>ثالثاً: المعتادة المميزة في النفاس</h1>
+
+<div class="definition-card">
+  <span class="def-label">التعريف</span>
+  <div class="def-text">
+    <strong>المعتادة:</strong> هي من سبق لها عادة في النفاس. والمقصود بقوله «سبق لها عادة في النفاس» يعني عادة آخر مرة حصل لها فيها نفاس — كم مشى الدم. آخر نفاس كم كان؟ فلو كان لها عدة أولاد واختلف النفاس فترد إلى آخر نفاس.<br><br>
+    مثال: امرأة عندها ستة أولاد — في الأول كان النفاس خمسين يوماً، في الثاني ثلاثين يوماً، في الثالث عشرين يوماً، في الرابع أربعين يوماً، في الخامس ثلاثين يوماً. فنحكم لها بآخر نفاس وهو ثلاثون يوماً.<br><br>
+    <strong>المميزة:</strong> أي أنها ترى دماً قوياً وضعيفاً.
+  </div>
+</div>
+
+<h2>حكمها</h2>
+
+<p>وحكمها أن <span class="strong">نفاسها القوي</span>. وأما الضعيف فاستحاضة. وتأتي هنا جميع المسائل التي تقدمت في المبتدآت المميزة. ومنها وجود شرط التمييز وهو أن لا يزيد القوي على ستين يوماً. لأنه إذا زاد القوي على ستين يوماً هذا يكون معتادة غير مميزة وستأتي في الحالة الرابعة.</p>
+
+<div class="fiqh-box">
+  <span class="fiqh-label">قاعدة</span>
+  <div class="fiqh-text">
+    التمييز مقدم على العادة — فإذا وُجد التمييز قُدّم على العادة. فلو تحكم بالعادة ستجعل النفاس أربعين (مثلاً)، لكن ما دام في تمييز نقدم الحكم بالتمييز.
+  </div>
+</div>
+
+<!-- مثال 1 للمعتادة المميزة -->
+<h2>المثال الأول</h2>
+
+<div class="case-card">
+  <span class="case-label">المثال الأول</span>
+  <div class="case-q">لو كانت عادتها في النفاس أربعين يوماً فرأت عشرين يوماً دماً أسود ثم جاءها دم أحمر واستمر حتى جاوز الستين.</div>
+  <div class="case-a">
+    فهذه معتادة في النفاس لأنه قد سبق لها عادة فيه، وهي مميزة لأنها رأت دماً قوياً وضعيفاً.<br><br>
+    <strong>فيحكم لها هنا بالتمييز</strong> — لأن الحكم بالتمييز أقوى من الحكم بالعادة.<br><br>
+    <strong>فالقوي وهو العشرون الأسود نفاس</strong>، والضعيف الأحمر طهر. وإنما حكمنا لها بالتمييز لأنه وجد شرطه حيث لم يزد القوي على الستين يوماً.<br><br>
+    لو حكمت بالعادة لجعلت النفاس أربعين، لكن ما دام في تمييز نقدم التمييز — فنجعل نفاسها عشرين يوماً فقط عملاً بالتمييز.
+  </div>
+</div>
+
+<div class="comparison-card">
+  <div class="comp-side">
+    <div class="comp-label">لو حكمنا بالعادة</div>
+    <div class="comp-text">النفاس = 40 يوماً (حسب عادتها السابقة)</div>
+  </div>
+  <div class="comp-side">
+    <div class="comp-label">الحكم بالتمييز (المعتمد)</div>
+    <div class="comp-text">النفاس = 20 يوماً فقط (الأسود القوي) — لأن التمييز أقوى من العادة</div>
+  </div>
+</div>
+
+<!-- مثال 2 للمعتادة المميزة -->
+<h2>المثال الثاني</h2>
+
+<div class="case-card">
+  <span class="case-label">المثال الثاني</span>
+  <div class="case-q">كانت عادتها في النفاس ثلاثين يوماً فرأت بعد ولادتها عشرة أيام دماً أحمر ثم اتصل أسود وانقطع قبل الستين ثم دم أحمر جاوز الستين.</div>
+  <div class="case-a">
+    فحكمها أنها مستحاضة معتادة مميزة فنحكم لها بالتمييز.<br><br>
+    <strong>فالقوي وهو الأسود نفاس</strong>، والأحمر الأول الذي هو عشرة أيام والثاني الذي استمر هذا طهر. لماذا؟ لأن الآن يمكن أن نحكم على الأسود وحده بأنه نفاس — لا يستحيل أن نحكم على الأسود وحده بأنه نفاس، لأنه حصل الأسود قبل مضي خمسة عشر يوماً من الولادة.<br><br>
+    وقد وجد شرط التمييز حيث لم يزد القوي على ستين يوماً.
+  </div>
+</div>
+
+<!-- ===== SECTION 6: المعتادة غير المميزة ===== -->
+<h1>رابعاً: المعتادة غير المميزة في النفاس</h1>
+
+<div class="definition-card">
+  <span class="def-label">التعريف</span>
+  <div class="def-text">
+    <strong>المعتادة:</strong> هي من سبق لها نفاس.<br>
+    <strong>غير المميزة:</strong> أي أنها رأت الدم بصفة واحدة، أو فقدت شرط التمييز بأن زاد الدم القوي على ستين يوماً.
+  </div>
+</div>
+
+<h2>حكمها</h2>
+
+<p>وحكمها أن <span class="strong">ترد إلى عادتها</span> — من عادة؟ أي عادة آخر نفاس لها. ثم تحيض على عادتها إن كانت معتادة في الحيض، وإلا فهي مبتدأة في الحيض — يعني إن كان لها عادة نحكم لها بعادتها في الحيض، ما عندها عادة في الحيض مبتدأة حيضها يوماً وليلة طهرها تسعة وعشرون يوماً.</p>
+
+<!-- مثال 1 للمعتادة غير المميزة -->
+<h2>المثال الأول</h2>
+
+<div class="case-card">
+  <span class="case-label">المثال الأول</span>
+  <div class="case-q">كانت عادتها في النفاس أربعين يوماً فرأت ثمانين يوماً أحمر. وعادتها في الحيض ستة أيام وعادتها في الطهر أربع وعشرون يوماً.</div>
+  <div class="case-a">
+    فحكمها أنها مستحاضة معتادة غير مميزة. فنردها إلى عادتها في النفاس — <strong>أربعين يوماً</strong> من الثمانين نفاس.<br><br>
+    ثم تطهر عادة طهرها الأخير الذي جاءت بعده الولادة — كم طهرها الأخير؟ أربع وعشرون يوماً.<br><br>
+    ثم بعد الرد المذكور — يعني أنت رددتها الآن إلى الطهر أربع وعشرين يوماً — إن بقي دم ردت لعادتها — كم عادتها؟ ستة أيام. قس على هذا وهكذا.<br><br>
+    إذن: أربعون يوماً نفاس → أربع وعشرون يوماً طهر → ستة أيام حيض → أربع وعشرون طهر → ستة حيض... إلى ما لا نهاية.
+  </div>
+</div>
+
+<div class="timeline-container">
+  <div style="text-align:center; font-size:14px; color:var(--dark); margin-bottom:8px; font-weight:bold;">المثال الأول: معتادة غير مميزة — عادتها 40 نفاس، 24 طهر، 6 حيض</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment seg-nifas" style="flex:40;">40 يوماً نفاس</div>
+    <div class="timeline-segment seg-tuhr" style="flex:24;">24 يوماً طهر</div>
+    <div class="timeline-segment seg-hayd" style="flex:6;">6 أيام حيض</div>
+    <div class="timeline-segment seg-tuhr" style="flex:24;">24 طهر</div>
+    <div class="timeline-segment seg-hayd" style="flex:6;">6 حيض</div>
+  </div>
+  <div class="timeline-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#1b5e20;"></div> نفاس (40 حسب العادة)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1565c0;"></div> طهر (24 حسب العادة)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#2e7d32;"></div> حيض (6 حسب العادة)</div>
+  </div>
+</div>
+
+<!-- مثال 2 للمعتادة غير المميزة -->
+<h2>المثال الثاني</h2>
+
+<div class="case-card">
+  <span class="case-label">المثال الثاني</span>
+  <div class="case-q">كانت عادتها في النفاس ثلاثين يوماً فرأت سبعين يوماً أحمر.</div>
+  <div class="case-a">
+    فحكمها أن نفاسها هو قدر العادة — <strong>ثلاثون يوماً</strong> من السبعين نفاس.<br><br>
+    ثم ننظر: هل هذه مبتدأة أو معتادة في الحيض؟<br>
+    — <strong>إن كانت مبتدأة في الحيض:</strong> فتطهر تسعة وعشرين يوماً ثم تحيض يوماً وليلة وهكذا.<br>
+    — <strong>وإن كانت معتادة في الحيض:</strong> ردت إلى طهرها الأخير ثم بعد ذلك إلى قدر عادتها من الحيض.
+  </div>
+</div>
+
+<!-- ===== SECTION 7: المتحيرة المطلقة ===== -->
+<h1>خامساً: المتحيرة المطلقة في النفاس</h1>
+
+<div class="definition-card">
+  <span class="def-label">التعريف</span>
+  <div class="def-text">
+    <strong>المتحيرة المطلقة:</strong> هي التي نسيت عادتها في النفاس قدراً ووقتاً — كلها نسيت. يعني نسيت العدد ونسيت الوقت.
+  </div>
+</div>
+
+<h2>حكمها</h2>
+
+<p>وحكمها أنها <span class="strong">تحتاط أبداً</span> سواء كانت مبتدأة في الحيض أم معتادة فيه. والسبب في ذلك هو أن الجهل بعادة النفاس صيّر ابتداء دور الحيض مجهولاً — ما نعرف متى يبدأ الحيض — فلزم التحير المطلق.</p>
+
+<div class="ihtiyat-box">
+  <div class="ihtiyat-title">أحكام المتحيرة المطلقة في النفاس</div>
+  <p class="no-indent">فيأتي هنا جميع ما تقدم من الأحكام في المستحاضة المتحيرة المطلقة في الحيض:</p>
+  <ul style="margin-right: 20px; margin-top: 8px;">
+    <li><span class="strong">وجوب الغسل لكل فرض</span> — تغتسل لكل فرض.</li>
+    <li><span class="strong">الصوم:</span> نفس الكلام — تصوم شهرين ويحصل لها ثمانية وعشرون يوماً. وبعدين تصوم الأول والثاني والثالث من الشهر والسادس عشر والسابع عشر والثامن عشر من الشهر.</li>
+    <li>تعمل بالاحتياط — فتكون لها حكم الطاهرات في العبادات كصلاة وصوم وطواف، وحكم الحائض في غير ذلك مثل مس المصحف وحمل المصحف وقراءة القرآن وإتيان الزوج وغير ذلك.</li>
+  </ul>
+</div>
+
+<!-- ===== SECTION 8: المتحيرة الذاكرة للوقت الناسية للعدد ===== -->
+<h1>سادساً: المتحيرة الذاكرة للوقت الناسية للعدد</h1>
+
+<div class="definition-card">
+  <span class="def-label">التعريف</span>
+  <div class="def-text">
+    <strong>المتحيرة الذاكرة للوقت الناسية للعدد:</strong> كأن تقول «نفاسي عقب الولادة — يعني بعد الولادة — لا أعلم قدره». ما أدري قدره كم — خمس أيام؟ سبع أيام؟ ست أيام؟ ثلاث أيام؟ ما أعرف قدره. لكن كان بعد الولادة.
+  </div>
+</div>
+
+<h2>حكمها</h2>
+
+<p>وحكمها أن <span class="strong">لحظة عقب الولادة نفاس</span>. ثم يحتمل أنه انقطع — فتغتسل لكل فرض. يحتمل أنه في اليوم الأول انقطع، في اليوم الثاني انقطع، في اليوم الثالث انقطع — ما ندري متى انقطع. انقطع في الصباح، انقطع بعد الظهر، قبل الظهر، بعد العصر، قبل العصر، بعد المغرب، قبل المغرب — ما ندري متى انقطع. إذا في كل فرض تغتسلين.</p>
+
+<p>قال: فتغتسل لكل فرض أبداً.</p>
+
+<h3>المثال: «نفاسي بعد الولادة بخمسة أيام لا أعلم قدره»</h3>
+
+<p>أسألكم سؤالاً: قبل الأيام الخمسة ما حكمها؟ اليوم الأول والثاني والثالث والرابع — هي قالت نفاسي يبدأ بعد الولادة بخمسة أيام، يعني في اليوم الخامس يبدأ. يعني ما قبل الخامس هذا يكون طهر. هذا الجزء الأول.</p>
+
+<p>طيب واليوم الخامس ما حكمه؟ <span class="strong">نفاس يقيناً</span> — نفاس بيقين. لأنها تقول نفاسي بعد الولادة بخمسة أيام، يعني الخامس هذا أكيد نفاس.</p>
+
+<p>طيب ما بعد الخامس ما حكمه؟ يحتمل الانقطاع — وما بعد الخامس يحتمل الانقطاع لا يحتمل الطروء، لأن الطروء قد حصل في الخامس. يقول نفاسي بعد الولادة بخمسة أيام. إذا ما بعد الخامس يحتمل الانقطاع. ما الحكم؟ <span class="strong">تغتسل لكل فرض</span>.</p>
+
+<div class="classification-tree">
+  <div class="tree-title">تقسيم أزمنة المتحيرة الذاكرة للوقت (مثال: نفاسي بعد الولادة بخمسة أيام)</div>
+  <div class="tree-root">
+    <span class="tree-node-root">الأزمنة الثلاثة</span>
+  </div>
+  <div class="tree-children">
+    <div class="tree-child" style="border-color: #1565c0; background: #e3f2fd;">
+      <div class="child-title" style="color: #1565c0;">ما قبل الخمسة</div>
+      <div class="child-desc">طهر بيقين<br>تصلي وتصوم</div>
+    </div>
+    <div class="tree-child" style="border-color: #1b5e20; background: #e8f5e9;">
+      <div class="child-title" style="color: #1b5e20;">اليوم الخامس (لحظة)</div>
+      <div class="child-desc">نفاس بيقين<br>لأن أقل النفاس لحظة</div>
+    </div>
+    <div class="tree-child" style="border-color: #4a148c; background: #f3e5f5;">
+      <div class="child-title" style="color: #4a148c;">ما بعد لحظة الخامس</div>
+      <div class="child-desc">يحتمل الانقطاع<br>→ تغتسل لكل فرض</div>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-container">
+  <div style="text-align:center; font-size:14px; color:var(--dark); margin-bottom:8px; font-weight:bold;">تخطيط: نفاسي بعد الولادة بخمسة أيام لا أعلم قدره</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment seg-tuhr" style="flex:4;">1–4<br><span style="font-size:10px;">طهر بيقين</span></div>
+    <div class="timeline-segment seg-nifas" style="flex:1;">5<br><span style="font-size:10px;">نفاس بيقين</span></div>
+    <div class="timeline-segment seg-ghusl" style="flex:20;">6–<br><span style="font-size:10px;">يحتمل الانقطاع → غسل لكل فرض</span></div>
+  </div>
+  <div class="timeline-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#1565c0;"></div> طهر بيقين</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1b5e20;"></div> نفاس بيقين (لحظة)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#4a148c;"></div> يحتمل الانقطاع (غسل لكل فرض)</div>
+  </div>
+</div>
+
+<div class="ruling-card">
+  <span class="ruling-label">نص الكتاب</span>
+  <div class="ruling-text">
+    وكأن تقول «نفاسي بعد الولادة بخمسة أيام لا أعلم قدره». فحكمها أن لحظة بعد الخمسة نفاس بيقين — لحظة، لماذا؟ لأن أقل النفاس لحظة، ليس اليوم كله خامس لحظة. وما بعد تلك اللحظة يحتمل الانقطاع، وإذا كان يحتمل الانقطاع ما الحكم؟ فتغتسل لكل فرض.
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه: ما قبل الخمسة لم ينص عليه المؤلف</div>
+  <p class="no-indent">وما قبل الخمسة ما حكمها؟ طهر — يمكن أن تضيف هذا، هو لم ينص عليه. ما نص عليه ما قبل الخمسة. إذاً ما قبل الخمسة طهر بيقين، وفي الخامس لحظة نفاس بيقين، وما بعد اللحظة هذه يحتمل الانقطاع — إذاً تغتسل لكل صلاة.</p>
+</div>
+
+<!-- ===== SECTION 9: المتحيرة الذاكرة للعدد الناسية للوقت ===== -->
+<h1>سابعاً: المتحيرة الذاكرة للعدد الناسية للوقت</h1>
+
+<div class="definition-card">
+  <span class="def-label">التعريف</span>
+  <div class="def-text">
+    <strong>المتحيرة الذاكرة للعدد الناسية للوقت:</strong> وهي كأن تقول «نفاسي عشرة أيام» — لا أعلم هل هي عشرة أيام عقب الولادة؟ ما أدري هل هي عقب الولادة؟ أم تبتدأ من قبل خمسة عشر يوماً؟
+  </div>
+</div>
+
+<h2>تحليل المثال: أربعة أزمنة</h2>
+
+<p>قالت نفاسي عشرة أيام لا أعلم هل هي بعد الولادة عشرة أيام، لا أدري هل هي بعد الولادة. أو أنها تبتدأ من قبل الخمسة عشر. أقصى احتمال أنها تبدأ في الرابع عشر — طب إذا بدأت في الرابع عشر متى تنتهي؟ في الرابع والعشرين.</p>
+
+<p>لأن تقول «نفاسي بعد الولادة عشرة أيام» — يعني أو أنها تبتدأ من قبل الخمسة عشر — إما بعد الولادة مباشرة، أو أنها تبتدأ من قبل الخمسة عشر.</p>
+
+<div class="numbered-steps">
+  <div class="step-item">
+    <strong>العشرة التي بعد الولادة:</strong> نفاس مشكوك فيه — يحتمل أن يكون نفاساً (إذا كان بعد الولادة مباشرة) ويحتمل أن لا يكون (إذا بدأ قبل الخمسة عشر).
+  </div>
+  <div class="step-item">
+    <strong>من بعد العشرة إلى الرابع والعشرين:</strong> طهر مشكوك فيه — هنا يحتمل الانقطاع.
+  </div>
+  <div class="step-item">
+    <strong>اليوم الخامس والعشرون:</strong> طهر بيقين — لأن أقصى احتمال أن النفاس ينتهي في الرابع والعشرين (إذا بدأ في الرابع عشر وانتهى في الرابع والعشرين).
+  </div>
+  <div class="step-item">
+    <strong>ما بعد الخامس والعشرين:</strong> حيض مشكوك فيه — بقدر يوم وليلة إن كانت مبتدأة، وبقدر عادتها إن كانت معتادة. وبعد ذلك طهر مشكوك فيه فتغتسل لكل صلاة.
+  </div>
+</div>
+
+<div class="classification-tree">
+  <div class="tree-title">تقسيم أزمنة المتحيرة الذاكرة للعدد (نفاسي عشرة أيام لا أعلم متى)</div>
+  <div class="tree-root">
+    <span class="tree-node-root">الأزمنة الأربعة</span>
+  </div>
+  <div class="tree-children">
+    <div class="tree-child" style="border-color: #880e4f; background: #fce4ec;">
+      <div class="child-title" style="color: #880e4f;">① من 1 إلى 10</div>
+      <div class="child-desc">نفاس مشكوك فيه<br>يحتمل طرق النفاس</div>
+    </div>
+    <div class="tree-child" style="border-color: #4a148c; background: #f3e5f5;">
+      <div class="child-title" style="color: #4a148c;">② من 11 إلى 24</div>
+      <div class="child-desc">طهر مشكوك فيه<br>يحتمل الانقطاع<br>→ غسل لكل فرض</div>
+    </div>
+    <div class="tree-child" style="border-color: #1565c0; background: #e3f2fd;">
+      <div class="child-title" style="color: #1565c0;">③ اليوم 25</div>
+      <div class="child-desc">طهر بيقين</div>
+    </div>
+    <div class="tree-child" style="border-color: #880e4f; background: #fce4ec;">
+      <div class="child-title" style="color: #880e4f;">④ ما بعد 25</div>
+      <div class="child-desc">حيض مشكوك فيه<br>(يوم وليلة إن كانت مبتدأة / قدر عادتها إن كانت معتادة)<br>ثم طهر مشكوك فيه → غسل لكل فرض</div>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-container">
+  <div style="text-align:center; font-size:14px; color:var(--dark); margin-bottom:8px; font-weight:bold;">تخطيط: نفاسي عشرة أيام لا أعلم متى تبدأ</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment seg-mashkuk" style="flex:10;">1–10<br><span style="font-size:10px;">نفاس مشكوك</span></div>
+    <div class="timeline-segment seg-ghusl" style="flex:14;">11–24<br><span style="font-size:10px;">طهر مشكوك (يحتمل الانقطاع)</span></div>
+    <div class="timeline-segment seg-tuhr" style="flex:1;">25<br><span style="font-size:10px;">طهر بيقين</span></div>
+    <div class="timeline-segment seg-mashkuk" style="flex:5;">26–30<br><span style="font-size:10px;">حيض مشكوك</span></div>
+    <div class="timeline-segment seg-ghusl" style="flex:10;">31–<br><span style="font-size:10px;">طهر مشكوك</span></div>
+  </div>
+  <div class="timeline-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#880e4f;"></div> نفاس/حيض مشكوك</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#4a148c;"></div> طهر مشكوك (يحتمل الانقطاع → غسل)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1565c0;"></div> طهر بيقين</div>
+  </div>
+</div>
+
+<h2>تفصيل الأحكام</h2>
+
+<div class="ruling-card">
+  <span class="ruling-label">① من 1 إلى 10 — نفاس مشكوك</span>
+  <div class="ruling-text">
+    يحتمل طرق النفاس — أي أن النفاس قد بدأ. لا يحتمل الانقطاع لأنه لو حصل انقطاع هنا لا يكون نفاسها عشرة أيام. فالحكم فيه: يحتمل طرق النفاس ووضوء لكل صلاة.
+  </div>
+</div>
+
+<div class="ruling-card">
+  <span class="ruling-label">② من 11 إلى 24 — طهر مشكوك</span>
+  <div class="ruling-text">
+    هنا يحتمل الانقطاع — أي انقطاع النفاس. لا يحتمل الطروء فقط دون الانقطاع. فالحكم: يحتمل الانقطاع دون الطروء — فتغتسل لكل فرض.
+  </div>
+</div>
+
+<div class="ruling-card">
+  <span class="ruling-label">③ اليوم 25 — طهر بيقين</span>
+  <div class="ruling-text">
+    لأن أقصى احتمال أن النفاس ينتهي في الرابع والعشرين (بدأ في الرابع عشر وانتهى في الرابع والعشرين)، فاليوم الخامس والعشرون طهر بيقين.
+  </div>
+</div>
+
+<div class="ruling-card">
+  <span class="ruling-label">④ ما بعد 25 — حيض مشكوك ثم طهر مشكوك</span>
+  <div class="ruling-text">
+    <strong>حيض مشكوك فيه:</strong> بقدر يوم وليلة إن كانت مبتدأة غير مميزة، وبقدر عادتها إن كانت معتادة غير مميزة.<br>
+    <strong>ثم بعد ذلك:</strong> طهر مشكوك فيه — فتغتسل لكل صلاة فرض.
+  </div>
+</div>
+
+<div class="ruling-card">
+  <span class="ruling-label">نص الكتاب</span>
+  <div class="ruling-text">
+    كأن تقول «نفاسي عشرة أيام لا أعلم هل هي عقب الولادة أم تبتدئ من قبل خمسة عشر يوماً». وحكمها أن عشرة بعد الولادة نفاس مشكوك فيه، وبعد العشرة الأيام إلى الرابع والعشرين طهر مشكوك فيه، والخامس والعشرون طهر بيقين، وما بعد الخامس والعشرين حيض مشكوك فيه بقدر يوم وليلة إن كانت مبتدأة وبقدر عادتها إن كانت معتادة، وبعد ذلك طهر مشكوك فيه فتغتسل لكل فرض.
+  </div>
+</div>
+
+<!-- ===== الخاتمة ===== -->
+<h1>خاتمة الكتاب</h1>
+
+<div class="farewell-box">
+  <div class="farewell-title">تم الكتاب بحمد الله</div>
+  <p class="no-indent" style="text-align: center;">وصلى الله على سيدنا محمد ورحمة الله وبركاته.</p>
+  <p class="no-indent" style="text-align: center; margin-top: 10px;">شكراً الله لفضيلة الدكتور المؤلف على ما قدّم لنا من علم نافع في هذه الرسالة النافعة. نسأل الله عز وجل أن يثقل بهذا موازين حسناته، وأن ينفعنا بها، وأن يفقهنا في الدين، وأن يفتح لنا فتوح العارفين. اللهم آمين.</p>
+  <p class="no-indent" style="text-align: center; margin-top: 10px;">اللهم تقبل منا إنك أنت السميع العليم. وصل اللهم وسلم وبارك على سيدنا محمد وآله وصحبه أجمعين. والحمد لله رب العالمين.</p>
+</div>
+
+<!-- ===== جدول مقارنة شامل ===== -->
+<h1>جدول مقارنة: صور المستحاضة في النفاس السبع</h1>
+
+<div class="summary-box">
+  <div class="summary-title">خلاصة صور المستحاضة في النفاس</div>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>الصورة</th>
+        <th>التعريف</th>
+        <th>الحكم</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>المبتدأة المميزة</td>
+        <td>لم يسبق لها نفاس + ترى قوياً وضعيفاً</td>
+        <td>القوي نفاس، الضعيف طهر (بشرطين: ألا يجاوز القوي 60، وألا يسبقهما نقاء 15+)</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>المبتدأة غير المميزة</td>
+        <td>لم يسبق لها نفاس + ترى الدم بصفة واحدة / فقدت شرط التمييز</td>
+        <td>ترد إلى أقل النفاس (لحظة)، ثم تعامل كمعتادة أو مبتدأة في الحيض</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>المعتادة المميزة</td>
+        <td>سبق لها نفاس + ترى قوياً وضعيفاً</td>
+        <td>القوي نفاس (التمييز مقدم على العادة)</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>المعتادة غير المميزة</td>
+        <td>سبق لها نفاس + ترى الدم بصفة واحدة / فقدت شرط التمييز</td>
+        <td>ترد إلى عادتها الأخيرة في النفاس</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>المتحيرة المطلقة</td>
+        <td>نسيت عادتها قدراً ووقتاً</td>
+        <td>تحتاط أبداً (غسل لكل فرض، صوم شهرين...)</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>الذاكرة للوقت الناسية للعدد</td>
+        <td>تعلم وقت النفاس ولا تعلم قدره</td>
+        <td>لحظة بعد الوقت نفاس بيقين، ثم تغتسل لكل فرض</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>الذاكرة للعدد الناسية للوقت</td>
+        <td>تعلم قدر النفاس ولا تعلم متى يبدأ</td>
+        <td>تقسيم الأزمنة: نفاس مشكوك → طهر مشكوك → طهر بيقين → حيض مشكوك → طهر مشكوك</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="benefit-box">
+  <span class="benefit-label">فائدة ختامية</span>
+  <p class="no-indent">هذا الدرس هو الأخير من كتاب الإبانة والإفاضة في أحكام الحيض والنفاس والاستحاضة. وفهمك للدرس السابع (المستحاضة في الحيض) سيعينك كثيراً في فهم هذا الدرس، لأن نفس القواعد التي درسناها هناك ندرسها هنا. وينبغي تنظيم مسابقة في هذا الكتاب أو قراءة كتاب آخر في نفس الباب حتى تتذكروا جيداً.</p>
+</div>
+
+</div><!-- end main-content -->
+
+</body>
+</html>

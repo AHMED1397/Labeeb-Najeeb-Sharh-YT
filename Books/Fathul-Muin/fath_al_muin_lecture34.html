@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf') format('truetype'); font-weight: normal; }
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf') format('truetype'); font-weight: bold; }
+@font-face { font-family: 'NotoNaskh'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf') format('truetype'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+
+body {
+  font-family: 'NotoNaskh', 'Amiri', serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #1a1a2e;
+  direction: rtl;
+  background: #fff;
+  text-align: justify;
+}
+
+.cover-header {
+  background: #1a5632;
+  color: white;
+  padding: 20px 14px;
+  text-align: center;
+  margin: 0 0 12px 0;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px);
+  border-bottom: 4px solid #c8a951;
+}
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 6px; border: none; font-family: 'Amiri', serif; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.9; margin: 4px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.92; margin: 6px 0 2px 0; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .creator { font-size: 11pt; opacity: 0.85; margin-top: 2px; }
+.cover-header .series { font-size: 11pt; opacity: 0.8; margin-top: 4px; }
+
+.toc {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 0 0 12px 0;
+}
+.toc-title {
+  font-family: 'Amiri', serif;
+  font-size: 14pt;
+  color: #1a5632;
+  text-align: center;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #c8a951;
+  padding-bottom: 4px;
+}
+.toc-item {
+  font-size: 10pt;
+  padding: 2px 0;
+  border-bottom: 1px dotted #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+h2.section-title {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0d7c3e;
+  border-bottom: 2px solid #0d7c3e;
+  padding-bottom: 5px;
+  margin: 18px 0 10px;
+}
+
+h3.sub-title {
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: #0a5c2e;
+  margin: 14px 0 8px;
+  padding-right: 10px;
+  border-right: 4px solid #0d7c3e;
+}
+
+h4.minor-title {
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #166534;
+  margin: 10px 0 6px;
+}
+
+p { margin: 5px 0; text-align: justify; }
+
+.definition-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-right: 4px solid #0d7c3e;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.rule-box {
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-right: 4px solid #d97706;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.exception-box {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-right: 4px solid #ea580c;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.evidence-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-right: 4px solid #2563eb;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.issue-box {
+  background: #fdf2f8;
+  border: 1px solid #fbcfe8;
+  border-right: 4px solid #db2777;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.comparison-box {
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  border-right: 4px solid #7c3aed;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.note-box {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-right: 4px solid #0284c7;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.poetry-box {
+  background: #faf5ff;
+  border: 1px solid #e9d5ff;
+  border-right: 4px solid #9333ea;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+  text-align: center;
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  line-height: 2.2;
+}
+
+.key-rule {
+  background: #dcfce7;
+  border: 2px solid #16a34a;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.box-label {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 4px;
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.label-def { background: #0d7c3e; }
+.label-rule { background: #d97706; }
+.label-exc { background: #ea580c; }
+.label-ev { background: #2563eb; }
+.label-issue { background: #db2777; }
+.label-comp { background: #7c3aed; }
+.label-note { background: #0284c7; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 13px;
+  table-layout: fixed;
+}
+
+th {
+  background: #0d7c3e;
+  color: #fff;
+  padding: 6px 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+td {
+  padding: 5px 8px;
+  border: 1px solid #d1d5db;
+  text-align: center;
+  vertical-align: top;
+}
+
+tr:nth-child(even) { background: #f0fdf4; }
+tr:nth-child(odd) { background: #fff; }
+
+.tree-container { margin: 12px 0; text-align: center; }
+.tree-root {
+  display: inline-block;
+  background: linear-gradient(135deg, #0d7c3e, #0a5c2e);
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+.tree-branches { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px; }
+.tree-branch {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  min-width: 80px;
+  text-align: center;
+}
+.tree-branch-num { font-family: 'Amiri', serif; font-weight: bold; color: #0d7c3e; font-size: 14px; }
+.tree-branch-label { font-size: 12px; color: #374151; }
+
+.compare-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.compare-card { flex: 1; min-width: 140px; border-radius: 8px; padding: 8px 10px; text-align: center; }
+.compare-card-green { background: #dcfce7; border: 1px solid #86efac; }
+.compare-card-red { background: #fef2f2; border: 1px solid #fca5a5; }
+.compare-card-gold { background: #fefce8; border: 1px solid #fde68a; }
+.compare-card-blue { background: #eff6ff; border: 1px solid #bfdbfe; }
+.compare-card-title { font-family: 'Amiri', serif; font-weight: bold; font-size: 14px; margin-bottom: 4px; }
+.compare-card-body { font-size: 12px; }
+
+.flow-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px; margin: 8px 0; }
+.flow-box { background: #0d7c3e; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-family: 'Amiri', serif; font-weight: bold; text-align: center; }
+.flow-arrow { font-size: 16px; color: #0d7c3e; font-weight: bold; }
+.flow-result { padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; text-align: center; }
+.flow-pure { background: #dcfce7; border: 1px solid #86efac; color: #166534; }
+.flow-impure { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+.flow-excused { background: #fefce8; border: 1px solid #fde68a; color: #92400e; }
+
+.highlight-green { background: #dcfce7; padding: 1px 4px; border-radius: 3px; }
+.highlight-gold { background: #fefce8; padding: 1px 4px; border-radius: 3px; }
+.highlight-red { background: #fef2f2; padding: 1px 4px; border-radius: 3px; }
+
+.verse-ref { font-family: 'Amiri', serif; font-size: 14px; color: #1e40af; text-align: center; margin: 6px 0; }
+.hadith-ref { font-family: 'Amiri', serif; font-size: 13px; color: #166534; text-align: center; margin: 6px 0; }
+
+.condition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.condition-item { border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.condition-num {
+  display: inline-block; background: #0d7c3e; color: #fff; min-width: 24px; height: 24px;
+  border-radius: 50%; text-align: center; line-height: 24px; font-family: 'Amiri', serif;
+  font-weight: bold; font-size: 12px; margin-left: 6px;
+}
+
+ul { margin: 4px 0; padding-right: 20px; }
+li { margin: 2px 0; }
+</style>
+</head>
+<body>
+
+<!-- ===== COVER HEADER ===== -->
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس الرابع والثلاثون — تابع شروط الصلاة: استقبال القبلة وشروط إضافية</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="creator">تنسيق: أحمد بن إرشاد</div>
+  <div class="series">استقبال عين القبلة · القريب والبعيد · استثناءات الاستقبال · التنفل في السفر · الصلاة في الطائرة · العلم بفرضية الصلاة</div>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. الشرط الخامس: استقبال عين القبلة</span></div>
+  <div class="toc-item"><span>٢. ما ليس من الكعبة: الشاذروان والحجر</span></div>
+  <div class="toc-item"><span>٣. قصة تغيير القبلة: نسخ السنة بالقرآن</span></div>
+  <div class="toc-item"><span>٤. المعتبر: استقبال القبلة بالصدر لا بالوجه</span></div>
+  <div class="toc-item"><span>٥. حكم القريب من الكعبة والبعيد عنها</span></div>
+  <div class="toc-item"><span>٦. استثناءات استقبال القبلة (ثلاث حالات)</span></div>
+  <div class="toc-item"><span>٧. التنفل إلى غير القبلة في السفر (أربعة قيود)</span></div>
+  <div class="toc-item"><span>٨. ضوابط التنفل إلى غير القبلة (ستة شروط)</span></div>
+  <div class="toc-item"><span>٩. السفر القصير والطويل ورخص كلّ منهما</span></div>
+  <div class="toc-item"><span>١٠. ضابط السفر القصير: عدم سماع النداء بشروطه</span></div>
+  <div class="toc-item"><span>١١. سفر المعصية: الآبق والمدين</span></div>
+  <div class="toc-item"><span>١٢. أحكام التنفل ماشياً: الركوع والسجود والاستقبال</span></div>
+  <div class="toc-item"><span>١٣. راكب السفينة: حكم الاستقبال في النفل</span></div>
+  <div class="toc-item"><span>١٤. الصلاة في الطائرة والقطار والسيّارة</span></div>
+  <div class="toc-item"><span>١٥. الشرط السادس: العلم بفرضية الصلاة</span></div>
+  <div class="toc-item"><span>١٦. الشرط السابع: تمييز فروضها من سننها</span></div>
+  <div class="toc-item"><span>١٧. الشرط الثامن: العلم بكيفيتها</span></div>
+  <div class="toc-item"><span>١٨. خاتمة: الانتقال إلى أركان الصلاة</span></div>
+</div>
+
+<!-- ===== 1. الشرط الخامس: استقبال عين القبلة ===== -->
+<h2 class="section-title">١. الشرط الخامس: استقبال عين القبلة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وخامسها استقبال عين القبلة أي الكعبة بالصدر فلا يكفي استقبال جهتها خلافاً لأبي حنيفة رحمه الله تعالى</b> — أي وخامس شروط الصلاة: استقبال عين القبلة، أي الكعبة المشرفة، وذلك بالصدر، ولا يكفي استقبال جهتها خلافاً لأبي حنيفة.</p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الأدلّة من القرآن</span>
+  <p>قال الله سبحانه وتعالى: <span class="verse-ref">{قَدْ نَرَىٰ تَقَلُّبَ وَجْهِكَ فِي السَّمَاءِ فَلَنُوَلِّيَنَّكَ قِبْلَةً تَرْضَاهَا فَوَلِّ وَجْهَكَ شَطْرَ الْمَسْجِدِ الْحَرَامِ وَحَيْثُ مَا كُنتُمْ فَوَلُّوا وُجُوهَكُمْ شَطْرَهُ}</span> [البقرة: ١٤٤]</p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الأدلّة من السنّة</span>
+  <p>قال النبيّ صلّى الله عليه وسلّم لمن سأله عن الصلاة: <b>«إذا قمت إلى الصلاة فأسبغ الوضوء واستقبل القبلة وكبّر»</b> — فدلّت الآيات والأحاديث على اشتراط استقبال القبلة في الصلاة.</p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">تعريف</span>
+  <p><b>عين القبلة:</b> هي الكعبة المشرفة — أي ذاتها لا جهتها فقط. والمراد بالكعبة التي استقبالها شرط الصلاة ليس القدر فقط بل قدرها وهواؤها أيضاً، فمن كان عالياً في قبالة مكّة فاستقبل هواء البيت كفى ذلك.</p>
+</div>
+
+<!-- ===== 2. ما ليس من الكعبة ===== -->
+<h2 class="section-title">٢. ما ليس من الكعبة: الشاذروان والحجر</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">حكم الشاذروان</span>
+  <p><b>ليس من الكعبة الشاذروان</b> — والشاذروان هو الجدار المائل في أسفل الكعبة من الجهة الجنوبيّة والغربيّة. فلو استقبل هذا المائل لا تصحّ صلاته لأنّه ليس من الكعبة يقيناً وإنّما ظنّاً، والمطلوب هنا اليقين.</p>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">حكم حجر إسماعيل</span>
+  <p><b>ما كان منه قريباً من الكعبة فهو منها</b> — أي أنّ الجزء القريب من الكعبة من حجر إسماعيل لو استقبله صحّت الصلاة لأنّه قطعاً من الكعبة. <b>وأمّا ما كان منه بعيداً فليس من الكعبة</b>، فلو استقبل البعيد لا تصحّ الصلاة.</p>
+</div>
+
+<h3 class="sub-title">سبب نقصان بناء الكعبة</h3>
+
+<p>قريش عندما جدّدت بناء الكعبة في الجاهليّة قبل الإسلام اتّفقت على أن لا تدخل في بناء الكعبة إلاّ مالاً حلالاً — فالمال الحرام كحلوان الكاهن ومهر البغِيّ الزانية لا يدخل في بناء الكعبة. فقدّدوا الكعبة لكنّ المال الحلال الذي جمعوه كان قليلاً فلم يكفِ لبناء الكعبة على ما كانت عليه، فقصرت بهم النفقة فأنقصوا جزءاً من الكعبة، ثمّ فعلوا نصف الدائرة علامة وقالوا إنّ هذا الجزء داخل في الكعبة. وعندما قامت التوسعات بعد ذلك سحب هذا الجزء: ما كان قريباً من قدر الكعبة بقي منها، وما سحب إلى الخلف صار بعيداً فليس من الكعبة قطعاً.</p>
+
+<div class="key-rule">
+  المراد بالكعبة: قدرها وهواؤها<br>
+  الشاذروان: ليس من الكعبة يقيناً<br>
+  الحجر القريب: من الكعبة — تصحّ الصلاة باستقباله<br>
+  الحجر البعيد: ليس من الكعبة — لا تصحّ
+</div>
+
+<!-- ===== 3. قصة تغيير القبلة ===== -->
+<h2 class="section-title">٣. قصة تغيير القبلة: نسخ السنة بالقرآن</h2>
+
+<p>كانت القبلة في بداية الأمر إلى بيت المقدس، وصلّى المسلمون إلى بيت المقدس ستّة عشر أو سبعة عشر شهراً، ثمّ نُسخت القبلة وأُمر النبيّ صلّى الله عليه وسلّم والمسلمون أن يستقبلوا الكعبة.</p>
+
+<div class="note-box">
+  <span class="box-label label-note">أصليّة فقهية</span>
+  <p>يضرب علماء الأصول هذا مثالاً <b>لنسخ السنة بالقرآن</b>، فإنّ استقبال بيت المقدس ثابت بالسنّة، وأمّا استقبال الكعبة فإنّه ثابت بالقرآن الكريم. فهذا مثال واضح على أنّ القرآن ينسخ السنّة.</p>
+</div>
+
+<div class="flow-row">
+  <div class="flow-box">بيت المقدس<br>(ثابت بالسنّة)</div>
+  <div class="flow-arrow">← نسخ بالقرآن ←</div>
+  <div class="flow-box" style="background: #d97706;">الكعبة المشرفة<br>(ثابت بالقرآن)</div>
+</div>
+
+<!-- ===== 4. المعتبر: استقبال القبلة بالصدر ===== -->
+<h2 class="section-title">٤. المعتبر: استقبال القبلة بالصدر لا بالوجه</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">قاعدة</span>
+  <p><b>قوله "بالصدر" يُعلَم أنّ المعتبر هو استقبال القبلة بالصدر لا بالوجه</b> — فلو استقبل القبلة بوجهه وحرّف صدره فإنّ صلاته لا تصحّ.</p>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف أبي حنيفة</span>
+  <p><b>فلا يكفي استقبال جهتها خلافاً لأبي حنيفة رحمه الله تعالى</b> — عند أبي حنيفة يكفي استقبال الجهة، وعند الشافعيّة لا بدّ من استقبال العين (عين الكعبة).</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">الشافعيّة</div>
+    <div class="compare-card-body">يجب استقبال <b>عين الكعبة</b><br>بالصدر لا بالوجه فقط<br>ولو بالظنّ للبعيد</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">أبو حنيفة</div>
+    <div class="compare-card-body">يكفي استقبال <b>الجهة</b><br>ولا يشترط العين</div>
+  </div>
+</div>
+
+<!-- ===== 5. القريب والبعيد ===== -->
+<h2 class="section-title">٥. حكم القريب من الكعبة والبعيد عنها</h2>
+
+<h3 class="sub-title">القريب الذي يرى الكعبة</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">حكم القريب (اتّفاقاً)</span>
+  <p><b>من كان يشاهد الكعبة يجب عليه اتّفاقاً عند جميع الفقهاء أن يستقبل عينها</b> — أي أنّه يجب عليه أن يستقبل عينها تماماً حتّى لا يخرج جزء من صدره عن استقبالها. فإن خرج جزء من صدره خارجاً عنها لم تصحّ صلاته.</p>
+</div>
+
+<p>مثال ذلك: من كان يصلّي قريباً من الكعبة يجب أن يحاذي صدره جميع الكعبة — لا يخرج شيء منها. أمّا لو وقف بحيث جزء من بدنه خارج عن استقبالها فإنّ الصلاة لا تصحّ. وإنّما تصحّ إذا وقف بحيث يستقبل الجانبين (الركنين) فالصدر يحاذي الكعبة كلّها.</p>
+
+<h3 class="sub-title">البعيد الذي لا يراها</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف بين الفقهاء</span>
+  <p><b>الجمهور:</b> الواجب على البعيد أن يستقبل الجهة — فما بين المشرق والمغرب قبلة لأهل المدينة وأهل اليمن كما جاء في الحديث.</p>
+  <p><b>الشافعيّة:</b> يجب على البعيد أيضاً أن يستقبل عين الكعبة لكن بالظنّ — بخلاف من كان يشاهدها يجب عليه أن يستقبل عينها يقيناً. فمن كان يشاهد البيت يجب عليه أن يستقبل عينها باليقين، ومن كان بعيداً يجب عليه أن يستقبل عينها لكن بالظنّ.</p>
+</div>
+
+<table>
+  <tr>
+    <th>الحالة</th>
+    <th>الواجب</th>
+    <th>المرجع</th>
+  </tr>
+  <tr>
+    <td><b>القريب (يرى الكعبة)</b></td>
+    <td>استقبال عينها <b>باليقين</b></td>
+    <td>اتّفاق الفقهاء</td>
+  </tr>
+  <tr>
+    <td><b>البعيد (لا يراها) — الشافعيّة</b></td>
+    <td>استقبال عينها <b>بالظنّ</b></td>
+    <td>المذهب</td>
+  </tr>
+  <tr>
+    <td><b>البعيد — الجمهور</b></td>
+    <td>استقبال <b>الجهة</b></td>
+    <td>ما بين المشرق والمغرب قبلة</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">تطبيقات القبلة</span>
+  <p>اليوم توجد تطبيقات كثيرة تُستعمل في تحديد القبلة بتحديد دقيق، وهذه تساعد من كان مسافراً أو من أراد أن يتأكّد أنّ صلاته إلى القبلة تماماً أو لا — تساعده كثيراً.</p>
+</div>
+
+<!-- ===== 6. استثناءات استقبال القبلة ===== -->
+<h2 class="section-title">٦. استثناءات استقبال القبلة (ثلاث حالات)</h2>
+
+<div class="key-rule">
+  يسقط استقبال القبلة في ثلاث حالات:<br>
+  ١. العجز عنه ٢. صلاة شدّة الخوف ٣. نفل سفر مباح لقاصد محلّ معيّن
+</div>
+
+<h3 class="sub-title">الاستثناء الأوّل: العاجز عن الاستقبال</h3>
+
+<div class="exception-box">
+  <span class="box-label label-exc">استثناء ١</span>
+  <p><b>إلاّ في حقّ العاجز عنها</b> — من كان عاجزاً عن استقبال القبلة يسقط عنه هذا الشرط. ومن صور العجز: أن يكون مريضاً لا يستطيع أن يتحوّل إلى القبلة وليس عنده من يوجّهه إليها، أو أن يكون الإنسان مربوطاً إلى جهة غير جهة القبلة.</p>
+</div>
+
+<h3 class="sub-title">الاستثناء الثاني: صلاة شدّة الخوف</h3>
+
+<div class="exception-box">
+  <span class="box-label label-exc">استثناء ٢</span>
+  <p><b>وفي صلاة شدّة الخوف</b> — يسقط استقبال القبلة في صلاة شدّة الخوف، ولو كانت الصلاة فرضاً. فيصلّي كيف أمكنه ماشياً وراكباً مستقبلاً أو مستدبراً.</p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل من القرآن</span>
+  <p>قال سبحانه وتعالى: <span class="verse-ref">{فَإِنْ خِفْتُمْ فَرِجَالًا أَوْ رُكْبَانًا}</span> [البقرة: ٢٣٩]</p>
+  <p>قال عبد الله بن عمر: <b>مستقبل القبلة أو غير مستقبليها</b>، قال نافع: ولا أراه ينمي ذلك إلاّ إلى النبيّ صلّى الله عليه وسلّم.</p>
+</div>
+
+<h4 class="minor-title">أمثلة شدّة الخوف</h4>
+
+<table>
+  <tr>
+    <th>المثال</th>
+    <th>البيان</th>
+  </tr>
+  <tr>
+    <td><b>هارب من عدوّ</b></td>
+    <td>كهارب من عدوّ في الحرب</td>
+  </tr>
+  <tr>
+    <td><b>هارب من حريق</b></td>
+    <td>يهرب من النار ويصلّي كيفما اتّفق</td>
+  </tr>
+  <tr>
+    <td><b>هارب من سيل</b></td>
+    <td>يهرب من الفيضان</td>
+  </tr>
+  <tr>
+    <td><b>هارب من سبع</b></td>
+    <td>يهرب من وحش مفترس</td>
+  </tr>
+  <tr>
+    <td><b>هارب من حيّة</b></td>
+    <td>يهرب من أذى الحيّات</td>
+  </tr>
+  <tr>
+    <td><b>هارب من دائن</b></td>
+    <td>يهرب من دائنه — بشرطين (انظر أدناه)</td>
+  </tr>
+</table>
+
+<div class="issue-box">
+  <span class="box-label label-issue">مسألة: الهارب من الدائن</span>
+  <p><b>ومن دائن عند إعساره وخوف حبس</b> — يجوز للمعسر الهارب من دائنه أن يصلّي إلى غير القبلة بشرطين:</p>
+</div>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">١</span>
+    <b>عند إعساره:</b> لو كان موسراً قادراً على السداد فلا يصحّ أن يصلّي إلى غير القبلة
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٢</span>
+    <b>خوف حبس:</b> إذا كان لا يخاف الحبس فلا يسقط عنه استقبال القبلة
+  </div>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">دليل إنظار المعسر</span>
+  <p>قال الله سبحانه وتعالى: <span class="verse-ref">{وَإِن كَانَ ذُو عُسْرَةٍ فَنَظِرَةٌ إِلَىٰ مَيْسَرَةٍ}</span> [البقرة: ٢٨٠] — فلا يجوز حبس المعسر بل يجب إنظاره.</p>
+</div>
+
+<h3 class="sub-title">الاستثناء الثالث: نفل سفر مباح لقاصد محلّ معيّن</h3>
+
+<div class="exception-box">
+  <span class="box-label label-exc">استثناء ٣</span>
+  <p><b>ولا في نفل سفر مباح لقاصد محلّ معيّن</b> — أي ولا يجب الاستقبال في النفل في سفر مباح لقاصد محلّ معيّن. وهذا الاستثناء له أربعة قيود.</p>
+</div>
+
+<!-- ===== 7. التنفل إلى غير القبلة ===== -->
+<h2 class="section-title">٧. التنفل إلى غير القبلة في السفر (أربعة قيود)</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">أربعة قيود لجواز التنفل إلى غير القبلة</span>
+</div>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #f0fdf4; border: 1px solid #bbf7d0;">
+    <span class="condition-num">١</span>
+    <b>نفل:</b> أخرج الفرض — فالفرض يجب استقبال القبلة فيه سواء كنت في سفر أو في حضر
+  </div>
+  <div class="condition-item" style="background: #f0fdf4; border: 1px solid #bbf7d0;">
+    <span class="condition-num">٢</span>
+    <b>سفر:</b> أخرج نفل الحضر — فنفل الحضر يجب أن تستقبل القبلة فيه
+  </div>
+  <div class="condition-item" style="background: #f0fdf4; border: 1px solid #bbf7d0;">
+    <span class="condition-num">٣</span>
+    <b>مباح:</b> أخرج نفل السفر المحرّم — لأنّ ترك استقبال القبلة في النافلة في السفر رخصة، والرخص لا تُناط بالمعاصي
+  </div>
+  <div class="condition-item" style="background: #f0fdf4; border: 1px solid #bbf7d0;">
+    <span class="condition-num">٤</span>
+    <b>لقاصد محلّ معيّن:</b> أخرج الهائم ونحوه — الذي ينتقل من مكان إلى مكان ليس له مقصد معيّن، فهذا لا يترخّص
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">معنى "مباح"</span>
+  <p>المقصود بالمباح هنا <b>المشروع</b> لا المباح الذي هو مستوي الطرفين كما عند الأصوليّين. فالسفر الواجب والمستحبّ والمباح والمكروه — كلّها يجوز فيها التنفل إلى غير القبلة. إنّما السفر المحرّم فقط هو الذي لا يترخّص فيه.</p>
+</div>
+
+<table>
+  <tr>
+    <th>نوع السفر</th>
+    <th>المثال</th>
+    <th>حكم التنفل إلى غير القبلة</th>
+  </tr>
+  <tr>
+    <td><b>واجب</b></td>
+    <td>فرض الحجّ أو العمرة</td>
+    <td><span class="highlight-green">يجوز</span></td>
+  </tr>
+  <tr>
+    <td><b>مستحبّ</b></td>
+    <td>طلب العلم، صلة الرحم</td>
+    <td><span class="highlight-green">يجوز</span></td>
+  </tr>
+  <tr>
+    <td><b>مباح</b></td>
+    <td>التجارة</td>
+    <td><span class="highlight-green">يجوز</span></td>
+  </tr>
+  <tr>
+    <td><b>مكروه</b></td>
+    <td>السفر وحده (الواحد شيطان)</td>
+    <td><span class="highlight-green">يجوز</span></td>
+  </tr>
+  <tr>
+    <td><b>محرّم</b></td>
+    <td>الآبق، المدين بلا إذن</td>
+    <td><span class="highlight-red">لا يجوز</span></td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">سفر الواحد مكروه</span>
+  <p>قال النبيّ صلّى الله عليه وسلّم: <b>«الراكب شيطان والراكبان شيطانان والثلاثة ركب»</b> — وهذا محمول على غير وقت الحاجة، وعلى من لم يأنس بالله عزّ وجلّ. فمن كان يأنس بالله ويأتي بالأذكار ويراجع القرآن ويقضي طريقه بالتسبيح والتهليل والتكبير — سفره وحده أفضل من أن يسافر مع شخص يشغله عن ذكر الله.</p>
+</div>
+
+<!-- ===== 8. ضوابط التنفل ===== -->
+<h2 class="section-title">٨. ضوابط التنفل إلى غير القبلة (ستّة شروط)</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>فيجوز النفل راكباً وماشياً فيه ولو قصيراً</b> — الراكب بالنصّ لما في الصحيحين من حديث عبد الله بن عمر: «كان رسول الله صلّى الله عليه وسلّم يسبّح على راحلته ويوتر عليها غير أنّه لا يصلّي عليها المكتوبة»، وكان يسبّح حيثما توجّهت به. والماشي بالقياس على الراكب. وضمير "فيه" يعود إلى السفر المباح.</p>
+</div>
+
+<div class="tree-container">
+  <div class="tree-root">شروط صحة التنفل إلى غير القبلة في السفر</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">١</div>
+      <div class="tree-branch-label">نفل<br>(لا فرض)</div>
+    </div>
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">٢</div>
+      <div class="tree-branch-label">سفر<br>(لا حضر)</div>
+    </div>
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">٣</div>
+      <div class="tree-branch-label">مباح<br>(لا معصية)</div>
+    </div>
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">٤</div>
+      <div class="tree-branch-label">لقاصد محلّ<br>معيّن (لا هائم)</div>
+    </div>
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a;">
+      <div class="tree-branch-num">٥</div>
+      <div class="tree-branch-label">لا ينحرف عن<br>مقصده إلاّ للقبلة</div>
+    </div>
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a;">
+      <div class="tree-branch-num">٦</div>
+      <div class="tree-branch-label">ترك فعل كثير<br>كعدو وتحريك رجل</div>
+    </div>
+  </div>
+</div>
+
+<h3 class="sub-title">الشرط الخامس: لا ينحرف عن مقصده إلاّ إلى القبلة</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويحرم انحرافه عن استقبال صوب مقصده عامداً عالماً مختاراً إلاّ إلى القبلة</b> — أي أنّه إمّا أن يتوجّه إلى القبلة أو أن يتوجّه إلى المكان الذي يقصده. فلو توجّه إلى غيرهما عالماً عامداً مختاراً بطلت الصلاة.</p>
+</div>
+
+<h3 class="sub-title">الشرط السادس: ترك الأفعال الكثيرة</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويشترط ترك فعل كثير كعدو وتحريك رجل بلا حاجة</b> — أي يشترط أن يترك الأفعال الكثيرة كالعدو (الجري)، وتحريك رجل بلا حاجة كمن يحرك رجله على الحصان بلا حاجة. أمّا إذا كان لحاجة — كأن يكون متأخّراً عن المسافرين فحرّك رجله من أجل أن يشجّع الحصان — فلا تبطل صلاته.</p>
+</div>
+
+<h3 class="sub-title">ترك تعمّد وطء النجاسة</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وترك تعمّد وطء نجاسة ولو يابسة</b> — أي ولو كانت النجاسة يابسة فلو تعمّد وطأها بطلت صلاته. <b>وإن عمّت الطريق</b> أي وإن كانت النجاسة قد عمّت الطريق.</p>
+  <p><b>ولا يضرّ وطء يابس خطأ</b> — وإذا وطئ نجاسة يابسة خطأ فلا يضرّ. ويفهم من كلامه أنّ لو وطئ نجاسة رطبة خطأ فإنّه يضرّ لأنّه قيد عدم الضرر بقوله "يابس".</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">الماشي لا يكلّف التحفّظ</span>
+  <p><b>ولا يكلّف ماشٍ التحفّظ عنها</b> — أي لا يُكلّف الماشي التحفّظ عن النجاسة في طريقه، فلو وطئها بلا تعمّد لم تبطل صلاته.</p>
+</div>
+
+<!-- ===== 9. السفر القصير والطويل ===== -->
+<h2 class="section-title">٩. السفر القصير والطويل ورخص كلّ منهما</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ولو قصيراً</b> — أي ولو كان السفر قصيراً فلا يشترط أن يكون السفر طويلاً من أجل أن تجوز لك الرخصة. فالرخصة جائزة ولو كان السفر سفراً قصيراً.</p>
+</div>
+
+<table>
+  <tr>
+    <th>نوع السفر</th>
+    <th>الضابط</th>
+    <th>الرخص</th>
+  </tr>
+  <tr>
+    <td><b>السفر الطويل</b></td>
+    <td>مسيرة يومين ≈ ١٤٤ كم</td>
+    <td>١. مسح الخفّين ثلاثاً<br>٢. قصر الصلاة الرباعيّة<br>٣. الجمع بين الصلاتين<br>٤. الإفطار في رمضان</td>
+  </tr>
+  <tr>
+    <td><b>السفر القصير</b></td>
+    <td>≈ ميل ≈ ٣ كم</td>
+    <td>١. سقوط الجمعة (بشرط السفر قبل الفجر)<br>٢. جواز التنفل إلى غير القبلة</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">شرط سقوط الجمعة بالسفر القصير</span>
+  <p>من سافر سفراً قصيراً تسقط عنه الجمعة <b>بشرط أن يسافر قبل الفجر</b>. أمّا لو سافر في الصباح يوم الجمعة — كالساعة السابعة أو الثامنة — فهو عاصٍ إذا لم يصلِّ الجمعة.</p>
+</div>
+
+<!-- ===== 10. ضابط السفر القصير ===== -->
+<h2 class="section-title">١٠. ضابط السفر القصير: عدم سماع النداء بشروطه</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>يشترط أن يكون مقصده على مسافة لا يسمع النداء من بلده بشروطه المقرّرة في الجمعة</b> — أي أنّ السفر القصير يتحقّق بأن يكون مقصده على مسافة لا يسمع فيها نداء بلده.</p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">ضابط السفر القصير</span>
+  <p>قدّره بعض فقهاء الشافعيّة <b>بميل</b> وهو يعادل تقريباً ثلاثة كيلومترات. وضابطه: إذا كان المؤذّن عالي الصوت في طرف القرية الذي يلي الشخص، وكان بمكان مستوٍ، ومع سكون الريح والأصوات — فإن كان الشخص لا يسمع النداء فهذا يُعدّ سفراً قصيراً. ويكفي أن يسمع النداء ولو لم يفهم الكلمات — فمجرّد سماعه لسور النداء يوجب عليه الجمعة.</p>
+</div>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">١</span>
+    <b>المؤذّن عالي الصوت</b> (صيت)
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٢</span>
+    <b>يقف في الطرف الذي يلي الشخص</b>
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٣</span>
+    <b>بمكان مستوٍ</b> من الأرض
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٤</span>
+    <b>مع سكون الريح والأصوات</b>
+  </div>
+</div>
+
+<div class="key-rule">
+  لو سمع النداء ولو لم يفهم الكلمات → تجب عليه الجمعة ولا يجوز التنفل إلى غير القبلة<br>
+  ولو لم يسمع النداء أصلاً → تسقط عنه الجمعة ويجوز له التنفل إلى غير القبلة
+</div>
+
+<!-- ===== 11. سفر المعصية ===== -->
+<h2 class="section-title">١١. سفر المعصية: الآبق والمدين</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وخرج بالمباح سفر المعصية فلا يجوز ترك القبلة في النفل لآبق</b> — والآبق هو العبد الهارب من سيّده. فسفر المعصية لا يترخّص صاحبه بالتنفل إلى غير القبلة.</p>
+</div>
+
+<div class="poetry-box">
+  <span class="box-label label-rule" style="background: #9333ea;">شعر في الآبق والعاقّ</span>
+  <p>
+  لعمرك إن لي عبداً وابناً<br>
+  سواء في المقال وفي الفعال<br>
+  فذلك سابق من غير سين<br>
+  وذلك عاقل من غير أمر<br>
+  </p>
+  <p style="font-size: 12px; text-align: justify; font-family: 'NotoNaskh', serif; line-height: 1.75;">
+  <b>الشرح:</b> سابق بغير سين = آبق (العبد الهارب). عاقل من غير أمر = عاقّ (الابن العاقّ). فالشاعر مدحهم لكنّه أتى بما فيه سبّ وذمّ: العبد آبق والابن عاقّ، ولم يصرّح بالسبّ.
+  </p>
+</div>
+
+<h3 class="sub-title">مسألة: المسافر وعليه دين</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ومسافر عليه دين حال قادر عليه من غير إذن دائنه</b> — هذا سفر معصية. ومن كان عليه دين حال قادر على السداد فسافر من غير إذن الدائن يعتبر سفره سفر معصية.</p>
+</div>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #fef2f2; border: 1px solid #fca5a5;">
+    <span class="condition-num">١</span>
+    <b>دين حالّ:</b> أخرج المؤجّل — فإذا كان الدين مؤجّلاً فسفره ليس معصية
+  </div>
+  <div class="condition-item" style="background: #fef2f2; border: 1px solid #fca5a5;">
+    <span class="condition-num">٢</span>
+    <b>قادر على السداد:</b> أي موسر وليس معسراً
+  </div>
+  <div class="condition-item" style="background: #fef2f2; border: 1px solid #fca5a5;">
+    <span class="condition-num">٣</span>
+    <b>من غير إذن الدائن:</b> سافر بلا إذن صاحب الدين
+  </div>
+  <div class="condition-item" style="background: #fef2f2; border: 1px solid #fca5a5;">
+    <b>السبب:</b> مِطْلان عن سداد الدين
+  </div>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p>قال النبيّ صلّى الله عليه وسلّم: <b>«مطل الغنيّ ظلم»</b> — فمن كان قادراً على السداد ولم يسدد فهو ظالم، وسفره سفر معصية.</p>
+</div>
+
+<!-- ===== 12. أحكام التنفل ماشياً ===== -->
+<h2 class="section-title">١٢. أحكام التنفل ماشياً: الركوع والسجود والاستقبال</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويجب على ماشٍ إتمام ركوع وسجود لسهولة ذلك عليه وعلى راكب إيماء بهما</b> — أي يجب على الماشي أن يتمّ الركوع والسجود بخلاف الراكب فإنّه يومئ بهما، كما كان يصنع النبيّ صلّى الله عليه وسلّم إذا تنفّل على راحلته.</p>
+  <p><b>ويكون إيماء السجود أخفض من إيماء الركوع</b> — أي أنّ إيماء السجود يكون أخفض من إيماء الركوع في حقّ الراكب.</p>
+</div>
+
+<h3 class="sub-title">مواضع وجوب الاستقبال للماشي</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>واستقبال فيهما وفي تحرّم وقعود بين سجدتين</b> — أي يجب على الماشي أن يستقبل القبلة في الركوع والسجود وفي تحرّم (تكبيرة الإحرام) وفي القعود بين السجدتين.</p>
+  <p><b>فلا يمشي إلاّ في القيام والاعتدال والتشبّه والسلام</b> — أي يجوز له المشي في هذه الأربعة فقط.</p>
+</div>
+
+<table>
+  <tr>
+    <th>الحكم</th>
+    <th>المواضع</th>
+    <th>التفصيل</th>
+  </tr>
+  <tr>
+    <td><span class="highlight-green">يجب الاستقبال</span></td>
+    <td><b>أربعة مواضع</b></td>
+    <td>١. تكبيرة الإحرام<br>٢. الركوع<br>٣. السجود<br>٤. القعود بين السجدتين</td>
+  </tr>
+  <tr>
+    <td><span class="highlight-gold">يجوز المشي (لا استقبال)</span></td>
+    <td><b>أربعة مواضع</b></td>
+    <td>١. القيام<br>٢. الاعتدال<br>٣. التشبّه<br>٤. السلام</td>
+  </tr>
+</table>
+
+<h3 class="sub-title">صفة التنفل ماشياً (مثال تطبيقي)</h3>
+
+<p>نفترض أنّ القبلة في اتجاه والسفر في اتجاه آخر. فأوّلاً عند تكبيرة الإحرام يستقبل القبلة ويكبّر. في أثناء القيام يمشي. عند الركوع يستقبل القبلة ويركع ويتمّ الركوع. عند الاعتدال يمشي. عند السجود يستقبل القبلة ويتمّ السجود. ويجلس بين السجدتين. ثمّ يسجد السجدة الثانية. ثمّ يقوم ويمشي. في التشبّه يقرأ التشبّه حال كونه ماشياً. عند السلام يسلّم وهو ماشٍ.</p>
+
+<div class="key-rule">
+  الماشي: يجب إتمام الركوع والسجود + الاستقبال في ٤ مواضع<br>
+  الراكب: يُيمئ بهما (السجود أخفض) + لا يجب الاستقبال في النفل
+</div>
+
+<!-- ===== 13. راكب السفينة ===== -->
+<h2 class="section-title">١٣. راكب السفينة: حكم الاستقبال في النفل</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويجب الاستقبال في النفل لراكب سفينة غير ملاح</b> — أي أنّ راكب السفينة (غير الملاح) يجب عليه استقبال القبلة حتّى في النفل، لأنّ السفينة تشبه الدار يسهل فيها الاستقبال.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">راكب السفينة (غير الملاح)</div>
+    <div class="compare-card-body"><b>يجب الاستقبال</b><br>حتى في النفل<br>لأنّ السفينة تشبه الدار<br>يسهل فيها الاستقبال</div>
+  </div>
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">الملاح (سائّر السفينة)</div>
+    <div class="compare-card-body"><b>لا يجب الاستقبال</b><br>في النفل<br>كالراكب على الدابّة<br>فإنّه مشغول بالتسيير</div>
+  </div>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">تعريف الملاح</span>
+  <p>الملاح هو الذي يسير السفينة وكلّ من له علاقة بتسيير السفينة — فهذا داخل تحت اسم الملاح.</p>
+</div>
+
+<!-- ===== 14. الصلاة في الطائرة والقطار ===== -->
+<h2 class="section-title">١٤. الصلاة في الطائرة والقطار والسيّارة</h2>
+
+<h3 class="sub-title">إذا لم يستطع استقبال القبلة في الفرض</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">حكم الصلاة في القطار/الطائرة</span>
+  <p>إذا كان الشخص في الطائرة أو القطار ولم يستطع في الفرض أن يستقبل القبلة: <b>يصلّي لحرمة الوقت ثمّ يُعيد الصلاة</b>.</p>
+  <p>وإذا كان يستطيع أن يستقبل القبلة لكنّه لا يستطيع إتمام الأركان (لا يستطيع الركوع والسجود): <b>يصلّي بحسب إمكانه لحرمة الوقت ثمّ عليه القضاء</b>.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">فائدة الصلاة لحرمة الوقت</span>
+  <p>فائدة ذلك أنّه <b>لو مات قبل التمكّن من القضاء لا يُعاقَب</b> — لأنّه أدّى ما في وسعه.</p>
+</div>
+
+<h3 class="sub-title">الصلاة في السيّارة الواقفة والسائرة</h3>
+
+<p>لو صلّى على السيّارة وهي واقفة واستطاع أن يتمّ الركوع والسجود واستقبل القبلة — <b>الصلاة صحيحة</b> لا إشكال. نصّ على ذلك الإمام النوويّ رحمه الله في أكثر من كتاب من كتبه: في المنهاج، وشرح مسلم، والمجموع.</p>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">السيّارة/القطار السائر</span>
+  <p>أمّا إذا كانت سائرة — فالإمام النوويّ قال: <b>لا تصحّ</b>. وهذا محمول على الدابة التي يصلّي عليها وهو الذي يسيرها. أمّا اليوم في السيّارات والقطار — فالراكب ليس هو السائق. وظاهر كلام الفقهاء أنّ <b>الصلاة صحيحة</b> بالشروط التالية:</p>
+</div>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">١</span>
+    <b>استقبال القبلة</b>
+  </div>
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">٢</span>
+    <b>إتمام الركوع والسجود</b> وبقيّة الأركان
+  </div>
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">٣</span>
+    <b>لا يُنسب سيرها إليه</b> — ليس هو القائد/السائق
+  </div>
+  <div class="condition-item" style="background: #f0fdf4; border: 1px solid #bbf7d0;">
+    <b>الدليل بالقياس:</b> لو صلّى على سرير حمله أربعة ومشوا به أثناء صلاته — صلاته صحيحة (منصوص)
+  </div>
+</div>
+
+<h3 class="sub-title">الصلاة في الطائرة: خلاف بين المعاصرين</h3>
+
+<p>الصلاة في الطائرة اختلف فيها الفقهاء المعاصرون، وقد أُلّفت رسائل خاصّة في هذه المسألة:</p>
+
+<div class="note-box">
+  <span class="box-label label-note">رسائل في الموضوع</span>
+  <p><b>١. العلاّمة إسماعيل الزين</b> (مفتي مكّة من فقهاء الشافعيّة): ألّف رسالة سماها <i>«إعلام السرّ السيّار بحكم الصلاة في الطيّارة»</i></p>
+  <p><b>٢. العلاّمة محمّد الأمين الشنقيطيّ</b> (صاحب أضواء البيان): ألّف رسالة بعنوان <i>«الصلاة في الطائرة»</i></p>
+</div>
+
+<table>
+  <tr>
+    <th>القول</th>
+    <th>الرأي</th>
+    <th>الدليل</th>
+    <th>القائل</th>
+  </tr>
+  <tr>
+    <td><b>الأوّل</b></td>
+    <td><span class="highlight-red">لا تصحّ</span></td>
+    <td>لأنّه ليس مستقرّاً على الأرض بل هو معلّق بين السماء والأرض، ومن كان معلّقاً لا تصحّ صلاته</td>
+    <td>إسماعيل الزين<br>(وفرّع: يصلّي لحرمة الوقت ثمّ يُعيد)</td>
+  </tr>
+  <tr>
+    <td><b>الثاني</b></td>
+    <td><span class="highlight-green">تصحّ</span></td>
+    <td>الذي يصلّي في الطائرة مستقرّ على أرض الطائرة، فقدماه مستقرّتان — فهو مستقرّ لا معلّق. وصورة المعلّق التي ذكرها الفقهاء صورة أخرى غير هذه</td>
+    <td>محمّد بن سالم بن حافظ<br>+ الشنقيطيّ</td>
+  </tr>
+</table>
+
+<div class="key-rule">
+  القول الأقرب: الصلاة في الطائرة تصحّ بهذه الشروط:<br>
+  ١. استقبل القبلة ٢. أتمّ الأركان ٣. لم يكن سيرها منسوباً إليه<br>
+  فلا يلزمه القضاء — وهو الذي أيّده الشنقيطيّ
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">صورة المعلّق عند الفقهاء</span>
+  <p>ذكر الفقهاء قديماً: لو أنّ الإنسان استند على رجلين وأخذ بيديه هنا وهنا وارتفع من الأرض وصلّى هكذا — صلاته لا تصحّ لأنّه معلّق غير مستقرّ على الأرض. هذه هي الصورة التي أرادوها بالمعلّق، وهي تختلف عن راكب الطائرة المستقرّ على أرضها.</p>
+</div>
+
+<!-- ===== 15. العلم بفرضية الصلاة ===== -->
+<h2 class="section-title">١٥. الشرط السادس: العلم بفرضية الصلاة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>واعلم أنّه يشترط أيضاً في صحّة الصلاة العلم بفرضيّة الصلاة</b> — أي يشترط لصحّة الصلاة أن يعلم أنّها فرض، فلو جهل فرضيّة أصل الصلاة أو صلاة التي شرع فيها لم تصحّ.</p>
+</div>
+
+<h3 class="sub-title">صورتا الجهل</h3>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">الصورة الأولى</div>
+    <div class="compare-card-body">يجهل فرضيّة <b>أصل الصلاة</b><br>أي لا يعلم أنّ الصلاة فرض أصلاً</div>
+  </div>
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">الصورة الثانية</div>
+    <div class="compare-card-body">يجهل فرضيّة <b>صلاة معيّنة</b><br>كأن لا يعلم أنّ الظهر فرض</div>
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">العِلّة</span>
+  <p>إذا كان لا يعلم أنّ الصلاة فرض أو لا، فإنّ هذا <b>لا يكون جازماً في النيّة</b> — فلا يصحّ نياته. كما في المجموع والروضة للإمام النوويّ.</p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">الكتابان المذكوران</span>
+  <p><b>المجموع:</b> شرح المهذّب لأبي إسحاق الشيرازيّ — للإمام النوويّ</p>
+  <p><b>الروضة:</b> اختصار فتح العزيز — للإمام النوويّ</p>
+</div>
+
+<!-- ===== 16. تمييز فروضها من سننها ===== -->
+<h2 class="section-title">١٦. الشرط السابع: تمييز فروضها من سننها</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وتمييز فروضها من سننها</b> — أي ومن شروط الصلاة أن يميّز بين فروض الصلاة التي هي الأركان والسنن الصلاة. فلا بدّ أن يميّز أنّ هذا فرض وأنّ هذا سنة.</p>
+</div>
+
+<h3 class="sub-title">صور الاعتقاد وأحكامها</h3>
+
+<table>
+  <tr>
+    <th>الصورة</th>
+    <th>الحكم</th>
+    <th>التفصيل</th>
+  </tr>
+  <tr>
+    <td><b>اعتقد الكلّ فرضاً</b><br>(كلّ ما يُطلب فرض)</td>
+    <td><span class="highlight-green">تصحّ</span></td>
+    <td>سواء كان عاميّاً أو عالماً على الأوجه — أي حتّى العالم على أقوى الأقوال تصحّ صلاته</td>
+  </tr>
+  <tr>
+    <td><b>اعتقد الكلّ سنّة</b><br>(كلّ ما يُطلب سنّة)</td>
+    <td><span class="highlight-red">لا تصحّ</span></td>
+    <td>سواء كان عاميّاً من باب أولى أو عالماً — لأنّه أنكر الفرض</td>
+  </tr>
+  <tr>
+    <td><b>اعتقد فرضاً معيّناً سنّة</b><br>(كأن اعتقد الركوع سنّة)</td>
+    <td><span class="highlight-red">لا تصحّ</span></td>
+    <td>لأنّه أنكر ركناً معيّناً</td>
+  </tr>
+  <tr>
+    <td><b>اعتقد فرضاً مبهماً سنّة</b><br>(قال: أحدهما سنّة إمّا الركوع أو السجود)</td>
+    <td><span class="highlight-green">تصحّ</span></td>
+    <td>لأنّه مبهم ليس معيّناً</td>
+  </tr>
+</table>
+
+<div class="issue-box">
+  <span class="box-label label-issue">مسألة: العالم إذا لم يميّز</span>
+  <p>إذا كان <b>عاميّاً</b> (لم يشتغل بالفقه) فاعتقد كلّ ما يُطلب في الصلاة فرضاً — صلاته <b>صحيحة</b>. أمّا إذا كان <b>عالماً</b> (اشتغل بالفقه زمناً يتمكّن فيه من التمييز) ففيه خلاف: بعضهم قال يجب عليه التمييز، وبعضهم قال حتّى العالم لو اعتقد الكلّ فرضاً تصحّ صلاته — وهذا هو <b>الأوجه</b>. قال المصنّف: «إن اعتقد العاميّ أو العالم على الأوجه الكلّ فرضاً صحّت».</p>
+</div>
+
+<div class="key-rule">
+  القاعدة في تمييز الفروض من السنن:<br>
+  • اعتقد الكلّ فرضاً → صحّة (عاميّ وعالم على الأوجه)<br>
+  • اعتقد الكلّ سنّة → بطلان<br>
+  • فرض معيّن سنّة → بطلان<br>
+  • فرض مبهم سنّة → صحّة
+</div>
+
+<!-- ===== 17. العلم بكيفيتها ===== -->
+<h2 class="section-title">١٧. الشرط الثامن: العلم بكيفيتها</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>والعلم بكيفيّتها</b> — أي والعلم بكيفيّة الصلاة، أي بحقيقة الصلاة وما هي. والعلم بكيفيتها هو في الحقيقة نفسه العلم بفروضها.</p>
+  <p><b>الآتي بيانها قريباً</b> — سيأتي بيان كيفيّة الصلاة في فصل صفة الصلاة.</p>
+</div>
+
+<!-- ===== 18. خاتمة ===== -->
+<h2 class="section-title">١٨. خاتمة: الانتقال إلى أركان الصلاة</h2>
+
+<div class="note-box">
+  <span class="box-label label-note">ملخص شروط الصلاة</span>
+  <p>بهذا نكون انتهينا من شروط الصلاة وهي:</p>
+</div>
+
+<div class="tree-container">
+  <div class="tree-root">شروط صحّة الصلاة</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">١</div>
+      <div class="tree-branch-label">الطهارة من<br>الحدث</div>
+    </div>
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">٢</div>
+      <div class="tree-branch-label">الطهارة من<br>الخبث</div>
+    </div>
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">٣</div>
+      <div class="tree-branch-label">ستر العورة</div>
+    </div>
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">٤</div>
+      <div class="tree-branch-label">معرفة دخول<br>الوقت</div>
+    </div>
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a;">
+      <div class="tree-branch-num">٥</div>
+      <div class="tree-branch-label">استقبال<br>القبلة</div>
+    </div>
+    <div class="tree-branch" style="background: #eff6ff; border-color: #bfdbfe;">
+      <div class="tree-branch-num">٦</div>
+      <div class="tree-branch-label">العلم بفرضيّة<br>الصلاة</div>
+    </div>
+    <div class="tree-branch" style="background: #eff6ff; border-color: #bfdbfe;">
+      <div class="tree-branch-num">٧</div>
+      <div class="tree-branch-label">تمييز فروضها<br>من سننها</div>
+    </div>
+    <div class="tree-branch" style="background: #eff6ff; border-color: #bfdbfe;">
+      <div class="tree-branch-num">٨</div>
+      <div class="tree-branch-label">العلم<br>بكيفيّتها</div>
+    </div>
+  </div>
+</div>
+
+<div class="key-rule">
+  نشرع بعد ذلك في أركان الصلاة — في فصل صفة الصلاة<br>
+  وهذا يكون مفتتح الدرس القادم إن شاء الله تعالى
+</div>
+
+</body>
+</html>

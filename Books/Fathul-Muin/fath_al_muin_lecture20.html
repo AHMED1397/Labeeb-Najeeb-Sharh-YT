@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf'); }
+@font-face { font-family: 'Amiri-Bold'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf'); }
+@font-face { font-family: 'NotoNaskhArabic'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+body { font-family: 'NotoNaskhArabic', 'Amiri', serif; font-size: 14px; line-height: 1.8; color: #2c2c2c; direction: rtl; text-align: justify; }
+h1 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 18pt; color: #1a5632; margin: 14px 0 6px 0; }
+h2 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 15pt; color: #1a5632; margin: 12px 0 5px 0; border-bottom: 2px solid #c8a951; padding-bottom: 3px; }
+h3 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 12pt; color: #2c5f7c; margin: 8px 0 4px 0; }
+p { margin: 3px 0; }
+.cover-header { background: #1a5632; color: white; padding: 20px 14px; text-align: center; margin: 0 0 12px 0; background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px); border-bottom: 4px solid #c8a951; }
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 6px; border: none; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.9; margin: 4px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.92; margin: 6px 0 2px 0; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .series { font-size: 11pt; opacity: 0.8; margin-top: 4px; }
+.toc { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 6px; padding: 10px 14px; margin: 0 0 12px 0; }
+.toc-title { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 14pt; color: #1a5632; text-align: center; margin-bottom: 6px; border-bottom: 2px solid #c8a951; padding-bottom: 4px; }
+.toc-item { font-size: 10pt; padding: 2px 0; border-bottom: 1px dotted #ccc; display: flex; justify-content: space-between; }
+.table-container { overflow-x: hidden; margin: 8px 0; page-break-inside: avoid; }
+table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 10pt; }
+th, td { padding: 4px 8px; border: 1px solid #ddd; overflow-wrap: break-word; word-break: break-word; }
+th { background-color: #1a5632; color: white; text-align: right; font-size: 10pt; }
+.callout { padding: 8px 12px; margin: 8px 0; border-radius: 0 6px 6px 0; page-break-inside: avoid; }
+.callout-title { font-weight: bold; margin-bottom: 3px; font-size: 11pt; }
+.callout-body { color: #333; line-height: 1.7; font-size: 13px; }
+.callout-warning { background: #fff3cd; border-right: 4px solid #c8a951; }
+.callout-warning .callout-title { color: #856404; }
+.callout-ruling { background: #e8f5e9; border-right: 4px solid #1a5632; }
+.callout-ruling .callout-title { color: #1a5632; }
+.callout-important { background: #e3f2fd; border-right: 4px solid #2c5f7c; }
+.callout-important .callout-title { color: #2c5f7c; }
+.callout-danger { background: #f8d7da; border-right: 4px solid #c0392b; }
+.callout-danger .callout-title { color: #c0392b; }
+.callout-info { background: #d1ecf1; border-right: 4px solid #17a2b8; }
+.callout-info .callout-title { color: #0c5460; }
+.callout-success { background: #d4edda; border-right: 4px solid #28a745; }
+.callout-success .callout-title { color: #155724; }
+.classification-group { display: grid; gap: 8px; margin: 8px 0; grid-template-columns: repeat(2, 1fr); page-break-inside: avoid; }
+.box-green { background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border: 2px solid #1a5632; border-radius: 8px; padding: 10px; }
+.box-green .box-title { font-family: 'Amiri-Bold', 'Amiri', serif; color: #1a5632; font-size: 11pt; font-weight: bold; margin-bottom: 4px; }
+.box-green .box-content { font-size: 12px; line-height: 1.7; color: #333; }
+.box-blue { background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border: 2px solid #2c5f7c; border-radius: 8px; padding: 10px; }
+.box-blue .box-title { font-family: 'Amiri-Bold', 'Amiri', serif; color: #2c5f7c; font-size: 11pt; font-weight: bold; margin-bottom: 4px; }
+.box-blue .box-content { font-size: 12px; line-height: 1.7; color: #333; }
+.box-gold { background: linear-gradient(135deg, #fdf6e3 0%, #f5e6b8 100%); border: 2px solid #c8a951; border-radius: 8px; padding: 10px; }
+.box-gold .box-title { font-family: 'Amiri-Bold', 'Amiri', serif; color: #856404; font-size: 11pt; font-weight: bold; margin-bottom: 4px; }
+.box-gold .box-content { font-size: 12px; line-height: 1.7; color: #333; }
+.box-red { background: linear-gradient(135deg, #f8e8e8 0%, #f5d0d0 100%); border: 2px solid #8b1a1a; border-radius: 8px; padding: 10px; }
+.box-red .box-title { font-family: 'Amiri-Bold', 'Amiri', serif; color: #8b1a1a; font-size: 11pt; font-weight: bold; margin-bottom: 4px; }
+.box-red .box-content { font-size: 12px; line-height: 1.7; color: #333; }
+.compare-box { display: flex; gap: 0; margin: 8px 0; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.1); max-width: 100%; flex-wrap: wrap; }
+.compare-side { flex: 1; min-width: 0; padding: 8px 10px; }
+.compare-side h3 { margin: 0 0 4px 0; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 3px; font-size: 11pt; color: white; }
+.compare-side p { font-size: 12px; line-height: 1.6; color: white; }
+.compare-divider { width: 3px; background: #c8a951; }
+.section-num { display: inline-block; background: #1a5632; color: white; width: 22px; height: 22px; line-height: 22px; text-align: center; border-radius: 50%; font-size: 11pt; margin-left: 5px; }
+.poetry-box { background: #f9f5ec; border: 2px solid #c8a951; border-radius: 8px; padding: 10px 16px; margin: 10px 0; text-align: center; page-break-inside: avoid; }
+.poetry { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 13pt; color: #1a5632; line-height: 2.2; }
+.formula-box { background: #fdf6e3; border: 2px solid #c8a951; border-radius: 8px; padding: 10px 14px; margin: 8px 0; page-break-inside: avoid; text-align: center; }
+.formula-box .formula-text { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 12pt; color: #1a5632; line-height: 1.8; }
+.formula-box .formula-note { font-size: 10pt; color: #4a4a5e; margin-top: 4px; }
+.condition-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin: 8px 0; page-break-inside: avoid; }
+.condition-item { background: #f5f0e6; border: 1px solid #d4c9a8; border-radius: 6px; padding: 8px 10px; font-size: 11px; line-height: 1.6; }
+.condition-item .cond-num { display: inline-block; background: #1a5632; color: white; width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 50%; font-size: 10pt; margin-left: 4px; }
+.diagram-container { background: #fafaf5; border: 2px solid #d4c9a8; border-radius: 8px; padding: 12px; margin: 8px 0; page-break-inside: avoid; }
+.diagram-branch { display: flex; gap: 8px; margin: 6px 0; flex-wrap: wrap; }
+.diagram-node { flex: 1; min-width: 140px; padding: 8px; border-radius: 6px; font-size: 11px; line-height: 1.6; }
+.diagram-node.node-main { background: #1a5632; color: white; font-weight: bold; text-align: center; }
+.diagram-node.node-branch { background: #f5f0e6; border: 1px solid #c8a951; }
+.diagram-node.node-result { background: #e8f5e9; border: 1px solid #1a5632; }
+.diagram-node.node-warn { background: #f8e8e8; border: 1px solid #8b1a1a; }
+</style>
+</head>
+<body>
+
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس العشرون — موجبات الغسل (تابع): الجماع والحيض والنفاس والولادة والموت</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="series">دخول الحشفة · أحكام الحيض · ما يحرم بالحيض · أحكام النفاس · الولادة والموت</div>
+</div>
+
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. الموجب الثاني: دخول الحشفة — معنى "دخول" و"إدخال"</span><span>١</span></div>
+  <div class="toc-item"><span>٢. صور دخول الحشفة: البهيمة والميت والذكر المقطوع</span><span>٢</span></div>
+  <div class="toc-item"><span>٣. الإيلاج بحائل — مسألة معاصرة</span><span>٣</span></div>
+  <div class="toc-item"><span>٤. الموجب الثالث: الحيض — تعريفه وأحكامه الأساسية</span><span>٤</span></div>
+  <div class="toc-item"><span>٥. أنواع الدماء من المرأة: حيض، نفاس، استحاضة</span><span>٥</span></div>
+  <div class="toc-item"><span>٦. أقل الحيض وأكثره وغالبُه</span><span>٦</span></div>
+  <div class="toc-item"><span>٧. أقل سنّ تحيض فيه المرأة</span><span>٧</span></div>
+  <div class="toc-item"><span>٨. اتصال الدم المعتاد — شرط أقل الحيض</span><span>٨</span></div>
+  <div class="toc-item"><span>٩. أقل الطهر بين الحيضتين والنقاء في وقت الحيض</span><span>٩</span></div>
+  <div class="toc-item"><span>١٠. ما يحرم بالحيض — المشترك والزائد عن الجنابة</span><span>١٠</span></div>
+  <div class="toc-item"><span>١١. الاستمتاع بما بين السرة والركبة — الأقسام الثلاثة</span><span>١١</span></div>
+  <div class="toc-item"><span>١٢. مباشرة أم استمتاع؟ — خلاف في عبارة النووي</span><span>١٢</span></div>
+  <div class="toc-item"><span>١٣. بقية المحرمات بالحيض: الجماع والطلاق والصوم والتطهر</span><span>١٣</span></div>
+  <div class="toc-item"><span>١٤. ما يحلّ بانقطاع الدم قبل الغسل</span><span>١٤</span></div>
+  <div class="toc-item"><span>١٥. حكم الجماع بعد انقطاع الدم — قول السيوطي</span><span>١٥</span></div>
+  <div class="toc-item"><span>١٦. الموجب الرابع: النفاس — تعريفه وأحكامه</span><span>١٦</span></div>
+  <div class="toc-item"><span>١٧. أقل النفاس وأكثره وغالبُه</span><span>١٧</span></div>
+  <div class="toc-item"><span>١٨. الولادة موجب مستقل للغسل — ولو بلا بلل أو بقيصرية</span><span>١٨</span></div>
+  <div class="toc-item"><span>١٩. إلقاء العلقة والمضغة — أحكامها المترتبة</span><span>١٩</span></div>
+  <div class="toc-item"><span>٢٠. الموت موجب للغسل — فرض كفاية</span><span>٢٠</span></div>
+  <div class="toc-item"><span>٢١. موجبات الغسل: المشتركة والخاصة بالنساء</span><span>٢١</span></div>
+  <div class="toc-item"><span>٢٢. مقدمة فرض الغسل: النية — الدرس القادم</span><span>٢٢</span></div>
+</div>
+
+<!-- 1 -->
+<h2><span class="section-num">١</span> الموجب الثاني: دخول الحشفة — معنى "دخول" و"إدخال"</h2>
+
+<p>قال المصنف رحمه الله تعالى: "وثانيها دخول حشفة أو قدرها من فاقدها". السبب الثاني من أسباب وجوب الغسل هو الجماع، وعبّر عنه المصنف بقوله "دخول حشفة". وقال "دخول" ولم يقل "إدخال" — وهناك فرق دقيق بين الكلمتين: كلمة "دخول" تشمل ما لو دخل ولو بغير قصد، كأن دخل في حال النوم أو في حال الإكراه أو نحو ذلكما. فكل دخول للحشفة في الفرج يجب به الغسل سواء حصل في حال اليقظة أو النوم، في حال الاختيار أو الإكراه.</p>
+
+<p>وقوله "أو قدرها من فاقدها" يعني: دخول جميع الحشفة لا بعضها، فإن كان الشخص فاقداً للحشفة — أي مقطوع الرأس — فيكفي دخول قدر ما بقي منها. والحشفة طبعاً هي رأس الذكر.</p>
+
+<div class="callout callout-ruling">
+  <div class="callout-title">سرّ التعبير بـ "دخول" لا "إدخال"</div>
+  <div class="callout-body">
+    <b>"دخول"</b> — تشمل الداخل باختياره والمُكرَه والنائم، لأنها تدل على حصول الدخول مطلقاً.<br>
+    <b>"إدخال"</b> — تفيد القصد والاختيار، فلو عُبّر بها لَما شملت صور الإكراه والنوم.<br><br>
+    ومن هنا قال الفقهاء: يكفي حصول الدخول بأي صورة كان — سواء بقصد أو بغير قصد — ليوجب الغسل.
+  </div>
+</div>
+
+<!-- 2 -->
+<h2><span class="section-num">٢</span> صور دخول الحشفة: البهيمة والميت والذكر المقطوع</h2>
+
+<p>قال المصنف: "ولو كانت من ذكر مقبول أو من بهيمة أو ميت فرجا قبولا أو دبرا ولو لبهيمة كسمكة أو ميت ولا يعاد غسله لانقطاع تكليفه". هذه العبارة تتضمن عدة تعميمات مهمة:</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 30%;">الصورة</th>
+        <th style="width: 15%;">الحكم</th>
+        <th style="width: 55%;">البيان</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">إيلاج من ذكر مقطوع</td>
+        <td style="color: #c0392b; font-weight: bold;">يجب الغسل</td>
+        <td>حتى لو كان الذكر مقطوع الرأس — فيكفي دخول قدر الباقي منه</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">إيلاج من بهيمة</td>
+        <td style="color: #c0392b; font-weight: bold;">يجب الغسل</td>
+        <td>أي إيلاج يوجب الغسل — ولو كانت البهيمة كالسمكة</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">إيلاج في ميتة</td>
+        <td style="color: #c0392b; font-weight: bold;">يجب الغسل</td>
+        <td>لو أدخل شخص ذكره في فرج امرأة ميتة — يجب عليه الغسل</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">الإيلاج في الدبر</td>
+        <td style="color: #c0392b; font-weight: bold;">يجب الغسل</td>
+        <td>سواء كان القبل أو الدبر — في كلتا الحالتين يجب الغسل</td>
+      </tr>
+      <tr style="background-color: #e8f5e9;">
+        <td style="font-weight: bold;">الميت لا يُعاد غسله</td>
+        <td style="color: #28a745; font-weight: bold;">لا يُعاد</td>
+        <td>لو جامع امرأة ميتة قد غُسلت — لا يُعاد غسلها لانقطاع تكليفها</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout callout-warning">
+  <div class="callout-title">ملاحظة: هذه الصور مستبعدة الوقوع لكنها تُذكر لبيان عموم المسألة</div>
+  <div class="callout-body">
+    المقصود عند الفقهاء بذكر هذه الصور — كإيلاج الميت والبهيمة — ليس أن هذه الأشياء تقع عادةً، بل أن يبيّنوا عموم المسألة وأن الحكم لا يختص بصورة دون أخرى. فالفقه يُبنى على العموم لا على الوقوع الفعلي.
+  </div>
+</div>
+
+<!-- 3 -->
+<h2><span class="section-num">٣</span> الإيلاج بحائل — مسألة معاصرة</h2>
+
+<p>ذكر الفقهاء أن الإيلاج يوجب الغسل ولو كان بحائل — أي ولو كان هناك حاجز بين الحشفة والفرج. وعلى هذا، ما يستعمله بعض الرجال الذين لا يريدون أن تحمل زوجتهم من اللباس الذي يُلبس على الذكر وقت الجماع — فإن الغسل يجب حتى مع هذا الحائل، سواء كان غليظاً أو رقيقاً.</p>
+
+<div class="classification-group">
+  <div class="box-red">
+    <div class="box-title">الإيلاج بحائل رقيق</div>
+    <div class="box-content">يجب الغسل — لأن الإيلاج حاصل والحائل الرقيق لا يمنع التقاء البشرة حكماً.</div>
+  </div>
+  <div class="box-red">
+    <div class="box-title">الإيلاج بحائل غليظ</div>
+    <div class="box-content">يجب الغسل أيضاً — لأن العبرة بوجود الإيلاج، لا بارتفاع الحائل. فدخول الحشفة في الفرج موجب للغسل مطلقاً.</div>
+  </div>
+</div>
+
+<div class="callout callout-important">
+  <div class="callout-title">تطبيق معاصر — الواقي الذكري</div>
+  <div class="callout-body">
+    هذه المسألة تتصل اتصالاً مباشراً بما يُعرف اليوم بالواقي الذكري (الكوندوم) — فحكمه في الفقه الإسلامي: يجب الغسل مع استعماله لوجود الإيلاج، ولا فرق بين أن يكون الحائل رقيقاً أو غليظاً. والله أعلم.
+  </div>
+</div>
+
+<!-- 4 -->
+<h2><span class="section-num">٤</span> الموجب الثالث: الحيض — تعريفه وأحكامه الأساسية</h2>
+
+<p>قال المصنف رحمه الله تعالى: "وثالثها حيض أي انقطاعه". هنا ثلاثة أمور لا بد من التفريق بينها حتى لا تلتبس:</p>
+
+<div class="formula-box">
+  <div class="formula-text">
+    الحيض ← موجب للغسل (سبب)<br>
+    انقطاع الحيض ← شرط لصحة الغسل<br>
+    إرادة القيام للصلاة ← شرط لفورية الغسل
+  </div>
+  <div class="formula-note">لا يصح الغسل حال نزول الحيض، بل يصح عند انقطاعه. ولا يجب فوراً بعد الانقطاع، بل عند إرادة الصلاة.</div>
+</div>
+
+<p>فالحيض موجب للغسل، لكن متى يصح الغسل؟ لا يصح الغسل حال نزول الحيض، إنما يصح عند انقطاعه — فالانقطاع شرط لصحة الغسل. ولو اغتسلت في أثناء الحيض لا يصح غسلها ولا يجوز لها ذلك أصلاً. أما فورية الغسل بعد الانقطاع فليست واجبة مباشرةً، بل تكون فورية عند إرادة القيام للصلاة.</p>
+
+<p>ثم عرّف المصنف الحيض فقال: "وهو دم يخرج من أقصى رحم المرأة في أوقات مخصوصة". الرحم عبارة عن كيس في فرج المرأة، فمه يكون ضيقاً وداخله يكون واسعاً. فالحيض يخرج من أبعد مكان في الرحم — أي من أقصاه — في أوقات مخصوصة. فإن خرج في هذه الأوقات كان حيضاً، وإن لم يخرج فيها فلا يكون حيضاً.</p>
+
+<!-- 5 -->
+<h2><span class="section-num">٥</span> أنواع الدماء من المرأة: حيض، نفاس، استحاضة</h2>
+
+<p>الدماء التي تخرج من المرأة ثلاثة أنواع، وكل نوع له أحكامه الخاصة:</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 18%;">نوع الدم</th>
+        <th style="width: 35%;">التعريف</th>
+        <th style="width: 25%;">الحكم</th>
+        <th style="width: 22%;">الملاحظة</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #e8f5e9;">
+        <td style="font-weight: bold; color: #1a5632;">دم الحيض</td>
+        <td>دم يخرج من أقصى رحم المرأة في أوقات مخصوصة</td>
+        <td>حكم الحائض: تحرم عليها الصلاة والصوم والجماع وغيرها</td>
+        <td>له أقل وأكثر وغالب</td>
+      </tr>
+      <tr style="background-color: #d1ecf1;">
+        <td style="font-weight: bold; color: #0c5460;">دم النفاس</td>
+        <td>دم يخرج من المرأة عقب الولادة — بعد فراغ الرحم</td>
+        <td>حكم النفساء كحكم الحائض</td>
+        <td>قبل مضي ١٥ يوماً من الولادة</td>
+      </tr>
+      <tr style="background-color: #fdf6e3;">
+        <td style="font-weight: bold; color: #856404;">دم الاستحاضة</td>
+        <td>دم فساد — ليس حيضاً ولا نفاساً</td>
+        <td>حكم المستحاضة حكم الطاهرة</td>
+        <td>تصلي وتصوم وتوالي عبادتها</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 6 -->
+<h2><span class="section-num">٦</span> أقل الحيض وأكثره وغالبُه</h2>
+
+<p>للحيض تقديرات ثلاثة ينبغي معرفتها بدقة:</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 20%;">التقدير</th>
+        <th style="width: 25%;">المقدار</th>
+        <th style="width: 55%;">البيان</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #e8f5e9;">
+        <td style="font-weight: bold; color: #1a5632;">أقل الحيض</td>
+        <td style="font-weight: bold;">يوم وليلة (٢٤ ساعة)</td>
+        <td>أي أربعة وعشرون ساعة متصلة — فإذا نزل منها الدم بمقدار ٢٤ ساعة فأكثر خلال خمسة عشر يوماً فإنه يُحكم عليه بأنه دم حيض. أما لو كان مجموع الساعات أقل من ٢٤ ساعة خلال ١٥ يوماً فلا يكون حيضاً بل استحاضة.</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold; color: #8b1a1a;">أكثر الحيض</td>
+        <td style="font-weight: bold;">١٥ يوماً</td>
+        <td>إذا جاوز الحيض ١٥ يوماً فما زاد على ذلك لا يُعتبر حيضاً بل استحاضة. مثال: لو نزل الدم ١٨ يوماً — فالـ ١٥ الأولى حيض، والثلاثة الباقية استحاضة.</td>
+      </tr>
+      <tr style="background-color: #fff3cd;">
+        <td style="font-weight: bold; color: #856404;">غالب الحيض</td>
+        <td style="font-weight: bold;">٦ أيام أو ٧ أيام</td>
+        <td>هذا في غالب عادة النساء. فإذا حاضت المرأة ٦ أيام فإن طهرها ٢٤ يوماً، وإذا حاضت ٧ أيام فإن طهرها ٢٣ يوماً.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout callout-danger">
+  <div class="callout-title">مثال تطبيقي — حساب ساعات الحيض</div>
+  <div class="callout-body">
+    لو نزل من المرأة دم في اليوم الأول ٤ ساعات، واليوم الثاني ٦ ساعات، والثالث ٦ ساعات، والرابع ٤ ساعات، والخامس ٥ ساعات — المجموع ٢٥ ساعة. هذا الدم يُحكم عليه بأنه حيض لأنه بلغ ٢٤ ساعة خلال ١٥ يوماً.<br><br>
+    أما لو كان مجموع الساعات أقل من ٢٤ ساعة خلال ١٥ يوماً — كأن يكون المجموع ٢٠ ساعة فقط — فهذا ليس دم حيض بل دم استحاضة (أي دم فساد).
+  </div>
+</div>
+
+<!-- 7 -->
+<h2><span class="section-num">٧</span> أقل سنّ تحيض فيه المرأة</h2>
+
+<p>قال الفقهاء: أقل سنّ تحيض فيه المرأة تسع سنين قمرية تقريبية. فلو نزل الدم قبل تسع سنوات قمرية فلا يكون حيضاً — إلا إذا نزل بما لا يسع طهراً وحيضاً، أي بأقل من ستة عشر يوماً. فالقاعدة هنا:</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 40%;">الحالة</th>
+        <th style="width: 15%;">الحكم</th>
+        <th style="width: 45%;">التفصيل</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #e8f5e9;">
+        <td style="font-weight: bold;">نزل الدم قبل التسع بأقل من ١٦ يوماً</td>
+        <td style="color: #28a745; font-weight: bold;">حيض</td>
+        <td>مثال: نزل الدم قبل التسع بعشرة أيام — هذا حيض بشرطه (يوماً وليلة فأكثر)</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">نزل الدم قبل التسع بـ ١٦ يوماً فأكثر</td>
+        <td style="color: #c0392b; font-weight: bold;">استحاضة</td>
+        <td>مثال: نزل الدم قبل التسع بعشرين يوماً — هذا دم استحاضة (فساد) لأنه لا يسع طهراً وحيضاً</td>
+      </tr>
+      <tr style="background-color: #fff3cd;">
+        <td style="font-weight: bold;">نزل الدم بعد تمام التسع</td>
+        <td style="color: #856404; font-weight: bold;">حيض</td>
+        <td>إذا استكملت تسع سنين قمرية — فالدم الذي ينزل يُحكم عليه بأحكام الحيض المعتادة</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>وقول المصنف "قبل تمامها" أي قبل تمام التسع، و"بدون ستة عشر يوماً" أي بأقل من ستة عشر يوماً — فهو حيض. واستفيد هذا من عبارة المصنف: "ورأته قبل تمامها بدون ستة عشر يوماً فهو حائض". أي أن الدم إذا نزل قبل التسع وكانت مدته أقل من ستة عشر يوماً — أي لا يسع حيضاً وطهراً معاً — فهو حيض.</p>
+
+<!-- 8 -->
+<h2><span class="section-num">٨</span> اتصال الدم المعتاد — شرط أقل الحيض</h2>
+
+<p>قال المصنف: "وأقله يوم وليلة". والمراد باتصال الدم: بحيث أن المرأة لو وضعت قطنة في محل خروج الدم لخرجت متلوثة. فليس المقصود بنزول الدم أنه يبقى ينزل وينزف بلا انقطاع، بل المقصود أنها لو وضعت القطنة في مكان خروج الدم لخرجت القطنة ملوثة. وهذا هو ما عبّر عنه الفقهاء بـ "الاتصال المعتاد".</p>
+
+<div class="callout callout-info">
+  <div class="callout-title">ما هو "الاتصال المعتاد"؟</div>
+  <div class="callout-body">
+    <b>ليس المعنى:</b> أن الدم ينزف باستمرار بلا توقف.<br>
+    <b>بل المعنى:</b> أن أثر الدم موجود بحيث لو وُضعت قطنة لَتلوّثت — أي أن الدم باقٍ في مجراه ولم ينقطع انقطاعاً تاماً. فإذا انقطع انقطاعاً تاماً بحيث لو وضعت قطنة لخرجت نقية — فلا يُعتبر اتصالاً.
+  </div>
+</div>
+
+<!-- 9 -->
+<h2><span class="section-num">٩</span> أقل الطهر بين الحيضتين والنقاء في وقت الحيض</h2>
+
+<p>قال المصنف: "كأقل طهر بين الحيضتين" — أي أن أقل الطهر بين الحيضتين خمسة عشر يوماً. فلو نزل الدم في أثناء الطهر — أي قبل مضي خمسة عشر يوماً من انقطاع الحيض السابق — فلا يمكن أن يكون حيضاً بل هو دم استحاضة (دم فساد).</p>
+
+<p>أما لو نزل الدم في أثناء الخمسة عشر يوماً التي هي وقت إمكان الحيض — كأن حاضت ستة أيام ثم انقطع الدم أربعة أيام ثم عاد إليها الدم خلال الخمسة عشر يوماً — فهذا يُسمى "نقاء في وقت الحيض" أي نقاء يتخلل الحيض.</p>
+
+<div class="compare-box">
+  <div class="compare-side" style="background: #1a5632;">
+    <h3>مذهب الشافعية</h3>
+    <p>النقاء في وقت الحيض حيض — أي أن المرأة في هذه الأيام تعتبر حائضاً لا تصلي ولا تصوم، وإن صلت وصامت فلا يصح صومها ولا صلاتها.</p>
+  </div>
+  <div class="compare-divider"></div>
+  <div class="compare-side" style="background: #2c5f7c;">
+    <h3>مذهب المالكية والحنابلة</h3>
+    <p>النقاء الذي يتخلل الحيض يُعتبر طهراً — فتصلي وتصوم في أيام النقاء المتخلل بين أيام الحيض.</p>
+  </div>
+</div>
+
+<div class="diagram-container">
+  <div style="text-align: center; font-family: 'Amiri-Bold', serif; color: #1a5632; font-size: 12pt; margin-bottom: 8px;">مخطط أيام الحيض والنقاء المتخلل</div>
+  <div class="diagram-branch">
+    <div class="diagram-node node-main">أيام الحيض (مثال: ١٥ يوماً)</div>
+  </div>
+  <div class="diagram-branch" style="justify-content: center;">
+    <div class="diagram-node node-warn" style="max-width: 80px; flex: none;">٦ أيام دم</div>
+    <div class="diagram-node node-result" style="max-width: 80px; flex: none;">٤ أيام نقاء</div>
+    <div class="diagram-node node-warn" style="max-width: 80px; flex: none;">٥ أيام دم</div>
+  </div>
+  <div style="text-align: center; font-size: 11px; color: #4a4a5e; margin-top: 4px;">
+    عند الشافعية: أيام النقاء حيض (لا تصلي ولا تصوم) · عند المالكية والحنابلة: أيام النقاء طهر (تصلي وتصوم)
+  </div>
+</div>
+
+<!-- 10 -->
+<h2><span class="section-num">١٠</span> ما يحرم بالحيض — المشترك والزائد عن الجنابة</h2>
+
+<p>قال المصنف: "ويحرم به أي بالحيض ما يحرم بالجنابة" — أي أن الأشياء الستة التي تحرم بالجنابة تحرم أيضاً بالحيض: الصلاة، والطواف، ومس المصحف، وحمل المصحف، واللبث في المسجد، وقراءة القرآن بقصد القراءة. لكن الحيض يزيد بأمور أخرى تصل إلى عشرة أو أكثر.</p>
+
+<div class="callout callout-ruling">
+  <div class="callout-title">تنبيه: اللبث في المسجد مقابل الدخول</div>
+  <div class="callout-body">
+    بالنسبة للحائض لا نقول "اللبث في المسجد" كما قلنا في الجنابة، بل نقول "دخول المسجد إن خافت تلويثه" — فالمرأة الحائض يحرم عليها دخول المسجد إذا خافت تلويثه بالدم. أما الجنب فيُعبّر عنه باللبث والمكث.
+  </div>
+</div>
+
+<div class="callout callout-success">
+  <div class="callout-title">الأشياء الستة المشتركة بين الجنابة والحيض</div>
+  <div class="callout-body">
+    <b>١.</b> الصلاة &nbsp;&nbsp; <b>٢.</b> الطواف &nbsp;&nbsp; <b>٣.</b> مس المصحف &nbsp;&nbsp; <b>٤.</b> حمل المصحف &nbsp;&nbsp; <b>٥.</b> دخول المسجد (إن خافت تلويثه) &nbsp;&nbsp; <b>٦.</b> قراءة القرآن بقصد القراءة
+  </div>
+</div>
+
+<!-- 11 -->
+<h2><span class="section-num">١١</span> الاستمتاع بما بين السرة والركبة — الأقسام الثلاثة</h2>
+
+<p>قال المصنف: "ومباشرتها ما بين سرتها وركبتها" — أي ويحرم بالحيض أن يباشر الرجل زوجته بما بين السرة والركبة. وذلك لأن النبي صلى الله عليه وسلم سُئل: ما يحلّ من امرأتي إذا حاضت؟ فقال: "لك ما فوق الإزار" — مفهومه أن ما تحت الإزار — وهو ما بين السرة والركبة — ليس له. ومن هنا قال الشافعية رحمهم الله: يحرم بالحيض أن يباشر الرجل زوجته بما بين السرة والركبة.</p>
+
+<p>وتستطيع أن تقسم الأمور إلى ثلاثة أقسام:</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 25%;">القسم</th>
+        <th style="width: 20%;">الحكم</th>
+        <th style="width: 55%;">البيان والدليل</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">الجماع (الوطء)</td>
+        <td style="color: #c0392b; font-weight: bold;">حرام بالاتفاق</td>
+        <td>اتفق العلماء على تحريم جماع المرأة في حال الحيض — لقوله تعالى: {فاعتزلوا النساء في المحيض ولا تقربوهن حتى يطهرن}</td>
+      </tr>
+      <tr style="background-color: #e8f5e9;">
+        <td style="font-weight: bold;">ما فوق السرة والركبة</td>
+        <td style="color: #28a745; font-weight: bold;">حلال بالاتفاق</td>
+        <td>يكاد يكون محل اتفاق بين الفقهاء على جواز مباشرة ما فوق السرة والركبة — لحديث "لك ما فوق الإزار"</td>
+      </tr>
+      <tr style="background-color: #fff3cd;">
+        <td style="font-weight: bold;">ما بين السرة والركبة (دون الجماع)</td>
+        <td style="color: #c8a951; font-weight: bold;">محل خلاف</td>
+        <td>الشافعية: حرام — لحديث "لك ما فوق الإزار" &nbsp;|&nbsp; الحنابلة: جائز — لحديث "اصنعوا كل شيء إلا النكاح"</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout callout-ruling">
+  <div class="callout-title">اختيار الإمام النووي — مكروه كراهة تنزيه</div>
+  <div class="callout-body">
+    أجمل الإمام النووي رحمه الله القول فاختار أن مباشرة ما بين السرة والركبة ليس حراماً كما هو معتمد مذهب الشافعية، وإنما <b>مكروه كراهة تنزيه</b> — وذلك لقوة الخلاف ولأن الأحوط والأسلم الابتعاد. واختاره النووي في كتاب "التحقيق" (وهو من الكتب التي مات النووي قبل إكمالها وعمره خمسة وأربعون سنة) لخبر مسلم: "اصنعوا كل شيء إلا النكاح".<br><br>
+    ونصّ النووي أيضاً في شرح صحيح مسلم على أن الاستمتاع بما بين السرة والركبة مكروه كراهة تنزيه.
+  </div>
+</div>
+
+<!-- 12 -->
+<h2><span class="section-num">١٢</span> مباشرة أم استمتاع؟ — خلاف في عبارة النووي</h2>
+
+<p>ظاهر كلمة "مباشرة" اللمس — فقوله "مباشرة ما بين السرة والركبة" يفيد تحريم اللمس، لكنه يفيد أيضاً جواز النظر ولو بشهوة، لأن النظر لا يسمى مباشرة. وهذا ما عبر به المصنف هنا وهو الذي عبر به الإمام النووي في بعض كتبه.</p>
+
+<p>لكن في بعض كتبه الأخرى عبّر بتعبير آخر فقال: "يحرم الاستمتاع بما بين السرة والركبة" — وكلمة "استمتاع" تفيد أن اللمس إذا كان بشهوة والنظر إذا كان بشهوة كلاهما حرام، لأن الاستمتاع معناه الشهوة. أما إذا كان اللمس والنظر بغير شهوة فإنه لا يحرم.</p>
+
+<div class="compare-box">
+  <div class="compare-side" style="background: #1a5632;">
+    <h3>عبارة "مباشرة"</h3>
+    <p>تحريم اللمس مطلقاً — سواء كان بشهوة أو بغير شهوة. أما النظر فيجوز مطلقاً — سواء كان بشهوة أو بغير شهوة — لأن النظر لا يسمى مباشرة.</p>
+  </div>
+  <div class="compare-divider"></div>
+  <div class="compare-side" style="background: #8b1a1a;">
+    <h3>عبارة "استمتاع"</h3>
+    <p>تحريم ما كان بشهوة — سواء كان لمساً أو نظراً. وما كان بغير شهوة — سواء كان لمساً أو نظراً — فهو جائز. لأن مناط التحريم هو الشهوة والاستمتاع.</p>
+  </div>
+</div>
+
+<div class="callout callout-warning">
+  <div class="callout-title">الراجح — مناط التحريم هو الاستمتاع</div>
+  <div class="callout-body">
+    الأقرب والله أعلم أن مناط التحريم هو الاستمتاع — أي أن العبرة بالشهوة. فإذا وجدت الشهوة سواء في اللمس أو النظر حرم، وإذا لم توجد الشهوة جاز. وهذا هو الذي يقتضيه الجمع بين عبارات الإمام النووي واختياراته.
+  </div>
+</div>
+
+<p>ثم ذكر المصنف القول الثاني فقال: "وقيل لا يحرم غير الوطء" — هذا مذهب الحنابلة وقول عند الشافعية، اختاره الإمام النووي في التحقيق لخبر مسلم: "اصنعوا كل شيء إلا النكاح". أي لا يحرم من الاستمتاع إلا الجماع فقط، وما سوى الجماع يكره تنزيهاً.</p>
+
+<!-- 13 -->
+<h2><span class="section-num">١٣</span> بقية المحرمات بالحيض: الجماع والطلاق والصوم والتطهر</h2>
+
+<p>ذكر المصنف أمراً واحداً زائداً على ما يحرم بالجنابة وهو المباشرة بما بين السرة والركبة، لكن هناك أمور أخرى لم يذكرها صراحة وهي:</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 8%;">الرقم</th>
+        <th style="width: 25%;">المحرّم بالحيض</th>
+        <th style="width: 67%;">البيان والحكم</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold; text-align: center;">١</td>
+        <td style="font-weight: bold;">الصلاة</td>
+        <td>مشترك مع الجنابة — يحرم ولا يصح</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold; text-align: center;">٢</td>
+        <td style="font-weight: bold;">الطواف</td>
+        <td>مشترك مع الجنابة</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold; text-align: center;">٣</td>
+        <td style="font-weight: bold;">مس المصحف</td>
+        <td>مشترك مع الجنابة</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold; text-align: center;">٤</td>
+        <td style="font-weight: bold;">حمل المصحف</td>
+        <td>مشترك مع الجنابة</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold; text-align: center;">٥</td>
+        <td style="font-weight: bold;">دخول المسجد إن خافت تلويثه</td>
+        <td>مشترك مع الجنابة — لكن عُبّر عنه بالدخول لا المكث</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold; text-align: center;">٦</td>
+        <td style="font-weight: bold;">قراءة القرآن بقصد القراءة</td>
+        <td>مشترك مع الجنابة — بالشروط الستة</td>
+      </tr>
+      <tr style="background-color: #fff3cd;">
+        <td style="font-weight: bold; text-align: center;">٧</td>
+        <td style="font-weight: bold;">الاستمتاع بما بين السرة والركبة</td>
+        <td>خاص بالحيض — خلاف بين الشافعية (حرام) والحنابلة (مكروه تنزيهاً)</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold; text-align: center;">٨</td>
+        <td style="font-weight: bold;">الجماع</td>
+        <td>خاص بالحيض — حرام بالاتفاق. من جامع زوجته في حال الحيض يُسنّ أن يتصدق بدينار (في أول الحيض) أو بنصف دينار (في آخره). الشافعية: مستحب — الحنابلة: واجب.</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold; text-align: center;">٩</td>
+        <td style="font-weight: bold;">الطلاق</td>
+        <td>يحرم على الرجل أن يطلق زوجته في حال حيضها — إلا في صور استثناها الفقهاء كأن تكون غير مدخول بها أو كان الطلاق خلعياً</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold; text-align: center;">١٠</td>
+        <td style="font-weight: bold;">التطهر بنية التعبد</td>
+        <td>يحرم على الحائض أن تتطهر بنية رفع الحدث لأنها متلبسة بالحدث — إلا إن كان الغسل من أغسال الحج كغسل الإحرام أو غسل العيد</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold; text-align: center;">١١</td>
+        <td style="font-weight: bold;">الصوم</td>
+        <td>يحرم عليها الصوم — فإن صامت لا يصح صومها ويجب قضاؤه. لحديث عائشة: "كنا نؤمر بقضاء الصوم ولا نؤمر بقضاء الصلاة"</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout callout-warning">
+  <div class="callout-title">كفارة الجماع في الحيض</div>
+  <div class="callout-body">
+    <b>الشافعية:</b> يُسنّ التصدق بدينار إذا كان الجماع في أول الحيض (وقت قوة الدم)، وبنصف دينار إذا كان في آخر الحيض (وقت ضعف الدم). والدينار الإسلامي يعادل أربع جرامات وربع من الذهب.<br>
+    <b>الحنابلة:</b> تجب الكفارة — أي يجب التصدق بدينار في أول الحيض.<br><br>
+    أما ما زاد على ١٥ يوماً فلا يُعتبر حيضاً بل استحاضة، وما زاد على ١٥ يوماً فلا يكون حيضاً وإنما يكون استحاضة.
+  </div>
+</div>
+
+<!-- 14 -->
+<h2><span class="section-num">١٤</span> ما يحلّ بانقطاع الدم قبل الغسل</h2>
+
+<p>قال المصنف: "وإذا انقطع دمها حل لها قبل الغسل صوم لا وطء خلافاً لما بحثه العلامة الجلال السيوطي رحمه الله تعالى". المرأة إذا انقطع الدم عنها لكن لم تغتسل — فبعض الأشياء تحل لها بمجرد الانقطاع وإن لم تغتسل، وبعضها لا يحل إلا بالاغتسال:</p>
+
+<div class="classification-group">
+  <div class="box-green">
+    <div class="box-title">يحلّ بمجرد انقطاع الدم (قبل الغسل)</div>
+    <div class="box-content">
+      <b>١. الصوم</b> — لو انقطع الدم قبل الفجر صامت واغتسلت بعد الفجر صح صومها.<br>
+      <b>٢. الطلاق</b> — يحل للزوج أن يطلقها لأنها شرعت في العدة بمجرد انقطاع الدم — لقوله تعالى: {فطلقوهن لعدتهن} والعدة هي الطهر.<br>
+      <b>٣. دخول المسجد والمرور فيه</b> — يجوز لها بمجرد الانقطاع لأنها أمنت التلويث.<br>
+      <b>٤. التطهر</b> — يجوز لها أن تغتسل لأن الغسل صار واجباً عليها بانقطاع الدم.
+    </div>
+  </div>
+  <div class="box-red">
+    <div class="box-title">لا يحلّ إلا بالاغتسال</div>
+    <div class="box-content">
+      <b>١. الصلاة</b> — لا يحل لها أن تصلي حتى تغتسل.<br>
+      <b>٢. الطواف</b> — لا يحل لها الطواف حتى تغتسل.<br>
+      <b>٣. مس المصحف وحمله</b> — لا يحل حتى تغتسل.<br>
+      <b>٤. الجماع</b> — لا يحل الجماع إلا بعد الاغتسال (عند جماهير الفقهاء).
+    </div>
+  </div>
+</div>
+
+<!-- 15 -->
+<h2><span class="section-num">١٥</span> حكم الجماع بعد انقطاع الدم — قول السيوطي</h2>
+
+<p>ظاهر الآية الكريمة: {يسألونك عن المحيض قل هو أذى فاعتزلوا النساء في المحيض ولا تقربوهن حتى يطهرن} — {حتى يطهرن} أي حتى ينقطع الدم، {فإذا تطهرن} أي اغتسلن، {فأتوهن من حيث أمركم الله} — فالله سبحانه شرط لإتيانهن الاغتسال. وقال جماهير الفقهاء إن الجماع لا يحل إلا بالاغتسال.</p>
+
+<div class="compare-box">
+  <div class="compare-side" style="background: #1a5632;">
+    <h3>جماهير الفقهاء (ومذهب الشافعية)</h3>
+    <p>الجماع لا يحل إلا بالاغتسال — لظاهر الآية: {فإذا تطهرن فأتوهن}. فلا يجوز للزوج أن يجامع زوجته حتى تغتسل من الحيض.</p>
+  </div>
+  <div class="compare-divider"></div>
+  <div class="compare-side" style="background: #8b1a1a;">
+    <h3>الحافظ السيوطي</h3>
+    <p>الجماع يحل بمجرد انقطاع الدم وإن لم تغتسل — وهذا ما نقله المصنف عن السيوطي وخالفه. وقد رجع الشيخ إلى بعض كتب السيوطي ولم يجد هذا القول فيها، فلعله في كتب أخرى أو اشتهر عنه.</p>
+  </div>
+</div>
+
+<div class="callout callout-danger">
+  <div class="callout-title">المعتمد في المذهب</div>
+  <div class="callout-body">
+    المعتمد في مذهب الشافعية وعند جماهير الفقهاء: أن الجماع لا يحل إلا بالاغتسال — أي لا بد أن تغتسل المرأة أولاً ثم يجامعها زوجها. وهو الموافق لظاهر الآية الكريمة.
+  </div>
+</div>
+
+<!-- 16 -->
+<h2><span class="section-num">١٦</span> الموجب الرابع: النفاس — تعريفه وأحكامه</h2>
+
+<p>قال المصنف: "ورابعها نفاس أي انقطاعه وهو دم حيض مجتمع يخرج بعد فراغ جميع الرحم". النفاس عند فقهاء الشافعية هو عبارة عن دم حيض بقي في الرحم — لأن المرأة في حال الحمل تحيض عند الشافعية، لكن أحياناً لا ينزل منها دم الحيض فيجتمع في الرحم. فإذا خرج الولد وصار الرحم فارغاً خرج هذا الدم، وهذا الدم الذي يخرج بعد فراغ الرحم يسمى دم نفاس.</p>
+
+<div class="callout callout-important">
+  <div class="callout-title">تنبيه: متى يكون الدم نفاساً ومتى لا يكون؟</div>
+  <div class="callout-body">
+    <b>الدم الذي يخرج أثناء الولادة:</b> لا يسمى نفاساً.<br>
+    <b>الدم الذي يخرج قبل الولادة بيوم أو يومين:</b> لا يسمى نفاساً.<br>
+    <b>يُسمى نفاساً:</b> إذا خرج بعد فراغ الرحم تماماً.<br><br>
+    ومثال ذلك: لو كانت المرأة حاملاً باثنين فخرج الأول ثم خرج دم ثم خرج الثاني — فإن الدم الذي خرج بين الاثنين لا يسمى نفاساً لأن الرحم لم يفرغ بعد. إنما يسمى نفاساً بعد أن يفرغ الرحم تماماً.
+  </div>
+</div>
+
+<p>وتعريف المصنف ينقصه شيء مهم — وهو أن النفاس لا بد أن يكون قبل مضي خمسة عشر يوماً من الولادة. فلو نزل الدم بعد أسبوع أو عشرة أيام أو اثني عشر يوماً — ما دام قبل خمسة عشر يوماً — فهو نفاس. أما لو نزل بعد مضي خمسة عشر يوماً فلا يعتبر نفاساً بل إما دم حيض (إن تحققت شروطه) أو دم استحاضة.</p>
+
+<!-- 17 -->
+<h2><span class="section-num">١٧</span> أقل النفاس وأكثره وغالبُه</h2>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 20%;">التقدير</th>
+        <th style="width: 25%;">المقدار</th>
+        <th style="width: 55%;">البيان</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #e8f5e9;">
+        <td style="font-weight: bold; color: #1a5632;">أقل النفاس</td>
+        <td style="font-weight: bold;">لحظة (دفعة دم)</td>
+        <td>أي مجة دم — فلو خرجت من المرأة دفعة دم واحدة بعد الولادة ثم انقطع، فقد تم نفاسها. ويجب عليها الغسل.</td>
+      </tr>
+      <tr style="background-color: #fff3cd;">
+        <td style="font-weight: bold; color: #856404;">غالب النفاس</td>
+        <td style="font-weight: bold;">أربعون يوماً</td>
+        <td>في الغالب أن المرأة بعد فراغ الرحم يستمر دمها أربعين يوماً.</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold; color: #8b1a1a;">أكثر النفاس</td>
+        <td style="font-weight: bold;">ستون يوماً</td>
+        <td>يمكن أن يستمر دم النفاس إلى ستين يوماً — وقد جاء ذلك في آثار عن كبار التابعين مثل عطاء والشعبي والربيع بن أبي عبد الرحمن (شيخ الإمام مالك).</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>ويحرم بالنفاس ما يحرم بالحيض — من الصلاة والصوم والطواف ومس المصحف وحمله ودخول المسجد وقراءة القرآن والجماع والاستمتاع بما بين السرة والركبة وغيرها.</p>
+
+<!-- 18 -->
+<h2><span class="section-num">١٨</span> الولادة موجب مستقل للغسل — ولو بلا بلل أو بقيصرية</h2>
+
+<p>قال المصنف: "ويجب الغسل بولادة ولو بلا بلل". أي يجب الغسل بالولادة ولو لم يخرج معها دم — أي حتى لو ولدت المرأة ولادة جافة بدون دم. والسبب في ذلك أن الولادة مظنة خروج الدم، والمظنة قامت مقام اليقين، فصارت الولادة موجبة للغسل بنفسها سواء خرج الدم أو لم يخرج.</p>
+
+<div class="classification-group">
+  <div class="box-gold">
+    <div class="box-title">الولادة العادية (من المحل المعتاد)</div>
+    <div class="box-content">يجب الغسل بالولادة مطلقاً — سواء خرج دم أم لم يخرج. وهذا محل اتفاق.</div>
+  </div>
+  <div class="box-blue">
+    <div class="box-title">الولادة القيصرية (من غير المحل المعتاد)</div>
+    <div class="box-content">ظاهر العبارة أن الغسل يجب بالولادة مطلقاً — سواء كانت من المحل المعتاد أو من غيره (وهو ما يُعرف اليوم بالعملية القيصرية). وهذا ما نص عليه جماعة من الفقهاء. وإن كان بعض الشافعية بحثوا أن الولادة إنما يجب الغسل بها إذا كانت من المحل المعتاد فقط — لكن الأقرب أنه يجب الغسل مطلقاً.</div>
+  </div>
+</div>
+
+<div class="callout callout-info">
+  <div class="callout-title">الولادة سبب مستقل لا مندرج تحت النفاس</div>
+  <div class="callout-body">
+    المصنف لم يذكر الولادة في المتن لأنه ربما نظر إلى أنها مندرجة تحت النفاس — لكنها في الحقيقة ليست مندرجة تحته. فلو ولدت المرأة ولم يخرج دم — أي ولادة جافة — يجب عليها الغسل بسبب الولادة نفسها لا بسبب النفاس. فالولادة سبب مستقل عن النفاس.
+  </div>
+</div>
+
+<!-- 19 -->
+<h2><span class="section-num">١٩</span> إلقاء العلقة والمضغة — أحكامها المترتبة</h2>
+
+<p>قال المصنف: "وإلقاء علقة ومضغة" — النبي صلى الله عليه وسلم يقول كما في حديث ابن مسعود رضي الله عنه في الصحيحين: "إن أحدكم يُجمع خلقه في بطن أمه أربعين يوماً نطفة، ثم يكون علقة مثل ذلك، ثم يكون مضغة مثل ذلك". فالعلقة قطعة دم، والمضغة قطعة لحم. وإذا ألقت المرأة علقة أو مضغة ترتبت على ذلك أحكام:</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 20%;">المُلقَى</th>
+        <th style="width: 15%;">الحكم الأول</th>
+        <th style="width: 15%;">الحكم الثاني</th>
+        <th style="width: 15%;">الحكم الثالث</th>
+        <th style="width: 35%;">الحكم الرابع</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #fff3cd;">
+        <td style="font-weight: bold;">العلقة (قطعة دم)</td>
+        <td>ثبوت حكم النفاس</td>
+        <td>يجب الغسل</td>
+        <td>الإفطار من الصوم</td>
+        <td style="color: #c0392b; font-weight: bold;">لا تنقضي العدة</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">المضغة (قطعة لحم)</td>
+        <td>ثبوت حكم النفاس</td>
+        <td>يجب الغسل</td>
+        <td>الإفطار من الصوم</td>
+        <td style="color: #28a745; font-weight: bold;">تنقضي العدة (إذا قال القوابل إنها أصل لآدمي)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout callout-ruling">
+  <div class="callout-title">الفرق بين العلقة والمضغة في انقضاء العدة</div>
+  <div class="callout-body">
+    <b>العلقة:</b> لا تنقضي العدة بإلقائها — لأن الأحكام المترتبة عليها ثلاثة فقط: ثبوت حكم النفاس، ووجوب الغسل، والإفطار من الصوم. أما انقضاء العدة فلا يثبت بإلقاء العلقة.<br><br>
+    <b>المضغة:</b> تنقضي العدة بإلقائها — إذا قال القوابل إنها أصل لآدمي — لقوله تعالى: {وأولات الأحمال أجلهن أن يضعن حملهن}. فإذا ألقته في مرحلة المضغة التي هي أصل لآدمي فقد وضعت حملها.<br><br>
+    <b>السرّ:</b> أن العدة إنما تنقضي بوضع الحمل، والعلقة ليست حملاً بالمعنى الشرعي الكامل، أما المضغة إذا كانت أصل آدمي فتُعتبر حملاً.
+  </div>
+</div>
+
+<!-- 20 -->
+<h2><span class="section-num">٢٠</span> الموت موجب للغسل — فرض كفاية</h2>
+
+<p>قال المصنف: "وبموت مسلم غير شهيد" — أي ويجب علينا معشر الأحياء وجوباً كفائياً أن نغسل من مات من المسلمين. حتى لو مات غرقاً في بحر أو نهر — يجب علينا أن نغسله ولا نكتفي بكونه مات غرقاً. ولا يُستثنى من ذلك إلا الشهيد.</p>
+
+<div class="classification-group">
+  <div class="box-red">
+    <div class="box-title">الشهيد الذي لا يُغسّل</div>
+    <div class="box-content">هو الشهيد الذي قُتل في معركة الكفار بسبب القتال — وهذا هو المراد بالشهيد هنا. فهذا لا يُغسّل بل يُدفن في ثيابه.</div>
+  </div>
+  <div class="box-gold">
+    <div class="box-title">شهداء الآخرة (لهم ثواب الشهداء لكن يُغسّلون)</div>
+    <div class="box-content">المطعون (طاعون) · المبطون (بطنه) · الغريق · صاحب الهدم (الانهيار) · المرأة في نفاسها · طالب العلم الذي مات في طلبه — هؤلاء لهم ثواب الشهداء لكنهم يُغسّلون وجوباً لأنهم لم يُقتلوا في معركة الكفار.</div>
+  </div>
+</div>
+
+<div class="callout callout-info">
+  <div class="callout-title">تفصيل أحكام الشهيد سيأتي في الدروس القادمة</div>
+  <div class="callout-body">
+    وسيأتي مزيد بسط لأحكام الشهيد والميت إن شاء الله في الدروس القادمة عندما نتكلم على أحكام الميت.
+  </div>
+</div>
+
+<!-- 21 -->
+<h2><span class="section-num">٢١</span> موجبات الغسل: المشتركة والخاصة بالنساء</h2>
+
+<p>موجبات الغسل تنقسم إلى قسمين: مشتركة بين الرجال والنساء، وخاصة بالنساء. والمصنف في المتن ذكر أربعة فقط ولم يذكر الموت والولادة:</p>
+
+<div class="diagram-container">
+  <div style="text-align: center; font-family: 'Amiri-Bold', serif; color: #1a5632; font-size: 12pt; margin-bottom: 10px;">موجبات الغسل — المشتركة والخاصة</div>
+  <div style="text-align: center; margin-bottom: 6px;">
+    <div class="diagram-node node-main" style="display: inline-block; padding: 8px 30px;">موجبات الغسل</div>
+  </div>
+  <div class="diagram-branch">
+    <div class="diagram-node node-branch" style="flex: 1;">
+      <div style="font-weight: bold; color: #1a5632; text-align: center; border-bottom: 1px solid #c8a951; padding-bottom: 3px; margin-bottom: 4px;">مشتركة (الرجال والنساء)</div>
+      <div style="font-size: 11px; line-height: 1.8;">
+        <b>١.</b> خروج المني<br>
+        <b>٢.</b> الجماع (دخول الحشفة)<br>
+        <b>٣.</b> الموت (فرض كفاية)
+      </div>
+    </div>
+    <div class="diagram-node node-result" style="flex: 1;">
+      <div style="font-weight: bold; color: #1a5632; text-align: center; border-bottom: 1px solid #1a5632; padding-bottom: 3px; margin-bottom: 4px;">خاصة بالنساء</div>
+      <div style="font-size: 11px; line-height: 1.8;">
+        <b>٤.</b> الحيض<br>
+        <b>٥.</b> النفاس<br>
+        <b>٦.</b> الولادة
+      </div>
+    </div>
+  </div>
+  <div style="font-size: 10px; color: #4a4a5e; text-align: center; margin-top: 6px;">
+    المصنف ذكر في المتن أربعة: المني والجماع والحيض والنفاس. وفي الشرح ذكر ستة أضاف إليها الموت والولادة.
+  </div>
+</div>
+
+<div class="callout callout-info">
+  <div class="callout-title">لماذا أسقط المصنف الموت والولادة من المتن؟</div>
+  <div class="callout-body">
+    <b>الموت:</b> لأن غسل الميت يجب على الأحياء لا على الميت، ولأنه فرض كفاية لا عيني، ولأن النية فيه مستحبة لا واجبة.<br>
+    <b>الولادة:</b> لعله نظر إلى أنها مندرجة تحت النفاس — لكنها في الحقيقة سبب مستقل كما تقدّم.
+  </div>
+</div>
+
+<!-- 22 -->
+<h2><span class="section-num">٢٢</span> مقدمة فرض الغسل: النية — الدرس القادم</h2>
+
+<p>قال المصنف في ختام هذا الباب: "وفرضه أي وفرض الوصل شيئاً أحدهما نية رفع الجنابة للجنب أو الحيض للحائض" — أي أن فروض الغسل شيئان، أولهما النية. وهذا سيكون مفتتح الدرس القادم إن شاء الله تعالى.</p>
+
+<div class="formula-box">
+  <div class="formula-text">
+    فروض الغسل شيئان:<br>
+    <b>الأول:</b> النية — رفع الجنابة للجنب أو رفع الحيض للحائض<br>
+    <b>الثاني:</b> سيأتي بيانه في الدرس القادم
+  </div>
+  <div class="formula-note">النية تكون مقترنة بأول الغسل — والتفصيل في الدرس القادم إن شاء الله تعالى</div>
+</div>
+
+</body>
+</html>

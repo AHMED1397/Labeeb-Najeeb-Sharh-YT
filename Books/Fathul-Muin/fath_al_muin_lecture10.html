@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf'); }
+@font-face { font-family: 'Amiri-Bold'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf'); }
+@font-face { font-family: 'NotoNaskhArabic'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+body { font-family: 'NotoNaskhArabic', 'Amiri', serif; font-size: 14px; line-height: 1.8; color: #2c2c2c; direction: rtl; text-align: justify; }
+h1 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 18pt; color: #1a5632; margin: 14px 0 6px 0; }
+h2 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 15pt; color: #1a5632; margin: 12px 0 5px 0; border-bottom: 2px solid #c8a951; padding-bottom: 3px; }
+h3 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 12pt; color: #2c5f7c; margin: 8px 0 4px 0; }
+p { margin: 3px 0; }
+.cover-header { background: #1a5632; color: white; padding: 20px 14px; text-align: center; margin: 0 0 12px 0; background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px); border-bottom: 4px solid #c8a951; }
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 6px; border: none; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.9; margin: 4px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.92; margin: 6px 0 2px 0; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .series { font-size: 11pt; opacity: 0.8; margin-top: 4px; }
+.toc { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 6px; padding: 10px 14px; margin: 0 0 12px 0; }
+.toc-title { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 14pt; color: #1a5632; text-align: center; margin-bottom: 6px; border-bottom: 2px solid #c8a951; padding-bottom: 4px; }
+.toc-item { font-size: 10pt; padding: 2px 0; border-bottom: 1px dotted #ccc; display: flex; justify-content: space-between; }
+.table-container { overflow-x: hidden; margin: 8px 0; page-break-inside: avoid; }
+table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 10pt; }
+th, td { padding: 4px 8px; border: 1px solid #ddd; overflow-wrap: break-word; word-break: break-word; }
+th { background-color: #1a5632; color: white; text-align: right; font-size: 10pt; }
+.callout { padding: 8px 12px; margin: 8px 0; border-radius: 0 6px 6px 0; page-break-inside: avoid; }
+.callout-title { font-weight: bold; margin-bottom: 3px; font-size: 11pt; }
+.callout-body { color: #333; line-height: 1.7; font-size: 13px; }
+.callout-warning { background: #fff3cd; border-right: 4px solid #c8a951; }
+.callout-warning .callout-title { color: #856404; }
+.callout-definition { background: #e8f4f8; border-right: 4px solid #2c5f7c; }
+.callout-definition .callout-title { color: #1a3a5c; }
+.callout-danger { background: #f8d7da; border-right: 4px solid #c0392b; }
+.callout-danger .callout-title { color: #c0392b; }
+.callout-success { background: #d4edda; border-right: 4px solid #28a745; }
+.callout-success .callout-title { color: #155724; }
+.callout-info { background: #d1ecf1; border-right: 4px solid #17a2b8; }
+.callout-info .callout-title { color: #0c5460; }
+.card-grid { display: grid; gap: 8px; margin: 10px 0; max-width: 100%; }
+.card-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.card-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.card-grid-6 { grid-template-columns: repeat(3, 1fr); }
+.card { padding: 10px; border-radius: 8px; text-align: center; max-width: 100%; overflow-wrap: break-word; }
+.card-number { font-size: 20px; font-weight: bold; margin-bottom: 3px; }
+.card-title { font-size: 11pt; font-weight: bold; }
+.card-desc { font-size: 9pt; margin-top: 3px; opacity: 0.9; }
+.compare-box { display: flex; gap: 0; margin: 8px 0; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.1); max-width: 100%; flex-wrap: wrap; }
+.compare-side { flex: 1; min-width: 0; padding: 8px 10px; }
+.compare-side h3 { margin: 0 0 4px 0; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 3px; font-size: 11pt; color: white; }
+.compare-side p { font-size: 12px; line-height: 1.6; color: white; }
+.compare-divider { width: 3px; background: #c8a951; }
+.section-num { display: inline-block; background: #1a5632; color: white; width: 22px; height: 22px; line-height: 22px; text-align: center; border-radius: 50%; font-size: 11pt; margin-left: 5px; }
+.vertical-flow { display: flex; flex-direction: column; align-items: center; margin: 10px 0; page-break-inside: avoid; max-width: 100%; }
+.flow-step { padding: 7px 12px; border-radius: 6px; text-align: center; max-width: 280px; width: 90%; }
+.flow-arrow { color: #c8a951; font-size: 14pt; margin: 1px 0; }
+.poetry-box { background: #f9f5ec; border: 2px solid #c8a951; border-radius: 8px; padding: 10px 16px; margin: 10px 0; text-align: center; page-break-inside: avoid; }
+.poetry { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 13pt; color: #1a5632; line-height: 2.2; }
+</style>
+</head>
+<body>
+
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس العاشر — باب الصلاة</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="series">طهارة دائم الحدث · فروض الوضوء · النية وأحكامها · غسل الوجه</div>
+</div>
+
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>طهارة دائم الحدث: المستحاضة وأحكامها</span><span>١</span></div>
+  <div class="toc-item"><span>المبادرة بالصلاة وتأخيرها</span><span>٢</span></div>
+  <div class="toc-item"><span>فروض الوضوء الستة</span><span>٣</span></div>
+  <div class="toc-item"><span>نية الوضوء: أنواعها بحسب حال المتوضئ</span><span>٤</span></div>
+  <div class="toc-item"><span>نية المجدد: خلاف ابن حجر والرملي</span><span>٥</span></div>
+  <div class="toc-item"><span>ما لا تكفيه نية استباحة المستحب</span><span>٦</span></div>
+  <div class="toc-item"><span>الرد على الحنفية: النية شرط صحة لا كمال</span><span>٧</span></div>
+  <div class="toc-item"><span>أحكام النية السبعة</span><span>٨</span></div>
+  <div class="toc-item"><span>زمن النية: قرنها بأول غسل جزء من الوجه</span><span>٩</span></div>
+  <div class="toc-item"><span>نيتان في الوضوء: مستحبة وواجبة</span><span>١٠</span></div>
+  <div class="toc-item"><span>غسل الوجه: حدوده طولاً وعرضاً</span><span>١١</span></div>
+  <div class="toc-item"><span>شعر الوجه الواجب غسله</span><span>١٢</span></div>
+  <div class="toc-item"><span>ما ليس من الوجه ومسائل معاصرة</span><span>١٣</span></div>
+</div>
+
+<!-- 1 -->
+<h2><span class="section-num">١</span> طهارة دائم الحدث: المستحاضة وأحكامها</h2>
+
+<p>وصلنا في الدرس الماضي إلى قول المصنف: "ويجب عليه الوضوء لكل فرض كالتيمم" — أي يجب على دائم الحدث الوضوء لكل فرض بعد دخول الوقت، بنية استباحة الصلاة لا رفع الحدث. فلا يجمع بين فرضين بوضوء واحد كما أن المتيمم لا يجمع بين فرضين بتيمم واحد.</p>
+
+<p>والمستحاضة — كمثال لدائم الحدث — لها حالتان:</p>
+
+<div class="compare-box">
+  <div class="compare-side" style="background: #1a5632;">
+    <h3>الحالة الأولى</h3>
+    <p>علمت أنه ينقطع الدم في وقت قبل خروج وقت الصلاة — تلزمها الانتظار إلى ذلك الوقت وتصلي فيه</p>
+  </div>
+  <div class="compare-divider"></div>
+  <div class="compare-side" style="background: #2c5f7c;">
+    <h3>الحالة الثانية</h3>
+    <p>لم تعلم انقطاعاً — تلزمها أربعة أمور بعد دخول الوقت: غسل الفرج، حشوه بقطنة، التعصيب، المبادرة بالصلاة</p>
+  </div>
+</div>
+
+<h3>شروط حشو القطنة (وجوباً)</h3>
+<p>يكون حشو القطنة واجباً بثلاثة شروط: أن لا تكون صائمة (لأن إدخال شيء يبطل الصيام)، وأن لا تتأذى، وأن تحتاج إلى ذلك (أي أن الدم يسيل). أما التعصيب فيكون واجباً إذا احتاجت إليه — أي إذا استمر الدم.</p>
+
+<!-- 2 -->
+<h2><span class="section-num">٢</span> المبادرة بالصلاة وتأخيرها</h2>
+
+<p>يجب على دائم الحدث المبادرة بالصلاة بعد التطهر — فلا يجعل فاصلاً بين تطهره وصلاته. فإن أخّر، فله حالتان:</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 30%;">نوع التأخير</th>
+        <th style="width: 35%;">الحكم</th>
+        <th style="width: 35%;">المثال</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold;">لمصلحة الصلاة</td>
+        <td style="color: #28a745; font-weight: bold;">لا يضر</td>
+        <td>ستر العورة، انتظار الجماعة، الذهاب إلى المسجد</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">لغير مصلحة الصلاة</td>
+        <td style="color: #c0392b; font-weight: bold;">يضر — يجب إعادة ما سبق</td>
+        <td>الأكل بعد التطهر قبل الصلاة</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>وقال ابن حجر: إنما يجب استبدال القطنة إذا تلوثت بالدم — ومفهوم كلامه أنه إذا لم تتلوث فلا يجب إبدالها. وتبدل العصابة وإن لم تزل عن موضعها. وفي مذهب المالكية: يجوز تقديم هذه الأمور قبل دخول الوقت، خلافاً للشافعية الذين قالوا: طهارة المستحاضة طهارة ضرورة وقبل الوقت لا ضرورة.</p>
+
+<!-- 3 -->
+<h2><span class="section-num">٣</span> فروض الوضوء الستة</h2>
+
+<p>قال المصنف: "وفروضه ستة" — والمراد بالفروض هنا الأركان (ما يتوقف عليه صحة الشيء وهو جزء منه). والفقهاء يتفننون في العبارات: في الصلاة يقولون "أركان" وفي الوضوء يقولون "فروض" وهو نفس المعنى. وهذه الستة سواء كان الوضوء لسليم أو لدائم حدث:</p>
+
+<div class="card-grid card-grid-6">
+  <div class="card" style="background: linear-gradient(135deg, #c8a951 0%, #b8943f 100%); color: white;">
+    <div class="card-number">١</div>
+    <div class="card-title">النية</div>
+    <div class="card-desc">ثابتة بالسنة</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #1a5632 0%, #2d7a4a 100%); color: white;">
+    <div class="card-number">٢</div>
+    <div class="card-title">غسل الوجه</div>
+    <div class="card-desc">ثابت بالقرآن</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #1a5632 0%, #2d7a4a 100%); color: white;">
+    <div class="card-number">٣</div>
+    <div class="card-title">غسل اليدين</div>
+    <div class="card-desc">ثابت بالقرآن</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #1a5632 0%, #2d7a4a 100%); color: white;">
+    <div class="card-number">٤</div>
+    <div class="card-title">مسح الرأس</div>
+    <div class="card-desc">ثابت بالقرآن</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #1a5632 0%, #2d7a4a 100%); color: white;">
+    <div class="card-number">٥</div>
+    <div class="card-title">غسل الرجلين</div>
+    <div class="card-desc">ثابت بالقرآن</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #c8a951 0%, #b8943f 100%); color: white;">
+    <div class="card-number">٦</div>
+    <div class="card-title">الترتيب</div>
+    <div class="card-desc">ثابت بالسنة</div>
+  </div>
+</div>
+
+<!-- 4 -->
+<h2><span class="section-num">٤</span> نية الوضوء: أنواعها بحسب حال المتوضئ</h2>
+
+<p>قال المصنف: "أحدها نية وضوء أو أداء فرض وضوء أو رفع حدث لغير دائم الحدث" — ذكر عدة نيات تختلف بحسب حال المتوضئ. والأفضل أن ينوي "أداء فرض الوضوء" لأنه إذا نوى الوضوء مجرداً حصل خلاف والمعتمد أنه يكفي.</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 20%;">حال المتوضئ</th>
+        <th style="width: 16%;">نية الوضوء</th>
+        <th style="width: 18%;">أداء فرض الوضوء</th>
+        <th style="width: 16%;">رفع الحدث</th>
+        <th style="width: 16%;">استباحة الصلاة</th>
+        <th style="width: 14%;">الطهارة عن الحدث</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold;">السليم</td>
+        <td style="color: #28a745;">✓</td>
+        <td style="color: #28a745;">✓</td>
+        <td style="color: #28a745;">✓</td>
+        <td style="color: #28a745;">✓</td>
+        <td style="color: #28a745;">✓</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">دائم الحدث</td>
+        <td style="color: #28a745;">✓</td>
+        <td style="color: #28a745;">✓</td>
+        <td style="color: #c0392b;">✗</td>
+        <td style="color: #28a745;">✓</td>
+        <td style="color: #c0392b;">✗</td>
+      </tr>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold;">المجدّد</td>
+        <td style="color: #28a745;">✓</td>
+        <td style="color: #28a745;">✓</td>
+        <td style="color: #c0392b;">✗</td>
+        <td style="color: #c0392b;">✗</td>
+        <td style="color: #c0392b;">✗</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>قوله "لغير دائم الحدث" يعود على "رفع حدث" فقط — فدائم الحدث لا ينوي رفع الحدث لأن حدثه لا يرتفع، بل ينوي استباحة الصلاة. والمجدّد لا ينوي رفع الحدث (لأن حدثه مرتفع) ولا استباحة الصلاة (لأنها مباحة له بوضوئه الأول). ولو نوى "الطهارة" فقط دون تقييدها بـ"عن حدث" لا يكفي — لأن الطهارة تشمل إزالة النجاسة ورفع الحدث.</p>
+
+<!-- 5 -->
+<h2><span class="section-num">٥</span> نية المجدد: خلاف ابن حجر والرملي</h2>
+
+<p>المجدّد حدثه مرتفع — فكيف ينوي رفع الحدث؟ اعتمد ابن حجر في التحفة أن المجدد يصح أن ينوي رفع الحدث، وتبعه المصنف. لكن ابن حجر نفسه في الفتاوى قال: لا يكفي. واعتمد بامخرمة والرملي أن المجدد لا ينوي رفع الحدث ولا استباحة الصلاة — لأن حدثه مرتفع والصلاة مباحة له بلا تجديد. وهذا هو الأقرب.</p>
+
+<div class="callout callout-warning">
+  <div class="callout-title">نية استباحة ما لا يباح إلا بوضوء</div>
+  <div class="callout-body">يصح أن ينوي الطهارة لصلاة أو لطواف أو لمس مصحف أو لحمل مصحف — لأن هذه الأشياء لا تباح إلا بوضوء. فنية "استباحة مفتقر إلى وضوء" صحيحة للسليم ودائم الحدث.</div>
+</div>
+
+<!-- 6 -->
+<h2><span class="section-num">٦</span> ما لا تكفيه نية استباحة المستحب</h2>
+
+<p>قال المصنف: "ولا تكفي نية استباحة ما يندب له الوضوء" — أي لو توضأ لفعل شيء يُستحب له الوضوء لا يجب، كقراءة القرآن أو قراءة الحديث أو الأذان أو دخول المسجد أو زيارة قبر — فلا يكفي ذلك في رفع الحدث، لأن الوضوء في حقها مستحب لا واجب.</p>
+
+<div class="card-grid card-grid-3">
+  <div class="card" style="background: linear-gradient(135deg, #1a5632 0%, #2d7a4a 100%); color: white;">
+    <div class="card-title">قراءة القرآن</div>
+    <div class="card-desc">يُستحب لها الوضوء</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #2c5f7c 0%, #3a7ca5 100%); color: white;">
+    <div class="card-title">قراءة الحديث</div>
+    <div class="card-desc">يُستحب لها الوضوء</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #c8a951 0%, #b8943f 100%); color: white;">
+    <div class="card-title">دخول المسجد وزيارة القبر</div>
+    <div class="card-desc">يُستحب لها الوضوء — أدباً مع الموتى</div>
+  </div>
+</div>
+
+<!-- 7 -->
+<h2><span class="section-num">٧</span> الرد على الحنفية: النية شرط صحة لا كمال</h2>
+
+<p>قال المصنف: "والأصل في وجوب النية خبر إنما الأعمال بالنيات أي إنما صحتها لا كمالها" — هذا ردّ على فقهاء الحنفية الذين يقولون إن فروض الوضوء أربعة فقط (ما في الآية) بلا نية ولا ترتيب. فعندهم النية مستحبة لا واجبة — و"إنما الأعمال بالنيات" عندهم تعني إنما ثواب الأعمال بالنيات لا صحة الأعمال. فلو نسي أنه مُحدث فدخل البحر ثم تذكر — يكفيه ذلك عند الحنفية بلا نية.</p>
+
+<div class="compare-box">
+  <div class="compare-side" style="background: #1a5632;">
+    <h3>الشافعية</h3>
+    <p>النية شرط صحة — "لا عمل إلا بنية" = لا يوجد عمل شرعاً بلا نية. فالوضوء بلا نية غير موجود شرعاً.</p>
+  </div>
+  <div class="compare-divider"></div>
+  <div class="compare-side" style="background: #856404;">
+    <h3>الحنفية</h3>
+    <p>النية شرط ثواب — العمل يصح بلا نية لكن لا ثواب. فالوضوء بلا نية موجود صحيح لكن بلا أجر.</p>
+  </div>
+</div>
+
+<p>وقول الشافعية أقرب إلى قواعد اللغة العربية — فإن نفي الصحة قريب من نفي الوجود الشرعي، بخلاف قول الحنفية بأنه موجود لكن بلا ثواب.</p>
+
+<!-- 8 -->
+<h2><span class="section-num">٨</span> أحكام النية السبعة</h2>
+
+<p>جمعها النظم بقوله: "حقيقة حكم محل وزمن / كيفية شرط ومقصود حسن" — سبعة أحكام:</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 15%;">الحكم</th>
+        <th style="width: 85%;">البيان</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold;">١. الحقيقة</td>
+        <td>لغةً: القصد. شرعاً: قصد الشيء مقترناً بفعله — لا تتقدم على الفعل ولا تتأخر بل تقارن أوله غالباً</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">٢. الحكم</td>
+        <td>الوجوب غالباً — ويُستثنى: إزالة النجاسة (مستحبة النية)، تغسيل الميت (مستحبة النية)</td>
+      </tr>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold;">٣. المحل</td>
+        <td>القلب — ويُستحب التلفظ ليساعد اللسان القلب على الاستحضار. والتلفظ ليس نية شرعاً</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">٤. الزمن</td>
+        <td>أول العبادة غالباً — ويجوز تقديمها في الزكاة (عند إعطاء الوكيل) والصوم والأضحية</td>
+      </tr>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold;">٥. الكيفية</td>
+        <td>تختلف باختلاف الأبواب — نية الوضوء غير نية الصلاة غير نية الغسل. والأذان لا يشترط له نية أصلاً</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">٦. الشرط</td>
+        <td>أربعة: الإسلام، التمييز، العلم بالمنوي، عدم المنافي (لا يتردد ولا يعزم على قطعها)</td>
+      </tr>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold;">٧. المقصود</td>
+        <td>مقصدان: تمييز العادات عن العبادات، وتمييز مراتب العبادات بعضها عن بعض</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 9 -->
+<h2><span class="section-num">٩</span> زمن النية: قرنها بأول غسل جزء من الوجه</h2>
+
+<p>قال المصنف: "ويجب قرنها عند أول غسل جزء من الوجه" — أي يجب أن تقارن النية أول جزء يُغسل من الوجه. فلو غسل جزءاً قبل النية ثم نوى — وجب إعادة غسل ما سبق النية. ولا يكفي قرنها بما قبل الوجه (كالسنن) إلا إذا استصحبها ذكراً حتى غسل شيئاً من الوجه.</p>
+
+<div class="callout callout-danger">
+  <div class="callout-title">تنبيه: النية عند السواك لا تكفي</div>
+  <div class="callout-body">لو نوى رفع الحدث عند السواك (أول سنة) ثم غسل كفيه وتمضمض — لا تكفي هذه النية للفروض لأنها لم تقارن غسل الوجه. لابد أن تنوي النية الواجبة عند غسل الوجه نفسه.</div>
+</div>
+
+<!-- 10 -->
+<h2><span class="section-num">١٠</span> نيتان في الوضوء: مستحبة وواجبة</h2>
+
+<p>قال المصنف: "فالأولى أن يفرق النية بأن ينوي عند كل من غسل الكفين والمضمضة والاستنشاق سنة الوضوء ثم ينوي فرض الوضوء عند غسل الوجه" — فعند المتوضئ نيتان:</p>
+
+<div class="vertical-flow">
+  <div class="flow-step" style="background: #c8a951; color: white; font-weight: bold;">نية مستحبة — عند أول السنن (السواك/غسل الكفين)</div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step" style="background: #1a5632; color: white; font-weight: bold;">نية واجبة — عند غسل الوجه (أول الفروض)</div>
+</div>
+
+<p>والمقصود من هذا التفريق فائدتان: ألا تفوت فضيلة استصحاب النية من أول الوضوء، وألا تفوت سنة المضمضة والاستنشاق — لأنهما تشترط أن تكونا قبل غسل الوجه، فلو نوى النية الواجبة عند المضمضة وغسل معها حمرة الشفة فاتت المضمضة لأنها صارت مع غسل الوجه لا قبله.</p>
+
+<!-- 11 -->
+<h2><span class="section-num">١١</span> غسل الوجه: حدوده طولاً وعرضاً</h2>
+
+<p>قال المصنف: "وثانيها غسل ظاهر وجهه" — وقال "ظاهر" ليبين أن المضمضة والاستنشاق مستحبان لا واجبان. وحدود الوجه:</p>
+
+<div class="callout callout-definition">
+  <div class="callout-title">حدود الوجه</div>
+  <div class="callout-body"><b>طولاً:</b> من منابت شعر الرأس غالباً إلى تحت منتهى اللحية (ما تحته ليس من الوجه).<br><b>عرضاً:</b> من وتد الأذن إلى وتد الأذن (من الأذن إلى الأذن).</div>
+</div>
+
+<p>قوله "غالباً" لأن بعض الناس ينبت له شعر منخفض أو عنده صلع — فالاعتبار لمنابت الشعر المعتادة. و"منتهى اللحية" بفتح اللام — فما تحت منتهى اللحية ليس من الوجه، لكن منتهى اللحية نفسه يجب غسله. والشعر النابت على ما تحت اللحية ليس من الوجه أيضاً.</p>
+
+<!-- 12 -->
+<h2><span class="section-num">١٢</span> شعر الوجه الواجب غسله</h2>
+
+<p>يجب غسل شعر الوجه بأنواعه:</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 25%;">النوع</th>
+        <th style="width: 40%;">التعريف</th>
+        <th style="width: 35%;">موقعه</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold;">الهدب</td>
+        <td>الشعر النابت على الجفن</td>
+        <td>أربعة أهداب (اثنان لكل عين)</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">الحاجب</td>
+        <td>الشعر النابت فوق العين — يحميها من أشعة الشمس</td>
+        <td>فوق كل عين</td>
+      </tr>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold;">العنفق</td>
+        <td>الشعر النابت أسفل الشفة السفلى</td>
+        <td>تحت الشفة</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">اللحية</td>
+        <td>ما نبت على الذقن (مجتمع اللحيين)</td>
+        <td>الذقن وأسفل الفك</td>
+      </tr>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold;">العذار</td>
+        <td>ما نبت على العظم المحاذي للأذن</td>
+        <td>فوق العارض بجوار الأذن</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">العارض</td>
+        <td>ما نبت على عظم اللحي (ما نزل عن العذار)</td>
+        <td>عظم الفك السفلي</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 13 -->
+<h2><span class="section-num">١٣</span> ما ليس من الوجه ومسائل معاصرة</h2>
+
+<p>هناك أماكن اختلف فيها الفقهاء هل هي من الوجه أم لا — والمعتمد أنها ليست من الوجه لكن يُستحب غسلها خروجاً من الخلاف:</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 30%;">الموضع</th>
+        <th style="width: 35%;">الحكم</th>
+        <th style="width: 35%;">البيان</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold;">محل التحجيف</td>
+        <td>ليس من الوجه (الأصح) — يُستحب غسله</td>
+        <td>من أعلى الأذن إلى الصدغ — الشعر الخفيف بين العذار والنزعتين</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">وتد الأذن</td>
+        <td>ليس من الوجه</td>
+        <td>الجزء العالي من الأذن</td>
+      </tr>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold;">النزعتان</td>
+        <td>ليس من الوجه — من الرأس</td>
+        <td>بياضان يكتنفان الناسية (جانبي الجبهة)</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">موضع الصلع</td>
+        <td>ليس من الوجه (الصحيح)</td>
+        <td>ما بين النزعتين إذا انحسر عنه الشعر</td>
+      </tr>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold;">حمرة الشفتين</td>
+        <td style="color: #28a745; font-weight: bold;">من الوجه — يجب غسلها</td>
+        <td>الشفتان من الوجه واجبتا الغسل</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>مسائل معاصرة</h3>
+
+<div class="callout callout-danger">
+  <div class="callout-title">الرموش الصناعية</div>
+  <div class="callout-body">الرموش الصناعية لا يمكن أن تُثبت إلا بمادة لاصقة (صمغ) — وهذه المادة تمنع وصول الماء إلى ذلك الموضع. وبالتالي وضوء المرأة التي تضعها لا يصح. أما إذا وُجد نوع لا يمنع وصول الماء — فلا بأس.</div>
+</div>
+
+<p>وأما حكم وضعها من حيث الإباحة والتحريم: إن كانت من شعر طاهر غير آدمي وبإذن الزوج للمتزوجة — فالقياس جوازه، كما يجوز وصل الشعر بهذه الشروط عند الشافعية. وإن كانت بشعر نجس أو آدمي أو بلا إذن الزوج — فحرام.</p>
+
+<div class="callout callout-success">
+  <div class="callout-title">الأسنان التركيبية</div>
+  <div class="callout-body">الأسنان الصناعية أو التركيبية لا تؤثر على صحة الطهارة — لأن المضمضة والاستنشاق سنة لا يجب إيصال الماء فيهما إلى باطن الفم عند الشافعية. وحتى على مذهب الحنابلة الذي يوجب إيصال الماء إلى الفم — فلا علاقة للأسنان بوصول الماء لأنهم لا يقولون يجب وصول الماء إلى ما تحت الأسنان.</div>
+</div>
+
+<p>وقال المصنف: "ويسن غسل ما قيل إنه من الوجه" — أي يُستحب غسل ما اختلف فيه هل هو من الوجه أم لا، كمحل التحجيف والنزعتين وموضع الصلع — خروجاً من الخلاف.</p>
+
+</body>
+</html>

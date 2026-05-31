@@ -1,0 +1,2073 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح الإبانة والإفاضة - الدرس 07</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-green: #0d6b3e;
+  --dark-green: #0a4f2e;
+  --gold: #d4a020;
+  --light-gold: #f0e6c0;
+  --teal: #0d7377;
+  --bg: #fefefe;
+  --body-text: #1a1a1a;
+  --border: #c8d6c0;
+  --card-bg: #f8faf7;
+  --evidence-bg: #eef5eb;
+  --callout-bg: #fff8e7;
+  --definition-bg: #ebf5f5;
+  --comparison-bg: #f5f0eb;
+  --ruling-bg: #f0f5eb;
+  --scholar-bg: #f5f0f8;
+  --shadow: 0 2px 8px rgba(0,0,0,0.08);
+  --shadow-hover: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.bw-mode {
+  --primary-green: #333;
+  --dark-green: #1a1a1a;
+  --gold: #666;
+  --light-gold: #eee;
+  --teal: #444;
+  --bg: #fff;
+  --body-text: #000;
+  --border: #999;
+  --card-bg: #f5f5f5;
+  --evidence-bg: #f0f0f0;
+  --callout-bg: #f5f5f5;
+  --definition-bg: #f0f0f0;
+  --comparison-bg: #f0f0f0;
+  --ruling-bg: #f0f0f0;
+  --scholar-bg: #f0f0f0;
+  --shadow: 0 2px 8px rgba(0,0,0,0.1);
+  --shadow-hover: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+  font-size: 16px;
+  line-height: 2;
+  color: var(--body-text);
+  background: var(--bg);
+  direction: rtl;
+}
+
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+  @bottom-center {
+    content: counter(page);
+    font-size: 12px;
+    color: #888;
+  }
+}
+
+@media print {
+  body { font-size: 14px; line-height: 1.8; }
+  .bw-toggle { display: none !important; }
+  .cover-page { page-break-after: always; }
+  .section { page-break-inside: avoid; }
+  .scroll-top { display: none !important; }
+}
+
+/* B&W Toggle */
+.bw-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1000;
+  background: var(--primary-green);
+  color: white;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  font-family: 'Noto Naskh Arabic', serif;
+}
+.bw-toggle:hover {
+  background: var(--dark-green);
+  box-shadow: var(--shadow-hover);
+  transform: scale(1.1);
+}
+
+/* Cover Page */
+.cover-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 40%, var(--teal) 70%, var(--dark-green) 100%);
+  color: white;
+  text-align: center;
+  padding: 40px 30px;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+}
+
+.cover-page::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a020' fill-opacity='0.08'%3E%3Cpath d='M30 0L60 30L30 60L0 30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.cover-page::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold), var(--light-gold), var(--gold));
+}
+
+.cover-ornament {
+  font-size: 50px;
+  color: var(--gold);
+  margin-bottom: 20px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.cover-book-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  line-height: 1.6;
+  max-width: 700px;
+}
+
+.cover-lecture-badge {
+  background: var(--gold);
+  color: var(--dark-green);
+  padding: 8px 30px;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 20px 0;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.cover-lecture-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: var(--light-gold);
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.cover-info {
+  margin-top: 25px;
+  font-size: 16px;
+  line-height: 2.2;
+  color: rgba(255,255,255,0.9);
+}
+
+.cover-info .label {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.cover-divider {
+  width: 120px;
+  height: 2px;
+  background: var(--gold);
+  margin: 20px auto;
+  border: none;
+}
+
+.cover-badge-new {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark-green);
+  padding: 4px 18px;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/* Main Content */
+.main-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 15px 60px;
+}
+
+/* Section Headers */
+.section-header {
+  background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+  color: white;
+  padding: 15px 25px;
+  border-radius: 10px;
+  margin: 35px 0 20px;
+  font-size: 22px;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-header::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 6px;
+  height: 100%;
+  background: var(--gold);
+}
+
+.section-header .section-number {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark-green);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 36px;
+  font-size: 16px;
+  margin-left: 12px;
+  font-weight: 700;
+}
+
+/* Sub Headers */
+.sub-header {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--primary-green);
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 8px;
+  margin: 25px 0 15px;
+}
+
+.sub-sub-header {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--dark-green);
+  margin: 20px 0 10px;
+  padding-right: 15px;
+  border-right: 4px solid var(--teal);
+}
+
+/* Body Text */
+.body-text {
+  font-size: 16px;
+  line-height: 2;
+  margin-bottom: 12px;
+  text-align: justify;
+}
+
+.highlight {
+  background: var(--light-gold);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+.green-highlight {
+  color: var(--primary-green);
+  font-weight: 700;
+}
+
+.gold-highlight {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.teal-highlight {
+  color: var(--teal);
+  font-weight: 600;
+}
+
+/* Classification Tree */
+.classification-tree {
+  background: var(--card-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 25px;
+  margin: 20px 0;
+  box-shadow: var(--shadow);
+}
+
+.classification-tree .tree-title {
+  text-align: center;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 20px;
+}
+
+.tree-root {
+  background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+  color: white;
+  text-align: center;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0 auto 5px;
+  width: fit-content;
+  position: relative;
+}
+
+.tree-connector {
+  width: 2px;
+  height: 20px;
+  background: var(--primary-green);
+  margin: 0 auto;
+}
+
+.tree-branches {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.tree-branch {
+  background: white;
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 15px 20px;
+  min-width: 180px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.tree-branch:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+.tree-branch .branch-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 8px;
+}
+
+.tree-branch .branch-desc {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.8;
+}
+
+.tree-branch .branch-icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+/* Ruling Cards */
+.ruling-card {
+  background: var(--ruling-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 12px 0;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.ruling-card .ruling-badge {
+  background: var(--primary-green);
+  color: white;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  min-width: 80px;
+  text-align: center;
+}
+
+.ruling-card .ruling-badge.red {
+  background: #c0392b;
+}
+
+.ruling-card .ruling-badge.blue {
+  background: var(--teal);
+}
+
+.ruling-card .ruling-content {
+  flex: 1;
+  line-height: 2;
+  font-size: 16px;
+}
+
+/* Evidence Box */
+.evidence-box {
+  background: var(--evidence-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 20px 25px;
+  margin: 20px 0;
+  position: relative;
+  box-shadow: var(--shadow);
+}
+
+.evidence-box::before {
+  content: '📖';
+  position: absolute;
+  top: -14px;
+  right: 20px;
+  background: var(--evidence-bg);
+  padding: 0 8px;
+  font-size: 22px;
+}
+
+.evidence-box .evidence-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 10px;
+}
+
+.evidence-box .quran-verse {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dark-green);
+  line-height: 2.2;
+  text-align: center;
+  margin: 10px 0;
+  padding: 10px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.evidence-box .hadith-text {
+  font-family: 'Amiri', serif;
+  font-size: 18px;
+  color: var(--dark-green);
+  line-height: 2;
+  margin: 10px 0;
+  padding: 10px 15px;
+  border-right: 4px solid var(--gold);
+  background: rgba(212, 160, 32, 0.05);
+}
+
+/* Comparison Cards */
+.comparison-container {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.comparison-card {
+  flex: 1;
+  min-width: 220px;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  border-top: 4px solid var(--primary-green);
+  transition: all 0.3s ease;
+}
+
+.comparison-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+.comparison-card .card-title {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: center;
+  color: var(--primary-green);
+}
+
+.comparison-card .card-content {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #444;
+}
+
+.comparison-card .card-icon {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+/* Definition Card */
+.definition-card {
+  background: var(--definition-bg);
+  border: 2px solid var(--teal);
+  border-radius: 12px;
+  padding: 20px 25px;
+  margin: 20px 0;
+  position: relative;
+  box-shadow: var(--shadow);
+}
+
+.definition-card::before {
+  content: '📌';
+  position: absolute;
+  top: -14px;
+  right: 20px;
+  background: var(--definition-bg);
+  padding: 0 8px;
+  font-size: 22px;
+}
+
+.definition-card .def-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--teal);
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.definition-card .def-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--dark-green);
+  line-height: 2.2;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Callout Box */
+.callout-box {
+  background: var(--callout-bg);
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 15px 0;
+  position: relative;
+  box-shadow: var(--shadow);
+}
+
+.callout-box::before {
+  content: '⚠️';
+  position: absolute;
+  top: -12px;
+  right: 15px;
+  background: var(--callout-bg);
+  padding: 0 6px;
+  font-size: 20px;
+}
+
+.callout-box .callout-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.callout-box .callout-content {
+  font-size: 16px;
+  line-height: 2;
+}
+
+/* Numbered Steps */
+.numbered-steps {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: var(--shadow);
+}
+
+.numbered-steps .steps-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 10px 15px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.step-item .step-number {
+  background: var(--primary-green);
+  color: white;
+  min-width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.step-item .step-content {
+  flex: 1;
+  font-size: 16px;
+  line-height: 2;
+}
+
+/* Scholar Card */
+.scholar-card {
+  background: var(--scholar-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 15px 0;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.scholar-card .scholar-icon {
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.scholar-card .scholar-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 5px;
+}
+
+.scholar-card .scholar-info {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #444;
+}
+
+/* Key Benefit Box */
+.benefit-box {
+  background: linear-gradient(135deg, var(--light-gold), #fff8e7);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 20px 25px;
+  margin: 20px 0;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.benefit-box::before {
+  content: '💡';
+  position: absolute;
+  top: -14px;
+  right: 20px;
+  background: var(--light-gold);
+  padding: 0 8px;
+  font-size: 22px;
+}
+
+.benefit-box .benefit-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.benefit-box .benefit-content {
+  font-size: 16px;
+  line-height: 2;
+}
+
+/* Quote Block */
+.quote-block {
+  background: var(--card-bg);
+  border-right: 5px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  padding: 20px 25px;
+  margin: 20px 0;
+  font-family: 'Amiri', serif;
+  font-size: 18px;
+  line-height: 2.2;
+  color: var(--dark-green);
+  font-style: italic;
+  position: relative;
+  box-shadow: var(--shadow);
+}
+
+.quote-block::before {
+  content: '❝';
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 30px;
+  color: var(--gold);
+  font-style: normal;
+}
+
+.quote-block .quote-attribution {
+  display: block;
+  margin-top: 10px;
+  font-size: 15px;
+  color: var(--teal);
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* Fiqh Principle Box */
+.fiqh-principle {
+  background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 20px 25px;
+  margin: 20px 0;
+  position: relative;
+  box-shadow: var(--shadow);
+}
+
+.fiqh-principle::before {
+  content: '⚖️';
+  position: absolute;
+  top: -14px;
+  right: 20px;
+  background: #e8f5e9;
+  padding: 0 8px;
+  font-size: 22px;
+}
+
+.fiqh-principle .principle-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 10px;
+}
+
+.fiqh-principle .principle-content {
+  font-size: 16px;
+  line-height: 2;
+}
+
+/* Data Table */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  font-size: 15px;
+}
+
+.data-table th {
+  background: var(--primary-green);
+  color: white;
+  padding: 12px 15px;
+  font-weight: 700;
+  text-align: center;
+  font-size: 14px;
+}
+
+.data-table td {
+  padding: 10px 15px;
+  border: 1px solid var(--border);
+  text-align: center;
+  line-height: 1.8;
+}
+
+.data-table tr:nth-child(even) {
+  background: var(--card-bg);
+}
+
+.data-table tr:hover {
+  background: var(--light-gold);
+}
+
+/* Flow Chart */
+.flow-chart {
+  background: var(--card-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 25px;
+  margin: 20px 0;
+  box-shadow: var(--shadow);
+}
+
+.flow-chart .flow-title {
+  text-align: center;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 20px;
+}
+
+.flow-step {
+  background: white;
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 12px 18px;
+  margin: 8px auto;
+  max-width: 500px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.8;
+  position: relative;
+}
+
+.flow-step.green-step {
+  border-color: var(--primary-green);
+  background: #e8f5e9;
+}
+
+.flow-step.red-step {
+  border-color: #c0392b;
+  background: #fde8e8;
+}
+
+.flow-arrow {
+  text-align: center;
+  font-size: 22px;
+  color: var(--primary-green);
+  margin: 5px 0;
+}
+
+/* Scenario Cards */
+.scenario-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.scenario-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+  border-top: 4px solid var(--teal);
+}
+
+.scenario-card .scenario-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--teal);
+  margin-bottom: 10px;
+}
+
+.scenario-card .scenario-content {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #444;
+}
+
+.scenario-card .scenario-ruling {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.scenario-card .scenario-ruling.obligatory {
+  background: #e8f5e9;
+  color: var(--primary-green);
+  border: 1px solid var(--primary-green);
+}
+
+.scenario-card .scenario-ruling.not-obligatory {
+  background: #fde8e8;
+  color: #c0392b;
+  border: 1px solid #c0392b;
+}
+
+/* Opinions Grid */
+.opinions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.opinion-item {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: var(--shadow);
+}
+
+.opinion-item .opinion-num {
+  background: var(--gold);
+  color: var(--dark-green);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.opinion-item .opinion-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--dark-green);
+}
+
+/* Four Cases Container */
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  margin: 15px 0;
+}
+
+.case-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 15px 18px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.case-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.case-card .case-num {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.case-card .case-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 8px;
+}
+
+.case-card .case-ruling {
+  font-size: 15px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 15px;
+  display: inline-block;
+}
+
+.case-card .case-ruling.halal {
+  background: #e8f5e9;
+  color: var(--primary-green);
+  border: 1px solid var(--primary-green);
+}
+
+.case-card .case-ruling.haram {
+  background: #fde8e8;
+  color: #c0392b;
+  border: 1px solid #c0392b;
+}
+
+.case-card .case-ruling.makruh {
+  background: var(--callout-bg);
+  color: #b8860b;
+  border: 1px solid var(--gold);
+}
+
+/* Inline note */
+.inline-note {
+  font-size: 14px;
+  color: var(--teal);
+  font-weight: 600;
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  padding: 30px 0 20px;
+  border-top: 2px solid var(--border);
+  margin-top: 40px;
+  font-size: 14px;
+  color: #888;
+}
+
+/* Scroll-to-top */
+.scroll-top {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 44px;
+  height: 44px;
+  background: var(--primary-green);
+  color: white;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+.scroll-top:hover {
+  background: var(--dark-green);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cover-book-title { font-size: 22px; }
+  .cover-lecture-title { font-size: 18px; }
+  .section-header { font-size: 19px; }
+  .comparison-container { flex-direction: column; }
+  .tree-branches { flex-direction: column; align-items: center; }
+  .scenario-grid { grid-template-columns: 1fr; }
+  .cases-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Timeline Diagram */
+.timeline-diagram {
+  background: var(--card-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: var(--shadow);
+}
+
+.timeline-diagram .timeline-title {
+  text-align: center;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 15px;
+}
+
+.timeline-bar {
+  display: flex;
+  margin: 10px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 40px;
+  box-shadow: var(--shadow);
+}
+
+.timeline-segment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  padding: 0 6px;
+  white-space: nowrap;
+}
+
+.timeline-segment.hayd { background: #c0392b; }
+.timeline-segment.tuhr { background: var(--primary-green); }
+.timeline-segment.fasad { background: #e67e22; }
+.timeline-segment.possible { background: var(--teal); }
+.timeline-segment.tahara { background: #2980b9; }
+.timeline-segment.manic { background: #8e44ad; }
+.timeline-segment.label { background: transparent; color: var(--body-text); font-size: 12px; min-width: 60px; }
+
+.timeline-label {
+  font-size: 13px;
+  color: #666;
+  text-align: center;
+  margin-top: 5px;
+  line-height: 1.6;
+}
+
+/* Multi-scholar comparison */
+.scholar-comparison {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin: 15px 0;
+}
+
+.scholar-opinion-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.scholar-opinion-card .scholar-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 8px;
+}
+
+.scholar-opinion-card .scholar-detail {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #444;
+}
+
+.scholar-opinion-card .count-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.scholar-opinion-card .count-badge.halal {
+  background: #e8f5e9;
+  color: var(--primary-green);
+}
+
+.scholar-opinion-card .count-badge.haram {
+  background: #fde8e8;
+  color: #c0392b;
+}
+
+</style>
+</head>
+<body>
+
+<!-- B&W Toggle Button -->
+<button class="bw-toggle" onclick="toggleBW()" title="تبديل الأبيض والأسود">ن</button>
+
+<!-- Scroll to Top -->
+<button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" id="scrollTopBtn">▲</button>
+
+<!-- ==================== COVER PAGE ==================== -->
+<div class="cover-page">
+  <div class="cover-ornament">✦ ❖ ✦</div>
+  <div class="cover-badge-new">جديد</div>
+  <div class="cover-book-title">الإبانة والإفاضة في أحكام الحيض والنفاس والاستحاضة<br>على مذهب الإمام الشافعي</div>
+  <div class="cover-lecture-badge">الدرس السابع</div>
+  <div class="cover-lecture-title">ما يحرم بالحيض والنفاس</div>
+  <hr class="cover-divider">
+  <div class="cover-info">
+    <span class="label">المؤلف:</span> عبد الرحمن بن عبد الله عبد القادر السقاف<br>
+    <span class="label">الشارح:</span> د. لبيب نجيب عبد الله<br>
+    <span class="label">المنظم:</span> أحمد بن إرشاد
+  </div>
+</div>
+
+<!-- ==================== MAIN CONTENT ==================== -->
+<div class="main-content">
+
+<!-- ===== Section 1: مقدمة — محرمات الحيض والنفاس نظرة عامة ===== -->
+<h1 class="section-header"><span class="section-number">1</span> مقدمة: محرمات الحيض والنفاس — نظرة عامة</h1>
+
+<p class="body-text">
+بسم الله الرحمن الرحيم، الحمد لله رب العالمين والصلاة والسلام الأتمان الأكملان على سيد المرسلين سيدنا محمد وعلى آله وصحبه الطيبين الطاهرين، أما بعد، فأسأل الله سبحانه وتعالى أن يمن علينا بالعلم النافع والعمل الصالح وأن يفقهنا في الدين وأن يفتح لنا فتوح العارفين وأن يرزقنا الإخلاص في الأقوال والأعمال، اللهم آمين.
+</p>
+
+<p class="body-text">
+فنشرع بإذن الله تعالى في الدرس الخامس من كتاب الإبانة والإفاضة، فيقول فضيلة الدكتور عبد الرحمن السقاف رحمه الله تعالى أو حفظه الله تعالى ورحمه ورحمنا:
+</p>
+
+<div class="quote-block">
+  قال: الدرس الخامس — ما يحرم بالحيض والنفاس. يحرم على الحائض والنفساء ما يحرم على المحدث حادثاً أصغر وهي: الصلاة والطواف ومس المصحف وحمله. وكذلك ما يحرم على الجنب وهي الأربعة السابقة ويزاد عليها: المكث في المسجد وقراءة القرآن بقصد القراءة. ويزاد على ما تقدم: الصوم والطلاق والمرور في المسجد إن خافت تلويثه ومباشرة ما بين السرة والركبة والطهارة بنية التعبد. وسوف نشرحها الآن كلها مفصلة نأخذها واحداً واحداً.
+  <span class="quote-attribution">— نص المؤلف</span>
+</div>
+
+<!-- Classification Tree: Overview of Prohibitions -->
+<div class="classification-tree">
+  <div class="tree-title">محرمات الحائض والنفساء — نظرة عامة</div>
+  <div class="tree-root">ما يحرم على الحائض والنفساء</div>
+  <div class="tree-connector"></div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="branch-icon">🔵</div>
+      <div class="branch-name">يُشارك المُحدِث حدثاً أصغر</div>
+      <div class="branch-desc">
+        ١. الصلاة<br>
+        ٢. الطواف<br>
+        ٣. مس المصحف<br>
+        ٤. حمل المصحف
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="branch-icon">🟡</div>
+      <div class="branch-name">يُشارك الجُنب</div>
+      <div class="branch-desc">
+        الأربعة السابقة + يُزاد عليها:<br>
+        ٥. المكث في المسجد<br>
+        ٦. قراءة القرآن بقصد القراءة
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="branch-icon">🔴</div>
+      <div class="branch-name">يختص بها الحائض والنفساء</div>
+      <div class="branch-desc">
+        ٧. الصوم<br>
+        ٨. الطلاق<br>
+        ٩. المرور في المسجد إن خافت تلويثه<br>
+        ١٠. مباشرة ما بين السرة والركبة<br>
+        ١١. الطهارة بنية التعبد
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== Section 2: الأول — الصلاة ===== -->
+<h1 class="section-header"><span class="section-number">2</span> الأول: الصلاة</h1>
+
+<p class="body-text">
+يحرم على الحائض والنفساء الصلاة ولو نفلاً وصلاة جنازة، وسجدة تلاوة وشكر. وها هنا نُبيّن مسألتين هامتين وهما: <span class="green-highlight">مسألة طرو المانع</span> و<span class="green-highlight">مسألة زوال المانع</span>.
+</p>
+
+<div class="definition-card">
+  <div class="def-label">تعريفان أساسيّان</div>
+  <div class="def-text">
+    <strong>مسألة زوال المانع:</strong> أي أن المرأة تكون في حالة حيض ثم ينقطع الحيض أو ينقطع النفاس في أثناء الوقت<br><br>
+    <strong>مسألة طرو المانع:</strong> أي أن المرأة يدخل عليها وقت الصلاة ولا يكون بها مانع، وبعد دخول الوقت يحصل لها مانع كحيض أو نفاس
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه مهم</div>
+  <div class="callout-content">
+    هاتان المسألتان مما يحصل فيهما جهل كبير عند النساء، ولذلك ينبغي إشاعة تعليم النساء هاتين المسألتين.
+  </div>
+</div>
+
+
+<!-- ===== Section 3: مسألة زوال المانع ===== -->
+<h2 class="sub-header">مسألة زوال المانع</h2>
+
+<p class="body-text">
+إذا طهرت الحائض أو النفساء قبل خروج الوقت ولو بقدر زمن يسع تكبيرة الإحرام فأكثر — يعني كم؟ ما يسع تكبيرة الإحرام ثانية — يعني لو طهرت المرأة قبل خروج الوقت بثانية تقريباً ثانية واحدة، لو طهرت المرأة قبل خروج الوقت بثانية وجبت عليها تلك الصلاة، لكن بشرطين هما في الحقيقة شرط واحد، قال:
+</p>
+
+<div class="numbered-steps">
+  <div class="steps-title">شرطا وجوب القضاء عند زوال المانع</div>
+  <div class="step-item">
+    <span class="step-number">1</span>
+    <div class="step-content">
+      <span class="green-highlight">بقاء السلامة من الموانع</span> بقدر ما يسع الطهارة وكذا بقية شروط الصلاة من ستر عورة ونحوها. والموانع مثل: الجنون، والإغماء. أي أن تبقى المرأة سالمة من الموانع كجنون وإغماء مقدار ما تسع هذه الصلاة.
+    </div>
+  </div>
+  <div class="step-item">
+    <span class="step-number">2</span>
+    <div class="step-content">
+      <span class="green-highlight">بقاء السلامة من الموانع</span> زمناً يسع تلك الصلاة <span class="gold-highlight">بأخف ممكن</span>، أي يسع تلك الصلاة بواجباتها فقط بأركانها فقط.
+    </div>
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">ضبط: الشرطان شرط واحد</div>
+  <div class="callout-content">
+    يمكنك أن تدمج الشرطين بشرط واحد فتقول: يجب على المرأة إذا طهرت آخر الوقت أن تصلي صلاة ذلك الوقت وصلاة تجمع معها، إذا بقيت سالمة عن الموانع مقدار ما يسع شروط الصلاة والصلاة بأخف ممكن. أي إذا بقيت سالمة عن الموانع وقتاً يتسع لشروط الصلاة ولفعل الصلاة بأخف ممكن.
+  </div>
+</div>
+
+<h3 class="sub-sub-header">وجوب قضاء الصلاة التي قبلها</h3>
+
+<p class="body-text">
+ويجب أيضاً قضاء ما قبلها، أي قضاء الصلاة التي قبلها إن جمعت معها كالظهر مع العصر والمغرب مع العشاء، بشرط بقاء السلامة من الموانع بعد زوال العذر قدر الفرضين — أي فرض الظهر والعصر وفرض المغرب والعشاء — بأخف ممكن والطهارة، أي وبقية شروط الصلاة.
+</p>
+
+<h3 class="sub-sub-header">الأمثلة التوضيحية</h3>
+
+<!-- Example 1 -->
+<div class="scenario-grid">
+  <div class="scenario-card">
+    <div class="scenario-title">المثال الأول: طهرت قبل العصر بخمس دقائق</div>
+    <div class="scenario-content">
+      لو طهرت قبل خروج وقت العصر بخمس دقائق — أي قبل غروب الشمس بخمس دقائق — فإنه يجب عليها صلاة العصر لأن خمس دقائق تتسع لتكبيرة الإحرام. وكذلك يجب عليها الظهر إذا توفرت الشروط السابقة، أي بعد أن طهرت بقيت سليمة عن الجنون والإغماء مقدار ما يسع شروط الصلاة من طهارة وستر عورة ومقدار ما يسع فعل الصلاتين.
+    </div>
+    <div class="scenario-ruling obligatory">يجب العصر والظهر</div>
+  </div>
+
+  <div class="scenario-card">
+    <div class="scenario-title">المثال الثاني: طهرت قبل المغرب بخمس دقائق ثم أغمي عليها بعد المغرب بربع ساعة</div>
+    <div class="scenario-content">
+      طهرت الساعة 5:55، غروب الشمس الساعة 6:00، حصل الإغماء الساعة 6:15. بين طهرها وحصول المانع 20 دقيقة. هذه العشرون دقيقة تتسع للطهارة وستر العورة وفعل الصلاتين — الظهر والعصر — بأخف ممكن.
+    </div>
+    <div class="scenario-ruling obligatory">يجب قضاء الظهر مع العصر</div>
+  </div>
+
+  <div class="scenario-card">
+    <div class="scenario-title">المثال الثالث: طهرت قبل المغرب بخمس دقائق وحصل المانع بعد الغروب بدقيقة</div>
+    <div class="scenario-content">
+      طهرت الساعة 5:55، أذان المغرب الساعة 6:01، حصل مانع إغماء. المدة بين الطهر والمانع ست دقائق فقط لا تتسع للشروط وفعل الصلاتين.
+    </div>
+    <div class="scenario-ruling not-obligatory">لا يجب قضاء الظهر ولا العصر</div>
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">الضابط</div>
+  <div class="callout-content">
+    <strong>متى يجب القضاء؟</strong> إذا طهرت وبقي وقت يتسع لشروط الصلاة ولفعل الصلاتين بأخف ممكن.<br>
+    <strong>متى لا يجب القضاء؟</strong> إذا طهرت ولم يبقَ وقت يتسع لشروط الصلاة ولفعل الصلاتين بأخف ممكن.
+  </div>
+</div>
+
+
+<!-- ===== Section 4: مسألة طرو المانع ===== -->
+<h2 class="sub-header">مسألة طرو المانع</h2>
+
+<p class="body-text">
+إذا حاضت المرأة أو نفست أول الوقت أو أثناءه واستغرق الحيض والنفاس بقية الوقت، وجب بعد زوال المانع القضاء لصلاة ذلك الوقت، بشرط أن تكون قد أدركت قبل طرو ذلك المانع ما يسع تلك الصلاة مع الطهارة لها إن لم يمكن تقديمها.
+</p>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه: الفرق بين الحيض والنفاس في استغراق الوقت</div>
+  <div class="callout-content">
+    بالنسبة للحيض لا بد أن يستغرق بقية الوقت لأن الحيض أقله 24 ساعة، فلا يتصور أن يكون ساعة أو ساعتين أو ثلاثة — هذا ليس حيضاً بل دم فساد. أما النفاس فلا يشترط استغراقه لبقية الوقت لأن النفاس أقله لحظة. ولذلك من الفروق بين الحيض والنفاس أن الحيض لا بد أن يستغرق وقت الصلاة، أما النفاس لا يشترط.
+  </div>
+</div>
+
+<h3 class="sub-sub-header">حساب وقت الطهارة: تفصيل مهم</h3>
+
+<p class="body-text">
+وهل نحسب وقت الطهارة أو لا نحسبه؟ الجواب تفصيل: الطهارة إذا كان لا بد أن تقع بعد دخول الوقت فنحسب وقتها، لأن أحياناً في الطهارة هناك طهارة لا يجوز أن تتقدم على الوقت مثل <span class="green-highlight">طهارة المستحاضة</span> و<span class="green-highlight">طهارة المتيمم</span>. الشرط في طهارة المتيمم أن يفعل التيمم متابعاً على دخول الوقت وكذلك المستحاضة. إذا كانت هذه الطهارة لا يصح أن تقدم على الوقت نحسب وقتها. وإذا كانت هذه الطهارة يجوز أن تقدم قبل الوقت مثل <span class="green-highlight">طهارة السليم</span> لا نحسب وقتها بل نحسب وقت الصلاة فقط.
+</p>
+
+<div class="fiqh-principle">
+  <div class="principle-title">⚖️ القاعدة: متى نحسب وقت الطهارة ومتى لا نحسبه؟</div>
+  <div class="principle-content">
+    <strong>نحسب وقت الطهارة:</strong> إذا كانت الطهارة لا بد أن تقع بعد دخول الوقت (كطهارة المستحاضة وطهارة المتيمم).<br>
+    <strong>لا نحسب وقت الطهارة:</strong> إذا كانت الطهارة يجوز تقديمها قبل الوقت (كطهارة السليم)، بل يكفي اتساع الوقت لفعل الصلاة بأخف ممكن.
+  </div>
+</div>
+
+<h3 class="sub-sub-header">أمثلة تطبيقية: مسألة طرو المانع</h3>
+
+<!-- Three examples for Tarw al-Mani' -->
+<div class="scenario-grid">
+  <div class="scenario-card">
+    <div class="scenario-title">المثال الأول: زينب المستحاضة</div>
+    <div class="scenario-content">
+      امرأة مستحاضة اسمها زينب. وقت الصلاة بأخف ممكن ≈ 5 دقائق. وقت الطهارة ≈ 3 دقائق. أذن الظهر الساعة 12:00، حاضت الساعة 12:06.<br><br>
+      الزمن بين دخول الوقت والحيض = 6 دقائق.<br>
+      المطلوب = 3 + 5 = 8 دقائق (طهارة + صلاة).<br>
+      أدركت 6 فقط < 8.
+    </div>
+    <div class="scenario-ruling not-obligatory">لا تجب عليها صلاة الظهر</div>
+  </div>
+
+  <div class="scenario-card">
+    <div class="scenario-title">المثال الثاني: زينب السليمة</div>
+    <div class="scenario-content">
+      نفس المرأة لكنها سليمة ليست مستحاضة. أذن الظهر الساعة 12:00، حاضت الساعة 12:06.<br><br>
+      لأنها سليمة يمكنها تقديم الطهارة قبل الوقت، فلا نحسب وقت الطهارة بل نحسب وقت الصلاة فقط ≈ 5 دقائق.<br>
+      أدركت 6 > 5.
+    </div>
+    <div class="scenario-ruling obligatory">تجب عليها صلاة الظهر</div>
+  </div>
+
+  <div class="scenario-card">
+    <div class="scenario-title">المثال الثالث: زينب حاضت بعد دقيقتين</div>
+    <div class="scenario-content">
+      أذن الظهر الساعة 12:00، حاضت الساعة 12:02.<br><br>
+      حتى لو كانت سليمة ولم نحسب وقت الطهارة، الدقيقتان لا تتسعان لفعل الفرض بأخف ممكن.
+    </div>
+    <div class="scenario-ruling not-obligatory">لا تجب عليها صلاة الظهر</div>
+  </div>
+</div>
+
+<h3 class="sub-sub-header">أمثلة المؤلف على مسألة طرو المانع</h3>
+
+<div class="scenario-grid">
+  <div class="scenario-card">
+    <div class="scenario-title">طرأ الحيض بعد دخول الوقت بنص ساعة</div>
+    <div class="scenario-content">
+      نص ساعة تتسع لفعل الصلاة بأخف ممكن بل مع فعل الطهارة للصلاة، ولم تصلِّ المرأة تلك الصلاة، وجب عليها إذا طهرت أن تقضي تلك الصلاة لأنها وجدت الوقت الكافي لأداء تلك الصلاة.
+    </div>
+    <div class="scenario-ruling obligatory">يجب القضاء</div>
+  </div>
+
+  <div class="scenario-card">
+    <div class="scenario-title">طرأ الحيض مع دخول وقت العصر</div>
+    <div class="scenario-content">
+      لو طرأ الحيض مع دخول وقت العصر مثلاً، لم يلزمها إذا طهرت أن تقضي صلاة العصر، لأنها لم تدرك زمناً يتسع لفعل تلك الصلاة.
+    </div>
+    <div class="scenario-ruling not-obligatory">لا يلزمها القضاء</div>
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">مثال واقعي: الولادة في المستشفى</div>
+  <div class="callout-content">
+    وهذا يقع فيه جهل كبير من النساء. بعضهن تكون ولادتها في الساعة الواحدة ظهراً وتُحمَل إلى المستشفى من الصباح أو من قبل الظهر يعني في الساعة 11، ويدخل وقت الظهر وهي في المستشفى، وتكون الولادة في الساعة الواحدة، وبعد الولادة في نفاس. نقول: صلاة الظهر هذه واجبة عليك، يجب عليك بعد النفاس أن تصلّيها، بل لو استطاعت أن تصلّيها في تلك الحال يجب أن تصلّيها. وهذا كما قلت لكم يجهله كثير من النساء.
+  </div>
+</div>
+
+
+<!-- ===== Section 5: ضيق الوقت في حق من يظن الفوات ===== -->
+<h2 class="sub-header">ضيق الوقت في حق من يظن الفوات</h2>
+
+<p class="body-text">
+المرأة أحياناً خاصة المعتادة على الحيض تعلم متى يأتيها الحيض، تترقب وقته، تعرف في الساعة كذا يأتيها الحيض. نفترض أن هذه المرأة تعلم أن الحيض سيأتيها في الساعة 12:10، أذن الظهر قالت: سأصلّي بعد نصف ساعة، وهي تعلم أن الحيض سيأتيها في الساعة 12:10. نقول لها: <span class="green-highlight">يحرم عليك أن تؤخّر الصلاة</span>. وقت الظهر يمتد إلى العصر في حق من كان لا يظن الفوات، أما في حق من ظن الفوات إذا أخّر الصلاة فإنه يأثم. إذا كنتِ تعلمين بعد دخول الوقت بعشر دقائق أو بربع ساعة سيأتي الحيض يجب عليكِ أن تبادري بالصلاة، فإن أخّرتِ الصلاة حتى حصل المانع أثمتِ ووجب عليها القضاء طبعاً لكن تأثم بالتأخير، تعصي بالتأخير.
+</p>
+
+<div class="callout-box">
+  <div class="callout-title">نظير هذه المسألة: من يعلم أنه سيُقتل</div>
+  <div class="callout-content">
+    نظير هذه المسألة من كان يعلم مثلاً أنه سيُقتل بعد قليل، كشخص عليه حد القصاص، قيل له سننفذ القصاص فيه الساعة 12:10، أذن الظهر الساعة 12:00. ماذا نقول؟ يجب عليك أن تصلّي الآن. قال: الوقت متسع. نقول له: <span class="green-highlight">الوقت يضيق في حقك</span>، أصبح الوقت في حقك مضيقاً، لا بد أن تصلّي في هذه العشر الدقائق. ما صلّى وتأخر تنفيذ القصاص إلى الساعة الواحدة، فصلّى الساعة 12:30 — صلاته أداء أو قضاء؟ <strong>أداء</strong>. يأثم أو لا يأثم؟ <strong>يأثم</strong>.<br><br>
+    وهذه المسألة ستدرسونها إن شاء الله تعالى في لب الأصول وفي جمع الجوامع مستقبلاً.
+  </div>
+</div>
+
+
+<!-- ===== Section 6: قضاء الصلاة التي قبلها وأدلة الصحابة ===== -->
+<h1 class="section-header"><span class="section-number">3</span> قضاء الصلاة التي قبلها — أدلة الصحابة والتابعين</h1>
+
+<p class="body-text">
+أريد أن ألفت انتباهك إلى مسألة مرت معنا قبل قليل وهي في مسألة زوال المانع: قلنا في مسألة زوال المانع إذا زال المانع وجب عليها أن تقضي تلك الصلاة والصلاة التي قبلها إن كانت تجمع معها — فتقضي إذا زال المانع قبل غروب الشمس صلاة العصر وصلاة الظهر، وإذا زال المانع قبل طلوع الفجر تقضي صلاة العشاء وصلاة المغرب.
+</p>
+
+<p class="body-text">
+يقول قائل: لماذا؟ نقول: لأن هذا قول عدد من الصحابة ولم يُعرَف لهم مخالف.
+</p>
+
+<div class="classification-tree">
+  <div class="tree-title">تفصيل الأقوال في قضاء الصلاة التي قبلها</div>
+  <div class="tree-root">الحائض تقضي الصلاة التي طهرت في وقتها</div>
+  <div class="tree-connector"></div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="branch-name">محل الاتفاق</div>
+      <div class="branch-desc">
+        وجوب صلاة الوقت الذي طهرت فيه (صلاة العصر إذا طهرت قبل الغروب، وصلاة العشاء إذا طهرت قبل الفجر)
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="branch-name">موضع الخلاف</div>
+      <div class="branch-desc">
+        وجوب الصلاة التي قبلها معها (الظهر مع العصر، والمغرب مع العشاء)
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3 class="sub-sub-header">من قال بوجوب قضاء الصلاة التي قبلها</h3>
+
+<p class="body-text">
+ممن قال به من الصحابة: <span class="green-highlight">عبد الرحمن بن عوف</span> أحد العشرة المبشرين بالجنة، و<span class="green-highlight">حبر الأمة عبد الله بن عباس</span>، ولا يُعرَف لهما مخالف من الصحابة. وهو قول جماهير التابعين لا يُعرَف عن التابعين أحد خالف إلا الحسن البصري.
+</p>
+
+<div class="quote-block">
+  قال فضيلة الدكتور عبد الرحمن السقاف في التعليق: ثم إن القول إن الحائض تقضي الصلاة والتي قبلها روي عن عبد الرحمن بن عوف وابن عباس وطاوس ومجاهد والنخعي والزهري وربيعة بن أبي عبد الرحمن شيخ الإمام مالك ومالك والليث بن سعد والشافعي وإسحاق وأبي ثور. قال الإمام أحمد: عامة التابعين يقولون بهذا القول إلا الحسن وحده.
+  <span class="quote-attribution">— تعليق المؤلف</span>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه على جهل كثير من النساء بهذا</div>
+  <div class="callout-content">
+    أنبهكم على هذا لأنه أيضاً يحصل جهل كثير من النساء بهذا. فإذا طهرت قبل المغرب تقضي العصر فقط! وإذا طهرت قبل الفجر تقضي العشاء فقط! هذا الفعل مخالف لقول جماهير الفقهاء بل للمذاهب الأربعة، ونُقِل إجماعاً عن الصحابة أنه لا بد أن تقضي تلك الصلاة والصلاة التي تجمع معها — فتقضي العصر والظهر، وتقضي العشاء والمغرب.
+  </div>
+</div>
+
+<div class="comparison-container">
+  <div class="comparison-card">
+    <div class="card-icon">✅</div>
+    <div class="card-title">قول الجمهور (المذاهب الأربعة)</div>
+    <div class="card-content">
+      يجب قضاء الصلاة التي طهرت في وقتها <strong>والصلاة التي قبلها</strong> إن كانت تجمع معها (الظهر مع العصر، والمغرب مع العشاء). روي عن عبد الرحمن بن عوف وابن عباس وجماهير التابعين ومالك والليث والشافعي وإسحاق وأبي ثور.
+    </div>
+  </div>
+  <div class="comparison-card" style="border-top-color: #c0392b;">
+    <div class="card-icon">❌</div>
+    <div class="card-title">قول الحسن البصري</div>
+    <div class="card-content">
+      لا تجب إلا الصلاة التي طهرت في وقتها وحدها. وهو القول الوحيد المخالف عن التابعين. قال الإمام أحمد: عامة التابعين يقولون بهذا القول إلا الحسن وحده.
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== Section 7: الثاني — الطواف ===== -->
+<h1 class="section-header"><span class="section-number">4</span> الثاني: الطواف بالكعبة</h1>
+
+<p class="body-text">
+يحرم على الحائض والنفساء الطواف بالكعبة. والدليل على حرمة الطواف:
+</p>
+
+<div class="evidence-box">
+  <div class="evidence-label">دليل من السنة — حديث 1</div>
+  <div class="hadith-text">
+    قال رسول الله صلى الله عليه وسلم: <span class="green-highlight">الطواف بمنزلة الصلاة إلا أن الله قد أحلّ فيه النطق</span>
+  </div>
+  <p style="font-size: 14px; color: var(--teal); margin-top: 8px;">رواه الحاكم في المستدرك وغيره</p>
+</div>
+
+<div class="evidence-box">
+  <div class="evidence-label">دليل من السنة — حديث 2</div>
+  <div class="hadith-text">
+    روى البخاري ومسلم عن عائشة رضي الله عنها أن النبي صلى الله عليه وسلم قال لها لما حاضت في الحج: <span class="green-highlight">اصنعي ما يصنع الحاج غير ألا تطوفي بالبيت</span>
+  </div>
+</div>
+
+<h3 class="sub-sub-header">ما تفعل الحائض في الحج وما لا تفعل</h3>
+
+<p class="body-text">
+فدلّ على أن المرأة إذا حاضت أو كانت في حال نفاسها تفعل جميع المناسك: تقف في عرفة، تحرم، تسعى بين الصفا والمروة، تقصّر شعرها، تغتسل أغسال الحج كغسل الإحرام والغسل للوقوف بعرفة، تفعل كل شيء، تأتي بالأدعية — إلا الطواف وإلا ركعتي الطواف فقط.
+</p>
+
+<div class="classification-tree">
+  <div class="tree-title">أحكام الحائض في الحج</div>
+  <div class="tree-root">الحائض والنفساء في الحج</div>
+  <div class="tree-connector"></div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="border-color: #c0392b;">
+      <div class="branch-name" style="color: #c0392b;">يحرم عليها</div>
+      <div class="branch-desc">
+        الطواف (فرضاً أو نفلاً)<br>
+        ركعتا الطواف
+      </div>
+    </div>
+    <div class="tree-branch" style="border-color: var(--primary-green);">
+      <div class="branch-name">يحلّ لها</div>
+      <div class="branch-desc">
+        الوقوف بعرفة<br>
+        الإحرام<br>
+        السعي بين الصفا والمروة<br>
+        تقصير الشعر<br>
+        أغسال الحج<br>
+        الأدعية<br>
+        سائر المناسك
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="numbered-steps">
+  <div class="steps-title">إجماع العلماء على أحكام الطواف</div>
+  <div class="step-item">
+    <span class="step-number">1</span>
+    <div class="step-content">
+      أجمع العلماء على <span class="green-highlight">تحريم الطواف</span> على الحائض والنفساء.
+    </div>
+  </div>
+  <div class="step-item">
+    <span class="step-number">2</span>
+    <div class="step-content">
+      أجمعوا أنه <span class="green-highlight">لا يصح</span> منها طواف فرض ولا تطوع — فرض كطواف الإفاضة الذي هو أحد أركان الحج، وتطوع كطواف القدوم الذي هو مستحب، وكذلك طواف العمرة ركن في العمرة لا يصح منها — إذاً يحرم مع عدم الصحة.
+    </div>
+  </div>
+  <div class="step-item">
+    <span class="step-number">3</span>
+    <div class="step-content">
+      أجمعوا أن الحائض والنفساء <span class="green-highlight">لا تُمنَع</span> من شيء من مناسك الحج ما عدا الطواف وركعته. بقية المناسك كالوقوف والإحرام والسعي لا تُمنَع منها.
+    </div>
+  </div>
+</div>
+
+<div class="benefit-box">
+  <div class="benefit-title">🔑 قاعدة</div>
+  <div class="benefit-content">
+    ليس لنا من مناسك الحج ما تشترط له الطهارة إلا الطواف.
+  </div>
+</div>
+
+
+<!-- ===== Section 8: الثالث والرابع — مس المصحف وحمله ===== -->
+<h1 class="section-header"><span class="section-number">5</span> الثالث والرابع: مس المصحف وحمله</h1>
+
+<p class="body-text">
+يحرم على الحائض والنفساء مس المصحف وحمله. قال:
+</p>
+
+<div class="evidence-box">
+  <div class="evidence-label">دليل من القرآن</div>
+  <div class="quran-verse">
+    ﴿ لَا يَمَسُّهُ إِلَّا الْمُطَهَّرُونَ ﴾
+  </div>
+  <p style="font-size: 14px; color: var(--teal); margin-top: 8px;">لفظها الخبر ومعناها النهي</p>
+</div>
+
+<div class="evidence-box">
+  <div class="evidence-label">دليل من السنة</div>
+  <div class="hadith-text">
+    قال رسول الله صلى الله عليه وسلم: <span class="green-highlight">لا يمس القرآن إلا طاهر</span>
+  </div>
+</div>
+
+<h3 class="sub-sub-header">تعريف المصحف</h3>
+
+<p class="body-text">
+والمراد بالمصحف كل ما كُتِب لدراسة قرآن ولو بعض آية مفهومة. ولذلك إذا كتبت آية في هذا اللوح للدراسة فإنها داخلة في المصحف.
+</p>
+
+<div class="callout-box">
+  <div class="callout-title">الفرق بين كتابة القرآن ومس المصحف</div>
+  <div class="callout-content">
+    أريدك أن تفرّق بين مسألتين: مس المصحف وحمل المصحف — وبين كتابة القرآن. لو أن الحائض كتبت آية، هل يحرم عليها كتابة آية في حال الحيض؟ <strong>لا يحرم</strong> ما دام أنها لم يحصل منها مس للكتابة. فكتابتها شيء ومس ما كُتِب للدراسة شيء آخر. فالذي يحرم عليها أن تمس المصحف والمراد بالمصحف ما كُتِب من قرآن لدراسة ولو بعض آية.
+  </div>
+</div>
+
+<h3 class="sub-sub-header">مس المصحف من وراء حائل</h3>
+
+<p class="body-text">
+ويحرم مس المصحف ولو بخرقة، أي ولو كان المس من وراء ساتر من وراء حائل. حتى المحدث حدثاً أصغر لا يجوز له أن يمس المصحف من وراء حائل. فالتحريم شامل ما لو كان بحائل أو من وراء حائل.
+</p>
+
+<div class="ruling-card">
+  <div class="ruling-badge red">حرام</div>
+  <div class="ruling-content">
+    مس المصحف — ولو بخرقة أو من وراء حائل — يحرم على الحائض والنفساء بل وحتى على المحدث حدثاً أصغر
+  </div>
+</div>
+
+<h3 class="sub-sub-header">حمل المصحف مع متاع — الأربع حالات وخلاف العلماء</h3>
+
+<p class="body-text">
+ويحلّ حمل المصحف مع أمتعة. قوله "مع أمتعة" أتى بلفظ الجمع وهذا الجمع غير مقصود فالأولى أن يكون التعبير "مع متاع". ولا يُشتَرط أن يكون هذا المتاع كبيراً بل ولو كان هذا المتاع صغيراً كإبرة.
+</p>
+
+<div class="cases-grid">
+  <div class="case-card">
+    <div class="case-num">الحالة 1</div>
+    <div class="case-title">قصد المتاع وحده</div>
+    <div class="case-ruling halal">يحلّ</div>
+  </div>
+  <div class="case-card">
+    <div class="case-num">الحالة 2</div>
+    <div class="case-title">قصد المصحف وحده</div>
+    <div class="case-ruling haram">يحرم</div>
+  </div>
+  <div class="case-card">
+    <div class="case-num">الحالة 3</div>
+    <div class="case-title">قصد المصحف والمتاع معاً</div>
+    <div class="case-ruling" style="background: var(--callout-bg); color: #b8860b; border: 1px solid var(--gold);">خلاف</div>
+  </div>
+  <div class="case-card">
+    <div class="case-num">الحالة 4</div>
+    <div class="case-title">أطلق (لم يقصد شيئاً)</div>
+    <div class="case-ruling" style="background: var(--callout-bg); color: #b8860b; border: 1px solid var(--gold);">خلاف</div>
+  </div>
+</div>
+
+<!-- Comparison of three scholars -->
+<div class="scholar-comparison">
+  <div class="scholar-opinion-card" style="border-top: 4px solid #c0392b;">
+    <div class="scholar-label">العلامة ابن حجر</div>
+    <div class="scholar-detail">
+      غلب جانب التعظيم للمصحف فاعتمد التحريم في جميع الصور إلا إذا قصد المتاع وحده
+    </div>
+    <div class="count-badge haram">يحرم في 3 صور</div>
+  </div>
+  <div class="scholar-opinion-card" style="border-top: 4px solid var(--primary-green);">
+    <div class="scholar-label">العلامة الرملي</div>
+    <div class="scholar-detail">
+      غلب جانب الحل فاعتمد الحل في جميع الصور إلا إذا قصد المصحف وحده
+    </div>
+    <div class="count-badge halal">يحلّ في 3 صور</div>
+  </div>
+  <div class="scholar-opinion-card" style="border-top: 4px solid var(--gold);">
+    <div class="scholar-label">العلامة المليباري (فتح المعين)</div>
+    <div class="scholar-detail">
+      إذا قصد المصحف وحده يحرم وإذا قصد المصحف مع المتاع يحرم في صورتين، وإذا أطلق أو قصد المتاع فقط يحلّ
+    </div>
+    <div class="count-badge" style="background: var(--callout-bg); color: #b8860b;">يحرم في صورتين ويحل في صورتين</div>
+  </div>
+</div>
+
+<!-- Table for the 4 cases -->
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>الحالة</th>
+      <th>القصد</th>
+      <th>ابن حجر</th>
+      <th>الرملي</th>
+      <th>المليباري</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>قصد المتاع وحده</td>
+      <td style="color: var(--primary-green); font-weight:700;">يحلّ</td>
+      <td style="color: var(--primary-green); font-weight:700;">يحلّ</td>
+      <td style="color: var(--primary-green); font-weight:700;">يحلّ</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>قصد المصحف وحده</td>
+      <td style="color: #c0392b; font-weight:700;">يحرم</td>
+      <td style="color: #c0392b; font-weight:700;">يحرم</td>
+      <td style="color: #c0392b; font-weight:700;">يحرم</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>قصد المصحف والمتاع معاً</td>
+      <td style="color: #c0392b; font-weight:700;">يحرم</td>
+      <td style="color: var(--primary-green); font-weight:700;">يحلّ</td>
+      <td style="color: #c0392b; font-weight:700;">يحرم</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>أطلق (لم يقصد شيئاً)</td>
+      <td style="color: #c0392b; font-weight:700;">يحرم</td>
+      <td style="color: var(--primary-green); font-weight:700;">يحلّ</td>
+      <td style="color: var(--primary-green); font-weight:700;">يحلّ</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="benefit-box">
+  <div class="benefit-title">💡 ولعل ما قاله أولاً والله أعلم</div>
+  <div class="benefit-content">
+    أي ولعل المعتمد ما قاله المؤلف أولاً، وهو التفصيل بين الحالات.
+  </div>
+</div>
+
+<h3 class="sub-sub-header">حمل كتب العلم والتفسير</h3>
+
+<p class="body-text">
+هل يجوز للحائض أن تحمل كتب الفقه وكتب الحديث وكتب العلم ككتب الفرائض مثلاً؟ يجوز لها أن تحمل كتب الفرائض وكتب الحديث وكتب الفقه وسائر العلوم الشرعية وكتب النحو — يجوز لها ذلك.
+</p>
+
+<p class="body-text">
+هل يجوز لها أن تحمل التفسير؟ <span class="green-highlight">تفصيل</span>: إن كانت حروف القرآن أكثر فلا يجوز، وإن كانت حروف القرآن أقل من حروف التفسير أو تساوي حروف التفسير فيجوز. فالحالات ثلاث وينبغي أن تأتي حالة رابعة وهي حالة الشك. فعلى كلام الشيخ ابن حجر رحمه الله، لما كان الشك محتملاً يجري التحريم، لأنه غلب جانب التعظيم.
+</p>
+
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>الحالة</th>
+      <th>حروف القرآن vs التفسير</th>
+      <th>الحكم</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>حروف القرآن أكثر من التفسير</td>
+      <td style="color: #c0392b; font-weight:700;">لا يجوز</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>حروف القرآن أقل من التفسير</td>
+      <td style="color: var(--primary-green); font-weight:700;">يجوز</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>حروف القرآن تساوي التفسير</td>
+      <td style="color: var(--primary-green); font-weight:700;">يجوز</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>الشك (لا نعرف أيهما أكثر)</td>
+      <td style="color: #c0392b; font-weight:700;">لا يجوز (على قول ابن حجر)</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout-box">
+  <div class="callout-title">نفس الحكم في الترجمة</div>
+  <div class="callout-content">
+    ونفس الكلام هذا يُقال في الترجمة: إن كانت حروف القرآن أكثر فلا يجوز، وإذا كانت حروف القرآن أقل من حروف الترجمة أو تساويها فيجوز.
+  </div>
+</div>
+
+
+<!-- ===== Section 9: الخامس — المكث في المسجد ===== -->
+<h1 class="section-header"><span class="section-number">6</span> الخامس: المكث في المسجد والمرور فيه</h1>
+
+<p class="body-text">
+يحرم على الحائض والنفساء اللبث في المسجد. أما المدارس العلمية والمدارس الدينية والمعاهد الشرعية فهذه لا يحرم على الحائض أن تمكث فيها. حتى المكان الذي يتخذه الناس مصلّى ولم يكن موقوفاً للصلاة لا يحرم على الحائض أن تمكث فيه. لكن المساجد يحرم على الحائض أن تمكث فيها ولو لحضور مجالس العلم، لا يجوز لها، وليس ثمة ضرورة، لأن تدخل المسجد لحضور مجلس ذكر أو مجلس علم حال كونها متلبسة بحيض أو نفاس خاصة في هذا الزمن.
+</p>
+
+<div class="evidence-box">
+  <div class="evidence-label">دليل من السنة</div>
+  <div class="hadith-text">
+    قال رسول الله صلى الله عليه وسلم: <span class="green-highlight">إني لا أُحِلّ المسجد لحائض ولا جُنب</span>
+  </div>
+</div>
+
+<div class="classification-tree">
+  <div class="tree-title">أحكام الحائض في المسجد والمكان الموافق</div>
+  <div class="tree-root">الحائض والنفساء والمسجد</div>
+  <div class="tree-connector"></div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="border-color: #c0392b;">
+      <div class="branch-name" style="color: #c0392b;">يحرم</div>
+      <div class="branch-desc">
+        اللبث (المكث) في المسجد<br>
+        التردد في المسجد (التجوّل)<br>
+        ولو لحضور مجالس العلم والذكر
+      </div>
+    </div>
+    <div class="tree-branch" style="border-color: #e67e22;">
+      <div class="branch-name" style="color: #e67e22;">يُكرَه</div>
+      <div class="branch-desc">
+        المرور في المسجد<br>
+        (إذا أمنت تلويثه)<br>
+        دخول من باب والخروج من باب
+      </div>
+    </div>
+    <div class="tree-branch" style="border-color: #c0392b;">
+      <div class="branch-name" style="color: #c0392b;">يحرم</div>
+      <div class="branch-desc">
+        المرور في المسجد<br>
+        (إذا خافت تلويثه)
+      </div>
+    </div>
+    <div class="tree-branch" style="border-color: var(--primary-green);">
+      <div class="branch-name">يحلّ</div>
+      <div class="branch-desc">
+        المكث في المدارس العلمية<br>
+        والمعاهد الشرعية<br>
+        والمكان المتخذ مصلّى غير موقوف للصلاة
+      </div>
+    </div>
+  </div>
+</div>
+
+<p class="body-text">
+وكذلك يحرم التردد في المسجد لأن التردد يشبه المكث — لو قالت: أنا لا أجلس لكن سأبقى أتجوّل في المسجد — أيضاً يحرم عليها. بخلاف المرور: لو دخلت من باب وخرجت من باب نقول يجوز لها أن تمرّ مع الكراهة إن أمنت تلويث المسجد. يجوز المرور مع الكراهة إن أمنت. فإن خافت تلويث المسجد حرم.
+</p>
+
+<div class="ruling-card">
+  <div class="ruling-badge red">حرام</div>
+  <div class="ruling-content">
+    اللبث والتردد في المسجد على الحائض والنفساء، ولو لحضور مجالس العلم والذكر
+  </div>
+</div>
+
+<div class="ruling-card">
+  <div class="ruling-badge blue">مكروه</div>
+  <div class="ruling-content">
+    المرور في المسجد للحائض والنفساء إذا أمنت تلويثه
+  </div>
+</div>
+
+<div class="ruling-card">
+  <div class="ruling-badge red">حرام</div>
+  <div class="ruling-content">
+    المرور في المسجد للحائض والنفساء إذا خافت تلويثه
+  </div>
+</div>
+
+
+<!-- ===== Section 10: السادس — قراءة القرآن ===== -->
+<h1 class="section-header"><span class="section-number">7</span> السادس: قراءة القرآن بقصد القراءة</h1>
+
+<p class="body-text">
+يحرم على الحائض والنفساء قراءة القرآن. لقوله صلى الله عليه وسلم: <span class="green-highlight">لا يقرأ الجنب ولا الحائض شيئاً من القرآن</span>. وإنما تحرم قراءة القرآن بالشرطين الآتيين:
+</p>
+
+<h3 class="sub-sub-header">الشرط الأول: كون القراءة بقصد القراءة</h3>
+
+<p class="body-text">
+كون القراءة بقصد القراءة وحدها، أي أنها قرأت القرآن قاصدة القراءة وحدها فيحرم القراءة. وسيذكر أربع صور:
+</p>
+
+<div class="cases-grid">
+  <div class="case-card" style="border-top-color: #c0392b;">
+    <div class="case-num">الصورة 1</div>
+    <div class="case-title">قصدت القراءة وحدها</div>
+    <div class="case-ruling haram">يحرم</div>
+  </div>
+  <div class="case-card" style="border-top-color: #c0392b;">
+    <div class="case-num">الصورة 2</div>
+    <div class="case-title">قصدت القراءة مع غيرها (كالتحصّن)</div>
+    <div class="case-ruling haram">يحرم</div>
+    <div style="font-size:13px; color:#666; margin-top:8px;">لأن قصد القراءة موجود</div>
+  </div>
+  <div class="case-card" style="border-top-color: var(--primary-green);">
+    <div class="case-num">الصورة 3</div>
+    <div class="case-title">لم تقصد القراءة بل قصدت الذِّكرى أو الموعظة أو القصة أو التحصّن</div>
+    <div class="case-ruling halal">لا يحرم</div>
+    <div style="font-size:13px; color:#666; margin-top:8px;">إذا لم تقصد معها القراءة</div>
+  </div>
+  <div class="case-card" style="border-top-color: var(--gold);">
+    <div class="case-num">الصورة 4</div>
+    <div class="case-title">أطلقت — لم تقصد شيئاً</div>
+    <div class="case-ruling makruh">يُكرَه (لا يحرم)</div>
+    <div style="font-size:13px; color:#666; margin-top:8px;">قرأت القرآن دون قصد القراءة ودون قصد غير القراءة</div>
+  </div>
+</div>
+
+<h3 class="sub-sub-header">فتاوى إضافية في قصد القراءة</h3>
+
+<div class="ruling-card">
+  <div class="ruling-badge blue">فتوى</div>
+  <div class="ruling-content">
+    <strong>قصد الدعاء:</strong> أفتى بعض الشافعية أنها لو قرأت القرآن بقصد الدعاء — يعني أخذت آية فيها دعاء كقولها: ﴿رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ﴾ أو ﴿رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِن لَّدُنكَ رَحْمَةً إِنَّكَ أَنتَ الْوَهَّابُ﴾ — أنه لا يحرم عليها.
+  </div>
+</div>
+
+<div class="ruling-card">
+  <div class="ruling-badge blue">فتوى</div>
+  <div class="ruling-content">
+    <strong>قصد التعليم:</strong> وأفتى بعضهم أنها لو قرأت القرآن بقصد التعليم — معلمة قرآن في حالة حيض قرأت القرآن بقصد تلقين الطالبات — أنه لا يحرم عليها. قالوا: قصد التعليم وقصد التلقين هذا غير قصد القراءة.
+  </div>
+</div>
+
+<h3 class="sub-sub-header">مذهب الإمام مالك في قراءة الحائض</h3>
+
+<p class="body-text">
+وهناك بعض الفقهاء أجاز للحائض والنفساء قبل انقطاع الدم قراءة القرآن ومنع الجُنب. لماذا؟ قال: لأن حدث الحيض والنفاس ليس لهما رفعهما ووقته يطول، بخلاف الجُنب فإن حدث الجنابة وقته لا يطول وبإمكانه أن يبادر إلى رفعه. وهذا مذهب الإمام مالك رحمه الله. ولذلك نقول: المرأة إذا خاصة إذا احتاجت — مثلاً عندها امتحان تلاوة أن تقرأ القرآن — إذا احتاجت لها أن تقلّد مذهب الإمام مالك.
+</p>
+
+<div class="comparison-container">
+  <div class="comparison-card" style="border-top-color: var(--primary-green);">
+    <div class="card-icon">📖</div>
+    <div class="card-title">مذهب الإمام مالك</div>
+    <div class="card-content">
+      يجوز للحائض والنفساء قبل انقطاع الدم قراءة القرآن، ويمنع الجُنب.<br><br>
+      <strong>العلة:</strong> لأن حدث الحيض والنفاس ليس لهما رفعهما ووقته يطول، بخلاف الجُنب فإن حدث الجنابة وقته لا يطول وبإمكانه أن يبادر إلى رفعه.
+    </div>
+  </div>
+  <div class="comparison-card" style="border-top-color: #c0392b;">
+    <div class="card-icon">📖</div>
+    <div class="card-title">مذهب الإمام الشافعي</div>
+    <div class="card-content">
+      يحرم على الحائض والنفساء قراءة القرآن بشروطها المذكورة (قصد القراءة + اللفظ المسموع).<br><br>
+      <strong>لكن:</strong> يجوز تقليد مذهب الإمام مالك عند الحاجة، كمن عندها امتحان تلاوة.
+    </div>
+  </div>
+</div>
+
+<h3 class="sub-sub-header">الشرط الثاني: كون القراءة باللفظ بحيث تسمع نفسها</h3>
+
+<p class="body-text">
+الشرط الثاني: كون القراءة باللفظ بحيث تسمع نفسها. ولهذا فلا يحرم إجراء القراءة على القلب من غير تحريك اللسان — لو أجرت القرآن على قلبها دون أن تحرك لسانها لا يحرم.
+</p>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه مهم: تحريك اللسان بدون لفظ</div>
+  <div class="callout-content">
+    لو أجرت القرآن على قلبها مع تحريكها للسان لكن دون لفظ تسمع به نفسها — ما الحكم؟ <strong>لا يحرم أيضاً</strong>. ظاهر العبارة أنها لو أجرت القراءة على قلبها مع تحريك لسانها أنه يحرم — نقول لا، إنما يحرم إذا كان ثمة لفظ تسمع به نفسها. فلو أجرت القرآن على قلبها حتى مع تحريك الشفتين واللسان لا يحرم إذا لم يكن هناك لفظ.
+  </div>
+</div>
+
+<div class="numbered-steps">
+  <div class="steps-title">ما لا يحرم من التعامل مع القرآن للحائض</div>
+  <div class="step-item">
+    <span class="step-number">1</span>
+    <div class="step-content">
+      <span class="green-highlight">إجراء القراءة على القلب</span> من غير تحريك اللسان — لا يحرم
+    </div>
+  </div>
+  <div class="step-item">
+    <span class="step-number">2</span>
+    <div class="step-content">
+      <span class="green-highlight">إجراء القراءة على القلب مع تحريك الشفتين واللسان</span> بدون لفظ تسمع به نفسها — لا يحرم
+    </div>
+  </div>
+  <div class="step-item">
+    <span class="step-number">3</span>
+    <div class="step-content">
+      <span class="green-highlight">النظر في المصحف</span> من غير تحريك اللسان — لا يحرم
+    </div>
+  </div>
+  <div class="step-item">
+    <span class="step-number">4</span>
+    <div class="step-content">
+      <span class="green-highlight">كتابة آيات القرآن</span> ما دامت لم تمس المكتوب — لا يحرم
+    </div>
+  </div>
+  <div class="step-item">
+    <span class="step-number">5</span>
+    <div class="step-content">
+      <span class="green-highlight">التسبيح والتهليل وسائر الأذكار غير القرآن</span> — أجمع الفقهاء على جوازها للحائض والنفساء
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== Section 11: حكم المصحف الإلكتروني ===== -->
+<h1 class="section-header"><span class="section-number">8</span> مسألة: حكم المصحف الإلكتروني (تطبيق الهاتف)</h1>
+
+<p class="body-text">
+بقيت مسألة وهذه المسألة كانت أصلاً أن تُذكر في مس المصحف — حكم مس المصحف وحمل المصحف الذي في تطبيق الهاتف. الجواب الذي يظهر لي والله أعلم أنه <span class="green-highlight">لا يحرم مسه ولا حمله</span>، لأن المراد بالمصحف المصحف الذي يُسمّى في العرف مصحفاً، أما هذا المصحف الإلكتروني لا يُسمّى بإطلاق مصحفاً إنما يُسمّى مصحفاً إلكترونياً. والذي إذا قال شخص مثلاً: اشتريت مصحفاً أو وقفت مصحفاً — لا يتبادر إلى ذهنك أنه أوقف مصحفاً إلكترونياً أو اشترى مصحفاً إلكترونياً. إذن هو لا يُسمّى مصحفاً بإطلاق.
+</p>
+
+<div class="ruling-card">
+  <div class="ruling-badge" style="background: var(--teal);">ظاهر</div>
+  <div class="ruling-content">
+    <strong>المصحف الإلكتروني (تطبيق الهاتف):</strong> لا يحرم مسه ولا حمله على الحائض والنفساء. العلة: أنه لا يُسمّى "مصحفاً" بإطلاق في العرف، بل يُسمّى "مصحفاً إلكترونياً"، فلا يدخل تحت إطلاق لفظ المصحف في النصوص الشرعية.
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">تعليل المسألة</div>
+  <div class="callout-content">
+    إذا قال شخص: "اشتريت مصحفاً" أو "وقفت مصحفاً" — لا يتبادر إلى ذهن السامع أنه اشترى مصحفاً إلكترونياً أو أوقف مصحفاً إلكترونياً. إذن المصحف الإلكتروني لا يُسمّى مصحفاً بإطلاق، وهذا هو التعليل في خروجه عن الحكم.
+  </div>
+</div>
+
+
+<!-- ===== خلاصة الدرس ===== -->
+<h1 class="section-header"><span class="section-number">9</span> خلاصة الدرس</h1>
+
+<div class="benefit-box">
+  <div class="benefit-title">🔑 خلاصة محرمات الحيض والنفاس</div>
+  <div class="benefit-content">
+    <strong>١. الصلاة:</strong> تحرم مطلقاً ولو نفلاً أو جنازة أو سجدة تلاوة وشكر. ويجب القضاء عند زوال المانع أو طرو المانع بالشروط المذكورة.<br><br>
+    <strong>٢. الطواف:</strong> يحرم بالاتفاق ولا يصح فرضاً ولا نفلاً. وبقية المناسك جائزة.<br><br>
+    <strong>٣. مس المصحف:</strong> يحرم حتى من وراء حائل. ويحرم حمل المصحف إلا مع متاع بقصده.<br><br>
+    <strong>٤. المكث في المسجد:</strong> يحرم اللبث والتردد. ويكره المرور إن أمنت التلويث ويحرم إن خفت.<br><br>
+    <strong>٥. قراءة القرآن:</strong> تحرم بقصد القراءة مع اللفظ المسموع. ولا تحرم بغير قصد القراءة أو بغير لفظ مسموع.<br><br>
+    <strong>٦. المصحف الإلكتروني:</strong> الظاهر أنه لا يحرم مسه ولا حمله.
+  </div>
+</div>
+
+<div class="page-footer">
+  شرح الإبانة والإفاضة في أحكام الحيض والنفاس والاستحاضة — الدرس السابع<br>
+  المؤلف: عبد الرحمن بن عبد الله عبد القادر السقاف | الشارح: د. لبيب نجيب عبد الله | المنظم: أحمد بن إرشاد
+</div>
+
+</div><!-- end main-content -->
+
+<script>
+function toggleBW() {
+  document.body.classList.toggle('bw-mode');
+}
+
+// Scroll to top button
+window.addEventListener('scroll', function() {
+  var btn = document.getElementById('scrollTopBtn');
+  if (window.pageYOffset > 400) {
+    btn.style.display = 'flex';
+  } else {
+    btn.style.display = 'none';
+  }
+});
+</script>
+
+</body>
+</html>

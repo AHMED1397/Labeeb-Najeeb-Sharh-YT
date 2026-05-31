@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf'); }
+@font-face { font-family: 'Amiri-Bold'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf'); }
+@font-face { font-family: 'NotoNaskhArabic'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+body { font-family: 'NotoNaskhArabic', 'Amiri', serif; font-size: 14px; line-height: 1.8; color: #2c2c2c; direction: rtl; text-align: justify; }
+h1 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 18pt; color: #1a5632; margin: 14px 0 6px 0; }
+h2 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 15pt; color: #1a5632; margin: 12px 0 5px 0; border-bottom: 2px solid #c8a951; padding-bottom: 3px; }
+h3 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 12pt; color: #2c5f7c; margin: 8px 0 4px 0; }
+p { margin: 3px 0; }
+.cover-header { background: #1a5632; color: white; padding: 20px 14px; text-align: center; margin: 0 0 12px 0; background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px); border-bottom: 4px solid #c8a951; }
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 6px; border: none; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.9; margin: 4px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.92; margin: 6px 0 2px 0; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .series { font-size: 11pt; opacity: 0.8; margin-top: 4px; }
+.toc { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 6px; padding: 10px 14px; margin: 0 0 12px 0; }
+.toc-title { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 14pt; color: #1a5632; text-align: center; margin-bottom: 6px; border-bottom: 2px solid #c8a951; padding-bottom: 4px; }
+.toc-item { font-size: 10pt; padding: 2px 0; border-bottom: 1px dotted #ccc; display: flex; justify-content: space-between; }
+.table-container { overflow-x: hidden; margin: 8px 0; page-break-inside: avoid; }
+table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 10pt; }
+th, td { padding: 4px 8px; border: 1px solid #ddd; overflow-wrap: break-word; word-break: break-word; }
+th { background-color: #1a5632; color: white; text-align: right; font-size: 10pt; }
+.callout { padding: 8px 12px; margin: 8px 0; border-radius: 0 6px 6px 0; page-break-inside: avoid; }
+.callout-title { font-weight: bold; margin-bottom: 3px; font-size: 11pt; }
+.callout-body { color: #333; line-height: 1.7; font-size: 13px; }
+.callout-warning { background: #fff3cd; border-right: 4px solid #c8a951; }
+.callout-warning .callout-title { color: #856404; }
+.callout-ruling { background: #e8f5e9; border-right: 4px solid #1a5632; }
+.callout-ruling .callout-title { color: #1a5632; }
+.callout-important { background: #e3f2fd; border-right: 4px solid #2c5f7c; }
+.callout-important .callout-title { color: #2c5f7c; }
+.callout-danger { background: #f8d7da; border-right: 4px solid #c0392b; }
+.callout-danger .callout-title { color: #c0392b; }
+.callout-info { background: #d1ecf1; border-right: 4px solid #17a2b8; }
+.callout-info .callout-title { color: #0c5460; }
+.callout-definition { background: #e8f4f8; border-right: 4px solid #2c5f7c; }
+.callout-definition .callout-title { color: #1a3a5c; }
+.callout-success { background: #d4edda; border-right: 4px solid #28a745; }
+.callout-success .callout-title { color: #155724; }
+.card-grid { display: grid; gap: 8px; margin: 10px 0; max-width: 100%; }
+.card-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.card-grid-3 { grid-template-columns: repeat(2, 1fr); }
+.card { padding: 10px; border-radius: 8px; text-align: center; max-width: 100%; overflow-wrap: break-word; }
+.card-title { font-size: 11pt; font-weight: bold; }
+.card-desc { font-size: 9pt; margin-top: 3px; opacity: 0.9; line-height: 1.6; }
+.compare-box { display: flex; gap: 0; margin: 8px 0; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.1); max-width: 100%; flex-wrap: wrap; }
+.compare-side { flex: 1; min-width: 0; padding: 8px 10px; }
+.compare-side h3 { margin: 0 0 4px 0; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 3px; font-size: 11pt; color: white; }
+.compare-side p { font-size: 12px; line-height: 1.6; color: white; }
+.compare-divider { width: 3px; background: #c8a951; }
+.section-num { display: inline-block; background: #1a5632; color: white; width: 22px; height: 22px; line-height: 22px; text-align: center; border-radius: 50%; font-size: 11pt; margin-left: 5px; }
+.poetry-box { background: #f9f5ec; border: 2px solid #c8a951; border-radius: 8px; padding: 10px 16px; margin: 10px 0; text-align: center; page-break-inside: avoid; }
+.poetry { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 13pt; color: #1a5632; line-height: 2.2; }
+.formula-box { background: #fdf6e3; border: 2px solid #c8a951; border-radius: 8px; padding: 10px 14px; margin: 8px 0; page-break-inside: avoid; text-align: center; }
+.formula-box .formula-text { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 12pt; color: #1a5632; line-height: 1.8; }
+.formula-box .formula-note { font-size: 10pt; color: #4a4a5e; margin-top: 4px; }
+.classification-group { display: grid; gap: 8px; margin: 8px 0; grid-template-columns: repeat(2, 1fr); page-break-inside: avoid; }
+.box-green { background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border: 2px solid #1a5632; border-radius: 8px; padding: 10px; }
+.box-green .box-title { font-family: 'Amiri-Bold', 'Amiri', serif; color: #1a5632; font-size: 11pt; font-weight: bold; margin-bottom: 4px; }
+.box-green .box-content { font-size: 12px; line-height: 1.7; color: #333; }
+.box-blue { background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border: 2px solid #2c5f7c; border-radius: 8px; padding: 10px; }
+.box-blue .box-title { font-family: 'Amiri-Bold', 'Amiri', serif; color: #2c5f7c; font-size: 11pt; font-weight: bold; margin-bottom: 4px; }
+.box-blue .box-content { font-size: 12px; line-height: 1.7; color: #333; }
+.box-gold { background: linear-gradient(135deg, #fdf6e3 0%, #f5e6b8 100%); border: 2px solid #c8a951; border-radius: 8px; padding: 10px; }
+.box-gold .box-title { font-family: 'Amiri-Bold', 'Amiri', serif; color: #856404; font-size: 11pt; font-weight: bold; margin-bottom: 4px; }
+.box-gold .box-content { font-size: 12px; line-height: 1.7; color: #333; }
+.box-red { background: linear-gradient(135deg, #f8e8e8 0%, #f5d0d0 100%); border: 2px solid #8b1a1a; border-radius: 8px; padding: 10px; }
+.box-red .box-title { font-family: 'Amiri-Bold', 'Amiri', serif; color: #8b1a1a; font-size: 11pt; font-weight: bold; margin-bottom: 4px; }
+.box-red .box-content { font-size: 12px; line-height: 1.7; color: #333; }
+.condition-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin: 8px 0; page-break-inside: avoid; }
+.condition-item { background: #f5f0e6; border: 1px solid #d4c9a8; border-radius: 6px; padding: 8px 10px; font-size: 11px; line-height: 1.6; }
+.condition-item .cond-num { display: inline-block; background: #1a5632; color: white; width: 18px; height: 18px; line-height: 18px; text-align: center; border-radius: 50%; font-size: 10pt; margin-left: 4px; }
+.diagram-container { background: #fafaf5; border: 2px solid #d4c9a8; border-radius: 8px; padding: 12px; margin: 8px 0; page-break-inside: avoid; }
+.diagram-branch { display: flex; gap: 8px; margin: 6px 0; flex-wrap: wrap; }
+.diagram-node { flex: 1; min-width: 140px; padding: 8px; border-radius: 6px; font-size: 11px; line-height: 1.6; }
+.diagram-node.node-main { background: #1a5632; color: white; font-weight: bold; text-align: center; }
+.diagram-node.node-branch { background: #f5f0e6; border: 1px solid #c8a951; }
+.diagram-node.node-result { background: #e8f5e9; border: 1px solid #1a5632; }
+.diagram-node.node-warn { background: #f8e8e8; border: 1px solid #8b1a1a; }
+</style>
+</head>
+<body>
+
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس الثامن عشر — نواقض الوضوء (تابع) وما يحرم بالحدث</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="series">تلاقي البشرتين · المحرميات · ما يحرم بالحدث · أحكام المصحف</div>
+</div>
+
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. الناقض الرابع: تلاقي بشرتين ذكر وأنثى</span><span>١</span></div>
+  <div class="toc-item"><span>٢. قيد الكبر: لا نقض بلمس الصغير</span><span>٢</span></div>
+  <div class="toc-item"><span>٣. قيد المحرمية: لا نقض بلمس المحارم</span><span>٢</span></div>
+  <div class="toc-item"><span>٤. المحرمات تأبيداً: ثمانية عشر محرماً</span><span>٣</span></div>
+  <div class="toc-item"><span>٥. اشتباه المحرم بأجنبيات</span><span>٤</span></div>
+  <div class="toc-item"><span>٦. قاعدة: اليقين لا يزول بالشك ولا بالظن</span><span>٥</span></div>
+  <div class="toc-item"><span>٧. خاتمة: ما يحرم بالحدث — الصلاة والطواف والسجود</span><span>٥</span></div>
+  <div class="toc-item"><span>٨. حمل المصحف ومسه — الدليل</span><span>٦</span></div>
+  <div class="toc-item"><span>٩. ما كُتب لدرس قرآن وما كُتب للتبرك</span><span>٧</span></div>
+  <div class="toc-item"><span>١٠. العبرة بقصد الكتابة لا بما بعدها</span><span>٨</span></div>
+  <div class="toc-item"><span>١١. حمل المصحف مع متاع — أربع حالات</span><span>٩</span></div>
+  <div class="toc-item"><span>١٢. مس ورق المصحف والبياض والظرف</span><span>١٠</span></div>
+  <div class="toc-item"><span>١٣. جلد المصحف وكرسي المصحف</span><span>١١</span></div>
+  <div class="toc-item"><span>١٤. قلب ورقة المصحف بعود</span><span>١٢</span></div>
+  <div class="toc-item"><span>١٥. قرآن مع تفسير زاد</span><span>١٢</span></div>
+  <div class="toc-item"><span>١٦. حكم الصبي المميز وغير المميز مع المصحف</span><span>١٣</span></div>
+</div>
+
+<!-- 1 -->
+<h2><span class="section-num">١</span> الناقض الرابع: تلاقي بشرتين ذكر وأنثى</h2>
+
+<p>قال المصنف: "ورابعها تلاقي بشرتين ذكر وأنثى، ولو بلا شهوة". الناقض الرابع من نواقض الوضوء هو تلاقي بشرة الرجل وبشرة المرأة بلا حائل، سواء كان التلاقي بشهوة أو بلا شهوة. ولو كان أحدهما مُحْرِماً (أي في حال الإحرام) أو ميتاً وميتاً بسكون الياء (أي من مات)، أما بفتح الياء (أي من سيموت) فلا ينقض. لكن لا ينقض وضوء الميت — أي لا ينقض تلاقي وضوء الميت (أي لو لاقى الميت بشرة شخص لا ينتقض وضوء الميت).</p>
+
+<div class="callout callout-ruling">
+  <div class="callout-title">المراد بالبشرة هنا</div>
+  <div class="callout-body">
+    البشرة هي الجلد — أي غير الشعر والسن والظفر (قاله شيخه ابن حشرة)، وغير باطن العين. وذلك لقوله تعالى: {أو لامستم النساء} — فاللمس هو المس باليد.
+  </div>
+</div>
+
+<div class="callout callout-info">
+  <div class="callout-title">خلاف الصحابة في تفسير {أو لامستم النساء}</div>
+  <div class="callout-body">
+    <b>عبد الله بن عمر:</b> فسّر "لامستم" باللمس أي المس باليد.<br>
+    <b>عبد الله بن عباس:</b> فسّر "لامستم" بالجماع.<br>
+    والشافعية يأخذون بتفسير ابن عمر — بأن اللمس هو المس باليد.
+  </div>
+</div>
+
+<div class="classification-group">
+  <div class="box-green">
+    <div class="box-title">لو شك هل مس بشرة أو شعراً</div>
+    <div class="box-content">لا ينتقض الوضوء — لأن الأصل بقاء الطهارة واليقين لا يزول بالشك.</div>
+  </div>
+  <div class="box-blue">
+    <div class="box-title">لو شك هل لمس محرماً أو أجنبية</div>
+    <div class="box-content">لا ينتقض الوضوء — لأن الأصل بقاء الطهارة.</div>
+  </div>
+</div>
+
+<!-- 2 -->
+<h2><span class="section-num">٢</span> قيد الكبر: لا نقض بلمس الصغير</h2>
+
+<p>قال المصنف: "بكبيرين فيهما". أي يجب أن يكون المتلاقيان كبيرين — فلا ينتقض الوضوء بتلاقيهما مع صغر فيهما أو في أحدهما. والمراد بذي الصغر: من لا يُشتهى عرفاً غالباً. وضابط الكبر: أن يبلغ حداً يُشتهى فيه — فالرجل يبلغ حداً تُشتهى عند النساء من ذوي الطبع السليم، والأنثى تبلغ حداً تُشتهى عند الرجال من ذوي الطبع السليم.</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 30%;">الحالة</th>
+        <th style="width: 20%;">حكم النقض</th>
+        <th style="width: 50%;">البيان</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">تلاقي كبيرين (رجل وامرأة)</td>
+        <td style="color: #c0392b; font-weight: bold;">ينقض</td>
+        <td>سواء كان بشهوة أو بلا شهوة — لوجود مظنة الشهوة</td>
+      </tr>
+      <tr style="background-color: #e8f5e9;">
+        <td style="font-weight: bold;">صغيران أو أحدهما صغير</td>
+        <td style="color: #28a745; font-weight: bold;">لا ينقض</td>
+        <td>لانتفاء مظنة الشهوة — والصغير من لا يُشتهى عرفاً غالباً</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout callout-warning">
+  <div class="callout-title">ضابط الكبر — ميلان القلب لا السن</div>
+  <div class="callout-body">
+    بعضهم ضبط ذلك بكونه في سن سبع سنين — فأقل من سبع لا يُشتهى وما فوقها مظنة الاشتهاء. لكن المعتمد في المذهب أن ضابط ذلك ميلان القلب — فإذا بلغت الصغيرة حداً تُشتهى عند الرجال من ذوي الطبع السليم فلمسها ينقض، والأمر كذلك في الصغير الذكر.
+  </div>
+</div>
+
+<!-- 3 -->
+<h2><span class="section-num">٣</span> قيد المحرمية: لا نقض بلمس المحارم</h2>
+
+<p>قال المصنف: "لا تلاقي بشرتهما مع محرمية بينهما بنسب أو رضاع أو مصاهرة". أي لو حصل التلامس بين المحارم فلا ينتقض الوضوء، حتى ولو كان التلامس بشهوة. والمحرمية إما أن تكون بنسب أو برضاع أو بمصاهرة.</p>
+
+<div class="callout callout-important">
+  <div class="callout-title">تنبيه: المحرمات بسبب آخر</div>
+  <div class="callout-body">
+    المحرمات بسبب غير النسب والرضاع والمصاهرة — كمسألة الملاعنة (المرأة التي بينها وبين زوجها لعانة تحرم عليه تأبيداً) — لمسها <b>ينقض</b> الوضوء. وكذلك إذا لم تكن مسلمة ولا كتابية كأن كانت مجوسية أو بوذية — لمسها <b>ينقض</b> الوضوء. فاللاتي لمسهن لا ينقض الوضوء هن المحرمات بنسب أو رضاع أو مصاهرة فقط.
+  </div>
+</div>
+
+<!-- 4 -->
+<h2><span class="section-num">٤</span> المحرمات تأبيداً: ثمانية عشر محرماً</h2>
+
+<p>المحرمات اللاتي لا ينقض لمسهن الوضوء هن ثمانية عشر محرماً، وينقسمن إلى: سبع بالنسب، وسبع بالرضاع، وأربع بالمصاهرة:</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 15%;">السبب</th>
+        <th style="width: 10%;">الرقم</th>
+        <th style="width: 25%;">المحرم بالنسبة للرجل</th>
+        <th style="width: 25%;">المحرم بالنسبة للمرأة</th>
+        <th style="width: 25%;">البيان</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #e8f5e9;"><td style="font-weight: bold;" rowspan="7">بالنسب</td><td style="text-align: center;">١</td><td style="font-weight: bold;">الأم</td><td style="font-weight: bold;">الأب</td><td> — </td></tr>
+      <tr style="background-color: #e8f5e9;"><td style="text-align: center;">٢</td><td style="font-weight: bold;">البنت</td><td style="font-weight: bold;">الابن</td><td> — </td></tr>
+      <tr style="background-color: #e8f5e9;"><td style="text-align: center;">٣</td><td style="font-weight: bold;">الأخت</td><td style="font-weight: bold;">الأخ</td><td> — </td></tr>
+      <tr style="background-color: #e8f5e9;"><td style="text-align: center;">٤</td><td style="font-weight: bold;">العمة</td><td style="font-weight: bold;">العم</td><td>أخت كل ذكر ولدك</td></tr>
+      <tr style="background-color: #e8f5e9;"><td style="text-align: center;">٥</td><td style="font-weight: bold;">الخالة</td><td style="font-weight: bold;">الخال</td><td>أخت كل أنثى ولدتك</td></tr>
+      <tr style="background-color: #e8f5e9;"><td style="text-align: center;">٦</td><td style="font-weight: bold;">بنت الأخ</td><td style="font-weight: bold;">ابن الأخ</td><td> — </td></tr>
+      <tr style="background-color: #e8f5e9;"><td style="text-align: center;">٧</td><td style="font-weight: bold;">بنت الأخت</td><td style="font-weight: bold;">ابن الأخت</td><td> — </td></tr>
+      <tr style="background-color: #d1ecf1;"><td style="font-weight: bold;" rowspan="7">بالرضاع</td><td style="text-align: center;">٨</td><td style="font-weight: bold;">الأم من الرضاع</td><td style="font-weight: bold;">الأب من الرضاع</td><td> — </td></tr>
+      <tr style="background-color: #d1ecf1;"><td style="text-align: center;">٩</td><td style="font-weight: bold;">البنت من الرضاع</td><td style="font-weight: bold;">الابن من الرضاع</td><td> — </td></tr>
+      <tr style="background-color: #d1ecf1;"><td style="text-align: center;">١٠</td><td style="font-weight: bold;">الأخت من الرضاع</td><td style="font-weight: bold;">الأخ من الرضاع</td><td> — </td></tr>
+      <tr style="background-color: #d1ecf1;"><td style="text-align: center;">١١</td><td style="font-weight: bold;">العمة من الرضاع</td><td style="font-weight: bold;">العم من الرضاع</td><td> — </td></tr>
+      <tr style="background-color: #d1ecf1;"><td style="text-align: center;">١٢</td><td style="font-weight: bold;">الخالة من الرضاع</td><td style="font-weight: bold;">الخال من الرضاع</td><td> — </td></tr>
+      <tr style="background-color: #d1ecf1;"><td style="text-align: center;">١٣</td><td style="font-weight: bold;">بنت الأخ من الرضاع</td><td style="font-weight: bold;">ابن الأخ من الرضاع</td><td> — </td></tr>
+      <tr style="background-color: #d1ecf1;"><td style="text-align: center;">١٤</td><td style="font-weight: bold;">بنت الأخت من الرضاع</td><td style="font-weight: bold;">ابن الأخت من الرضاع</td><td> — </td></tr>
+      <tr style="background-color: #fdf6e3;"><td style="font-weight: bold;" rowspan="4">بالمصاهرة</td><td style="text-align: center;">١٥</td><td style="font-weight: bold;">أم الزوجة</td><td style="font-weight: bold;">أب الزوج</td><td> — </td></tr>
+      <tr style="background-color: #fdf6e3;"><td style="text-align: center;">١٦</td><td style="font-weight: bold;">بنت الزوجة (ربيبة)</td><td style="font-weight: bold;">ابن الزوج</td><td> — </td></tr>
+      <tr style="background-color: #fdf6e3;"><td style="text-align: center;">١٧</td><td style="font-weight: bold;">زوجة الأب</td><td style="font-weight: bold;">زوجة الابن</td><td> — </td></tr>
+      <tr style="background-color: #fdf6e3;"><td style="text-align: center;">١٨</td><td style="font-weight: bold;">زوجة الابن</td><td style="font-weight: bold;">زوجة الأب</td><td> — </td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 5 -->
+<h2><span class="section-num">٥</span> اشتباه المحرم بأجنبيات</h2>
+
+<p>قال المصنف: "ولو اشتبهت محرمه بأجنبيات محصورات فلمس واحدة منهن لم ينتقض". أي لو علم أن في هذا البيت أختاً له من الرضاع لكن لا يدري من هي، فاشتبهت محرمه بنساء محصورات فلمس واحدة منهن — لا ينتقض الوضوء لمظنة أنها محرمه التي لمسها.</p>
+
+<div class="callout callout-ruling">
+  <div class="callout-title">ضابط المحصورات وغير المحصورات</div>
+  <div class="callout-body">
+    <b>المحصورات:</b> ما يسهل عدهن بالنظر — كأن ينظر فيقول تقريباً ثلاثون أو خمسون شخصاً.<br>
+    <b>غير المحصورات:</b> ما لا يسهل عدهن كألف مثلاً.
+  </div>
+</div>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 35%;">الحالة</th>
+        <th style="width: 20%;">حكم النقض</th>
+        <th style="width: 45%;">البيان</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #e8f5e9;">
+        <td style="font-weight: bold;">اشتبهت محرمه بأجنبيات محصورات</td>
+        <td style="color: #28a745; font-weight: bold;">لا ينتقض</td>
+        <td>لمظنة أنها محرمه</td>
+      </tr>
+      <tr style="background-color: #fff3cd;">
+        <td style="font-weight: bold;">اشتبهت محرمه بأجنبيات غير محصورات</td>
+        <td style="color: #856404; font-weight: bold;">لا ينتقض (على الأوجه)</td>
+        <td>كذلك لا ينتقض على الأوجه حتى ولو كن غير محصورات كألف</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 6 -->
+<h2><span class="section-num">٦</span> قاعدة: اليقين لا يزول بالشك ولا بالظن</h2>
+
+<p>قال المصنف: "ولا يرتفع يقين وضوء أو حدث بظن ضده، ولا بالشك فيه — المفهوم بالأولى". أي لا بظن ولا بشك. فلو تيقن الطهر وشك في الحدث فالأصل بقاء الطهر. ولو تيقن الحدث وشك في الطهر فالأصل بقاء الحدث. بل ولو ظنّ ضده — فاليقين لا يرتفع بالظن من باب أولى.</p>
+
+<div class="formula-box">
+  <div class="formula-text">اليقين لا يزول بالشك</div>
+  <div class="formula-note">وهي إحدى القواعد الخمس الكبرى</div>
+</div>
+
+<div class="poetry-box">
+  <div class="poetry">
+    بالقواعد الأمورُ والضرر يُزالُ والتحكيمُ للعادةِ قرّ<br>
+    مشقةٌ تجلبُ تيسيراً ولا يزولُ بالشكِّ يقينٌ قد علا
+  </div>
+  <div style="font-size: 10pt; color: #4a4a5e; margin-top: 4px;">القواعد الخمس الكبرى</div>
+</div>
+
+<!-- 7 -->
+<h2><span class="section-num">٧</span> خاتمة: ما يحرم بالحدث — الصلاة والطواف والسجود</h2>
+
+<p>قال المصنف: "خاتمة فيما يحرم بالحدث". أراد بالحدث هنا الحدث الأصغر والأكبر. سيذكر ما يحرم بالحدث الأصغر وما يحرم بالحدث الأكبر أيضاً.</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 25%;">ما يحرم بالحدث</th>
+        <th style="width: 20%;">يشمل</th>
+        <th style="width: 15%;">البالغ</th>
+        <th style="width: 15%;">الصبي</th>
+        <th style="width: 25%;">البيان</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">الصلاة</td>
+        <td>فرض، نفل، جنازة</td>
+        <td style="color: #c0392b; font-weight: bold;">يحرم</td>
+        <td style="color: #c0392b; font-weight: bold;">يحرم تمكينه</td>
+        <td>يحرم على المحدث أن يصلي أي صلاة</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">الطواف</td>
+        <td>مستحب (قدوم)، ركن (إفاضة)، واجب (وداع)</td>
+        <td style="color: #c0392b; font-weight: bold;">يحرم</td>
+        <td style="color: #c0392b; font-weight: bold;">يحرم تمكينه</td>
+        <td>كل أنواع الطواف يحرم على المحدث</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">السجود</td>
+        <td>سجود التلاوة وسجود الشكر</td>
+        <td style="color: #c0392b; font-weight: bold;">يحرم</td>
+        <td style="color: #c0392b; font-weight: bold;">يحرم تمكينه</td>
+        <td>أعطى الفقهاء سجود التلاوة والشكر أحكام الصلاة</td>
+      </tr>
+      <tr style="background-color: #fdf6e3;">
+        <td style="font-weight: bold;">خطبة الجمعة</td>
+        <td>شرط الطهارة من الحدثين</td>
+        <td style="color: #856404; font-weight: bold;">يحرم</td>
+        <td> — </td>
+        <td>لا تصح خطبة الجمعة من محدث — لم يذكرها المصنف هنا</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 8 -->
+<h2><span class="section-num">٨</span> حمل المصحف ومسه — الدليل</h2>
+
+<p>قال المصنف: "وحمل مصحف". يحرم على المحدث حمل المصحف ومسه. ودليل تحريم المس قوله تعالى: {لا يمسه إلا المطهرون} — والضمير يعود على القرآن الكريم، والمطهرون هم المتطهرون من الحدث. والآية خبر بمعنى النهي.</p>
+
+<div class="callout callout-ruling">
+  <div class="callout-title">لماذا قدّم الحمل على المس؟</div>
+  <div class="callout-body">
+    محل النص هو المس لقوله تعالى {لا يمسه إلا المطهرون}، لكن المصنف قدّم الحمل لأنه أبلغ من المس — فإذا كان المس حراماً فالحمل من باب أولى. ولما كان الحمل من باب أولى استحق أن يُقدم. وهذا طريقة الإمام النووي رحمه الله.
+  </div>
+</div>
+
+<div class="classification-group">
+  <div class="box-red">
+    <div class="box-title">ما يحرم حمله ومسه على المحدث البالغ</div>
+    <div class="box-content">
+      <b>١. المصحف:</b> يحرم حمله ومسه على المحدث البالغ.<br>
+      <b>٢. ما كُتب لدرس قرآن:</b> ولو كان لوحاً — يحرم مسه وحمله.
+    </div>
+  </div>
+  <div class="box-green">
+    <div class="box-title">ما لا يحرم مسه وحمله على المحدث</div>
+    <div class="box-content">
+      <b>١. ما كُتب للتبرك:</b> كالآيات المكتوبة على الأبواب — لا يحرم مسه مطلقاً.<br>
+      <b>٢. ما كُتب للتميمة:</b> لا يحرم مسه.<br>
+      <b>٣. ما كُتب على النقد:</b> كالدنانير الأحدية — لا يحرم مسه.
+    </div>
+  </div>
+</div>
+
+<div class="callout callout-warning">
+  <div class="callout-title">ما كُتب على الأبواب وفي المساجد</div>
+  <div class="callout-body">
+    العادة في كثير من البلاد أن يكتبوا على باب البيت آية قرآنية مثل "هذا من فضل ربي" أو "ادخلوها بسلام آمنين" — هل يحرم مسه على المحدث؟ لا يحرم لأن هذا لم يُكتب للدراسة بل للتبرك. وكذلك الآيات القرآنية المكتوبة على جدار المسجد أو العمود — لا يحرم مسها لأنها كُتبت للتبرك لا للدراسة.
+  </div>
+</div>
+
+<!-- 9 -->
+<h2><span class="section-num">٩</span> ما كُتب لدرس قرآن وما كُتب للتبرك</h2>
+
+<p>قال المصنف: "وما كُتب لدرس قرآن ولو بعض آية كلوح". قوله "ولو بعض آية" يشمل ولو كان حرفاً — لكن هذا مقيّد بأن يكون الباقي جملة مفيدة. فإذا كان الباقي حرفاً أو حرفين لا تكون جملة مفيدة فلا يحرم مسه.</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 30%;">ما كُتب</th>
+        <th style="width: 20%;">القصد</th>
+        <th style="width: 20%;">حكم المس</th>
+        <th style="width: 30%;">البيان</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">المصحف</td>
+        <td> — </td>
+        <td style="color: #c0392b; font-weight: bold;">يحرم مسه وحمله</td>
+        <td>على البالغ المحدث</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">ما كُتب لدرس قرآن (كلوح)</td>
+        <td>الدراسة</td>
+        <td style="color: #c0392b; font-weight: bold;">يحرم مسه وحمله</td>
+        <td>ولو بقي بعض آية إذا كان جملة مفيدة</td>
+      </tr>
+      <tr style="background-color: #e8f5e9;">
+        <td style="font-weight: bold;">ما كُتب للتبرك</td>
+        <td>التبرك</td>
+        <td style="color: #28a745; font-weight: bold;">لا يحرم مطلقاً</td>
+        <td>كالآيات على الأبواب والجدران</td>
+      </tr>
+      <tr style="background-color: #e8f5e9;">
+        <td style="font-weight: bold;">ما كُتب للتميمة</td>
+        <td>التميمة</td>
+        <td style="color: #28a745; font-weight: bold;">لا يحرم مطلقاً</td>
+        <td> — </td>
+      </tr>
+      <tr style="background-color: #e8f5e9;">
+        <td style="font-weight: bold;">ما كُتب على النقد</td>
+        <td>التبرك</td>
+        <td style="color: #28a745; font-weight: bold;">لا يحرم مطلقاً</td>
+        <td>كالدنانير الأحدية (مكتوب عليها قل هو الله أحد)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 10 -->
+<h2><span class="section-num">١٠</span> العبرة بقصد الكتابة لا بما بعدها</h2>
+
+<p>قال المصنف: "والعبرة في قصد الدراسة والتبرك بحال الكتابة دون ما بعدها". أي لو كتب آيات بقصد الدراسة ثم غيّر النية إلى التبرك — يبقى الحكم تحريم المس. ولو كتب بقصد التبرك ثم غيّر إلى الدراسة — يبقى الحكم جواز المس. فالعبرة بقصد الكاتب حال الكتابة لا بما بعدها.</p>
+
+<div class="callout callout-ruling">
+  <div class="callout-title">العبرة بقصد من؟</div>
+  <div class="callout-body">
+    <b>إذا كتب لنفسه أو لغيره متبرعاً:</b> فالعبرة بقصد الكاتب نفسه.<br>
+    <b>إذا كتب لغيره بأجرة (استُأجر):</b> فالعبرة بقصد الآمر الذي استأجره — فهل أراد الدراسة أم التبرك؟<br><br>
+    قال المصنف: "وبالكاتب لنفسه، أو لغيره تبرعاً، وإن لا فآمره" — أي وإن لم يكن يكتب لنفسه ولا لغيره تبرعاً فالعبرة بقصد من أمره.
+  </div>
+</div>
+
+<div class="diagram-container">
+  <div style="text-align: center; margin-bottom: 8px;">
+    <div class="diagram-node node-main" style="display: inline-block; padding: 6px 16px;">من يُعتبر قصده؟</div>
+  </div>
+  <div class="diagram-branch">
+    <div class="diagram-node node-result" style="flex: 1;">
+      <div style="font-weight: bold; color: #1a5632; margin-bottom: 4px;">الكاتب يكتب لنفسه</div>
+      <div style="color: #333;">العبرة بقصد الكاتب</div>
+    </div>
+    <div class="diagram-node node-result" style="flex: 1;">
+      <div style="font-weight: bold; color: #1a5632; margin-bottom: 4px;">الكاتب يكتب لغيره متبرعاً</div>
+      <div style="color: #333;">العبرة بقصد الكاتب</div>
+    </div>
+    <div class="diagram-node node-branch" style="flex: 1;">
+      <div style="font-weight: bold; color: #856404; margin-bottom: 4px;">الكاتب يكتب بأجرة</div>
+      <div style="color: #333;">العبرة بقصد الآمر الذي استأجره</div>
+    </div>
+  </div>
+</div>
+
+<!-- 11 -->
+<h2><span class="section-num">١١</span> حمل المصحف مع متاع — أربع حالات</h2>
+
+<p>لو حمل المصحف مع متاع آخر (كتاب، هاتف، مجلة...) فأربع حالات:</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 8%;">الحالة</th>
+        <th style="width: 30%;">القصد</th>
+        <th style="width: 18%;">قول المصنف</th>
+        <th style="width: 22%;">معتمد ابن حجر</th>
+        <th style="width: 22%;">قول ثالث</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold; text-align: center;">١</td>
+        <td>قصد المصحف والمتاع معاً</td>
+        <td style="color: #c0392b; font-weight: bold;">حرام</td>
+        <td style="color: #c0392b; font-weight: bold;">حرام</td>
+        <td style="color: #28a745;">جائز</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold; text-align: center;">٢</td>
+        <td>قصد المصحف فقط</td>
+        <td style="color: #c0392b; font-weight: bold;">حرام</td>
+        <td style="color: #c0392b; font-weight: bold;">حرام</td>
+        <td style="color: #c0392b; font-weight: bold;">حرام</td>
+      </tr>
+      <tr style="background-color: #e8f5e9;">
+        <td style="font-weight: bold; text-align: center;">٣</td>
+        <td>قصد المتاع فقط (المصحف غير مقصود)</td>
+        <td style="color: #28a745; font-weight: bold;">جائز</td>
+        <td style="color: #28a745; font-weight: bold;">جائز</td>
+        <td style="color: #28a745; font-weight: bold;">جائز</td>
+      </tr>
+      <tr style="background-color: #fff3cd;">
+        <td style="font-weight: bold; text-align: center;">٤</td>
+        <td>أطلق ولم يقصد شيئاً</td>
+        <td style="color: #28a745; font-weight: bold;">جائز</td>
+        <td style="color: #c0392b; font-weight: bold;">حرام</td>
+        <td style="color: #28a745; font-weight: bold;">جائز</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout callout-important">
+  <div class="callout-title">الخلاف في الحالة الرابعة (الإطلاق)</div>
+  <div class="callout-body">
+    <b>ظاهر عبارة المصنف:</b> جائز — لأن المصحف غير مقصود.<br>
+    <b>معتمد ابن حجر (والمليباري):</b> حرام — لأنه لم يقصد المتاع فقط فيكون المصحف مقصوداً.<br>
+    <b>قول ثالث:</b> جائز — لا يحرم إلا إذا قصد المصحف فقط.<br><br>
+    والخلاف بين المصنف وابن حجر فيما لو قصد المصحف والمتاع وفي حالة الإطلاق.
+  </div>
+</div>
+
+<div class="callout callout-info">
+  <div class="callout-title">لا يشترط أن يكون المتاع كبيراً</div>
+  <div class="callout-body">
+    يكفي متاع واحد ولو كان صغيراً كإبرة — فالإطلاق في عبارات فقهاء الشافعية يفيد أي متاع ولو كان صغيراً. وعبّر بعضهم فقال: "ولو كان كإبرة".
+  </div>
+</div>
+
+<!-- 12 -->
+<h2><span class="section-num">١٢</span> مس ورق المصحف والبياض والظرف</h2>
+
+<p>قال المصنف: "ومس ورقه ولو البياض، أو نحو ظرف أُعدّ له وهو فيه". يحرم على المحدث مس أوراق المصحف ولو البياض الذي في جوانب الورقة أو بين الأسطر.</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 30%;">المسألة</th>
+        <th style="width: 20%;">الحكم</th>
+        <th style="width: 50%;">البيان</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">مس ورق المصحف</td>
+        <td style="color: #c0392b; font-weight: bold;">يحرم</td>
+        <td> — </td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">مس البياض (جوانب الورقة وبين الأسطر)</td>
+        <td style="color: #c0392b; font-weight: bold;">يحرم</td>
+        <td>البياض جزء من ورق المصحف</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">مس الظرف (الصندوق) الذي أُعدّ للمصحف وهو فيه</td>
+        <td style="color: #c0392b; font-weight: bold;">يحرم</td>
+        <td>بشرطين: أن يكون أُعدّ للمصحف، وأن يكون المصحف فيه</td>
+      </tr>
+      <tr style="background-color: #e8f5e9;">
+        <td style="font-weight: bold;">مس الصندوق بلا مصحف فيه</td>
+        <td style="color: #28a745; font-weight: bold;">جائز</td>
+        <td> — </td>
+      </tr>
+      <tr style="background-color: #fff3cd;">
+        <td style="font-weight: bold;">مس مكان لم يُصنع للمصحف (كمكتبة) والمصحف فيه</td>
+        <td style="color: #856404; font-weight: bold;">يحرم ما حاذى المصحف فقط</td>
+        <td>إن لم يُعدّ له يحرم مس ما حاذى المصحف فقط لا كل المكان — قاله العلامة باعشر</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 13 -->
+<h2><span class="section-num">١٣</span> جلد المصحف وكرسي المصحف</h2>
+
+<p>جلد المصحف (الغلاف) ما دام متصلاً بالمصحف يحرم مسه. فإن انفصل ننظر: إن انقطعت النسبة بأن استُعمل في شيء آخر فلا يحرم مسه. وإن لم تنقطع النسبة (لم يُستعمل في شيء آخر) فيحرم مسه.</p>
+
+<div class="callout callout-ruling">
+  <div class="callout-title">حكم كرسي المصحف</div>
+  <div class="callout-body">
+    كرسي المصحف الذي يوضع فيه المصحف في المسجد — هل يحرم مسه على المحدث؟<br><br>
+    <b>العلامة ابن حجر:</b> يحرم مسه — لأنه أُعدّ للمصحف فهو كالظرف.<br>
+    <b>العلامة الرملي:</b> يُعطى حكم المتاع في الحالات الأربعة — أي إن قصد المتاع فقط جاز مسه.
+  </div>
+</div>
+
+<!-- 14 -->
+<h2><span class="section-num">١٤</span> قلب ورقة المصحف بعود</h2>
+
+<p>قال المصنف: "لا قلب ورقه بعود إذا لم ينفصل عليه". أي يجوز للمحدث أن يقلب ورقة المصحف بعود أو قلم بشرط أن لا تنفصل الورقة على العود. فإن انفصلت الورقة على العود حرم لأنه يكون بمعنى الحمل.</p>
+
+<div class="compare-box">
+  <div class="compare-side" style="background: #1a5632;">
+    <h3>الورق المثبت (كالمصحف المجلد)</h3>
+    <p>يجوز قلبه بعود مطلقاً — لأنه لا يسمى حملاً ولا يشبه الحمل. وهذا هو المعتمد الذي قطع به الإمام النووي وجماهير أصحابنا العراقيين.</p>
+  </div>
+  <div class="compare-divider"></div>
+  <div class="compare-side" style="background: #8b1a1a;">
+    <h3>الورق غير المثبت (الأوراق المفصولة)</h3>
+    <p>إن لم تنفصل على العود: يجوز. وإن انفصلت على العود: يحرم — لأنه يكون بمعنى الحمل إذ تُحمل الورقة.</p>
+  </div>
+</div>
+
+<!-- 15 -->
+<h2><span class="section-num">١٥</span> قرآن مع تفسير زاد</h2>
+
+<p>قال المصنف: "ولا مع تفسير زاد ولو احتمالاً". أي لا يحرم مس قرآن مع تفسير زاد — أي إذا كان التفسير أكثر من القرآن يقيناً أو احتمالاً.</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 30%;">نسبة التفسير للقرآن</th>
+        <th style="width: 20%;">الحكم</th>
+        <th style="width: 50%;">البيان</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #e8f5e9;">
+        <td style="font-weight: bold;">التفسير أكثر من القرآن يقيناً</td>
+        <td style="color: #28a745; font-weight: bold;">يجوز مسه</td>
+        <td>لأن التفسير غلب على القرآن</td>
+      </tr>
+      <tr style="background-color: #e8f5e9;">
+        <td style="font-weight: bold;">التفسير أكثر من القرآن احتمالاً</td>
+        <td style="color: #28a745; font-weight: bold;">يجوز مسه</td>
+        <td>لأن الاحتمال كافٍ</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">التفسير مساوٍ للقرآن</td>
+        <td style="color: #c0392b; font-weight: bold;">يحرم مسه</td>
+        <td>لم يزد التفسير على القرآن</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">التفسير أقل من القرآن</td>
+        <td style="color: #c0392b; font-weight: bold;">يحرم مسه</td>
+        <td>كشرح غريب الألفاظ فقط</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout callout-warning">
+  <div class="callout-title">تفسير الجلالين — صورتان</div>
+  <div class="callout-body">
+    <b>الصورة القديمة:</b> الآية ثم التفسير تحتها مباشرة كالمتن والشرح — هنا إذا كان التفسير أكثر يجوز مسه للمحدث.<br><br>
+    <b>الصورة الحديثة:</b> المصحف في الوسط والتفسير في الهوامش — اختلف فيها الفقهاء:<br>
+    • <b>ابن حجر:</b> لا يجوز مسه للمحدث ولو كان التفسير أكثر — لأنه في العرف يسمى "مصحفاً".<br>
+    • <b>الرملي:</b> يجوز مسه — وهذا تيسير لأن غالب الطلاب اليوم يحملون هذا النوع. ولو أخذنا بقول ابن حجر لشقّ على الطلاب.
+  </div>
+</div>
+
+<!-- 16 -->
+<h2><span class="section-num">١٦</span> حكم الصبي المميز وغير المميز مع المصحف</h2>
+
+<p>حمل المصحف ومسه يحرم على البالغ المحدث فقط. أما غير البالغ ففيه تفصيل:</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 20%;">الصبي</th>
+        <th style="width: 20%;">الشروط</th>
+        <th style="width: 20%;">الحكم</th>
+        <th style="width: 40%;">البيان</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">غير المميز</td>
+        <td> — </td>
+        <td style="color: #c0392b; font-weight: bold;">يحرم تمكينه</td>
+        <td>يحرم على وليه تمكينه من حمل المصحف أو مسه خوفاً من امتهانه. لكن لو كان أبوه بجانبه يأمن من الامتهان فجائز.</td>
+      </tr>
+      <tr style="background-color: #e8f5e9;">
+        <td style="font-weight: bold;">المميز</td>
+        <td>أن يكون محدثاً + أن يحمله للدراسة</td>
+        <td style="color: #28a745; font-weight: bold;">يجوز</td>
+        <td>لأنه يشق على المميز الاستمرار على الطهارة. ويجوز ولو كان جنباً — ولو كان الصبي جنباً ممكن أن يكون متزوجاً ولم يبلغ.</td>
+      </tr>
+      <tr style="background-color: #f8d7da;">
+        <td style="font-weight: bold;">المميز</td>
+        <td>أن يحمله لغير الدراسة (كالنقل)</td>
+        <td style="color: #c0392b; font-weight: bold;">يحرم</td>
+        <td>إنما يجوز له حمل المصحف إذا كان لغرض الدراسة فقط.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout callout-success">
+  <div class="callout-title">وسيلة الدراسة والإتيان به للمعلم</div>
+  <div class="callout-body">
+    يجوز للمميز المحدث أيضاً:<br>
+    <b>وسيلة الدراسة:</b> كحمله للمصحف معه إلى مكان الدراسة أو الفصل أو الكتّاب.<br>
+    <b>الإتيان به للمعلم:</b> أي إحضار المصحف للمعلم ليعلّمه منه.
+  </div>
+</div>
+
+</body>
+</html>

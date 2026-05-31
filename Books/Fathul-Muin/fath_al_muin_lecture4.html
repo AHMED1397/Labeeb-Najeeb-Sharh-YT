@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>شرح فتح المعين - الدرس الرابع - باب الصلاة</title>
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf') format('truetype'); }
+@font-face { font-family: 'Amiri-Bold'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf') format('truetype'); }
+@font-face { font-family: 'NotoNaskhArabic'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf') format('truetype'); }
+
+@page {
+  size: A4;
+  margin: 12mm 14mm;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; max-width: 100%; }
+html, body { overflow-x: hidden; width: 100%; }
+
+body {
+  font-family: 'NotoNaskhArabic', 'Amiri', serif, sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #1a1a1a;
+  direction: rtl;
+  text-align: justify;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+h1 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 18pt; color: #1a5632; margin: 10px 0 6px; }
+h2 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 15pt; color: #1a5632; margin: 8px 0 5px; border-bottom: 2px solid #c8a951; padding-bottom: 3px; }
+h3 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 12pt; color: #2c5f7c; margin: 6px 0 4px; }
+h4 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 11pt; color: #1a5632; margin: 4px 0 3px; }
+
+p { margin: 3px 0; text-align: justify; }
+
+/* Compact cover header */
+.cover-header {
+  background: #1a5632;
+  color: white;
+  padding: 18px 20px;
+  margin: 0 0 10px 0;
+  text-align: center;
+  background-image:
+    repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px),
+    repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px);
+  border-bottom: 3px double #c8a951;
+}
+
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 4px; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.92; }
+.cover-header .meta { font-size: 11pt; opacity: 0.8; margin-top: 3px; }
+
+/* TOC */
+.toc { margin: 6px 0 8px; }
+.toc a { text-decoration: none; color: #1a5632; }
+.toc ul { list-style: none; padding: 0; }
+.toc li { padding: 2px 0; font-size: 12px; border-bottom: 1px dotted #ddd; }
+.toc li.sub { padding-right: 18px; font-size: 11px; }
+
+/* Tables */
+table { width: 100%; border-collapse: collapse; font-size: 11pt; margin: 6px 0; table-layout: fixed; }
+th { background: #1a5632; color: white; padding: 5px 8px; border: 1px solid #ddd; text-align: right; font-weight: bold; overflow-wrap: break-word; }
+td { padding: 4px 8px; border: 1px solid #ddd; text-align: right; overflow-wrap: break-word; }
+tr:nth-child(even) { background: #f8f9fa; }
+
+/* Callout boxes */
+.callout { padding: 8px 12px; margin: 6px 0; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.7; page-break-inside: avoid; }
+.callout-title { font-weight: bold; margin-bottom: 2px; font-size: 12pt; }
+.callout-warn { background: #fff3cd; border-right: 4px solid #c8a951; }
+.callout-warn .callout-title { color: #856404; }
+.callout-info { background: #e8f4f8; border-right: 4px solid #2c5f7c; }
+.callout-info .callout-title { color: #1a3a5c; }
+.callout-danger { background: #f8d7da; border-right: 4px solid #c0392b; }
+.callout-danger .callout-title { color: #c0392b; }
+.callout-success { background: #d4edda; border-right: 4px solid #28a745; }
+.callout-success .callout-title { color: #155724; }
+
+/* Diagram containers */
+.diagram { display: flex; flex-direction: column; align-items: center; margin: 8px 0; page-break-inside: avoid; max-width: 100%; overflow: hidden; }
+.diagram-h { display: flex; align-items: center; justify-content: center; gap: 0; margin: 6px 0; flex-wrap: wrap; max-width: 100%; }
+.node { padding: 7px 14px; border-radius: 6px; text-align: center; font-size: 11pt; font-weight: bold; max-width: 160px; overflow-wrap: break-word; }
+.node-sm { padding: 5px 10px; border-radius: 5px; text-align: center; font-size: 10pt; max-width: 140px; overflow-wrap: break-word; }
+.node-root { background: #1a5632; color: white; }
+.node-l1 { background: #2c5f7c; color: white; }
+.node-l2 { background: #c8a951; color: white; }
+.node-accent { background: #8b5e3c; color: white; }
+.node-green { background: #28a745; color: white; }
+.node-red { background: #dc3545; color: white; }
+.node-blue { background: #17a2b8; color: white; }
+.node-gray { background: #6c757d; color: white; }
+.conn-v { width: 2px; height: 10px; background: #1a5632; }
+.conn-h { color: #c8a951; font-size: 16pt; margin: 0 4px; }
+
+/* Card grid */
+.card-grid { display: grid; gap: 8px; margin: 8px 0; max-width: 100%; }
+.card { padding: 10px; border-radius: 8px; text-align: center; color: white; page-break-inside: avoid; overflow-wrap: break-word; }
+.card .num { font-size: 22px; font-weight: bold; margin-bottom: 2px; }
+.card .label { font-size: 12pt; font-weight: bold; }
+.card .desc { font-size: 10pt; margin-top: 3px; opacity: 0.9; }
+
+/* Comparison box */
+.compare-box { display: flex; gap: 0; margin: 8px 0; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.1); page-break-inside: avoid; max-width: 100%; }
+.compare-side { flex: 1; padding: 8px 10px; overflow-wrap: break-word; min-width: 0; }
+.compare-side h4 { margin: 0 0 4px; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 3px; font-size: 12pt; }
+.compare-side p { font-size: 12px; line-height: 1.6; }
+.compare-divider { width: 3px; background: #c8a951; }
+
+/* Section divider */
+.section-divider { height: 1px; background: linear-gradient(to left, transparent, #c8a951, transparent); margin: 8px 0; }
+
+/* Hadith quote */
+.hadith { background: #f5f0e1; border-right: 4px solid #c8a951; padding: 8px 12px; margin: 6px 0; border-radius: 0 6px 6px 0; font-style: italic; }
+.hadith-ref { font-size: 10pt; color: #856404; margin-top: 2px; font-style: normal; }
+
+/* Verse quote */
+.verse { text-align: center; font-family: 'Amiri', serif; font-size: 15pt; color: #1a5632; margin: 6px 0; padding: 6px; border: 1px solid #c8a951; border-radius: 8px; background: #faf8f0; }
+
+/* Flow steps vertical */
+.flow-v { display: flex; flex-direction: column; align-items: center; margin: 8px 0; page-break-inside: avoid; max-width: 100%; }
+.flow-step { background: #1a5632; color: white; padding: 7px 14px; border-radius: 6px; text-align: center; width: 100%; max-width: 280px; overflow-wrap: break-word; }
+.flow-step p { text-align: center; margin: 0; font-size: 12px; }
+.flow-step .step-title { font-weight: bold; font-size: 12pt; }
+.flow-arrow { color: #c8a951; font-size: 16pt; margin: 1px 0; }
+
+/* Print optimization */
+@media print {
+  body { font-size: 14px; line-height: 1.7; }
+  .cover-header { margin: 0 0 10px 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- COMPACT COVER HEADER -->
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس الرابع — باب الصلاة</div>
+  <div class="meta">فضيلة الشيخ لبيب نجيب حفظه الله</div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+<h2>فهرس المحتويات</h2>
+<ul>
+  <li><a href="#s1">أولاً: فوائت الصلاة — تقسيمها إلى بعذر وبغير عذر</a></li>
+  <li class="sub"><a href="#s1-1">النوم كعذر — تفصيله</a></li>
+  <li class="sub"><a href="#s1-2">النسيان كعذر — تفصيله</a></li>
+  <li><a href="#s2">ثانياً: حكم قضاء الفوائت — الفورية والتراخي</a></li>
+  <li class="sub"><a href="#s2-1">دليل التراخي — حديث غزوة تبوك</a></li>
+  <li><a href="#s3">ثالثاً: الترتيب في قضاء الفوائت</a></li>
+  <li class="sub"><a href="#s3-1">تقديم الفائت على الحاضرة</a></li>
+  <li class="sub"><a href="#s3-2">خشية فوت الجماعة</a></li>
+  <li class="sub"><a href="#s3-3">الخيارات الثلاثة عند تعارض الترتيب والجماعة</a></li>
+  <li class="sub"><a href="#s3-4">من فاته صلوات بعذر وبدون عذر</a></li>
+  <li class="sub"><a href="#s3-5">خشية فوت الحاضرة</a></li>
+  <li><a href="#s4">رابعاً: الرواتب وقضاء النوافل</a></li>
+  <li class="sub"><a href="#s4-1">ترتيب الرواتب مع الفوائت</a></li>
+  <li class="sub"><a href="#s4-2">النوافل المؤقتة والنوافل ذات السبب</a></li>
+  <li><a href="#s5">خامساً: من مات وعليه صلاة فرض</a></li>
+  <li><a href="#s6">سادساً: أمر الصبي بالصلاة</a></li>
+  <li class="sub"><a href="#s6-1">شروط الأمر بالصلاة</a></li>
+  <li class="sub"><a href="#s6-2">تعريف التمييز</a></li>
+  <li class="sub"><a href="#s6-3">حكم التهديد والضرب</a></li>
+  <li class="sub"><a href="#s6-4">الخلاف في ضرب العاشرة</a></li>
+</ul>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ====================== SECTION 1 ====================== -->
+<h2 id="s1">أولاً: فوائت الصلاة — تقسيمها إلى بعذر وبغير عذر</h2>
+
+<p>يقول العلامة المليباري رحمه الله تعالى في كتابه فتح المعين: "ويقضى به ويقضى به نافئاً في فائت كنوم لم يتعدَّ وانسيان كذا". ويتناول هذا الدرس أحكام فوائت الصلاة بالتفصيل، فيبيّن متى يكون فوت الصلاة بعذر ومتى يكون بغير عذر، وما يترتب على كلٍّ من حكم القضاء والفورية والترتيب.</p>
+
+<p>فوائت الصلاة تنقسم إلى قسمين:</p>
+
+<!-- CLASSIFICATION DIAGRAM: فوائت الصلاة -->
+<div class="diagram">
+  <div class="node node-root">فوائت الصلاة</div>
+  <div class="conn-v"></div>
+  <div class="conn-v"></div>
+  <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
+    <div class="node node-l1">فاتت بعذر</div>
+    <div class="node node-l2">فاتت بغير عذر</div>
+  </div>
+</div>
+
+<p>فالصلاة إما أن تفوت بعذر وإما أن تفوت بغير عذر. والأعذار هي النوم والنسيان، لكن النوم والنسيان ليسا عذراً مطلقاً، بل فيهما تفصيل.</p>
+
+<!-- ==================== 1-1 النوم ==================== -->
+<h3 id="s1-1">النوم كعذر — تفصيله</h3>
+
+<p>النوم لا يكون عذراً لأي شيء بإطلاق، وإنما يكون عذراً على تقسيمه:</p>
+
+<!-- CLASSIFICATION DIAGRAM: النوم -->
+<div class="diagram">
+  <div class="node node-root">النوم</div>
+  <div class="conn-v"></div>
+  <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
+    <div style="display:flex; flex-direction:column; align-items:center;">
+      <div class="node node-green">قبل دخول الوقت</div>
+      <div class="conn-v"></div>
+      <div class="node-sm node-green" style="background:#d4edda; color:#155724;">عذر ✓</div>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:center;">
+      <div class="node node-l1">بعد دخول الوقت</div>
+      <div class="conn-v"></div>
+      <div style="display:flex; gap:6px; flex-wrap:wrap; justify-content:center;">
+        <div style="display:flex; flex-direction:column; align-items:center;">
+          <div class="node-sm node-l1" style="font-size:9pt;">يظن الاستيقاظ قبل ضيق الوقت</div>
+          <div class="conn-v"></div>
+          <div class="node-sm node-green" style="background:#d4edda; color:#155724;">عذر ✓</div>
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center;">
+          <div class="node-sm node-l2" style="font-size:9pt;">لا يظن الاستيقاظ</div>
+          <div class="conn-v"></div>
+          <div class="node-sm node-red" style="background:#f8d7da; color:#721c24;">ليس عذراً ✗</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>فإذا كان النوم قبل دخول وقت الصلاة فهذا يعتبر عذراً واضحاً. وأما إذا نام بعد دخول الوقت ففيه تفصيل: إن غلط على ظنّه أنه يستيقظ قبل أن يضيق الوقت فهذا يعتبر عذراً، وأما إذا نام وهو لا يملك الاستيقاظ قبل ضيق الوقت فليس بمعذور.</p>
+
+<!-- ==================== 1-2 النسيان ==================== -->
+<h3 id="s1-2">النسيان كعذر — تفصيله</h3>
+
+<p>النسيان أيضاً فيه تفصيل: إما أن ينشأ عن سبب منهي عنه أو عن سبب غير منهي عنه:</p>
+
+<!-- CLASSIFICATION DIAGRAM: النسيان -->
+<div class="diagram">
+  <div class="node node-root">النسيان</div>
+  <div class="conn-v"></div>
+  <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
+    <div style="display:flex; flex-direction:column; align-items:center;">
+      <div class="node node-red">نشأ عن سبب منهي</div>
+      <div class="conn-v"></div>
+      <div style="display:flex; gap:6px; flex-wrap:wrap; justify-content:center;">
+        <div class="node-sm" style="background:#fff3cd; color:#856404; font-size:9pt;">نهي كراهة<br>(كالشطرنج)</div>
+        <div class="node-sm" style="background:#f8d7da; color:#721c24; font-size:9pt;">نهي تحريم<br>(كالقمار)</div>
+      </div>
+      <div class="conn-v"></div>
+      <div class="node-sm node-red" style="background:#f8d7da; color:#721c24;">ليس عذراً ✗</div>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:center;">
+      <div class="node node-green">نشأ عن سبب غير منهي</div>
+      <div class="conn-v"></div>
+      <div style="display:flex; gap:6px; flex-wrap:wrap; justify-content:center;">
+        <div class="node-sm node-green" style="background:#d4edda; color:#155724; font-size:9pt;">مباح<br>(كالعمل)</div>
+        <div class="node-sm" style="background:#cce5ff; color:#004085; font-size:9pt;">مستحب</div>
+        <div class="node-sm" style="background:#d4edda; color:#155724; font-size:9pt;">واجب</div>
+      </div>
+      <div class="conn-v"></div>
+      <div class="node-sm node-green" style="background:#d4edda; color:#155724;">عذر ✓</div>
+    </div>
+  </div>
+</div>
+
+<p>فالنسيان إذا كان بسبب منهي عنه — سواء كان نهي كراهة كالشطرنج أو نهي تحريم كالميسر — فهذا ليس عذراً. وأما إذا كان بغير سبب منهي عنه، كاشتغاله بمباح أو مستحب أو واجب، فهذا يعتبر عذراً واضحاً.</p>
+
+<!-- COMPARISON TABLE: بعذر vs بغير عذر -->
+<h3>مقارنة شاملة: فوائت بعذر vs بغير عذر</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width:30%;">الحكم</th>
+      <th style="width:35%;">فاتت بعذر</th>
+      <th style="width:35%;">فاتت بغير عذر</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>القضاء</strong></td>
+      <td>يجب قضاؤها</td>
+      <td>يجب قضاؤها</td>
+    </tr>
+    <tr>
+      <td><strong>الفورية</strong></td>
+      <td>مستحبة (ندباً) — على التراخي</td>
+      <td>واجبة — فوراً</td>
+    </tr>
+    <tr>
+      <td><strong>الترتيب</strong></td>
+      <td>مستحب (ندباً)</td>
+      <td>واجب</td>
+    </tr>
+    <tr>
+      <td><strong>تقديم الفائت على الحاضرة</strong></td>
+      <td>يسن إن لم يخف فوتها</td>
+      <td>يجب تقديمه</td>
+    </tr>
+    <tr>
+      <td><strong>الرواتب</strong></td>
+      <td>يندب تأخير البعدية عن الفوائت</td>
+      <td>يجب تأخيرها عن الفوائت</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="section-divider"></div>
+
+<!-- ====================== SECTION 2 ====================== -->
+<h2 id="s2">ثانياً: حكم قضاء الفوائت — الفورية والتراخي</h2>
+
+<p>إذا فاتت الصلاة بعذر فإنه يجب قضاؤها، لقول النبي صلى الله عليه وآله وسلم: "من نام عن صلاة أو نسيها فليصلها إذا ذكرها". لكن يأتي السؤال: هل هذا القضاء يكون فوراً أم لا؟</p>
+
+<div class="callout callout-info">
+  <div class="callout-title">القاعدة</div>
+  إذا فاتت الصلاة بعذر يجب قضاؤها لكن لا فوراً — على التراخي. وإذا فاتت بغير عذر يجب قضاؤها فوراً.
+</div>
+
+<p>وقد فرّق الفقهاء بين الحالتين بأن من فاتته الصلاة بغير عذر فهو متعدٍ، ومن فاتته بعذر فهو غير متعدٍ بل معذور، فلما كان متعدياً ناسبه التغليظ فوجب عليه القضاء فوراً.</p>
+
+<!-- ==================== 2-1 دليل التراخي ==================== -->
+<h3 id="s2-1">دليل التراخي — حديث غزوة تبوك</h3>
+
+<p>يوجد في السنة النبوية ما يدل على أن القضاء لا يجب فوراً إذا فاتت الصلاة بعذر، ففي صحيح مسلم من حديث أبي قتادة رضي الله عنه أن النبي صلى الله عليه وسلم في غزوة تبوك عندما عادوا أمر بلالاً أن يرقب لهم الفجر، ونام القيس ونام بلال، فما استيقظ الناس إلا على حر الشمس، أي أن وقت الفجر قد خرج.</p>
+
+<!-- FLOW DIAGRAM: غزوة تبوك -->
+<div class="flow-v">
+  <div class="flow-step" style="background:#1a5632;">
+    <div class="step-title">أمر النبي بلالاً برقبة الفجر</div>
+    <p>في طريق العودة من غزوة تبوك</p>
+  </div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step" style="background:#8b5e3c;">
+    <div class="step-title">نام بلال والقيس</div>
+    <p>فما استيقظوا إلا على حر الشمس — خرج وقت الفجر</p>
+  </div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step" style="background:#2c5f7c;">
+    <div class="step-title">النبي لم يبادر بالقضاء فوراً</div>
+    <p>قال: "قوموا فلنخرج من هذا الوادي فإنه قد حضره الشيطان"</p>
+  </div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step" style="background:#1a5632;">
+    <div class="step-title">خرج الجيش من الوادي</div>
+    <p>وتخيل كم من الوقت يحتاج الجيش ليخرج!</p>
+  </div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step" style="background:#2c5f7c;">
+    <div class="step-title">أمر بلالاً فأذّن ثم أقام</div>
+    <p>صلى سنة الفجر أولاً ثم صلى الفجر</p>
+  </div>
+  <div class="flow-arrow">↓</div>
+  <div class="flow-step" style="background:#c8a951;">
+    <div class="step-title">النتيجة: يوجد تراخٍ</div>
+    <p>القضاء واجب لكنه ليس على الفورية — على التراخي</p>
+  </div>
+</div>
+
+<div class="callout callout-success">
+  <div class="callout-title">الاستنباط</div>
+  من هذه القصة نأخذ: القضاء واجب لكن ليس على الفورية، والنبي صلى الله عليه وسلم قدّم الراتبة القبلية على الفرض الفائت، فدلّ على أن الراتبة القبلية تقدم على الفوائت.
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ====================== SECTION 3 ====================== -->
+<h2 id="s3">ثالثاً: الترتيب في قضاء الفوائت</h2>
+
+<p>إذا كان الإنسان فاتته أكثر من صلاة، هل يرتب أو لا يرتب؟ بل حتى لو فاتته صلاة واحدة هل يرتب؟ مثاله: شخص فاتته صلاة الظهر وجاء إلى المسجد والناس في صلاة العصر — هل يصلي الظهر أولاً ثم العصر، أو يجوز له أن يصلي العصر ثم الظهر؟</p>
+
+<p>قال الفقهاء رحمهم الله: الترتيب فيما فات بعذر مستحب، والترتيب فيما فات بغير عذر واجب.</p>
+
+<p>قال المصنف رحمه الله: "ويبادر به ندباً إن فات بعذر كنوم لم يتعدَّ به ونسيان كذلك". فقوله "ندباً" يدل على أن المبادرة مستحبة لا واجبة، وقوله "كنوم لم يتعدَّ به" فيه إشارة إلى أن النوم منه ما يكون عذراً وهو الذي لم يتعدَّ به ومنه ما ليس عذراً وهو الذي تعدَّى به. وكذلك النسيان "كذلك" أي ونسيان لم يتعدَّ به.</p>
+
+<p>ثم قال: "ويسن ترتيبه أي الفائت فيقضي الصبح قبل الظهر وهكذا". ويسن تقديمه على حاضرة لا يخاف فوتها إن فات بعذر.</p>
+
+<p>وسبب استحباب الترتيب في المذهب الشافعي — مراعاة لخلاف من يرى وجوب الترتيب كفقهاء الحنفية والحنابلة — فعندهم أن الترتيب بين الصلوات شرط في صحتها.</p>
+
+<!-- ==================== 3-1 تقديم الفائت على الحاضرة ==================== -->
+<h3 id="s3-1">تقديم الفائت على الحاضرة</h3>
+
+<p>معنى تقديم الفائت على الحاضرة: أنه إذا فاتته صلاة الظهر بعذر واستيقظ في وقت العصر، يسن أن يقدم الظهر أولاً ثم يصلي العصر.</p>
+
+<!-- ==================== 3-2 خشية فوت الجماعة ==================== -->
+<h3 id="s3-2">خشية فوت الجماعة</h3>
+
+<p>قال المصنف: "وإن خشي فوت جماعتها على المعتمد" — أي قدم الظهر حتى وإن خشيت أن تفوت عليك جماعة العصر. فالمصنف يراعي الترتيب ولم يراعِ الجماعة.</p>
+
+<div class="callout callout-warn">
+  <div class="callout-title">لماذا يقدم الترتيب على الجماعة؟</div>
+  لأن الخلاف في الترتيب أشد: من يرى وجوب الترتيب يقول إن عدم الترتيب يبطل الصلاة (شرط صحة)، بينما من يرى وجوب الجماعة يقول إنها ليست شرطاً في صحة الصلاة. فمراعاة الخلاف الذي يؤثر على صحة الصلاة مقدم على مراعاة الخلاف الذي ليس شرطاً في الصحة.
+</div>
+
+<!-- ==================== 3-3 الخيارات الثلاثة ==================== -->
+<h3 id="s3-3">الخيارات الثلاثة عند تعارض الترتيب والجماعة</h3>
+
+<p>لو جاء شخص إلى المسجد والإمام يصلي العصر وكانت صلاة الظهر قد فاتته بعذر، فأمامه ثلاثة خيارات:</p>
+
+<div class="card-grid" style="grid-template-columns: repeat(3, 1fr);">
+  <div class="card" style="background: linear-gradient(135deg, #1a5632, #2c5f7c);">
+    <div class="num">١</div>
+    <div class="label">يصلي الظهر منفرداً</div>
+    <div class="desc">ثم إن أدرك شيئاً من جماعة العصر دخل معهم، وإلا صلى العصر منفرداً</div>
+    <div style="margin-top:4px; background:rgba(255,255,255,0.2); border-radius:4px; padding:3px; font-size:10pt;"><strong>الأفضل</strong></div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #2c5f7c, #1a3a5c);">
+    <div class="num">٢</div>
+    <div class="label">يدخل معهم بنية العصر</div>
+    <div class="desc">ثم يصلي الظهر بعد ذلك. ترك سنة الترتيب لكن الصلاة صحيحة</div>
+    <div style="margin-top:4px; background:rgba(255,255,255,0.2); border-radius:4px; padding:3px; font-size:10pt;">صحيح لكنه ترك السنة</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #8b5e3c, #c8a951);">
+    <div class="num">٣</div>
+    <div class="label">يدخل معهم بنية الظهر</div>
+    <div class="desc">ثم يصلي العصر. حافظ على الترتيب لكن أخلّ باختلاف نية المأموم عن الإمام</div>
+    <div style="margin-top:4px; background:rgba(255,255,255,0.2); border-radius:4px; padding:3px; font-size:10pt;">فيه خلاف في الصحة</div>
+  </div>
+</div>
+
+<div class="callout callout-success">
+  <div class="callout-title">قول الإمام النووي</div>
+  الأفضل أن يصلي الظهر منفرداً ثم إذا أدرك شيئاً من جماعة العصر دخل معهم، وإلا صلى العصر منفرداً. وهذا هو الأفضل وليس الواجب. وكل الصور الثلاث تصح على المذهب الشافعي.
+</div>
+
+<!-- ==================== 3-4 من فاته صلوات بعذر وبدون عذر ==================== -->
+<h3 id="s3-4">من فاته صلوات بعذر وبدون عذر</h3>
+
+<p>قال المصنف: "ويجب تقديم ما فات بغير عذر على ما فات بعذر". فلو فاتته الظهر والمغرب بعذر، والعصر والعشاء بغير عذر، فكيف يقضي؟</p>
+
+<!-- EXAMPLE DIAGRAM -->
+<div class="diagram">
+  <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+    <div style="display:flex; flex-direction:column; align-items:center;">
+      <div class="node node-red">فات بغير عذر</div>
+      <div class="conn-v"></div>
+      <div style="display:flex; gap:8px;">
+        <div class="node-sm node-red" style="font-size:10pt;">العصر</div>
+        <div class="node-sm node-red" style="font-size:10pt;">العشاء</div>
+      </div>
+      <div class="conn-v"></div>
+      <div class="node node-green" style="font-size:10pt;">يقدم أولاً ✓</div>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:center;">
+      <div class="node node-l1">فات بعذر</div>
+      <div class="conn-v"></div>
+      <div style="display:flex; gap:8px;">
+        <div class="node-sm node-l1" style="font-size:10pt;">الظهر</div>
+        <div class="node-sm node-l1" style="font-size:10pt;">المغرب</div>
+      </div>
+      <div class="conn-v"></div>
+      <div class="node" style="background:#c8a951; color:white; font-size:10pt;">يؤخر ✓</div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPARISON: ابن حجر vs الرملي -->
+<div class="compare-box">
+  <div class="compare-side" style="background:#1a5632;">
+    <h4>ابن حجر والخطيب الشربيني</h4>
+    <p>يجب تقديم ما فات بغير عذر على ما فات بعذر، وإن أدى ذلك إلى فقدان الترتيب، لأن الترتيب سنة والمبادرة واجبة</p>
+  </div>
+  <div class="compare-divider"></div>
+  <div class="compare-side" style="background:#2c5f7c;">
+    <h4>الرملي</h4>
+    <p>يرى سنية الترتيب حتى في هذه الحالة، فيرتب: الظهر ثم العصر ثم المغرب ثم العشاء</p>
+  </div>
+</div>
+
+<div class="callout callout-info">
+  <div class="callout-title">تعليل ابن حجر</div>
+  "لأنه" أي لأن الترتيب سنة، "والبِدار" أي المبادرة واجب. فالواجب يقدم على السنة ولو أدى إلى فقد الترتيب.
+</div>
+
+<!-- ==================== 3-5 خشية فوت الحاضرة ==================== -->
+<h3 id="s3-5">خشية فوت الحاضرة</h3>
+
+<p>قال المصنف: "أما إذا خاف فوت الحاضرة بأن يقع بعضها وإن قلّ خارج الوقت فيلزمه البدء بها". أي لو استيقظ وبقي من وقت العصر ما يسع العصر فقط وفاتته الظهر، فلو قدم الظهر سيخرج وقت العصر — فيلزمه أن يبدأ بالحاضرة (العصر) ثم يصلي الفائتة (الظهر).</p>
+
+<p>وقوله "وإن قلّ" أي ولو كان السلام فقط خارج الوقت. وأشار إلى هذا صاحب الزبد: "والفور والترتيب فيما فات أولاً لمن لم يخشَ فواتاً".</p>
+
+<div class="callout callout-warn">
+  <div class="callout-title">تنبيه مهم</div>
+  إذا خاف فوت الحاضرة يلزمه البدء بها ولو كان ما يقع خارج الوقت مجرد السلام. هذا جارٍ سواء فاتت بعذر أو بغير عذر.
+</div>
+
+<!-- PRACTICAL EXAMPLES -->
+<h3>أمثلة تطبيقية</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>الحالة</th>
+      <th>الحكم</th>
+      <th>التطبيق</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>نام عن المغرب والعشاء والفجر، استيقظ الساعة 8 صباحاً</td>
+      <td>الترتيب مستحب (فاتت بعذر)</td>
+      <td>يسن أن يرتب: المغرب ثم العشاء ثم الفجر</td>
+    </tr>
+    <tr>
+      <td>نام عن المغرب والعشاء والفجر، استيقظ قبل خروج وقت الفجر بعشر دقائق</td>
+      <td>يقدم الفجر أولاً (خشية فوت الحاضرة)</td>
+      <td>يصلي الفجر أولاً، ثم المغرب، ثم العشاء</td>
+    </tr>
+    <tr>
+      <td>فاتته المغرب بعذر، والإمام يصلي العشاء</td>
+      <td>الأفضل: يصلي المغرب منفرداً ثم يدرك جماعة العشاء</td>
+      <td>يصلي المغرب منفرداً، ثم يدخل مع الإمام في العشاء</td>
+    </tr>
+    <tr>
+      <td>فاتته الظهر والعصر والمغرب والعشاء بلا عذر</td>
+      <td>يجب القضاء فوراً مع الترتيب</td>
+      <td>يصرف جميع زمنه في القضاء: الظهر ثم العصر ثم المغرب ثم العشاء</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout callout-danger">
+  <div class="callout-title">خطورة ترك الصلوات</div>
+  من ترك الصلوات لأشهر أو سنوات بلا عذر يجب عليه القضاء فوراً في المذاهب الأربعة. ومعنى "فوراً" أن يصرف جميع زمنه في قضاء الصلوات إلا ما لابد منه كزمن أكل ونوم وتحصيل نفقة لمن يجب عليه نفقتهم. وبقية الوقت يكون في صلاة حتى يقضي ما عليه.
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ====================== SECTION 4 ====================== -->
+<h2 id="s4">رابعاً: الرواتب وقضاء النوافل</h2>
+
+<p>قال المصنف: "ويندب تأخير الرواتب عن الفوائت بعذر ويجب تأخيرها عن الفوائت بغير عذر".</p>
+
+<!-- ==================== 4-1 ترتيب الرواتب ==================== -->
+<h3 id="s4-1">ترتيب الرواتب مع الفوائت</h3>
+
+<!-- FLOW DIAGRAM: الرواتب -->
+<div class="diagram">
+  <div class="node node-root">الرواتب مع الفوائت</div>
+  <div class="conn-v"></div>
+  <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
+    <div style="display:flex; flex-direction:column; align-items:center;">
+      <div class="node node-green">فاتت بعذر</div>
+      <div class="conn-v"></div>
+      <div class="flow-v" style="margin:0;">
+        <div class="flow-step" style="background:#28a745; width:100%; max-width:220px; padding:5px 10px;">
+          <p style="font-size:11pt;">١. الراتبة القبلية</p>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step" style="background:#1a5632; width:100%; max-width:220px; padding:5px 10px;">
+          <p style="font-size:11pt;">٢. الفوائت (الظهر ثم العصر)</p>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step" style="background:#c8a951; width:100%; max-width:220px; padding:5px 10px;">
+          <p style="font-size:11pt;">٣. الراتبة البعدية</p>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:center;">
+      <div class="node node-red">فاتت بغير عذر</div>
+      <div class="conn-v"></div>
+      <div class="flow-v" style="margin:0;">
+        <div class="flow-step" style="background:#dc3545; width:100%; max-width:220px; padding:5px 10px;">
+          <p style="font-size:11pt;">١. الفوائت فوراً (الظهر ثم العصر)</p>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step" style="background:#c8a951; width:100%; max-width:220px; padding:5px 10px;">
+          <p style="font-size:11pt;">٢. الرواتب بعد الفراغ</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>والدليل على تقديم الراتبة القبلية على الفوائت — قصة النبي صلى الله عليه وسلم حين نام عن صلاة الفجر، فقد صلى سنة الفجر أولاً ثم أمر بلالاً فأقام الصلاة ثم صلى الفجر. وأما البعدية فيندب تأخيرها عن الفوائت بعذر ويجب تأخيرها عن الفوائت بغير عذر.</p>
+
+<p>ومثاله: لو نام نوماً معذوراً به عن صلاة الظهر والعصر ثم أراد أن يصليهما مع الرواتب: يقدم سنة الظهر القبلية ثم يصلي الظهر ثم يصلي العصر ثم يصلي سنة الظهر البعدية.</p>
+
+<!-- ==================== 4-2 النوافل المؤقتة وذات السبب ==================== -->
+<h3 id="s4-2">النوافل المؤقتة والنوافل ذات السبب</h3>
+
+<p>وتستفيد من هذا المقطع أن الرواتب تقضى، فالنوافل تنقسم إلى قسمين:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>القسم</th>
+      <th>المعنى</th>
+      <th>حكم القضاء</th>
+      <th>المثال</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>نفل مؤقت</strong></td>
+      <td>له وقت محدد</td>
+      <td>يُندب قضاؤه إذا فات</td>
+      <td>الرواتب — صلى النبي سنة الفجر وسنة الظهر بعد العصر لوفد عبد القيس</td>
+    </tr>
+    <tr>
+      <td><strong>نفل ذو سبب</strong></td>
+      <td>مرتبط بسبب معين</td>
+      <td>لا يُشرع قضاؤه — ولو قضى لا يصح</td>
+      <td>صلاة الكسوف — لو نام عنها لم يُشرع قضاؤها</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout callout-info">
+  <div class="callout-title">الضابط</div>
+  ما لا يُشرع إذا فُعل لا يصح. فالنفل الذي له سبب إذا فات سببه لا يشرع قضاؤه، لأن السبب قد فات.
+</div>
+
+<p>قال صاحب الزبد: "وفائت النفل المؤقت دُعي قضاؤه، لا فائت ذا سبب" — أي إذا فات النفل المؤقت نُدب قضاؤه، وفائت ذي السبب لا يُندب قضاؤه بل لا يشرع قضاؤه، وإذا قضاه لا يصح.</p>
+
+<div class="section-divider"></div>
+
+<!-- ====================== SECTION 5 ====================== -->
+<h2 id="s5">خامساً: من مات وعليه صلاة فرض</h2>
+
+<p>قال المصنف: "تنبيه: من مات وعليه صلاة فرض لم تُقضَ عنه ولم تُفدَ عنه. وفي قول إنها تُفعل عنه". حكاه العبادي عن الشافعي لخبر فيه، وفعل به السبكي عن بعض أقاربه.</p>
+
+<p>عندنا ثلاثة آراء في المذهب الشافعي:</p>
+
+<!-- THREE VIEWS TABLE -->
+<table>
+  <thead>
+    <tr>
+      <th style="width:5%;">#</th>
+      <th style="width:20%;">الرأي</th>
+      <th style="width:45%;">التفصيل</th>
+      <th style="width:30%;">الدليل / المأخذ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background:#d4edda;">
+      <td><strong>١</strong></td>
+      <td><strong>المعتمد في المذهب</strong></td>
+      <td>لا تُقضى عنه ولا تُفدَى عنه — لا أحد يصلي عنه ولا يدفع فدية</td>
+      <td>حديث: "لا يصلي أحد عن أحد"</td>
+    </tr>
+    <tr style="background:#fff3cd;">
+      <td><strong>٢</strong></td>
+      <td>قول قديم للشافعي</td>
+      <td>يجب على وليه أن يصليها عنه وجوباً سواء أوصى أم لم يوصِ</td>
+      <td>حكاه العبادي عن الشافعي لخبر فيه (حديث ضعيف)، وفعل به السبكي عن بعض أقاربه</td>
+    </tr>
+    <tr style="background:#e8f4f8;">
+      <td><strong>٣</strong></td>
+      <td>وجه عند الشافعية</td>
+      <td>يُطعم عنه مد لكل صلاة (فدية)</td>
+      <td>اختاره القفال وغيره — قياساً على الصيام</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout callout-warn">
+  <div class="callout-title">قوة كل رأي</div>
+  الرأي الأول هو المعتمد في المذهب الشافعي. والرأي الثاني ضعيف — وعبارة "وفي قول" تشير إلى الضعف. وقد أشار المصنف بقوله "لخبر فيه" إلى أن الحديث الذي يستند إليه ضعيف — وهو ما رواه مسلم في مقدمة صحيحه عن حديث "إن من البر أن تصلي لأبيك مع صلاتك" حيث أشار عبد الله بن المبارك إلى انقطاع السند بين الحجاج بن دينار والنبي صلى الله عليه وسلم. ويقول علامة أبو صبرير: الأخذ بمعتمد المذهب أفضل من الأخذ برأي مرجوح، وإن كان الأخذ بالمرجوح جائزاً في عمل الإنسان نفسه لا في القضاء والإفتاء.
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ====================== SECTION 6 ====================== -->
+<h2 id="s6">سادساً: أمر الصبي بالصلاة</h2>
+
+<p>قال المصنف: "ويؤمر ذو صبا ذكراً أو أنثى مميزاً بأن يأكلوا ويشربوا ويستنقي وحده، أي يجب على كل من أبويه أولاً ثم الوصي وعلى مالك الرقيق أن يأمر بها أي الصلاة ولو قضاءً وبجميع شروطها لسبع، أي بعد سبع من السنين أي عند تمامها وإن ميّز قبلها".</p>
+
+<p>هذه المسألة استثناء من ضابط فقهي مهم: "من لا تجب عليه الصلاة لا يؤمر بها". فالمجنون لا تجب عليه الصلاة فلا يؤمر بها، والمغمى عليه لا تجب عليه الصلاة فلا يؤمر بها، والكافر الأصلي لا تجب عليه الصلاة من جهة المطالبة فلا يؤمر بها (لأنه مأمور قبلها بالإسلام)، والحائض والنفساء لا تجب عليهما الصلاة فلا يؤمران بها. لكن الصبي — وإن كانت الصلاة لا تجب عليه — يُؤمر بها استثناءً.</p>
+
+<!-- COMPARISON TABLE: من لا تجب عليه الصلاة -->
+<table>
+  <thead>
+    <tr>
+      <th>الفئة</th>
+      <th>تجب عليه الصلاة؟</th>
+      <th>يؤمر بها؟</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>المجنون</td>
+      <td>لا</td>
+      <td>لا يؤمر بها</td>
+    </tr>
+    <tr>
+      <td>المغمى عليه</td>
+      <td>لا</td>
+      <td>لا يؤمر بها</td>
+    </tr>
+    <tr>
+      <td>الكافر الأصلي</td>
+      <td>لا (من جهة المطالبة)</td>
+      <td>لا يؤمر بها (مأمور بالإسلام أولاً)</td>
+    </tr>
+    <tr>
+      <td>الحائض والنفساء</td>
+      <td>لا</td>
+      <td>لا يؤمران بها</td>
+    </tr>
+    <tr style="background:#d4edda;">
+      <td><strong>الصبي</strong></td>
+      <td><strong>لا</strong></td>
+      <td><strong>يؤمر بها (استثناء)</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ==================== 6-1 شروط الأمر ==================== -->
+<h3 id="s6-1">شروط الأمر بالصلاة</h3>
+
+<p>يجب على الأبوين أمر الصبي أو الصبية بالصلاة بشرطين:</p>
+
+<div class="card-grid" style="grid-template-columns: repeat(2, 1fr);">
+  <div class="card" style="background: linear-gradient(135deg, #1a5632, #2c5f7c);">
+    <div class="num">١</div>
+    <div class="label">إكمال سبع سنين</div>
+    <div class="desc">عند تمامها لا في أثنائها — كما قال "لسبع أي بعد سبع من السنين أي عند تمامها"</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #2c5f7c, #c8a951);">
+    <div class="num">٢</div>
+    <div class="label">التمييز</div>
+    <div class="desc">أن يكون مميزاً — وإن ميّز قبل السبع لا يجب أمره حتى يكمل السبع</div>
+  </div>
+</div>
+
+<div class="callout callout-info">
+  <div class="callout-title">ملاحظة مهمة</div>
+  إذا أكمل السبع ولم يميّز لا يجب أمره. وإذا ميّز قبل السبع لا يجب أمره أيضاً. يشترط اجتماع الشرطين معاً: إكمال سبع سنين والتمييز.
+</div>
+
+<p>قال النبي صلى الله عليه وسلم: "مروا الصبي بالصلاة إذا بلغ سبع سنين وإذا بلغ عشر سنين فاضربوه عليها". وقال صاحب الزبد: "وواجب على الولي الشرعي أن يأمر الطفل بها لسبع والضرب لعشر".</p>
+
+<!-- ==================== 6-2 تعريف التمييز ==================== -->
+<h3 id="s6-2">تعريف التمييز</h3>
+
+<p>ذكر الفقهاء عدة تعريفات للتمييز:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width:5%;">#</th>
+      <th style="width:25%;">التعريف</th>
+      <th style="width:35%;">التفصيل</th>
+      <th style="width:35%;">الجانب الذي يراعيه</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background:#d4edda;">
+      <td><strong>١</strong></td>
+      <td>أن يأكل وحده ويشرب وحده ويستنقي وحده</td>
+      <td>ضابط التمييز عند المصنف وجماعة من الفقهاء</td>
+      <td>يراعي الجانب العملي — الأحسن عند جماعة من الفقهاء</td>
+    </tr>
+    <tr style="background:#e8f4f8;">
+      <td><strong>٢</strong></td>
+      <td>أن يفهم الخطاب ويحسن الجواب</td>
+      <td>قيل: هذا هو التمييز</td>
+      <td>يراعي الجانب الفكري</td>
+    </tr>
+    <tr>
+      <td><strong>٣</strong></td>
+      <td>أن يعرف شماله من يمينه</td>
+      <td>أي يعرف ما يضره وما ينفعه بالإطار الضيق</td>
+      <td>يراعي الجانب الإدراكي</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>ولو تأملت في التعريفين الأول والثاني لوجدت أن الأول راعى الجانب العملي والثاني راعى الجانب الفكري. والصحيح أن معرفة ما يضره وما ينفعه يكون بالإطار الضيق، وإلا فكثير من الكبار ربما لا يعرف ما يضره وما ينفعه!</p>
+
+<!-- ==================== 6-3 حكم التهديد والضرب ==================== -->
+<h3 id="s6-3">حكم التهديد والضرب</h3>
+
+<p>يجب على الأبوين أمر الطفل بالصلاة وجوباً كفائياً — فلو أمره أحد الوالدين سقط الإثم عن الآخر. وهو من باب الأمر بالمعروف والنهي عن المنكر، وهو فرض كفاية.</p>
+
+<h4>التهديد</h4>
+<p>إن احتيج إلى التهديد فإنه يجب مع الأمر التهديد — بأن يقول: "صلِّ وإلا ضربتك". أما إذا لم يحتج إليه فلا ينبغي أن يهدد. ويظهر وجوبه إن احتيج إليه. والأب الحاذق لن يصل إلى التهديد لأنه يمكنه أن يقنع ولده بالمحافظة على الصلاة بوسائل الترغيب: بهدية، بتشجيع، باستحبابه إلى المسجد، وغيرها من الوسائل.</p>
+
+<h4>الضرب</h4>
+<p>يُضرب على ترك الصلاة إذا بلغ عشراً — لقول النبي صلى الله عليه وسلم: "وإذا بلغ عشر سنين فاضربوه عليها".</p>
+
+<!-- ==================== 6-4 الخلاف في ضرب العاشرة ==================== -->
+<h3 id="s6-4">الخلاف في ضرب العاشرة</h3>
+
+<div class="compare-box">
+  <div class="compare-side" style="background:#1a5632;">
+    <h4>ابن حجر</h4>
+    <p>يُضرب بعد إكمال العشر، لا في أثنائها — كما قلنا في السبع أنه يؤمر بعد إكمال السبع، نقول هنا يُضرب بعد إكمال العشر</p>
+  </div>
+  <div class="compare-divider"></div>
+  <div class="compare-side" style="background:#2c5f7c;">
+    <h4>الرملي</h4>
+    <p>يُضرب في أثناء العشر — لأنه إذا كان في أثناء العشر فإنه في وقت يمكن أن يبلغ فيه فيجب ضربه</p>
+  </div>
+</div>
+
+<!-- SUMMARY MIND MAP -->
+<div class="section-divider"></div>
+<h2>خلاصة الدرس الرابع</h2>
+
+<div class="diagram">
+  <div class="node node-root" style="padding:8px 24px; border-radius:30px; font-size:13pt; box-shadow:0 2px 8px rgba(26,86,50,0.25);">فوائت الصلاة — الدرس الرابع</div>
+  <div style="display:flex; gap:8px; margin-top:8px; flex-wrap:wrap; justify-content:center;">
+    <div style="display:flex; flex-direction:column; align-items:center; gap:3px;">
+      <div class="node-sm node-green" style="min-width:110px;">بعذر: القضاء واجب لا فوراً، الترتيب مستحب</div>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:3px;">
+      <div class="node-sm node-red" style="min-width:110px;">بغير عذر: القضاء فوراً، الترتيب واجب</div>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:3px;">
+      <div class="node-sm node-l1" style="min-width:110px;">خشية فوت الحاضرة: يقدمها</div>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:3px;">
+      <div class="node-sm node-l2" style="min-width:110px;">الرواتب: القبلية تقدم، البعدية تؤخر</div>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:3px;">
+      <div class="node-sm" style="background:#8b5e3c; min-width:110px;">من مات وعليه صلاة: لا تُقضى (المعتمد)</div>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:3px;">
+      <div class="node-sm" style="background:#17a2b8; min-width:110px;">الصبي: يؤمر لسبع، يُضرب لعشر</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

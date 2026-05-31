@@ -1,0 +1,528 @@
+@import "tailwindcss";
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 20px rgba(200, 169, 81, 0.6), 0 0 40px rgba(200, 169, 81, 0.3), 0 0 60px rgba(200, 169, 81, 0.15);
+  }
+  to {
+    text-shadow: 0 0 30px rgba(200, 169, 81, 0.9), 0 0 60px rgba(200, 169, 81, 0.5), 0 0 80px rgba(200, 169, 81, 0.25);
+  }
+}
+
+@keyframes glow-teacher {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(200, 169, 81, 0.4), 0 0 20px rgba(200, 169, 81, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(200, 169, 81, 0.8), 0 0 40px rgba(200, 169, 81, 0.4), 0 0 60px rgba(200, 169, 81, 0.2);
+  }
+}
+
+@keyframes glow-card {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(200, 169, 81, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(200, 169, 81, 0.6);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+:root {
+  --primary: #1a5632;
+  --primary-light: #2d7a4a;
+  --primary-dark: #0e3a20;
+  --secondary: #c8a951;
+  --secondary-light: #e0c97a;
+  --accent: #2c5f7c;
+  --accent-light: #3d7fa3;
+  --bg: #fefefe;
+  --text: #1a1a2e;
+  --text-light: #4a4a5e;
+  --border: #d4c9a8;
+  --table-alt: #f5f0e6;
+  --highlight-bg: #fdf6e3;
+}
+
+@theme inline {
+  --color-primary: #1a5632;
+  --color-primary-light: #2d7a4a;
+  --color-primary-dark: #0e3a20;
+  --color-secondary: #c8a951;
+  --color-secondary-light: #e0c97a;
+  --color-accent: #2c5f7c;
+  --color-accent-light: #3d7fa3;
+  --animate-glow-card: glow-card 2s ease-in-out infinite;
+  --animate-glow-teacher: glow-teacher 3s ease-in-out infinite;
+  --animate-fade-in-up: fade-in-up 0.8s ease-out forwards;
+  --animate-fade-in: fade-in 1s ease-out forwards;
+  --animate-float: float 4s ease-in-out infinite;
+  --animate-shimmer: shimmer 3s linear infinite;
+}
+
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Naskh Arabic', 'Traditional Arabic', 'Amiri', serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.lesson-content {
+  direction: rtl;
+  text-align: justify;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #2c2c2c;
+}
+
+.lesson-content h1 {
+  font-size: 22pt;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  color: var(--primary);
+  margin: 14px 0 6px;
+}
+
+.lesson-content h2 {
+  font-size: 18px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  color: white;
+  background: var(--primary);
+  padding: 6px 16px;
+  margin: 14px 0 8px;
+  border-radius: 0 8px 8px 0;
+  border-right: 5px solid var(--secondary);
+}
+
+.lesson-content h3 {
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: var(--primary);
+  margin: 10px 0 5px;
+  padding: 4px 12px;
+  border-right: 3px solid var(--secondary);
+  background: linear-gradient(to left, var(--highlight-bg), transparent);
+}
+
+.lesson-content p {
+  margin: 5px 0;
+}
+
+.lesson-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0;
+  font-size: 13px;
+}
+
+.lesson-content th {
+  background: var(--primary);
+  color: white;
+  padding: 6px 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid var(--primary-dark);
+}
+
+.lesson-content td {
+  padding: 5px 8px;
+  border: 1px solid var(--border);
+  text-align: right;
+  vertical-align: top;
+}
+
+.lesson-content tr:nth-child(even) td {
+  background: var(--table-alt);
+}
+
+.lesson-content .callout {
+  margin: 8px 0;
+  padding: 8px 12px;
+  border-radius: 6px;
+  page-break-inside: avoid;
+}
+
+.lesson-content .callout-title {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 11pt;
+  margin-bottom: 3px;
+  display: block;
+}
+
+.lesson-content .callout-warning {
+  background: #fff3cd;
+  border-right: 4px solid var(--secondary);
+}
+
+.lesson-content .callout-warning .callout-title {
+  color: #856404;
+}
+
+.lesson-content .callout-definition {
+  background: #e8f4f8;
+  border-right: 4px solid var(--accent);
+}
+
+.lesson-content .callout-definition .callout-title {
+  color: #1a3a5c;
+}
+
+.lesson-content .callout-danger {
+  background: #f8d7da;
+  border-right: 4px solid #c0392b;
+}
+
+.lesson-content .callout-danger .callout-title {
+  color: #c0392b;
+}
+
+.lesson-content .callout-success {
+  background: #d4edda;
+  border-right: 4px solid #28a745;
+}
+
+.lesson-content .callout-success .callout-title {
+  color: #155724;
+}
+
+.lesson-content .callout-info {
+  background: #d1ecf1;
+  border-right: 4px solid #17a2b8;
+}
+
+.lesson-content .callout-info .callout-title {
+  color: #0c5460;
+}
+
+.lesson-content .card-grid {
+  display: grid;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.lesson-content .card-grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.lesson-content .card-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.lesson-content .card-grid-4 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.lesson-content .card-grid-5 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.lesson-content .card {
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.lesson-content .card-number {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.lesson-content .card-title {
+  font-size: 11pt;
+  font-weight: bold;
+}
+
+.lesson-content .card-desc {
+  font-size: 9pt;
+  margin-top: 3px;
+  opacity: 0.9;
+}
+
+.lesson-content .cover-header {
+  background: var(--primary);
+  color: white;
+  padding: 20px 14px;
+  text-align: center;
+  margin: 0 0 12px;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200, 169, 81, 0.06) 20px, rgba(200, 169, 81, 0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200, 169, 81, 0.06) 20px, rgba(200, 169, 81, 0.06) 21px);
+  border-bottom: 4px solid var(--secondary);
+  border-radius: 0 0 8px 8px;
+}
+
+.lesson-content .cover-header h1 {
+  color: white;
+  font-size: 22pt;
+  margin-bottom: 6px;
+}
+
+.lesson-content .cover-header .subtitle {
+  font-size: 13pt;
+  opacity: 0.9;
+  margin: 4px 0;
+}
+
+.lesson-content .cover-header .lecturer {
+  font-size: 12pt;
+  opacity: 0.92;
+  margin: 6px 0 2px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.lesson-content .cover-header .series {
+  font-size: 11pt;
+  opacity: 0.8;
+  margin-top: 4px;
+}
+
+.lesson-content .toc {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 0 0 12px;
+}
+
+.lesson-content .toc-title {
+  font-family: 'Amiri', serif;
+  font-size: 14pt;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 6px;
+  border-bottom: 2px solid var(--secondary);
+  padding-bottom: 4px;
+}
+
+.lesson-content .toc-item {
+  font-size: 10pt;
+  padding: 2px 0;
+  border-bottom: 1px dotted #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+.lesson-content .formula-box {
+  background: var(--highlight-bg);
+  border: 2px solid var(--secondary);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.lesson-content .formula {
+  font-family: 'Amiri', serif;
+  font-size: 14pt;
+  color: var(--primary);
+  direction: rtl;
+  display: inline-block;
+}
+
+.lesson-content .poetry-box {
+  background: var(--highlight-bg);
+  border: 2px solid var(--secondary);
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.lesson-content .poetry-line {
+  font-family: 'Amiri', serif;
+  font-size: 13pt;
+  color: var(--primary);
+  line-height: 2;
+}
+
+.lesson-content .compare-box {
+  display: flex;
+  gap: 0;
+  margin: 8px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+}
+
+.lesson-content .compare-side {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 10px;
+}
+
+.lesson-content .compare-side h3 {
+  margin: 0 0 4px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 3px;
+  font-size: 11pt;
+  color: white;
+  background: none;
+  border-right: none;
+}
+
+.lesson-content .compare-side p {
+  font-size: 12px;
+  line-height: 1.6;
+  color: white;
+}
+
+.lesson-content .compare-divider {
+  width: 3px;
+  background: var(--secondary);
+}
+
+.lesson-content .vertical-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.lesson-content .flow-step {
+  padding: 7px 12px;
+  border-radius: 6px;
+  text-align: center;
+  max-width: 280px;
+  width: 90%;
+}
+
+.lesson-content .flow-arrow {
+  color: var(--secondary);
+  font-size: 14pt;
+  margin: 1px 0;
+}
+
+.lesson-content .highlight {
+  background: #fffde7;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.lesson-content .section-num {
+  display: inline-block;
+  background: var(--primary);
+  color: white;
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 11pt;
+  margin-left: 5px;
+}
+
+.lesson-content .table-container {
+  overflow-x: auto;
+  margin: 8px 0;
+}
+
+.lesson-content .timeline {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.lesson-content .timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 4px 0;
+}
+
+.lesson-content .timeline-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.lesson-content .timeline-content {
+  flex: 1;
+}
+
+.lesson-content .timeline-year {
+  font-family: 'Amiri', serif;
+  font-size: 11pt;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.lesson-content .timeline-text {
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.lesson-content .quran-verse {
+  font-family: 'Amiri', serif;
+  font-size: 14px;
+  color: var(--primary);
+  text-align: center;
+  margin: 8px 15px;
+  padding: 6px 15px;
+  border-top: 1px solid var(--secondary);
+  border-bottom: 1px solid var(--secondary);
+  line-height: 1.9;
+}
+
+@media (max-width: 640px) {
+  .lesson-content .card-grid-2,
+  .lesson-content .card-grid-3,
+  .lesson-content .card-grid-4,
+  .lesson-content .card-grid-5 {
+    grid-template-columns: 1fr;
+  }
+  .lesson-content .compare-box {
+    flex-direction: column;
+  }
+  .lesson-content .compare-divider {
+    width: 100%;
+    height: 3px;
+  }
+}

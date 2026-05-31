@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf') format('truetype'); font-weight: normal; }
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf') format('truetype'); font-weight: bold; }
+@font-face { font-family: 'NotoNaskh'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf') format('truetype'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+
+body {
+  font-family: 'NotoNaskh', 'Amiri', serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #1a1a2e;
+  direction: rtl;
+  background: #fff;
+  text-align: justify;
+}
+
+.cover-header {
+  background: #1a5632;
+  color: white;
+  padding: 20px 14px;
+  text-align: center;
+  margin: 0 0 12px 0;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px);
+  border-bottom: 4px solid #c8a951;
+}
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 6px; border: none; font-family: 'Amiri', serif; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.9; margin: 4px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.92; margin: 6px 0 2px 0; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .creator { font-size: 11pt; opacity: 0.85; margin-top: 2px; }
+.cover-header .series { font-size: 11pt; opacity: 0.8; margin-top: 4px; }
+
+.toc {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 0 0 12px 0;
+}
+.toc-title {
+  font-family: 'Amiri', serif;
+  font-size: 14pt;
+  color: #1a5632;
+  text-align: center;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #c8a951;
+  padding-bottom: 4px;
+}
+.toc-item {
+  font-size: 10pt;
+  padding: 2px 0;
+  border-bottom: 1px dotted #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+h2.section-title {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0d7c3e;
+  border-bottom: 2px solid #0d7c3e;
+  padding-bottom: 5px;
+  margin: 18px 0 10px;
+}
+
+h3.sub-title {
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: #0a5c2e;
+  margin: 14px 0 8px;
+  padding-right: 10px;
+  border-right: 4px solid #0d7c3e;
+}
+
+h4.minor-title {
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #166534;
+  margin: 10px 0 6px;
+}
+
+p { margin: 5px 0; text-align: justify; }
+
+.definition-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-right: 4px solid #0d7c3e;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.rule-box {
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-right: 4px solid #d97706;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.exception-box {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-right: 4px solid #ea580c;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.evidence-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-right: 4px solid #2563eb;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.issue-box {
+  background: #fdf2f8;
+  border: 1px solid #fbcfe8;
+  border-right: 4px solid #db2777;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.comparison-box {
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  border-right: 4px solid #7c3aed;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.note-box {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-right: 4px solid #0284c7;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.key-rule {
+  background: #dcfce7;
+  border: 2px solid #16a34a;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.box-label {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 4px;
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.label-def { background: #0d7c3e; }
+.label-rule { background: #d97706; }
+.label-exc { background: #ea580c; }
+.label-ev { background: #2563eb; }
+.label-issue { background: #db2777; }
+.label-comp { background: #7c3aed; }
+.label-note { background: #0284c7; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 13px;
+  table-layout: fixed;
+}
+
+th {
+  background: #0d7c3e;
+  color: #fff;
+  padding: 6px 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+td {
+  padding: 5px 8px;
+  border: 1px solid #d1d5db;
+  text-align: center;
+  vertical-align: top;
+}
+
+tr:nth-child(even) { background: #f0fdf4; }
+tr:nth-child(odd) { background: #fff; }
+
+.tree-container { margin: 12px 0; text-align: center; }
+.tree-root {
+  display: inline-block;
+  background: linear-gradient(135deg, #0d7c3e, #0a5c2e);
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+.tree-branches { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px; }
+.tree-branch {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  min-width: 80px;
+  text-align: center;
+}
+.tree-branch-num { font-family: 'Amiri', serif; font-weight: bold; color: #0d7c3e; font-size: 14px; }
+.tree-branch-label { font-size: 12px; color: #374151; }
+
+.compare-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.compare-card { flex: 1; min-width: 140px; border-radius: 8px; padding: 8px 10px; text-align: center; }
+.compare-card-green { background: #dcfce7; border: 1px solid #86efac; }
+.compare-card-red { background: #fef2f2; border: 1px solid #fca5a5; }
+.compare-card-gold { background: #fefce8; border: 1px solid #fde68a; }
+.compare-card-blue { background: #eff6ff; border: 1px solid #bfdbfe; }
+.compare-card-title { font-family: 'Amiri', serif; font-weight: bold; font-size: 14px; margin-bottom: 4px; }
+.compare-card-body { font-size: 12px; }
+
+.flow-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px; margin: 8px 0; }
+.flow-box { background: #0d7c3e; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-family: 'Amiri', serif; font-weight: bold; text-align: center; }
+.flow-arrow { font-size: 16px; color: #0d7c3e; font-weight: bold; }
+.flow-result { padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; text-align: center; }
+.flow-pure { background: #dcfce7; border: 1px solid #86efac; color: #166534; }
+.flow-impure { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+
+.highlight-green { background: #dcfce7; padding: 1px 4px; border-radius: 3px; }
+.highlight-gold { background: #fefce8; padding: 1px 4px; border-radius: 3px; }
+.highlight-red { background: #fef2f2; padding: 1px 4px; border-radius: 3px; }
+
+.verse-ref { font-family: 'Amiri', serif; font-size: 14px; color: #1e40af; text-align: center; margin: 6px 0; }
+
+.excused-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.excused-item { background: #fefce8; border: 1px solid #fde68a; border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.excused-num {
+  display: inline-block; background: #d97706; color: #fff; width: 22px; height: 22px;
+  border-radius: 50%; text-align: center; line-height: 22px; font-family: 'Amiri', serif;
+  font-weight: bold; font-size: 12px; margin-left: 6px;
+}
+
+.condition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.condition-item { border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.condition-num {
+  display: inline-block; background: #0d7c3e; color: #fff; min-width: 24px; height: 24px;
+  border-radius: 50%; text-align: center; line-height: 24px; font-family: 'Amiri', serif;
+  font-weight: bold; font-size: 12px; margin-left: 6px;
+}
+
+.math-example {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin: 10px 0;
+  font-size: 13px;
+  direction: ltr;
+  text-align: center;
+}
+.math-line {
+  font-family: 'NotoNaskh', serif;
+  font-size: 14px;
+  margin: 3px 0;
+  direction: rtl;
+}
+.math-op { color: #0d7c3e; font-weight: bold; }
+.math-result { color: #b91c1c; font-weight: bold; }
+.math-ok { color: #166534; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<!-- ===== COVER HEADER ===== -->
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس السابع والعشرون — فروع النجاسات وتطهيرها</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="creator">تنسيق: أحمد بن إرشاد</div>
+  <div class="series">غسالة النجاسة · الفأرة في الطعام · تطهير ماء البئر · النجاسة المخففة · النجاسة المغلّظة</div>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. غسالة النجاسة (الماء المستعمل في إزالة النجاسة)</span><span>١</span></div>
+  <div class="toc-item"><span>٢. الشروط الأربعة لطهارة غسالة النجاسة</span><span>٢</span></div>
+  <div class="toc-item"><span>٣. مثال حسابي: عدم زيادة الوزن</span><span>٣</span></div>
+  <div class="toc-item"><span>٤. الفأرة في الطعام الجامد</span><span>٤</span></div>
+  <div class="toc-item"><span>٥. تطهير ماء البئر المتنجّس (حالتان)</span><span>٥</span></div>
+  <div class="toc-item"><span>٦. شعر الميتة في البئر — تعذّر الاستعمال بالاغتراف</span><span>٧</span></div>
+  <div class="toc-item"><span>٧. الاغتراف قبل النزح — تقديم الأصل على الظاهر</span><span>٨</span></div>
+  <div class="toc-item"><span>٨. تقسيم النجاسات: مخفّفة ومتوسطة ومغلّظة</span><span>٩</span></div>
+  <div class="toc-item"><span>٩. النجاسة المخفّفة: بول الصبي (أربعة شروط)</span><span>٩</span></div>
+  <div class="toc-item"><span>١٠. تطهير النجاسة المخفّفة</span><span>١١</span></div>
+  <div class="toc-item"><span>١١. النجاسة المغلّظة: سبع غسلات</span><span>١١</span></div>
+  <div class="toc-item"><span>١٢. تراب التيمم وإزالة النجاسة المغلّظة — مقارنة</span><span>١٣</span></div>
+</div>
+
+<!-- ===== 1. غسالة النجاسة ===== -->
+<h2 class="section-title">١. غسالة النجاسة (الماء المستعمل في إزالة النجاسة)</h2>
+
+<div class="definition-box">
+  <span class="box-label label-def">التعريف</span>
+  <p><b>غسالة النجاسة:</b> الماء الذي غُسلت به النجاسة — أي الماء المستعمل في إزالة النجاسة. وهذا الماء يُسمّى "غسالة النجاسة" تمييزاً له عن الماء المستعمل في رفع الحدث (الوضوء والغسل).</p>
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">النص</span>
+  <p><b>غسالة متنجّس ولو معفوّاً عنه كدم قليل — إن انفصلت ولم تتغيّر ولم يزد وزنها بعد اعتبار ما يأخذه الثوب من الماء والماء من الوسخ وقد طهر المحل — طاهرة</b></p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">ملاحظة</span>
+  <p>قوله <b>"ولو معفوّاً عنه"</b> أي ولو كان النجس معفوّاً عنه كالدم القليل — فغسالته كغسالة غير المعفوّ عنه في الحكم. وقوله <b>"طاهرة"</b> هو خبر المبتدأ <b>"غسالة"</b>، وبينهما ثلاثة أسطر من الشروط.</p>
+</div>
+
+<!-- ===== 2. الشروط الأربعة ===== -->
+<h2 class="section-title">٢. الشروط الأربعة لطهارة غسالة النجاسة</h2>
+
+<div class="key-rule">
+  غسالة النجاسة = طاهرة غير مطهّرة (بأربعة شروط)
+</div>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">١</span>
+    <b>أن تنفصل</b> — قبل الانفصال الماء طهور. فإذا انفصل صار طاهراً غير مطهّر (كالماء المستعمل في رفع الحدث).
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٢</span>
+    <b>أن يطهر المحلّ</b> — أي زالت عين النجاسة وأوصافها (طعم، لون، ريح). فإن لم يطهر المحلّ فالماء المنفصل نجس. فغسالة النجاسة لها حكم المحلّ.
+  </div>
+  <div class="condition-item" style="background: #f0f9ff; border: 1px solid #bae6fd;">
+    <span class="condition-num">٣</span>
+    <b>ألا تتغيّر</b> — فإن تغيّرت الغسالة فهي نجسة. التغيّر دليل على أن النجاسة غلبت على الماء.
+  </div>
+  <div class="condition-item" style="background: #fdf2f8; border: 1px solid #fbcfe8;">
+    <span class="condition-num">٤</span>
+    <b>ألا يزيد وزنها</b> — بعد اعتبار ما يتشربه الثوب من الماء + ما يأخذه الماء من الوسخ الطاهر. فإن زاد وزنها فزيادة من النجاسة فهي نجسة.
+  </div>
+</div>
+
+<table>
+  <tr>
+    <th>الشرط</th>
+    <th>إن تحقّق</th>
+    <th>إن لم يتحقّق</th>
+  </tr>
+  <tr>
+    <td><b>الانفصال</b></td>
+    <td><span class="highlight-green">طاهر غير مطهّر</span></td>
+    <td>قبل الانفصال: <span class="highlight-green">طهور</span></td>
+  </tr>
+  <tr>
+    <td><b>طهورة المحلّ</b></td>
+    <td><span class="highlight-green">طاهر غير مطهّر</span></td>
+    <td><span class="highlight-red">نجس</span> (غسالة النجاسة لها حكم المحلّ)</td>
+  </tr>
+  <tr>
+    <td><b>عدم التغيّر</b></td>
+    <td><span class="highlight-green">طاهر غير مطهّر</span></td>
+    <td><span class="highlight-red">نجس</span></td>
+  </tr>
+  <tr>
+    <td><b>عدم زيادة الوزن</b></td>
+    <td><span class="highlight-green">طاهر غير مطهّر</span></td>
+    <td><span class="highlight-red">نجس</span> (الزيادة من النجاسة)</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">الماء الكثير</span>
+  <p>هذه الشروط الأربعة في الماء القليل (دون قلتين). أما الماء الكثير فلا يُحكم بنجاسة غسالته إلا إذا تغيّر — لأن الماء الكثير لا يتنجّس إلا بالتغيّر.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">لو جُمعت الغسالة حتى صارت قلتين</span>
+  <p>لو جُمعت غسالة النجاسة (طاهرة غير مطهّرة) من مواضع عديدة حتى صارت قلتين فصاعداً — صارت <span class="highlight-green">طهوراً</span>، لأن الماء المستعمل لا يكون إلا أقلّ من قلتين، فإذا بلغ قلتين صار ماءً طهوراً.</p>
+</div>
+
+<!-- ===== 3. مثال حسابي ===== -->
+<h2 class="section-title">٣. مثال حسابي: عدم زيادة الوزن</h2>
+
+<div class="math-example">
+  <div class="math-line"><b>المثال الأول: الوزن يطابق → طاهر غير مطهّر</b></div>
+  <div class="math-line">وزن الماء الأصلي = <b>١٠٠٠</b> جرام</div>
+  <div class="math-line"><span class="math-op">ناقص</span> ما تشربه الثوب من الماء = <b>١٠٠</b> جرام → الباقي = ٩٠٠</div>
+  <div class="math-line"><span class="math-op">زائد</span> ما أخذه الماء من الوسخ الطاهر = <b>٥٠</b> جرام</div>
+  <div class="math-line">النتيجة المتوقّعة = <b>٩٥٠</b> جرام</div>
+  <div class="math-line">الوزن الفعلي للغسالة = <b>٩٥٠</b> جرام → <span class="math-ok">يطابق! → طاهر غير مطهّر ✓</span></div>
+</div>
+
+<div class="math-example">
+  <div class="math-line"><b>المثال الثاني: الوزن زاد → نجس</b></div>
+  <div class="math-line">وزن الماء الأصلي = <b>١٠٠٠</b> جرام</div>
+  <div class="math-line"><span class="math-op">ناقص</span> ما تشربه الثوب = <b>١٠٠</b> جرام → الباقي = ٩٠٠</div>
+  <div class="math-line"><span class="math-op">زائد</span> الوسخ الطاهر = <b>٥٠</b> جرام</div>
+  <div class="math-line">النتيجة المتوقّعة = <b>٩٥٠</b> جرام</div>
+  <div class="math-line">الوزن الفعلي = <b>٩٨٠</b> جرام → زيادة <span class="math-result">٣٠ جرام من النجاسة! → نجس ✗</span></div>
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">ضابط الزيادة</span>
+  <p>الزيادة المُعتبرة هي: ما زاد بعد خصم <b>أمرين</b>:</p>
+  <p><b>الأول:</b> مقدار ما يتشربه المغسول (الثوب) من الماء.</p>
+  <p><b>الثاني:</b> مقدار ما يأخذه الماء من الوسخ <b>الطاهر</b> (أتربة، غبار).</p>
+  <p>فما زاد بعد هذين الخصمين يكون من النجاسة — فيُحكم بنجاسة الغسالة.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">اليقين أم غلبة الظنّ؟</span>
+  <p>قال شيخنا العلامة ابن حجر: <b>"ويظهر الاكتفاء فيهما بالظنّ"</b> — أي في تقدير ما يتشربه الثوب من الماء وما يأخذه الماء من الوسخ الطاهر، يكفي غلبة الظنّ ولا يُشترط اليقين. فلا يحتاج الإنسان أن يأتي بميزان يزن الماء والوسخ بالضبط.</p>
+</div>
+
+<!-- ===== 4. الفأرة في الطعام الجامد ===== -->
+<h2 class="section-title">٤. الفأرة في الطعام الجامد</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">النص</span>
+  <p><b>إذا وقع في طعام جامد كسمن فأرة مثلاً فماتت — أُلقيت وما حولها مما ماسها فقط والباقي طاهر</b></p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p>رواية الصحيح: <i>"إذا وقعت الفأرة في سمن أحدكم"</i> — ليس فيها تفصيل.</p>
+  <p>رواية خارج الصحيح: <i>"إن كان جامداً فألقوها وما حولها، وإن كان مائعاً فأريقوه"</i> — فقهاء الشافعية فصّلوا بحسب هذه الرواية.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">الطعام الجامد</div>
+    <div class="compare-card-body">تُلقى الفأرة وما حولها مما ماسها فقط<br>والباقي طاهر<br>يجوز الانتفاع بالملقى في غير المسجد (كالإضاءة)</div>
+  </div>
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">الطعام المائع</div>
+    <div class="compare-card-body">يُراق كلّه<br>لأن حكم المائعات حكم الماء القليل<br>تتنجّس بمجرد ملاقاة النجاسة وإن كثرت</div>
+  </div>
+</div>
+
+<h3 class="sub-title">ضابط الجامد</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">ما هو الجامد؟</span>
+  <p><b>والجامد هو الذي إذا غُرف منه لا يترادّ عن قرب</b> — أي إذا أخذت منه بملعقة مثلاً، فإن المكان الذي أخذت منه لا يسقط بسرعة بل يبقى حيناً ثم بعد ذلك ينسدّ. فليس المراد بالجامد أن يكون صلباً يابساً، بل المراد ألاّ يترادّ بسرعة بعد الغرف.</p>
+</div>
+
+<h3 class="sub-title">ماذا لو لم تمت الفأرة؟</h3>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه</span>
+  <p>لو دخلت الفأرة ومشت على السمن ثم خرجت ولم تمت — <span class="highlight-green">لا ينجس السمن</span>، لأن جميع الحيوانات طاهرة إلا الكلب والخنزير. فإذا لم ينفصل شيء من شعرها على السمن ولم تتروّث عليه فالسمن طاهر.</p>
+</div>
+
+<h3 class="sub-title">الانتفاع بالنجس المُلقى</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p>يجوز الانتفاع بالسمن النجس (الذي أُلقيت منه الفأرة وما حولها) في نحو <b>الإضاءة</b> — لكن <b>بشرط أن يكون في غير المسجد</b>، لأن الدخان المتولّد من إحراق النجس بالنار دخان نجس، والمسجد لا يجوز تنجيسه.</p>
+</div>
+
+<!-- ===== 5. تطهير ماء البئر ===== -->
+<h2 class="section-title">٥. تطهير ماء البئر المتنجّس (حالتان)</h2>
+
+<div class="issue-box">
+  <span class="box-label label-issue">الصورة</span>
+  <p>وقعت في البئر شاة أو قطة أو بطة فماتت فيه — كيف يطهّر ماء البئر؟ ينقسم إلى حالتين:</p>
+</div>
+
+<h3 class="sub-title">الحالة الأولى: ماء البئر قليل (دون قلتين)</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>إذا تنجّس ماء البئر القليل بملاقاة نجس لم يطهر بالنزح</b> — أي لا يطهر بإخراج الماء من البئر. لأن نقاع البئر وجدرانه التي لاقاها الماء النجس محكومة بالنجاسة أيضاً.</p>
+  <p><b>بل ينبغي ألاّ يُنزح</b> (والإنبغاء هنا للوجوب لا للاستحباب) — ليكثر الماء بنتج أو بصبّ ماء عليه حتى يبلغ قلتين دون تغيّر فيكون طاهراً.</p>
+</div>
+
+<div class="flow-row">
+  <div class="flow-box">ماء البئر قليل تنجّس</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">لا يطهر بالنزح</div>
+</div>
+<div class="flow-row">
+  <div class="flow-box">العلاج</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-pure">ينتظر حتى يكثر بنبع أو يُصبّ عليه ماء حتى يبلغ قلتين دون تغيّر</div>
+</div>
+
+<h3 class="sub-title">الحالة الثانية: ماء البئر كثير (قلتان فأكثر) وتغيّر</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>أو الكثير بتغيّر به لم يطهر إلا بزواله</b> — الماء الكثير لا يتنجّس إلا بالتغيّر. فإذا تغيّر لم يطهر إلا بزوال التغيّر — إما بنفسه، أو بالمكاثرة (صبّ ماء عليه)، أو بالنزح حتى يبقى قلتين فصاعداً دون تغيّر.</p>
+</div>
+
+<table>
+  <tr>
+    <th>حالة ماء البئر</th>
+    <th>السبب</th>
+    <th>العلاج</th>
+  </tr>
+  <tr>
+    <td>قليل (دون قلتين)</td>
+    <td>ملاقاة النجاسة</td>
+    <td>لا ينزح — يُصبّ عليه ماء أو يُنتظر حتى يبلغ قلتين دون تغيّر</td>
+  </tr>
+  <tr>
+    <td>كثير (قلتان+) متغيّر</td>
+    <td>التغيّر بالنجاسة</td>
+    <td>زوال التغيّر (بنفسه أو بالمكاثرة أو بالنزح حتى يبقى قلتين+ دون تغيّر)</td>
+  </tr>
+  <tr>
+    <td>كثير (قلتان+) غير متغيّر</td>
+    <td>ملاقاة النجاسة دون تغيّر</td>
+    <td><span class="highlight-green">طهور</span> — لا يتنجّس</td>
+  </tr>
+</table>
+
+<!-- ===== 6. شعر الميتة في البئر ===== -->
+<h2 class="section-title">٦. شعر الميتة في البئر — تعذّر الاستعمال بالاغتراف</h2>
+
+<div class="issue-box">
+  <span class="box-label label-issue">الصورة</span>
+  <p>سقط في البئر حيوان له شعر (كفأرة أو شاة)، وأُخرجت الميتة وزال التغيّر، لكن بقي شعر الميتة متناثراً في الماء — وشعر الميتة نجس في مذهب الشافعية. كلما أنزلت دلوّاً وجدت فيه شعراً. فما الحكم؟</p>
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>فإن بقيت فيه نجاسة كشعر فأرة ولم يتغيّر — فطهور تعذّر استعماله</b></p>
+  <p>الماء طهور (لأنه كثير ولم يتغيّر)، لكن يتعذّر استعماله <b>بالاغتراف</b> — لأن الدلوّ ماء قليل وفيه شعر نجس، فكلما اغترفت وجدت شعراً نجساً.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">الانغماس في البئر</div>
+    <div class="compare-card-body">لو نزل شخص وغمس نفسه في الماء (معين طهور)<br><span class="highlight-green">يرتفع حدثه</span><br>لأنه انغمس في ماء طهور</div>
+  </div>
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">الاغتراف بالدلوّ</div>
+    <div class="compare-card-body">كلما اغترف بالدلوّ وجد فيه شعراً نجساً<br><span class="highlight-red">يتعذّر الاستعمال</span><br>لأن الدلوّ ماء قليل فيه نجاسة</div>
+  </div>
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">العلاج</span>
+  <p><b>فلينزح كله</b> — أي يُخرج جميع الماء من البئر حتى يخرج معه جميع الشعر، ثم يعود الماء الجديد طهوراً.</p>
+</div>
+
+<!-- ===== 7. الاغتراف قبل النزح ===== -->
+<h2 class="section-title">٧. الاغتراف قبل النزح — تقديم الأصل على الظاهر</h2>
+
+<div class="issue-box">
+  <span class="box-label label-issue">الصورة</span>
+  <p>قبل أن يتمّ نزح البئر، جاء شخص وأنزل الدلوّ وأخذ ماءً وتوضّأ — ولم يتيقّن وجود شعر في دلّوه. فهل يصحّ وضوءه؟</p>
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>فإن اغترف قبل النزح ولم يتيقّن فيما اغترفه شعراً لم يضرّ</b> — أي يصحّ وضوءه وغسله. <b>ولو ظنّ وجود الشعر</b> — أي حتى لو كان يظنّ أن الشعر موجود لكن لم يتيقّنه.</p>
+</div>
+
+<div class="key-rule">
+  القاعدة: تقديم الأصل على الظاهر<br>
+  الأصل = بقاء طهورية الماء (أقوى) ← يُقدَّم<br>
+  الظاهر = وجود النجاسة (أضعف) ← يُؤخَّر
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">تفصيل القاعدة</span>
+  <p>متى يُقدَّم الأصل ومتى يُقدَّم الظاهر؟ فيها تفصيل طويل سيذكره المصنف في آخر الكلام على شرط إزالة النجاسة قبل الدخول في ستر العورة — لأن هذا التفصيل مهم جدّاً وتكثر فروعه في الحياة اليومية.</p>
+</div>
+
+<!-- ===== 8. تقسيم النجاسات ===== -->
+<h2 class="section-title">٨. تقسيم النجاسات: مخفّفة ومتوسطة ومغلّظة</h2>
+
+<div class="tree-container">
+  <div class="tree-root">النجاسات ثلاثة أقسام</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">مخفّفة</div>
+      <div class="tree-branch-label">بول الصبي الذكر الذي لم يطعم غير اللبن ولم يجاوز الحولين<br><b>التطهير:</b> الرشّ مع المكاثرة</div>
+    </div>
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a;">
+      <div class="tree-branch-num">متوسطة</div>
+      <div class="tree-branch-label">ما عدا المخفّفة والمغلّظة<br><b>التطهير:</b> غسل حتى تزول العين + إزالة الصفات</div>
+    </div>
+    <div class="tree-branch" style="background: #fef2f2; border-color: #fca5a5;">
+      <div class="tree-branch-num">مغلّظة</div>
+      <div class="tree-branch-label">نجاسة الكلب والخنزير وتولّدهما<br><b>التطهير:</b> سبع غسلات + إحداها بتراب</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 9. النجاسة المخففة ===== -->
+<h2 class="section-title">٩. النجاسة المخفّفة: بول الصبي (أربعة شروط)</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">النص</span>
+  <p>النجاسة المخفّفة هي: <b>بول الصبي الذي لم يطعم غير اللبن ولم يجاوز الحولين</b> — بأربعة شروط:</p>
+</div>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">١</span>
+    <b>أن يكون بولاً</b> — أخرج غير البول: فغائط الصبي نجاسة متوسطة، وقيء الصبي متوسطة، ودم الصبي متوسطة.
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٢</span>
+    <b>أن يكون من صبي ذكر</b> — المراد بالصبي هنا الذكر فقط. فبول الجارية نجاسته متوسطة لا مخفّفة. (بخلاف "يُؤمر الصبي بالصلاة لسبع" فالمقصود الذكر والأنثى).
+  </div>
+  <div class="condition-item" style="background: #f0f9ff; border: 1px solid #bae6fd;">
+    <span class="condition-num">٣</span>
+    <b>أن لم يطعم غير اللبن</b> — أي لم يتغذَّ على غير اللبن. وإن تناول غيره لنحو إصلاح (كدواء) فلا يؤثر. ولو كان اللبن من آدمية أخرى غير أمّه أو من لبن البهيمة — فكلّه مخفّف. حتى لو كان اللبن نجساً كلبن أتان!
+  </div>
+  <div class="condition-item" style="background: #fdf2f8; border: 1px solid #fbcfe8;">
+    <span class="condition-num">٤</span>
+    <b>أن لم يجاوز الحولين</b> — أي عامين هجريين قمريين تحديدين. فلو جاوز الحولين بيوم واحد صار بوله نجاسة متوسطة.
+  </div>
+</div>
+
+<table>
+  <tr>
+    <th>الشرط</th>
+    <th>ما يُخرِج</th>
+    <th>التفصيل</th>
+  </tr>
+  <tr>
+    <td><b>بول</b></td>
+    <td>الغائط، القيء، الدم</td>
+    <td>كلّها نجاسة متوسطة</td>
+  </tr>
+  <tr>
+    <td><b>صبي ذكر</b></td>
+    <td>الأنثى (الجارية)</td>
+    <td>بول الجارية نجاسة متوسطة</td>
+  </tr>
+  <tr>
+    <td><b>لم يطعم غير اللبن</b></td>
+    <td>من تغذّى على غير اللبن</td>
+    <td>اللبن الصناعي (بيبي لكّ/بيبي ليف) يجعل بوله <span class="highlight-red">متوسط</span> لأنه يُضاف إليه فيتامينات ومعادن</td>
+  </tr>
+  <tr>
+    <td><b>لم يجاوز الحولين</b></td>
+    <td>من جاوز العامين</td>
+    <td>عامان هجريان تحديديان — فلو زاد يوماً واحدًا صار متوسطاً</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">اللبن الصناعي</span>
+  <p>اللبن الصناعي (مثل بيبي لكّ، بيبي ليف، وغيرها) تُضاف إليه فيتامينات ومعادن وموادّ غذائية بنسبة كبيرة — فالذي يظنّه الشيخ أن اللبن الصناعي يجعل بول الطفل نجاسة <b>متوسطة لا مخفّفة</b>، لأنه يُعتبر قد طعم غير اللبن.</p>
+</div>
+
+<!-- ===== 10. تطهير النجاسة المخففة ===== -->
+<h2 class="section-title">١٠. تطهير النجاسة المخفّفة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>يكفي فيه الرشّ مع الغلبة والمكاثرة</b> — بحيث يعمّ جميع المحلّ. لكن بشرط أن تزول عين النجاسة وأوصافها أوّلاً — فلا يكفي الرشّ وعين البول موجودة ولا وأوصافه باقية.</p>
+</div>
+
+<div class="flow-row">
+  <div class="flow-box">بول الصبي على الثوب</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">زوال العين والأوصاف أولاً</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-pure">الرشّ مع المكاثرة → يطهر</div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">الخلاف مع مالك</span>
+  <p><b>يُستحبّ أن يُغسل خروجاً من الخلاف</b> — لأن الإمام مالكاً رحمه الله لا يفرّق بين بول الصبي وبول غيره، فيرى أنه يُغسل الجميع. فالغسل خروجاً من الخلاف مستحبّ.</p>
+</div>
+
+<!-- ===== 11. النجاسة المغلظة ===== -->
+<h2 class="section-title">١١. النجاسة المغلّظة: سبع غسلات</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">النص</span>
+  <p><b>ولا يطهّر متنجّس بنحو كلب إلا بسبع غسلات بعد زوال العين</b></p>
+  <p>قوله <b>"بنحو كلب"</b> — كلمة "نحو" يُستعملها الفقهاء عند ضرب المثال، أي أن هناك أشياء أخرى: <b>الخنزير</b>، وما تولّد بين كلب وخنزير، وما تولّد من أحدهما مع حيوان طاهر — كلّها نجاسة مغلّظة.</p>
+</div>
+
+<div class="tree-container">
+  <div class="tree-root">النجاسة المغلّظة (بنحو كلب)</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #fef2f2; border-color: #fca5a5;">
+      <div class="tree-branch-label">الكلب</div>
+    </div>
+    <div class="tree-branch" style="background: #fef2f2; border-color: #fca5a5;">
+      <div class="tree-branch-label">الخنزير</div>
+    </div>
+    <div class="tree-branch" style="background: #fef2f2; border-color: #fca5a5;">
+      <div class="tree-branch-label">تولّد بين كلب وخنزير</div>
+    </div>
+    <div class="tree-branch" style="background: #fef2f2; border-color: #fca5a5;">
+      <div class="tree-branch-label">تولّد من كلب مع طاهر</div>
+    </div>
+    <div class="tree-branch" style="background: #fef2f2; border-color: #fca5a5;">
+      <div class="tree-branch-label">تولّد من خنزير مع طاهر</div>
+    </div>
+  </div>
+</div>
+
+<h3 class="sub-title">طريقة التطهير</h3>
+
+<div class="key-rule">
+  المتنجّس بنحو كلب = ٧ غسلات بعد زوال العين والأوصاف + إحداهنّ بتراب تيمّم
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">التفصيل</span>
+  <p><b>بعد زوال العين:</b> أي بعد زوال عين النجاسة وأوصافها (الطعم، اللون، الريح) — فالغسلات التي أزالت العين تُحسب واحدة من السبع.</p>
+  <p><b>ولو بمرّات:</b> أي ولو غسلت النجاسة بمرّات (غسلات متعدّدة) فمزيل العين يُحسب غسلة واحدة من السبع. فلو أزلت العين في أربع غسلات — تُحسب واحدة — ثم تغسل ستّاً أخرى = سبع إجمالاً.</p>
+  <p><b>إحداهنّ بتراب تيمّم:</b> أي إحدى الغسلات السبع يجب أن تكون بتراب يصحّ التيمّم به.</p>
+</div>
+
+<div class="flow-row">
+  <div class="flow-box">ثوب أصابه لعاب كلب</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">غسل حتى زالت العين والأوصاف (تُحسب غسلة ١)</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">غسل ٢</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">غسل ٣</div>
+</div>
+<div class="flow-row">
+  <div class="flow-box">غسل ٤</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">غسل ٥</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">غسل ٦</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-pure">غسل ٧ بتراب تيمّم → طهُر ✓</div>
+</div>
+
+<!-- ===== 12. تراب التيمم والنجاسة المغلظة ===== -->
+<h2 class="section-title">١٢. تراب التيمّم وإزالة النجاسة المغلّظة — مقارنة</h2>
+
+<div class="definition-box">
+  <span class="box-label label-def">تراب التيمّم</span>
+  <p>هو التراب <b>الطاهر الخالص غير المستعمل الذي له غبار</b> — بأربعة شروط:</p>
+</div>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">١</span>
+    <b>طاهر</b> — أخرج تراب النجاسة
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٢</span>
+    <b>خالص</b> — لم يختلط بشيء آخر كدقيق
+  </div>
+  <div class="condition-item" style="background: #f0f9ff; border: 1px solid #bae6fd;">
+    <span class="condition-num">٣</span>
+    <b>غير مستعمل</b> — لم يتناثر من العضو ولم يبقَ فيه
+  </div>
+  <div class="condition-item" style="background: #fdf2f8; border: 1px solid #fbcfe8;">
+    <span class="condition-num">٤</span>
+    <b>له غبار</b> — أخرج التراب الذي أصابه المطر (لا غبار له)
+  </div>
+</div>
+
+<h3 class="sub-title">الفروق بين التيمّم وإزالة النجاسة المغلّظة</h3>
+
+<table>
+  <tr>
+    <th>نوع التراب</th>
+    <th>يصحّ به التيمّم؟</th>
+    <th>يصحّ به إزالة النجاسة المغلّظة؟</th>
+  </tr>
+  <tr>
+    <td><b>تراب خالص</b> (لم يختلط بشيء)</td>
+    <td><span class="highlight-green">نعم</span></td>
+    <td><span class="highlight-green">نعم</span></td>
+  </tr>
+  <tr>
+    <td><b>تراب اختلط بدقيق</b> (ولو قلّ)</td>
+    <td><span class="highlight-red">لا</span> — لا يصحّ التيمّم به وإن قلّ الخلط</td>
+    <td><span class="highlight-green">نعم</span> — يصحّ به إزالة النجاسة المغلّظة ما لم يكثر الخلط</td>
+  </tr>
+  <tr>
+    <td><b>تراب مستعمل</b> (تناثر من العضو أو بقي فيه)</td>
+    <td><span class="highlight-red">لا</span></td>
+    <td><span class="highlight-red">لا</span></td>
+  </tr>
+  <tr>
+    <td><b>تراب ليس له غبار</b> (كالذي أصابه المطر)</td>
+    <td><span class="highlight-red">لا</span> — لا يصحّ التيمّم به</td>
+    <td><span class="highlight-green">نعم</span> — يصحّ به إزالة النجاسة المغلّظة</td>
+  </tr>
+</table>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">الخلاصة</span>
+  <p><b>في التيمّم:</b> يجب أن يكون التراب خالصاً (لا خلط ولو قلّ) وأن يكون له غبار — فهو أشدّ شرطاً.</p>
+  <p><b>في إزالة النجاسة المغلّظة:</b> يُتسامح في الخلط (ما لم يكثر) ولا يُشترط أن يكون له غبار — فهو أيسر في هذين الأمرين. لكن يشترط فيهما معاً: الطهارة وعدم الاستعمال.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">تقييد مهم</span>
+  <p>قول المصنّف <b>"بتراب تيمّم"</b> يحتاج إلى تقييد — فليس كلّ تراب يصحّ به التيمّم يصحّ به إزالة النجاسة المغلّظة، وليس العكس. فالمستعمل لا يصحّ به واحد منهما. والخالص ذو الغبار يصحّ به两者. والفرق في: الخلط (يمنع التيمّم لا النجاسة المغلّظة ما لم يكثر) وعدم الغبار (يمنع التيمّم لا النجاسة المغلّظة).</p>
+</div>
+
+</body>
+</html>

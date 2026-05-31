@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf') format('truetype'); font-weight: normal; }
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf') format('truetype'); font-weight: bold; }
+@font-face { font-family: 'NotoNaskh'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf') format('truetype'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+
+body {
+  font-family: 'NotoNaskh', 'Amiri', serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #1a1a2e;
+  direction: rtl;
+  background: #fff;
+  text-align: justify;
+}
+
+.cover-header {
+  background: #1a5632;
+  color: white;
+  padding: 20px 14px;
+  text-align: center;
+  margin: 0 0 12px 0;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px);
+  border-bottom: 4px solid #c8a951;
+}
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 6px; border: none; font-family: 'Amiri', serif; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.9; margin: 4px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.92; margin: 6px 0 2px 0; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .creator { font-size: 11pt; opacity: 0.85; margin-top: 2px; }
+.cover-header .series { font-size: 11pt; opacity: 0.8; margin-top: 4px; }
+
+.toc {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 0 0 12px 0;
+}
+.toc-title {
+  font-family: 'Amiri', serif;
+  font-size: 14pt;
+  color: #1a5632;
+  text-align: center;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #c8a951;
+  padding-bottom: 4px;
+}
+.toc-item {
+  font-size: 10pt;
+  padding: 2px 0;
+  border-bottom: 1px dotted #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+h2.section-title {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0d7c3e;
+  border-bottom: 2px solid #0d7c3e;
+  padding-bottom: 5px;
+  margin: 18px 0 10px;
+}
+
+h3.sub-title {
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: #0a5c2e;
+  margin: 14px 0 8px;
+  padding-right: 10px;
+  border-right: 4px solid #0d7c3e;
+}
+
+h4.minor-title {
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #166534;
+  margin: 10px 0 6px;
+}
+
+p { margin: 5px 0; text-align: justify; }
+
+.definition-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-right: 4px solid #0d7c3e;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.rule-box {
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-right: 4px solid #d97706;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.exception-box {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-right: 4px solid #ea580c;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.evidence-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-right: 4px solid #2563eb;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.issue-box {
+  background: #fdf2f8;
+  border: 1px solid #fbcfe8;
+  border-right: 4px solid #db2777;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.comparison-box {
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  border-right: 4px solid #7c3aed;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.note-box {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-right: 4px solid #0284c7;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.poetry-box {
+  background: #faf5ff;
+  border: 1px solid #e9d5ff;
+  border-right: 4px solid #9333ea;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+  text-align: center;
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  line-height: 2.2;
+}
+
+.key-rule {
+  background: #dcfce7;
+  border: 2px solid #16a34a;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.box-label {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 4px;
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.label-def { background: #0d7c3e; }
+.label-rule { background: #d97706; }
+.label-exc { background: #ea580c; }
+.label-ev { background: #2563eb; }
+.label-issue { background: #db2777; }
+.label-comp { background: #7c3aed; }
+.label-note { background: #0284c7; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 13px;
+  table-layout: fixed;
+}
+
+th {
+  background: #0d7c3e;
+  color: #fff;
+  padding: 6px 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+td {
+  padding: 5px 8px;
+  border: 1px solid #d1d5db;
+  text-align: center;
+  vertical-align: top;
+}
+
+tr:nth-child(even) { background: #f0fdf4; }
+tr:nth-child(odd) { background: #fff; }
+
+.tree-container { margin: 12px 0; text-align: center; }
+.tree-root {
+  display: inline-block;
+  background: linear-gradient(135deg, #0d7c3e, #0a5c2e);
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+.tree-branches { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px; }
+.tree-branch {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  min-width: 80px;
+  text-align: center;
+}
+.tree-branch-num { font-family: 'Amiri', serif; font-weight: bold; color: #0d7c3e; font-size: 14px; }
+.tree-branch-label { font-size: 12px; color: #374151; }
+
+.compare-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.compare-card { flex: 1; min-width: 140px; border-radius: 8px; padding: 8px 10px; text-align: center; }
+.compare-card-green { background: #dcfce7; border: 1px solid #86efac; }
+.compare-card-red { background: #fef2f2; border: 1px solid #fca5a5; }
+.compare-card-gold { background: #fefce8; border: 1px solid #fde68a; }
+.compare-card-blue { background: #eff6ff; border: 1px solid #bfdbfe; }
+.compare-card-title { font-family: 'Amiri', serif; font-weight: bold; font-size: 14px; margin-bottom: 4px; }
+.compare-card-body { font-size: 12px; }
+
+.flow-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px; margin: 8px 0; }
+.flow-box { background: #0d7c3e; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-family: 'Amiri', serif; font-weight: bold; text-align: center; }
+.flow-arrow { font-size: 16px; color: #0d7c3e; font-weight: bold; }
+.flow-result { padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; text-align: center; }
+.flow-pure { background: #dcfce7; border: 1px solid #86efac; color: #166534; }
+.flow-impure { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+.flow-excused { background: #fefce8; border: 1px solid #fde68a; color: #92400e; }
+
+.highlight-green { background: #dcfce7; padding: 1px 4px; border-radius: 3px; }
+.highlight-gold { background: #fefce8; padding: 1px 4px; border-radius: 3px; }
+.highlight-red { background: #fef2f2; padding: 1px 4px; border-radius: 3px; }
+
+.verse-ref { font-family: 'Amiri', serif; font-size: 14px; color: #1e40af; text-align: center; margin: 6px 0; }
+.hadith-ref { font-family: 'Amiri', serif; font-size: 13px; color: #166534; text-align: center; margin: 6px 0; }
+
+.condition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.condition-item { border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.condition-num {
+  display: inline-block; background: #0d7c3e; color: #fff; min-width: 24px; height: 24px;
+  border-radius: 50%; text-align: center; line-height: 24px; font-family: 'Amiri', serif;
+  font-weight: bold; font-size: 12px; margin-left: 6px;
+}
+
+ul { margin: 4px 0; padding-right: 20px; }
+li { margin: 2px 0; }
+</style>
+</head>
+<body>
+
+<!-- ===== FULL-PAGE COVER (NEW LESSON) ===== -->
+<div class="cover-page" style="width:100%; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; background:linear-gradient(135deg,#0d4a2e,#0a5c2e,#0d7c3e,#1a8f4e,#2ea06e); text-align:center; color:white; padding:40px 20px;">
+  <div style="background:linear-gradient(90deg,#c8a951,#e8c84a,#c8a951); height:6px; width:80%; border-radius:3px; margin-bottom:30px;"></div>
+  <h1 style="font-family:'Amiri',serif; font-size:28pt; color:white; margin:10px 0; border:none;">شرح فتح المعين</h1>
+  <div style="font-size:16pt; color:#c8a951; margin:8px 0;">للعلامة الفقيه المليباري</div>
+  <div style="background:rgba(255,255,255,0.15); border-radius:12px; padding:12px 30px; margin:15px 0;">
+    <div style="font-size:20pt; font-family:'Amiri',serif; font-weight:bold;">الدرس السادس والثلاثون — تكبيرة الإحرام</div>
+  </div>
+  <div style="font-size:14pt; color:#a8e6c3; margin:10px 0;">د. لبيب نجيب عبدالله</div>
+  <div style="font-size:12pt; color:rgba(255,255,255,0.8); margin-top:5px;">تنسيق: أحمد بن إرشاد</div>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. تكبيرة الإحرام — الركن الثاني من أركان الصلاة</span></div>
+  <div class="toc-item"><span>٢. تسمية التكبير بالتحرّم وعلّته</span></div>
+  <div class="toc-item"><span>٣. جعل التكبير فاتحة الصلاة وحكمة تكراره</span></div>
+  <div class="toc-item"><span>٤. مقارنة النية بالتكبير والقيام</span></div>
+  <div class="toc-item"><span>٥. ما يجب استحضاره في النية عند التكبير</span></div>
+  <div class="toc-item"><span>٦. الأقوال الثلاثة في مقارنة النية بالتكبير</span></div>
+  <div class="toc-item"><span>٧. المصطلحات الأربعة: الاستحضار والمقارنة (حقيقي وعرفي)</span></div>
+  <div class="toc-item"><span>٨. مذهب الشافعي ومخالفيه في مقارنة النية</span></div>
+  <div class="toc-item"><span>٩. تعيين لفظ "الله أكبر" والترجمة للعاجز</span></div>
+  <div class="toc-item"><span>١٠. وجوب تعلّم التكبير والسفر لأجله</span></div>
+  <div class="toc-item"><span>١١. صيغ التكبير وما لا يكفي منها</span></div>
+  <div class="toc-item"><span>١٢. شروط تكبيرة الإحرام الثمانية (من كلام المصنّف)</span></div>
+  <div class="toc-item"><span>١٣. ما لا يضرّ في التكبير</span></div>
+  <div class="toc-item"><span>١٤. فرع: تكرار التكبير ناوياً الافتتاح</span></div>
+  <div class="toc-item"><span>١٥. وجوب إسماع النفس التكبير</span></div>
+  <div class="toc-item"><span>١٦. أبيات الزبد في شروط التكبير العشرين</span></div>
+  <div class="toc-item"><span>١٧. سنن تكبيرة الإحرام</span></div>
+</div>
+
+<!-- ===== 1. تكبيرة الإحرام ===== -->
+<h2 class="section-title">١. تكبيرة الإحرام — الركن الثاني من أركان الصلاة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وثانيها تكبير تحرم</b> — أي وثاني أركان الصلاة تكبيرة الإحرام. سمّيت بذلك لأنّ المصلي يحرم عليه بها ما كان حلالاً له قبلها من مفسدات الصلاة.</p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل الأوّل — حديث المسيء صلاته</span>
+  <p>قال النبيّ صلّى الله عليه وسلّم: <b>«إذا قمت إلى الصلاة فكبّر»</b> — متفق عليه. وهذا من حديث المسيء صلاته واسمه <b>خلاد بن رافع</b>، الذي قال له النبيّ صلّى الله عليه وسلّم ثلاثاً: «ارجع فصلِّ فإنّك لم تصلِّ» حتّى قال: لا أحسن غير ذلك، فعلّمه النبيّ صلّى الله عليه وسلّم.</p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل الثاني</span>
+  <p>قال النبيّ صلّى الله عليه وسلّم: <b>«مفتاح الصلاة الطهور، تحريمها التكبير، تحليلها التسليم»</b></p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">اعتماد الفقهاء</span>
+  <p>اعتمد الفقهاء على حديث المسيء صلاته فجعلوا ما ذُكر فيه من أركان الصلاة أركاناً تامّة.</p>
+</div>
+
+<!-- ===== 2. تسمية التكبير بالتحرم ===== -->
+<h2 class="section-title">٢. تسمية التكبير بالتحرّم وعلّته</h2>
+
+<div class="definition-box">
+  <span class="box-label label-def">تعريف</span>
+  <p><b>سمّي التكبير بالتحرّم</b> لأنّ المصلي يحرم عليه به — أي بالتكبير — ما كان حلالاً له قبله من مفسدات الصلاة. فقبل التكبير يحلّ له الكلام ويحلّ له الأكل والشرب، فإذا كبر حرم عليه ذلك. لذلك سمّي تحرّماً — أي تكبير التحرّم.</p>
+</div>
+
+<div class="tree-container">
+  <div class="tree-root">تكبيرة الإحرام</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">قبل التكبير</div>
+      <div class="tree-branch-label">يحلّ الكلام<br>ويحلّ الأكل والشرب<br>وغيرها من المباحات</div>
+    </div>
+    <div class="tree-branch" style="background: #fef2f2; border-color: #fca5a5;">
+      <div class="tree-branch-num">بعد التكبير</div>
+      <div class="tree-branch-label">يحرُم الكلام<br>ويحرُم الأكل والشرب<br>وكلّ مفسدات الصلاة</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 3. جعل التكبير فاتحة الصلاة ===== -->
+<h2 class="section-title">٣. جعل التكبير فاتحة الصلاة وحكمة تكراره</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وجُعل فاتحة الصلاة دون غيره</b> — لم يكن افتتاح الصلاة بقول "سبحان الله" ولا "الحمد لله" ولا "لا إله إلا الله"، بل جُعِل التكبير مفتاح الصلاة.</p>
+</div>
+
+<h3 class="sub-title">الحكمة من جعل التكبير فاتحة الصلاة</h3>
+
+<div class="note-box">
+  <span class="box-label label-note">العلّة</span>
+  <p><b>ليستحضر المصلي معناه الدالّ على عظمة من تهيّأ لخدمته</b> — ذلك أنّ الإنسان عندما يقول "الله أكبر" يعلم أنّ الله عزّ وجلّ أكبر من كلّ شيء، فالدنيا بأسرها لا تساوي شيئاً. <b>حتّى تتمّ له الهيبة والخشوع</b> لله عزّ وجلّ.</p>
+</div>
+
+<h3 class="sub-title">الحكمة من تكرار التكبير في الانتقالات</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ومن ثمّ زيد في تكراره ليداوم استصحاب ذينك</b> — أي الهيبة والخشوع. فيُكرّر التكبير في كلّ انتقال: عند الركوع، وعند السجود، وعند الرفع من السجود — في كلّ انتقال يقول "الله أكبر" ليستحضر بقلبه أنّ الله أكبر من كلّ شيء.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">إشارة نحوية</span>
+  <p>قوله "ذينك" — إشارة للمثنى يعود على الهيبة والخشوع. قال ابن مالك في الألفية: <i>ذا لمفرد مذكّر أشرْ بِذي وذي للإشارة للأنثى اقتصر وذانتان للمثنّى المرتفع وفي سواه ذينتين ذكرْ تطع</i></p>
+</div>
+
+<!-- ===== 4. مقارنة النية بالتكبير والقيام ===== -->
+<h2 class="section-title">٤. مقارنة النية بالتكبير والقيام</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>مقروناً به</b> — أي مقروناً بالتكبير. أي تكون النية مقارنة للتكبير، لأنّ التكبير أوّل أركان الصلاة القولية، فتجب مقارنة النية به.</p>
+</div>
+
+<div class="key-rule">
+  ثلاثة أمور تجتمع في لحظة واحدة عند تكبيرة الإحرام:<br>
+  <b>١. النية</b> — ركن قلبي<br>
+  <b>٢. التكبير</b> — ركن قولي<br>
+  <b>٣. القيام</b> — ركن فعلي<br>
+  فلا يُقال: القيام أوّل الأركان الفعلية لأنّ التكبير لا بدّ أن يكون حال القيام<br>
+  ولا يُقال: النية أوّل الأركان لأنّ النية لا بدّ أن تكون عند التكبير لا قبله
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">النية (قلبي)</div>
+    <div class="compare-card-body">أوّل الأركان القلبية<br>لا بدّ أن تكون عند التكبير</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">التكبير (قولي)</div>
+    <div class="compare-card-body">أوّل الأركان القولية<br>لا بدّ أن يكون حال القيام</div>
+  </div>
+  <div class="compare-card compare-card-blue">
+    <div class="compare-card-title">القيام (فعلي)</div>
+    <div class="compare-card-body">أوّل الأركان الفعلية<br>لا بدّ أن يقارن التكبير</div>
+  </div>
+</div>
+
+<!-- ===== 5. ما يجب استحضاره في النية ===== -->
+<h2 class="section-title">٥. ما يجب استحضاره في النية عند التكبير</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>بل لا بدّ أن يستحضر كلّ معتبر فيها ممّا مرّ وغيره</b> — أي لا بدّ أن يستحضر كلّ ما يعتبر في النية ممّا مرّ ذكره وممّا لم يمرّ ذكره.</p>
+</div>
+
+<h3 class="sub-title">ما مرّ ذكره في الدرس الماضي</h3>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">١</span>
+    <b>قصد الفعل</b> — في كلّ صلاة
+  </div>
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">٢</span>
+    <b>التعيين</b> — في الفرض والنفل المقيد
+  </div>
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">٣</span>
+    <b>الفرضية</b> — في صلاة الفرض
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٤</span>
+    <b>قصد الفعل فقط</b> — في النفل المطلق
+  </div>
+</div>
+
+<h3 class="sub-title">ما لم يمرّ ذكره (ممّا يُستحضر عند التكبير)</h3>
+
+<div class="exception-box">
+  <span class="box-label label-exc">إضافات لم تمرّ</span>
+  <p><b>كالقصر للقاصر</b> — من شروط القصر أن ينويه عند التحرم. فلو كبّر ولم ينوِ القصر يجب عليه أن يتمّ الصلاة (أربع ركعات). وشرط القصر أن يكون مسافراً سفراً طويلاً مباحاً (ثلاثة عشر شرطاً تُدرس في محلّها).</p>
+  <p><b>وكونه إماماً</b> — إذا كان إمام جمعة يجب أن ينوي أنّه إمام عند تكبيرة الإحرام.</p>
+  <p><b>وكونه مأموماً</b> — المأموم يجب عليه أن ينوي الاقتداء في كلّ صلاة، سواء جمعة أو غير جمعة.</p>
+</div>
+
+<h3 class="sub-title">مثال تطبيقي: مسافر يصلّي الظهر قصراً مأموماً</h3>
+
+<div class="key-rule">
+  نيات خمس يستحضرها عند التحرم:<br>
+  <b>١.</b> فعل الصلاة &nbsp; <b>٢.</b> التعيين (الظهر) &nbsp; <b>٣.</b> الفرضية<br>
+  <b>٤.</b> القصر &nbsp; <b>٥.</b> الاقتداء (أنّه مأموم)
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">متى يستحضر؟</span>
+  <p><b>مع ابتداء التكبير</b> — الضمير في "ابتدائه" يعود إلى التكبير. فعند بداية التكبير يستحضر هذه الأشياء الخمسة وجوباً.</p>
+</div>
+
+<!-- ===== 6. الأقوال الثلاثة ===== -->
+<h2 class="section-title">٦. الأقوال الثلاثة في مقارنة النية بالتكبير</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">القول الأوّل — المعتمد في المذهب</span>
+  <p><b>ثمّ يستمرّ ويستصحب لذلك كله إلى الراء</b> — أي من أوّل التكبير يبقى مستحضراً هذه الخمسة إلى أن ينطق بالراء. فلو في أثناء ذلك غابت النية لا يصحّ. صحّحه رافعو شيخ المذهب.</p>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">القول الثاني — الإمام الرافعي</span>
+  <p><b>وفي قول صحّحه الرافعي: يكفي قرنها بأوّله</b> — أي بأوّل التكبير. يكفي وإن غابت في أثناء التكبير لا بأس، المهمّ أن تكون في أوّل التكبير.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">القول الثالث — المختار</span>
+  <p><b>وفي المجموع والتنقيح المختار مختار الإمام والغزالي</b> — أنّه يكفي فيها المقارنة العرفية عند العوام، بحيث يُعدّ مستحضراً للصلاة. أي يقصد الاستحضار العرفي.</p>
+  <p><b>الإمام</b> إذا أُطلق في كتب الفقه فهو إمام الحرمين أبو المعالي الجويني (عبد الملك بن عبد الله بن يوسف المتوفّى ٤٧٨ هـ). وفي كتب الأصول أيضاً يُراد به الجويني لا الرازي.</p>
+  <p>المجموع: شرح المهذب للإمام النووي. التنقيح: شرح الوسيط للغزالي للإمام النووي أيضاً.</p>
+</div>
+
+<table>
+  <tr>
+    <th>القول</th>
+    <th>صاحبه</th>
+    <th>المضمون</th>
+  </tr>
+  <tr>
+    <td><b>الأوّل (المعتمد)</b></td>
+    <td>رافعو شيخ المذهب</td>
+    <td>يجب استمرار النية من أوّل التكبير إلى آخره (المقارنة الحقيقية)</td>
+  </tr>
+  <tr>
+    <td><b>الثاني</b></td>
+    <td>الإمام الرافعي</td>
+    <td>يكفي قرن النية بأوّل التكبير وإن غابت في أثنائه</td>
+  </tr>
+  <tr>
+    <td><b>الثالث (المختار)</b></td>
+    <td>الإمام الجويني والغزالي</td>
+    <td>يكفي المقارنة العرفية عند العوام — بحيث يُعدّ مستحضراً للصلاة</td>
+  </tr>
+</table>
+
+<!-- ===== 7. المصطلحات الأربعة ===== -->
+<h2 class="section-title">٧. المصطلحات الأربعة: الاستحضار والمقارنة (حقيقي وعرفي)</h2>
+
+<div class="definition-box">
+  <span class="box-label label-def">المصطلح الأوّل: الاستحضار الحقيقي</span>
+  <p>أن تستحضر الصلاة <b>بجميع أركانها</b> عند التكبير — بقيامها وركوعها واعتدالها وسجودها وقعودها بين السجدتين وتشهّدها وأركانها القولية. تستحضر الصلاة كلّها هكذا أمام عينك عندما تقول "الله أكبر".</p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">المصطلح الثاني: الاستحضار العرفي</span>
+  <p>أن تستحضر <b>قصد الفعل والفرضية والتعيين</b> وما يعتبر ممّا ذُكر — كالقصر لمن أراد القصر، والإمامة للإمام في الجمعة، والاقتداء للمأموم. هذا أيسر من الأوّل.</p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">المصطلح الثالث: المقارنة الحقيقية</span>
+  <p>أنّ هذا الذي استحضرته — سواء الاستحضار الحقيقي أو العرفي — <b>يستمرّ في ذهنك من أوّل التكبير إلى آخره</b> (إلى الراء).</p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">المصطلح الرابع: المقارنة العرفية</span>
+  <p>أن يوجد الاستحضار في <b>أيّ جزء من أجزاء التكبير</b> — سواء في أوّله ثمّ غاب عن الذهن، أو في وسطه، أو في آخره. المهمّ أن وُجد في جزء منه.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">استحضار حقيقي + مقارنة حقيقية</div>
+    <div class="compare-card-body"><b>مذهب الشافعي المعتمد</b><br>الأشدّ — قد يفضي إلى الوسوسة</div>
+  </div>
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">استحضار عرفي + مقارنة عرفية</div>
+    <div class="compare-card-body"><b>المختار — أيسر</b><br>اكتفى به المتأخّرون</div>
+  </div>
+</div>
+
+<!-- ===== 8. مذهب الشافعي ومخالفيه ===== -->
+<h2 class="section-title">٨. مذهب الشافعي ومخالفيه في مقارنة النية</h2>
+
+<div class="key-rule">
+  مذهب الشافعي: وجوب الاستحضار الحقيقي والمقارنة الحقيقية<br>
+  لكن من سلك هذا ربّما أفضى به الأمر إلى الوسوسة<br>
+  فالمتأخّرون اكتفوا بالاستحضار العرفي والمقارنة العرفية
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">تأييد المختار</span>
+  <p><b>ابن الرفعة:</b> إنّه الحقّ الذي لا يقوز سواه (أي الاستحضار العرفي والمقارنة العرفية).</p>
+  <p><b>السبكي:</b> من لم يقل به وقع في الوسواس المذموم.</p>
+</div>
+
+<div class="poetry-box">
+  <span class="box-label label-comp" style="background:#9333ea;">أبيات الزبد في النية</span>
+  <p>أركانها ثلاث عشر نيّة في الفرض قصد الفعل والفرضية<br>
+أوجب مع التعيين أمّا ذو السبب والوقت فالقصد وتعين<br>
+وجبك الوجب أمّا مطلق من نفلها ففيه تكفي نيّة لفعلها<br>
+دون إضافة لذي الجلال وعدد الركعات واستقبال<br>
+ثاني قيام قادر القيام وثالث تكبيرة الإحرام<br>
+ولو معرّفاً عن التنكير وقارن النيّة بالتكبير<br>
+في كله حتماً وهذا المعتمد في كله حتماً — مقارنة حقيقية<br>
+ومختار الإيجاب والنواوي وحجة للسلام يكفي بأن يكون<br>
+قلب العاقل مستحضر النيّة غير غافل — مقارنة عرفية</p>
+</div>
+
+<h3 class="sub-title">خلاف الأئمّة الثلاثة</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">مذاهب أخرى</span>
+  <p><b>عند أبي حنيفة ومالك وأحمد:</b> يجوز تقديم النيّة على التكبير بالزمن اليسير.</p>
+  <p><b>اشتراط الحنابلة:</b> أن يكون تقديمها بعد دخول الوقت لا قبله.</p>
+</div>
+
+<table>
+  <tr>
+    <th>المذهب</th>
+    <th>مقارنة النية بالتكبير</th>
+    <th>تقديم النية على التكبير</th>
+  </tr>
+  <tr>
+    <td><b>الشافعي</b></td>
+    <td>وجوب المقارنة (حقيقية أو عرفية)</td>
+    <td><span class="highlight-red">لا يجوز</span></td>
+  </tr>
+  <tr>
+    <td><b>أبو حنيفة</b></td>
+    <td>—</td>
+    <td><span class="highlight-green">يجوز بزمن يسير</span></td>
+  </tr>
+  <tr>
+    <td><b>مالك</b></td>
+    <td>—</td>
+    <td><span class="highlight-green">يجوز بزمن يسير</span></td>
+  </tr>
+  <tr>
+    <td><b>أحمد</b></td>
+    <td>—</td>
+    <td><span class="highlight-green">يجوز بعد دخول الوقت بزمن يسير</span></td>
+  </tr>
+</table>
+
+<!-- ===== 9. تعيين لفظ الله أكبر ===== -->
+<h2 class="section-title">٩. تعيين لفظ "الله أكبر" والترجمة للعاجز</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويتعيّن فيه على القادر لفظ "الله أكبر"</b> — أي يتعيّن على القادر على النطق بالعربية أن يقول "الله أكبر" لا غير.</p>
+</div>
+
+<div class="exception-box">
+  <span class="box-label label-exc">العاجز عن النطق بالعربية</span>
+  <p><b>يترجم عنه بلغته أو بأيّ لغة شاء</b>، ولا يأتي بذكر آخر. فلو قال شخص أسلم حديثاً وأعجز أن يقول "الله أكبر" لكن يستطيع أن يقول "سبحان الله" — نقول: تأتي بترجمة "الله أكبر" لكن لا تقول "سبحان الله".</p>
+</div>
+
+<!-- ===== 10. وجوب تعلم التكبير ===== -->
+<h2 class="section-title">١٠. وجوب تعلّم التكبير والسفر لأجله</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">حكم تعلّم التكبير</span>
+  <p><b>من كان لا يعرف التكبير فإنّه يجب عليه أن يتعلّمه</b> — ومثل التكبير جميع الواجبات يجب عليه أن يتعلّمها. فإن لم يتمكّن من التعلّم إلا بالسفر وَجَب عليه السفر حتّى وإن كان سفراً طويلاً، ما دام أنّه لا يتمكّن من تعلّم الواجبات إلا بالسفر. فالسفر حينئذ واجب بنفس الشروط التي تُذكر في الحجّ إذا توافر الزاد والراحلة.</p>
+</div>
+
+<div class="poetry-box">
+  <span class="box-label label-comp" style="background:#9333ea;">أبيات الزبد</span>
+  <p>من لم يكن يعلم ذا فليسألِ<br>
+من لم يجد معلّماً فليرحلِ</p>
+</div>
+
+<!-- ===== 11. صيغ التكبير ===== -->
+<h2 class="section-title">١١. صيغ التكبير وما لا يكفي منها</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الصيغة الصحيحة</span>
+  <p><b>الله أكبر</b> — هذه هي الصيغة الأصلية. أو <b>الله الأكبر</b> — بإضافة اللام للتعريف، وهذا يصحّ لأنّها زيادة معنى (تفيد الحصر)، ولذلك قال صاحب الزبد: "ولو معرّفاً عن التنكير".<br>
+<b>خلافاً للحنابلة</b> الذين لا يصحّحون "الله الأكبر".</p>
+</div>
+
+<h3 class="sub-title">ما لا يكفي من الصيغ</h3>
+
+<table>
+  <tr>
+    <th>الصيغة</th>
+    <th>الحكم</th>
+    <th>العلّة</th>
+  </tr>
+  <tr>
+    <td><b>أكبر الله</b></td>
+    <td><span class="highlight-red">لا يكفي</span></td>
+    <td>قدّم لفظ "أكبر" على لفظ الجلالة — فيُشترط تقديم لفظ الجلالة</td>
+  </tr>
+  <tr>
+    <td><b>الله كبير</b></td>
+    <td><span class="highlight-red">لا يكفي</span></td>
+    <td>لا يقوم مقام "أكبر" لفظ آخر ككبير أو أعظم أو أجل</td>
+  </tr>
+  <tr>
+    <td><b>الله أعظم</b></td>
+    <td><span class="highlight-red">لا يكفي</span></td>
+    <td>لابدّ من لفظ "أكبر" تحديداً</td>
+  </tr>
+  <tr>
+    <td><b>الرحمن أكبر</b></td>
+    <td><span class="highlight-red">لا يكفي</span></td>
+    <td>لابدّ من لفظ الجلالة "الله" — فلو قال الرحمن أكبر أو العظيم أكبر أو الرحيم أكبر لا تصحّ</td>
+  </tr>
+</table>
+
+<div class="key-rule">
+  ثلاثة شروط مستفادة من الصيغة:<br>
+  <b>١.</b> تقديم لفظ الجلالة (الله قبل أكبر)<br>
+  <b>٢.</b> لفظ "أكبر" تحديداً (لا كبير ولا أعظم)<br>
+  <b>٣.</b> لفظ الجلالة "الله" تحديداً (لا الرحمن ولا العظيم)
+</div>
+
+<!-- ===== 12. شروط تكبيرة الإحرام الثمانية ===== -->
+<h2 class="section-title">١٢. شروط تكبيرة الإحرام الثمانية (من كلام المصنّف)</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">خمسة أمور تضرّ في التكبير</span>
+  <p>ذكر المصنّف خمسة أمور تضرّ، وهي تتضمّن ثمانية شروط:</p>
+</div>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">١</span>
+    <b>عدم الإخلال بحرف من حروف التكبير</b><br>
+    <small>فلو أُخلّ بحرف يضرّ. مثال: الألثغ الذي يبدل حرفاً بحرف (يقول "أكبل" بدل "أكبر") — الألثغ معذور، أمّا غيره فلا.</small>
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٢</span>
+    <b>عدم زيادة حرف يغيّر المعنى</b><br>
+    <small>مثال: مدّ همزة لفظ الجلالة "آلله أكبر" — يصبح استفهاماً. أو ألف بعد الباء "الله أكبار" — يصبح جمعاً (أكبار = طبول).</small>
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٣</span>
+    <b>عدم زيادة واو قبل لفظ الجلالة</b><br>
+    <small>لأنّه لا يوجد ما يُعطف عليه. بخلاف السلام "والسلام عليكم" ففيه ما يُعطف عليه. ساكنة أو متحركة.</small>
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٤</span>
+    <b>عدم تخلّ واو بين اللفظين</b><br>
+    <small>ساكنة أو متحركة — فلا يقول "الله وأكبر". بعض الناس يقولونها للأسف.</small>
+  </div>
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <span class="condition-num">٥</span>
+    <b>عدم مدّ الألف أكثر من ١٤ حركة</b><br>
+    <small>الألف بين اللام والهاء في لفظ الجلالة. أقصى مدّ في القراءات غير الشاذة ٦ حركات، وفي الشاذة ١٤ حركة. فلو زاد عن ١٤ حركة بطلت الصلاة.</small>
+  </div>
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">٦</span>
+    <b>تقديم لفظ الجلالة</b><br>
+    <small>من قوله "ولا يكفي أكبر الله"</small>
+  </div>
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">٧</span>
+    <b>لفظ "أكبر" تحديداً</b><br>
+    <small>من قوله "ولا الله كبير" — لا يقوم مقامه أعظم ولا أجل</small>
+  </div>
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <span class="condition-num">٨</span>
+    <b>لفظ الجلالة "الله" تحديداً</b><br>
+    <small>من قوله "ولا الرحمن أكبر"</small>
+  </div>
+</div>
+
+<h3 class="sub-title">الفرق بين ما يضرّ وما لا يضرّ من الزيادة</h3>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">زيادة تُغيّر المعنى</div>
+    <div class="compare-card-body"><b>تضرّ وتبطل</b><br>مثال: همزة الاستفهام "آلله"<br>ألف بعد الباء "أكبار" (جمع طبل)<br>واو قبل الجلالة "والله أكبر"</div>
+  </div>
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">زيادة لا تُغيّر المعنى</div>
+    <div class="compare-card-body"><b>لا تضرّ</b><br>مثال: "الله الأكبر" بلام التعريف<br>تزيد الحصر فائدةً<br>خلافاً للحنابلة</div>
+  </div>
+</div>
+
+<!-- ===== 13. ما لا يضر ===== -->
+<h2 class="section-title">١٣. ما لا يضرّ في التكبير</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">أمران لا يضرّان</span>
+  <p><b>ولا يضرّ وقفة يسيرة بين كلمتيه وهي سكتة التنفس</b> — أي لو سكت سكتة يسيرة بين لفظ الجلالة ولفظ "أكبر" للتنفس لا يضرّ.</p>
+  <p><b>ولا ضمّ الراء</b> — لو قال "الله أكبرُ" بالراء المضمومة لا يضرّ ذلك، وإن كان الأفضل — كما سيأتي — أن يسكّن الراء "الله أكبرْ".</p>
+</div>
+
+<table>
+  <tr>
+    <th>الأمر</th>
+    <th>الحكم</th>
+    <th>البيان</th>
+  </tr>
+  <tr>
+    <td><b>وقفة يسيرة للتنفس</b></td>
+    <td><span class="highlight-green">لا يضرّ</span></td>
+    <td>سكتة التنفس بين "الله" و"أكبر"</td>
+  </tr>
+  <tr>
+    <td><b>ضمّ الراء</b></td>
+    <td><span class="highlight-green">لا يضرّ</span></td>
+    <td>قول "الله أكبرُ" بالراء المضمومة — والأفضل تسكينها</td>
+  </tr>
+</table>
+
+<!-- ===== 14. فرع: تكرار التكبير ===== -->
+<h2 class="section-title">١٤. فرع: تكرار التكبير ناوياً الافتتاح</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف — الصورة الأولى</span>
+  <p><b>لو كبّر مرات ناوياً الافتتاح بكلّ دخل فيها بالوتر وخرج منها بالشفع</b> — أي لو كبّر مرّات عديدة، في كلّ مرّة ينوي افتتاح الصلاة: يدخل في الصلاة بالتكبيرات الوترية (الأولى والثالثة والخامسة...) ويخرج منها بالتكبيرات الشفعية (الثانية والرابعة والسادسة...).</p>
+</div>
+
+<h3 class="sub-title">التعليل</h3>
+
+<p><b>لأنّ نية الافتتاح بالتكبيرة الثانية متضمّنة لقطع الأولى</b> — أي عندما يفتتح بالتكبيرة الثانية يبطل التكبيرة الأولى. فهو الآن أبطل الصلاة. بالتالي التكبيرة الثانية لا تعدّ دخولاً في الصلاة وإنّما خروج منها. وكذلك في كلّ مرّة.</p>
+
+<div class="flow-row">
+  <div class="flow-box">التكبيرة ١</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-pure">يدخل في الصلاة (وتر)</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">التكبيرة ٢</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-impure">يخرج من الصلاة (شفع)</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">التكبيرة ٣</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-pure">يدخل في الصلاة (وتر)</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">التكبيرة ٤</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-impure">يخرج من الصلاة (شفع)</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">التكبيرة ٥</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-pure">يدخل في الصلاة (وتر)</div>
+</div>
+
+<div class="issue-box">
+  <span class="box-label label-issue">هذه تحصل عند أصحاب الوسوسة</span>
+  <p>فهو يكرّر التكبير مراراً بسبب الشكّ في النيّة، وفي كلّ مرّة ينوي افتتاح الصلاة من جديد.</p>
+</div>
+
+<h3 class="sub-title">الصورة الثانية: تكرار التكبير بلا نيّة افتتاح</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>فإن لم ينوِ ذلك ولا تخلّل مبطل كإعادة لفظ النيّة فما بعد الأولى ذكر لا يؤثر</b> — أي لو كرّر التكبير لكن لم ينوِ الافتتاح ولم يتخلّل مبطل، فما بعد الأولى من التكبير يُعدّ ذكراً لا يؤثر على صحّة الصلاة.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">الصورة الأولى: ناوياً الافتتاح</div>
+    <div class="compare-card-body">يدخل بالوتر ويخرج بالشفع<br>كلّ تكبيرة ناويها تبطل السابقة<br><b>تبطل الصلاة</b></div>
+  </div>
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">الصورة الثانية: لم ينوِ الافتتاح</div>
+    <div class="compare-card-body">التكبير بعد الأولى ذكر لا يؤثر<br>مثل من يقول "الحمد لله" مراراً<br><b>لا تبطل الصلاة</b></div>
+  </div>
+</div>
+
+<div class="exception-box">
+  <span class="box-label label-exc">تخلّل مبطل</span>
+  <p><b>كإعادة لفظ النيّة</b> — مثال: كبّر "الله أكبر" ثمّ قال "نويت أن أُصلّي فرض الظهر" ثمّ كبّر "الله أكبر" — نقول: تبطل الصلاة، لأنّ التلفّظ بالنيّة "نويت أن أُصلّي" هذا يبطل الصلاة، فهو ليس ذكراً.</p>
+</div>
+
+<!-- ===== 15. وجوب إسماع النفس ===== -->
+<h2 class="section-title">١٥. وجوب إسماع النفس التكبير</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف — الشرط التاسع</span>
+  <p><b>ويجب إسماعه — أي التكبير نفسه — إن كان صحيح السمع ولا عارض من نحو لغط</b> — أي ويجب أن يسمع نفسه التكبير. فلو كبّر دون أن يسمع نفسه لم تنعقد صلاته، لا بدّ أن يسمع نفسه حتّى لو حرّك الشفتين ولا يسمع نفسه لا تصحّ صلاته.</p>
+</div>
+
+<div class="key-rule">
+  الشرط التاسع: إسماع النفس<br>
+  يجب أن يسمع نفسه في جميع الأركان القولية
+</div>
+
+<h3 class="sub-title">تفصيل إسماع النفس في الأركان والسنن القولية</h3>
+
+<table>
+  <tr>
+    <th>النوع</th>
+    <th>الأمثلة</th>
+    <th>حكم إسماع النفس</th>
+  </tr>
+  <tr>
+    <td><b>الأركان القولية</b></td>
+    <td>التكبير، الفاتحة، التشهّد الأخير، الصلاة على النبيّ، التسليمة الأولى</td>
+    <td><span class="highlight-red">واجب</span> — لا تصحّ بدون إسماع النفس</td>
+  </tr>
+  <tr>
+    <td><b>المندوبات القولية</b></td>
+    <td>دعاء الاستفتاح، التعوّذ، السورة بعد الفاتحة، أذكار الركوع والاعتدال والسجود، الدعاء قبل السلام</td>
+    <td><span class="highlight-gold">مستحب</span> — لا تحصل السنّة إلا به</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">اللغط</span>
+  <p>"لا عارض من نحو لغط" — اللغط هو أصوات مرتفعة. فلو كان حوله أصوات عالية تمنعه من سماع نفسه فهو معذور.</p>
+</div>
+
+<!-- ===== 16. أبيات الزبد ===== -->
+<h2 class="section-title">١٦. أبيات الزبد في شروط التكبير العشرين</h2>
+
+<div class="poetry-box">
+  <span class="box-label label-comp" style="background:#9333ea;">أبيات الزبد — الشروط العشرون</span>
+  <p>شروط لتكبير سماعك أن تقم<br>
+وبالعربي تقديمك الله أولاً<br>
+ونطق بأكبر لا تمدّد لهمزة<br>
+ كباء بلا تجديدها وكذلولاء<br>
+على الألفات السبع في الله لا تزد<br>
+كواو لا تزد واو أيضاً ولا تبدل<br>
+لحرف تأصّل دخول لوقت واقتران<br>
+بنية وفي قدوة أخٌر وللقبلة جعل<br>
+وصارفاً أعدم وقطعاً همز أكبر<br>
+لقد كملت عشرون تعداداً هنالك</p>
+</div>
+
+<h3 class="sub-title">جدول الشروط العشرين</h3>
+
+<table>
+  <tr>
+    <th style="width:8%">#</th>
+    <th style="width:55%">الشرط</th>
+    <th style="width:37%">البيان</th>
+  </tr>
+  <tr><td><b>١</b></td><td>إسماع النفس</td><td>سماعك — أن تسمع نفسك</td></tr>
+  <tr><td><b>٢</b></td><td>القيام حال التكبير</td><td>أن تقم — في صلاة الفرض</td></tr>
+  <tr><td><b>٣</b></td><td>العربية</td><td>وبالعربي — والعاجز يترجم</td></tr>
+  <tr><td><b>٤</b></td><td>تقديم لفظ الجلالة</td><td>تقديمك الله أولاً</td></tr>
+  <tr><td><b>٥</b></td><td>لفظ "أكبر" تحديداً</td><td>ونطق بأكبر — لا كبير ولا أعظم</td></tr>
+  <tr><td><b>٦</b></td><td>عدم مدّ همزة لفظ الجلالة</td><td>لا تمدّد لهمزة — لا يقول "آلله"</td></tr>
+  <tr><td><b>٧</b></td><td>عدم مدّ الباء ولا تشديدها</td><td>كباء بلا تجديدها</td></tr>
+  <tr><td><b>٨</b></td><td>توالي اللفظين (عدم الفصل)</td><td>وكذلولاء — توالي بين لفظ الجلالة ولفظ أكبر</td></tr>
+  <tr><td><b>٩</b></td><td>عدم زيادة ألف في "الله" فوق سبع ألفات</td><td>على الألفات السبع في الله لا تزد — كلّ ألف بحركتين = ١٤ حركة</td></tr>
+  <tr><td><b>١٠</b></td><td>عدم زيادة واو قبل الجلالة</td><td>كواو لا تزد واو أيضاً</td></tr>
+  <tr><td><b>١١</b></td><td>عدم إبدال حرف أصيل</td><td>ولا تبدل لحرف تأصّل — إلا الألثغ المعذور</td></tr>
+  <tr><td><b>١٢</b></td><td>دخول الوقت</td><td>دخول لوقت</td></tr>
+  <tr><td><b>١٣</b></td><td>مقارنة النيّة</td><td>واقتران بنية</td></tr>
+  <tr><td><b>١٤</b></td><td>تأخّر تكبير المأموم عن الإمام</td><td>وفي قدوة أخٌر — فلو كبّر معه أو قبله لا تنعقد</td></tr>
+  <tr><td><b>١٥</b></td><td>استقبال القبلة</td><td>وللقبلة جعل</td></tr>
+  <tr><td><b>١٦</b></td><td>انتفاء الصارف</td><td>وصارفاً أعدم — كأن يقولها للتعجّب لا للصلاة</td></tr>
+  <tr><td><b>١٧</b></td><td>قطع همزة "أكبر"</td><td>وقطعاً همز أكبر — أي وصل الهمزة قطعاً</td></tr>
+  <tr><td colspan="3"><small>والشروط الثلاثة الباقية من كلام المصنّف متضمّنة فيما سبق</small></td></tr>
+</table>
+
+<h3 class="sub-title">مسألة الصارف</h3>
+
+<div class="issue-box">
+  <span class="box-label label-issue">شرط انتفاء الصارف</span>
+  <p>لو رأى شيئاً عجيباً فقال "الله أكبر" يقصد التعجّب لا افتتاح الصلاة — لا تصحّ صلاته لأنّه صُرف عن قصد الصلاة. وهذا يُشبه مسألة قراءة الفاتحة بقصد الرقية فقط دون قصد كونها ركناً — لا تصحّ. لكن لو قرأها بقصد كونها ركناً <b>وقصد الرقية معاً</b> تصحّ. ونفس الكلام سيأتي في السلام.</p>
+</div>
+
+<!-- ===== 17. سنن التكبير ===== -->
+<h2 class="section-title">١٧. سنن تكبيرة الإحرام</h2>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #f0fdf4; border: 1px solid #bbf7d0;">
+    <span class="condition-num">١</span>
+    <b>جزم الراء (سكونها)</b><br>
+    <small>خروجاً من خلاف من أوجبه. والحديث الوارد في التكبير جزم لا أصل له — ضعّفه كثير من الحفّاظ. وعلى فرض صحّته فالمراد بكونه جزم أنّه للمدّ وليس أنّه يسكّن.</small>
+  </div>
+  <div class="condition-item" style="background: #f0fdf4; border: 1px solid #bbf7d0;">
+    <span class="condition-num">٢</span>
+    <b>الجهر به للإمام</b><br>
+    <small>وكذلك المبلغ إذا احتيج إليه في المسجد الممتدّ. وأمّا المأموم والمنفرد فلا يُسنّ لهما الجهر. والجهر مسنون أيضاً في تكبيرات الانتقال وقوله "سمع الله لمن حمده".</small>
+  </div>
+  <div class="condition-item" style="background: #f0fdf4; border: 1px solid #bbf7d0;">
+    <span class="condition-num">٣</span>
+    <b>رفع الكفّين أو إحداهما إن تعسّر</b><br>
+    <small>يرفع كفّيه فإن لم يستطع رفع الاثنتين — كأن تكون إحداهما مقطوعة أو فيها علة — يرفع إحداهما.</small>
+  </div>
+  <div class="condition-item" style="background: #f0fdf4; border: 1px solid #bbf7d0;">
+    <span class="condition-num">٤</span>
+    <b>رفعهما مع الكشف</b><br>
+    <small>يُكره رفع الكفّين من داخل الثياب — كمن يلبس العباءة أو البشت فيرفع من داخلها. والأفضل أن يرفعهما مكشوفتين.</small>
+  </div>
+  <div class="condition-item" style="background: #f0fdf4; border: 1px solid #bbf7d0;">
+    <span class="condition-num">٥</span>
+    <b>تفريق الأصابع تفريقاً وسطاً</b><br>
+    <small>لا شديدة ولا متلاصقة، بل تفريق وسط. قال صاحب الزبد: "مكشوفة وفرق الأصابع".</small>
+  </div>
+  <div class="condition-item" style="background: #f0fdf4; border: 1px solid #bbf7d0;">
+    <span class="condition-num">٦</span>
+    <b>حذو المنكبين أو فروع الأذنين</b><br>
+    <small>بحيث يحاذي منكبيه — أو يحاذي فروع أذنيه. وابتداء الرفع حين يبدأ التكبير.</small>
+  </div>
+</div>
+
+<div class="poetry-box">
+  <span class="box-label label-comp" style="background:#9333ea;">أبيات الزبد في الرفع</span>
+  <p>والرفع لليدين في الإحرام سنّ<br>
+بجعل إبهام حذى شحم الأذن<br>
+مكشوفة وفرق الأصابع<br>
+ويبتد التكبير حين يرفع</p>
+</div>
+
+<h3 class="sub-title">تفصيل السنن</h3>
+
+<table>
+  <tr>
+    <th>السنّة</th>
+    <th>التفصيل</th>
+    <th>ما يُخالفها</th>
+  </tr>
+  <tr>
+    <td><b>جزم الراء</b></td>
+    <td>تسكين راء "أكبر" — الله أكبرْ</td>
+    <td>ضمّ الراء جائز لكن خلاف الأفضل</td>
+  </tr>
+  <tr>
+    <td><b>الجهر للإمام</b></td>
+    <td>الإمام يجهر والمبلغ يجهر</td>
+    <td>المأموم والمنفرد لا يجهران</td>
+  </tr>
+  <tr>
+    <td><b>رفع الكفّين مكشوفتين</b></td>
+    <td>من خارج الثوب مع تفريق الأصابع</td>
+    <td>يُكره الرفع من داخل الثياب</td>
+  </tr>
+  <tr>
+    <td><b>حذو المنكبين</b></td>
+    <td>أو فروع الأذنين — يبتدئ الرفع مع ابتداء التكبير</td>
+    <td>—</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه على مكروه</span>
+  <p><b>يُكره رفع الكفّين من داخل الثياب</b> — كمن يلبس الرداء (البشت أو العباءة) فيرفع من داخلها. هذا مكروه. والأفضل أن يرفع كفّيه مكشوفتين من خارج الثوب. وكذلك يُكره خلاف ما تقدّم — أي ترك الرفع بالكليّة.</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf'); }
+@font-face { font-family: 'Amiri-Bold'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf'); }
+@font-face { font-family: 'NotoNaskhArabic'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf'); }
+
+@page {
+  size: A4;
+  margin: 12mm 14mm;
+}
+
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'NotoNaskhArabic', 'Amiri', serif;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #2c2c2c;
+  direction: rtl;
+  text-align: justify;
+}
+
+h1 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 18pt; color: #1a5632; margin: 14px 0 6px 0; }
+h2 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 15pt; color: #1a5632; margin: 12px 0 5px 0; border-bottom: 2px solid #c8a951; padding-bottom: 3px; }
+h3 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 12pt; color: #2c5f7c; margin: 8px 0 4px 0; }
+h4 { font-family: 'Amiri-Bold', 'Amiri', serif; font-size: 11pt; color: #555; margin: 6px 0 3px 0; }
+
+p { margin: 3px 0; }
+
+.cover-header {
+  background: #1a5632;
+  color: white;
+  padding: 20px 14px;
+  text-align: center;
+  margin: 0 0 12px 0;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px);
+  border-bottom: 4px solid #c8a951;
+}
+
+.cover-header h1 {
+  color: white;
+  font-size: 22pt;
+  margin-bottom: 6px;
+  border: none;
+}
+
+.cover-header .subtitle {
+  font-size: 13pt;
+  opacity: 0.9;
+  margin: 4px 0;
+}
+
+.cover-header .series {
+  font-size: 11pt;
+  opacity: 0.8;
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255,255,255,0.3);
+}
+
+.toc {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 0 0 12px 0;
+}
+
+.toc-title {
+  font-family: 'Amiri-Bold', 'Amiri', serif;
+  font-size: 14pt;
+  color: #1a5632;
+  text-align: center;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #c8a951;
+  padding-bottom: 4px;
+}
+
+.toc-item {
+  font-size: 11pt;
+  padding: 2px 0;
+  border-bottom: 1px dotted #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+.table-container {
+  overflow-x: hidden;
+  margin: 8px 0;
+  page-break-inside: avoid;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 10pt;
+}
+
+th, td {
+  padding: 4px 8px;
+  border: 1px solid #ddd;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+th {
+  background-color: #1a5632;
+  color: white;
+  text-align: right;
+  font-size: 10pt;
+}
+
+.callout {
+  padding: 8px 12px;
+  margin: 8px 0;
+  border-radius: 0 6px 6px 0;
+  page-break-inside: avoid;
+}
+
+.callout-title {
+  font-weight: bold;
+  margin-bottom: 3px;
+  font-size: 11pt;
+}
+
+.callout-body {
+  color: #333;
+  line-height: 1.7;
+  font-size: 13px;
+}
+
+.callout-warning {
+  background: #fff3cd;
+  border-right: 4px solid #c8a951;
+}
+
+.callout-warning .callout-title { color: #856404; }
+
+.callout-definition {
+  background: #e8f4f8;
+  border-right: 4px solid #2c5f7c;
+}
+
+.callout-definition .callout-title { color: #1a3a5c; }
+
+.callout-danger {
+  background: #f8d7da;
+  border-right: 4px solid #c0392b;
+}
+
+.callout-danger .callout-title { color: #c0392b; }
+
+.callout-success {
+  background: #d4edda;
+  border-right: 4px solid #28a745;
+}
+
+.callout-success .callout-title { color: #155724; }
+
+.callout-info {
+  background: #d1ecf1;
+  border-right: 4px solid #17a2b8;
+}
+
+.callout-info .callout-title { color: #0c5460; }
+
+.diagram-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+  page-break-inside: avoid;
+  max-width: 100%;
+}
+
+.diagram-node {
+  padding: 7px 14px;
+  border-radius: 6px;
+  text-align: center;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.diagram-connector {
+  width: 2px;
+  height: 12px;
+  background: #1a5632;
+}
+
+.diagram-connector-h {
+  color: #c8a951;
+  font-size: 16pt;
+  margin: 0 4px;
+}
+
+.flow-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin: 10px 0;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.flow-step {
+  padding: 7px 12px;
+  border-radius: 6px;
+  text-align: center;
+  max-width: 280px;
+}
+
+.flow-arrow {
+  color: #c8a951;
+  font-size: 16pt;
+  margin: 0 4px;
+}
+
+.card-grid {
+  display: grid;
+  gap: 8px;
+  margin: 10px 0;
+  max-width: 100%;
+}
+
+.card-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.card-grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+.card {
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.card-number {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.card-title {
+  font-size: 11pt;
+  font-weight: bold;
+}
+
+.card-desc {
+  font-size: 9pt;
+  margin-top: 3px;
+  opacity: 0.9;
+}
+
+.compare-box {
+  display: flex;
+  gap: 0;
+  margin: 8px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
+.compare-side {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 10px;
+}
+
+.compare-side h3 {
+  margin: 0 0 4px 0;
+  border-bottom: 2px solid rgba(255,255,255,0.3);
+  padding-bottom: 3px;
+  font-size: 11pt;
+  color: white;
+}
+
+.compare-side p {
+  font-size: 12px;
+  line-height: 1.6;
+  color: white;
+}
+
+.compare-divider {
+  width: 3px;
+  background: #c8a951;
+}
+
+.poetry-box {
+  background: #faf8f0;
+  border: 2px solid #c8a951;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin: 10px 0;
+  text-align: center;
+  font-family: 'Amiri', serif;
+  page-break-inside: avoid;
+}
+
+.poetry-box .poem-line {
+  font-size: 13pt;
+  line-height: 2.2;
+  color: #1a5632;
+}
+
+.vertical-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+  page-break-inside: avoid;
+  max-width: 100%;
+}
+
+.priority-chain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+  max-width: 100%;
+}
+
+.priority-item {
+  padding: 6px 16px;
+  border-radius: 6px;
+  text-align: center;
+  max-width: 100%;
+  width: auto;
+}
+
+.priority-arrow {
+  color: #c8a951;
+  font-size: 14pt;
+  margin: 1px 0;
+}
+
+.section-num {
+  display: inline-block;
+  background: #1a5632;
+  color: white;
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 11pt;
+  margin-left: 5px;
+}
+</style>
+</head>
+<body>
+
+<!-- Cover Header -->
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس الخامس — باب الصلاة</div>
+  <div class="series">شروط الصلاة · الطهارة · أحكام تعليم الصبيان · أمر الزوجة بالصلاة</div>
+</div>
+
+<!-- Table of Contents -->
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>مسائل من الدرس السابق</span><span>١</span></div>
+  <div class="toc-item"><span>أحكام قضاء الفوائت ومسألة النسيان</span><span>٢</span></div>
+  <div class="toc-item"><span>أمر الصبيان بالصلاة والصوم</span><span>٣</span></div>
+  <div class="toc-item"><span>حكم القنّ الصغير الكافر إذا نطق بالشهادتين</span><span>٤</span></div>
+  <div class="toc-item"><span>الولي الشرعي: الوصي والقيم</span><span>٥</span></div>
+  <div class="toc-item"><span>أجرة تعليم الصبي</span><span>٦</span></div>
+  <div class="toc-item"><span>حكم ضرب الزوجة على ترك الصلاة — أربعة آراء</span><span>٧</span></div>
+  <div class="toc-item"><span>أول واجب: تعليم أن النبي بُعث في مكة</span><span>٨</span></div>
+  <div class="toc-item"><span>نسب النبي صلى الله عليه وسلم</span><span>٩</span></div>
+  <div class="toc-item"><span>فصل في شروط الصلاة وتعريف الشرط</span><span>١٠</span></div>
+  <div class="toc-item"><span>لماذا قدّمت الشروط على الأركان؟</span><span>١١</span></div>
+  <div class="toc-item"><span>الشروط الوجودية والشروط العدمية</span><span>١٢</span></div>
+  <div class="toc-item"><span>الفرق بين الشرط الوجودي والعدمي في النسيان</span><span>١٣</span></div>
+  <div class="toc-item"><span>شروط الصلاة الخمسة</span><span>١٤</span></div>
+  <div class="toc-item"><span>الطهارة: تعريفها لغة وشرعا</span><span>١٥</span></div>
+  <div class="toc-item"><span>ترتيب الكتاب: الوضوء والتيمم والغسل وإزالة النجاسات</span><span>١٦</span></div>
+</div>
+
+<!-- Section 1: مسائل من الدرس السابق -->
+<h2><span class="section-num">١</span> مسائل من الدرس السابق</h2>
+
+<p>قبل أن نشرع في درسنا الجديد، بقيت ثلاث مسائل تتعلق بالدرس السابق. في الدرس السابق ذكرنا أن النوم يكون عذراً إذا لم يتعمّد به، وصورة ذلك إذا نام قبل دخول الوقت، أو نام بعد دخول الوقت وهو يظن أنه يستيقظ قبل ضيق الوقت، حينئذ يكون النوم عذراً، وفي غير هاتين الحالتين لا يكون النوم عذراً.</p>
+
+<div class="callout callout-warning">
+  <div class="callout-title">سؤال للبحث</div>
+  <div class="callout-body">إذا رأيت شخصاً نائماً، هل يجب عليك أن توقظه للصلاة أم لا؟ الكلام حول الوجوب — هل يجب بمعنى إذا لم توقظه تكون آثماً، أو لا يجب؟ أو في تفصيل؟ الأمر مفتوح للبحث حتى الأحد القادم، بشرط أن يكون الجواب منقولاً من مصدره.</div>
+</div>
+
+<!-- Section 2: أحكام قضاء الفوائت -->
+<h2><span class="section-num">٢</span> أحكام قضاء الفوائت ومسألة النسيان</h2>
+
+<h3>إذا لم يدرِ كم عدد الفوائت</h3>
+<p>إذا كان الإنسان عليه فوائت من الصلوات لا يدري كم عددها — هل فاته خمس صلوات أم سبع أم عشر — فما الواجب عليه؟ قال الفقهاء رحمهم الله تعالى: الواجب عليه أن يصلي كل صلاة لم يتيقن فعلها. الصلوات التي لم تتيقن أنك فعلتها، يجب أن تصليها، سواء الصلوات التي أنت متأكد أنك لم تفعلها، أو الصلوات التي تشك هل صليت أو لم تصلي — واجب عليك أن تصليها. لأن الأصل أنك لم تصلي، الأصل العدم، والأصل أن الذمة مشغولة، فلا تبرأ الذمة إلا بيقين.</p>
+
+<div class="callout callout-definition">
+  <div class="callout-title">قاعدة: الأصل العدم</div>
+  <div class="callout-body">الأصل أنك لم تصلي، ولا تبرأ ذمتك ولا تخرج عن العهدة إلا بيقين. فلذلك لو شك الإنسان — قال مثلاً: أنا متيقن أن خمس صلوات لم أصليها، لكن الصلاة السادسة والسابعة أنا لا أدري صليتها أو لم أصليها — الواجب عليك أن تقضي سبع صلوات، حتى ما كنت تشك أنك فعلته أو لم تفعله يجب عليك أن تصليه.</div>
+</div>
+
+<h3>أخطاء العوام في قضاء الصلوات</h3>
+<p>بعض العوام إذا فاتته صلاة الصبح واستيقظ في الساعة العاشرة لا يصليها، بل يؤخرها إلى اليوم الثاني فيصليها في وقت الصبح، وبعضهم يصلي الفائتة ثم يعيدها في اليوم الثاني. هذان الفعلان كلاهما خطأ. حتى ولو كانت الصلاة التي فاتت بعذر، فإن المستحب أن تبادر إلى فعلها — المبادرة إلى فعلها مستحبة، لا أن تؤخرها إلى اليوم الثاني.</p>
+
+<p>ولو قال: أنا نمت عن صلاة العصر واستيقظت بعد المغرب، سأصلي العصر بعد المغرب ثم في اليوم الثاني أعيد صلاة العصر أيضاً — هذا إعادة صلاة العصر من غير سبب. يقول العلامة ابن حجر في جحمة المحتاج: قواعد مذهبنا تقتضي حرمته — أنك تعيد الصلاة بغير سبب.</p>
+
+<div class="callout callout-danger">
+  <div class="callout-title">تحذير: إعادة الصلاة بغير سبب</div>
+  <div class="callout-body">قواعد مذهبنا تقتضي حرمته — أي إعادة الصلاة بغير سبب محرمة. الأصل أن الإنسان إذا فاتته صلاة: إن فاتته بعذر فالمستحب له المبادرة إلى فعلها، وإن فاتته بلا عذر فيجب المبادرة إلى فعلها.</div>
+</div>
+
+<!-- Section 3: أمر الصبيان بالصلاة -->
+<h2><span class="section-num">٣</span> أمر الصبيان بالصلاة والصوم</h2>
+
+<p>قال المصنف رحمه الله تعالى: "ويضرب ضرباً غير مبرح وجوباً ممن ذكر عليها أي على تركها ولو قضاء أو ترك شرط من شروطها لعشر أي بعد استكمالها". للحديث الصحيح: "مُرُوا الصبيَّ بالصلاة إذا بلغ سبع سنين، وإذا بلغ عشر سنين فاضربوه عليها". وكذلك الصوم حكمه حكم الصلاة — يؤمر به بعد سبع سنين ويضرب عليه بعد عشر سنين إذا أطاقه، أي إذا قدر عليه.</p>
+
+<!-- Visual: Command at 7, Beat at 10 -->
+<div class="flow-container">
+  <div class="flow-step" style="background: #2c5f7c; color: white;">
+    <div style="font-weight: bold; font-size: 12pt;">سبع سنين</div>
+    <div style="font-size: 10pt; margin-top: 2px;">يُؤمر بالصلاة والصوم</div>
+  </div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-step" style="background: #1a5632; color: white;">
+    <div style="font-weight: bold; font-size: 12pt;">عشر سنين</div>
+    <div style="font-size: 10pt; margin-top: 2px;">يُضرب عليها ضرباً غير مبرح</div>
+  </div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-step" style="background: #c8a951; color: white;">
+    <div style="font-weight: bold; font-size: 12pt;">البلوغ رشيداً</div>
+    <div style="font-size: 10pt; margin-top: 2px;">ينتهي وجوب الضرب</div>
+  </div>
+</div>
+
+<h3>حكمة ذلك: التمرين على العبادة</h3>
+<p>وحكمة ذلك التمرين على العبادة ليتعودها فلا يتركها. وأنشد الشاعر قائلاً:</p>
+
+<div class="poetry-box">
+  <div class="poem-line">وَيُنْشَأُ نَاشِئُ الفِتْيَانِ مِنَّا</div>
+  <div class="poem-line">عَلَى مَا كَانَ عَوَّدَهُ أَبُوهُ</div>
+  <div style="margin-top: 8px; font-size: 11pt; color: #555;">فإذا تعوّد الصبي على الطاعة من الصغر ألفها في الكبر، وإذا لم يتعوّد على الطاعة في الصغر يصعب عليه فعلها في الكبر.</div>
+</div>
+
+<h3>قصة الطاووس</h3>
+<p>ولذلك قالوا: إن الطاووس — المشهور بجماله — كان يمشي الأب بخيلاء وفخر، فالتفت إلى صغاره أولاده خلفه، فإذا هم يمشون كمشيته يمشون بخيلاء وفخر. استغرب من أين تعلموا هذا، وهم لا يزالون صغاراً. قالوا: بدأتَ — أنت بدأت ونحن نقلدك كما تفعل.</p>
+
+<div class="poetry-box">
+  <div class="poem-line">مَشَتْ طَاوُوسُ يَوْماً بِاخْتِيَالٍ</div>
+  <div class="poem-line">فَقَلَّدَ شَكْلَ مِشْيَتِهِ بَنُوهُ</div>
+  <div class="poem-line">فَقَالَ عَلَى مَا تَخْتَالُونَ؟ قَالُوا:</div>
+  <div class="poem-line">بَدَأْتَ بِهِ وَنَحْنُ نَقْلِدُ</div>
+</div>
+
+<!-- Section 4: القن الصغير -->
+<h2><span class="section-num">٤</span> حكم القنّ الصغير الكافر إذا نطق بالشهادتين</h2>
+
+<p>وبحث الأذرعي — أحمد بن حمدان، أحد فقهاء الشافعية الكبار — في قنّ صغير كافر نطق بالشهادتين: أنه يؤمر ندباً بالصلاة والصوم ويُحث عليهما من غير ضرب ليألف الخير بعد بلوغه. وإن أبى القياس ذلك — كما اعتمد العلامة ابن حجر.</p>
+
+<h3>شروط الإسلام الستة</h3>
+<p>العبد الصغير إذا نطق بالشهادتين، هل يحكم بإسلامه؟ لا يحكم بإسلامه لأن شروط الإسلام ستة:</p>
+
+<div class="card-grid card-grid-3">
+  <div class="card" style="background: linear-gradient(135deg, #1a5632 0%, #2c5f7c 100%); color: white;">
+    <div class="card-number">١</div>
+    <div class="card-title">البلوغ</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #1a5632 0%, #2c5f7c 100%); color: white;">
+    <div class="card-number">٢</div>
+    <div class="card-title">العقل</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #1a5632 0%, #2c5f7c 100%); color: white;">
+    <div class="card-number">٣</div>
+    <div class="card-title">عدم الإكراه</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #c8a951 0%, #b8943f 100%); color: white;">
+    <div class="card-number">٤</div>
+    <div class="card-title">النطق بالشهادتين</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #c8a951 0%, #b8943f 100%); color: white;">
+    <div class="card-number">٥</div>
+    <div class="card-title">الموالاة بينهما</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #c8a951 0%, #b8943f 100%); color: white;">
+    <div class="card-number">٦</div>
+    <div class="card-title">الترتيب</div>
+  </div>
+</div>
+
+<p>هذا العبد الصغير نطق بالشهادتين — هل نحكم بإسلامه؟ لا، لأنه اختل شرط عدم البلوغ. لكن هل يؤمر بالصلاة والصوم أو لا يؤمر؟ قالوا: يؤمر ندباً لا وجوباً. لماذا ليس واجباً؟ لأنه يحتمل أن يكون كافراً، فكيف نوجب أمره وهو في احتمال أن يكون كافراً؟ إذن يؤمر ندباً ليألف ذلك لعله إذا بلغ فأسلم يكون قد تعوّد على الخير.</p>
+
+<p>لكن العلامة ابن حجر رحمه الله يقول: وإن أبى القياس ذلك — أي القاعدة ترفض ذلك — لأن هذا الصغير يحتمل أنه كافر قائم، وبالتالي كيف يؤمر الكافر بالصلاة والصوم؟ فكأن العلامة ابن حجر يعترض على هذا ولا يوافق عليه.</p>
+
+<!-- Section 5: الوصي والقيم -->
+<h2><span class="section-num">٥</span> الولي الشرعي: الوصي والقيم</h2>
+
+<p>قال المصنف: "ويجب أيضاً على من مرّ" — أي على الأب والأم والجد والوصي والقيم، هؤلاء الذين سماهم صاحب الزبد الولي الشرعي. وواجب على الولي الشرعي أن يأمر الطفل بها لسبع، وأن ينهى عن المحرمات ويعلّمه الواجبات.</p>
+
+<div class="compare-box">
+  <div class="compare-side" style="background: #1a5632;">
+    <h3>الوصي</h3>
+    <p>الشخص الذي أسند إليه الأب أو نحو الأب النظر في رعاية أولاده بعد موته. كأن يقول شخص: أسندت إلى زيد النظر في أمر أولادي. فإذا مات هذا الشخص فإن زيداً يتولى تربية الأولاد والقيام بأمورهم.</p>
+    <p style="font-weight: bold; margin-top: 4px;">⬅ الذي نصبه: الأب</p>
+  </div>
+  <div class="compare-divider"></div>
+  <div class="compare-side" style="background: #2c5f7c;">
+    <h3>القيم</h3>
+    <p>إذا كان عندنا أيتام ليس لهم أب وليس لهم من يقوم على أمورهم، فنصب القاضي شخصاً يقوم على رعاية أمورهم. هذا الشخص يسمى قيّماً.</p>
+    <p style="font-weight: bold; margin-top: 4px;">⬅ الذي نصبه: القاضي</p>
+  </div>
+</div>
+
+<h3>ما يجب على الولي الشرعي</h3>
+<p>يجب على الولي الشرعي: نهي الطفل عن المحرمات — ويشمل الصغائر والكبائر — كالزنا واللواط والسرقة والكذب والغيبة. وتعليمه الواجبات كالصدق والصلاة والصوم والوضوء. ونحوها من سائر الشرائع الظاهرة ولو كانت سنة كالسواك وصلاة العيدين.</p>
+
+<h3>متى ينتهي وجوب الضرب؟</h3>
+<p>ولا ينتهي وجوب ما مرّ — أي من الضرب — على من مرّ — أي على الصبي الذي أكمل عشر سنين — إلا ببلوغه رشيداً. إذا بلغ رشيداً انتهى الضرب. البلوغ معروف وله علامات: إكمال خمسة عشر سنة، وخروج المني، والتي تختص بها الأنثى الحيض. والرشد هو صلاح الدين والمال — أن يكون صالحاً في دينه صالحاً في تصرفاته المالية.</p>
+
+<!-- Section 6: أجرة التعليم -->
+<h2><span class="section-num">٦</span> أجرة تعليم الصبي</h2>
+
+<p>قال المصنف: "وأجرة تعليمه ذلك كالقرآن والآداب في ماله" — أي كتعليمه للقرآن والآداب — في مال الصبي إن كان عنده مال. فإن لم يكن له مال فمن مال أبيه، لأن الأب يجب عليه نفقة ابنه. فإن لم يكن له أب فمن مال أمه. فإن لم يكن عنده أب ولا أم أو كان أبوه وأمه فقيرين فمن بيت مال المسلمين. فإن لم يكن لبيت المال مال أو لا يوجد بيت مال أصلاً فعلى أغنياء المسلمين.</p>
+
+<div class="priority-chain">
+  <div class="priority-item" style="background: #1a5632; color: white; font-weight: bold;">١. من مال الصبي نفسه</div>
+  <div class="priority-arrow">↓</div>
+  <div class="priority-item" style="background: #2c5f7c; color: white;">٢. من مال أبيه</div>
+  <div class="priority-arrow">↓</div>
+  <div class="priority-item" style="background: #3a7ca5; color: white;">٣. من مال أمه</div>
+  <div class="priority-arrow">↓</div>
+  <div class="priority-item" style="background: #c8a951; color: white;">٤. من بيت مال المسلمين</div>
+  <div class="priority-arrow">↓</div>
+  <div class="priority-item" style="background: #8b6914; color: white;">٥. على أغنياء المسلمين</div>
+</div>
+
+<p>أجرة تعليم الصبي تكون من ماله لأنها من باب خطاب الوضع — ولذلك الصبي تجب الزكاة في ماله مع أنه ليس بالغاً، وتجب في مال المجنون كذلك. وكذلك الصبي إذا أتلف شيئاً يجب ضمان ما أتلف في ماله — لأن هذا من خطاب الوضع وليس من خطاب التكليف.</p>
+
+<!-- Section 7: حكم ضرب الزوجة -->
+<h2><span class="section-num">٧</span> حكم ضرب الزوجة على ترك الصلاة — أربعة آراء</h2>
+
+<p>إذا كانت الزوجة صغيرة (غير مكلفة) ذات أبويهما موجودين، فوجوب أمرها وضربها على الأبويين لا على الزوج. فإن فقد الأبوان فوجوب ذلك على الزوج. أما إذا كانت الزوجة كبيرة (مكلفة) ولا تصلي، ففي حكم ضرب الزوج لها أربعة آراء:</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 8%;">الرأي</th>
+        <th style="width: 20%;">القائل</th>
+        <th style="width: 30%;">الحكم</th>
+        <th style="width: 42%;">التفصيل</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8f9fa;">
+        <td style="text-align: center; font-weight: bold;">١</td>
+        <td>جمال الدين ابن البزري<br><span style="font-size: 9pt; color: #666;">توفي ٥٥٦ هـ</span></td>
+        <td style="color: #c0392b; font-weight: bold;">يجب الضرب مطلقاً</td>
+        <td>سواء خشي النشوز أو لم يخشَه، مطلقاً يجب على الزوج أن يضربها</td>
+      </tr>
+      <tr>
+        <td style="text-align: center; font-weight: bold;">٢</td>
+        <td>العلامة ابن حجر<br><span style="font-size: 9pt; color: #666;">الرأي المختار</span></td>
+        <td style="color: #856404; font-weight: bold;">يجب بشرط عدم خوف النشوز</td>
+        <td>يجب الضرب إن لم يخشَ نشوزها، وبشرط أن يكون الضرب غير مبرح وألا يؤدي لمفسدة أعظم</td>
+      </tr>
+      <tr style="background-color: #f8f9fa;">
+        <td style="text-align: center; font-weight: bold;">٣</td>
+        <td>الزركشي<br><span style="font-size: 9pt; color: #666;">محمد بن عبد الله بن بهادر، توفي ٧٩٤ هـ</span></td>
+        <td style="color: #155724; font-weight: bold;">مندوب (مستحب)</td>
+        <td>الضرب مندوب مطلقاً، سواء خشي النشوز أو لم يخشَه — في الحالتين ضربها مستحب</td>
+      </tr>
+      <tr>
+        <td style="text-align: center; font-weight: bold;">٤</td>
+        <td>العلامة الرملي<br><span style="font-size: 9pt; color: #666;">الرأي الأقرب</span></td>
+        <td style="color: #c0392b; font-weight: bold;">لا يجوز الضرب</td>
+        <td>لأن الله عز وجل لما رخّص للزوج بالضرب إنما ذلك إذا قصرت الزوجة في حق من حقوق الزوج لا في حق من حقوق الله — بل يجب عليه أن يأمرها فقط</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout callout-success">
+  <div class="callout-title">الرأي الأقرب</div>
+  <div class="callout-body">الرأي الأخير (العلامة الرملي) أقرب — يكفي بالأمر لأن الضرب قد يؤدي لمفاسد كبيرة. والله عز وجل إنما رخّص في الضرب في حقوق الزوج لا في حقوق الله.</div>
+</div>
+
+<h3>تنبيه: الزوجة الصغيرة</h3>
+<p>ذكر السمعاني في زوجة صغيرة ذات أبويهما: أن وجوب ما مرّ عليهما (أي على الأب والأم) ما داما موجودين، لا على الزوج. فإن فقد الأبوان فوجوب ذلك على الزوج. وأما الزوجة الكبيرة — فقضيته وجوب ضربها حتى في الكبيرة، وبه ولو في الكبيرة صرّح به جمال الدين ابن البزري. وقال شيخنا (ابن حجر): وهو ظاهر إن لم يخشَ نشوزاً. وأطلق الزركشي الندب.</p>
+
+<!-- Section 8: أول واجب -->
+<h2><span class="section-num">٨</span> أول واجب: تعليم أن النبي صلى الله عليه وسلم بُعث في مكة</h2>
+
+<p>قال المصنف: "وأول واجب حتى على الأمر بالصلاة كما قالوا على الآباء ثم على من مرّ تعليمه" — ضع أصبعك فوق قوله "تعليمه" — أي المميّز — أن نبينا محمداً صلى الله عليه وسلم بُعث في مكة.</p>
+
+<p>يريد أن يقول: إن تعليم الصبي أن النبي صلى الله عليه وسلم بُعث بمكة وأنه هاجر إلى المدينة وأنه مات وعمره ٦٣ سنة — تعليم الصبي هذه الأشياء مقدّم على تعليمه للصلاة. أن يعلم الصبي أن النبي صلى الله عليه وسلم ولد في مكة وبُعث في مكة وأنه دُفن بالمدينة وأنه مات عن ٦٣ سنة — تعليم هذه الأشياء مقدم حتى على الأمر بالصلاة.</p>
+
+<div class="callout callout-info">
+  <div class="callout-title">أول واجب في حق المميّز</div>
+  <div class="callout-body">تعليم المميّز أن نبينا محمداً صلى الله عليه وسلم: بُعث في مكة على تمام الأربعين · وُلد بها في عام الفيل · دُفن بالمدينة · مات بها وعمره ٦٣ سنة · ولو حافظ نسب النبي صلى الله عليه وسلم فذلك أفضل.</div>
+</div>
+
+<!-- Section 9: نسب النبي -->
+<h2><span class="section-num">٩</span> نسب النبي صلى الله عليه وسلم</h2>
+
+<p>وقد قلت لكم من قبل: لا بد أن تحفظوا نسب النبي صلى الله عليه وسلم على الأقل إلى عدنان — واحد وعشرون واسطة من النبي صلى الله عليه وسلم إلى عدنان. وواجب في حق ذي التمييز معرفة النسب الشريف:</p>
+
+<div class="poetry-box" style="text-align: right;">
+  <div class="poem-line">مُحَمَّدٌ المُخْتَارُ مِنْ خَيْرِ العَرَبْ</div>
+  <div class="poem-line">أَبُوهُ عَبْدُ اللهِ عَبْدُ المُطَّلِبْ</div>
+  <div class="poem-line">وَهَاشِمٌ عَبْدُ مَنَافٍ وَقُصَيّْ</div>
+  <div class="poem-line">كَذَا كِلَابٌ مُرَّةٌ كَعْبٌ لُؤَيْ</div>
+  <div class="poem-line">وَغَالِبٌ فِهْرٌ وَمَالِكٌ النَّضْرُ</div>
+  <div class="poem-line">كِنَانَةٌ خُزَيْمَةٌ كِنْدَةٌ النَّضْرُ</div>
+  <div class="poem-line">مُدْرِكَةٌ إِلْيَاسُ مُضَرٌ نِزَارُ</div>
+  <div class="poem-line">مَعَدٌّ وَعَدْنَانُ الَّذِي بِهِ الفَخَارُ</div>
+  <div style="margin-top: 8px; font-size: 11pt; color: #555;">وليس مما فوق عدنان خبر معوّل عليه من أهل الأثر</div>
+</div>
+
+<!-- Section 10: فصل في شروط الصلاة -->
+<h2><span class="section-num">١٠</span> فصل في شروط الصلاة وتعريف الشرط</h2>
+
+<p>قال المصنف رحمه الله تعالى: "فصل في شروط الصلاة". الشرط ما يتوقف عليه صحة الصلاة وليس منها.</p>
+
+<div class="callout callout-definition">
+  <div class="callout-title">تعريف الشرط</div>
+  <div class="callout-body">
+    <p><strong>لغةً:</strong> الشرط بسكون الراء: تعليق أمر على أمر مستقبلي. تقول مثلاً: إذا ذاكرت دروسك ستنجح — تعليق أمر على أمر مستقبلي. أما الشرط بفتح الراء فمعناه لغةً: العلامة.</p>
+    <p><strong>اصطلاحاً عند الأصوليين:</strong> ما يلزم من عدمه العدم ولا يلزم من وجوده وجود ولا عدم لذاته.</p>
+    <p><strong>هنا (في باب الصلاة):</strong> ما يتوقف عليه صحة الصلاة وليس منها — تعريف يختص بهذا الباب.</p>
+  </div>
+</div>
+
+<h3>مطلب للصلاة أربعة أشياء</h3>
+<p>يطلب للصلاة وفيها أربعة أشياء: شروط وأركان وأبعاض وهيئات.</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 20%;">النوع</th>
+        <th style="width: 40%;">التعريف</th>
+        <th style="width: 40%;">الحكم</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold; color: #1a5632;">الشروط</td>
+        <td>لا تصح الصلاة إلا بها، وتكون خارجة عن حقيقتها وماهيتها</td>
+        <td>تتوقف صحة الصلاة عليها وليست من أجزائها</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold; color: #2c5f7c;">الأركان</td>
+        <td>لا تصح الصلاة إلا بها، وهي أجزاء الماهية</td>
+        <td>الصلاة تتكون منها — كالركوع والقيام والسجود</td>
+      </tr>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold; color: #c8a951;">الأبعاض</td>
+        <td>سنن مؤكدة يُشرع إذا تُركت أن يسجد للسهو</td>
+        <td>كالتشهد الأول — الصلاة تصح بدونه</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold; color: #8b6914;">الهيئات</td>
+        <td>سنن غير مؤكدة لا يُجبر تركها بسجود السهو</td>
+        <td>كدعاء الاستفتاح — الصلاة تصح بدونه</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>تحليل التعريف</h3>
+<p>قوله "ما يتوقف عليه صحة الصلاة" — أخرج الأبعاض والهيئات، لأن الصلاة تصح بدونها. وقوله "وليس منها" — أخرج الأركان، لأن الأركان من الصلاة وهي أجزاء الماهية — لا يمكن أن تتصور الصلاة إلا بركوع وقيام وسجود واعتدال. إذن الشروط ليست داخلة في حقيقة الصلاة ولا في ماهيتها.</p>
+
+<!-- Section 11: لماذا قدّمت الشروط -->
+<h2><span class="section-num">١١</span> لماذا قدّمت الشروط على الأركان؟</h2>
+
+<p>وقدّمت الشروط على الأركان لأنها أولى بالتقديم. كأن شخصاً يسأل المصنف: لماذا تتكلم على الشروط أولاً ولا تبدأ بالأركان؟ لماذا لا تقدّم الأركان ثم بعد ذلك تتكلم على الشروط؟ اصنع كما صنع الإمام النووي في المنهاج — بدأ الكلام على أركان الصلاة ثم تكلم على شروطها.</p>
+
+<p>قال المصنف: لأن الشروط أولى بالتقديم، إذ الشرط ما يجب تقديمه على الصلاة واستمراره فيها. الشروط متقدمة طبعاً — عادة الشرط أنه يكون أولاً قبل المشروط. فلما كانت الشروط متقدمة طبعاً ناسب أن تقدّم وضعاً أي تأليفاً. ولأن الشرط يكون قبل الصلاة وخارج الصلاة ويجب أن يستمر فيها، فلما كان الشرط قبل الصلاة خارجاً عنها ناسب أن يقدّم الكلام عليه.</p>
+
+<!-- Section 12: الشروط الوجودية والعدمية -->
+<h2><span class="section-num">١٢</span> الشروط الوجودية والشروط العدمية</h2>
+
+<p>شروط الصلاة تنقسم إلى قسمين: شروط وجودية — لا بد أن تكون موجودة والعبرة بوجودها — وشروط عدمية — لا بد من عدم وجودها.</p>
+
+<div class="compare-box">
+  <div class="compare-side" style="background: #1a5632;">
+    <h3>شروط وجودية</h3>
+    <p>المطلوب فيها الوجود. العبرة بوجودها.</p>
+    <p style="margin-top: 4px;"><strong>مثال:</strong> الطهارة من الحدث، الطهارة من الخبث، استقبال القبلة، دخول الوقت، ستر العورة</p>
+  </div>
+  <div class="compare-divider"></div>
+  <div class="compare-side" style="background: #2c5f7c;">
+    <h3>شروط عدمية</h3>
+    <p>المطلوب فيها العدم. العبرة بعدمها.</p>
+    <p style="margin-top: 4px;"><strong>مثال:</strong> عدم الكلام، عدم الأكل، عدم الحركات الكثيرة المتوالية — عدّها الإمام الرافعي من الشروط</p>
+  </div>
+</div>
+
+<p>المصنف لما قال "شروط الصلاة خمسة" أراد الشروط الوجودية فقط لا العدمية. والعلماء يقولون إن الشروط العدمية هي في الحقيقة مبطلات للصلاة، لكن قالوا هي شروط باعتبار العدم — أي المطلوب عدمها.</p>
+
+<!-- Section 13: الفرق بين الوجودية والعدمية في النسيان -->
+<h2><span class="section-num">١٣</span> الفرق بين الشرط الوجودي والعدمي في أثر النسيان</h2>
+
+<p>قال الفقهاء: يوجد فرق بين الشروط الوجودية والعدمية — إن النسيان لا يؤثر في الشروط الوجودية لكنه يؤثر في الشروط العدمية.</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 25%;">نوع الشرط</th>
+        <th style="width: 35%;">أثر النسيان</th>
+        <th style="width: 40%;">المثال</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #f8f9fa;">
+        <td style="font-weight: bold; color: #1a5632;">وجودي</td>
+        <td>النسيان لا يؤثر — الصلاة لا تصح سواء كان ناسياً أو غير ناسٍ</td>
+        <td>لو صلى بثوب فيه نجاسة ناسياً: لا تصح صلاته. لو صلى بلا وضوء ناسياً: لا تصح صلاته</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold; color: #c0392b;">عدمي</td>
+        <td>النسيان مؤثر — يعذر بالنسيان وتصح الصلاة</td>
+        <td>لو تكلم بكلام قليل ناسياً: تصح صلاته. لو أكل قليلاً ناسياً: تصح صلاته</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout callout-warning">
+  <div class="callout-title">تنبيه مهم</div>
+  <div class="callout-body">هذا أحد الفروق بين الشرط العدمي والشرط الوجودي: أن النسيان لا يؤثر في الشروط الوجودية لكنه مؤثر في الشروط العدمية. فلو صلى بثوب فيه نجاسة ناسياً في المذهب الشافعي لا تصح صلاته حتى ولو كان ناسياً — لكن لو أكل قليلاً ناسياً في الصلاة تصح صلاته.</div>
+</div>
+
+<!-- Section 14: شروط الصلاة الخمسة -->
+<h2><span class="section-num">١٤</span> شروط الصلاة الخمسة</h2>
+
+<p>قال المصنف: شروط الصلاة خمسة — وهو يريد الشروط الوجودية الخاصة بالصلاة التي هي شروط صحة. وليست كل الشروط — فالإسلام والعقل والنقاء عن الحيض والنفاس والعلم بفرضيتها والعلم بكيفيتها وألا يعتقد فرضاً من فروضها أنه سنة — هذه شروط لا تختص بالصلاة بل هي مطلوبة في الوضوء والصيام وغيرها، فلم يذكرها المصنف هنا.</p>
+
+<div class="card-grid card-grid-3" style="margin-bottom: 10px;">
+  <div class="card" style="background: linear-gradient(135deg, #1a5632 0%, #2d7a4a 100%); color: white;">
+    <div class="card-number">١</div>
+    <div class="card-title">الطهارة من الحدث</div>
+    <div class="card-desc">الحدث الأصغر والجنابة</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #2c5f7c 0%, #3a7ca5 100%); color: white;">
+    <div class="card-number">٢</div>
+    <div class="card-title">الطهارة من الخبث</div>
+    <div class="card-desc">إزالة النجاسة</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #c8a951 0%, #b8943f 100%); color: white;">
+    <div class="card-number">٣</div>
+    <div class="card-title">استقبال القبلة</div>
+    <div class="card-desc">التوجه للكعبة</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #1a5632 0%, #2d7a4a 100%); color: white;">
+    <div class="card-number">٤</div>
+    <div class="card-title">دخول الوقت</div>
+    <div class="card-desc">وقت الصلاة المحدد</div>
+  </div>
+  <div class="card" style="background: linear-gradient(135deg, #2c5f7c 0%, #3a7ca5 100%); color: white;">
+    <div class="card-number">٥</div>
+    <div class="card-title">ستر العورة</div>
+    <div class="card-desc">تغطية ما يجب ستره</div>
+  </div>
+</div>
+
+<div class="callout callout-definition">
+  <div class="callout-title">دقة عبارة المصنف</div>
+  <div class="callout-body">لما قال المصنف "شروط الصلاة خمسة" قصد: شروط الصلاة أي صحة الصلاة، التي هي شروط وجودية، الخاصة بالصلاة. فعبارة دقيقة — لم يذكر شروط الوجوب لأنها مرت في بداية الكتاب (إسلام، بلوغ، عقل، طهارة من حيض ونفاس)، ولم يذكر الشروط المشتركة مع غير الصلاة.</div>
+</div>
+
+<!-- Section 15: الطهارة -->
+<h2><span class="section-num">١٥</span> الطهارة: تعريفها لغة وشرعاً</h2>
+
+<p>بدأ المصنف في الشرط الأول وهو الطهارة عن الحدث. عادة الفقهاء إذا أطلقوا الحدث أو المحدث أرادوا الحدث الأصغر. فقال: "أحدها طهارة عن حدث وجنابة" — أي حدث أصغر وجنابة أي أكبر.</p>
+
+<div class="callout callout-definition">
+  <div class="callout-title">تعريف الطهارة</div>
+  <div class="callout-body">
+    <p><strong>لغةً:</strong> النظافة والخلوص من الدنس، أي من كل قذر حتى ولو كان هذا القذر طاهراً كمخاط مثلاً — في اللغة النظافة من كل قذر تسمى طهارة.</p>
+    <p><strong>شرعاً:</strong> رفع المنع المترتب على الحدث أو النجس. الإنسان غير المتطهر ممنوع من الصلاة والطواف ومس المصحف — فالطهارة هي التي ترفع هذا المنع. وهذا المنع له أحد سببين: إما حدث أو نجس.</p>
+  </div>
+</div>
+
+<p>قال المصنف: "فالأولى أي الطهارة عن الحدث: الوضوء" — وسيذكر الثاني بعد تقريباً أربعين صفحة وهو الغسل. والغسل معطوف على الوضوء. ولمعرفة إعراب "لغةً" و"شرعاً": منصوب على نزع الخافض، تقدير الكلام: الطهارة في لغة العرب النظافة.</p>
+
+<!-- Section 16: ترتيب الكتاب -->
+<h2><span class="section-num">١٦</span> ترتيب الكتاب: الوضوء والتيمم والغسل وإزالة النجاسات</h2>
+
+<p>أراد المصنف أن يبيّن كيف رتّب كتابه. فبدأ بالصلاة ثم تكلم على شروطها، وقال شروط الصلاة خمسة، وبيّن أن مراده شروط صحة الصلاة الخاصة بها والشروط الوجودية. من هذه الشروط الخمسة شرط اسمه الطهارة — وهذه الطهارة إما رفع حدث أو إزالة نجس. رفع الحدث يكون إما بالوضوء وإما بالغسل.</p>
+
+<div class="vertical-flow">
+  <div class="diagram-node" style="background: #1a5632; color: white; font-weight: bold; font-size: 13pt; padding: 10px 24px; border-radius: 30px;">الطهارة</div>
+  <div class="diagram-connector" style="height: 16px;"></div>
+  <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;">
+    <div style="width: 2px; height: 12px; background: #1a5632;"></div>
+    <div style="width: 2px; height: 12px; background: #c8a951;"></div>
+  </div>
+  <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 4px;">
+    <div class="diagram-node" style="background: #2c5f7c; color: white; font-weight: bold;">رفع الحدث</div>
+    <div class="diagram-node" style="background: #c8a951; color: white; font-weight: bold;">إزالة النجس</div>
+  </div>
+  <div class="diagram-connector" style="height: 12px;"></div>
+  <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;">
+    <div style="width: 2px; height: 10px; background: #2c5f7c;"></div>
+    <div style="width: 2px; height: 10px; background: #2c5f7c;"></div>
+  </div>
+  <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 4px;">
+    <div class="diagram-node" style="background: #3a7ca5; color: white;">الوضوء</div>
+    <div class="diagram-node" style="background: #3a7ca5; color: white;">الغسل</div>
+  </div>
+</div>
+
+<p>الآن سيتكلم المصنف عن الوضوء: شروطه وأركانه وفروضه وسننه ومبطلاته. ثم بعد أن ينتهي من الوضوء سيتكلم على التيمم — تتمة لا يجعل لها باباً مستقلاً بل يذكر بعض مسائل التيمم بإيجاز. ثم يتكلم بعد ذلك على الغسل. ثم بعد ذلك يتكلم على إزالة النجاسات.</p>
+
+<div class="vertical-flow">
+  <div class="flow-step" style="background: #1a5632; color: white; width: 80%; max-width: 300px;">
+    <div style="font-weight: bold;">الوضوء</div>
+    <div style="font-size: 9pt;">شروطه · أركانه · فروضه · سننه · مبطلاته</div>
+  </div>
+  <div class="priority-arrow">↓</div>
+  <div class="flow-step" style="background: #2c5f7c; color: white; width: 80%; max-width: 300px;">
+    <div style="font-weight: bold;">التيمم (تتمة)</div>
+    <div style="font-size: 9pt;">بإيجاز — باب غير مستقل</div>
+  </div>
+  <div class="priority-arrow">↓</div>
+  <div class="flow-step" style="background: #3a7ca5; color: white; width: 80%; max-width: 300px;">
+    <div style="font-weight: bold;">الغسل</div>
+    <div style="font-size: 9pt;">فروضه · سننه · موجباته</div>
+  </div>
+  <div class="priority-arrow">↓</div>
+  <div class="flow-step" style="background: #c8a951; color: white; width: 80%; max-width: 300px;">
+    <div style="font-weight: bold;">إزالة النجاسات</div>
+    <div style="font-size: 9pt;">أنواع النجاسات وطهارتها</div>
+  </div>
+</div>
+
+</body>
+</html>

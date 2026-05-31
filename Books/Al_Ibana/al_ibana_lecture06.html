@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح الإبانة والإفاضة - الدرس السادس: التعريف بالنفاس ومدته وما يتعلق به من أحكام</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-green: #0d6b3e;
+  --dark-green: #0a4f2e;
+  --gold: #d4a020;
+  --light-gold: #f0e6c0;
+  --teal: #0d7377;
+  --bg: #fefefe;
+  --body-text: #1a1a1a;
+  --border: #c8d6c0;
+  --card-bg: #f8faf7;
+  --callout-bg: #fffef5;
+  --evidence-bg: #f0f7f0;
+  --ruling-bg: #fdf6e3;
+  --comparison-bg: #f5f0fa;
+  --definition-bg: #eef8f0;
+  --shadow: 0 2px 8px rgba(13,107,62,0.1);
+  --shadow-hover: 0 4px 16px rgba(13,107,62,0.18);
+}
+
+.bw-mode {
+  --primary-green: #333;
+  --dark-green: #222;
+  --gold: #555;
+  --light-gold: #eee;
+  --teal: #444;
+  --bg: #fff;
+  --body-text: #000;
+  --border: #999;
+  --card-bg: #f9f9f9;
+  --callout-bg: #f5f5f5;
+  --evidence-bg: #f0f0f0;
+  --ruling-bg: #f5f5f5;
+  --comparison-bg: #f5f5f5;
+  --definition-bg: #f0f0f0;
+  --shadow: 0 2px 8px rgba(0,0,0,0.1);
+  --shadow-hover: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+  font-size: 16px;
+  line-height: 2;
+  color: var(--body-text);
+  background: var(--bg);
+  direction: rtl;
+}
+
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+  @bottom-center {
+    content: counter(page);
+    font-size: 12px;
+    color: var(--primary-green);
+  }
+}
+
+/* B&W Toggle */
+.bw-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1000;
+  background: var(--primary-green);
+  color: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  box-shadow: var(--shadow);
+}
+.bw-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Cover Page */
+.cover-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 40%, var(--teal) 100%);
+  color: #fff;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: 40px 20px;
+  page-break-after: always;
+}
+.cover-page::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(212,160,32,0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(212,160,32,0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+.cover-page::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30Z' fill='none' stroke='rgba(212,160,32,0.08)' stroke-width='1'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.cover-badge {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark-green);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 6px 24px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+.cover-title {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.cover-subtitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--light-gold);
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+}
+.cover-book {
+  font-size: 17px;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 6px;
+  position: relative;
+  z-index: 1;
+}
+.cover-authors {
+  font-size: 15px;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 4px;
+  position: relative;
+  z-index: 1;
+}
+.cover-ornament {
+  width: 120px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 20px auto;
+  position: relative;
+  z-index: 1;
+}
+.cover-lecture-num {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--gold);
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 12px rgba(212,160,32,0.4);
+  margin-bottom: 10px;
+}
+
+/* Content Container */
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 24px 60px;
+}
+
+/* Section Headers */
+h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary-green);
+  border-bottom: 3px solid var(--gold);
+  padding-bottom: 8px;
+  margin: 40px 0 20px;
+  line-height: 1.6;
+}
+h1:first-of-type {
+  margin-top: 0;
+}
+h2 {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--dark-green);
+  margin: 28px 0 14px;
+  padding-right: 14px;
+  border-right: 4px solid var(--gold);
+  line-height: 1.6;
+}
+h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--teal);
+  margin: 20px 0 10px;
+  line-height: 1.6;
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 12px;
+  text-align: justify;
+}
+
+/* Inline Styles */
+.highlight {
+  color: var(--primary-green);
+  font-weight: 600;
+}
+.gold-highlight {
+  color: var(--gold);
+  font-weight: 600;
+}
+.term {
+  background: var(--light-gold);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* Card Base */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin: 16px 0;
+  box-shadow: var(--shadow);
+}
+.card-header {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--primary-green);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+/* Definition Card */
+.definition-card {
+  background: var(--definition-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 16px 0;
+  position: relative;
+  box-shadow: var(--shadow);
+}
+.definition-card::before {
+  content: '📖';
+  position: absolute;
+  top: -14px;
+  right: 20px;
+  font-size: 22px;
+  background: var(--definition-bg);
+  padding: 0 6px;
+}
+.definition-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 6px;
+}
+.definition-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--dark-green);
+  line-height: 2;
+}
+
+/* Evidence Box */
+.evidence-box {
+  background: var(--evidence-bg);
+  border-right: 5px solid var(--primary-green);
+  border-radius: 0 10px 10px 0;
+  padding: 16px 20px;
+  margin: 16px 0;
+  box-shadow: var(--shadow);
+}
+.evidence-box .ev-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 6px;
+}
+.evidence-box .ev-text {
+  font-size: 16px;
+  line-height: 2.2;
+  color: var(--dark-green);
+}
+
+/* Ruling Card */
+.ruling-card {
+  background: var(--ruling-bg);
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  box-shadow: var(--shadow);
+}
+.ruling-card .ruling-label {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark-green);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 2px 12px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+.ruling-card .ruling-text {
+  font-size: 16px;
+  line-height: 2;
+}
+
+/* Callout Box */
+.callout-box {
+  background: var(--callout-bg);
+  border: 2px dashed var(--gold);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  position: relative;
+}
+.callout-box::before {
+  content: '⚡';
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  font-size: 18px;
+  background: var(--callout-bg);
+  padding: 0 4px;
+}
+.callout-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+/* Comparison Card */
+.comparison-card {
+  background: var(--comparison-bg);
+  border: 1px solid var(--teal);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 16px 0;
+  box-shadow: var(--shadow);
+}
+.comparison-card .comp-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--teal);
+  margin-bottom: 12px;
+  text-align: center;
+}
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.comparison-side {
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+}
+.comp-side-a {
+  background: rgba(13,107,62,0.08);
+  border: 1px solid var(--primary-green);
+}
+.comp-side-b {
+  background: rgba(13,115,119,0.08);
+  border: 1px solid var(--teal);
+}
+.comp-label {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.comp-text {
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* Classification Tree */
+.classification-tree {
+  background: var(--card-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px 0;
+  box-shadow: var(--shadow);
+}
+.tree-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--primary-green);
+  text-align: center;
+  margin-bottom: 16px;
+}
+.tree-root {
+  text-align: center;
+  margin-bottom: 12px;
+}
+.tree-root span {
+  display: inline-block;
+  background: var(--primary-green);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 6px 24px;
+  border-radius: 8px;
+}
+.tree-branches {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.tree-branch {
+  flex: 1;
+  min-width: 140px;
+  max-width: 200px;
+  text-align: center;
+}
+.tree-branch .branch-label {
+  display: block;
+  background: var(--gold);
+  color: var(--dark-green);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 8px 8px 0 0;
+}
+.tree-branch .branch-content {
+  display: block;
+  background: var(--light-gold);
+  font-size: 15px;
+  padding: 8px 10px;
+  border-radius: 0 0 8px 8px;
+  border: 1px solid var(--gold);
+  border-top: none;
+  line-height: 1.7;
+}
+.tree-connector {
+  text-align: center;
+  color: var(--primary-green);
+  font-size: 20px;
+  margin: 6px 0;
+}
+
+/* Flow Chart */
+.flow-chart {
+  background: var(--card-bg);
+  border: 2px solid var(--teal);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px 0;
+  box-shadow: var(--shadow);
+}
+.flow-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--teal);
+  text-align: center;
+  margin-bottom: 14px;
+}
+.flow-node {
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin: 6px auto;
+  max-width: 500px;
+  font-size: 15px;
+  line-height: 1.8;
+}
+.flow-start {
+  background: var(--primary-green);
+  color: #fff;
+  font-weight: 700;
+}
+.flow-decision {
+  background: var(--light-gold);
+  border: 2px solid var(--gold);
+  font-weight: 600;
+}
+.flow-result-a {
+  background: rgba(13,107,62,0.1);
+  border: 1px solid var(--primary-green);
+}
+.flow-result-b {
+  background: rgba(13,115,119,0.1);
+  border: 1px solid var(--teal);
+}
+.flow-arrow {
+  text-align: center;
+  color: var(--gold);
+  font-size: 18px;
+  margin: 4px 0;
+}
+.flow-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* Timeline Diagram */
+.timeline-diagram {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 14px 0;
+  box-shadow: var(--shadow);
+}
+.timeline-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 12px;
+}
+.timeline-bar {
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 8px 0;
+  height: 36px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.timeline-segment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  min-width: 30px;
+  text-align: center;
+  color: #fff;
+  white-space: nowrap;
+}
+.seg-nifas {
+  background: var(--primary-green);
+}
+.seg-tuhr {
+  background: var(--teal);
+}
+.seg-hayd {
+  background: var(--gold);
+  color: var(--dark-green);
+}
+.seg-fasad {
+  background: #999;
+}
+.timeline-legend {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  font-size: 13px;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.legend-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+/* Case Card */
+.case-card {
+  background: var(--card-bg);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 16px 0;
+  box-shadow: var(--shadow);
+}
+.case-card .case-num {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark-green);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 3px 14px;
+  border-radius: 14px;
+  margin-bottom: 10px;
+}
+.case-card .case-scenario {
+  font-size: 16px;
+  line-height: 2;
+  margin-bottom: 10px;
+  padding: 10px 14px;
+  background: rgba(212,160,32,0.06);
+  border-radius: 8px;
+}
+.case-card .case-ruling {
+  font-size: 16px;
+  line-height: 2;
+  padding: 8px 14px;
+  background: rgba(13,107,62,0.06);
+  border-radius: 8px;
+  border-right: 4px solid var(--primary-green);
+}
+
+/* Scholar Card */
+.scholar-card {
+  background: linear-gradient(135deg, var(--definition-bg), var(--card-bg));
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 16px 0;
+  box-shadow: var(--shadow);
+}
+.scholar-card .scholar-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--primary-green);
+  text-align: center;
+  margin-bottom: 8px;
+}
+.scholar-card .scholar-info {
+  font-size: 15px;
+  text-align: center;
+  line-height: 1.9;
+}
+
+/* Fiqh Principle Box */
+.fiqh-principle {
+  background: linear-gradient(135deg, var(--dark-green), var(--primary-green));
+  color: #fff;
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 16px 0;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+.fiqh-principle .fp-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--light-gold);
+  margin-bottom: 8px;
+}
+.fiqh-principle .fp-text {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 2;
+  color: #fff;
+}
+
+/* Benefit Box */
+.benefit-box {
+  background: var(--light-gold);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  box-shadow: var(--shadow);
+}
+.benefit-box .benefit-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--dark-green);
+  margin-bottom: 6px;
+}
+.benefit-box .benefit-text {
+  font-size: 16px;
+  line-height: 2;
+}
+
+/* Numbered List */
+.numbered-list {
+  counter-reset: item;
+  list-style: none;
+  padding: 0;
+  margin: 12px 0;
+}
+.numbered-list li {
+  counter-increment: item;
+  padding: 8px 14px 8px 8px;
+  margin: 6px 0;
+  background: var(--card-bg);
+  border-radius: 8px;
+  border-right: 3px solid var(--primary-green);
+  font-size: 16px;
+  line-height: 2;
+  position: relative;
+}
+.numbered-list li::before {
+  content: counter(item);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: var(--primary-green);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 700;
+  margin-left: 8px;
+  flex-shrink: 0;
+}
+
+/* Quote Block */
+.quote-block {
+  background: rgba(13,107,62,0.04);
+  border-right: 5px solid var(--primary-green);
+  padding: 12px 18px;
+  margin: 14px 0;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+.quote-source {
+  font-size: 13px;
+  color: var(--teal);
+  font-weight: 600;
+  font-style: normal;
+  margin-top: 6px;
+}
+
+/* Data Table */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0;
+  font-size: 14px;
+  box-shadow: var(--shadow);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.data-table th {
+  background: var(--primary-green);
+  color: #fff;
+  padding: 10px 12px;
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+}
+.data-table td {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.data-table tr:nth-child(even) td {
+  background: var(--card-bg);
+}
+
+/* Section Divider */
+.section-divider {
+  text-align: center;
+  margin: 30px 0;
+  color: var(--gold);
+  font-size: 20px;
+  letter-spacing: 8px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .content { padding: 16px 12px 40px; }
+  .comparison-grid { grid-template-columns: 1fr; }
+  .flow-grid { grid-template-columns: 1fr; }
+  .tree-branches { flex-direction: column; align-items: center; }
+  .tree-branch { max-width: 90%; }
+  .cover-title { font-size: 22px; }
+  .cover-subtitle { font-size: 17px; }
+}
+
+/* Print */
+@media print {
+  .bw-toggle { display: none; }
+  .cover-page { page-break-after: always; }
+  h1, h2 { page-break-after: avoid; }
+  .card, .evidence-box, .ruling-card, .callout-box, .comparison-card,
+  .classification-tree, .flow-chart, .case-card, .timeline-diagram {
+    page-break-inside: avoid;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- B&W Toggle Button -->
+<button class="bw-toggle" onclick="toggleBW()" title="تبديل الأبيض والأسود">B/W</button>
+
+<script>
+function toggleBW() {
+  document.body.classList.toggle('bw-mode');
+}
+</script>
+
+<!-- ==================== COVER PAGE ==================== -->
+<div class="cover-page">
+  <div class="cover-badge">جديد</div>
+  <div class="cover-lecture-num">الدرس ٠٦</div>
+  <div class="cover-ornament"></div>
+  <div class="cover-title">التعريف بالنفاس ومدته<br>وما يتعلق به من أحكام</div>
+  <div class="cover-subtitle">شروط النفاس · مدة النفاس · تقطع دم النفاس · زيادة الدم على أكثر النفاس</div>
+  <div class="cover-ornament"></div>
+  <div class="cover-book">كتاب: الإبانة والإفاضة في أحكام الحيض والنفاس والاستحاضة</div>
+  <div class="cover-authors">المؤلف: عبد الرحمن بن عبد الله عبد القادر السقاف</div>
+  <div class="cover-authors">الشارح: د. لبيب نجيب عبد الله</div>
+  <div class="cover-authors">التدوين: أحمد بن إرشاد</div>
+</div>
+
+<!-- ==================== CONTENT ==================== -->
+<div class="content">
+
+<!-- Opening Dua -->
+<div class="evidence-box">
+  <div class="ev-label">🤲 افتتاح الدرس</div>
+  <div class="ev-text">
+    بسم الله الرحمن الرحيم، الحمد لله رب العالمين، والصلاة والسلام الأتمان الأكملان على سيد المرسلين سيدنا محمد وعلى آله وصحبه الطيبين الطاهرين، أما بعد، فأسأل الله سبحانه وتعالى أن يمن علينا بالعلم النافع والعمل الصالح، وأن يفقهنا في الدين، وأن يفتح لنا فتوح العارفين، وأن يرزقنا الإخلاص في الأقوال والأعمال، اللهم أمين.
+  </div>
+</div>
+
+<p>قال فضيلة الدكتور عبد الرحمن السقاف وفقه الله ونفعنا الله بعلومه في الدنيا والآخرة، اللهم أمين.</p>
+
+<p>قال: <span class="highlight">الدرس الرابع: التعريف بالنفاس ومدته</span> — صح؟ أو ومدته؟ ما رأيكم؟ لعل الأولى <span class="highlight">التعريف بالنفاس ومدته</span> فيكون «مدته» معطوف على «التعريف»، ليس المراد التعريف بالنفاس والتعريف بمدة النفاس، واضح لنا. قال: وما يتعلق به من أحكام.</p>
+
+<p>سنتناول في هذا الدرس: <span class="highlight">التعريف بالنفاس وشروطه ومدته وحكم تقطع دم النفاس وحكم زيادة الدم على أكثر النفاس</span>.</p>
+
+<!-- ==================== SECTION 1: تعريف النفاس ==================== -->
+<h1>أولاً: تعريف النفاس</h1>
+
+<h2>تعريف النفاس لغةً</h2>
+
+<div class="definition-card">
+  <div class="definition-label">التعريف اللغوي</div>
+  <div class="definition-text">النفاس لغةً: الولادة</div>
+</div>
+
+<p>وسُمّي بذلك لأنه يخرج عقب نَفَس، أو من قولهم <span class="term">تنفّس الصبح</span> إذا ظهر، واضح؟</p>
+
+<p>وقد مرّ معنا تعريف النفاس من قبل، ومنهم من قال: النفاس مأخوذ من الدم، لأن الدم يُسمّى نفساً، ومنه قول الفقهاء: <span class="highlight">«ما لا نفس له سائلة»</span> أي ما لا دم له يسيل.</p>
+
+<h2>تعريف النفاس شرعاً</h2>
+
+<div class="definition-card">
+  <div class="definition-label">التعريف الشرعي</div>
+  <div class="definition-text">النفاس شرعاً: الدم الخارج بعد فراغ جميع الرحم أي وقبل مضي خمسة عشر يوماً كما مرّ معنا تعريفه فيما سبق</div>
+</div>
+
+<p>وقد تقدّم شرح ذلك في الدرس الأول، لكن أريدك أن تنتبه إلى قول فضيلة الشيخ: <span class="highlight">«شرعاً بأنه الدم»</span> — الدم المراد بالدم هنا ما يشمل الصفرة والكدرة، واضح؟</p>
+
+<p>وبالتالي لو أن المرأة في النفاس بعد الولادة خرج منها الدم أربعين يوماً، وبعد الأربعين خمسة أيام أو سبعة أيام صفرة وكدرة، فإن هذه الصفرة والكدرة تعتبر نفاساً.</p>
+
+<div class="callout-box">
+  <div class="callout-title">تنبيه: الصفرة والكدرة في النفاس</div>
+  <p>إذن قوله «الدم الخارج» — المراد بالدم هنا ما يشمل الصفرة والكدرة. ولذلك قال الإمام النووي رحمه الله تعالى في <span class="highlight">روضة الطالبين</span>:</p>
+</div>
+
+<div class="evidence-box">
+  <div class="ev-label">📜 قول الإمام النووي في روضة الطالبين</div>
+  <div class="ev-text">
+    «والصفرة والكدرة في النفاس كهي في الحيض» — يعني حكمه في النفاس كحكمها في الحيض. فكما أنك تجعل الصفرة والكدرة في الحيض حيضاً على معتمد المذهب، فكذلك تجعل الصفرة والكدرة في النفاس نفاساً على معتمد المذهب. وعلى الرأي الآخر معلوم أن الصفرة والكدرة على رأي الأصح ليست حيضاً وبالتالي لا تكون نفاساً، لكن المعتمد أن الصفرة والكدرة في الحيض حيض، فكذلك في النفاس نفاس. ولذلك قال: <span class="highlight">«والصفرة والكدرة في النفاس كهي في الحيض وفاقاً وخلافاً»</span> أي في الموضع الذي حصل فيه الاتفاق وفي الموضع الذي حصل فيه الاختلاف. وهذا هو المذهب، هكذا يقول إمام النووي، وهذا هو المذهب.
+  </div>
+</div>
+
+<div class="ruling-card">
+  <div class="ruling-label">قاعدة</div>
+  <div class="ruling-text">الصفرة والكدرة في النفاس كهي في الحيض وفاقاً وخلافاً — فما كان حيضاً في الحيض فهو نفاس في النفاس، وما لم يكن حيضاً على الرأي الآخر فلا يكون نفاساً.</div>
+</div>
+
+<!-- ==================== SECTION 2: شروط النفاس ==================== -->
+<h1>ثانياً: شروط النفاس</h1>
+
+<div class="classification-tree">
+  <div class="tree-title">شروط النفاس الأربعة</div>
+  <div class="tree-root"><span>شروط النفاس</span></div>
+  <div class="tree-connector">▼</div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <span class="branch-label">الشرط الأول</span>
+      <span class="branch-content">خروج الدم بعد فراغ الرحم</span>
+    </div>
+    <div class="tree-branch">
+      <span class="branch-label">الشرط الثاني</span>
+      <span class="branch-content">قبل انقضاء 15 يوماً من فراغ الرحم</span>
+    </div>
+    <div class="tree-branch">
+      <span class="branch-label">الشرط الثالث</span>
+      <span class="branch-content">ألا يتخلل بين دمي النفاس أقل الطهر</span>
+    </div>
+    <div class="tree-branch">
+      <span class="branch-label">الشرط الرابع</span>
+      <span class="branch-content">أن يكون ذلك في الستين</span>
+    </div>
+  </div>
+</div>
+
+<p>قال: لا يتحقق كون النفاس نفاساً إلا بأربعة شروط، انتبه لها.</p>
+
+<!-- الشرط الأول -->
+<h2>الشرط الأول: أن يكون خروجه بعد فراغ الرحم</h2>
+
+<p>أن يكون خروج الدم بعد فراغ الرحم. قول: <span class="highlight">أن يكون خروجه</span> أي خروج الدم <span class="highlight">بعد فراغ الرحم</span> — تفهم من هذا أن الدم الذي يخرج قبل فراغ الرحم ليس نفاساً.</p>
+
+<p>طيب ما هو؟ نقول:</p>
+
+<ul class="numbered-list">
+  <li>إن اتصل نفاسها بحيضها — وهذا مبني على أن الحامل تحيض — فهو حيض.</li>
+  <li>وإن لم يتصل نفاسها بحيض — فهذا دم فساد، دم استحاضة، تمام.</li>
+</ul>
+
+<p>قال: أن يكون خروجه بعد فراغ الرحم <span class="highlight">ولو من علقة</span> — أي أن الدم الذي يخرج بعد فراغ الرحم حتى وإن كان الخارج علقة.</p>
+
+<div class="card">
+  <div class="card-header"><span class="card-icon">1</span>العلقة</div>
+  <p>العلقة عمرها من واحد وأربعين يوماً إلى ثمانين، كما في حديث ابن مسعود: <span class="highlight">«إن أحدكم يُجمع خلقه في بطن أمه أربعين يوماً نطفةً، ثم يكون علقةً مثل ذلك</span> أي أربعين <span class="highlight">ثم يكون مضغةً مثل ذلك»</span> واضح.</p>
+  <p>فقد قلت لكم في مجالس كثيرة إن خروج العلقة يترتب عليه ثلاثة أحكام:</p>
+  <ul class="numbered-list">
+    <li><strong>الحكم الأول:</strong> وجوب الغسل</li>
+    <li><strong>الحكم الثاني:</strong> ثبوت النفاس — وهذا محل الدرس</li>
+    <li><strong>الحكم الثالث:</strong> الفطر من الصوم</li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-header"><span class="card-icon">2</span>المضغة</div>
+  <p>أو مضغة — والمضغة قطعة لحم، وتكون بعد الثمانين إلى مئة وعشرين كما في الحديث السابق.</p>
+</div>
+
+<div class="evidence-box">
+  <div class="ev-label">📖 حديث ابن مسعود رضي الله عنه</div>
+  <div class="ev-text">«إن أحدكم يُجمع خلقه في بطن أمه أربعين يوماً نطفةً، ثم يكون علقةً مثل ذلك، ثم يكون مضغةً مثل ذلك»</div>
+  <div class="quote-source">متفق عليه</div>
+</div>
+
+<!-- القابلة -->
+<h3>مسألة: القابلة واشتراط الأنوثة</h3>
+
+<p>قالت <span class="highlight">قابلة</span> إنها مبدأ خلق آدم — القابلة: يرحمك الله، هي التي تتولى توليد المرأة، تُسمّى قابلة تمام، وتُسمّى داية.</p>
+
+<p>هذه القابلة قالت إنها — الضمير يعود على ماذا؟ يعود على المضغة — أي إن المضغة مبدأ خلق آدم. ما معنى قوله <span class="highlight">مبدأ خلق آدم</span>؟ أي أنها لو بقيت في الرحم لتخلّقت إنساناً، هذا المقصود، إنها أصل خلق آدمي.</p>
+
+<p>ولاحظ معني في قوله: <span class="highlight">«قالت قابلة»</span> — تمام، يكفي أن تكون المُخبِرة بذلك قابلة واحدة، فلا يُشترط العدد.</p>
+
+<p>لكن يأتي السؤال: هل يُشترط أن تكون المُخبِرة بذلك أنثى؟ فلو قال شخص تولّى التوليد — نقول: نُفترض أنه زوج لها، زوجها تولّى توليدها، نُفترض أنه طبيب في حالة ضرورة تولّى التوليد — تمام، له، أخبر أن هذه المضغة أصل آدمي، هل نقول خبره لا يُقبل؟ واضح، لأن المؤلف قال إيش؟ <span class="highlight">«قالت قابلة»</span> — فيُشترط الأنوثة؟ أو نقول: قوله «قابلة» خرج مخرج الغالب؟</p>
+
+<div class="comparison-card">
+  <div class="comp-title">هل يُشترط أن تكون القابلة أنثى؟</div>
+  <div class="comparison-grid">
+    <div class="comparison-side comp-side-a">
+      <div class="comp-label" style="color: var(--primary-green);">الجواب: يُقبل خبر الرجل</div>
+      <div class="comp-text">لو أخبر رجل قُبل خبره، فإن قوله «قابلة» وقول الفقهاء «قابلة» خرج مخرج الغالب، وإلا فلو أخبر ذكر فإن خبره يُقبل.</div>
+    </div>
+    <div class="comparison-side comp-side-b">
+      <div class="comp-label" style="color: var(--teal);">التعليل</div>
+      <div class="comp-text">لأن مبنى المسألة على الظن، وبخبر الواحد رجلاً كان أو امرأة يحصل ذلك الظن.</div>
+    </div>
+  </div>
+</div>
+
+<div class="scholar-card">
+  <div class="scholar-name">العلامة الشبراملسي</div>
+  <div class="scholar-info">
+    نصّ على ذلك العلامة الشبراملسي رحمه الله في حاشيته على نهاية المحتاج فقال رحمه الله: «قالت قابلة إنها مبدأ خلق آدم».
+  </div>
+</div>
+
+<!-- الدم قبل الولادة -->
+<h3>الدم الخارج قبل الولادة (الطلق)</h3>
+
+<p>أما الدم الخارج قبل الولادة وهو المسمّى بالطلق فليس بالنفاس — طيب ليس بالنفاس، هذا لا إشكال.</p>
+
+<p>طيب هل — حيث قال — إلا إن اتصل بحيض قبله كما قلت لكم: <span class="highlight">فإن اتصل بحيض قبله فهو حيض</span> — لِمَا تقدّم أن الأصح أن الدم الذي تراه الحامل تحيض. إذاً هذا الفرع مبني على مسألة الحامل هل تحيض أو لا تحيض، وقد ذكرت لك من قبل أن معتمد المذهب أن الحامل تحيض.</p>
+
+<div class="ruling-card">
+  <div class="ruling-label">الشرط الأول</div>
+  <div class="ruling-text">أن يكون خروج الدم بعد فراغ الرحم — فالدم قبل فراغ الرحم ليس نفاساً، فإن اتصل بحيض قبله فهو حيض (مبني على أن الحامل تحيض)، وإن لم يتصل بحيض فهو دم فساد/استحاضة.</div>
+</div>
+
+<!-- الشرط الثاني -->
+<h2>الشرط الثاني: أن يكون قبل انقضاء خمسة عشر يوماً من فراغ الرحم</h2>
+
+<p>أن يكون خروج الدم قبل انقضاء خمسة عشر يوماً من فراغ الرحم — وبالتالي لو أن المرأة ولدت ومرّ عليها عشرون يوماً ولم يخرج الدم، ثم خرج الدم بعد عشرين يوماً من ولادتها، فإن هذا الدم الذي خرج بعد عشرين يوماً من ولادتها <span class="highlight">ليس دم نفاس</span>، لماذا؟ لأن الشرط في الحكم عليه بأنه دم نفاس أن يخرج قبل أن تمضي خمسة عشر يوماً.</p>
+
+<p>والذي قال: <span class="highlight">«أما بعد انقضاء خمسة عشر يوماً فليس بنفاس بل هو حيض أي إن تحقق شرطه فبلغ يوماً وليلة»</span>، تمام.</p>
+
+<div class="ruling-card">
+  <div class="ruling-label">الشرط الثاني</div>
+  <div class="ruling-text">أن يكون خروج الدم قبل انقضاء 15 يوماً من فراغ الرحم — فما خرج بعد 15 يوماً ليس بنفاس بل هو حيض إن تحقق شرطه فبلغ يوماً وليلة.</div>
+</div>
+
+<!-- الشرط الثالث -->
+<h2>الشرط الثالث: ألا يتخلل بين دمي النفاس أقل الطهر</h2>
+
+<p>نحكم على هذا بأنه دم نفاس بشرط ألا يتخلل بين الدمين أقل الطهر. فلو تخلل بين الدمين أقل الطهر فإن الثاني ليس دم نفاس بل دم حيض.</p>
+
+<p>سأكتب المسألة في السبورة — طبعاً هي ستأتي بعد قليل:</p>
+
+<div class="timeline-diagram">
+  <div class="timeline-title">مثال: النقاء المتخلل دون خمسة عشر يوماً</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment seg-nifas" style="flex: 20;">دم نفاس (1-20/7)</div>
+    <div class="timeline-segment seg-tuhr" style="flex: 5;">انقطاع (20-25/7)</div>
+    <div class="timeline-segment seg-nifas" style="flex: 1;">عودة الدم (26/7)</div>
+  </div>
+  <div class="timeline-legend">
+    <div class="legend-item"><div class="legend-dot seg-nifas"></div> نفاس</div>
+    <div class="legend-item"><div class="legend-dot seg-tuhr"></div> انقطاع</div>
+  </div>
+  <p style="margin-top:10px; font-size:15px;">ولدت في تاريخ 1 من الشهر السابع وخرج الدم واستمر إلى تاريخ 20 من الشهر السابع — هذا الدم نفاس. ثم انقطع من تاريخ 20 إلى تاريخ 25 من الشهر السابع. ثم في تاريخ 26 عاد الدم.</p>
+  <p style="font-size:15px;">فترة الانقطاع كم يوم؟ خمسة أيام — أقل من خمسة عشر — إذن هذه الأيام الخمسة أيام نفاس على الأصح، وهذا الدم العائد أيضاً دم نفاس.</p>
+</div>
+
+<div class="timeline-diagram">
+  <div class="timeline-title">مثال: النقاء المتخلل أكثر من خمسة عشر يوماً</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment seg-nifas" style="flex: 20;">دم نفاس (1-20/7)</div>
+    <div class="timeline-segment seg-tuhr" style="flex: 20;">انقطاع 20 يوماً</div>
+    <div class="timeline-segment seg-hayd" style="flex: 5;">دم حيض</div>
+  </div>
+  <div class="timeline-legend">
+    <div class="legend-item"><div class="legend-dot seg-nifas"></div> نفاس</div>
+    <div class="legend-item"><div class="legend-dot seg-tuhr"></div> طهر</div>
+    <div class="legend-item"><div class="legend-dot seg-hayd"></div> حيض</div>
+  </div>
+  <p style="margin-top:10px; font-size:15px;">لكن لو حصل الانقطاع وتجاوز الخمسة عشر — مثلاً في تاريخ 20/7 حصل انقطاع ولم يعد الدم إلى تاريخ 10/8 — يعني كم انقطع؟ عشرون يوماً — هذا الدم الذي عاد دم حيض إن تحقق شرطه.</p>
+</div>
+
+<p>بعبارة أخرى: نحكم على الدم بأنه دم نفاس بشرط ألا يحصل انقطاع، فإن حصل انقطاع ننظر:</p>
+
+<ul class="numbered-list">
+  <li>إذا كان الانقطاع خمسة عشر فأقل — فهذا الدم الذي عاد دم نفاس.</li>
+  <li>وإن تجاوز خمسة عشر — فهذا الدم الذي عاد دم حيض.</li>
+</ul>
+
+<p>انظر ماذا قال: <span class="highlight">«ألا يتخلل»</span> — وهذه المسألة ستأتي بعد قليل بتفصيل، تمام، هو ذكرها هنا بإيجاز — <span class="highlight">ألا يتخلل بين دمي النفاس الأول والثاني أقل الطهر وهو خمسة عشر يوماً</span>. فإن تخلل بينهما ذلك — أي إن تخلل بينهما أقل الطهر أي تجاوز خمسة عشر — <span class="highlight">فالثاني ليس بالنفاس وإنما هو حيض</span>.</p>
+
+<div class="ruling-card">
+  <div class="ruling-label">الشرط الثالث</div>
+  <div class="ruling-text">ألا يتخلل بين دمي النفاس أقل الطهر (15 يوماً) — فإن تخلل فالثاني حيض لا نفاس، وإن لم يتخلل فأوقات الدم كلها نفاس.</div>
+</div>
+
+<!-- الشرط الرابع -->
+<h2>الشرط الرابع: أن يكون ذلك في الستين</h2>
+
+<p>إيش معناه «في الستين»؟ يعني نحكم على الدم بأنه دم نفاس بشرط أن ذلك الدم يخرج بعد الولادة وقبل مضي ستين يوماً.</p>
+
+<p>فلو أنها ولدت وخرج الدم واستمر حتى تجاوز ستين يوماً — فما زاد على ستين هذا ليس دم نفاس.</p>
+
+<p>طيب ما هو؟ نقول ننظر في لحظة تمام الستين:</p>
+
+<div class="flow-chart">
+  <div class="flow-title">حكم الدم عند تجاوز الستين</div>
+  <div class="flow-node flow-start">ننظر في لحظة تمام الستين</div>
+  <div class="flow-arrow">▼</div>
+  <div class="flow-grid">
+    <div class="flow-node flow-result-a">
+      <strong>إن كان الدم مستمراً</strong><br>
+      = مستحاضة نفاس<br>
+      <small>تُردّ إلى إحدى صور مستحاضة النفاس السبع</small>
+    </div>
+    <div class="flow-node flow-result-b">
+      <strong>إن كان الدم منقطعاً ثم عاد</strong><br>
+      = دم حيض إن تحقق شرطه (بلغ يوماً وليلة)<br>
+      <small>وإلا فدم استحاضة وفساد</small>
+    </div>
+  </div>
+</div>
+
+<p>ومن هنا تعلم أن المرأة ينبغي عليها أن تلاحظ الوقت الذي انتهت فيه الولادة — متى انتهت الولادة — انتهت الولادة مثلاً الآن في الساعة التاسعة والنصف، على رأس الستين من هذا الوقت تنظر: هل في الساعة التاسعة والنصف بعد ستين يوم الدم مستمر أو غير مستمر؟</p>
+
+<p>إذا كان الدم مستمر فنقول لها: هذه مستحاضة نفاس. إذا كان الدم غير مستمر منقطع ثم عاد بعدها فنقول: هذا الدم دم حيض طبعاً إن تحقق شرطه بأن بلغ يوماً وليلة.</p>
+
+<p>ستأتي هذه المسائل مرة أخرى لكن هو الآن يستعرض الشروط الأربعة. ولذلك قال: <span class="highlight">«أن يكون ذلك أي أن يكون خروج الدم في الستين فلو رأت بعد الستين دماً ولو بالزمن يسير فليس بالنفاس ثم إن وجد فيه شرط الحيض وهو بلوغ يوم وليلة فهو حيض وإلا فلا»</span>، تمام.</p>
+
+<div class="ruling-card">
+  <div class="ruling-label">الشرط الرابع</div>
+  <div class="ruling-text">أن يكون خروج الدم في الستين — فلو رأت بعد الستين دماً ولو بالزمن يسير فليس بنفاس، ثم إن وجد فيه شرط الحيض (بلغ يوماً وليلة) فهو حيض وإلا فلا.</div>
+</div>
+
+<div class="section-divider">✦ ✦ ✦</div>
+
+<!-- ==================== SECTION 3: مدة النفاس ==================== -->
+<h1>ثالثاً: مدة النفاس</h1>
+
+<div class="classification-tree">
+  <div class="tree-title">مدة النفاس</div>
+  <div class="tree-root"><span>مدة النفاس</span></div>
+  <div class="tree-connector">▼</div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <span class="branch-label">أقله</span>
+      <span class="branch-content">لحظة</span>
+    </div>
+    <div class="tree-branch">
+      <span class="branch-label">غالبُه</span>
+      <span class="branch-content">أربعون يوماً</span>
+    </div>
+    <div class="tree-branch">
+      <span class="branch-label">أكثرُه</span>
+      <span class="branch-content">ستون يوماً</span>
+    </div>
+  </div>
+</div>
+
+<p>مدة أقل النفاس لحظة — كلمة «أقل» سقطت عنه، لعله وفقه الله — يقول: مدة أقل النفاس لحظة.</p>
+
+<p>وأكثره ستون يوماً. كون أكثر النفاس 60 يوماً هذا مذهب الشافعية والمالكية، وقال به جماعة من التابعين.</p>
+
+<p>وغالبه أربعون يوماً — غالب النفاس أربعون يوماً — لحديث أم سلمة رضي الله عنها.</p>
+
+<div class="evidence-box">
+  <div class="ev-label">📖 حديث أم سلمة رضي الله عنها</div>
+  <div class="ev-text">«كانت النفساء تجلس على عهد رسول الله صلى الله عليه وسلم أربعين يوماً»</div>
+</div>
+
+<p>حمل الشافعية هذا الحديث على الغالب، لأن استقراء الإمام الشافعي وجد أن النفاس قد يستمر إلى 60، فلما وجد أن النفاس قد يستمر إلى 60 حمل حديث أم سلمة على الغالب.</p>
+
+<div class="comparison-card">
+  <div class="comp-title">خلاف الفقهاء في أكثر النفاس</div>
+  <div class="comparison-grid">
+    <div class="comparison-side comp-side-a">
+      <div class="comp-label" style="color: var(--primary-green);">الشافعية والمالكية</div>
+      <div class="comp-text">أكثر النفاس <strong>60 يوماً</strong><br>حملوا حديث أم سلمة على الغالب<br>وقال به جماعة من التابعين</div>
+    </div>
+    <div class="comparison-side comp-side-b">
+      <div class="comp-label" style="color: var(--teal);">الحنابلة والحنفية</div>
+      <div class="comp-text">أكثر النفاس <strong>40 يوماً</strong><br>فعندهم لو استمر الدم بعد الأربعين فهذه مستحاضة لا نفاس</div>
+    </div>
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">⚡ تنبيه مهم: لا يلزم إكمال الأربعين</div>
+  <p>بعض النساء عندما نقول غالب النفاس 40 يوماً يتوهّمن أن المرأة لا بد أن تبقى في حالة نفاس 40 يوماً حتى وإن انقطع الدم قبل ذلك — موجود في بلادنا بعض المناطق هكذا — ربما ينقطع منها الدم بعد الولادة 20 يوماً تبقى بعد العشرين يوماً هذه ما فيها دم لكن لا تصلي ولا تصوم، لماذا؟ نفاس ما كمّلت للأربعين! تقول: غير صحيح!</p>
+  <p><span class="highlight">بانقطاع الدم تنتهي أحكام النفاس</span> كما قلنا في الحيض: بانقطاع الحيض تنتهي أحكام الحيض، كذلك هنا: بانقطاع دم النفاس تنتهي أحكام النفاس، لا يُشترط أن تكمل أربعين يوماً.</p>
+  <p>فإذا انقطع الدم قبل الأربعين يلزمك أن تغتسلي وأن تصلي وأن تصومي، ويجوز للزوج أن يطأ.</p>
+</div>
+
+<h3>إذا عاد الدم بعد الانقطاع</h3>
+
+<p>فإن عاد الدم نقول:</p>
+
+<ul class="numbered-list">
+  <li>إذا عاد الدم قبل أقل الطهر وقبل انقضاء الستين — فهذا نفاس، مازال النفاس موجود، وهذا نفاس، وتبين أن ما فعلتيه من عبادات في هذا الوقت غير صحيحة، فالصلاة غير صحيحة والصوم غير صحيح، تمام.</li>
+  <li>لكن هي يلزمها أن تغتسل بمجرد انقطاع الدم كما قلنا — نفس الكلام الذي قلناه في الحيض لو تذكرون.</li>
+</ul>
+
+<div class="ruling-card">
+  <div class="ruling-label">واجب</div>
+  <div class="ruling-text">بانقطاع دم النفاس تنتهي أحكام النفاس — فإذا انقطع الدم قبل الأربعين اغتسلت وصلّت وصامت وجاز الوطء. فإن عاد الدم قبل أقل الطهر وقبل الستين تبين بطلان العبادات التي فعلتها في فترة النقاء.</div>
+</div>
+
+<div class="section-divider">✦ ✦ ✦</div>
+
+<!-- ==================== SECTION 4: متى تبدأ مدة النفاس ==================== -->
+<h1>رابعاً: متى تبدأ مدة النفاس</h1>
+
+<p>من متى يبدأ النفاس؟ انتبه هذا يحتاج بعض الانتباه.</p>
+
+<p>قال: <span class="highlight">المعتمد من الأقوال أن مدة النفاس تبدأ حكماً من رؤية الدم فلا نفاس قبل رؤيته، وأما عدداً فمن بعد فراغ الرحم من جميع الحمل</span>.</p>
+
+<div class="comparison-card">
+  <div class="comp-title">بداية مدة النفاس: الحكمة والعدد</div>
+  <div class="comparison-grid">
+    <div class="comparison-side comp-side-a">
+      <div class="comp-label" style="color: var(--primary-green);">حكماً (ثبوت الأحكام)</div>
+      <div class="comp-text">تبدأ من <strong>رؤية الدم</strong><br>فلا نفاس قبل رؤيته<br>الأحكام (تحريم الصلاة والصوم والوطء) من لحظة نزول الدم</div>
+    </div>
+    <div class="comparison-side comp-side-b">
+      <div class="comp-label" style="color: var(--teal);">عدداً (حساب الستين)</div>
+      <div class="comp-text">يبدأ من <strong>فراغ الرحم من جميع الحمل</strong><br>أي من لحظة انفصال جميع الجنين عن الرحم<br>عدد الأيام الستين يُحسب من هذه اللحظة</div>
+    </div>
+  </div>
+</div>
+
+<div class="timeline-diagram">
+  <div class="timeline-title">مثال: ولدت في 1/6 ونزل الدم في 10/6</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment seg-tuhr" style="flex: 9;">9 أيام بلا دم (1-9/6)</div>
+    <div class="timeline-segment seg-nifas" style="flex: 10;">دم نفاس من 10/6</div>
+  </div>
+  <div class="timeline-legend">
+    <div class="legend-item"><div class="legend-dot seg-tuhr"></div> أيام بلا دم (حكم الطاهرات)</div>
+    <div class="legend-item"><div class="legend-dot seg-nifas"></div> دم نفاس (تبدأ الأحكام)</div>
+  </div>
+  <p style="margin-top:10px; font-size:15px;">ولدت بتاريخ واحد من الشهر السادس، ونزل الدم تاريخ عشرة من الشهر السادس — يعني تاريخ 1، 2، 3، 4، 5، 6، 7، 8، 9 — تسعة أيام ما فيها دم. أحكام النفاس تبدأ من رؤية الدم (تاريخ 10). لكن حساب الستين يبدأ من لحظة انفصال جميع الجنين (تاريخ 1).</p>
+</div>
+
+<h3>حكم الأيام التي قبل رؤية الدم</h3>
+
+<p>لما نقول تبدأ حكماً من رؤية الدم — هذه الأيام التسعة التي مرت، ما حكم فيها؟ نقول: هذه الأيام التسعة يجب على المرأة أن تصلي، لها حكم الطاهرات:</p>
+
+<ul class="numbered-list">
+  <li>يجب أن تصلي.</li>
+  <li>يجب أن تصوم.</li>
+  <li>هل يجوز للزوج أن يطأها؟ يجوز.</li>
+  <li>هل يجب عليها الغسل بسبب الولادة؟ أحسنت — يجب عليها الغسل بسبب الولادة، فلا تصلي إلا بعد أن تغتسل.</li>
+  <li>لكن هل يجوز لها أن تصوم قبل أن تغتسل؟ نعم، لأن حكمها كحكم الجُنب — يجوز لها أن تصوم قبل أن تغتسل من الولادة.</li>
+  <li>وهل يجوز لزوجها أن يطأها قبل أن تغتسل؟ يجوز، لأن حكمها حكم الجِناية — يعني المرأة الجُنب هل يجوز لزوجها أن يطأها أو لا؟ الحائض والنفساء ليس للزوج أن يطأ حتى تغتسل، لكن الجُنب يجوز لزوجها أن يطأها قبل أن تغتسل، صح؟</li>
+</ul>
+
+<div class="fiqh-principle">
+  <div class="fp-label">قاعدة فقهية</div>
+  <div class="fp-text">صومها ووطؤها جائز ولو قبل الغسل، لكن صلاتها لا بد أن تكون بعد الغسل.<br>فهنا ستغتسل بسبب الولادة وتصلي.</div>
+</div>
+
+<p>انظر ماذا قال رحمه الله: <span class="highlight">«المعتمد من الأقوال أن مدة النفاس تبدأ حكماً من رؤية الدم فلا نفاس قبل رؤيته وأما عدداً فمن بعد فراغ الرحم من جميع الحمل»</span>.</p>
+
+<p>شوف لما قال <span class="highlight">«من جميع الحمل»</span> — تفهم أنه لو حصل عندها توأم فخرج الولد الأول، ثم بعده بثلاثة أيام خرج الولد الثاني — فالعدد ممّا يبدأ؟ من خروج الولد الثاني ليس من خروج الولد الأول.</p>
+
+<div class="callout-box">
+  <div class="callout-title">⚡ تنبيه: مسألة التوأم</div>
+  <p>لو حصل عندها توأم فخرج الولد الأول في تاريخ 1، ثم خرج الولد الثاني في تاريخ 4 — ممّا تبدأ تحسب؟ تاريخ 4 ليس من تاريخ 1. لأن العدد يبدأ من فراغ الرحم من <strong>جميع</strong> الحمل.</p>
+</div>
+
+<h3>مثال توضيحي</h3>
+
+<div class="case-card">
+  <div class="case-num">مثال</div>
+  <div class="case-scenario">رأت نفساء دم النفاس بعد الولادة بعشر أيام.</div>
+  <div class="case-ruling">
+    <strong>من حيث العدد:</strong> نقول إن النفاس له عشرة أيام — يعني العشرة أيام الأولى التي لم ينزل فيها الدم محسوبة من العدد.<br>
+    <strong>ومن حيث حكم النفاس:</strong> لا يبدأ أي حكم النفاس إلا من رؤية الدم — فالعشرة الأيام السابقة قبل رؤية الدم حكمها فيها حكم الطاهرات، فيجب أن تغتسل لتصلي، ويجب الصوم أو يصح منها الصوم، ويجوز لزوجها أن يطأها.
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">⚡ إشارة إلى الخلاف</div>
+  <p>لما قال «المعتمد من الأقوال» — إشارة إلى أن المسألة فيها خلاف:</p>
+  <ul class="numbered-list">
+    <li>هناك قول يرى أن أحكام النفاس والعدد يبدآن من لحظة الولادة.</li>
+    <li>وهناك قول يرى أن أحكام النفاس والعدد يبدآن من لحظة نزول الدم.</li>
+    <li>وهناك قول بالتفصيل — وهو المعتمد — حكماً من رؤية الدم وعدداً من فراغ الرحم.</li>
+  </ul>
+  <p>والذي قال هنا: «المعتمد من الأقوال» — إذن لا يوجد قول واحد بل ولا يوجد قولان بل يوجد أكثر.</p>
+</div>
+
+<div class="section-divider">✦ ✦ ✦</div>
+
+<!-- ==================== SECTION 5: حكم تقطع دم النفاس ==================== -->
+<h1>خامساً: حكم تقطع دم النفاس</h1>
+
+<p>إذا كان دم النفاس متقطعاً — هذا شرحته لكم قبل قليل لكن الآن سيزيده تفصيلاً وبسطاً — قال: <span class="highlight">إذا كان دم النفاس متقطعاً فتارة دماً وتارة نقاء</span> — هذا معنى التقطع يعني تارة يكون دم وتارة يكون نقاء.</p>
+
+<p>فننظر:</p>
+
+<ul class="numbered-list">
+  <li>إن تخلل بين الدمين خمسة عشر يوماً (وهو أقل الطهر) — فالدم الثاني حيض.</li>
+  <li>وإن لم تبلغ مدة النقاء بين الدمين أقل الطهر وهو خمسة عشر يوماً — فأوقات الدم نفاس بالاتفاق.</li>
+</ul>
+
+<p>قال: <span class="highlight">«وفي النقاء المتخلل قولان، أصح ما في المذهب أنه نفاس»</span>، وذلك مثل ما تقدم في النقاء المتخلل بين دماء الحيض، وأظن المسألة ليست صعبة عليكم، قد مرّ تقريرها من قبل.</p>
+
+<div class="comparison-card">
+  <div class="comp-title">النقاء المتخلل بين دماء النفاس</div>
+  <div class="comparison-grid">
+    <div class="comparison-side comp-side-a">
+      <div class="comp-label" style="color: var(--primary-green);">الأصح في المذهب</div>
+      <div class="comp-text">النقاء المتخلل <strong>نفاس</strong><br>كالنقاء المتخلل بين دماء الحيض على الأصح</div>
+    </div>
+    <div class="comparison-side comp-side-b">
+      <div class="comp-label" style="color: var(--teal);">القول الآخر</div>
+      <div class="comp-text">النقاء المتخلل <strong>طهر</strong><br>كما هو وجه في النقاء المتخلل بين دماء الحيض</div>
+    </div>
+  </div>
+</div>
+
+<div class="fiqh-principle">
+  <div class="fp-label">القاعدة</div>
+  <div class="fp-text">إذا كان دم النفاس متقطعاً:<br>• إن تخلل بين الدمين 15 يوماً (أقل الطهر) → الثاني حيض<br>• إن لم يبلغ أقل الطهر → أوقات الدم نفاس بالاتفاق، والنقاء نفاس على الأصح</div>
+</div>
+
+<p>أما النقاء المتخلل — بهذا النقاء الذي حصل، عندما بدأ النقاء هل يلزمها أن تغتسل وتصلي أو لا يلزمها؟ الجواب: يلزمها — نفس الكلام الذي قلناه بارك الله فيكم في الحيض في الدرس الماضي، تمام.</p>
+
+<div class="section-divider">✦ ✦ ✦</div>
+
+<!-- ==================== SECTION 6: حكم زيادة الدم على أكثر النفاس ==================== -->
+<h1>سادساً: حكم زيادة الدم على أكثر النفاس</h1>
+
+<p>شرحته لكم أيضاً، قلت لكم إذا زاد الدم على أكثر النفاس فعندنا حالتان:</p>
+
+<p>بعد أن عرفنا فيما سبق أن أكثر النفاس هو ستون يوماً، فإذا زاد الدم على الستين فننظر لحظة كمال الستين، ولذلك أقول لك أنه يجب أن تعتني المرأة بحفظ تلك اللحظة — متى انتهت الولادة، متى حصل فراغ الرحم — لأنه يترتب عليها حكم، واضح.</p>
+
+<div class="flow-chart">
+  <div class="flow-title">حكم زيادة الدم على أكثر النفاس</div>
+  <div class="flow-node flow-start">زاد الدم على الستين → ننظر لحظة كمال الستين</div>
+  <div class="flow-arrow">▼</div>
+  <div class="flow-grid">
+    <div class="flow-node flow-result-a">
+      <strong>الحالة الأولى</strong><br>
+      إن كان فيها (في لحظة كمال الستين) دم<br>
+      = <strong>مستحاضة في النفاس</strong><br>
+      <small>تُردّ إلى إحدى صور المستحاضة في النفاس كما سيأتي في الدرس الثامن</small>
+    </div>
+    <div class="flow-node flow-result-b">
+      <strong>الحالة الثانية</strong><br>
+      إن كانت لحظة كمال الستين ليس فيها دم<br>
+      = الدم بعد هذا يُعدّ <strong>دم حيض</strong> إن بلغ يوماً وليلة<br>
+      <small>لأنه إذا تجاوز النفاس أكثره تكفي لحظة في الطهر بين النفاس والحيض</small>
+    </div>
+  </div>
+</div>
+
+<p>الحالة الأولى: إن كان فيها دم — أي إن كان فيها، الضمير في قوله «فيها» يعود إلى ماذا؟ إلى لحظة كمال الستين — إن كان في لحظة كمال الستين دم فهذه مستحاضة في النفاس، تُردّ إلى إحدى صور المستحاضة في النفاس كما سيأتي الحديث عنها في الدرس الثامن.</p>
+
+<p>الحالة الثانية: وأما — حرف شرط وتفصيل ليس الآن بعدين — إن كانت لحظة كمال الستين ليس فيها دم، فالدم بعد هذا يُعدّ دم حيض إذا بلغ يوماً وليلة، لأنه إذا تجاوز النفاس أكثره تكفي لحظة في الطهر بين النفاس والحيض كما مرّ معنا تقريره في الدرس الماضي، واضح. إذاً، هذا تأكيد، معلومات ليست معلومات جديدة.</p>
+
+<div class="benefit-box">
+  <div class="benefit-label">فائدة</div>
+  <div class="benefit-text">يجب على المرأة أن تحفظ اللحظة التي انتهت فيها الولادة — متى حصل فراغ الرحم — لأنه يترتب عليها حكم: هل تكون مستحاضة نفاس أو يُحكم على الدم بالحيض؟</div>
+</div>
+
+<div class="section-divider">✦ ✦ ✦</div>
+
+<!-- ==================== SECTION 7: الأمثلة التطبيقية ==================== -->
+<h1>الأمثلة التطبيقية</h1>
+
+<p>قال: وهذه بعض الأمثلة تبين ما سبق، نقضي الأمثلة الآن.</p>
+
+<!-- مثال 1 -->
+<h2>المثال الأول</h2>
+
+<div class="case-card">
+  <div class="case-num">المثال الأول</div>
+  <div class="case-scenario">رأت نفساء عشرين يوماً دماً، ثم انقطع عشرة أيام، ثم جاء الدم يوماً واحداً.</div>
+  
+  <div class="timeline-diagram">
+    <div class="timeline-bar">
+      <div class="timeline-segment seg-nifas" style="flex: 20;">20 يوماً دم نفاس</div>
+      <div class="timeline-segment seg-tuhr" style="flex: 10;">10 أيام انقطاع</div>
+      <div class="timeline-segment seg-nifas" style="flex: 1;">1 يوم دم</div>
+    </div>
+    <div class="timeline-legend">
+      <div class="legend-item"><div class="legend-dot seg-nifas"></div> نفاس</div>
+      <div class="legend-item"><div class="legend-dot seg-tuhr"></div> انقطاع (نفاس على الأصح)</div>
+    </div>
+  </div>
+  
+  <div class="case-ruling">
+    <strong>يكون يوم هذا رقم كم؟ واحد وثلاثين، صح.</strong><br><br>
+    فالدماء كلها تعدّ دم نفاس — يعني الدماء في الأيام العشرين دم نفاس، والدم الذي جاء في اليوم الواحد والثلاثين دم نفاس. طيب والأيام العشرة هذه نفاس أيضاً على الأصح.<br><br>
+    قال: <span class="highlight">«فالدماء كلها تعدّ دم نفاس»</span> — لماذا؟ لأنه لم يتخلل بينها خمسة عشر يوماً. وبالاتفاق فإن أيام الدم نفاس، وعلى الأصح فإن النقاء المتخلل بينهما نفاس أيضاً. إذاً فنفاس هذه المرأة واحد وثلاثون يوماً.
+  </div>
+</div>
+
+<h3>ماذا يُقال للمرأة في هذا المثال؟</h3>
+
+<p>طيب هذه المرأة تسأل: رأيت الدم عشرين يوماً بعد الولادة، انقطع الدم عشرة أيام — تمام، في الأيام العشرة هذه يلزمني أن أصلي؟</p>
+
+<p>جواب: نعم، يلزمك أن تغتسلي وتصلي وتصومي. إن كان ثمّ تصومي. وفي اليوم الواحد والثلاثين جاء الدم — إيش نقول؟ تبين أن ما فعلتيه من صلاة وصوم في هذه الأيام لا يصح.</p>
+
+<ul class="numbered-list">
+  <li><strong>أما الصلاة</strong> فلا يلزمها القضاء.</li>
+  <li><strong>وأما الصوم</strong> فيلزمها القضاء.</li>
+</ul>
+
+<p>والذي جوابك للمرأة في الأيام العشرين — تسألها أن تُقيّلها — تقول لها: فُقر الواحد والثلاثين — هذا كلها نفاس. تبين لها حكم العبادات التي فعلتها، وهل أصلاً هي فعلت العبادات أم ما فعلت؟ تسألها: كان الواجب عليك بعد عشرين يوماً من الدم إذا انقطع أنك تغتسلي وتصلي، حكمك حكم الطاهرات. فإن عاد الدم تبين أن تلك الصلاة وذلك الصوم باطل — الصلاة لا يلزمك القضاء، أما الصوم فيلزمك القضاء.</p>
+
+<!-- مثال 2 -->
+<h2>المثال الثاني</h2>
+
+<div class="case-card">
+  <div class="case-num">المثال الثاني</div>
+  <div class="case-scenario">رأت نفساء ثلاثين يوماً دماً، ثم انقطع عشرين يوماً، ثم أتى الدم ستة أيام.</div>
+  
+  <div class="timeline-diagram">
+    <div class="timeline-bar">
+      <div class="timeline-segment seg-nifas" style="flex: 30;">30 يوماً دم نفاس</div>
+      <div class="timeline-segment seg-tuhr" style="flex: 20;">20 يوماً انقطاع</div>
+      <div class="timeline-segment seg-hayd" style="flex: 6;">6 أيام دم حيض</div>
+    </div>
+    <div class="timeline-legend">
+      <div class="legend-item"><div class="legend-dot seg-nifas"></div> نفاس</div>
+      <div class="legend-item"><div class="legend-dot seg-tuhr"></div> طهر</div>
+      <div class="legend-item"><div class="legend-dot seg-hayd"></div> حيض</div>
+    </div>
+  </div>
+  
+  <div class="case-ruling">
+    <strong>فالدم الأول نفاس</strong> — واضح.<br><br>
+    <strong>والنقاء المتخلل بينهما طهر</strong> — طهر، إيش معنى طهر؟ يعني حتى لو عاد الدم بعد العشرين يوماً هذه، فما صلّته وما صامته صحيح، تمام.<br><br>
+    <strong>والأخير الذي أتى بعد النقاء دم حيض</strong> ليس دم نفاس، لأن النقاء تجاوز خمسة عشر، تمام.<br><br>
+    قال: <span class="highlight">«لأنه تخلل بينهما أقل الطهر»</span> — وفي هذه المسألة كان النقاء المتخلل عشرين يوماً.
+  </div>
+</div>
+
+<!-- مثال 3 -->
+<h2>المثال الثالث</h2>
+
+<div class="case-card">
+  <div class="case-num">المثال الثالث</div>
+  <div class="case-scenario">رأت نفساء أربعين يوماً دماً، ثم انقطع عشرة أيام، ثم عاد واستمر خمسة عشر يوماً.</div>
+  
+  <div class="timeline-diagram">
+    <div class="timeline-bar">
+      <div class="timeline-segment seg-nifas" style="flex: 40;">40 يوماً دم نفاس</div>
+      <div class="timeline-segment seg-tuhr" style="flex: 10;">10 أيام انقطاع</div>
+      <div class="timeline-segment seg-nifas" style="flex: 15;">15 يوماً دم (نفاس+تجاوز)</div>
+    </div>
+    <div class="timeline-legend">
+      <div class="legend-item"><div class="legend-dot seg-nifas"></div> نفاس</div>
+      <div class="legend-item"><div class="legend-dot seg-tuhr"></div> انقطاع (نفاس على الأصح)</div>
+    </div>
+    <p style="margin-top:8px; font-size:14px; color:var(--teal);">المجموع: 40 + 10 + 15 = 65 يوماً (تجاوز الستين)</p>
+  </div>
+  
+  <div class="case-ruling">
+    فهذه المرأة تعدّ <strong>مستحاضة في النفاس</strong>. لماذا مستحاضة؟ لأنه في لحظة كمال الستين الدم موجود، واضح.<br><br>
+    قال: <span class="highlight">«فهذه المرأة تعدّ مستحاضة في النفاس، تُردّ إلى إحدى صور المستحاضة في النفاس التي سيأتي الحديث عنها»</span>.<br><br>
+    والسبب — لماذا جعلناها مستحاضة نفاس — قال: السبب أن الدم زاد على أكثر النفاس وهو ستون يوماً — لعلّ والله أعلم الأولى أن نقول: <span class="highlight">السبب أن الدم كان موجوداً مستمراً في لحظة كمال الستين</span> — واضح كلامه صحيح، لكن لعلّ هذا أوضح للقارئ والطالب — لأن الدم كان موجوداً مستمراً في لحظة كمال الستين.
+  </div>
+</div>
+
+<!-- مثال 4 -->
+<h2>المثال الرابع</h2>
+
+<div class="case-card">
+  <div class="case-num">المثال الرابع</div>
+  <div class="case-scenario">رأت نفساء خمسين يوماً دماً، ثم انقطع إحدى عشر يوماً، ثم عاد الدم عشرة أيام.</div>
+  
+  <div class="timeline-diagram">
+    <div class="timeline-bar">
+      <div class="timeline-segment seg-nifas" style="flex: 50;">50 يوماً دم نفاس</div>
+      <div class="timeline-segment seg-tuhr" style="flex: 11;">11 يوماً انقطاع (طهر)</div>
+      <div class="timeline-segment seg-hayd" style="flex: 10;">10 أيام دم حيض</div>
+    </div>
+    <div class="timeline-legend">
+      <div class="legend-item"><div class="legend-dot seg-nifas"></div> نفاس</div>
+      <div class="legend-item"><div class="legend-dot seg-tuhr"></div> طهر</div>
+      <div class="legend-item"><div class="legend-dot seg-hayd"></div> حيض</div>
+    </div>
+    <p style="margin-top:8px; font-size:14px; color:var(--teal);">المجموع: 50 + 11 + 10 = 71 يوماً (تجاوز الستين في اليوم 61)</p>
+  </div>
+  
+  <div class="case-ruling">
+    طيب الآن خمسون يوماً إيش حكمه؟ هذه نفاس. طيب الانقطاع هذا أحد عشر يوماً — أقل من خمسة عشر — إيش نعطيه من حكم؟ طهر. ليش طهر؟ لأنه تجاوز أكثر النفاس، وإنه أنقذ أكثر النفاس، فلنعطيه من حكمه ماذا يفعله — واضح أو لا — لأنه تجاوز أكثر النفاس، تجاوز الستين إلى واحد وستين، فيكون طهراً لأنه مرّ معنا في الدرس السابق لا يُشترط بين النفاس والحيض إذا تجاوز أكثر النفاس أن يكون النقاء خمسة عشر، قد يكون أقل.<br><br>
+    <strong>فالخمسون يوماً نفاس</strong>.<br>
+    <strong>والنقاء يُعدّ طهراً</strong> — لماذا طهر؟ لأنه ليس بين نفاسين بل بين نفاس وحيض، والنقاء بين نفاس وحيض لا يُشترط أن يكون خمسة عشر.<br>
+    <strong>والدم الأخير يُعدّ دم حيض</strong> أي إن تحقق شرطه، لأنه لم يتصل بالستين ولا يُشترط أن يبلغ الطهر بين النفاس والحيض إذا كان بعد ستين خمسة عشر يوماً، بل تكفي لحظة، وقد سبق بيان ذلك.
+  </div>
+</div>
+
+<!-- جدول مقارنة الأمثلة -->
+<h2>جدول مقارنة الأمثلة الأربعة</h2>
+
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>المثال</th>
+      <th>الدم الأول</th>
+      <th>النقاء المتخلل</th>
+      <th>الدم الأخير</th>
+      <th>المجموع</th>
+      <th>الحكم</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>الأول</strong></td>
+      <td>20 يوماً</td>
+      <td>10 أيام (نفاس على الأصح)</td>
+      <td>1 يوم (نفاس)</td>
+      <td>31 يوماً</td>
+      <td>الكل نفاس (لم يتخلل 15 يوماً)</td>
+    </tr>
+    <tr>
+      <td><strong>الثاني</strong></td>
+      <td>30 يوماً</td>
+      <td>20 يوماً (طهر)</td>
+      <td>6 أيام (حيض)</td>
+      <td>56 يوماً</td>
+      <td>الأول نفاس، النقاء طهر، الأخير حيض (تخلل 15 يوماً)</td>
+    </tr>
+    <tr>
+      <td><strong>الثالث</strong></td>
+      <td>40 يوماً</td>
+      <td>10 أيام (نفاس على الأصح)</td>
+      <td>15 يوماً (تجاوز 60)</td>
+      <td>65 يوماً</td>
+      <td>مستحاضة نفاس (الدم مستمر عند تمام الستين)</td>
+    </tr>
+    <tr>
+      <td><strong>الرابع</strong></td>
+      <td>50 يوماً</td>
+      <td>11 يوماً (طهر)</td>
+      <td>10 أيام (حيض)</td>
+      <td>71 يوماً</td>
+      <td>الأول نفاس، النقاء طهر (تجاوز أكثر النفاس)، الأخير حيض</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="benefit-box">
+  <div class="benefit-label">فائدة: الفرق بين المثال الثالث والرابع</div>
+  <div class="benefit-text">
+    في المثال الثالث: الدم كان مستمراً في لحظة كمال الستين → مستحاضة نفاس.<br>
+    في المثال الرابع: الدم كان منقطعاً في لحظة كمال الستين (الانقطاع بدأ قبل الستين واستمر بعدها) → النقاء طهر والدم الأخير حيض.<br><br>
+    <strong>المعيار: لحظة كمال الستين — هل الدم موجود أم لا؟</strong>
+  </div>
+</div>
+
+<div class="section-divider">✦ ✦ ✦</div>
+
+<!-- خاتمة الدرس -->
+<h1>خاتمة الدرس</h1>
+
+<p>انتهينا من الدرس الرابع بحمد الله تعالى.</p>
+
+<p>قال رحمه الله: <span class="highlight">الدرس الخامس</span> — الدرس الخامس هذا في ظني أسهل درس لأنه يتكلم على <span class="highlight">ما يحرم بالحيض</span> — درستم في متن أبي شجاع وفي نيل الرجاء وفي المقدمة الحضرمية وفي كتب نفسها وفي الأخرى لا أحصيها عدداً، واضح — فهذا درس سهل نقرأه إن شاء الله عز وجل في المجلس القادم والله أعلم.</p>
+
+<div class="evidence-box">
+  <div class="ev-label">🤲 ختام الدرس</div>
+  <div class="ev-text">
+    وصلّ اللهم وسلم وبارك على سيدنا محمد وآله وصحبه أجمعين، والحمد لله رب العالمين.
+  </div>
+</div>
+
+<!-- خلاصة الدرس -->
+<div class="benefit-box">
+  <div class="benefit-label">خلاصة الدرس السادس</div>
+  <div class="benefit-text">
+    <strong>1. تعريف النفاس:</strong> لغةً الولادة، وشرعاً الدم الخارج بعد فراغ الرحم وقبل 15 يوماً — والدم يشمل الصفرة والكدرة كالحيض وفاقاً وخلافاً.<br><br>
+    <strong>2. شروط النفاس الأربعة:</strong><br>
+    &nbsp;&nbsp;• أن يكون بعد فراغ الرحم (ولو من علقة أو مضغة)<br>
+    &nbsp;&nbsp;• أن يكون قبل انقضاء 15 يوماً من فراغ الرحم<br>
+    &nbsp;&nbsp;• ألا يتخلل بين دمي النفاس أقل الطهر (15 يوماً)<br>
+    &nbsp;&nbsp;• أن يكون ذلك في الستين<br><br>
+    <strong>3. مدة النفاس:</strong> أقله لحظة، وغالبه 40 يوماً، وأكثره 60 يوماً — ولا يلزم إكمال الأربعين.<br><br>
+    <strong>4. بداية النفاس:</strong> حكماً من رؤية الدم، وعدداً من فراغ جميع الرحم.<br><br>
+    <strong>5. تقطع دم النفاس:</strong> كأحكام النقاء المتخلل في الحيض — إن تخلل 15 يوماً فالثاني حيض، وإلا فالكل نفاس.<br><br>
+    <strong>6. زيادة الدم على أكثر النفاس:</strong> ننظر لحظة كمال الستين — إن كان دم فمستحاضة نفاس، وإن كان منقطعاً فما بعده حيض إن بلغ يوماً وليلة.
+  </div>
+</div>
+
+</div><!-- end content -->
+
+</body>
+</html>

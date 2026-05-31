@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf') format('truetype'); font-weight: normal; }
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf') format('truetype'); font-weight: bold; }
+@font-face { font-family: 'NotoNaskh'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf') format('truetype'); }
+
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; }
+
+body {
+  font-family: 'NotoNaskh', 'Amiri', serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #1a1a2e;
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+  background: #fff;
+}
+
+/* ===== FRONT PAGE ===== */
+.front-page {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(160deg, #0d7c3e 0%, #0a5c2e 25%, #0e6b5a 50%, #1a8c4e 75%, #2ecc71 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 30px 20px;
+  page-break-after: always;
+}
+
+.front-page::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, #d4a017, #f0c040, #d4a017, #f0c040, #d4a017);
+}
+
+.front-page::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, #d4a017, #f0c040, #d4a017, #f0c040, #d4a017);
+}
+
+.front-gold-badge {
+  background: linear-gradient(135deg, #d4a017, #f0c040);
+  color: #1a1a2e;
+  padding: 6px 28px;
+  border-radius: 20px;
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.front-turquoise-badge {
+  background: linear-gradient(135deg, #0e8a7a, #14b8a6);
+  color: #fff;
+  padding: 5px 22px;
+  border-radius: 18px;
+  font-family: 'Amiri', serif;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.front-green-badge {
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  color: #fff;
+  padding: 5px 20px;
+  border-radius: 16px;
+  font-family: 'Amiri', serif;
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+
+.front-title {
+  font-family: 'Amiri', serif;
+  font-size: 36px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  margin: 10px 0;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+}
+
+.front-subtitle {
+  font-family: 'Amiri', serif;
+  font-size: 22px;
+  color: #f0c040;
+  text-align: center;
+  margin: 8px 0 16px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.front-lecturer {
+  font-family: 'Amiri', serif;
+  font-size: 18px;
+  color: #a7f3d0;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.front-decoration {
+  font-size: 28px;
+  color: #f0c040;
+  margin: 12px 0;
+  letter-spacing: 8px;
+}
+
+.front-lesson-num {
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+  color: #d1fae5;
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* ===== CONTENT PAGES ===== */
+.content-wrapper {
+  padding: 0 14mm;
+}
+
+.page-header {
+  background: linear-gradient(135deg, #0d7c3e, #0a5c2e);
+  color: #fff;
+  padding: 8px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0 0 8px 8px;
+  margin: 0 -14mm 14px;
+  padding-right: 14mm;
+  padding-left: 14mm;
+}
+
+.page-header-title {
+  font-family: 'Amiri', serif;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.page-header-lecturer {
+  font-family: 'Amiri', serif;
+  font-size: 11px;
+  color: #a7f3d0;
+}
+
+/* ===== SECTION HEADINGS ===== */
+h2.section-title {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0d7c3e;
+  border-bottom: 2px solid #0d7c3e;
+  padding-bottom: 5px;
+  margin: 18px 0 10px;
+}
+
+h3.sub-title {
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: #0a5c2e;
+  margin: 14px 0 8px;
+  padding-right: 10px;
+  border-right: 4px solid #0d7c3e;
+}
+
+h4.minor-title {
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #166534;
+  margin: 10px 0 6px;
+}
+
+/* ===== CONTENT BOXES ===== */
+.definition-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-right: 4px solid #0d7c3e;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.rule-box {
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-right: 4px solid #d97706;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.exception-box {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-right: 4px solid #ea580c;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.evidence-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-right: 4px solid #2563eb;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.issue-box {
+  background: #fdf2f8;
+  border: 1px solid #fbcfe8;
+  border-right: 4px solid #db2777;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.comparison-box {
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  border-right: 4px solid #7c3aed;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.poetry-box {
+  background: #faf5ff;
+  border: 1px solid #e9d5ff;
+  border-right: 4px solid #9333ea;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+  text-align: center;
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  line-height: 2.2;
+}
+
+.note-box {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-right: 4px solid #0284c7;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.key-rule {
+  background: #dcfce7;
+  border: 2px solid #16a34a;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.box-label {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 4px;
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.label-def { background: #0d7c3e; }
+.label-rule { background: #d97706; }
+.label-exc { background: #ea580c; }
+.label-ev { background: #2563eb; }
+.label-issue { background: #db2777; }
+.label-comp { background: #7c3aed; }
+.label-note { background: #0284c7; }
+.label-key { background: #16a34a; }
+
+/* ===== TABLES ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 13px;
+  table-layout: fixed;
+}
+
+th {
+  background: #0d7c3e;
+  color: #fff;
+  padding: 6px 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+td {
+  padding: 5px 8px;
+  border: 1px solid #d1d5db;
+  text-align: center;
+  vertical-align: top;
+}
+
+tr:nth-child(even) { background: #f0fdf4; }
+tr:nth-child(odd) { background: #fff; }
+
+/* ===== CLASSIFICATION TREE ===== */
+.tree-container {
+  margin: 12px 0;
+  text-align: center;
+}
+
+.tree-root {
+  display: inline-block;
+  background: linear-gradient(135deg, #0d7c3e, #0a5c2e);
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.tree-branches {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.tree-branch {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  min-width: 80px;
+  text-align: center;
+}
+
+.tree-branch-num {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  color: #0d7c3e;
+  font-size: 14px;
+}
+
+.tree-branch-label {
+  font-size: 12px;
+  color: #374151;
+}
+
+.tree-sub {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.tree-leaf {
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* ===== COMPARISON GRID ===== */
+.compare-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.compare-card {
+  flex: 1;
+  min-width: 140px;
+  border-radius: 8px;
+  padding: 8px 10px;
+  text-align: center;
+}
+
+.compare-card-green {
+  background: #dcfce7;
+  border: 1px solid #86efac;
+}
+
+.compare-card-red {
+  background: #fef2f2;
+  border: 1px solid #fca5a5;
+}
+
+.compare-card-yellow {
+  background: #fefce8;
+  border: 1px solid #fde68a;
+}
+
+.compare-card-blue {
+  background: #eff6ff;
+  border: 1px solid #93c5fd;
+}
+
+.compare-card-title {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.compare-card-body {
+  font-size: 12px;
+}
+
+/* ===== FLOW DIAGRAM ===== */
+.flow-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 8px 0;
+}
+
+.flow-box {
+  background: #0d7c3e;
+  color: #fff;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+.flow-arrow {
+  font-size: 16px;
+  color: #0d7c3e;
+  font-weight: bold;
+}
+
+.flow-result {
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.flow-pure { background: #dcfce7; border: 1px solid #86efac; color: #166534; }
+.flow-impure { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+.flow-excused { background: #fefce8; border: 1px solid #fde68a; color: #92400e; }
+
+/* ===== NUMBERED LIST ===== */
+.numbered-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 6px 0;
+}
+
+.num-badge {
+  min-width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 13px;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.num-green { background: #0d7c3e; }
+.num-gold { background: #d97706; }
+.num-teal { background: #0e7490; }
+
+.num-text {
+  flex: 1;
+  font-size: 14px;
+}
+
+/* ===== INLINE HIGHLIGHTS ===== */
+.highlight-green { background: #dcfce7; padding: 1px 4px; border-radius: 3px; }
+.highlight-gold { background: #fefce8; padding: 1px 4px; border-radius: 3px; }
+.highlight-red { background: #fef2f2; padding: 1px 4px; border-radius: 3px; }
+
+.verse-ref {
+  font-family: 'Amiri', serif;
+  font-size: 14px;
+  color: #1e40af;
+  text-align: center;
+  margin: 6px 0;
+  font-style: italic;
+}
+
+.hadith-ref {
+  font-family: 'Amiri', serif;
+  font-size: 13px;
+  color: #166534;
+  text-align: center;
+  margin: 6px 0;
+}
+
+p { margin: 5px 0; text-align: justify; }
+
+ul { margin: 4px 0; padding-right: 20px; }
+li { margin: 2px 0; }
+</style>
+</head>
+<body>
+
+<!-- ===== FRONT PAGE ===== -->
+<div class="front-page">
+  <div class="front-gold-badge">شرح فتح المعين</div>
+  <div class="front-turquoise-badge">للعلامة الفقيه المليباري</div>
+  <div class="front-decoration">✦ ✦ ✦</div>
+  <div class="front-title">النَّجَاسَات</div>
+  <div class="front-subtitle">الروث والبول ـ المذي والودي ـ الدم واستثناءاته</div>
+  <div class="front-decoration">◆ ◆ ◆</div>
+  <div class="front-lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="front-green-badge">الفقه الشافعي</div>
+  <div class="front-lesson-num">الدرس الثالث والعشرون</div>
+  <div style="font-family: 'Amiri', serif; font-size: 13px; color: #d1fae5; margin-top: 8px;">تنسيق: أحمد بن إرشاد</div>
+</div>
+
+<!-- ===== CONTENT ===== -->
+<div class="content-wrapper">
+
+<div class="page-header">
+  <div class="page-header-title">شرح فتح المعين ـ النجاسات</div>
+  <div class="page-header-lecturer">د. لبيب نجيب عبدالله | تنسيق: أحمد بن إرشاد</div>
+</div>
+
+<!-- ===== SECTION 1: تعريف النجس ===== -->
+<h2 class="section-title">١. تعريف النجس شرعاً</h2>
+
+<div class="definition-box">
+  <span class="box-label label-def">التعريف</span>
+  <p><b>النجس شرعاً:</b> مستقذر يمنع صحة الصلاة حيث لا مرخّص. فهو وصفٌ حكميٌّ في وصفٍ حسّيٍّ، إذا وُجد في شيءٍ منعه من صحة الصلاة إلا إذا وُجد مرخّصٌ شرعيٌّ يبيح الصلاة معه.</p>
+</div>
+
+<p>بعد أن ذكر المصنّف رحمه الله تعريف النجس، بيّن النجاسات عدداً فذكرها واحدةً تلو الأخرى، وبدأ بأول نجاسة وثاني نجاسة وهما الروث والبول.</p>
+
+<!-- ===== SECTION 2: الروث والبول ===== -->
+<h2 class="section-title">٢. النجاستان الأولى والثانية: الروث والبول</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">القاعدة</span>
+  <p><b>فهو كروث وبول مطلقاً:</b> جميع الأرواث والبول نجسة عند الشافعية مطلقاً، من كل حيوان، سواء كان مأكولاً أو غير مأكول. قال تعالى: <span class="highlight-red">ولو كان من طائر وسمك</span> — حتى روث السمك يعتبر نجساً.</p>
+</div>
+
+<h3 class="sub-title">تفصيل ما يُغتفى منه</h3>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه</span>
+  <p>يُعفى عما في قوف السمك الصغار التي تُبتلع برمتها، وكذلك لو قُلِيت السمك الصغار بالزيت فإنها لا تُنَجِّس الزيت.</p>
+</div>
+
+<p>وقوله <span class="highlight-gold">ومما يُؤكل</span> — أي وإذا كان الروث أو البول مما يُؤكل فإنه نجس على الأصح، وقوله "على الأصح" إشارة إلى وجود الخلاف داخل المذهب.</p>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف في المذهب</span>
+  <p>قال <b>الإسطخري</b> و<b>الروياني</b> من أئمة الشافعية: إن الروث والبول طاهران من المأكول، كقول مالك وأحمد. لكن المعتمد عند الشافعية أنهما نجسان مطلقاً من جميع الحيوانات.</p>
+</div>
+
+<!-- ===== خمس مسائل في الروث ===== -->
+<h2 class="section-title">٣. خمس مسائل تتعلق بنجاسة الروث</h2>
+
+<div class="tree-container">
+  <div class="tree-root">مسائل الروث الخمس</div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="tree-branch-num">١</div>
+      <div class="tree-branch-label">بهيمة راثت أو قاءت حبّاً</div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-branch-num">٢</div>
+      <div class="tree-branch-label">بول بقر الدياسة</div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-branch-num">٣</div>
+      <div class="tree-branch-label">بعر الفأرة في المائع</div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-branch-num">٤</div>
+      <div class="tree-branch-label">رغوة أوراق الشجر</div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-branch-num">٥</div>
+      <div class="tree-branch-label">العنبر</div>
+    </div>
+  </div>
+</div>
+
+<!-- المسألة الأولى -->
+<h3 class="sub-title">المسألة الأولى: ولو راثت أو قاءت بهيمة حبّاً</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p>قال المصنّف: <b>ولو راثت أو قاءت بهيمة حبّاً فإن كان صلباً</b> — بحيث لو زُرع نبت — <b>فمتنجّس</b>: يُغسل ويُكسر. <b>وإلا</b> — أي إن فقد صلابته — <b>فنجس</b>.</p>
+</div>
+
+<table>
+  <tr>
+    <th>حالة الخارج</th>
+    <th>الحكم</th>
+    <th>البيان</th>
+  </tr>
+  <tr>
+    <td>صلباً يمكن زراعته</td>
+    <td><span class="highlight-gold">متنجّس</span></td>
+    <td>يُغسل ويُستعمل</td>
+  </tr>
+  <tr>
+    <td>غير صلب (فقد صلابته)</td>
+    <td><span class="highlight-red">نجس</span></td>
+    <td>لا يُنتفع به</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه</span>
+  <p>قوله "بهيمة" ليس قيداً بل من باب الغالب، فالآدمي كالبهيمة في هذا الحكم. كما أن المصنّف لم يبيّن حكم غير الحب، وقال شيخنا: <b>الذي يظهر أنه إن تغيّر عن حاله قبل البلع ولو يسيراً فنجس، وإلا فمتنجّس</b>. ومن هنا أُخذ حكم السواك.</p>
+</div>
+
+<!-- المسألة الثانية -->
+<h3 class="sub-title">المسألة الثانية: بول بقر الدياسة</h3>
+
+<div class="issue-box">
+  <span class="box-label label-issue">المسألة</span>
+  <p>وفي المجموع للإمام النووي عن <b>الشيخ نصر المقدسي</b> (أبو الفتح، أحد الفقهاء الزهاد) أنه يُعفى عن بول بقر الدياسة على الحب.</p>
+  <p><b>الدياسة:</b> هي دوس السنابل بالبقر، وهي عملية كانت شائعة قديماً حيث تدوس البقر السنابل لفصل الحب عن التبن. وقد تبول البقر أو تروث أثناء الدياسة فيتلوث الحب.</p>
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">سبب العفو</span>
+  <p><b>العفو للمشقة:</b> لو قلنا نغسل الحب من البول أو الروث لأفسدناه، يُسرع الفساد إليه، والحب قد يُدخر سنةً أو سنتين أو ثلاثاً. فبناءً على المشقة قالوا يُعفى عنه.</p>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">قول الجويني</span>
+  <p>وعن <b>الجويني</b> (والد إمام الحرمين): أنه ينكر بشدة على من يبحث هل هذا الحب طاهر أو نجس، ويُنكِر على من يريد تطهيره. <b>السبب:</b> لو فتحنا باب السؤال في هذه الأمور نوقع الناس في الحرج.</p>
+</div>
+
+<!-- المسألة الثالثة -->
+<h3 class="sub-title">المسألة الثالثة: بعر الفأرة في المائع</h3>
+
+<div class="issue-box">
+  <span class="box-label label-issue">المسألة</span>
+  <p>وبحث <b>الفزاري</b> (من كبار فقهاء الشافعية، شيخ الإمام النووي): <b>العفو عن بعر الفأرة</b> إذا وقع في مائع وعمت البلوى به. فإذا كان الفيران منتشرةً وعَمّت بها البلوى، فإذا وقع شيء من روثها في ماءٍ أو زيت، يُعفى عنه.</p>
+</div>
+
+<!-- المسألة الرابعة -->
+<h3 class="sub-title">المسألة الرابعة: رغوة أوراق الشجر</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">البيان</span>
+  <p>وأما ما يوجد على ورق بعض الشجر كالرغوة <b>فنجس</b>، لأنه يخرج من باطن بعض الديدان كما شُوهد ذلك. وهو الشيء الأبيض الذي يوجد على أوراق الأشجار (حتى في أشجار المانجو)، يشبه الرغوة إذا لمسته — ليس صلباً — وهو في الحقيقة روث بعض الديدان.</p>
+</div>
+
+<!-- المسألة الخامسة: العنبر -->
+<h3 class="sub-title">المسألة الخامسة: العنبر</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">التوصيف</span>
+  <p>العنبر: مادة شمعية صلبة القوام ذات رائحة طيبة، تُستعمل في صناعة الطيب وتدخل في الصناعات الطبية. من أغلى أنواع الطيب — الجرام الواحد بعشرين دولاراً. يوجد خاصة في المحيط الهندي.</p>
+  <p><b>مراحل تكوّنه:</b> يبدأ لونه أسود وريحه منتن، ثم إذا تعرّض للشمس وماء البحر يتغير لونه إلى البرتقالي وتصير له رائحة طيبة.</p>
+</div>
+
+<p>اختلف الفقهاء في توصيف العنبر:</p>
+
+<table>
+  <tr>
+    <th>الرأي</th>
+    <th>التوصيف</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td><b>الشافعية (المعتمد)</b></td>
+    <td>نبات بحري</td>
+    <td>تفصيل (انظر أدناه)</td>
+  </tr>
+  <tr>
+    <td>رأي المختصّين</td>
+    <td>قيء الحوت</td>
+    <td>نجس (لأن القيء نجس)</td>
+  </tr>
+  <tr>
+    <td>رأي آخر</td>
+    <td>روث الحوت</td>
+    <td>نجس عند الشافعية، طاهر عند مالك وأحمد</td>
+  </tr>
+</table>
+
+<div class="rule-box">
+  <span class="box-label label-rule">حكم العنبر عند الشافعية</span>
+  <p>قال المصنّف: <b>وليس العنبر روثاً خلافاً لمن زعمه بل هو نبات في البحر</b>.</p>
+</div>
+
+<div class="flow-row">
+  <div class="flow-box">العنبر نبات بحري</div>
+</div>
+<div class="flow-row">
+  <div class="flow-box">وصل مباشرةً</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-pure">طاهر</div>
+</div>
+<div class="flow-row">
+  <div class="flow-box">ابتلعه الحوت واستحال في بطنه</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-impure">نجس</div>
+</div>
+<div class="flow-row">
+  <div class="flow-box">ابتلعه الحوت ولم يستحل</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-excused">متنجّس (يُغسل)</div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">رأي المختصّين</span>
+  <p>الذي يؤكّد عليه المختصّون والصيادون (وسألهم الشيخ بنفسه): أن العنبر <b>قيء الحوت</b>، يخرج من معدته. بناءً على هذا الرأي سيحكم فقهاء الشافعية عليه بالنجاسة لأن القيء عندهم نجس.</p>
+</div>
+
+<!-- ===== SECTION: المذي ===== -->
+<h2 class="section-title">٤. النجاسة الثالثة: المذي</h2>
+
+<div class="definition-box">
+  <span class="box-label label-def">التعريف</span>
+  <p><b>المذي</b> (بسكون الذال المعجمة، ويصح بكسر الذال وتخفيف الياء): ماء أبيض أو أصفر رقيق يخرج غالباً عند ثوران الشهوة بغير شهوة قوية.</p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p>للأمر بغسل الذكر منه في حديث المقداد، عن أمير المؤمنين علي بن أبي طالب رضي الله عنه: <i>"كنت رجلاً مذاءً فأمرت المقداد أن يسأل رسول الله صلّى الله عليه وسلّم فسأله فقال: يغسل ذكره ويتوضّأ"</i>. وفي رواية: <i>"اغسل ذكرك"</i>.</p>
+  <p>ونقل الإمام النووي في المجموع <b>الإجماع</b> على أن المذي والودي نجسان.</p>
+</div>
+
+<!-- ===== SECTION: الودي ===== -->
+<h2 class="section-title">٥. النجاسة الرابعة: الودي</h2>
+
+<div class="definition-box">
+  <span class="box-label label-def">التعريف</span>
+  <p><b>الودي</b> (بالياء المهملة — بدون نقطة): ماء أبيض كدر اللون (ليس صافياً) يخرج غالباً عقب البول أو عند حمل شيء ثقيل.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-blue">
+    <div class="compare-card-title">المذي</div>
+    <div class="compare-card-body">أبيض أو أصفر رقيق<br>عند ثوران الشهوة<br>نجس بإجماع</div>
+  </div>
+  <div class="compare-card compare-card-yellow">
+    <div class="compare-card-title">الودي</div>
+    <div class="compare-card-body">أبيض كدر اللون<br>عقب البول أو حمل ثقيل<br>نجس بإجماع</div>
+  </div>
+</div>
+
+<!-- ===== SECTION: الدم ===== -->
+<h2 class="section-title">٦. النجاسة الخامسة: الدم</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الأصل</span>
+  <p><b>الدم نجس</b> للآية الكريمة: <span class="verse-ref">{قُل لَّا أَجِدُ فِيمَا أُوحِيَ إِلَيَّ مُحَرَّمًا عَلَىٰ طَاعِمٍ يَطْعَمُهُ إِلَّا أَن يَكُونَ مَيْتَةً أَوْ دَمًا مَّسْفُوحًا أَوْ لَحْمَ خِنزِيرٍ فَإِنَّهُ رِجْسٌ}</span> وللحديث: <i>"فإذا أقبلت فاصنع الوضوء، وإذا أدبرت فاغسل عنك الدم وصلّ"</i>.</p>
+</div>
+
+<h3 class="sub-title">الدم على العظم واللحم</h3>
+
+<p>الدم الذي يبقى على العظم أو اللحم <b>نجس لكنه معفوٌّ عنه</b> في حالة واحدة:</p>
+
+<table>
+  <tr>
+    <th>الحالة</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td>وضع اللحم في الإناء للطبخ وفيه خطوط دم (حتى مع الماء)</td>
+    <td><span class="highlight-green">معفوٌّ عنه</span></td>
+  </tr>
+  <tr>
+    <td>غسل اللحم — لا بُدّ من إزالة جميع آثار الدم</td>
+    <td><span class="highlight-red">لا يُعفى عن شيء</span></td>
+  </tr>
+</table>
+
+<!-- ===== استثناءات الدم ===== -->
+<h2 class="section-title">٧. استثناءات الدم — الدماء الطاهرة (سبعة + واحدة)</h2>
+
+<div class="key-rule">
+  القاعدة: الدم نجس إلا هذه الأشياء
+</div>
+
+<div class="tree-container">
+  <div class="tree-root">الدماء الطاهرة المستثناة</div>
+  <div class="tree-sub">
+    <div class="tree-leaf"><b>١. الكبد</b></div>
+    <div class="tree-leaf"><b>٢. الطحال</b></div>
+    <div class="tree-leaf"><b>٣. المسك</b></div>
+    <div class="tree-leaf"><b>٤. العلقة</b></div>
+    <div class="tree-leaf"><b>٥. المضغة</b></div>
+    <div class="tree-leaf"><b>٦. اللبن</b> (إن خرج بلون الدم)</div>
+    <div class="tree-leaf"><b>٧. دم بيضة لم تفسد</b></div>
+    <div class="tree-leaf"><b>٨. المني</b> (إن خرج بلون الدم)</div>
+  </div>
+</div>
+
+<!-- تفصيل كل استثناء -->
+
+<h3 class="sub-title">١-٢. الكبد والطحال</h3>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p>للحديث: <i>"أُحِلّت لنا ميتتان ودمان وأكلتان، أما الميتتان فالحوت والجراد، وأما الدمان فالكبد والطحال"</i>.</p>
+</div>
+
+<h3 class="sub-title">٣. المسك</h3>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p>قال النبي صلّى الله عليه وسلّم: <i>"المسك أطيب الطيب"</i>. وقالت أم المؤمنين عائشة رضي الله عنها: <i>"كنت أرى المسك وبيص المسك في مفرقه صلّى الله عليه وسلّم"</i>.</p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">ما هو المسك؟</span>
+  <p>المسك بعض دم الغزال. الغزال تنشأ لها غدة عند سرتها — كيس صغير يُجتمع فيه الدم من جسم الغزال، ينتفخ حتى يكون بحجم اليد تقريباً، ثم تحكّه الغزال بشجرة فيسقط. هذه الغدة تسمى <b>فأرة المسك</b>، وما في داخلها يسمى <b>مسكاً</b>.</p>
+</div>
+
+<div class="poetry-box">
+  <span class="box-label label-exc" style="margin-bottom:6px;">شعر المتنبّي</span><br>
+  فإن فُقْتَ الأنام وأنت منهم<br>
+  فإن المسك بعض دم الغزالِ
+</div>
+
+<table>
+  <tr>
+    <th>حالة أخذ المسك</th>
+    <th>الحكم</th>
+    <th>التفصيل</th>
+  </tr>
+  <tr>
+    <td>حال حياة الغزال</td>
+    <td><span class="highlight-green">طاهر</span></td>
+    <td>سقطت الفأرة بنفسها</td>
+  </tr>
+  <tr>
+    <td>بعد التذكية (الذبح الشرعي)</td>
+    <td><span class="highlight-green">طاهر</span></td>
+    <td>أُخذت الغدة بعد الذبح</td>
+  </tr>
+  <tr>
+    <td>بعد موت الغزال وكان قد انعقد</td>
+    <td><span class="highlight-green">طاهر</span> (المعتمد عند ابن حجر)</td>
+    <td>تجسّد وصار صلباً في فأرته</td>
+  </tr>
+  <tr>
+    <td>بعد موت الغزال ولم ينعقد</td>
+    <td><span class="highlight-red">نجس</span></td>
+    <td>لم يتجسّد بعد</td>
+  </tr>
+</table>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف في المذهب</span>
+  <p>قوله <b>"ولو من ميت إن انعقد"</b> — كلمة "ولو" إشارة إلى الخلاف. فالعلامة الرملي يرى أن المسك إذا أُخذ بعد موت الغزال فهو نجس مطلقاً، بينما ابن حجر يقول بطهارته بشرط انعقاده.</p>
+</div>
+
+<h3 class="sub-title">٤-٥. العلقة والمضغة</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">البيان</span>
+  <p><b>العلقة:</b> قطعة دم أصلها المني استحال فكانت علقة. قال صلّى الله عليه وسلّم: <i>"إن أحدكم يُجمع خلقه في بطن أمه أربعين يوماً نطفةً، ثم يكون علقةً مثل ذلك، ثم يكون مضغةً مثل ذلك"</i>. فالمني طاهر استحال إلى علقة — قطعة دم طاهرة.</p>
+  <p><b>المضغة:</b> قطعة لحم كانت علقة (كانت دماً) فصارت قطعة لحم — أيضاً طاهرة.</p>
+</div>
+
+<h3 class="sub-title">٦. اللبن إن خرج بلون الدم</h3>
+
+<p>إذا خرج اللبن بلون الدم فإنه طاهر — هذا مستثنى. ومثل اللبن <b>المني لو خرج بلون الدم</b> فهو أيضاً طاهر.</p>
+
+<h3 class="sub-title">٧. دم البيضة التي لم تفسد</h3>
+
+<p>إذا كانت البيضة <b>لم تفسد</b> — بحيث يمكن أن تفرخ — فالدم الذي فيها طاهر. أما إذا فسدت البيضة وصارت مُنتِنةً فإن دمها نجس.</p>
+
+<h3 class="sub-title">قاعدة: دم السمك</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف</span>
+  <p><b>المعتمد في المذهب:</b> دم السمك نجس — لم يُستثنى.</p>
+  <p><b>اختار بعض الشافعية كالعلامة جمال الدين الرميّ</b> (من فقهاء الشافعية في اليمن): أن دم السمك طاهر، قال لأن ميتة السمك طاهرة فلما كانت ميتته طاهرة دمه أيضاً يكون طاهراً. وهو رأي وجيه لكن المعتمد خلافه.</p>
+</div>
+
+<!-- ===== القيح والصديد ===== -->
+<h2 class="section-title">٨. النجاسة السادسة: القيح والصديد</h2>
+
+<div class="definition-box">
+  <span class="box-label label-def">التعريف</span>
+  <p><b>القيح:</b> دم مستحيل — دم تحوّل إلى سائل غليظ يكون فيه صفرة مع حمراء، يخرج من الجراحة.</p>
+  <p><b>الصديد:</b> ماء رقيق يخالطه دم.</p>
+</div>
+
+<!-- ===== ماء الجرح والجدري والنفط ===== -->
+<h2 class="section-title">٩. ماء الجرح والجدري والنفط</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>وكذا ماء جرح وجدري ونفط إن تغيّر</b> — أي تغيّرت رائحته — <b>فنجس، وإلا فماءها طاهر</b>.</p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">النفط</span>
+  <p>النفط: شيء مثل الغشاء، إذا ثُقِب بالإبرة يخرج منه ماء. فالماء الذي يخرج من النفط إن تغيّر فنجس، وإن لم يتغيّر فطاهر.</p>
+</div>
+
+<table>
+  <tr>
+    <th>المادة</th>
+    <th>إن تغيّرت</th>
+    <th>إن لم تتغيّر</th>
+  </tr>
+  <tr>
+    <td>ماء الجرح</td>
+    <td><span class="highlight-red">نجس</span></td>
+    <td><span class="highlight-green">طاهر</span></td>
+  </tr>
+  <tr>
+    <td>ماء الجدري</td>
+    <td><span class="highlight-red">نجس</span></td>
+    <td><span class="highlight-green">طاهر</span></td>
+  </tr>
+  <tr>
+    <td>ماء النفط</td>
+    <td><span class="highlight-red">نجس</span></td>
+    <td><span class="highlight-green">طاهر</span></td>
+  </tr>
+</table>
+
+<!-- ===== قيء المعدة ===== -->
+<h2 class="section-title">١٠. النجاسة السابعة: قيء المعدة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">القاعدة</span>
+  <p><b>وقيء معدة</b> — الإضافة بمعنى "من" — أي قيء من المعدة <b>فنجس</b>. مفهومه: إذا كان القيء من غير المعدة فإنه طاهر. هذا التفصيل هو المعتمد عند العلامة ابن حجر.</p>
+</div>
+
+<div class="flow-row">
+  <div class="flow-box">القيء</div>
+</div>
+<div class="flow-row">
+  <div class="flow-box">خرج بعد الوصول للمعدة</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-impure">نجس (ولو لم يتغيّر، ولو ماءً)</div>
+</div>
+<div class="flow-row">
+  <div class="flow-box">رجع قبل الوصول للمعدة يقيناً</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-pure">طاهر</div>
+</div>
+<div class="flow-row">
+  <div class="flow-box">شكّ: وصل للمعدة أو لا؟</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-pure">طاهر (الأصل الطهارة)</div>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف القفال</span>
+  <p>خالف <b>القفال</b> فقال: إذا شككت هل وصل للمعدة أم لا فهو نجس. لكن المعتمد أنه طاهر لأن الأصل الطهارة.</p>
+</div>
+
+<!-- مسألة قيء الصبي -->
+<h3 class="sub-title">مسألة: قيء الصبي على ثدي أمه</h3>
+
+<div class="issue-box">
+  <span class="box-label label-issue">مسألة عملية</span>
+  <p>وأفتى شيخنا (من شيخه أعلام ابن الحجة رحمه الله): <b>أن الصبي إذا ابتُلِي بتتابع القيء عُفي عن ثدي أمه الداخل في فيه</b> — للمشقة، لأن الأطفال الصغار يتقيئون كثيراً ويشقّ على الأم غسل محل الرضاعة في كل مرة.</p>
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">مما لا يُعفى عنه</span>
+  <p>هذا العفو في ثدي الأم فقط. أما:</p>
+  <ul>
+    <li><b>لا عن مُقبَله</b> — أي المكان الذي قُبِّل فيه (لو قُبِّل الطفل في فمه فأصابك قيؤه لا يُعفى عنه)</li>
+    <li><b>ولا عن مُماسّه</b> — أي المكان الذي مُسّ فيه (لو لمست فم الصبي فأصابك شيء من لعابه وفيه قيء فلا بُدّ من غسله)</li>
+  </ul>
+</div>
+
+<!-- ===== المرارة ===== -->
+<h2 class="section-title">١١. المرارة (الكُمرة)</h2>
+
+<div class="definition-box">
+  <span class="box-label label-def">التعريف</span>
+  <p><b>المرارة:</b> كيس صغير أخضر اللون بجانب المعدة، يكون فيه مادة سائلة خضراء. توجد في الذبيحة عند الذبح. إذا خرج السائل منها وانتشر في الأضحية أفسدها.</p>
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>السائل الذي فيها نجس</b>. أما الكيس (الغشاء) فإذا غُسل فإنه طاهر.</p>
+</div>
+
+<!-- ===== لبن غير المأكول ===== -->
+<h2 class="section-title">١٢. لبن غير المأكول</h2>
+
+<div class="key-rule">
+  قاعدة اللبن: لبن غير المأكول نجس — ومن المأكول طاهر — إلا الآدمي فطاهر مطلقاً
+</div>
+
+<table>
+  <tr>
+    <th>نوع الحيوان</th>
+    <th>حكم لبنه</th>
+    <th>الدليل</th>
+  </tr>
+  <tr>
+    <td>غير المأكول</td>
+    <td><span class="highlight-red">نجس</span></td>
+    <td>—</td>
+  </tr>
+  <tr>
+    <td>المأكول</td>
+    <td><span class="highlight-green">طاهر</span></td>
+    <td>{من بين فرث ودم لبناً خالصاً سائغاً للشاربين}</td>
+  </tr>
+  <tr>
+    <td>الآدمي (ذكراً أو أنثى، صغيراً أو كبيراً، حيّاً أو ميتاً)</td>
+    <td><span class="highlight-green">طاهر</span></td>
+    <td>استثناء</td>
+  </tr>
+</table>
+
+<!-- ===== الجرة ===== -->
+<h2 class="section-title">١٣. الجرة (جرة البعير)</h2>
+
+<div class="definition-box">
+  <span class="box-label label-def">التعريف</span>
+  <p><b>الجرة:</b> طعام يخرجه البعير (الجمل) من معدته إلى فمه يعيد أكله. فالجمل يدخل الطعام في معدته ثم يستطيع إخراجه مرةً أخرى وإعادة أكله — وهذا من خصائص الإبل.</p>
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>وجرة نحو بعير</b> — أي نجسة — لأنها تخرج من المعدة، وما دام أنه يخرج من المعدة فهو نجس. وقد يوجد هذا في غير البعير لكن في البعير يكون واضحاً.</p>
+</div>
+
+<!-- ===== المني ===== -->
+<h2 class="section-title">١٤. المني — طاهر خلافاً لمالك</h2>
+
+<div class="key-rule">
+  المني طاهر من جميع الحيوانات إلا الكلب والخنزير — عند الشافعية
+</div>
+
+<p>هذا تفصيل مهم يُقابَل بما سبق:</p>
+
+<table>
+  <tr>
+    <th>المادة</th>
+    <th>من مأكول اللحم</th>
+    <th>من غير المأكول</th>
+  </tr>
+  <tr>
+    <td><b>الروث والبول</b></td>
+    <td>نجس</td>
+    <td>نجس</td>
+  </tr>
+  <tr>
+    <td><b>اللبن</b></td>
+    <td>طاهر</td>
+    <td>نجس (إلا الآدمي)</td>
+  </tr>
+  <tr>
+    <td><b>المني</b></td>
+    <td>طاهر</td>
+    <td>طاهر (إلا الكلب والخنزير)</td>
+  </tr>
+</table>
+
+<h3 class="sub-title">أقوال الفقهاء في المني</h3>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">الشافعية</div>
+    <div class="compare-card-body">المني طاهر من جميع الحيوانات<br><b>إلا الكلب والخنزير</b><br>أوسع الأقوال</div>
+  </div>
+  <div class="compare-card compare-card-yellow">
+    <div class="compare-card-title">الحنابلة</div>
+    <div class="compare-card-body">منيّ الآدمي طاهر فقط<br>منيّ غيره نجس<br>حتى لو كان مأكولاً</div>
+  </div>
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">المالكية والحنفية</div>
+    <div class="compare-card-body">المني نجس من جميع الحيوانات<br><b>المالكية:</b> يجب غسله ولا يكفي الحك<br><b>الحنفية:</b> إن كان يابساً يكفي الحك، وإن كان رطباً يُغسل</div>
+  </div>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">دليل الشافعية</span>
+  <p><b>أولاً:</b> حديث أم المؤمنين عائشة رضي الله عنها: <i>"كنت أحقّ المني من ثوب رسول الله صلّى الله عليه وآله وسلّم فيصلّي فيه"</i>. قالوا: لو كان نجساً لا يكفي الحقّ بل يجب الغسل.</p>
+  <p><b>ثانياً:</b> قوله تعالى: <span class="verse-ref">{ولقد كرّمنا بني آدم}</span> — ومن تكريم الإنسان طهارة أصله (المني).</p>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">ملاحظة عجيبة</span>
+  <p>الإمام مالك رحمه الله يقول إن روث المأكول وبوله طاهر، لكن منيّه نجس! بينما الشافعية يقولون: المني طاهر لأنه أصل الحيوان، فإذا كان الحيوان طاهراً فمنيّه طاهر. أما الأبوال والأرواث فنجسة حتى ولو كان من مأكول اللحم.</p>
+</div>
+
+<!-- ===== البلغم ===== -->
+<h2 class="section-title">١٥. البلغم من غير المعدة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>وكذا بلغم غير معدة من رأس أو صدر</b> — فطاهر. لكن إذا خرج من المعدة فنجس. فكل شيء يخرج من المعدة نجس، وما خرج من الرأس أو الصدر فطاهر.</p>
+</div>
+
+<!-- ===== ماء فم النائم ===== -->
+<h2 class="section-title">١٦. ماء فم النائم</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الحكم</span>
+  <p><b>وماء سائل من فم نائم ولو أنتن أو أصفر</b> — أي طاهر ولو كانت رائحته كريهة أو كان لونه أصفر، ما لم يتحقق أنه من المعدة.</p>
+</div>
+
+<div class="flow-row">
+  <div class="flow-box">ماء فم النائم</div>
+</div>
+<div class="flow-row">
+  <div class="flow-box">تحقّق أنه من غير المعدة أو شكّ</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-pure">طاهر (الأصل الطهارة)</div>
+</div>
+<div class="flow-row">
+  <div class="flow-box">تحقّق أنه من المعدة</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-impure">نجس</div>
+</div>
+<div class="flow-row">
+  <div class="flow-box">من المعدة والمبتلى به</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-excused">نجس لكن يُعفى عنه</div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">تفصيل المبتلى</span>
+  <p><b>المبتلى به:</b> من يكثر حصول هذا منه ويقلّ خلوّه عنه — يُعفى عنه وإن كثر. أي أنه نجس لكن يُعفى عنه في حقّ من ابتُلي به.</p>
+</div>
+
+<!-- ===== رطوبة الفرج ===== -->
+<h2 class="section-title">١٧. رطوبة الفرج (القُبُل)</h2>
+
+<div class="definition-box">
+  <span class="box-label label-def">التعريف</span>
+  <p><b>رطوبة الفرج:</b> ماء أبيض متردّد بين العرق والمذي، يخرج من قُبُل النساء. وقوله "أي قبل" يُفهم منه أن رطوبة الدبر لها حكم آخر — <b>رطوبة الدبر نجسة</b> ليس فيها تفصيل.</p>
+</div>
+
+<div class="key-rule">
+  ثلاث حالات لرطوبة القُبُل
+</div>
+
+<table>
+  <tr>
+    <th>الحالة</th>
+    <th>المكان</th>
+    <th>الحكم</th>
+    <th>البيان</th>
+  </tr>
+  <tr>
+    <td>الأولى</td>
+    <td>ظاهر القُبُل</td>
+    <td><span class="highlight-green">طاهر قطعاً</span></td>
+    <td>ما يظهر عند القُعُود (ما يجب غسله عند الاستنجاء)</td>
+  </tr>
+  <tr>
+    <td>الثانية</td>
+    <td>وراء باطن القُبُل</td>
+    <td><span class="highlight-red">نجس قطعاً</span></td>
+    <td>ما لا يصل إليه ذكر المجامِع</td>
+  </tr>
+  <tr>
+    <td>الثالثة</td>
+    <td>مما يصل إليه ذكر المجامِع</td>
+    <td><span class="highlight-gold">طاهر على الأصح</span><br>(مقابل الأصح: نجس)</td>
+    <td>بين الظاهر والباطن</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">ملاحظة عملية</span>
+  <p>هذه المسألة من المسائل التي تسأل النساء عنها كثيراً — تخرج منهن إفرازات ويسألن عن حكمها. فنقول: من أين تخرج؟ إن كانت من ظاهر الفرج فطاهرة (لا يجب غسل الثياب ولا البدن)، وإن كانت من الباطن فنجسة.</p>
+</div>
+
+<!-- ===== خارق من الباطن ===== -->
+<h2 class="section-title">١٨. القاعدة العامة: كل خارج من الباطن نجس</h2>
+
+<div class="key-rule">
+  كُلّ خارج من الباطن فإنه نجس
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">البيان</span>
+  <p><b>وكالماء الخارج مع الولد أو قبله</b> — أي فإنه نجس. فالماء الذي يخرج مع الولد عند الولادة أو يخرج قبل الولادة — ماء نجس لأنه خارج من الباطن.</p>
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">انفصال الرطوبة</span>
+  <p><b>ولا فرق بين انفصالها وعدمه على المعتمد</b> — أي لا فرق بين انفصال الرطوبة عن محلّها وعدم انفصالها. ففي المذهب رأي يقول إن الرطوبة إذا انفصلت فنجسة وإذا لم تنفصل فطاهرة، لكن المعتمد أنه لا فرق.</p>
+</div>
+
+<!-- ===== ملخص النجاسات ===== -->
+<h2 class="section-title">١٩. ملخص النجاسات المذكورة في الدرس</h2>
+
+<table>
+  <tr>
+    <th>#</th>
+    <th>النجاسة</th>
+    <th>الحكم</th>
+    <th>ملاحظات</th>
+  </tr>
+  <tr>
+    <td>١</td>
+    <td>الروث</td>
+    <td>نجس مطلقاً</td>
+    <td>من كل الحيوانات حتى المأكول</td>
+  </tr>
+  <tr>
+    <td>٢</td>
+    <td>البول</td>
+    <td>نجس مطلقاً</td>
+    <td>من كل الحيوانات حتى المأكول</td>
+  </tr>
+  <tr>
+    <td>٣</td>
+    <td>المذي</td>
+    <td>نجس</td>
+    <td>بإجماع الأمة</td>
+  </tr>
+  <tr>
+    <td>٤</td>
+    <td>الودي</td>
+    <td>نجس</td>
+    <td>بإجماع الأمة</td>
+  </tr>
+  <tr>
+    <td>٥</td>
+    <td>الدم</td>
+    <td>نجس</td>
+    <td>مع ٧+١ استثناءات</td>
+  </tr>
+  <tr>
+    <td>٦</td>
+    <td>القيح</td>
+    <td>نجس</td>
+    <td>دم مستحيل</td>
+  </tr>
+  <tr>
+    <td>—</td>
+    <td>الصديد</td>
+    <td>نجس</td>
+    <td>ماء رقيق يخالطه دم</td>
+  </tr>
+  <tr>
+    <td>—</td>
+    <td>ماء الجرح/الجدري/النفط</td>
+    <td>نجس إن تغيّر</td>
+    <td>طاهر إن لم يتغيّر</td>
+  </tr>
+  <tr>
+    <td>٧</td>
+    <td>قيء المعدة</td>
+    <td>نجس</td>
+    <td>من غير المعدة طاهر</td>
+  </tr>
+  <tr>
+    <td>—</td>
+    <td>المرارة (الكُمرة)</td>
+    <td>السائل نجس</td>
+    <td>الكيس طاهر إذا غُسل</td>
+  </tr>
+  <tr>
+    <td>—</td>
+    <td>لبن غير المأكول</td>
+    <td>نجس</td>
+    <td>إلا الآدمي طاهر</td>
+  </tr>
+  <tr>
+    <td>—</td>
+    <td>الجرة</td>
+    <td>نجسة</td>
+    <td>لخروجها من المعدة</td>
+  </tr>
+</table>
+
+<!-- ===== ملخص الطاهرات المذكورة ===== -->
+<h2 class="section-title">٢٠. ملخص الطاهرات المذكورة في الدرس</h2>
+
+<table>
+  <tr>
+    <th>#</th>
+    <th>المادة</th>
+    <th>الشرط</th>
+  </tr>
+  <tr>
+    <td>١</td>
+    <td>المني</td>
+    <td>طاهر من كل الحيوانات إلا الكلب والخنزير</td>
+  </tr>
+  <tr>
+    <td>٢</td>
+    <td>البلغم من الرأس أو الصدر</td>
+    <td>ما لم يكن من المعدة</td>
+  </tr>
+  <tr>
+    <td>٣</td>
+    <td>ماء فم النائم</td>
+    <td>ما لم يتحقق أنه من المعدة</td>
+  </tr>
+  <tr>
+    <td>٤</td>
+    <td>رطوبة ظاهر الفرج</td>
+    <td>طاهر قطعاً</td>
+  </tr>
+  <tr>
+    <td>٥</td>
+    <td>رطوبة مما يصل إليه ذكر المجامِع</td>
+    <td>طاهر على الأصح</td>
+  </tr>
+  <tr>
+    <td>٦</td>
+    <td>لبن المأكول</td>
+    <td>مطلقاً</td>
+  </tr>
+  <tr>
+    <td>٧</td>
+    <td>لبن الآدمي</td>
+    <td>مطلقاً (ذكراً أو أنثى)</td>
+  </tr>
+</table>
+
+</div><!-- end content-wrapper -->
+
+</body>
+</html>

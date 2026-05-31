@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf') format('truetype'); font-weight: normal; }
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf') format('truetype'); font-weight: bold; }
+@font-face { font-family: 'NotoNaskh'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf') format('truetype'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+
+body {
+  font-family: 'NotoNaskh', 'Amiri', serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #1a1a2e;
+  direction: rtl;
+  background: #fff;
+  text-align: justify;
+}
+
+.cover-header {
+  background: #1a5632;
+  color: white;
+  padding: 20px 14px;
+  text-align: center;
+  margin: 0 0 12px 0;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px);
+  border-bottom: 4px solid #c8a951;
+}
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 6px; border: none; font-family: 'Amiri', serif; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.9; margin: 4px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.92; margin: 6px 0 2px 0; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .creator { font-size: 11pt; opacity: 0.85; margin-top: 2px; }
+.cover-header .series { font-size: 11pt; opacity: 0.8; margin-top: 4px; }
+
+.toc {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 0 0 12px 0;
+}
+.toc-title {
+  font-family: 'Amiri', serif;
+  font-size: 14pt;
+  color: #1a5632;
+  text-align: center;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #c8a951;
+  padding-bottom: 4px;
+}
+.toc-item {
+  font-size: 10pt;
+  padding: 2px 0;
+  border-bottom: 1px dotted #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+h2.section-title {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0d7c3e;
+  border-bottom: 2px solid #0d7c3e;
+  padding-bottom: 5px;
+  margin: 18px 0 10px;
+}
+
+h3.sub-title {
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: #0a5c2e;
+  margin: 14px 0 8px;
+  padding-right: 10px;
+  border-right: 4px solid #0d7c3e;
+}
+
+h4.minor-title {
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #166534;
+  margin: 10px 0 6px;
+}
+
+p { margin: 5px 0; text-align: justify; }
+
+.definition-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-right: 4px solid #0d7c3e;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.rule-box {
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-right: 4px solid #d97706;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.exception-box {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-right: 4px solid #ea580c;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.evidence-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-right: 4px solid #2563eb;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.issue-box {
+  background: #fdf2f8;
+  border: 1px solid #fbcfe8;
+  border-right: 4px solid #db2777;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.comparison-box {
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  border-right: 4px solid #7c3aed;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.note-box {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-right: 4px solid #0284c7;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.poetry-box {
+  background: #faf5ff;
+  border: 1px solid #e9d5ff;
+  border-right: 4px solid #9333ea;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+  text-align: center;
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  line-height: 2.2;
+}
+
+.key-rule {
+  background: #dcfce7;
+  border: 2px solid #16a34a;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.box-label {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 4px;
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.label-def { background: #0d7c3e; }
+.label-rule { background: #d97706; }
+.label-exc { background: #ea580c; }
+.label-ev { background: #2563eb; }
+.label-issue { background: #db2777; }
+.label-comp { background: #7c3aed; }
+.label-note { background: #0284c7; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 13px;
+  table-layout: fixed;
+}
+
+th {
+  background: #0d7c3e;
+  color: #fff;
+  padding: 6px 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+td {
+  padding: 5px 8px;
+  border: 1px solid #d1d5db;
+  text-align: center;
+  vertical-align: top;
+}
+
+tr:nth-child(even) { background: #f0fdf4; }
+tr:nth-child(odd) { background: #fff; }
+
+.tree-container { margin: 12px 0; text-align: center; }
+.tree-root {
+  display: inline-block;
+  background: linear-gradient(135deg, #0d7c3e, #0a5c2e);
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+.tree-branches { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px; }
+.tree-branch {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  min-width: 80px;
+  text-align: center;
+}
+.tree-branch-num { font-family: 'Amiri', serif; font-weight: bold; color: #0d7c3e; font-size: 14px; }
+.tree-branch-label { font-size: 12px; color: #374151; }
+
+.compare-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.compare-card { flex: 1; min-width: 140px; border-radius: 8px; padding: 8px 10px; text-align: center; }
+.compare-card-green { background: #dcfce7; border: 1px solid #86efac; }
+.compare-card-red { background: #fef2f2; border: 1px solid #fca5a5; }
+.compare-card-gold { background: #fefce8; border: 1px solid #fde68a; }
+.compare-card-blue { background: #eff6ff; border: 1px solid #bfdbfe; }
+.compare-card-title { font-family: 'Amiri', serif; font-weight: bold; font-size: 14px; margin-bottom: 4px; }
+.compare-card-body { font-size: 12px; }
+
+.flow-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px; margin: 8px 0; }
+.flow-box { background: #0d7c3e; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-family: 'Amiri', serif; font-weight: bold; text-align: center; }
+.flow-arrow { font-size: 16px; color: #0d7c3e; font-weight: bold; }
+.flow-result { padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; text-align: center; }
+.flow-pure { background: #dcfce7; border: 1px solid #86efac; color: #166534; }
+.flow-impure { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+.flow-excused { background: #fefce8; border: 1px solid #fde68a; color: #92400e; }
+
+.highlight-green { background: #dcfce7; padding: 1px 4px; border-radius: 3px; }
+.highlight-gold { background: #fefce8; padding: 1px 4px; border-radius: 3px; }
+.highlight-red { background: #fef2f2; padding: 1px 4px; border-radius: 3px; }
+
+.verse-ref { font-family: 'Amiri', serif; font-size: 14px; color: #1e40af; text-align: center; margin: 6px 0; }
+.hadith-ref { font-family: 'Amiri', serif; font-size: 13px; color: #166534; text-align: center; margin: 6px 0; }
+
+.condition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.condition-item { border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.condition-num {
+  display: inline-block; background: #0d7c3e; color: #fff; min-width: 24px; height: 24px;
+  border-radius: 50%; text-align: center; line-height: 24px; font-family: 'Amiri', serif;
+  font-weight: bold; font-size: 12px; margin-left: 6px;
+}
+
+ul { margin: 4px 0; padding-right: 20px; }
+li { margin: 2px 0; }
+
+.tashahhud-text {
+  background: #f0fdf4;
+  border: 2px solid #0d7c3e;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 10px 0;
+  text-align: center;
+  font-family: 'Amiri', serif;
+  font-size: 16px;
+  line-height: 2.2;
+  color: #0d7c3e;
+}
+
+.dua-text {
+  background: #eff6ff;
+  border: 2px solid #2563eb;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 10px 0;
+  text-align: center;
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  line-height: 2.2;
+  color: #1e40af;
+}
+
+.ibrahimi-text {
+  background: linear-gradient(135deg, #f0fdf4, #fefce8);
+  border: 2px solid #c8a951;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 10px 0;
+  text-align: center;
+  font-family: 'Amiri', serif;
+  font-size: 16px;
+  line-height: 2.2;
+  color: #0a5c2e;
+}
+</style>
+</head>
+<body>
+
+<!-- ===== COVER HEADER (تابع) ===== -->
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس السادس والأربعون — تابع أركان الصلاة: التشهد الأخير والصلاة على النبيّ والقعود</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="creator">تنسيق: أحمد بن إرشاد</div>
+  <div class="series">الطمأنينة · التشهد الأخير · الصلاة على النبيّ ﷺ والآل · الصلاة الإبراهيمية · الدعاء · القعود والتورك · صفة الجلوس ورفع المسبحة</div>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. المراجعة: الركن التاسع — الطمأنينة</span></div>
+  <div class="toc-item"><span>٢. الركن العاشر — التشهد الأخير وأقلّه</span></div>
+  <div class="toc-item"><span>٣. السنن في التشهد: المباركات وأشهد الثاني وتعريف السلام</span></div>
+  <div class="toc-item"><span>٤. لا تسنّ البسملة قبل التشهد</span></div>
+  <div class="toc-item"><span>٥. عدم جواز إبدال لفظ من الأقلّ ولو بمرادفه</span></div>
+  <div class="toc-item"><span>٦. صيغ الشهادة: «عبده ورسوله» و«رسوله»</span></div>
+  <div class="toc-item"><span>٧. مراعاة التجديدة وعدم إبدال حرف بآخر</span></div>
+  <div class="toc-item"><span>٨. الموالات بين كلمات التشهد لا الترتيب</span></div>
+  <div class="toc-item"><span>٩. إظهار النون المدغمة وإدغام تنوين «محمد»</span></div>
+  <div class="toc-item"><span>١٠. يجوز في «النبي» الهمزة والتجديد</span></div>
+  <div class="toc-item"><span>١١. الركن الحادي عشر — الصلاة على النبيّ ﷺ</span></div>
+  <div class="toc-item"><span>١٢. صيغة الدعاء وصيغة الخبر في الصلاة على النبيّ</span></div>
+  <div class="toc-item"><span>١٣. عدم إجزاء الصلاة بغير الأسماء الواردة</span></div>
+  <div class="toc-item"><span>١٤. عدم إجزاء الصلاة على النبيّ بالضمير</span></div>
+  <div class="toc-item"><span>١٥. الصلاة على الآل: حكمها والخلاف فيها</span></div>
+  <div class="toc-item"><span>١٦. الصلاة على الآل في التشهد الأول</span></div>
+  <div class="toc-item"><span>١٧. أكمل الصلاة: الصلاة الإبراهيمية</span></div>
+  <div class="toc-item"><span>١٨. السلام تقدّم في التشهد فليس هنا إفراد</span></div>
+  <div class="toc-item"><span>١٩. زيادة «سيّدنا» قبل محمد</span></div>
+  <div class="toc-item"><span>٢٠. الدعاء في التشهد الأخير</span></div>
+  <div class="toc-item"><span>٢١. الدعاء في التشهد الأول</span></div>
+  <div class="toc-item"><span>٢٢. الأدعية المأثورة</span></div>
+  <div class="toc-item"><span>٢٣. دعاء الإمام يُسنّ أن ينقص عن قدر الأقلّ</span></div>
+  <div class="toc-item"><span>٢٤. كراهة الصلاة على النبيّ بعد أدعية التشهد</span></div>
+  <div class="toc-item"><span>٢٥. الركن الثاني عشر — القعود للتشهد والصلاة</span></div>
+  <div class="toc-item"><span>٢٦. التورك في قعود التشهد الأخير</span></div>
+  <div class="toc-item"><span>٢٧. وضع اليدين في قعود التشهدين</span></div>
+  <div class="toc-item"><span>٢٨. رفع المسبحة وإمالتها وإدامة الرفع</span></div>
+  <div class="toc-item"><span>٢٩. قبض الإبهام بجنب المسبحة</span></div>
+</div>
+
+<!-- ===== 1. المراجعة: الطمأنينة ===== -->
+<h2 class="section-title">١. المراجعة: الركن التاسع — الطمأنينة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وتاسعها طمأنينة في كلّ من الركوع والسجودين والجلوس بينهما والاعتدال</b> ولو كان في نفل، أي ولو كان الجلوس والاعتدال في نفل، خلافاً للأنوار.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">كتاب الأنوار</span>
+  <p>الأنوار للأردبيلي، واسم الكتاب: <b>الأنوار لأعمال الأبرار</b>، وهو كتاب معروف في الفقه الشافعي.</p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">ضابط الطمأنينة</span>
+  <p>ضابطها أن <b>تستقرّ أعضاؤه بحيث ينفصل من انتقل إليه عمّا انتقل عنه</b> — مثلاً: انتقل إلى السجود عن الاعتدال، فلا بدّ أن يستقرّ كلّ عضو في موضعه قبل الانتقال إلى ما بعده.</p>
+</div>
+
+<!-- ===== 2. التشهد الأخير ===== -->
+<h2 class="section-title">٢. الركن العاشر — التشهد الأخير وأقلّه</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وعاشرها تشهّد أخير</b>، وأقلّه ما رواه الشافعي والترمذي:</p>
+</div>
+
+<div class="tashahhud-text">
+  التحيّات لله<br>
+  سلام عليك أيّها النبيّ ورحمة الله وبركاته<br>
+  سلام علينا وعلى عباد الله الصالحين<br>
+  أشهد أن لا إله إلا الله وأنّ محمداً رسول الله
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">تعريف الصالح</span>
+  <p><b>الصالح</b> هو من قام بحقّ الله عزّ وجلّ وحقّ المخلوقين — من قام بحقّ الله وقام بحقّ الخلق. وأحياناً يُفسَّر الصالح بأنّه المسلم، كما في الحديث: <i>«إذا مات ابن آدم انقطع عمله إلا من ثلاث... أو ولد صالح يدعو له»</i> — أي مسلم، حتّى لو كان يرتكب بعض الكبائر ويصيب الفسق، فإن دعا لوالديه يصله ثواب الدعاء.</p>
+</div>
+
+<!-- ===== 3. السنن في التشهد ===== -->
+<h2 class="section-title">٣. السنن في التشهد: المباركات وأشهد الثاني وتعريف السلام</h2>
+
+<h3 class="sub-title">زيادة المباركات الصلوات الطيّبات</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">سنّة</span>
+  <p><b>ويُسنّ لكلّ</b> من الإمام والمأموم والمنفرد <b>زيادة «المباركات الصلوات الطيّبات»</b> — أي يقرأ: التحيات المباركات الصلوات الطيبات لله.</p>
+</div>
+
+<h3 class="sub-title">أشهد الثاني</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">سنّة</span>
+  <p><b>ويُسنّ أشهد الثاني</b> — أي أن يقول: «وأشهد أنّ محمداً رسول الله» بدلاً من «وأنّ محمداً رسول الله». فلو قال: «وأشهد أن لا إله إلا الله وأنّ محمداً رسول الله» صحّ، لكن الأكمل أن يقول: «وأشهد أنّ محمداً رسول الله».</p>
+</div>
+
+<h3 class="sub-title">تعريف السلام</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">سنّة</span>
+  <p><b>وتعريف السلام في الموضعين</b> — الأكمل أن يقول «السلام» بـ«أل» التعريف. ولو قال «سلام» بالتنكير أجزأ.</p>
+</div>
+
+<table>
+  <tr>
+    <th>اللفظ</th>
+    <th>الحكم</th>
+    <th>البيان</th>
+  </tr>
+  <tr>
+    <td><b>السلام عليك أيّها النبيّ</b></td>
+    <td><span class="highlight-green">الأكمل ✕</span></td>
+    <td>بأل التعريف — وهو السنّة</td>
+  </tr>
+  <tr>
+    <td><b>سلام عليك أيّها النبيّ</b></td>
+    <td><span class="highlight-gold">يُجزئ</span></td>
+    <td>بالتنكير — صحّ لكن ترك السنّة</td>
+  </tr>
+</table>
+
+<!-- ===== 4. البسملة قبل التشهد ===== -->
+<h2 class="section-title">٤. لا تسنّ البسملة قبل التشهد</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ولا تسنّ البسملة قبله</b> — أي لا يُسنّ أن يقول قبل التشهد: «بسم الله الرحمن الرحيم التحيات المباركات...» — لا تسنّ البسملة قبل التشهد.</p>
+</div>
+
+<!-- ===== 5. عدم جواز الإبدال ===== -->
+<h2 class="section-title">٥. عدم جواز إبدال لفظ من الأقلّ ولو بمرادفه</h2>
+
+<div class="key-rule">
+  لا يجوز إبدال لفظ من التشهد المجزئ ولو بمرادفه<br>
+  كالنبيّ بالرسول وعكسه · ومحمد بأحمد وغيره
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ولا يجوز إبدال لفظ من هذا الأقلّ ولو بمرادفه</b> كالنبيّ بالرسول وعكسه، ومحمد بأحمد، وغيره.</p>
+</div>
+
+<h3 class="sub-title">تفصيل أمثلة الإبدال</h3>
+
+<table>
+  <tr>
+    <th>الأصل</th>
+    <th>الإبدال</th>
+    <th>هل يجزئ؟</th>
+    <th>العلّة</th>
+  </tr>
+  <tr>
+    <td><b>أيّها النبيّ</b></td>
+    <td>أيّها الرسول</td>
+    <td><span class="highlight-red">لا يُجزئ ✗</span></td>
+    <td>مع أنّ النبيّ والرسول مترادفان على قول</td>
+  </tr>
+  <tr>
+    <td><b>محمد</b></td>
+    <td>أحمد</td>
+    <td><span class="highlight-red">لا يُجزئ ✗</span></td>
+    <td>مع أنّ أحمد ومحمد مترادفان</td>
+  </tr>
+  <tr>
+    <td><b>أشهد</b></td>
+    <td>أعلم / أخبر</td>
+    <td><span class="highlight-red">لا يُجزئ ✗</span></td>
+    <td>لعدم ورود اللفظ</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">الخلاف في النبيّ والرسول</span>
+  <p>اختلف أهل العلم: فمنهم من يقول إنّهما مترادفان. ومنهم من يفرّق: <b>الرسول</b> من بُعث بشرع جديد، و<b>النبيّ</b> من بُعث يجدّد شرع من قبله. ومنهم من يقول: الرسول من بُعث بشرع وأُمر بتبليغه، والنبيّ من بُعث بشرع ولم يؤمر بتبليغه. لكن على القول بأنّهما مترادفان — لا يجوز الإبدال لعدم الورود.</p>
+</div>
+
+<!-- ===== 6. صيغ الشهادة ===== -->
+<h2 class="section-title">٦. صيغ الشهادة: «عبده ورسوله» و«رسوله»</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويكفي «وأنّ محمداً عبده ورسوله»</b> — وهذه صيغة ثانية تُجزئ.</p>
+</div>
+
+<h3 class="sub-title">الصيغ الثلاث للشهادة الثانية</h3>
+
+<table>
+  <tr>
+    <th>الصيغة</th>
+    <th>نصّها</th>
+    <th>حكمها</th>
+  </tr>
+  <tr>
+    <td><b>الأولى</b></td>
+    <td>وأنّ محمداً رسول الله</td>
+    <td><span class="highlight-green">تجزئ ✕</span> — الوارد في الرواية</td>
+  </tr>
+  <tr>
+    <td><b>الثانية</b></td>
+    <td>وأنّ محمداً عبده ورسوله</td>
+    <td><span class="highlight-green">تجزئ ✕</span> — صرّح بها المصنّف</td>
+  </tr>
+  <tr>
+    <td><b>الثالثة</b></td>
+    <td>وأنّ محمداً رسوله</td>
+    <td><span class="highlight-red">لا تكفي ✗</span> — لعدم ورودها</td>
+  </tr>
+</table>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف في الصيغة الثالثة</span>
+  <p><b>العلامة ابن حجر:</b> لا تكفي «وأنّ محمداً رسوله» لعدم ورودها — وهو ما جرى عليه المصنّف.</p>
+  <p><b>العلامة الرملي:</b> تكفي «وأنّ محمداً رسوله».</p>
+</div>
+
+<!-- ===== 7. مراعاة التجديدة ===== -->
+<h2 class="section-title">٧. مراعاة التجديدة وعدم إبدال حرف بآخر</h2>
+
+<div class="key-rule">
+  يجب أن يراعي المصلي التجديدة وعدم إبدال حرف بآخر<br>
+  فلو أبدل حرفاً بحرف آخر فلا يُجزئه<br>
+  عدد التجديدات في أقلّ التشهد: ١٦ وفي أكمله: ٢١
+</div>
+
+<p>التجديدة في علم التجويد هي: إدغام حرف في حرف بحيث يصيران حرفاً واحداً مشدّداً. فلا بدّ أن يقرأ التشهد بجميع تجديداته، فلو أسقط تجديدة واحدة أبطل صلاته.</p>
+
+<!-- ===== 8. الموالات والترتيب ===== -->
+<h2 class="section-title">٨. الموالات بين كلمات التشهد لا الترتيب</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>والموالات</b> أي والموالات بين كلمات التشهد، <b>لا الترتيب</b> — الترتيب لا يُشترط إن لم يُخلّ بالمعنى.</p>
+</div>
+
+<h3 class="sub-title">تفصيل مسألة الترتيب</h3>
+
+<table>
+  <tr>
+    <th>الحالة</th>
+    <th>المثال</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td><b>قدّم جملة كاملة وأخّر أخرى</b></td>
+    <td>قال السلام عليك أيّها النبيّ ثمّ قال التحيات المباركات</td>
+    <td><span class="highlight-gold">يُجزئ مع الكراهة</span> — لم يُخلّ بالمعنى</td>
+  </tr>
+  <tr>
+    <td><b>أخلّ بالمعنى</b></td>
+    <td>قال: «إلا الله أشهد أن لا إله» — قلب الكلمات</td>
+    <td><span class="highlight-red">لا يُجزئ ✗</span> — أخلّ بالمعنى فلا تصحّ الصلاة</td>
+  </tr>
+</table>
+
+<div class="key-rule">
+  الترتيب لا يُشترط إن لم يُخلّ بالمعنى<br>
+  فإن أخلّ بالمعنى لا يُجزئ التشهد وتبطل الصلاة<br>
+  وإن لم يُخلّ بالمعنى: صحّت الصلاة مع الكراهة
+</div>
+
+<!-- ===== 9. إظهار النون المدغمة ===== -->
+<h2 class="section-title">٩. إظهار النون المدغمة وإدغام تنوين «محمد»</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>فلو أظهر النون المدغمة في اللام في «أن لا إله إلا الله» أبطل</b> لتركه شدّة منه — أي لترك المصلي شدّة من التشهد. وكما لو ترك إدغام تنوين دال «محمد» في راء «رسول الله».</p>
+</div>
+
+<h3 class="sub-title">الفرعان معاً</h3>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">إظهار النون في «أن لا»</div>
+    <div class="compare-card-body">أشهد <b>أن لا</b> إله إلا الله<br>أظهر النون بدلاً من إدغامها<br><b>لا تصحّ ✗</b> — أسقط تجديدة</div>
+  </div>
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">ترك إدغام تنوين «محمدٍ»</div>
+    <div class="compare-card-body">محمدٍ رسول الله<br>أظهر التنوين بدلاً من إدغامه<br><b>لا تصحّ ✗</b> — أسقط تجديدة</div>
+  </div>
+</div>
+
+<p>الصحيح أن يقول: «أشهد ألّا إله إلا الله» بإدغام النون في اللام، و«محمدُرّسول الله» بإدغام التنوين في الراء. فمن أظهر النون أو التنوين فقد أسقط تجديدة من تجديدات التشهد الواجبة.</p>
+
+<!-- ===== 10. الهمزة والتجديد في النبي ===== -->
+<h2 class="section-title">١٠. يجوز في «النبي» الهمزة والتجديد</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويجوز في النبي الهمزة والتجديد</b> — أي يجوز أن يقرأ «النبيّ» بالهمز أو بالياء.</p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">أصل الخلاف</span>
+  <p>اختلفوا في اشتقاق كلمة «نبيّ»:</p>
+  <ul>
+    <li><b>من النبوة</b> (بالواو) — بمعنى الشيء المرتفع، لأنّ الأنبياء مرتفعون على بقية الخلق — فتُقرأ بالياء: «النبيّ».</li>
+    <li><b>من النبأ</b> (بالهمز) — لأنّ الله أوحى إليهم أنباءً لم تكن عند غيرهم — فتُقرأ بالهمز: «النّبِي».</li>
+  </ul>
+  <p>وكلاهما صحيح جائز.</p>
+</div>
+
+<!-- ===== 11. الصلاة على النبي ===== -->
+<h2 class="section-title">١١. الركن الحادي عشر — الصلاة على النبيّ ﷺ</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وحادي عشرها صلاة على النبيّ صلّى الله عليه وسلّم بعده</b> — أي بعد التشهد الأخير، <b>فلا تُجزئ قبله</b>.</p>
+</div>
+
+<h3 class="sub-title">أقلّ الصلاة على النبيّ ﷺ</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وأقلّها: اللهمّ صلّ</b> — أي ارحمه رحمة مقرونة بالتعظيم. <b>أو: صلّى الله على محمد</b> — واحد. <b>أو: على رسوله</b> — اثنين. <b>أو: على النبيّ</b> — ثلاثة. كلّ هذا يصحّ.</p>
+</div>
+
+<div class="tashahhud-text">
+  أقلّ الصلاة على النبيّ ﷺ<br><br>
+  اللهمّ صلّ على محمد<br>
+  <span style="font-size:13px; color:#666;">أو: صلّى الله على محمد · أو: على رسوله · أو: على النبيّ</span>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">عدد التجديدات</span>
+  <p>في أقلّ الصلاة «اللهمّ صلّ على محمد» أربع تجديدات: فوق اللام، وفوق الميم، واللام الثانية، والميم الثانية.</p>
+</div>
+
+<!-- ===== 12. صيغة الدعاء والخبر ===== -->
+<h2 class="section-title">١٢. صيغة الدعاء وصيغة الخبر في الصلاة على النبيّ</h2>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">صيغتان صحيحتان</span>
+  <p><b>الأولى — صيغة الدعاء:</b> «اللهمّ صلّ على محمد» — وهذا هو الوارد، صيغة أمر ودعاء.</p>
+  <p><b>الثانية — صيغة الخبر:</b> «صلّى الله على محمد» — صيغة ماضٍ خبريّة، لكن المقصود منها الدعاء. كما تقول: «قال الإمام فلان رحمه الله» — صيغة خبر لكنّ المقصود الدعاء.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">أيّهما أحسن؟</span>
+  <p>قال بعضهم: إنّ <b>صيغة الخبر أحسن</b> — ليس من جهة الورود (الذي ورد هو صيغة الأمر)، لكن أحسن من جهة المعنى البلاغي، لأنّ صيغة الخبر تفيد أنّ الأمر قد تحقّق ووقع، والخبر يجب أن يكون قد تحقّق.</p>
+</div>
+
+<!-- ===== 13. عدم الإجزاء بغير الوارد ===== -->
+<h2 class="section-title">١٣. عدم إجزاء الصلاة بغير الأسماء الواردة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">قاعدة</span>
+  <p>لا يُجزئ الصلاة على النبيّ ﷺ في الصلاة بغير الأسماء الواردة: <b>محمد</b>، و<b>رسول</b>، و<b>نبيّ</b>. فلو قال: «اللهمّ صلّ على أحمد» <b>لا يصحّ</b> لعدم وروده. ومثله لو قال: «اللهمّ صلّ على الماحي» أو «على العاقب» أو «على الحاشر» — وهي أسماء النبيّ ﷺ كما في الحديث: «أنا الماحي، أنا العاقب، أنا الحاشر» — لا يُجزئ ذلك لعدم وروده.</p>
+</div>
+
+<h3 class="sub-title">الفرق بين الصلاة وخطبة الجمعة</h3>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">في الصلاة</div>
+    <div class="compare-card-body">لا يُجزئ الصلاة على النبيّ<br>إلا بالأسماء الواردة فقط<br>«محمد» و«رسول» و«نبيّ»<br><b>يُشدّد فيها ما لا يُشدّد في غيرها</b></div>
+  </div>
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">في خطبة الجمعة</div>
+    <div class="compare-card-body">يُجزئ الصلاة على النبيّ<br>بأسمائه كلّها<br>«الماحي» و«العاقب» و«الحاشر» وغيرها<br><b>لأنّ الصلاة يُشدّد فيها ما لا يُشدّد في غيرها</b></div>
+  </div>
+</div>
+
+<!-- ===== 14. عدم الإجزاء بالضمير ===== -->
+<h2 class="section-title">١٤. عدم إجزاء الصلاة على النبيّ بالضمير</h2>
+
+<div class="key-rule">
+  لا يُجزئ الصلاة على النبيّ ﷺ بالضمير<br>
+  لا في الصلاة ولا في خطبة الجمعة<br>
+  ولو تقدّم له ذكر
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">تفصيل</span>
+  <p>فلو قال في خطبة الجمعة: «الرسول الكريم صلّى الله عليه» — فالضمير يعود على الرسول — <b>لا يُجزئ</b>. لا بدّ أن يذكر إمّا الاسم «محمد» أو «أحمد»، وإمّا الوصف بالرسالة والنبوة، وإمّا اسم من أسماء النبيّ ﷺ. فلو اقتصر على الضمير فقط لا يُجزئ حتّى وإن سبق له مرجع يرجع إليه. وكذا لو قال في الصلاة: «اللهمّ صلّ عليه» — لا يُجزئ لا في خطبة الجمعة ولا في الصلاة.</p>
+</div>
+
+<!-- ===== 15. الصلاة على الآل ===== -->
+<h2 class="section-title">١٥. الصلاة على الآل: حكمها والخلاف فيها</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وسُنّ في تشهّد أخير — وقيل يجب — صلاة على آله</b></p>
+</div>
+
+<h3 class="sub-title">حكم الصلاة على الآل</h3>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">الخلاف في الحكم</span>
+  <p><b>المعتمد في المذهب الشافعي:</b> الصلاة على الآل في التشهد الأخير <b>سنّة</b> — وعليه الإجماع.</p>
+  <p><b>قول مرجوح:</b> يجب الصلاة على الآل — نُسب لأبي إسحاق المروزيّ من كبار الشافعية المتقدّمين. ونقل الصنعانيّ في سبل السلام عن بعض أهل البيت أنّ الصلاة على الآل واجبة. ونُسب أيضاً للإمام أحمد. لكن في الحقيقة مذهب أحمد أنّ الصلاة على الآل مستحبّة وليست واجبة.</p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">مَن هم الآل؟</span>
+  <p>الآل هم: <b>بنو هاشم، وبنو المطّلب</b>، وأتباع النبيّ صلّى الله عليه وسلّم.</p>
+</div>
+
+<h3 class="sub-title">أقلّ الصلاة على الآل</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p>أقلّ الصلاة على الآل زيادة <b>«وآله»</b> — أي يقول: «اللهمّ صلّ على محمد وآله».</p>
+</div>
+
+<!-- ===== 16. الصلاة على الآل في التشهد الأول ===== -->
+<h2 class="section-title">١٦. الصلاة على الآل في التشهد الأول</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>لا في الأوّل على الأصحّ</b> — أي لا تُسنّ الصلاة على الآل في التشهد الأول على الأصحّ. لكن هل تُسنّ الصلاة على النبيّ ﷺ في التشهد الأول؟ <b>نعم، سنّة مؤكّدة</b>.</p>
+</div>
+
+<h3 class="sub-title">تعليلان لعدم سنّيتها في الأول</h3>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">التعليل الأول</div>
+    <div class="compare-card-body"><b>لبنائه على التخفيف</b><br>التشهد الأول مبنيّ على التخفيف<br>لا يُطال فيه فلذلك اقتصر<br>على الصلاة على النبيّ دون الآل</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">التعليل الثاني</div>
+    <div class="compare-card-body"><b>لأنّ فيها نقل ركن قوليّ على قول</b><br>الصلاة على الآل ركن على قول مرجوح<br>فنقلها للأوّل يكون نقل ركن<br>عن موضعه وهو مبطل على ذلك القول</div>
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">نقد التعليلين</span>
+  <p>كأنّ المصنّف وجد أنّ التعليلين ليسا قويّين — أمّا الأوّل فلأنّ الصلاة على الآل تتحقّق بزيادة كلمة «وآله» وهي لا تحتاج إلى تطويل. وأمّا الثاني فالقول بأنّ الصلاة على الآل ركن ليس معتمداً. ولذلك ذكر المصنّف قولاً ثالثاً.</p>
+</div>
+
+<h3 class="sub-title">القول المختار</h3>
+
+<div class="exception-box">
+  <span class="box-label label-exc">القول المختار</span>
+  <p><b>واختير مقابله لصحّة أحاديث فيه</b> — أي اختير القول بأنّه <b>تُسنّ الصلاة على الآل في التشهد الأول</b>، لصحّة أحاديث في ذلك. فظاهر الأحاديث أنّك تصلّي على الآل في التشهد الأول والأخير.</p>
+</div>
+
+<div class="key-rule">
+  خلاصة مسألة الصلاة على الآل في التشهد الأول:<br>
+  <b>المعتمد في المذهب:</b> لا تُسنّ في الأوّل<br>
+  <b>القول المختار:</b> تُسنّ فيه لصحّة أحاديث<br>
+  والصلاة على النبيّ ﷺ في التشهد الأول: سنّة مؤكّدة بلا خلاف
+</div>
+
+<!-- ===== 17. الصلاة الإبراهيمية ===== -->
+<h2 class="section-title">١٧. أكمل الصلاة: الصلاة الإبراهيمية</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويُسنّ أكملها</b> — أي يُسنّ أكمل الصلاة على النبيّ ﷺ وأكمل الصلاة على الآل — <b>في تشهّد أخير</b>.</p>
+</div>
+
+<div class="ibrahimi-text">
+  اللهمّ صلّ على محمد وعلى آل محمد<br>
+  كما صلّيت على إبراهيم وعلى آل إبراهيم<br>
+  وبارك على محمد وعلى آل محمد<br>
+  كما باركت على إبراهيم وعلى آل إبراهيم<br>
+  إنّك حميد مجيد
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">آل إبراهيم</span>
+  <p>آل إبراهيم هم: <b>ذرّية إسماعيل عليه السلام</b> وذرّية إسحاق عليه السلام.</p>
+</div>
+
+<!-- ===== 18. السلام تقدم في التشهد ===== -->
+<h2 class="section-title">١٨. السلام تقدّم في التشهد فليس هنا إفراد</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>والسلام تقدّم في التشهد فليس هنا إفراد الصلاة عنه</b> — أي عن السلام.</p>
+</div>
+
+<h3 class="sub-title">أصل المسألة: الإفراد مكروه</h3>
+
+<p>عند الشافعية أنّ <b>إفراد الصلاة على النبيّ ﷺ بدون سلام</b> أو <b>إفراد السلام على النبيّ ﷺ بدون صلاة</b> مكروه — وبعض الشافعية يقول خلاف الأولى.</p>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p>قال الله تعالى: <span class="verse-ref">{إنّ الله وملائكته يصلّون على النبيّ يا أيّها الذين آمنوا صلّوا عليه وسلّموا تسليماً}</span> — فجمع بين الصلاة والسلام.</p>
+</div>
+
+<h3 class="sub-title">الإشكال والجواب</h3>
+
+<div class="issue-box">
+  <span class="box-label label-issue">إشكال</span>
+  <p>في الصلاة الإبراهيمية نقول: «اللهمّ صلّ على محمد وآل محمد» — <b>أين السلام؟</b> فكيف يصحّ هذا مع أنّ الإفراد مكروه؟</p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">الجواب</span>
+  <p><b>لأنّ السلام تقدّم في التشهد</b> — فقد قال في التشهد: «السلام عليك أيّها النبيّ ورحمة الله وبركاته» — فالسلام حاصل سابقاً، فليس هنا إفراد الصلاة عن السلام. وهذا جواب عن إشكال مقدّر.</p>
+</div>
+
+<!-- ===== 19. زيادة سيدنا ===== -->
+<h2 class="section-title">١٩. زيادة «سيّدنا» قبل محمد</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ولا بأس بزيادة سيّدنا قبل محمد</b> — أي في التشهد: «وأشهد أنّ سيّدنا محمداً رسول الله».</p>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف بين الفقهاء</span>
+  <p><b>العلامة ابن حجر:</b> قال «لا بأس» — وظاهر كلامهم اعتماد <b>عدم الاستحباب</b>، لأنّ عبارة «لا بأس» توحي بأنّ تركه أفضل. (كما في شرح المقدّمة الحضرميّة)</p>
+  <p><b>العلامة الرملي:</b> قال <b>«ويُسنّ»</b> أن يقول سيّدنا قبل قوله محمد في تشهّده.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">الخلاف يعود لأصل آخر</span>
+  <p>هذه المسألة تعود إلى مسألة أخرى: <b>هل الأفضل اتّباع الأدب أو امتثال الأمر؟</b> — النبيّ ﷺ لم يقل عن نفسه «سيّدنا محمد» بل علّمنا أن نقول «محمد رسول الله»، فاتّباع اللفظ الوارد امتثال للأمر، وزيادة «سيّدنا» اتّباع للأدب. وقد ذكرها المصنّف بتفصيل في شرح الوسيد.</p>
+</div>
+
+<!-- ===== 20. الدعاء في التشهد الأخير ===== -->
+<h2 class="section-title">٢٠. الدعاء في التشهد الأخير</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وسُنّ في تشهّد أخير دعاء</b> — أي يُسنّ الدعاء في التشهد الأخير بعد الصلاة على النبيّ ﷺ والصلاة على الآل.</p>
+</div>
+
+<!-- ===== 21. الدعاء في التشهد الأول ===== -->
+<h2 class="section-title">٢١. الدعاء في التشهد الأول</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وأمّا التشهد الأول فيُكره فيه الدعاء لبنائه على التخفيف</b> — لأنّ الدعاء يخالف التخفيف الذي بُني عليه التشهد الأول.</p>
+</div>
+
+<h3 class="sub-title">الاستثناء: المأموم الذي فرغ قبل إمامه</h3>
+
+<div class="exception-box">
+  <span class="box-label label-exc">استثناء</span>
+  <p><b>إلا إن فرغ المأموم قبل إمامه فيدعو حينئذ</b> — أي إذا فرغ المأموم من التشهد الأول والإمام ما زال يقرأ، فلا يبقى ساكتاً بل يدعو.</p>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">ماذا يفعل المأموم إذا فرغ قبل إمامه؟</span>
+  <p><b>الشهاب الرملي:</b> يأتي بتوابع الصلاة على النبيّ ﷺ — أي يُسرع فيصلّي على الآل الكرام.</p>
+  <p><b>العلامة ابن حجر والمصنّف:</b> إنّه يدعو ولو جمع بين ذلك — أي يصلّي على النبيّ وعلى الآل ويدعو — المهم لا يبقى ساكتاً.</p>
+</div>
+
+<!-- ===== 22. الأدعية المأثورة ===== -->
+<h2 class="section-title">٢٢. الأدعية المأثورة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ومأثورة أفضل</b> — أي الدعاء المأثور المنقول عن النبيّ ﷺ أفضل من الدعاء الذي يخترعه المصلي من قبل نفسه.</p>
+</div>
+
+<h3 class="sub-title">أكبر الدعاء: الاستعاذة من أربع</h3>
+
+<div class="dua-text">
+  اللهمّ إنّي أعوذ بك من عذاب القبر<br>
+  ومن عذاب النار<br>
+  ومن فتنة المحيا والممات<br>
+  ومن فتنة المسيح الدجّال
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وأكده ما أوجبه بعض العلماء</b> وهو هذا الدعاء. <b>ويُكره تركه</b> — والأقرب أنّ الضمير يعود إلى هذا الدعاء بخصوصه، أي يُكره ترك هذا الدعاء تحديداً.</p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">أثر طاووس بن كيسان</span>
+  <p>في صحيح مسلم أنّ <b>طاووس بن كيسان</b> اليمانيّ — من أجلة التابعين — رأى ابنه صلّى، فلمّا سلم من صلاته سأله: هل قرأت في صلاتك «اللهمّ إنّي أعوذ بك من عذاب القبر ومن عذاب النار ومن فتنة المحيا والممات ومن فتنة المسيح الدجّال»؟ قال: لا. قال: <b>«أعد الصلاة»</b>.</p>
+  <p>قال الإمام النوويّ في شرح صحيح مسلم: ظاهر كلام طاووس أنّه حمل الأمر على الوجوب. ويمكن أنّ طاووس لا يرى الوجوب وإنّما أراد أن يُؤكّد لابنه أهمّية هذا الدعاء فأمره بإعادة الصلاة.</p>
+</div>
+
+<h3 class="sub-title">الدعاء الثاني</h3>
+
+<div class="dua-text">
+  اللهمّ اغفر لي ما قدّمت وما أخّرت<br>
+  وما أسررت وما أعلنت<br>
+  وما أسرفت وما أنت أعلم به منّي<br>
+  أنت المقدّم وأنت المؤخّر<br>
+  لا إله إلا أنت
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">معنى «أنت المقدّم وأنت المؤخّر»</span>
+  <p>أي أنت يا الله الذي تقدّم الأشياء فتضعها في مواضعها، وأنت يا الله الذي تؤخّر الأشياء فتضعها في مواضعها. فمن استحقّ التقديم قدّمته يا ربّ، ومن استحقّ التأخير أخّرته يا ربّ. <b>رواهما مسلم</b>.</p>
+</div>
+
+<h3 class="sub-title">الدعاء الثالث — دعاء أبي بكر الصدّيق</h3>
+
+<div class="dua-text">
+  اللهمّ إنّي ظلمت نفسي ظلماً كبيراً كثيراً<br>
+  ولا يغفر الذنوب إلا أنت<br>
+  فاغفر لي مغفرة من عندك وارحمني<br>
+  إنّك أنت الغفور الرحيم
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">رواية البخاريّ</span>
+  <p>هذا الحديث من حديث <b>أبي بكر الصدّيق</b> رضي الله عنه أنّه طلب من النبيّ ﷺ أن يُعلّمه دعاءً يدعو به في صلاته، فعلّمه هذا الدعاء.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">«كثيراً» أو «كبيراً»؟</span>
+  <p>جاء في الروايات «ظلماً كثيراً» وفي بعض روايات صحيح مسلم «ظلماً كبيراً». قال الإمام النوويّ: <b>الأولى أن يجمع بينهما</b> محافظة على لفظ الحديث — وهذا ما فعله المصنّف حيث جمع: «ظلماً كبيراً كثيراً». وهذا ليس سهواً بل مقصود.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">موضع هذا الدعاء</span>
+  <p>لم يأتِ في الروايات ما يبيّن موضع هذا الدعاء — هل يكون في السجود أم بعد التشهد وقبل السلام؟ قال الحافظ ابن دقيق العيد: <b>يمكن أن يُقال في السجود ويمكن أن يُقال بعد التشهد وقبل السلام</b> — أي في الموضعين جميعاً.</p>
+</div>
+
+<!-- ===== 23. دعاء الإمام ===== -->
+<h2 class="section-title">٢٣. دعاء الإمام يُسنّ أن ينقص عن قدر الأقلّ</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويُسنّ أن ينقص دعاء الإمام عن قدر أقلّ التشهد والصلاة على النبيّ ﷺ</b> — أي يُسنّ أن يكون الدعاء أقلّ من القدر الواجب منهما.</p>
+</div>
+
+<h3 class="sub-title">تفصيل أحوال الدعاء</h3>
+
+<table>
+  <tr>
+    <th>المصلّي</th>
+    <th>حكم تطويل الدعاء</th>
+    <th>البيان</th>
+  </tr>
+  <tr>
+    <td><b>الإمام</b></td>
+    <td><span class="highlight-green">يُسنّ أن ينقص</span></td>
+    <td>دعاؤه أقلّ من قدر أقلّ التشهد والصلاة على النبيّ ﷺ</td>
+  </tr>
+  <tr>
+    <td><b>المأموم</b></td>
+    <td>تابع لإمامه</td>
+    <td>هو تبع لإمامه</td>
+  </tr>
+  <tr>
+    <td><b>المنفرد</b></td>
+    <td><span class="highlight-gold">له التطويل ما شاء</span></td>
+    <td>ما لم يقع في السهو — حتّى لو قلق ربع ساعة أو نصف ساعة لا مشكلة</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">استثناء في حقّ الإمام</span>
+  <p>المقصود بالإمام هنا: من كان إمام قوم ليسوا محصورين، أو قوم محصورين <b>لم يرضوا بالتطويل</b>. أمّا لو كان إمام قوم محصورين <b>راضين بالتطويل</b> — فحكمه حكم المنفرد.</p>
+</div>
+
+<!-- ===== 24. كراهة الصلاة على النبي بعد أدعية التشهد ===== -->
+<h2 class="section-title">٢٤. كراهة الصلاة على النبيّ بعد أدعية التشهد</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف — عن شيخه ابن حجر</span>
+  <p><b>قال شيخنا: تُكره الصلاة على النبيّ ﷺ بعد أدعية التشهد</b> — أي بعد أن يدعو المصلي بالأدعية قبل السلام، لا يُسنّ أن يصلّي على النبيّ ﷺ بعد ذلك.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه مهمّ</span>
+  <p>قد يقول قائل: أليس يُستحبّ للإنسان إذا دعا بدعاء أن يصلّي على النبيّ ﷺ بعده؟ نقول: <b>نعم، لكن يُستثنى هذا الموضع</b>. فبعد أن تدعو قبل السلام لا تُسنّ الصلاة على النبيّ ﷺ. لأنّ الصلاة على النبيّ ﷺ ركن وُضعت في موضعها بعد التشهد مباشرة، فلا تُعاد بعد الدعاء.</p>
+</div>
+
+<!-- ===== 25. الركن الثاني عشر: القعود ===== -->
+<h2 class="section-title">٢٥. الركن الثاني عشر — القعود للتشهد والصلاة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وثاني عشرها قعود لهما</b> — أي للتشهد والصلاة على النبيّ ﷺ. <b>وكذا للسلام</b> — لأنّ شرط السلام أن يُوقعه حال كونه قاعداً.</p>
+</div>
+
+<!-- ===== 26. التورك ===== -->
+<h2 class="section-title">٢٦. التورك في قعود التشهد الأخير</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وسُنّ تورك فيه</b> — أي في قعود التشهد الأخير.</p>
+</div>
+
+<h3 class="sub-title">متى يُسنّ التورك؟</h3>
+
+<div class="key-rule">
+  يُسنّ التورك إذا كان بعده سلام<br>
+  فلا يتورّك مسبوق في تشهّد إمامه الأخير<br>
+> ولا من يسجد لسهو
+</div>
+
+<table>
+  <tr>
+    <th>الحالة</th>
+    <th>هل يتورّك؟</th>
+    <th>العلّة</th>
+  </tr>
+  <tr>
+    <td><b>بعد التشهد الأخير سلام</b></td>
+    <td><span class="highlight-green">يُسنّ التورك ✕</span></td>
+    <td>لأنّه يعقبه سلام</td>
+  </tr>
+  <tr>
+    <td><b>مسبوق في تشهّد إمامه</b></td>
+    <td><span class="highlight-red">لا يتورّك ✗</span></td>
+    <td>لأنّه لا يعقبه سلام — سيقوم ليأتي بما بقي</td>
+  </tr>
+  <tr>
+    <td><b>من سيسجد لسهو</b></td>
+    <td><span class="highlight-red">لا يتورّك ✗</span></td>
+    <td>لأنّه لا يعقبه سلام بل سجود سهو</td>
+  </tr>
+</table>
+
+<h3 class="sub-title">كيفية التورك</h3>
+
+<div class="definition-box">
+  <span class="box-label label-def">صفة التورك</span>
+  <p>التورك كالافتراش — لكن <b>يُخرج يسراه من جهة يمناه</b> و<b>يلصق وركه بالأرض</b>. في الافتراش: تفترش اليسرى وتجلس عليها. لكن في التورك: تدخل اليسرى تحت اليمنى وتضع الورك على الأرض.</p>
+</div>
+
+<!-- ===== 27. وضع اليدين ===== -->
+<h2 class="section-title">٢٧. وضع اليدين في قعود التشهدين</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ووضع يديه في قعود تشهّديه على طرف ركبتيه</b> بحيث تسامته رؤوس الأصابع — أي تحاذي رؤوس الأصابع الركبتين.</p>
+</div>
+
+<h3 class="sub-title">تفصيل وضع اليدين</h3>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">اليد اليسرى</div>
+    <div class="compare-card-body"><b>ناشراً أصابع يسراه</b><br>تكون منشورة غير مقبوضة<br>لكن مع ضمّها حتّى تستقبل القبلة<br>تنشر مضمومة</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">اليد اليمنى</div>
+    <div class="compare-card-body"><b>قابضاً أصابع يمناه إلا المسبحة</b><br>الأصابع الأربع مقبوضة<br>والمسبحة (التي تلي الإبهام)<br>مُرسلة مرفوعة</div>
+  </div>
+</div>
+
+<!-- ===== 28. رفع المسبحة ===== -->
+<h2 class="section-title">٢٨. رفع المسبحة وإمالتها وإدامة الرفع</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وسُنّ رفعها — أي المسبحة — مع إمالتها قليلاً عند همزة «إلا الله» للاتباع</b> — يميلها قليلاً ولا يجعلها مستقيمة. ويرفعها عندما يقول: «أشهد أن لا إله إلا الله».</p>
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">إدامة الرفع</span>
+  <p><b>وإدامته — أي الرفع</b> — فلا يضعها بل تبقى مرفوعة <b>إلى القيام أو السلام</b> — أي بعد أن يشير عند «إلا الله» تبقى المسبحة مرفوعة إلى أن يقوم أو يُسلّم.</p>
+</div>
+
+<div class="flow-row">
+  <div class="flow-box">يرفع المسبحة عند «إلا الله»</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">يُميلها قليلاً</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box">يبقيها مرفوعة</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-pure">إلى القيام أو السلام</div>
+</div>
+
+<!-- ===== 29. قبض الإبهام ===== -->
+<h2 class="section-title">٢٩. قبض الإبهام بجنب المسبحة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>والأفضل قبض الإبهام بجنبها</b> — بأن يضع رأس الإبهام عند أسفلها على حرف الراحة. أي: الأصابع الثلاث مقبوضة، والمسبحة مُرسلة مرفوعة، والإبهام يُقبض بجانب المسبحة.</p>
+</div>
+
+<h3 class="sub-title">ملخّص صفة الجلوس والتشهد</h3>
+
+<div class="tree-container">
+  <div class="tree-root">صفة قعود التشهد</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac;">
+      <div class="tree-branch-num">الجلوس</div>
+      <div class="tree-branch-label">الأخير: تورّك<br>الأوّل: افتراش</div>
+    </div>
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a;">
+      <div class="tree-branch-num">اليمنى</div>
+      <div class="tree-branch-label">على طرف الركبة<br>3 أصابع مقبوضة<br>المسبحة مرفوعة مائلة<br>الإبهام مقبوض بجنبها</div>
+    </div>
+    <div class="tree-branch" style="background: #eff6ff; border: 1px solid #bfdbfe;">
+      <div class="tree-branch-num">اليسرى</div>
+      <div class="tree-branch-label">على طرف الركبة<br>أصابع منشورة مضمومة<br>تستقبل القبلة</div>
+    </div>
+  </div>
+</div>
+
+<div class="key-rule">
+  ملخّص أركان الصلاة في هذا الدرس:<br>
+  <b>الركن ٩:</b> الطمأنينة في الكلّ<br>
+  <b>الركن ١٠:</b> التشهد الأخير بأقلّه<br>
+  <b>الركن ١١:</b> الصلاة على النبيّ ﷺ بعد التشهد<br>
+  <b>الركن ١٢:</b> القعود لهما وللسلام
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Regular.ttf') format('truetype'); font-weight: normal; }
+@font-face { font-family: 'Amiri'; src: url('/home/z/my-project/fonts/Amiri-Bold.ttf') format('truetype'); font-weight: bold; }
+@font-face { font-family: 'NotoNaskh'; src: url('/home/z/my-project/fonts/NotoNaskhArabic.ttf') format('truetype'); }
+@page { size: A4; margin: 12mm 14mm; }
+* { box-sizing: border-box; max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+html, body { width: 100%; overflow-x: hidden; margin: 0; padding: 0; }
+
+body {
+  font-family: 'NotoNaskh', 'Amiri', serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #1a1a2e;
+  direction: rtl;
+  background: #fff;
+  text-align: justify;
+}
+
+.cover-header {
+  background: #1a5632;
+  color: white;
+  padding: 20px 14px;
+  text-align: center;
+  margin: 0 0 12px 0;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px), repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(200,169,81,0.06) 20px, rgba(200,169,81,0.06) 21px);
+  border-bottom: 4px solid #c8a951;
+}
+.cover-header h1 { color: white; font-size: 22pt; margin-bottom: 6px; border: none; font-family: 'Amiri', serif; }
+.cover-header .subtitle { font-size: 13pt; opacity: 0.9; margin: 4px 0; }
+.cover-header .lecturer { font-size: 12pt; opacity: 0.92; margin: 6px 0 2px 0; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.3); }
+.cover-header .creator { font-size: 11pt; opacity: 0.85; margin-top: 2px; }
+.cover-header .series { font-size: 11pt; opacity: 0.8; margin-top: 4px; }
+
+.toc {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 0 0 12px 0;
+}
+.toc-title {
+  font-family: 'Amiri', serif;
+  font-size: 14pt;
+  color: #1a5632;
+  text-align: center;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #c8a951;
+  padding-bottom: 4px;
+}
+.toc-item {
+  font-size: 10pt;
+  padding: 2px 0;
+  border-bottom: 1px dotted #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+h2.section-title {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0d7c3e;
+  border-bottom: 2px solid #0d7c3e;
+  padding-bottom: 5px;
+  margin: 18px 0 10px;
+}
+
+h3.sub-title {
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: #0a5c2e;
+  margin: 14px 0 8px;
+  padding-right: 10px;
+  border-right: 4px solid #0d7c3e;
+}
+
+h4.minor-title {
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #166534;
+  margin: 10px 0 6px;
+}
+
+p { margin: 5px 0; text-align: justify; }
+
+.definition-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-right: 4px solid #0d7c3e;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.rule-box {
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-right: 4px solid #d97706;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.exception-box {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-right: 4px solid #ea580c;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.evidence-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-right: 4px solid #2563eb;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.issue-box {
+  background: #fdf2f8;
+  border: 1px solid #fbcfe8;
+  border-right: 4px solid #db2777;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.comparison-box {
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  border-right: 4px solid #7c3aed;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.note-box {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-right: 4px solid #0284c7;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.poetry-box {
+  background: #faf5ff;
+  border: 1px solid #e9d5ff;
+  border-right: 4px solid #9333ea;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+  text-align: center;
+  font-family: 'Amiri', serif;
+  font-size: 15px;
+  line-height: 2.2;
+}
+
+.key-rule {
+  background: #dcfce7;
+  border: 2px solid #16a34a;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.box-label {
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 4px;
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.label-def { background: #0d7c3e; }
+.label-rule { background: #d97706; }
+.label-exc { background: #ea580c; }
+.label-ev { background: #2563eb; }
+.label-issue { background: #db2777; }
+.label-comp { background: #7c3aed; }
+.label-note { background: #0284c7; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 13px;
+  table-layout: fixed;
+}
+
+th {
+  background: #0d7c3e;
+  color: #fff;
+  padding: 6px 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+td {
+  padding: 5px 8px;
+  border: 1px solid #d1d5db;
+  text-align: center;
+  vertical-align: top;
+}
+
+tr:nth-child(even) { background: #f0fdf4; }
+tr:nth-child(odd) { background: #fff; }
+
+.tree-container { margin: 12px 0; text-align: center; }
+.tree-root {
+  display: inline-block;
+  background: linear-gradient(135deg, #0d7c3e, #0a5c2e);
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 8px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+.tree-branches { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px; }
+.tree-branch {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  min-width: 80px;
+  text-align: center;
+}
+.tree-branch-num { font-family: 'Amiri', serif; font-weight: bold; color: #0d7c3e; font-size: 14px; }
+.tree-branch-label { font-size: 12px; color: #374151; }
+
+.compare-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.compare-card { flex: 1; min-width: 140px; border-radius: 8px; padding: 8px 10px; text-align: center; }
+.compare-card-green { background: #dcfce7; border: 1px solid #86efac; }
+.compare-card-red { background: #fef2f2; border: 1px solid #fca5a5; }
+.compare-card-gold { background: #fefce8; border: 1px solid #fde68a; }
+.compare-card-blue { background: #eff6ff; border: 1px solid #bfdbfe; }
+.compare-card-title { font-family: 'Amiri', serif; font-weight: bold; font-size: 14px; margin-bottom: 4px; }
+.compare-card-body { font-size: 12px; }
+
+.flow-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px; margin: 8px 0; }
+.flow-box { background: #0d7c3e; color: #fff; padding: 5px 12px; border-radius: 6px; font-size: 12px; font-family: 'Amiri', serif; font-weight: bold; text-align: center; }
+.flow-arrow { font-size: 16px; color: #0d7c3e; font-weight: bold; }
+.flow-result { padding: 5px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; text-align: center; }
+.flow-pure { background: #dcfce7; border: 1px solid #86efac; color: #166534; }
+.flow-impure { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+.flow-excused { background: #fefce8; border: 1px solid #fde68a; color: #92400e; }
+
+.highlight-green { background: #dcfce7; padding: 1px 4px; border-radius: 3px; }
+.highlight-gold { background: #fefce8; padding: 1px 4px; border-radius: 3px; }
+.highlight-red { background: #fef2f2; padding: 1px 4px; border-radius: 3px; }
+
+.verse-ref { font-family: 'Amiri', serif; font-size: 14px; color: #1e40af; text-align: center; margin: 6px 0; }
+.hadith-ref { font-family: 'Amiri', serif; font-size: 13px; color: #166534; text-align: center; margin: 6px 0; }
+
+.condition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.condition-item { border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.condition-num {
+  display: inline-block; background: #0d7c3e; color: #fff; min-width: 24px; height: 24px;
+  border-radius: 50%; text-align: center; line-height: 24px; font-family: 'Amiri', serif;
+  font-weight: bold; font-size: 12px; margin-left: 6px;
+}
+
+ul { margin: 4px 0; padding-right: 20px; }
+li { margin: 2px 0; }
+</style>
+</head>
+<body>
+
+<!-- ===== COVER HEADER (تابع) ===== -->
+<div class="cover-header">
+  <h1>شرح فتح المعين للعلامة الفقيه المليباري</h1>
+  <div class="subtitle">الدرس السابع والثلاثون — تابع أركان الصلاة: القيام وقراءة الفاتحة</div>
+  <div class="lecturer">د. لبيب نجيب عبدالله</div>
+  <div class="creator">تنسيق: أحمد بن إرشاد</div>
+  <div class="series">الركن الثالث: القيام · أحكام العاجز · صلاة المضطجع والمستلقي · الإيماء · صلاة المتنفل قاعداً · الركن الرابع: قراءة الفاتحة · المسبوق</div>
+</div>
+
+<!-- ===== TOC ===== -->
+<div class="toc">
+  <div class="toc-title">فهرس المحتويات</div>
+  <div class="toc-item"><span>١. أركان الصلاة الفعلية الستة وتصنيفها</span></div>
+  <div class="toc-item"><span>٢. أيّ الأركان الفعلية أفضل؟</span></div>
+  <div class="toc-item"><span>٣. الركن الثالث: القيام — حقيقته وشروطه</span></div>
+  <div class="toc-item"><span>٤. القيام بمعين: آدمي أو آلة</span></div>
+  <div class="toc-item"><span>٥. القيام في الفرض: الصلوات الخمس التي يجب فيها القيام</span></div>
+  <div class="toc-item"><span>٦. كيفية تحقّق القيام: نصب فقار الظهر</span></div>
+  <div class="toc-item"><span>٧. كراهة الاستناد في الصلاة</span></div>
+  <div class="toc-item"><span>٨. الانحناء وأثره على صحة القيام</span></div>
+  <div class="toc-item"><span>٩. أحكام العاجز عن القيام: ضابط المشقة</span></div>
+  <div class="toc-item"><span>١٠. الأقوال الثلاثة في ضابط المشقة المُبيحة للقعود</span></div>
+  <div class="toc-item"><span>١١. أمثلة العجز عن القيام</span></div>
+  <div class="toc-item"><span>١٢. ركوع القاعد: أقله وأكمله</span></div>
+  <div class="toc-item"><span>١٣. مسألة: المريض والصلاة في جماعة</span></div>
+  <div class="toc-item"><span>١٤. مسألة: قراءة الفاتحة قائماً والسورة جالساً</span></div>
+  <div class="toc-item"><span>١٥. أفضل قعود للقاعد: الافتراش ثمّ التربع ثمّ التورك</span></div>
+  <div class="toc-item"><span>١٦. صلاة المضطجع على جنبه</span></div>
+  <div class="toc-item"><span>١٧. صلاة المستلقي على ظهره</span></div>
+  <div class="toc-item"><span>١٨. الإيماء بالرأس وبالأجفان</span></div>
+  <div class="toc-item"><span>١٩. إجراء أفعال وأقوال الصلاة على القلب</span></div>
+  <div class="toc-item"><span>٢٠. لماذا أُخّر القيام عن النية وتكبيرة الإحرام؟</span></div>
+  <div class="toc-item"><span>٢١. صلاة المتنفل قاعداً ومضطجعاً</span></div>
+  <div class="toc-item"><span>٢٢. إطالة القيام أفضل من تكثير الركعات</span></div>
+  <div class="toc-item"><span>٢٣. الركن الرابع: قراءة الفاتحة في كلّ ركعة</span></div>
+  <div class="toc-item"><span>٢٤. حكم المسبوق في الفاتحة</span></div>
+</div>
+
+<!-- ===== 1. أركان الصلاة الفعلية ===== -->
+<h2 class="section-title">١. أركان الصلاة الفعلية الستة وتصنيفها</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">تذكير — نصّ المصنّف</span>
+  <p><b>وثالثها قيام قادر عليه بنفسه أو بغيره في فرض ولو منذوراً أو معادلاً</b></p>
+</div>
+
+<p>مرّ معنا أنّ أركان الصلاة أربعة عشر ركناً بحسب ترى المصنّف الفقيه العلامة المليباري رحمه الله تعالى. تكلّمنا على الركن الأول (النية) والركن الثاني (تكبيرة الإحرام)، واليوم نشرع في الركن الثالث وهو القيام. القيام أحد أركان الصلاة الفعلية الستة.</p>
+
+<div class="definition-box">
+  <span class="box-label label-def">تعريف</span>
+  <p><b>أركان الصلاة الفعلية ستة</b>: القيام، والركوع، والاعتدال، والسجود، والقعود بين السجدتين، والقعود للتشهّد الأخير.</p>
+</div>
+
+<h3 class="sub-title">تصنيف الأركان الفعلية</h3>
+
+<p>تنقسم الأركان الفعلية الستة إلى قسمين:</p>
+
+<div class="tree-container">
+  <div class="tree-root">أركان الصلاة الفعلية (ستة)</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="background: #dcfce7; border-color: #86efac; min-width: 200px;">
+      <div class="tree-branch-num">أركان طويلة (أربعة)</div>
+      <div class="tree-branch-label">١. القيام<br>٢. الركوع<br>٣. السجود<br>٤. القعود للتشهّد الأخير</div>
+    </div>
+    <div class="tree-branch" style="background: #fefce8; border-color: #fde68a; min-width: 200px;">
+      <div class="tree-branch-num">أركان قصيرة (اثنان)</div>
+      <div class="tree-branch-label">١. الاعتدال<br>٢. القعود بين السجدتين</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 2. أفضل الأركان الفعلية ===== -->
+<h2 class="section-title">٢. أيّ الأركان الفعلية أفضل؟</h2>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف بين الفقهاء</span>
+  <p>حصل خلاف بين الفقهاء في أيّ الأركان الفعلية الستة أفضل. مذهب الشافعية أنّ <b>القيام أفضلها</b>، خلافاً لمن قال إنّ السجود أفضل.</p>
+</div>
+
+<h3 class="sub-title">دليل من قال القيام أفضل</h3>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الأدلّة</span>
+  <p><b>أولاً:</b> لأنّ القيام محلّ القراءة، بخلاف السجود فتُكره فيه القراءة، ورد النهي عن قراءة القرآن في السجود وفي الركوع.</p>
+  <p><b>ثانياً:</b> قال النبيّ صلّى الله عليه وسلّم: <b>«أفضل الصلاة قول القنوت»</b> وفُسّر القنوت بأنّه القيام.</p>
+</div>
+
+<h3 class="sub-title">ترتيب الأركان الفعلية من الأفضل</h3>
+
+<div class="flow-row">
+  <div class="flow-box" style="background: #0d7c3e;">القيام</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box" style="background: #0a5c2e;">السجود</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box" style="background: #166534;">الركوع</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-pure">القعود للتشهّد الأخير</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-excused">الاعتدال والقعود بين السجدتين</div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه من الشيخ</span>
+  <p>قال جماعة من فقهاء الشافعية: ثمّ بقية الأركان على السواء. لكن يمكن أن يقال — وهذا من الشيخ — إنّ بعد هذه الأركان يأتي القعود للتشهّد الأخير، لأنّه يتضمّن الشهادتين (أشهد أن لا إله إلا الله وأشهد أنّ محمّداً رسول الله) ويتضمّن الصلاة على النبيّ صلّى الله عليه وسلّم، فمن حيث ما تضمّن هو أفضل من القعود بين السجدتين ومن الاعتدال. والله أعلم.</p>
+</div>
+
+<!-- ===== 3. الركن الثالث: القيام ===== -->
+<h2 class="section-title">٣. الركن الثالث: القيام — حقيقته وشروطه</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وثالثها قيام قادر عليه بنفسه أو بغيره في فرض</b></p>
+</div>
+
+<p>قوله <b>«قيام قادر»</b> أخرج العاجز — وسيأتي الكلام عن أحكام العاجز. وقوله <b>«عليه بنفسه أو بغيره»</b> أي سواء قدر على القيام بنفسه أو قدر على القيام بغيره.</p>
+
+<div class="key-rule">
+  القيام ركن في الفريضة فقط<br>
+  أمّا النافلة فلا يجب فيها القيام
+</div>
+
+<!-- ===== 4. القيام بمعين ===== -->
+<h2 class="section-title">٤. القيام بمعين: آدمي أو آلة</h2>
+
+<p>قوله <b>«قدر على القيام بغيره»</b> يشمل:</p>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #f0fdf4; border: 1px solid #bbf7d0;">
+    <span class="condition-num">١</span>
+    <b>القيام بمعين آدمي</b>: إنسان آخر يُقيمه
+  </div>
+  <div class="condition-item" style="background: #f0fdf4; border: 1px solid #bbf7d0;">
+    <span class="condition-num">٢</span>
+    <b>القيام بآلة</b>: كالعكاز والعصا
+  </div>
+</div>
+
+<div class="rule-box">
+  <span class="box-label label-rule">حكم الاستعانة</span>
+  <p><b>فلو لم يقدر على القيام إلا بمعين وجب عليه المعين.</b> وإن كان فقهاء الشافعية رحمهم الله يفرّقون:</p>
+</div>
+
+<table>
+  <tr>
+    <th>نوع المعين</th>
+    <th>يجب في ابتداء الصلاة</th>
+    <th>يجب في أثناء الصلاة</th>
+  </tr>
+  <tr>
+    <td><b>آلة (كالعكاز)</b></td>
+    <td><span class="highlight-green">يجب مطلقاً</span></td>
+    <td><span class="highlight-green">يجب مطلقاً</span></td>
+  </tr>
+  <tr>
+    <td><b>آدمي</b></td>
+    <td><span class="highlight-green">يجب</span></td>
+    <td><span class="highlight-red">لا يجب</span> — لأنّه قد يشقّ</td>
+  </tr>
+</table>
+
+<h3 class="sub-title">مسألة: أجرة المعين</h3>
+
+<div class="issue-box">
+  <span class="box-label label-issue">مسألة</span>
+  <p>لو قال المعين: «أُعينك على القيام في الصلاة لكن بأجرة» — هل تجب له الأجرة؟</p>
+  <p><b>الجواب:</b> نعم، تجب له الأجرة <b>بشرط أن تكون فاضلة</b> — أي زائدة عن نفقتك ونفقة من تنفق عليهم يوم العيد وليلته، كما ذكروا في زكاة الفطر.</p>
+</div>
+
+<!-- ===== 5. القيام في الفرض ===== -->
+<h2 class="section-title">٥. القيام في الفرض: الصلوات الخمس التي يجب فيها القيام</h2>
+
+<p>قوله <b>«في فرض»</b> قيد ثاني — القيد الأول كان «قادر» (أخرج العاجز)، والقيد الثاني «في فرض» أخرج النفل. ويجب القيام في خمس حالات:</p>
+
+<table>
+  <tr>
+    <th>الرقم</th>
+    <th>نوع الفرض</th>
+    <th>البيان</th>
+  </tr>
+  <tr>
+    <td><b>١</b></td>
+    <td>الصلاة المكتوبة</td>
+    <td>الصلوات الخمس المفروضة</td>
+  </tr>
+  <tr>
+    <td><b>٢</b></td>
+    <td>الصلاة المنذورة</td>
+    <td>«ولو منذوراً» — نذر أن يصلّي</td>
+  </tr>
+  <tr>
+    <td><b>٣</b></td>
+    <td>الصلاة المعادة</td>
+    <td>«ولو معادلاً» — أعاد الصلاة</td>
+  </tr>
+  <tr>
+    <td><b>٤</b></td>
+    <td>صلاة الجنازة</td>
+    <td>فرض كفاية</td>
+  </tr>
+  <tr>
+    <td><b>٥</b></td>
+    <td>صلاة الصبيّ للمكتوبات</td>
+    <td>الصبيّ المميّز إذا صلّى المكتوبات</td>
+  </tr>
+</table>
+
+<div class="key-rule">
+  في هذه الحالات الخمس يجب القيام<br>
+  والصلوات المكتوبات خمس حالات
+</div>
+
+<!-- ===== 6. نصب فقار الظهر ===== -->
+<h2 class="section-title">٦. كيفية تحقّق القيام: نصب فقار الظهر</h2>
+
+<div class="definition-box">
+  <span class="box-label label-def">تعريف</span>
+  <p><b>يحصل القيام بنصب فقار الظهر</b> — أي عظامه التي هي مفاصله. وقوله «فقار الظهر» يُفهم منه أنّه لا يُشترط نصب فقار العنق، بل <b>السنّة أن يُخفض رأسه في صلاته</b>. ولذلك قال «فقار الظهر» ولم يقل «فقار العنق».</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه</span>
+  <p>القيام يحصل <b>ولو باستناد إلى شيء بحيث لو زال لسقط</b> — أي حتّى لو استقام مستنداً إلى جدار بحيث لو زال الجدار لسقط، يصحّ قيامه.</p>
+</div>
+
+<!-- ===== 7. كراهة الاستناد ===== -->
+<h2 class="section-title">٧. كراهة الاستناد في الصلاة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">حكم الاستناد</span>
+  <p><b>ويكره الاستناد</b> — أي الاستناد الذي ذكره قبل قليل (الاستناد إلى شيء بحيث لو زال لسقط). فالقيام مع الاستناد صحيح لكنّه <b>مكروه</b>.</p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">الاستناد مع انتصاب الظهر</div>
+    <div class="compare-card-body">صحيح لكنّه مكروه<br>إذا زال المستند يسقط</div>
+  </div>
+  <div class="compare-card compare-card-red">
+    <div class="compare-card-title">القيام بدون استناد</div>
+    <div class="compare-card-body">صحيح وهو الأفضل<br>منتصب في فقار الظهر<br>معتمد على قدميه</div>
+  </div>
+</div>
+
+<!-- ===== 8. الانحناء ===== -->
+<h2 class="section-title">٨. الانحناء وأثره على صحة القيام</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>لا بحِنَاء إن كان أقرب إلى أقل الركوع إن لم يعجز عن تمام الانتصاب</b></p>
+</div>
+
+<p>هذا تفريع على قوله «بنصب فقار ظهره» — أي لا يصحّ القيام بحِنَاء (انحناء). وتفصيل المسألة:</p>
+
+<h3 class="sub-title">حالات القيام والانحناء</h3>
+
+<table>
+  <tr>
+    <th>الحالة</th>
+    <th>الوصف</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td><b>الانتصاب التام</b></td>
+    <td>الشخص منتصب — ظهره وعنقه مستقيمان</td>
+    <td><span class="highlight-green">صحيح — وهو الأصل</span></td>
+  </tr>
+  <tr>
+    <td><b>انحناء أقرب إلى القيام</b></td>
+    <td>مال قليلاً بحيث يكون أقرب إلى حالة القيام</td>
+    <td><span class="highlight-green">صحيح</span></td>
+  </tr>
+  <tr>
+    <td><b>انحناء على السواء</b></td>
+    <td>الانحناء بين القيام وأقلّ الركوع بالسوية</td>
+    <td><span class="highlight-green">صحيح</span></td>
+  </tr>
+  <tr>
+    <td><b>انحناء أقرب إلى أقلّ الركوع</b></td>
+    <td>مال أكثر بحيث يكون أقرب إلى أقلّ الركوع (مع القدرة على الانتصاب)</td>
+    <td><span class="highlight-red">لا يصحّ القيام</span></td>
+  </tr>
+</table>
+
+<h3 class="sub-title">تفصيل حالة العاجز عن الانتصاب</h3>
+
+<div class="exception-box">
+  <span class="box-label label-exc">استثناء</span>
+  <p>قوله <b>«إن لم يعجز عن تمام الانتصاب»</b> — مفهومه أنّه <b>إذا عجز عن تمام الانتصاب فإنّه يصحّ</b> حتّى وإن كان أقرب إلى أقلّ الركوع، بل يجب عليه ذلك.</p>
+  <p>مثاله: من بلغ به كبر السنّ أنّه يمشي منحنياً لا يستطيع أن ينتصب لكبر سنّه أو لمرض — فهذا يجب عليه أن يصلّي على هذه الحالة.</p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p>قال الله عزّ وجلّ: <span class="verse-ref">{فَاتَّقُوا اللَّهَ مَا اسْتَطَعْتُمْ}</span></p>
+  <p>وقال النبيّ صلّى الله عليه وسلّم: <b>«ما أمرتكم به فاتوا منه ما استطعتم»</b></p>
+  <p>قاعدة: <b>الميسور لا يسقط بالمعسور</b></p>
+</div>
+
+<!-- ===== 9. أحكام العاجز ===== -->
+<h2 class="section-title">٩. أحكام العاجز عن القيام: ضابط المشقة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ولعاجز شقّ عليه قيام صلاة قاعد</b> — تقدير الكلام: ولعاجز صلاة قاعد. أي للعاجز عن القيام أن يصلّي قاعداً.</p>
+  <p><b>ضابط العجز:</b> أن يلحقه بالقيام مشقّة شديدة بحيث لا تُحتمل عادةً.</p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">ضابط المشقة عند الإمام الجويني</span>
+  <p><b>وضبطها الإمام</b> — أي إمام الحرمين عبد الملك بن عبد الله بن يوسف الجويني المتوفّى سنة 478 هـ — <b>بأن تكون بحيث يذهب معها خشوعه</b>.</p>
+  <p>إذن: العاجز له أن يصلّي قاعداً إذا شقّ عليه القيام مشقة لا تُحتمل، وضابطها أنّها تُذهب الخشوع.</p>
+</div>
+
+<!-- ===== 10. الأقوال الثلاثة ===== -->
+<h2 class="section-title">١٠. الأقوال الثلاثة في ضابط المشقة المُبيحة للقعود</h2>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف في المذهب — ثلاثة أقوال</span>
+</div>
+
+<table>
+  <tr>
+    <th>القول</th>
+    <th>ضابط المشقة</th>
+    <th>التفصيل</th>
+    <th>الاعتماد</th>
+  </tr>
+  <tr>
+    <td><b>الأوّل</b></td>
+    <td>مشقة تُذهب الخشوع</td>
+    <td>إذا ذهب الخشوع من القيام جاز القعود</td>
+    <td>اعتمده المصنّف المليباري والرّمليّ</td>
+  </tr>
+  <tr>
+    <td><b>الثاني</b></td>
+    <td>مشقة تُبيح التيمّم</td>
+    <td>يخاف على نفسه من الموت أو على عضو أو فوات منفعة عضو أو تأخّر الشفاء أو زيادة المرض</td>
+    <td>أشدّ من الأوّل بكثير</td>
+  </tr>
+  <tr>
+    <td><b>الثالث</b></td>
+    <td>مشقة لا تُحتمل عادةً وإن لم تُبح التيمّم</td>
+    <td>بين الأوّل والثاني — مشقة شديدة لكن لا تصل إلى إباحة التيمّم</td>
+    <td><span class="highlight-green">اعتمده ابن حجر</span></td>
+  </tr>
+</table>
+
+<h3 class="sub-title">ترجيح العلاّمة ابن حجر</h3>
+
+<div class="note-box">
+  <span class="box-label label-note">وجهة نظر ابن حجر</span>
+  <p>ضعّف ابن حجر القول الأوّل (المشقة التي تُذهب الخشوع) والقول الثاني (المشقة التي تُبيح التيمّم)، واعتمد القول الثالث (المشقة التي لا تُحتمل عادةً وإن لم تُبح التيمّم).</p>
+  <p><b>وجهة نظره:</b> الخشوع في الصلاة مستحبّ، والقيام ركن. فكيف نقول إذا كان الخشوع سيذهب بسبب القيام أقلس؟ كيف تحافظ على سنّة وتضيع فرضاً وهو القيام؟</p>
+  <p>ووجّه ذلك من الفقهاء كالعلاّمة الأهدل وغيره.</p>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">قول الرّمليّ</span>
+  <p>حتّى قال بعضهم: سواء كانت تُذهب الخشوع أو كمال الخشوع، له أن يصلّي جالساً.</p>
+</div>
+
+<div class="key-rule">
+  الخلاصة: المسألة فيها خلاف بين الفقهاء<br>
+  — المصنّف المليباري: المشقة التي تُذهب الخشوع<br>
+  — ابن حجر (المعتمد): المشقة التي لا تُحتمل عادةً وإن لم تُبح التيمّم<br>
+  — قول ثالث: المشقة التي تُبيح التيمّم (أشدّ الأقوال)
+</div>
+
+<!-- ===== 11. أمثلة العجز ===== -->
+<h2 class="section-title">١١. أمثلة العجز عن القيام</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">الأمثلة من كلام المصنّف</span>
+</div>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #f0fdf4; border: 1px solid #bbf7d0;">
+    <span class="condition-num">١</span>
+    <b>راكب سفينة خاف دوران رأسه</b><br>
+    إذا قام في صلاته خاف دوران الرأس — يصلّي جالساً بلا إعادة
+  </div>
+  <div class="condition-item" style="background: #f0fdf4; border: 1px solid #bbf7d0;">
+    <span class="condition-num">٢</span>
+    <b>مَسْلوس لا يستمسك حدثه إلا بالقعود</b><br>
+    لو صلّى قاعداً يمسك بوله، وإذا صلّى قائماً يسيل منه البول — يسقط عنه القيام ولا إعادة عليه
+  </div>
+</div>
+
+<div class="key-rule">
+  العاجز يصلّي قاعداً بلا إعادة<br>
+  إذا تحقّقت المشقة المُبيحة للقعود
+</div>
+
+<!-- ===== 12. ركوع القاعد ===== -->
+<h2 class="section-title">١٢. ركوع القاعد: أقله وأكمله</h2>
+
+<div class="definition-box">
+  <span class="box-label label-def">نصّ المصنّف</span>
+  <p><b>وينحني القاعد للركوع بحيث تحاذي جبهته ما قدّام ركبتيه</b></p>
+</div>
+
+<p>عندما يصلّي قاعداً — كعلى الكرسي مثلاً — كيف يركع؟</p>
+
+<table>
+  <tr>
+    <th>المرتبة</th>
+    <th>الوصف</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td><b>أقلّ الركوع</b></td>
+    <td>أن ينحني بحيث الرأس يُحاذي ما قدّام الركبتين</td>
+    <td>هو ما ذكره المصنّف — <span class="highlight-gold">أقلّ ما يكفي</span></td>
+  </tr>
+  <tr>
+    <td><b>أكمل الركوع</b></td>
+    <td>أن ينحني بحيث الرأس يُحاذي موضع السجود</td>
+    <td><span class="highlight-green">الأكمل والأفضل</span></td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه مهمّ</span>
+  <p>ما ذكره المصنّف (تحاذي جبهته ما قدّام ركبتيه) بيان <b>للأقلّ</b> لا للأكمل — فانتبهوا لها!</p>
+</div>
+
+<!-- ===== 13. المريض والجماعة ===== -->
+<h2 class="section-title">١٣. مسألة: المريض والصلاة في جماعة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ ابن حجر (شيخ المصنّف)</span>
+  <p><b>يجوز لمريض أمكنه القيام بلا مشقة لو انفرد — لا إن صلّى في جماعة إلا مع قعود في بعضها — الصلاة معهم</b></p>
+</div>
+
+<h3 class="sub-title">صورة المسألة</h3>
+
+<p>عندك مريض يقول: «أنا إذا صلّيت مفرداً صلّيت قائماً، وإذا صلّيت في جماعة قعدت في بعض الصلاة». فهل يصلّي منفرداً محافظاً على القيام أو يصلّي في جماعة ويجلس في بعضها؟</p>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">الصلاة منفرداً قائماً</div>
+    <div class="compare-card-body"><b>الأفضل</b><br>ليأتي بالصلاة كلّها من قيام<br>يحافظ على ركن القيام كاملاً</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">الصلاة في جماعة مع القعود في بعضها</div>
+    <div class="compare-card-body"><b>جائز</b><br>لتحصيل فضل الجماعة<br>لكن يفوته بعض القيام</div>
+  </div>
+</div>
+
+<div class="key-rule">
+  هذه المسألة تندرج تحت قاعدة <b>تعارض المصلحتين</b><br>
+  — تحصير فضل الجماعة<br>
+  — أو مراعاة مصلحة القيام<br>
+  والجائز: الصلاة مع الجماعة وإن قعد في بعضها<br>
+  والأفضل: الانفراد ليأتي بالصلاة كلّها من قيام
+</div>
+
+<!-- ===== 14. الفاتحة والسورة ===== -->
+<h2 class="section-title">١٤. مسألة: قراءة الفاتحة قائماً والسورة جالساً</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وكذا إذا قرأ الفاتحة فقط لم يقعد، أو والسورة قعد فيها، جاز له قراءتها — أعني السورة — مع القعود، وإن كان الأفضل تركها</b></p>
+</div>
+
+<h3 class="sub-title">صورة المسألة</h3>
+
+<p>شخص يقول: «إذا صلّيت وقرأت الفاتحة فقط أستطيع القيام، لكن إذا كنت سأقرأ الفاتحة وسورة بعدها أجلس لا أستطيع القيام». فهل يصلّي قائماً ويقرأ الفاتحة فقط، أو يصلّي قائماً فإذا جاء وقت السورة جلس وقرأها جالساً؟</p>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">قراءة الفاتحة فقط قائماً</div>
+    <div class="compare-card-body"><b>الأفضل</b><br>يقتصر على الفاتحة حال كونه قائماً<br>كما في المسألة السابقة الأفضل الانفراد قائماً</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">قراءة الفاتحة قائماً والسورة جالساً</div>
+    <div class="compare-card-body"><b>جائز</b><br>لكن الأفضل ترك السورة<br>والاكتفاء بالفاتحة في حال القيام</div>
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">ربط المسألتين</span>
+  <p>هذه المسألة تشبه المسألة السابقة — في كلا المسألتين يجوز الجمع بين الأمرين، لكن الأفضل المحافظة على القيام الكامل.</p>
+</div>
+
+<!-- ===== 15. أفضل قعود ===== -->
+<h2 class="section-title">١٥. أفضل قعود للقاعد: الافتراش ثمّ التربع ثمّ التورك</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>والأفضل للقاعد الافتراش ثمّ التربع</b></p>
+</div>
+
+<p>المصلي يصلّي أوّلاً قائماً، فإن لم يستطع صلّى قاعداً. فإذا صلّى قاعداً كيف يقعد؟ <b>يقعد كيف شاء</b> — ليس هناك كيفية واجبة في القعود، لكن توجد كيفية مستحبة.</p>
+
+<table>
+  <tr>
+    <th>المرتبة</th>
+    <th>الكيفية</th>
+    <th>الوصف</th>
+    <th>الحكم</th>
+  </tr>
+  <tr>
+    <td><b>الأوّل</b></td>
+    <td>الافتراش</td>
+    <td>يجعل رجله اليسرى تحت فخذه الأيمن</td>
+    <td><span class="highlight-green">الأفضل</span></td>
+  </tr>
+  <tr>
+    <td><b>الثاني</b></td>
+    <td>التربّع</td>
+    <td>يجلس متربعاً</td>
+    <td><span class="highlight-gold">في المرتبة الثانية</span></td>
+  </tr>
+  <tr>
+    <td><b>الثالث</b></td>
+    <td>التورّك</td>
+    <td>يخرج رجله اليسرى من تحت الساق اليمنى</td>
+    <td>في المرتبة الثالثة</td>
+  </tr>
+</table>
+
+<h3 class="sub-title">لماذا الافتراش أفضل من التربّع؟</h3>
+
+<p>حصل خلاف بين الفقهاء في هذه المسألة:</p>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">خلاف بين الفقهاء</span>
+  <p><b>بعض الفقهاء</b> يقول إنّ التربّع أفضل من الافتراش، لورود حديث في سنن الدارقطنيّ عن أمّ المؤمنين عائشة أنّ النبيّ صلّى الله عليه وسلّم قعد متربعاً.</p>
+  <p>ولوجود هذا الخلاف جعلوا التربّع بعد الافتراش. وأمّا كونه يصلّي على كرسي أو فراش فكلّ ذلك جائز لأنّه لا توجد كيفية واجبة في القعود.</p>
+</div>
+
+<h3 class="sub-title">المراتب الثلاث للعاجز</h3>
+
+<div class="flow-row">
+  <div class="flow-box" style="background: #0d7c3e;">القيام</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box" style="background: #0a5c2e;">القعود</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box" style="background: #166534;">الاضطجاع</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box" style="background: #854d0e;">الاستلقاء</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-excused">الإيماء بالرأس</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-impure">الإيماء بالأجفان</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result" style="background: #f5f3ff; border: 1px solid #ddd6fe; color: #5b21b6;">إجراء الأفعال على القلب</div>
+</div>
+
+<div class="key-rule">
+  ضابط الانتقال: إذا لحقت مشقّة شديدة تُذهب الخشوع انتقل إلى ما بعده<br>
+  وكلّ مرتبة تسقط عند العجز عن التي قبلها
+</div>
+
+<!-- ===== 16. صلاة المضطجع ===== -->
+<h2 class="section-title">١٦. صلاة المضطجع على جنبه</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>فإن عجز عن الصلاة قاعداً صلّى مضطجعاً على جنبه مستقبلاً القبلة بوجهه ومقدم بدنه</b></p>
+</div>
+
+<h3 class="sub-title">استقبال القبلة في حال الاضطجاع</h3>
+
+<p>قوله «على جنبه» يشمل الجنب الأيمن والأيسر لأنّه لم يُحدّد فأُطلق وهو مراد. فيصحّ إذا اضطجع على جنبه الأيمن ويصحّ إذا اضطجع على جنبه الأيسر. فإذا اضطجع على جنبه الأيمن سيكون كهيئة الميت إذا يوضع في اللحد.</p>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">مقارنة: استقبال القبلة في الأحوال المختلفة</span>
+</div>
+
+<table>
+  <tr>
+    <th>الحال</th>
+    <th>استقبال القبلة بالصدر</th>
+    <th>استقبال القبلة بالوجه</th>
+  </tr>
+  <tr>
+    <td><b>القيام</b></td>
+    <td><span class="highlight-green">واجب</span></td>
+    <td>لا يجب</td>
+  </tr>
+  <tr>
+    <td><b>القعود</b></td>
+    <td><span class="highlight-green">واجب</span></td>
+    <td>لا يجب</td>
+  </tr>
+  <tr>
+    <td><b>الاضطجاع</b></td>
+    <td><span class="highlight-green">واجب</span></td>
+    <td><span class="highlight-green">واجب</span> — زاد عن القيام والقعود</td>
+  </tr>
+</table>
+
+<div class="issue-box">
+  <span class="box-label label-issue">خلاف ابن حجر</span>
+  <p>العلامة ابن حجر رحمه الله يخالف في وجوب استقبال القبلة بالوجه في الاضطجاع. يقول: <b>القياس أنّ الواجب هو استقبال القبلة بالصدر فقط لا بالوجه</b> — في القيام والقعود والاضطجاع حتّى في الانحناء نفس الكلام. وكلامه وجيه.</p>
+</div>
+
+<h3 class="sub-title">كراهة الاضطجاع على الجنب الأيسر</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويكره على الجنب الأيسر بلا عذر</b></p>
+</div>
+
+<div class="condition-grid">
+  <div class="condition-item" style="background: #fefce8; border: 1px solid #fde68a;">
+    <b>اضطجع على الأيسر بلا عذر</b><br>
+    صلاته صحيحة لكن مكروهة
+  </div>
+  <div class="condition-item" style="background: #dcfce7; border: 1px solid #86efac;">
+    <b>اضطجع على الأيسر مع العذر</b><br>
+    صلاته صحيحة ولا كراهة — كأن لا يستطيع على الأيمن
+  </div>
+</div>
+
+<!-- ===== 17. صلاة المستلقي ===== -->
+<h2 class="section-title">١٧. صلاة المستلقي على ظهره</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>فمستلقياً ظهره إلى القبلة وأخمصاه إلى القبلة</b></p>
+</div>
+
+<p>إذا عجز عن الصلاة مضطجعاً بأن لحقته مشقة شديدة يذهب معها خشوعه، فإنّه يصلّي مستلقياً على ظهره.</p>
+
+<div class="definition-box">
+  <span class="box-label label-def">معنى الأخمص</span>
+  <p><b>الأخمص</b> هو المُنخفض من القدم — المكان الذي لا يصيب الأرض من القدم.</p>
+</div>
+
+<h3 class="sub-title">استقبال القبلة في حال الاستلقاء</h3>
+
+<table>
+  <tr>
+    <th>كيفية الاستقبال</th>
+    <th>الحكم</th>
+    <th>الشرط</th>
+  </tr>
+  <tr>
+    <td><b>استقبال القبلة بالصدر والوجه</b></td>
+    <td><span class="highlight-green">واجب</span></td>
+    <td>ما دام يستطيع</td>
+  </tr>
+  <tr>
+    <td><b>استقبال القبلة بالوجه فقط</b></td>
+    <td><span class="highlight-gold">واجب إذا عجز عن الصدر</span></td>
+    <td>إذا عجز عن استقبال الصدر</td>
+  </tr>
+  <tr>
+    <td><b>استقبال القبلة بأخمص القدمين</b></td>
+    <td><span class="highlight-gold">مستحبّ لا واجب</span></td>
+    <td>ما دام يستطيع استقبال الصدر والوجه</td>
+  </tr>
+  <tr>
+    <td><b>استقبال القبلة بأخمص القدمين</b></td>
+    <td><span class="highlight-red">واجب</span></td>
+    <td>إذا عجز عن استقبال الصدر والوجه</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه</span>
+  <p><b>ويجب أن يضع تحت رأسه نحو مخدة ليستقبل بوجهه القبلة</b> — أي وسادة. لكن يجب استقبال الوجه فقط إذا عجز عن استقبال الصدر. فإن تمكّن من استقبال الصدر في حالة الاضطجاع لا يجب استقبال الوجه. فإن عجز عن الصدر وجب بالوجه. فإن عجز عن الوجه وجب بأخمص القدمين.</p>
+</div>
+
+<!-- ===== 18. الإيماء ===== -->
+<h2 class="section-title">١٨. الإيماء بالرأس وبالأجفان</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وأن يومئ صوب القبلة راكعاً وساجداً وبالسجود أخفض من الإيماء للركوع إن عجز عنهما</b></p>
+</div>
+
+<h3 class="sub-title">الإيماء بالرأس</h3>
+
+<p>يومئ برأسه إلى جهة القبلة في حالة الركوع والسجود. وإن أمكنه أن يركع ويسجد يجب عليه أن يأتي بهما تامّين.</p>
+
+<div class="key-rule">
+  الإيماء بالرأس: <b>السجود أخفض وجوباً من الركوع</b><br>
+  أي إذا كان يركع برأسه هكذا — في السجود يكون أخفض<br>
+  هذا وجوباً لتمييز السجود عن الركوع
+</div>
+
+<h3 class="sub-title">الإيماء بالأجفان</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>فإن عجز عن الإيماء برأسه أو ماء بأجفانه</b> — أي بأجفان عينه.</p>
+</div>
+
+<div class="comparison-box">
+  <span class="box-label label-comp">مقارنة: الإيماء بالرأس والأجفان</span>
+</div>
+
+<table>
+  <tr>
+    <th>نوع الإيماء</th>
+    <th>هل يجب أن يكون السجود أخفض من الركوع؟</th>
+    <th>السبب</th>
+  </tr>
+  <tr>
+    <td><b>الإيماء بالرأس</b></td>
+    <td><span class="highlight-green">يجب وجوباً</span></td>
+    <td>لأنّ إيماء الرأس يتميّز فيه السجود عن الركوع</td>
+  </tr>
+  <tr>
+    <td><b>الإيماء بالأجفان</b></td>
+    <td><span class="highlight-red">لا يجب</span></td>
+    <td>لأنّ إيماء الجفن لا يتميّز فيه السجود عن الركوع</td>
+  </tr>
+</table>
+
+<!-- ===== 19. إجراء على القلب ===== -->
+<h2 class="section-title">١٩. إجراء أفعال وأقوال الصلاة على القلب</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>فإن عجز أجرى أفعال الصلاة على قلبه</b></p>
+</div>
+
+<p>إذا عجز عن الأفعال ولم يستطع أن يفعل الأفعال المطلوبة في الصلاة، فإنّه يُجري هذه الأفعال على قلبه:</p>
+
+<ul>
+  <li>يُمثّل لنفسه أنّه في القيام فيأتي بما يُطلب في القيام</li>
+  <li>ثمّ يُمثّل لنفسه أنّه في الركوع فيأتي بما يُطلب في الركوع</li>
+  <li>ثمّ يُمثّل لنفسه أنّه في الاعتدال فيأتي بما يُطلب في الاعتدال</li>
+  <li>وهكذا في السجود والقعود بين السجدتين إلى آخر الصلاة</li>
+</ul>
+
+<div class="note-box">
+  <span class="box-label label-note">كذلك الأقوال</span>
+  <p><b>كذلك إذا عجز عن الأقوال</b> — كأن اعتقل لسانه ولم يستطع الكلام — فإنّه يُجري أقوال الصلاة على قلبه. <b>والصلاة لا تسقط ما دام العقل ثابتاً.</b></p>
+</div>
+
+<h3 class="sub-title">نصّ صاحب الزّبد</h3>
+
+<div class="poetry-box">
+  ولا يجوز تركها لمن عقل<br>
+  وبعد عجز إن يطق شيئاً فعل
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">دلالة شرعية</span>
+  <p>قال البيجوريّ رحمه الله تعالى في حاشيته معلّقاً على هذه المسألة: <b>«وبهذا تعلم كفر من ادّعى أنّ له حالة بينه وبين الله تعالى أسقطت عنه التكليف»</b> — أي الصلاة لا تسقط عن الإنسان ما دام العقل ثابتاً.</p>
+</div>
+
+<div class="key-rule">
+  الصلاة لا تسقط عن الإنسان ما دام العقل ثابتاً<br>
+  ومن ادّعى سقوط التكليف عنه بحالته فقد كفر
+</div>
+
+<!-- ===== 20. سبب تأخير القيام ===== -->
+<h2 class="section-title">٢٠. لماذا أُخّر القيام عن النية وتكبيرة الإحرام؟</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وإنما أُخّروا القيام عن سابقيه مع تقدّمه عليهما لأنهما ركنان حتّى في النفل وهو ركن في الفريضة فقط</b></p>
+</div>
+
+<p>هذا جواب سؤال مُقدّر: لماذا بدأوا بالنية ثمّ تكبيرة الإحرام ثمّ القيام؟ لماذا لم يبدأوا بالقيام أوّلاً؟</p>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">النية وتكبيرة الإحرام</div>
+    <div class="compare-card-body">ركنان في الفرض <b>والنفل</b><br>لا بدّ منهما في كلّ صلاة</div>
+  </div>
+  <div class="compare-card compare-card-gold">
+    <div class="compare-card-title">القيام</div>
+    <div class="compare-card-body">ركن في <b>الفريضة فقط</b><br>أمّا النافلة فلا يجب فيها القيام</div>
+  </div>
+</div>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيه</span>
+  <p>مع تقدّم القيام عليهما — لأنّه يُشترط لتكبيرة الإحرام أن يكون قائماً — أي القيام قبل تكبيرة الإحرام. لكنّهم قدّموا الكلام على النية والتكبيرة لأنّهما ركنان في الفرض والنفل، بخلاف القيام.</p>
+</div>
+
+<!-- ===== 21. صلاة المتنفل ===== -->
+<h2 class="section-title">٢١. صلاة المتنفل قاعداً ومضطجعاً</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>كمتنفل يجوز له أن يصلّي النفل قاعداً ومضطجعاً مع القدرة على القيام أو القعود</b></p>
+</div>
+
+<h3 class="sub-title">أحكام صلاة المتنفل</h3>
+
+<table>
+  <tr>
+    <th>الحال</th>
+    <th>الحكم</th>
+    <th>الأجر</th>
+  </tr>
+  <tr>
+    <td><b>المتنفل القادر يصلّي قائماً</b></td>
+    <td><span class="highlight-green">الأفضل</span></td>
+    <td>الأجر كاملاً</td>
+  </tr>
+  <tr>
+    <td><b>المتنفل القادر يصلّي قاعداً</b></td>
+    <td>جائز</td>
+    <td><b>نصف أجر القائم</b></td>
+  </tr>
+  <tr>
+    <td><b>المتنفل العاجز يصلّي قاعداً</b></td>
+    <td>يجب عليه</td>
+    <td><b>الأجر كاملاً</b></td>
+  </tr>
+  <tr>
+    <td><b>المتنفل يصلّي مضطجعاً</b></td>
+    <td>جائز (الأصحّ في المذهب)</td>
+    <td>فيه خلاف</td>
+  </tr>
+  <tr>
+    <td><b>المتنفل يصلّي مستلقياً</b></td>
+    <td><span class="highlight-red">لا يصحّ</span></td>
+    <td>—</td>
+  </tr>
+</table>
+
+<div class="note-box">
+  <span class="box-label label-note">تنبيهات</span>
+  <p><b>١.</b> الأنبياء إذا صلّوا قعوداً لهم الأجر كاملاً كما قال الفقهاء.</p>
+  <p><b>٢.</b> الاضطجاع في النافلة فيه خلاف لكن الأصحّ في المذهب أنّه جائز.</p>
+  <p><b>٣.</b> الاستلقاء في النافلة لا يصحّ مع إمكان الاضطجاع.</p>
+</div>
+
+<h3 class="sub-title">يلزم المضطجع القعود للركوع والسجود</h3>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ويلزم المضطجع القعود للركوع والسجود</b></p>
+</div>
+
+<p>أي إذا صلّى مضطجعاً على جنبه — القبلة هناك، رأسه هنا، رجله هنا، وجهه وصدره إلى القبلة — ففي حالة القراءة يكون مضطجعاً، فإذا جاء الركوع <b>يجلس ويركع</b>، وإذا جاء السجود <b>يجلس ويسجد سجوداً تاماً</b>. فعليه أن يأتي بالركوع والسجود من قعود تامّين.</p>
+
+<div class="flow-row">
+  <div class="flow-box" style="background: #0d7c3e;">القراءة (مضطجعاً)</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box" style="background: #0a5c2e;">الركوع (قاعداً)</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box" style="background: #166534;">الاعتدال (مضطجعاً)</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-box" style="background: #854d0e;">السجود (قاعداً — سجود تام)</div>
+</div>
+
+<!-- ===== 22. إطالة القيام ===== -->
+<h2 class="section-title">٢٢. إطالة القيام أفضل من تكثير الركعات</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>وفي المجموع إطالة القيام أفضل من تكثير الركعات</b></p>
+  <p><b>وفي الروضة تطويل السجود أفضل من تطويل الركوع</b></p>
+</div>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p>قول النبيّ صلّى الله عليه وسلّم: <b>«أفضل الصلاة طول القنوت»</b></p>
+</div>
+
+<div class="compare-grid">
+  <div class="compare-card compare-card-green">
+    <div class="compare-card-title">إطالة القيام</div>
+    <div class="compare-card-body">أفضل من تكثير الركعات<br>(نصّ المجموع)</div>
+  </div>
+  <div class="compare-card compare-card-blue">
+    <div class="compare-card-title">تطويل السجود</div>
+    <div class="compare-card-body">أفضل من تطويل الركوع<br>(نصّ الروضة)</div>
+  </div>
+</div>
+
+<!-- ===== 23. الركن الرابع: قراءة الفاتحة ===== -->
+<h2 class="section-title">٢٣. الركن الرابع: قراءة الفاتحة في كلّ ركعة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>ورابعها قراءة فاتحة كلّ ركعة في قيامها</b></p>
+</div>
+
+<p>الركن الرابع من أركان الصلاة قراءة الفاتحة في كلّ ركعة. وقوله <b>«في قيامها»</b> أي يجب أن يقرأ الفاتحة في حال القيام أو بدل القيام:</p>
+
+<div class="flow-row">
+  <div class="flow-box">القيام</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-result flow-excused">أو بدل القيام (القعود إذا عجز)</div>
+</div>
+
+<ul>
+  <li>يقرأ الفاتحة قائماً إن قدر</li>
+  <li>فإن عجز عن القيام يقرأها قاعداً</li>
+  <li>فإن عجز عن القعود يقرأها مضطجعاً</li>
+  <li>فإن عجز عن الاضطجاع يقرأها حال الاستلقاء</li>
+</ul>
+
+<div class="evidence-box">
+  <span class="box-label label-ev">الدليل</span>
+  <p><b>لخبر الشيخين:</b> <b>«لا صلاة لمن لم يقرأ بفاتحة الكتاب»</b></p>
+  <p>أي لا صلاة صحيحة — فالنفي نفي صحة.</p>
+</div>
+
+<h3 class="sub-title">استثناء: ركعة المسبوق</h3>
+
+<div class="exception-box">
+  <span class="box-label label-exc">استثناء مهمّ</span>
+  <p><b>إلا ركعة مسبوق</b> — فالمسبوق تسقط عنه الفاتحة. والمسبوق هو من أدرك مع الإمام زمناً <b>لا يتّسع لقراءة الفاتحة بقراءة معتدلة</b>.</p>
+</div>
+
+<div class="definition-box">
+  <span class="box-label label-def">تعريف المسبوق</span>
+  <p><b>المسبوق:</b> من أدرك مع الإمام زمناً لا يتّسع لقراءة الفاتحة بقراءة معتدلة — أي ليست قراءة سريعة ولا بطيئة.</p>
+</div>
+
+<h3 class="sub-title">مثال توضيحي</h3>
+
+<p>جئت والإمام لا زال في القيام، كبّرت وبدأت أقرأ: بسم الله الرحمن الرحيم، الحمد لله ربّ العالمين، الرحمن الرحيم — ركع الإمام. فأنا مسبوق لم أدرك زمناً أتمكّن فيه من قراءة الفاتحة مع الإمام.</p>
+
+<div class="note-box">
+  <span class="box-label label-note">صورة أخرى</span>
+  <p>صلّيت مع الإمام من بداية الصلاة — الركعة الأولى والثانية والثالثة. في الركعة الثالثة وأنا ساجد نسيت أنّي في صلاة الإمام، قام للرابعة وأنا ما زلت في السجود. الإمام قرأ الفاتحة وتذكّرت وقد بقي من قيام الإمام قليل، فوقفت بدأت أقرأ بسم الله الرحمن الرحيم الحمد لله ربّ العالمين ركع الإمام. هل أعتبر مسبوقاً؟ <b>نعم</b> على هذا التعريف — لأنّني لم أدرك زمناً يتّسع لقراءة الفاتحة بقراءة معتدلة، وإن لم يكن في الركعة الأولى.</p>
+</div>
+
+<!-- ===== 24. المسبوق ===== -->
+<h2 class="section-title">٢٤. حكم المسبوق في الفاتحة</h2>
+
+<div class="rule-box">
+  <span class="box-label label-rule">نصّ المصنّف</span>
+  <p><b>فلا تجب عليه فيها — ولو في كلّ الركعات — لسبقه في الأولى</b></p>
+</div>
+
+<p>أي لا تجب على المسبوق قراءة الفاتحة في الركعة التي سبق فيها، ولو كان لا يدرك الفاتحة مع الإمام في كلّ الركعات.</p>
+
+<h3 class="sub-title">أسباب تأخّر المأموم في غير الركعة الأولى</h3>
+
+<table>
+  <tr>
+    <th>السبب</th>
+    <th>البيان</th>
+  </tr>
+  <tr>
+    <td><b>الزحمة</b></td>
+    <td>تخلف المأموم عن الإمام بزحمة — لم يستطع أن يسجد حتّى رفع الناس رؤوسهم فسجد وتخلّف</td>
+  </tr>
+  <tr>
+    <td><b>النسيان</b></td>
+    <td>تأخّر في السجود نسياناً فلم يقم إلّا والإمام راكع</td>
+  </tr>
+  <tr>
+    <td><b>بطء الحركة</b></td>
+    <td>قام إلى الركعة التالية ببطء فلم يدرك زمناً يتّسع لقراءة الفاتحة</td>
+  </tr>
+</table>
+
+<div class="key-rule">
+  المسبوق تسقط عنه الفاتحة في الركعة التي أدرك فيها الإمام<br>
+  ولو كان السبب زحمة أو نسياناً أو بطء حركة<br>
+  بشرط أن لا يتّسع الوقت لقراءة الفاتحة بقراءة معتدلة
+</div>
+
+</body>
+</html>

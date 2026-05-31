@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح الإبانة والإفاضة - الدرس 10</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-green: #0d6b3e;
+  --dark-green: #0a4f2e;
+  --gold: #d4a020;
+  --light-gold: #f0e6c0;
+  --teal: #0d7377;
+  --bg: #fefefe;
+  --body-text: #1a1a1a;
+  --border: #c8d6c0;
+  --card-bg: #f8faf7;
+  --shadow: rgba(13,107,62,0.1);
+}
+
+.bw-mode {
+  --primary-green: #333;
+  --dark-green: #111;
+  --gold: #555;
+  --light-gold: #eee;
+  --teal: #444;
+  --bg: #fff;
+  --body-text: #000;
+  --border: #ccc;
+  --card-bg: #f5f5f5;
+  --shadow: rgba(0,0,0,0.1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+  font-size: 16px;
+  line-height: 2;
+  color: var(--body-text);
+  background: var(--bg);
+  direction: rtl;
+}
+
+/* B&W Toggle */
+.bw-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 9999;
+  background: var(--primary-green);
+  color: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: 'Noto Naskh Arabic', serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: all 0.3s ease;
+}
+.bw-toggle:hover { transform: scale(1.1); }
+
+/* Cover Page */
+.cover-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 40%, var(--teal) 100%);
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+}
+.cover-page::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.cover-page::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 120px;
+  background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
+  pointer-events: none;
+}
+
+.cover-badge {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark-green);
+  font-size: 18px;
+  font-weight: 700;
+  padding: 8px 30px;
+  border-radius: 30px;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 15px rgba(212,160,32,0.4);
+}
+
+.cover-title {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.cover-book-name {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--light-gold);
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.cover-author {
+  font-size: 18px;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.cover-sharih {
+  font-size: 17px;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.cover-creator {
+  font-size: 15px;
+  color: rgba(255,255,255,0.65);
+  margin-top: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.cover-ornament {
+  font-size: 40px;
+  color: var(--gold);
+  margin: 20px 0;
+  position: relative;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+/* Main Content */
+.main-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 25px;
+}
+
+/* Section Headers */
+h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary-green);
+  border-bottom: 3px solid var(--gold);
+  padding-bottom: 10px;
+  margin: 40px 0 20px;
+  position: relative;
+}
+h1::before {
+  content: '◆';
+  color: var(--gold);
+  margin-left: 8px;
+  font-size: 16px;
+}
+
+h2 {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--dark-green);
+  margin: 30px 0 15px;
+  padding-right: 15px;
+  border-right: 4px solid var(--gold);
+}
+
+h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--teal);
+  margin: 20px 0 10px;
+}
+
+p {
+  margin-bottom: 12px;
+  text-align: justify;
+}
+
+/* Visual Elements */
+
+/* Card */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 15px 0;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.card-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Ruling Card */
+.ruling-card {
+  background: var(--card-bg);
+  border-right: 5px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin: 15px 0;
+  box-shadow: 0 2px 6px var(--shadow);
+}
+.ruling-card .ruling-label {
+  display: inline-block;
+  background: var(--primary-green);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 3px 14px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+}
+.ruling-card .ruling-label.gold { background: var(--gold); color: var(--dark-green); }
+.ruling-card .ruling-label.teal { background: var(--teal); color: #fff; }
+
+/* Evidence Box */
+.evidence-box {
+  background: linear-gradient(135deg, #f0f8f0, #faf8f0);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 15px 0;
+  position: relative;
+}
+.evidence-box::before {
+  content: '📖';
+  position: absolute;
+  top: -14px;
+  right: 20px;
+  background: var(--bg);
+  padding: 0 8px;
+  font-size: 20px;
+}
+.evidence-box .evidence-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.evidence-box .evidence-text {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--dark-green);
+  line-height: 2.2;
+}
+
+/* Comparison Card */
+.comparison-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin: 15px 0;
+}
+.comparison-side {
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 18px;
+  border: 1px solid var(--border);
+}
+.comparison-side.right-side {
+  border-top: 4px solid var(--primary-green);
+}
+.comparison-side.left-side {
+  border-top: 4px solid var(--gold);
+}
+.comparison-side .side-label {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  padding: 3px 12px;
+  border-radius: 15px;
+  display: inline-block;
+}
+.comparison-side.right-side .side-label {
+  background: var(--primary-green);
+  color: #fff;
+}
+.comparison-side.left-side .side-label {
+  background: var(--gold);
+  color: var(--dark-green);
+}
+
+/* Classification Tree */
+.classification-tree {
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+}
+.classification-tree .tree-root {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-green);
+  padding: 10px 20px;
+  background: linear-gradient(135deg, var(--primary-green), var(--teal));
+  color: #fff;
+  border-radius: 25px;
+  display: inline-block;
+  margin: 0 auto 15px;
+}
+.classification-tree .tree-branches {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 15px;
+}
+.classification-tree .tree-branch {
+  background: #fff;
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 12px 18px;
+  text-align: center;
+  min-width: 140px;
+  position: relative;
+}
+.classification-tree .tree-branch .branch-icon {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+.classification-tree .tree-branch .branch-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dark-green);
+}
+.classification-tree .tree-branch .branch-desc {
+  font-size: 13px;
+  color: #666;
+  margin-top: 4px;
+}
+.tree-connector {
+  text-align: center;
+  color: var(--primary-green);
+  font-size: 24px;
+  margin: 5px 0;
+}
+
+/* Flow Chart */
+.flow-chart {
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+}
+.flow-step {
+  background: #fff;
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 12px 18px;
+  margin: 8px 0;
+  text-align: center;
+  font-weight: 600;
+}
+.flow-step.green-fill {
+  background: var(--primary-green);
+  color: #fff;
+}
+.flow-step.gold-fill {
+  background: var(--gold);
+  color: var(--dark-green);
+}
+.flow-arrow {
+  text-align: center;
+  font-size: 22px;
+  color: var(--primary-green);
+  margin: 4px 0;
+}
+.flow-branch {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr;
+  gap: 10px;
+  align-items: start;
+  margin: 10px 0;
+}
+.flow-branch .branch-label {
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  padding: 4px;
+  color: var(--primary-green);
+}
+
+/* Callout Box */
+.callout-box {
+  background: #fffef5;
+  border: 1px solid var(--gold);
+  border-right: 5px solid var(--gold);
+  border-radius: 8px;
+  padding: 15px 18px;
+  margin: 15px 0;
+}
+.callout-box .callout-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+/* Benefit Box */
+.benefit-box {
+  background: linear-gradient(135deg, #e8f5e9, #f0f8f0);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 18px;
+  margin: 15px 0;
+}
+.benefit-box .benefit-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Fiqh Principle */
+.fiqh-principle {
+  background: linear-gradient(135deg, #f0e6c0, #f8f4e0);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 18px;
+  margin: 15px 0;
+  text-align: center;
+}
+.fiqh-principle .principle-text {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--dark-green);
+  line-height: 2;
+}
+
+/* Numbered Steps */
+.numbered-steps {
+  counter-reset: step-counter;
+  margin: 15px 0;
+}
+.numbered-steps .step {
+  counter-increment: step-counter;
+  display: flex;
+  gap: 12px;
+  margin: 10px 0;
+  align-items: flex-start;
+}
+.numbered-steps .step::before {
+  content: counter(step-counter);
+  background: var(--primary-green);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  min-width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+/* Timeline Diagram */
+.timeline-diagram {
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  overflow-x: auto;
+}
+.timeline-bar {
+  display: flex;
+  margin: 10px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 40px;
+}
+.timeline-segment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  padding: 5px 8px;
+  min-width: 40px;
+  text-align: center;
+  border-left: 1px solid rgba(255,255,255,0.3);
+}
+.timeline-segment.hayd { background: #c0392b; }
+.timeline-segment.tuhr { background: var(--primary-green); }
+.timeline-segment.fasad { background: #7f8c8d; }
+.timeline-segment.nifas { background: #8e44ad; }
+.timeline-segment.takmila { background: var(--teal); }
+.timeline-segment.strong { background: #1a1a1a; }
+.timeline-segment.weak { background: #e74c3c; }
+
+.timeline-labels {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.timeline-legend {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+.timeline-legend .legend-color {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+}
+
+/* Case Card */
+.case-card {
+  background: #fff;
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 18px;
+  margin: 15px 0;
+}
+.case-card .case-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.case-card .case-verdict {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 8px;
+}
+.case-card .case-verdict.mumayyiza {
+  background: var(--primary-green);
+  color: #fff;
+}
+.case-card .case-verdict.ghayr-mumayyiza {
+  background: #c0392b;
+  color: #fff;
+}
+
+/* Data Table */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+  font-size: 14px;
+}
+.data-table th {
+  background: var(--primary-green);
+  color: #fff;
+  padding: 10px 12px;
+  text-align: center;
+  font-weight: 700;
+}
+.data-table td {
+  padding: 8px 12px;
+  text-align: center;
+  border: 1px solid var(--border);
+}
+.data-table tr:nth-child(even) { background: var(--card-bg); }
+
+/* Quote Block */
+.quote-block {
+  background: linear-gradient(135deg, #f8f4e0, #faf8f0);
+  border-right: 5px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  padding: 15px 20px;
+  margin: 15px 0;
+  font-style: italic;
+}
+.quote-block .quote-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold);
+  font-style: normal;
+  margin-bottom: 6px;
+}
+
+/* Definition Card */
+.definition-card {
+  background: linear-gradient(135deg, #e8f0fe, #f0f8f0);
+  border: 2px solid var(--teal);
+  border-radius: 12px;
+  padding: 18px;
+  margin: 15px 0;
+}
+.definition-card .def-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--teal);
+  margin-bottom: 8px;
+}
+.definition-card .def-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--dark-green);
+  line-height: 2;
+}
+
+/* Conditions Grid */
+.conditions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin: 15px 0;
+}
+.condition-card {
+  background: #fff;
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 16px;
+  position: relative;
+}
+.condition-card .cond-num {
+  position: absolute;
+  top: -12px;
+  right: 15px;
+  background: var(--primary-green);
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+.condition-card .cond-num.gold {
+  background: var(--gold);
+  color: var(--dark-green);
+}
+.condition-card .cond-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dark-green);
+  margin-top: 8px;
+  margin-bottom: 6px;
+}
+.condition-card .cond-desc {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.8;
+}
+.condition-card .cond-result {
+  margin-top: 8px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+.condition-card .cond-result.fails {
+  background: #fde8e8;
+  color: #c0392b;
+  border: 1px solid #e74c3c;
+}
+
+/* Sub-branch tree */
+.sub-branches {
+  margin-top: 10px;
+  padding-right: 20px;
+  border-right: 2px dashed var(--border);
+}
+.sub-branch-item {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin: 8px 0;
+}
+.sub-branch-item .sub-title {
+  font-weight: 700;
+  color: var(--teal);
+  font-size: 15px;
+}
+.sub-branch-item .sub-desc {
+  font-size: 14px;
+  color: #555;
+  margin-top: 4px;
+}
+
+/* Duas / Opening */
+.dua-block {
+  text-align: center;
+  background: linear-gradient(135deg, #f0e6c0, #faf8f0);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  font-size: 17px;
+  line-height: 2.2;
+  color: var(--dark-green);
+}
+
+/* Nested classification */
+.nested-tree {
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+}
+.nested-level {
+  margin-right: 25px;
+  padding-right: 15px;
+  border-right: 3px solid var(--gold);
+}
+.nested-item {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin: 6px 0;
+}
+.nested-item.green-border { border-right: 4px solid var(--primary-green); }
+.nested-item.gold-border { border-right: 4px solid var(--gold); }
+.nested-item.teal-border { border-right: 4px solid var(--teal); }
+
+/* Strength Scale */
+.strength-scale {
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+}
+.strength-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0;
+}
+.strength-label {
+  min-width: 70px;
+  font-weight: 700;
+  font-size: 15px;
+  text-align: left;
+}
+.strength-bar {
+  flex: 1;
+  height: 30px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* Print Styles */
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+  @bottom-center {
+    content: counter(page);
+    font-size: 12px;
+    color: #888;
+  }
+}
+
+@media print {
+  .bw-toggle { display: none; }
+  .cover-page { page-break-after: always; }
+  h1 { page-break-after: avoid; }
+  .card, .ruling-card, .evidence-box, .case-card, .classification-tree, .flow-chart {
+    page-break-inside: avoid;
+  }
+  body { font-size: 14px; }
+}
+
+@media (max-width: 600px) {
+  .comparison-card { grid-template-columns: 1fr; }
+  .flow-branch { grid-template-columns: 1fr; }
+  .conditions-grid { grid-template-columns: 1fr; }
+  .cover-title { font-size: 24px; }
+  .cover-book-name { font-size: 18px; }
+  body { font-size: 15px; }
+}
+
+.highlight { color: var(--primary-green); font-weight: 700; }
+.gold-highlight { color: var(--gold); font-weight: 700; }
+.teal-highlight { color: var(--teal); font-weight: 700; }
+.red-highlight { color: #c0392b; font-weight: 700; }
+.green-badge {
+  display: inline-block;
+  background: var(--primary-green);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 12px;
+}
+.gold-badge {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark-green);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 12px;
+}
+.teal-badge {
+  display: inline-block;
+  background: var(--teal);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 12px;
+}
+.red-badge {
+  display: inline-block;
+  background: #c0392b;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 12px;
+}
+</style>
+</head>
+<body>
+
+<!-- B&W Toggle Button -->
+<button class="bw-toggle" onclick="toggleBW()" title="تبديل الأبيض والأسود">ون</button>
+
+<script>
+function toggleBW() {
+  document.body.classList.toggle('bw-mode');
+}
+</script>
+
+<!-- ======================== COVER PAGE ======================== -->
+<div class="cover-page">
+  <div class="cover-badge">جديد ✦ الدرس العاشر</div>
+  <div class="cover-ornament">﷽</div>
+  <div class="cover-book-name">شرح الإبانة والإفاضة في أحكام الحيض والنفاس والاستحاضة</div>
+  <div class="cover-title">المستحاضة المميزة وشروط الحكم بالتمييز</div>
+  <div class="cover-ornament">✦ ❖ ✦</div>
+  <div class="cover-author">المؤلف: عبد الرحمن بن عبد الله عبد القادر السقاف</div>
+  <div class="cover-sharih">الشارح: د. لبيب نجيب عبد الله</div>
+  <div class="cover-creator">إعداد: أحمد بن إرشاد</div>
+</div>
+
+<!-- ======================== MAIN CONTENT ======================== -->
+<div class="main-content">
+
+<!-- Opening Dua -->
+<div class="dua-block">
+بسم الله الرحمن الرحيم<br>
+أسأل الله سبحانه وتعالى أن يمن علينا بالعلم النافع والعمل الصالح وأن يفقهنا في الدين وأن يفتح لنا فتوح العارفين وأن يرزقنا الإخلاص في الأقوال والأعمال اللهم آمين
+</div>
+
+<!-- ===================== SECTION 1: REVIEW ===================== -->
+<h1>مراجعة: أقسام المستحاضة السبعة</h1>
+
+<p>في الدرس الماضي آخر شيء تكلمنا عليه هو <span class="highlight">أقسام المستحاضة</span>، وقلنا إن المستحاضة تنقسم إلى <span class="highlight">سبعة أقسام</span> لأن المستحاضة إما أن تكون مبتدأة أي ابتدأها الدم، وإما أن تكون معتادة. والمبتدأة تنقسم إلى قسمين: إما أن تكون مميزة أو غير مميزة. والمعتادة إما أن تكون مميزة وإما أن تكون غير مميزة. وهذه غير مميزة إما أن تكون ذاكرة للوقت والعدد أو ناسية لهما أي للوقت والعدد، أو ذاكرة للوقت ناسية للعدد، أو ذاكرة للعدد ناسية للوقت. فمجموع الصور <span class="highlight">سبع صور</span> ذكرناها ورسمناها على السبورة.</p>
+
+<div class="classification-tree">
+  <div style="text-align:center;">
+    <div class="tree-root">أقسام المستحاضة السبعة</div>
+    <div class="tree-connector">▼</div>
+  </div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="flex:1;">
+      <div class="branch-icon">🩸</div>
+      <div class="branch-title">المبتدأة</div>
+      <div class="branch-desc">أول مرة يأتيها الدم</div>
+      <div style="margin-top:10px;">
+        <div class="sub-branch-item">
+          <div class="sub-title">① مميزة</div>
+          <div class="sub-desc">ترى الدم بصفتين: قوي وضعيف</div>
+        </div>
+        <div class="sub-branch-item">
+          <div class="sub-title">② غير مميزة</div>
+          <div class="sub-desc">ترى الدم بصفة واحدة</div>
+        </div>
+      </div>
+    </div>
+    <div class="tree-branch" style="flex:1;">
+      <div class="branch-icon">🔄</div>
+      <div class="branch-title">المعتادة</div>
+      <div class="branch-desc">سبق لها حيض من قبل</div>
+      <div style="margin-top:10px;">
+        <div class="sub-branch-item">
+          <div class="sub-title">③ مميزة</div>
+          <div class="sub-desc">ترى الدم بصفتين: قوي وضعيف</div>
+        </div>
+        <div class="sub-branch-item">
+          <div class="sub-title">④ غير مميزة</div>
+          <div class="sub-desc">ترى الدم بصفة واحدة — لها أربع حالات</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:15px; padding-top:10px; border-top:2px dashed var(--border);">
+    <div style="text-align:center; font-weight:700; color:var(--teal); margin-bottom:8px;">أقسام غير المميزة المعتادة (4 حالات)</div>
+    <div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center;">
+      <div class="sub-branch-item" style="flex:1; min-width:140px;">
+        <div class="sub-title">⑤ ذاكرة للوقت والعدد</div>
+      </div>
+      <div class="sub-branch-item" style="flex:1; min-width:140px;">
+        <div class="sub-title">⑥ ذاكرة للوقت ناسية للعدد</div>
+      </div>
+      <div class="sub-branch-item" style="flex:1; min-width:140px;">
+        <div class="sub-title">⑦ ذاكرة للعدد ناسية للوقت</div>
+      </div>
+      <div class="sub-branch-item" style="flex:1; min-width:140px;">
+        <div class="sub-title">⑧ ناسية للوقت والعدد</div>
+        <div class="sub-desc">(المتحيرة المطلقة)</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>إذا تقرر هذا فإننا نقول: هذه الصور السبع سندرسها صورة صورة، لأن لكل صورة حكماً خاصاً. فنبدأ اليوم بالصورة الأولى وهي <span class="highlight">المبتدأة المميزة</span>.</p>
+
+<!-- ===================== SECTION 2: RULE FOR MUMAYYIZAH ===================== -->
+<h1>قاعدة: المميزة حكمها واحد سواء كانت مبتدأة أو معتادة</h1>
+
+<p>أريد أن أعطيك فائدة أو قاعدة وهي أن <span class="highlight">المميزة حكمها واحد سواء كانت مبتدأة أو معتادة</span>. يعني نحن قلنا قبل قليل إن صور المستحاضة كم؟ سبع. ذكرنا من الصور السبع المبتدأة المميزة صح؟ وذكرنا من الصور السبع المعتادة المميزة صح؟ هذا الدرس مهم لماذا مهم؟ لأنه يتعلق به حكم <span class="highlight">صورتين</span>. فسواء كانت مبتدأة مميزة أو كانت معتادة مميزة فالحكم في الصورتين <span class="highlight">واحد</span>.</p>
+
+<div class="fiqh-principle">
+  <div class="principle-text">المميزة حكمها واحد سواء كانت مبتدأة أو معتادة<br>الحكم: أنها تعمل بالتمييز</div>
+</div>
+
+<!-- ===================== SECTION 3: DEFINITIONS ===================== -->
+<h1>تعريف المبتدأة والمميزة</h1>
+
+<p>يقال إن هذا الدرس صعب — يقال ذلك، لكن لا تلتفتوا إلى هذا الكلام.</p>
+
+<div class="definition-card">
+  <div class="def-label">📗 تعريف المبتدأة</div>
+  <div class="def-text">المراد بالمبتدأة: التي أول مبتدأها الدم فلم يأتها دم حيض من قبل، أي التي ابتدأها دم الحيض بمعنى لم يسبق لها أن حاضت من قبل.</div>
+</div>
+
+<div class="definition-card">
+  <div class="def-label">📗 تعريف المميزة</div>
+  <div class="def-text">المميزة: هي التي ترى قوياً وضعيفاً، أي التي يأتيها الدم بصفتين.</div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-label">تنبيه</div>
+  <p>أرجو حفظكم الله أن تحفظوا هذه التعاريف مع الفهم، ستتكرر معنا هذه المصطلحات: مميزة، مبتدأة، معتادة — خلاص تفهم.</p>
+</div>
+
+<!-- ===================== SECTION 4: MEANING OF WORKING WITH TAMYIZ ===================== -->
+<h1>معنى العمل بالتمييز</h1>
+
+<p>ما هو الحكم؟ الحكم أنها <span class="highlight">تعمل بالتمييز</span>. ما معنى تعمل بالتمييز؟ يعني أن الدم جاءها بصفتين، مثلاً جاءها بلونين مختلفين: جاءها الدم أسود — هذا قوي يعتبر، وجاءها الدم أحمر — هذا الأحمر ضعيف بالنسبة للأسود.</p>
+
+<p>ولكن انتبه معي: ليس ضعيفاً مطلقاً. يعني لو قارنت الأحمر بالأسود فالأحمر يعتبر ضعيفاً بالنسبة للأسود، لكن قلت لكم فيما سبق أن الدم قد يكون باللون الأسود قد يكون باللون الأحمر قد يكون باللون الأشقر قد يكون باللون الأصفر قد يكون باللون الأكدار.</p>
+
+<!-- Strength Scale Visual -->
+<div class="strength-scale">
+  <div style="text-align:center; font-weight:700; color:var(--dark-green); margin-bottom:12px;">◆ مقياس قوة ألوان الدم ◆</div>
+  <div class="strength-row">
+    <span class="strength-label" style="color:#1a1a1a;">أسود</span>
+    <div class="strength-bar" style="background:#1a1a1a; width:100%;">الأقوى</div>
+  </div>
+  <div class="strength-row">
+    <span class="strength-label" style="color:#c0392b;">أحمر</span>
+    <div class="strength-bar" style="background:#c0392b; width:80%;">قوي بالنسبة للأشقر، ضعيف بالنسبة للأسود</div>
+  </div>
+  <div class="strength-row">
+    <span class="strength-label" style="color:#b8860b;">أشقر</span>
+    <div class="strength-bar" style="background:#b8860b; width:60%;">قوي بالنسبة للأصفر، ضعيف بالنسبة للأحمر</div>
+  </div>
+  <div class="strength-row">
+    <span class="strength-label" style="color:#d4a020;">أصفر</span>
+    <div class="strength-bar" style="background:#d4a020; color:#333; width:40%;">ضعيف</div>
+  </div>
+  <div class="strength-row">
+    <span class="strength-label" style="color:#8b7355;">أكدار</span>
+    <div class="strength-bar" style="background:#8b7355; width:25%;">الأضعف</div>
+  </div>
+</div>
+
+<p>إذن لما أقول لك الأحمر ضعيف، أي ضعيف <span class="highlight">بالنسبة للأسود</span> وليس معنى ذلك أنه ضعيف مطلقاً. فهمتم؟</p>
+
+<p>إذا تقرر هذا فهذه المرأة المميزة — ما معنى مميزة؟ أي أن الدم جاءها بصفتين — مثلاً جاءها بلون أسود وجاءها بلون أحمر، جاءها بلون أحمر وجاءها بلون أشقر، جاءها بلون أشقر وجاءها بلون أصفر — هذه المميزة <span class="highlight">تعمل بالتمييز</span>.</p>
+
+<div class="ruling-card">
+  <span class="ruling-label">الحكم</span>
+  <p>معنى العمل بالتمييز: أنها تجعل <span class="highlight">القوي حيضاً</span> وتجعل <span class="red-highlight">الضعيف استحاضة</span>.</p>
+</div>
+
+<!-- ===================== SECTION 5: EXAMPLE BEFORE 15 DAYS ===================== -->
+<h1>تنبيه: الدم قبل خمسة عشر يوماً كله حيض</h1>
+
+<p>مثلاً لو جاءها دم عشرة أيام أسود وسبعة أيام أحمر — كم المجموع؟ سبعة عشر — جاوز الخمسة عشر ولا لا؟ مستحاضة. شوف نحن نتكلم عن مستحاضة.</p>
+
+<p>ما يجي واحد يقول لي: طيب لو جاءها الدم سبعة أيام أسود وجاءها الدم بعد الأسود سبعة أيام جاءها الدم ثلاثة أيام أحمر — هذه مستحاضة؟ ما في تمييز هنا. <span class="highlight">كل الدماء التي لم تتجاوز الخمسة عشر هذه حيض</span> بأي صفة كانت جاءت — أحمر أصفر أشقر أسود — أي صفة كان ما دام أنها لم تتجاوز خمسة عشر فهذه ليست مستحاضة أصلاً.</p>
+
+<div class="ruling-card">
+  <span class="ruling-label gold">قاعدة مهمة</span>
+  <p>متى تكون مستحاضة؟ <span class="highlight">إذا عبر الأكثر واستدام</span> — أي إذا تجاوز الخمسة عشر. فإذا كان الدم أقل من خمسة عشر يوماً <span class="highlight">بأي لون كان فهو كله حيض</span>.</p>
+</div>
+
+<p>إذن كلامنا ليس هنا الآن. نحن نتكلم على <span class="highlight">عنوان الدرس: صور المستحاضة</span>. يعني الدم تجاوز الخمسة عشر.</p>
+
+<p>مثلاً: جاءها أسود نفترض خمس أيام أسود وثلاث أيام أحمر ويومين أشقر ويومين أصفر — ذا كله حيض. لماذا؟ لأنه لم يتجاوز الخمسة عشر.</p>
+
+<!-- ===================== SECTION 6: TAMYIZ PRECEDENCE OVER ADAH ===================== -->
+<h1>العمل بالتمييز مقدم على العمل بالعادة</h1>
+
+<p>العمل بالتمييز هذا حتى وإن كان يخالف عادتها — لأن <span class="highlight">العمل بالتمييز مقدم على العمل بالعادة</span>.</p>
+
+<h2>الدليل</h2>
+
+<div class="evidence-box">
+  <div class="evidence-label">دليل العمل بالتمييز</div>
+  <div class="evidence-text">
+    قوله صلى الله عليه وسلم لفاطمة بنت أبي حبيش التي كانت تستحاض:<br>
+    «إذا كان دم الحيضة فإنه دم أسود يُعرف»<br>
+    فأشار إلى صفة الدم — هذا هو التمييز.<br>
+    فإذا كان كذلك — أي بهذه الصفة — فأمسك عن الصلاة.<br>
+    وإذا كان الآخر — الاستحاضة الذي هو دم عرق فقط — فتوضئي وصلّي فإنما هو عرق.
+  </div>
+</div>
+
+<h2>التعليل</h2>
+
+<div class="comparison-card">
+  <div class="comparison-side right-side">
+    <span class="side-label">التمييز</span>
+    <p><span class="highlight">صفة في الدم</span> — ولذلك قدّم</p>
+  </div>
+  <div class="comparison-side left-side">
+    <span class="side-label">العادة</span>
+    <p><span class="gold-highlight">صفة في صاحب الدم</span> — ولذلك تأخر</p>
+  </div>
+</div>
+
+<div class="benefit-box">
+  <div class="benefit-label">✦ فائدة وتعليل</div>
+  <p>لأن التمييز صفة في الدم، أما العادة فصفة في صاحب الدم. <span class="highlight">وما كان صفة في الدم مقدّم على ما كان صفة في صاحب الدم</span>. ولأن النبي صلى الله عليه وسلم قال في الحديث: «دم الحيض أسود يعرف» فأسند الأمر إلى تمييز، إلى صفة الدم.</p>
+</div>
+
+<!-- ===================== SECTION 7: RULING OF MUBTADA'A MUMAYYIZAH ===================== -->
+<h1>حكم المبتدأة المميزة: القوي حيض والضعيف استحاضة</h1>
+
+<p>وحكمها — حكم المستحاضة المبتدأة المميز — أن <span class="highlight">القوي حيض</span> وأن <span class="red-highlight">الضعيف وإن طال زمنه استحاضة</span>.</p>
+
+<div class="ruling-card">
+  <span class="ruling-label">قاعدة</span>
+  <p>يقول الشيخ ابن حجر رحمه الله في الفتاوى الفقهية الكبرى: <span class="highlight">الضعيف وإن طال وقته طهر</span>. يعني مثلاً امرأة جاءها الدم الأسود سبعة أيام وبعد الدم الأسود استمر الدم أحمر مطلقاً — نقول حيضك فقط الأيام السبعة. الأحمر هذا وإن طال زمنه هذا كله استحاضة. <span class="red-highlight">الضعيف وإن طال زمنه ما حكمه؟ استحاضة</span>.</p>
+</div>
+
+<div class="callout-box">
+  <div class="callout-label">تنبيه</div>
+  <p>الضعيف وإن طال زمنه استحاضة — هذه قاعدة انتبه لها لا يشكل عليك. لكن <span class="highlight">بشروط سيأتي الحديث عنها</span> — أربعة شروط.</p>
+</div>
+
+<!-- ===================== SECTION 8: EVIDENCE FOR TAMYIZ ===================== -->
+<h1>دليل العمل بالتمييز</h1>
+
+<p>أنت ذكرت الحكم أن المبتدأ المميزة تعمل بالتمييز — ما الدليل أنها تعمل بتمييزها؟ لماذا لا تعمل بالعادة؟</p>
+
+<div class="evidence-box">
+  <div class="evidence-label">الدليل من السنة</div>
+  <div class="evidence-text">
+    قال صلى الله عليه وسلم لفاطمة بنت أبي حبيش التي كانت تستحاض:<br>
+    «إذا كان دم الحيضة فإنه دم أسود يعرف»<br>
+    فأشار إلى صفة الدم — هذا هو التمييز.<br>
+    فإذا كان كذلك فأمسك عن الصلاة.<br>
+    وإذا كان الآخر — الاستحاضة — فتوضئي وصلّي فإنما هو عرق.
+  </div>
+</div>
+
+<p>هذا دليل العمل بالتمييز من حيث الدليل. ومن حيث التعليل قلنا: لأن التمييز صفة في الدم. أما العادة — يعني بعض الفقهاء الذين قالوا تقدم العادة تعمل بالعادة — نقول: العادة صفة في صاحب الدم، وما كان صفة في الدم مقدّم على ما كان صفة في صاحب الدم.</p>
+
+<!-- ===================== SECTION 9: CONDITIONS FOR TAMYIZ ===================== -->
+<h1>شروط الحكم بالتمييز</h1>
+
+<p>يقول قائل: أنت قلت أن القوي نحكم عليه بأنه حيض وأن الضعيف نحكم عليه بأنه استحاضة — صح؟ نعم صح. هل لهذا شروط؟ نعم، ليس مطلقاً هذا الحكم. <span class="highlight">هذا الحكم بالتمييز له أربعة شروط</span>.</p>
+
+<div class="card">
+  <div class="card-title">📌 تقسيم الشروط</div>
+  <p>هذه الشروط تنقسم إلى قسمين:</p>
+  <div class="numbered-steps">
+    <div class="step"><span class="highlight">شرطان يتعلقان بالقوي</span> — أي بالدم القوي الذي لونه أسود مثلاً</div>
+    <div class="step"><span class="red-highlight">شرطان يتعلقان بالضعيف</span> — أي بالدم الضعيف</div>
+  </div>
+</div>
+
+<!-- The Four Conditions Grid -->
+<div class="conditions-grid">
+  <!-- Condition 1 -->
+  <div class="condition-card">
+    <div class="cond-num">١</div>
+    <div class="cond-title">ألا ينقص القوي عن أقل الحيض</div>
+    <div class="cond-desc">وهو يوم وليلة. لأن القوي إذا كان أقل من يوم وليلة لن يكون حيضاً — فلا بد أن يكون يوماً وليلة فأكثر.</div>
+    <div class="cond-result fails">فإن نقص فهي غير مميزة</div>
+  </div>
+  <!-- Condition 2 -->
+  <div class="condition-card">
+    <div class="cond-num">٢</div>
+    <div class="cond-title">ألا يعبر القوي أكثر الحيض</div>
+    <div class="cond-desc">وهو خمسة عشر يوماً. لأن القوي إذا جاوز خمسة عشر يوماً لن يكون حيضاً.</div>
+    <div class="cond-result fails">فإن عبره فليست مميزة</div>
+  </div>
+  <!-- Condition 3 -->
+  <div class="condition-card">
+    <div class="cond-num gold">٣</div>
+    <div class="cond-title">أن يكون الضعيف متوالياً</div>
+    <div class="cond-desc">أي أن القوي لا يتخلل أثناء الضعيف. بمعنى لو أنها رأت الدم يوماً أسود ويوماً أحمر ويوماً أسود ويوماً أحمر وهكذا — هذا الشرط يختل.</div>
+    <div class="cond-result fails">فلو لم يكن الضعيف متوالياً فليس بتمييز — لعدم اتصال الضعيف</div>
+  </div>
+  <!-- Condition 4 -->
+  <div class="condition-card">
+    <div class="cond-num gold">٤</div>
+    <div class="cond-title">أن يبلغ الضعيف خمسة عشر يوماً</div>
+    <div class="cond-desc">وهذا الشرط إنما يشترط إذا استمر الدم — أي بلغ خمسة عشر يوماً فصاعداً. أما إذا لم يستمر الدم فلا يشترط هذا الشرط.</div>
+    <div class="cond-result fails">إذا استمر الدم ولم يبلغ الضعيف 15 فهي غير مميزة</div>
+  </div>
+</div>
+
+<!-- ===================== SECTION 10: DETAIL ON CONDITIONS 1 & 2 ===================== -->
+<h2>تفصيل الشرطين الأول والثاني (يتعلقان بالقوي)</h2>
+
+<h3>الشرط الأول: ألا ينقص القوي عن أقل الحيض وهو يوم وليلة</h3>
+
+<p>الشرط: لا ينقص. لماذا؟ نحن نريد أن نجعل من القوي حيضاً، لو كان ينقص عن يوم وليلة لا يمكن أن يكون حيضاً.</p>
+
+<div class="quote-block">
+  <div class="quote-label">نص الكتاب</div>
+  قال: ألا ينقص القوي عن أقل الحيض وهو يوم وليلة، فإن نقص فهي غير مميزة.
+</div>
+
+<h3>الشرط الثاني: ألا يعبر القوي أكثر الحيض وهو خمسة عشر يوماً</h3>
+
+<p>أي أن القوي لا يتجاوز أكثر الحيض وهو خمسة عشر يوماً. فإن عبر القوي أكثر الحيض فليست مميزة — يعني حكمها غير مميزة، وسيأتي درسها في الدرس القادم.</p>
+
+<div class="quote-block">
+  <div class="quote-label">نص الكتاب</div>
+  قال: ألا يعبر القوي أكثر الحيض وهو خمسة عشر يوماً، فإن عبره فليست مميزة.
+</div>
+
+<!-- ===================== SECTION 11: DETAIL ON CONDITION 3 ===================== -->
+<h2>تفصيل الشرط الثالث: أن يكون الضعيف متوالياً</h2>
+
+<p>أي أن القوي لا يتخلل أثناء الضعيف. ما معنى هذا الكلام؟ يعني لا يتوسط. بمعنى لو أنها رأت الدم يوماً أسود ويوماً أحمر ويوماً أسود ويوماً أحمر ويوماً أسود ويوماً أحمر وهكذا حتى تجاوزت خمسة عشر يوماً — هل نحكم بالتمييز؟ لا، لماذا؟ لأن هذا الشرط اختل. فحصل أن القوي وجد في أثناء الضعيف.</p>
+
+<div class="case-card">
+  <div class="case-title">📋 مثال الشرط الثالث: تخلل القوي للضعيف</div>
+  <p>رأت الدم أسود في اليوم الأول. في اليوم الثاني رأته أحمر — هذا الضعيف. ثم عاد الأسود. إذن ماذا حصل؟ حصل أن هذا الضعيف تخلله أسود هنا وأسود هنا. ثم عاد أحمر. ثم أسود ثم أحمر ثم أسود ثم أحمر. حتى تجاوزت خمسة عشر.</p>
+  <p>هل هذه تعتبر مميزة أو لا تعتبر؟ <span class="red-highlight">لا تعتبر مميزة</span>. لماذا لا تعتبر مميزة؟ لأنه اختل هذا الشرط — الشرط هو أن القوي لا يتخلله الضعيف، يعني يبقى الضعيف مستمراً هكذا في الوسط لا يوجد قوي.</p>
+  <div class="case-verdict ghayr-mumayyiza">غير مميزة — لعدم اتصال الضعيف</div>
+</div>
+
+<!-- Timeline for alternating blood -->
+<div class="timeline-diagram">
+  <div style="text-align:center; font-weight:700; color:var(--dark-green); margin-bottom:8px;">مثال: تخلل القوي أثناء الضعيف</div>
+  <div class="timeline-bar">
+    <div class="timeline-segment strong" style="flex:1;">أسود ①</div>
+    <div class="timeline-segment weak" style="flex:1;">أحمر</div>
+    <div class="timeline-segment strong" style="flex:1;">أسود ②</div>
+    <div class="timeline-segment weak" style="flex:1;">أحمر</div>
+    <div class="timeline-segment strong" style="flex:1;">أسود ③</div>
+    <div class="timeline-segment weak" style="flex:1;">أحمر</div>
+    <div class="timeline-segment strong" style="flex:1;">أسود</div>
+    <div class="timeline-segment weak" style="flex:1;">أحمر</div>
+  </div>
+  <div style="text-align:center; color:var(--dark-green); font-weight:700; margin-top:8px;">
+    هكذا حتى تجاوز الخمسة عشر ← <span class="red-highlight">غير مميزة</span> لاختلال الشرط الثالث
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-label">تنبيه مهم</div>
+  <p>لماذا قال «حتى تجاوز الخمسة عشر»؟ لأنه إذا انقطع قبل الخمسة عشر فالجميع حيض كما سيأتي في الدروس القادمة. فلو جاءها أسود ثم أحمر ثم أسود ثم أحمر ثم أسود ثم أحمر — ثمانية أيام وانقطع قبل الخمسة عشر — هذا كله حيض.</p>
+</div>
+
+<div class="quote-block">
+  <div class="quote-label">نص الكتاب</div>
+  قال: أن يكون الضعيف متوالياً، فلو لم يكن متوالياً فليس بتمييز. والمراد بتوالي الضعيف: ألا يتخل له قوي. ألا يتخل له قوي. ألا يتخل له قوي. لأن القوي لا يتخلله الضعيف بل يبقى الضعيف متوالياً.
+</div>
+
+<div class="callout-box">
+  <div class="callout-label">تنبيه نحوي</div>
+  <p>قوله «فليس بتمييز» — أين اسم كان؟ ضمير مستتر يعود على ماذا؟ فلو لم يكن <span class="highlight">الضعيف</span> متوالياً فليس بتمييز. أكتب حتى وقت المراجعة لا تشكل عليك الضمائر، تتوه في الضمائر!</p>
+</div>
+
+<!-- ===================== SECTION 12: DETAIL ON CONDITION 4 ===================== -->
+<h2>تفصيل الشرط الرابع: أن يبلغ الضعيف خمسة عشر يوماً</h2>
+
+<p>وهذا الشرط إنما يشترط <span class="highlight">إذا استمر الدم</span>. ما معنى استمر الدم؟ بلغ خمسة عشر يوماً فصاعداً. أما إذا لم يستمر الدم — كأن أعقبه طهر — فلا يشترط هذا الشرط.</p>
+
+<div class="ruling-card">
+  <span class="ruling-label teal">تفصيل الشرط الرابع</span>
+  <p>الشيخ أتى بها بصيغة النفي: «أن لا ينقص الضعيف عن أقل الطهر». وأنا أتيتها بصيغة الإثبات: <span class="highlight">أن يبلغ الضعيف أقل الطهر</span> وهو خمسة عشر يوماً. لأنني أظن أن الإتيان بها بصيغة الإثبات أقرب إلى ذهن الطالب من صيغة النفي. فأن لا ينقص يعني أن يبلغه — خلاص.</p>
+</div>
+
+<h3>الحالة الأولى: إذا استمر الدم القوي الثاني</h3>
+
+<p>وهذا الشرط إنما يشترط إذا استمر الدم — أي بلغ خمسة عشر يوماً فصاعداً. يعني الدم القوي الثاني عاد واستمر (جاوز خمسة عشر يوماً).</p>
+
+<div class="case-card">
+  <div class="case-title">📋 المثال الأول: استمرار الدم وبلغ الضعيف 15 يوماً</div>
+  <p>رأت الدم ثلاثة أيام أسود، ثم جاءها الدم خمسة عشر يوماً أحمر، ثم جاءها الدم أسود مرة أخرى واستمر (أي جاوز خمسة عشر يوماً وما بعد).</p>
+  
+  <div class="timeline-diagram" style="margin:10px 0;">
+    <div class="timeline-bar">
+      <div class="timeline-segment strong" style="flex:3;">أسود 3 أيام</div>
+      <div class="timeline-segment weak" style="flex:15;">أحمر 15 يوماً</div>
+      <div class="timeline-segment strong" style="flex:5;">أسود + مستمر</div>
+    </div>
+  </div>
+  
+  <p>هل هذه المرأة تعمل بالتمييز أو لا؟</p>
+  <p>ننظر: الدم الثاني استمر أو لم يستمر؟ <span class="highlight">استمر</span>. إذا استمر الدم يشترط أن الضعيف يبلغ 15. هل بلغ الضعيف 15؟ <span class="highlight">نعم بلغ</span>. إذن نحكم لها بالتمييز.</p>
+  <div class="case-verdict mumayyiza">مميزة — لأن الدم الثاني القوي عاد واستمر وبلغ الضعيف 15 يوماً</div>
+</div>
+
+<div class="case-card">
+  <div class="case-title">📋 المثال الثاني: استمرار الدم ولم يبلغ الضعيف 15 يوماً</div>
+  <p>رأت الدم يومين أسود، ثم عشرة أيام أحمر، ثم أسود واستمر.</p>
+  
+  <div class="timeline-diagram" style="margin:10px 0;">
+    <div class="timeline-bar">
+      <div class="timeline-segment strong" style="flex:2;">أسود يومان</div>
+      <div class="timeline-segment weak" style="flex:10;">أحمر 10 أيام</div>
+      <div class="timeline-segment strong" style="flex:5;">أسود + مستمر</div>
+    </div>
+  </div>
+  
+  <p>أولاً ننظر: الدم القوي الثاني استمر أو لم يستمر؟ <span class="highlight">استمر</span>. الآن ننظر إلى الضعيف: الضعيف هذا بلغ 15 أو لم يبلغ؟ <span class="red-highlight">لم يبلغ — فقط 10 أيام</span>. إذن هذه غير مميزة.</p>
+  <div class="case-verdict ghayr-mumayyiza">غير مميزة — لأن الدم الثاني القوي وإن استمر لكن الضعيف لم يبلغ 15 يوماً</div>
+</div>
+
+<h3>الحالة الثانية: إذا لم يستمر الدم القوي الثاني</h3>
+
+<p>أما إذا لم يستمر الدم القوي الثاني بأن انقطع مثلاً — فلا يشترط هذا الشرط. أي لا يشترط أن يبلغ الضعيف 15 يوماً حتى تعمل بالتمييز، بل حتى لو كان الضعيف أقل من 15 يمكن أن تعمل بالتمييز.</p>
+
+<div class="case-card">
+  <div class="case-title">📋 المثال الثالث: انقطاع الدم القوي الثاني</div>
+  <p>جاءها الدم سبعة أيام أسود، عشرة أيام أحمر، ثم انقطع القوي الثاني. كيف تعمل بالتمييز والضعيف هذا لم يبلغ 15؟ نقول: لا يشترط أن يبلغ 15 لأن القوي الثاني انقطع.</p>
+  
+  <div class="timeline-diagram" style="margin:10px 0;">
+    <div class="timeline-bar">
+      <div class="timeline-segment strong" style="flex:7;">أسود 7 أيام (حيض)</div>
+      <div class="timeline-segment weak" style="flex:10;">أحمر 10 أيام (استحاضة)</div>
+    </div>
+    <div style="text-align:center; color:var(--primary-green); font-weight:700; margin-top:6px;">
+      ثم انقطع الدم ← طهر
+    </div>
+  </div>
+  
+  <p>الأيام الحمراء نقول هذه أيام طهر استحاضة والأسود هو الحيض.</p>
+  <div class="case-verdict mumayyiza">مميزة — لأن الدم انقطع ولم يستمر فلا يشترط أن يبلغ الضعيف 15 يوماً</div>
+</div>
+
+<div class="quote-block">
+  <div class="quote-label">نص الكتاب</div>
+  قال: أما إذا لم يستمر — يعني أما إذا لم يستمر الدم القوي الثاني — بأن انقطع مثلاً فلا يشترط هذا الشرط.<br>
+  مثاله: لو رأت دماً أسود عشرة أيام ثم عشرة أيام أحمر ثم انقطع الدم — فإنها تعمل بتمييزها لأن الدم لم يستمر. واشتراط أن يكون الضعيف خمسة عشر يوماً إنما هو في حالة استمرار الدم.
+</div>
+
+<!-- ===================== SECTION 13: SUMMARY TABLE ===================== -->
+<h2>خلاصة الشروط الأربعة</h2>
+
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>الشرط</th>
+      <th>يتعلق بـ</th>
+      <th>المضمون</th>
+      <th>إذا اختل</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="green-badge">الأول</span></td>
+      <td>القوي</td>
+      <td>ألا ينقص عن أقل الحيض (يوم وليلة)</td>
+      <td><span class="red-highlight">غير مميزة</span></td>
+    </tr>
+    <tr>
+      <td><span class="green-badge">الثاني</span></td>
+      <td>القوي</td>
+      <td>ألا يعبر أكثر الحيض (15 يوماً)</td>
+      <td><span class="red-highlight">غير مميزة</span></td>
+    </tr>
+    <tr>
+      <td><span class="gold-badge">الثالث</span></td>
+      <td>الضعيف</td>
+      <td>أن يكون الضعيف متوالياً (لا يتخلله قوي)</td>
+      <td><span class="red-highlight">غير مميزة</span></td>
+    </tr>
+    <tr>
+      <td><span class="gold-badge">الرابع</span></td>
+      <td>الضعيف</td>
+      <td>أن يبلغ الضعيف 15 يوماً — إذا استمر الدم القوي الثاني. أما إذا لم يستمر فلا يشترط.</td>
+      <td><span class="red-highlight">غير مميزة</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="benefit-box">
+  <div class="benefit-label">✦ فائدة: حكم غير المميزة</div>
+  <p>كل شرط اختل هنا فهي غير مميزة. غير المميزة نقول لها: <span class="highlight">حيضك يوم وليلة</span> — هذا المتيقن — ما زاد على اليوم وليلة هذا استحاضة. وسيأتي تفصيلها في الدرس القادم.</p>
+</div>
+
+<!-- ===================== SECTION 14: COUNTER-EXAMPLES ===================== -->
+<h1>محترزات الشروط (أمثلة على اختلال كل شرط)</h1>
+
+<p>لا يحكم بالتمييز إلا إذا توفرت هذه الشروط. والآن سيبين لك محترزات الشروط — انتبه.</p>
+
+<!-- Counter-example 1 -->
+<div class="case-card">
+  <div class="case-title">📋 محترز الشرط الأول: نصف يوم أسود</div>
+  <p>فلو رأت نصف يوم أسود، ثم أطبقت الحمراء (أي نزل منها أحمر واستمر) حتى جاوز الخمسة عشر. لكن كم رأت الأسود؟ نصف يوم. إيش تقول عن هذه؟ مميزة أو غير مميزة؟</p>
+  <p><span class="red-highlight">غير مميزة</span> — لأنه اختل الشرط الأول، فالقوي لم يبلغ يوم وليلة. فات الشرط الأول.</p>
+  <div class="case-verdict ghayr-mumayyiza">غير مميزة — فات الشرط الأول</div>
+</div>
+
+<!-- Counter-example 2 -->
+<div class="case-card">
+  <div class="case-title">📋 محترز الشرط الثاني: ستة عشر يوماً أسود</div>
+  <p>ولو رأت ستة عشر يوماً أسود ثم أحمر — فات الشرط الثاني. هل نحكم لها بالتمييز؟</p>
+  <p><span class="red-highlight">غير مميزة</span> — لأن القوي تجاوز خمسة عشر يوماً.</p>
+  <div class="case-verdict ghayr-mumayyiza">غير مميزة — فات الشرط الثاني</div>
+</div>
+
+<!-- Counter-example 3 -->
+<div class="case-card">
+  <div class="case-title">📋 محترز الشرط الثالث: يوم وليلة أسود + 14 أحمر + عاد الأسود واستمر</div>
+  <p>ولو رأت يوماً وليلة أسود (أربعة وعشرين ساعة أسود) ثم أربعة عشر يوماً أحمر، ثم عاد الأسود واستمر.</p>
+  <p>إذا عاد الأسود واستمر — لا بد حتى نحكم لها بالتمييز أن يبلغ الضعيف كم؟ خمسة عشر. هل بلغ الضعيف خمسة عشر أو لم يبلغ؟ <span class="red-highlight">لم يبلغ — فقط 14 يوماً</span>. إذن هذه غير مميزة.</p>
+  <p>قال: «واستمر» — أي زاد الدم الثاني القوي الذي قوته كالأول — يعني الأول أسود الثاني أسود — أي زاد على الخمسة عشر — فات الشرط الثالث.</p>
+  <div class="case-verdict ghayr-mumayyiza">غير مميزة — فات الشرط الثالث</div>
+</div>
+
+<!-- Counter-example 4 -->
+<div class="case-card">
+  <div class="case-title">📋 محترز الشرط الرابع: يوم أسود ويوم أحمر متناوبين</div>
+  <p>ولو رأت يوماً أسود ويوماً أحمر وهكذا أبداً إلى نهاية الشهر — أسود أحمر أسود أحمر أسود أحمر إلى نهاية الشهر. هذا الضعيف تخلله قوي. فما حكمه؟</p>
+  <p><span class="red-highlight">غير مميزة</span> — لعدم اتصال الضعيف.</p>
+  <div class="case-verdict ghayr-mumayyiza">غير مميزة — فات الشرط الرابع (توالي الضعيف)</div>
+</div>
+
+<!-- Summary of all counter-examples -->
+<div class="ruling-card">
+  <span class="ruling-label">قاعدة عامة</span>
+  <p>باقتضار — حيثما اختل شرط من هذه الشروط الأربعة فالمرأة هذه <span class="red-highlight">غير مميزة</span>. وإنما شرطت هذه الشروط يكون الحكم بالتمييز لكل صورة من هذه الصور بحسبها.</p>
+</div>
+
+<!-- ===================== SECTION 15: PRACTICAL APPLICATION ===================== -->
+<h1>المسألة العملية: حكم المرأة عند تحول الدم من قوي إلى ضعيف</h1>
+
+<p>هذه المرأة — نبدأ بالمثال الأول — رأت الدم ثلاثة أيام أسود. في اليوم الرابع جاءها الدم أحمر — تغيرت صفة الدم. لما تغيرت صفة الدم هل تقول: اليوم الأول والثاني والثالث كان أسود الآن الرابع صار أحمر إذن خلاص أغتسل وأصلي؟</p>
+
+<p><span class="red-highlight">لا</span> — لاحتمال أنه ينقطع قبل الخمسة عشر. لأنه لو كان أسود لكنه قد كان أحمر وانقطع قبل الخمسة عشر ما هي الحالة؟ كل حيض صح أم لا؟</p>
+
+<div class="ruling-card">
+  <span class="ruling-label">القاعدة</span>
+  <p>إذا جاءها ثلاثة أيام أسود وبعد الأيام الأسود جاءها أحمر — <span class="red-highlight">لا تغتسلي لا تصلي لا تصومي — انتظري</span>. إلى متى؟ حتى يتبين.</p>
+</div>
+
+<!-- Detailed Example 1 -->
+<h2>المثال التفصيلي الأول: ثلاثة أيام أسود + 15 يوماً أحمر</h2>
+
+<p>امرأة رأت الدم ثلاثة أيام أسود. أنت تحكم أنه حيض. بعد الأيام الأسود رأت الدم خمسة عشر يوماً أحمر. هل عندما صار الدم أحمر مباشرة تغتسل وتصلي وتصوم؟ <span class="red-highlight">لا</span> — لاحتمال أن يكون حيضاً لأنه إذا انقطع قبل الخمسة عشر سيكون الجميع حيض. إذن تنتظر.</p>
+
+<p>الدم هذا استمر — خمسة عشر يوماً. هي إلى اليوم الخامس عشر لا تصلي. بعدين اليوم السادس عشر والسابع عشر والثامن عشر ستصلي هذه الأيام لأنه خلاص — تبين أنها مستحاضة مميزة.</p>
+
+<p>بعدين جاءها أسود. هذا الأسود الذي جاءها الآن واستمر — ما الذي سيكون؟ <span class="highlight">حيض جديد</span>. وحينئذ تبين أن الأحمر هذا ما كان استحاضة.</p>
+
+<div class="callout-box">
+  <div class="callout-label">تفصيل قضاء العبادات</div>
+  <p>الأحمر هذا استحاضة — كم أيامه؟ خمسة عشر. ثلاثة أيام من الخمسة عشر أنت قد عملت العبادات فيها (لأنها إلى اليوم الخامس عشر لا تصلي). كم يبقى عليك من العبادات؟ عبادات لاثني عشر يوماً تقضيها. فهمتم له؟</p>
+</div>
+
+<!-- Detailed Example 2 -->
+<h2>المثال التفصيلي الثاني: يومان أسود + 10 أحمر + أسود واستمر</h2>
+
+<p>رأت الدم يومين أسود ثم عشرة أيام أحمر. هل بمجرد انقلابه إلى أحمر خلاص مستحاضة تصير مستحاضة مباشرة؟ <span class="red-highlight">لا</span> — لاحتمال أنه ينقطع قبل الخمسة عشر. ثم أسود واستمر — إذا تبين لها أنها الآن غير مميزة. إذا حكمك حكم غير مميزة: حيضك يوم وليلة والباقي استحاضة. وسندرس هذا في الدرس القادم.</p>
+
+<!-- Detailed Example 3 -->
+<h2>المثال التفصيلي الثالث: سبعة أيام أسود + 10 أحمر + انقطع</h2>
+
+<p>جاءها الدم سبعة أيام أسود وبعدها عشرة أيام أحمر. هل بمجرد أن يصير أحمر تغتسل وتصلي وتصوم؟ <span class="red-highlight">لا — تنتظر</span>. فإذا جاوز الخمسة عشر اغتسلت وصلت وصامت. وبعدها ترى انقطع. ما دام انقطع يعني العشرة الأيام الأحمر هذه ماذا كانت؟ استحاضة. أنا صليت منها يومين مثلاً الذي هو الثالث عشر والرابع عشر — كم باقي من العشرة الأيام؟ ثمانية — نقضي عبادات الثمانية الأيام.</p>
+
+<!-- Reading the book text -->
+<div class="quote-block">
+  <div class="quote-label">نص الكتاب</div>
+  إذا رأت الأسود يوماً وليلة أو أكثر ثم اتصل به أحمر قبل الخمسة عشر — وجب عليها أن تمسك في مدة الأحمر عما تمسك عنه الحائض. بمعنى آخر: أي أنها لا تصير مستحاضة بمجرد أن الدم أصبح لونه أحمر بعد أن كان أسود.
+</div>
+
+<div class="ruling-card">
+  <span class="ruling-label">الحكم</span>
+  <p>وجب عليها أن تمسك في مدة الأحمر عما تمسك الحائض — <span class="highlight">لاحتمال أن ينقطع الأحمر قبل مجاوزة المجموع خمسة عشر فيكون الجميع حيضاً</span>. وقد قلت لك إن الدماء إذا كانت في أثناء الخمسة عشر يحكم بأنها حيض كلها سواء كانت أحمر أسود أصفار أشقار أياً كان.</p>
+</div>
+
+<p>فإن جاوز الخمسة عشر — عرفنا حينئذ أنها مستحاضة مميزة. ففي المثال الذي ذكره سيكون حيضها الأسود، ويكون الأحمر الذي تجاوز الخمسة عشر طهراً بالشروط السابقة. <span class="highlight">فعليها الغسل عقب الخمسة عشر</span> — بعد الخمسة عشر يوماً تغتسل وتصلي وتصوم وتقضي صلوات أيام الأحمر.</p>
+
+<!-- ===================== SECTION 16: COLORS ARE EXAMPLES ONLY ===================== -->
+<h1>الأسود والأحمر تمثيل فقط</h1>
+
+<div class="ruling-card">
+  <span class="ruling-label gold">تنبيه مهم</span>
+  <p>والأسود والأحمر تمثيل فقط، وإلا فالاعتبار بالقوي والضعيف كيف كان كما سيأتي. يعني قد أقول لك: رأت الدم ثلاثة أيام أحمر وخمسة عشر يوماً أشقر — نفس الحكم، المهم قوي وضعيف. وقد أقول لك: رأت الدم ثلاثة أيام أشقر وخمسة عشر يوماً أصفر — نفس الحكم، المهم قوي وضعيف. فلما يقول لك أسود أحمر هذا مثال — مثال باللغة الإنجليزية example — لكن ليس للحصر فقط.</p>
+</div>
+
+<!-- ===================== SECTION 17: FIRST MONTH VS SECOND MONTH ===================== -->
+<h1>حكم الشهر الأول والشهر الثاني عند تحول الدم</h1>
+
+<p>مسألة مهمة: رأت الدم ثلاثة أيام أسود خمسة عشر يوماً أحمر. قلت لك عندما تحول الدم من أسود إلى أحمر هل بمجرد تحول الصفة في الدم تصبح مستحاضة أم لا؟ لا — تبقى تمسك عما تمسك عنه الحائض حتى يتجاوز مجموع الدم خمسة عشر يوماً. بعد الخمسة عشر يوماً تغتسل وتصلي. والآن تقضي إذا تبين لها أن هذه الأيام أيام الأحمر استحاضة — تقضي ما بقي من أيام الأحمر في الاستحاضة.</p>
+
+<h2>حكم الشهر الأول</h2>
+
+<div class="ruling-card">
+  <span class="ruling-label">حكم الشهر الأول</span>
+  <p>في الشهر الأول: <span class="red-highlight">لا تغتسل بمجرد تحول الدم</span> من قوي إلى ضعيف، بل تنتظر حتى يتجاوز المجموع خمسة عشر يوماً — لاحتمال أن ينقطع قبل ذلك فيكون الجميع حيضاً.</p>
+</div>
+
+<h2>حكم الشهر الثاني وما بعده</h2>
+
+<p>جيد فعلت هذا في الشهر الأول. نفس المثال في الشهر الثاني — مثلاً جاءها الدم ثلاثة أيام أسود وخمسة عشر يوماً أحمر — هل نقول لها نفس الكلام: تمسك عما تمسك عنه الحائض؟ أو نقول خلاص بمجرد أن الدم انتقل من أسود إلى أحمر — الظاهر أنه كالشهر الماضي — فاغتسل الآن وصلّي؟</p>
+
+<div class="ruling-card">
+  <span class="ruling-label gold">حكم الشهر الثاني وما بعده</span>
+  <p>فأما في الشهر الثاني وما بعده — <span class="highlight">فإذا انقلب الدم القوي إلى ضعيف لازمها أن تغتسل عند انقلابه</span> عند تحوله وتصلي وتصوم ويأتيها زوجها. ولا ينتظر الخمسة عشر — ما تنتظر حتى الخمسة عشر كله تكتمل — بمجرد الانقلاب.</p>
+</div>
+
+<div class="comparison-card">
+  <div class="comparison-side right-side">
+    <span class="side-label">الشهر الأول</span>
+    <p>لا تغتسل بمجرد التحول — <span class="red-highlight">تنتظر</span> حتى يتجاوز 15 يوماً</p>
+    <p style="font-size:14px; color:#666;">العلّة: احتمال أن ينقطع قبل 15 فيكون الجميع حيضاً</p>
+  </div>
+  <div class="comparison-side left-side">
+    <span class="side-label">الشهر الثاني وما بعده</span>
+    <p>تغتسل بمجرد الانقلاب — <span class="highlight">لا تنتظر</span></p>
+    <p style="font-size:14px; color:#666;">العلّة: عرفنا من الشهر الماضي أنها مستحاضة، فالظاهر أنها في هذا الشهر كالشهر الذي قبله</p>
+  </div>
+</div>
+
+<div class="quote-block">
+  <div class="quote-label">نص الكتاب</div>
+  فضيلة الدكتور وفقه الله: هذا حكم الشهر الأول. فأما في الشهر الثاني وما بعده — فإذا انقلب الدم القوي إلى ضعيف — لازمها أن تغتسل عند انقلابه عند تحوله وتصلي وتصوم ويأتيها زوجها. ولا ينتظر الخمسة عشر.
+</div>
+
+<div class="callout-box">
+  <div class="callout-label">تنبيه: احتمالان في الشهر الثاني</div>
+  <p>هذا الأحمر يحتمل أنه يستمر حتى يتجاوز الخمسة عشر — حينئذ تكون مستحاضة. ويحتمل أن الأحمر هذا ينقطع قبل الخمسة عشر — فيتبين أن ما فعلته في أيام الأحمر هذا وقع في أيام الحيض.</p>
+</div>
+
+<!-- ===================== SECTION 18: SUMMARY ===================== -->
+<h1>خلاصة الدرس</h1>
+
+<div class="benefit-box">
+  <div class="benefit-label">✦ خلاصة ما درسناه</div>
+  <div class="numbered-steps">
+    <div class="step">عرفنا من هي المستحاضة المبتدأة المميزة — المبتدأة: التي لم يسبق لها حيض، والمميزة: التي ترى الدم بصفتين قوي وضعيف</div>
+    <div class="step">عرفنا حكمها: أنها تجعل القوي حيضاً والضعيف استحاضة</div>
+    <div class="step">عرفنا دليل هذا وتعليله — الدليل من حديث فاطمة بنت أبي حبيش، والتعليل لأن التمييز صفة في الدم أما العادة فصفة في صاحب الدم</div>
+    <div class="step">عرفنا أن هذا الحكم إنما يحكم به لها بأربعة شروط — شرطان في القوي وشرطان في الضعيف</div>
+    <div class="step">درسنا محترزات الشروط الأربعة — إذا اختل أي شرط فهي غير مميزة</div>
+    <div class="step">عرفنا حكم تحول الدم من قوي إلى ضعيف — في الشهر الأول تنتظر، وفي الشهر الثاني تغتسل بمجرد الانقلاب</div>
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-label">إشارة: الدم بثلاث صفات</div>
+  <p>لم ننتهِ بعد من حكم المستحاضة المميزة، لأنه يبقى عندنا شيء يتعلق بالتمييز وهي إذا رأت الدم <span class="highlight">بثلاث صفات</span> — دم قوي ودم ضعيف ودم أضعف — كأن رأت الدم أسود ثم أحمر ثم أصفر. فمن من هذه الدماء حيض؟ وما هو الدم الذي استحاضة؟ هذا سندرسه في الدرس القادم إن شاء الله. فلنستعجل شيئاً فشيئاً إن شاء الله.</p>
+</div>
+
+<div class="dua-block">
+  نكتفي بهذا القدر والله أعلم<br>
+  صلّ اللهم وسلم وبارك على سيدنا محمد وآله وصحبه أجمعين<br>
+  والحمد لله رب العالمين
+</div>
+
+</div><!-- end main-content -->
+
+</body>
+</html>
