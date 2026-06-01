@@ -1,0 +1,2232 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح العوامل المائة — الدرس الخامس عشر: أفعال الشك واليقين، العوامل القياسية والمعنوية</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-green: #0d6b3e;
+  --dark-green: #0a4f2e;
+  --gold: #d4a020;
+  --light-gold: #f0e6c0;
+  --teal: #0d7377;
+  --bg: #fefefe;
+  --body-text: #1a1a1a;
+  --border: #c8d6c0;
+  --cover-gradient-1: #0a4f2e;
+  --cover-gradient-2: #0d6b3e;
+  --cover-gradient-3: #1a8a5c;
+  --light-green-bg: #e8f5e9;
+  --section-bg: #f7faf5;
+}
+
+body.bw-mode {
+  --primary-green: #333;
+  --dark-green: #222;
+  --gold: #555;
+  --light-gold: #ddd;
+  --teal: #444;
+  --bg: #fff;
+  --body-text: #000;
+  --border: #999;
+  --cover-gradient-1: #333;
+  --cover-gradient-2: #555;
+  --cover-gradient-3: #777;
+  --light-green-bg: #f0f0f0;
+  --section-bg: #f5f5f5;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--body-text);
+  background: var(--bg);
+  direction: rtl;
+}
+
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+  @bottom-center {
+    content: "— " counter(page) " —";
+    font-size: 10px;
+    color: #666;
+  }
+}
+
+/* ===== B&W TOGGLE ===== */
+.bw-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 9999;
+  background: var(--primary-green);
+  color: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: all 0.3s;
+}
+.bw-toggle:hover { background: var(--dark-green); }
+
+/* ===== COVER PAGE ===== */
+.cover-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, var(--cover-gradient-1) 0%, var(--cover-gradient-2) 50%, var(--cover-gradient-3) 100%);
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+}
+.cover-page::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a020' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.cover-border {
+  border: 3px solid var(--gold);
+  border-radius: 16px;
+  padding: 50px 60px;
+  position: relative;
+  max-width: 700px;
+}
+.cover-border::after {
+  content: '';
+  position: absolute;
+  top: 8px; left: 8px; right: 8px; bottom: 8px;
+  border: 1px solid rgba(212,160,32,0.4);
+  border-radius: 12px;
+  pointer-events: none;
+}
+.cover-book-title {
+  font-family: 'Amiri', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.cover-author {
+  font-size: 18px;
+  color: #c8e6c9;
+  margin-bottom: 30px;
+}
+.cover-lesson-num {
+  font-size: 22px;
+  color: var(--light-gold);
+  margin-bottom: 8px;
+}
+.cover-lesson-title {
+  font-family: 'Amiri', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.cover-final-badge {
+  display: inline-block;
+  background: #c62828;
+  color: #fff;
+  padding: 4px 18px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.cover-divider {
+  width: 120px;
+  height: 2px;
+  background: var(--gold);
+  margin: 20px auto;
+}
+.cover-names {
+  font-size: 15px;
+  color: #a5d6a7;
+  line-height: 2;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 24px;
+}
+
+.section-divider {
+  text-align: center;
+  margin: 30px 0;
+  position: relative;
+}
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 30%;
+  height: 1px;
+  background: linear-gradient(to left, var(--gold), transparent);
+}
+.section-divider::before { right: 0; }
+.section-divider::after { left: 0; background: linear-gradient(to right, var(--gold), transparent); }
+.section-divider .divider-icon {
+  color: var(--gold);
+  font-size: 22px;
+  padding: 0 12px;
+  background: var(--bg);
+}
+
+.section-divider.ornate {
+  margin: 40px 0;
+}
+.section-divider.ornate::before,
+.section-divider.ornate::after {
+  width: 35%;
+  background: linear-gradient(to left, var(--primary-green), transparent);
+}
+.section-divider.ornate::after {
+  background: linear-gradient(to right, var(--primary-green), transparent);
+}
+
+h1 {
+  font-size: 26px;
+  color: var(--primary-green);
+  border-bottom: 3px solid var(--gold);
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+h2 {
+  font-size: 22px;
+  color: var(--primary-green);
+  margin-bottom: 14px;
+  margin-top: 28px;
+}
+h3 {
+  font-size: 19px;
+  color: var(--dark-green);
+  margin-bottom: 10px;
+  margin-top: 22px;
+}
+
+p { margin-bottom: 14px; }
+
+/* ===== DUA BOX ===== */
+.dua-box {
+  background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 20px 0;
+  text-align: center;
+  font-size: 18px;
+  line-height: 2;
+  position: relative;
+}
+.dua-box::before {
+  content: '🤲';
+  font-size: 28px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* ===== MATN BOX ===== */
+.matn-box {
+  background: var(--light-gold);
+  border-right: 5px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  padding: 16px 22px;
+  margin: 20px 0;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 2;
+  color: var(--dark-green);
+}
+
+/* ===== TREE CONTAINER ===== */
+.tree-container {
+  background: var(--light-green-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 24px 0;
+  overflow-x: auto;
+}
+.tree-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--primary-green);
+  text-align: center;
+  margin-bottom: 18px;
+}
+.tree-root {
+  text-align: center;
+  margin-bottom: 8px;
+}
+.tree-node {
+  display: inline-block;
+  background: var(--primary-green);
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 17px;
+}
+.tree-branches {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.tree-branch {
+  text-align: center;
+  flex: 1;
+  min-width: 140px;
+}
+.tree-branch-node {
+  background: var(--gold);
+  color: var(--dark-green);
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+.tree-connector {
+  width: 2px;
+  height: 16px;
+  background: var(--primary-green);
+  margin: 0 auto;
+}
+.tree-leaf {
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 15px;
+  margin: 3px auto;
+  display: inline-block;
+  max-width: 100%;
+}
+.tree-sub-branch {
+  margin-top: 6px;
+}
+.tree-horizontal {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+/* ===== TABLE STYLED ===== */
+.table-styled {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 16px;
+}
+.table-styled th {
+  background: var(--primary-green);
+  color: #fff;
+  padding: 10px 14px;
+  font-weight: 700;
+  border: 1px solid var(--dark-green);
+  text-align: center;
+}
+.table-styled td {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  text-align: center;
+  vertical-align: top;
+}
+.table-styled tr:nth-child(even) { background: var(--light-green-bg); }
+.table-styled tr:nth-child(even) td { background: var(--light-green-bg); }
+.table-styled tr:nth-child(odd) { background: #fff; }
+.table-styled tr:nth-child(odd) td { background: #fff; }
+
+/* ===== CALLOUT BOX ===== */
+.callout {
+  background: #fff8e1;
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 20px 0;
+  position: relative;
+}
+.callout::before {
+  content: '⚡';
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  font-size: 22px;
+  background: var(--bg);
+  padding: 0 6px;
+}
+.callout-title {
+  font-weight: 700;
+  color: var(--dark-green);
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+/* ===== DEFINITION CARD ===== */
+.definition-card {
+  background: #fff;
+  border: 2px solid var(--teal);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 20px 0;
+  position: relative;
+}
+.definition-term {
+  font-weight: 700;
+  color: var(--teal);
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+.definition-text {
+  font-size: 17px;
+  line-height: 1.8;
+}
+.definition-ref {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+}
+
+/* ===== QAIDAH BOX ===== */
+.qaidah-box {
+  background: linear-gradient(135deg, #fff8e1 0%, #fff3cd 100%);
+  border: 3px solid var(--gold);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 24px 0;
+  position: relative;
+}
+.qaidah-label {
+  position: absolute;
+  top: -14px;
+  right: 20px;
+  background: var(--gold);
+  color: #fff;
+  padding: 3px 18px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 14px;
+}
+.qaidah-text {
+  font-size: 17px;
+  line-height: 2;
+  font-weight: 600;
+  color: var(--dark-green);
+  margin-top: 8px;
+}
+
+/* ===== BENEFIT BOX ===== */
+.benefit-box {
+  background: linear-gradient(135deg, #f3e5f5 0%, #e8daef 100%);
+  border: 2px solid #8e44ad;
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 20px 0;
+}
+.benefit-title {
+  font-weight: 700;
+  color: #8e44ad;
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+.benefit-text {
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* ===== EVIDENCE BOX ===== */
+.evidence-box {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 18px 0;
+  position: relative;
+}
+.evidence-box::before {
+  content: '📖';
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  font-size: 22px;
+  background: var(--bg);
+  padding: 0 4px;
+}
+.evidence-label {
+  font-weight: 700;
+  color: var(--primary-green);
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+.evidence-text {
+  font-size: 18px;
+  line-height: 2;
+  font-weight: 600;
+}
+
+/* ===== SUMMARY BOX ===== */
+.summary-box {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  border: 2px solid #1565c0;
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 20px 0;
+}
+.summary-title {
+  font-weight: 700;
+  color: #1565c0;
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+.summary-text {
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* ===== ALERT BOX ===== */
+.alert-box {
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 18px 0;
+  font-size: 17px;
+}
+.alert-box.info {
+  background: #e3f2fd;
+  border: 2px solid #2196f3;
+}
+.alert-box.warning {
+  background: #fff3e0;
+  border: 2px solid #ff9800;
+}
+.alert-box.success {
+  background: #e8f5e9;
+  border: 2px solid #4caf50;
+}
+.alert-box.error {
+  background: #fce4ec;
+  border: 2px solid #e53935;
+}
+
+/* ===== I'RAB EXAMPLE BOX ===== */
+.irab-box {
+  background: #fff;
+  border: 2px solid var(--teal);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin: 18px 0;
+  position: relative;
+}
+.irab-box::before {
+  content: '✏️';
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  font-size: 20px;
+  background: var(--bg);
+  padding: 0 4px;
+}
+.irab-title {
+  font-weight: 700;
+  color: var(--teal);
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+.irab-example {
+  background: var(--light-green-bg);
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 12px;
+  color: var(--dark-green);
+}
+.irab-detail {
+  font-size: 16px;
+  line-height: 2;
+  padding-right: 12px;
+  border-right: 3px solid var(--teal);
+  margin-bottom: 8px;
+}
+.irab-detail strong {
+  color: var(--primary-green);
+}
+
+/* ===== COMPARISON CARDS ===== */
+.cols {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+.cols-3 > div { flex: 1; min-width: 200px; }
+.comparison-card {
+  background: #fff;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  text-align: center;
+}
+.comparison-card-header {
+  background: var(--primary-green);
+  color: #fff;
+  margin: -16px -18px 12px;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  font-weight: 700;
+  font-size: 16px;
+}
+.comparison-card-body {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* ===== SCHOLAR CARD ===== */
+.scholar-card {
+  background: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 20px 0;
+  position: relative;
+}
+.scholar-name {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--dark-green);
+}
+.scholar-badge {
+  display: inline-block;
+  background: var(--primary-green);
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+  margin-right: 8px;
+}
+.scholar-dates {
+  font-size: 14px;
+  color: #666;
+  margin-top: 4px;
+}
+.scholar-bio {
+  font-size: 16px;
+  margin-top: 8px;
+  line-height: 1.7;
+}
+
+/* ===== CHECKLIST ===== */
+.checklist {
+  background: var(--light-green-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 20px 0;
+}
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.checklist-circle {
+  min-width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--primary-green);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+}
+.checklist-text {
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* ===== POETRY BOX ===== */
+.poetry-box {
+  background: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 20px 28px;
+  margin: 20px 0;
+  text-align: center;
+}
+.poetry-box .verse {
+  font-size: 19px;
+  line-height: 2.2;
+  font-weight: 600;
+  color: var(--dark-green);
+}
+
+/* ===== RULING CARD ===== */
+.ruling-card {
+  display: inline-block;
+  border-radius: 8px;
+  padding: 8px 18px;
+  margin: 4px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+}
+.ruling-card.fard { background: #c62828; }
+.ruling-card.wajib { background: #e65100; }
+.ruling-card.sunna { background: #2e7d32; }
+.ruling-card.mustahabb { background: #1565c0; }
+.ruling-card.makruh { background: #f9a825; color: #333; }
+.ruling-card.haram { background: #b71c1c; }
+.ruling-card.mubah { background: #757575; }
+
+/* ===== SPECIAL PROPERTY BOX ===== */
+.special-box {
+  background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+  border: 2px solid #c62828;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 18px 0;
+  position: relative;
+}
+.special-box::before {
+  content: '🔴';
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  font-size: 20px;
+  background: var(--bg);
+  padding: 0 4px;
+}
+.special-title {
+  font-weight: 700;
+  color: #c62828;
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+/* ===== FLOW CONTAINER ===== */
+.flow-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0;
+  direction: rtl;
+}
+.flow-step {
+  background: var(--primary-green);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  min-width: 100px;
+}
+.flow-arrow {
+  font-size: 22px;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* ===== CLOSING BOX ===== */
+.closing-box {
+  background: linear-gradient(135deg, var(--light-green-bg) 0%, #c8e6c9 100%);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 24px 0;
+  text-align: center;
+}
+.closing-dua {
+  font-size: 18px;
+  line-height: 2;
+  color: var(--dark-green);
+  font-weight: 600;
+}
+
+/* ===== FOOTER ===== */
+.page-footer {
+  text-align: center;
+  font-size: 13px;
+  color: #888;
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+ul, ol { padding-right: 24px; margin-bottom: 14px; }
+li { margin-bottom: 6px; }
+
+.highlight { color: var(--primary-green); font-weight: 700; }
+.gold-highlight { color: var(--gold); font-weight: 700; }
+.teal-highlight { color: var(--teal); font-weight: 700; }
+
+/* ===== QAIDA BOX VARIANTS ===== */
+.qaida-green {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  border: 3px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 24px 0;
+  position: relative;
+}
+.qaida-green .qaidah-label {
+  background: var(--primary-green);
+}
+
+/* ===== WEIGHTS GRID ===== */
+.weights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+  margin: 20px 0;
+}
+.weight-card {
+  background: #fff;
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 14px 16px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.weight-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5px;
+  height: 100%;
+  background: var(--gold);
+}
+.weight-pattern {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 4px;
+}
+.weight-example {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--dark-green);
+}
+.weight-root {
+  font-size: 14px;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* ===== FINAL LECTURE BANNER ===== */
+.final-banner {
+  background: linear-gradient(135deg, #c62828 0%, #b71c1c 100%);
+  color: #fff;
+  text-align: center;
+  padding: 16px 24px;
+  border-radius: 12px;
+  margin: 24px 0;
+  font-size: 20px;
+  font-weight: 700;
+  position: relative;
+}
+.final-banner::before {
+  content: '🎓';
+  font-size: 28px;
+  margin-left: 8px;
+}
+
+/* ===== STORY BOX ===== */
+.story-box {
+  background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+  border: 2px solid #e65100;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 24px 0;
+  position: relative;
+}
+.story-box::before {
+  content: '📜';
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  font-size: 22px;
+  background: var(--bg);
+  padding: 0 4px;
+}
+.story-title {
+  font-weight: 700;
+  color: #e65100;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.story-text {
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+/* ===== ADDITION TYPES TABLE ===== */
+.addition-types {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+.addition-type-card {
+  background: #fff;
+  border: 2px solid var(--teal);
+  border-radius: 12px;
+  padding: 16px 20px;
+  flex: 1;
+  min-width: 220px;
+}
+.addition-type-header {
+  background: var(--teal);
+  color: #fff;
+  margin: -16px -20px 12px;
+  padding: 8px 16px;
+  border-radius: 10px 10px 0 0;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+}
+
+@media print {
+  .bw-toggle { display: none; }
+  .cover-page { page-break-after: always; }
+  body { font-size: 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- B&W TOGGLE BUTTON -->
+<button class="bw-toggle" onclick="document.body.classList.toggle('bw-mode')">وضع الأبيض والأسود</button>
+
+<!-- ===== COVER PAGE ===== -->
+<div class="cover-page">
+  <div class="cover-border">
+    <div class="cover-book-title">شرح العوامل المائة</div>
+    <div class="cover-author">للإمام عبد القاهر الجرجاني رحمه الله تعالى</div>
+    <div class="cover-divider"></div>
+    <div class="cover-lesson-num">الدرس الخامس عشر</div>
+    <div class="cover-final-badge">الدرس الأخير</div>
+    <div class="cover-lesson-title">أفعال الشك واليقين<br>العوامل القياسية والمعنوية</div>
+    <div class="cover-divider"></div>
+    <div class="cover-names">
+      إعداد: أحمد بن إرشاد<br>
+      المتن: الإمام عبد القاهر الجرجاني رحمه الله تعالى<br>
+      الشرح: د. لبيب نجيب عبدالله
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="main-content">
+
+<!-- OPENING DUA -->
+<div class="dua-box">
+بسم الله الرحمن الرحيم<br>
+الحمد لله رب العالمين والصلاة والسلام الأتمان الأكملان على سيد المرسلين سيدنا محمد وعلى آله وصحبه الطيبين الطاهرين<br>
+أما بعد فأسأل الله سبحانه وتعالى أن يمن علينا بالعلم النافع والعمل الصالح وأن يفقهنا في الدين وأن يفتح لنا فتوح العارفين وأن يرزقنا الإخلاص في الأقوال والأعمال اللهم آمين
+</div>
+
+<!-- ===== REVIEW FROM PREVIOUS LESSON ===== -->
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h1>تتمة الدرس الماضي: أفعال المدح والذم</h1>
+
+<p>آخر ما وقفنا عنده في الدرس الماضي ما يتعلق بأفعال المدح والذم. بقيت نقطة صغيرة حصل السؤال عليها بعد الدرس:</p>
+
+<p>لو قلت مثلاً: <strong>حبذا الرجل زيد</strong> — فإما أن تجعل <strong>حبذا</strong> كلمة واحدة وهو ظاهر كلام المصنف رحمه الله تعالى، وحينئذ يكون <strong>الرجل</strong> هو الفاعل. وإما أن تجعلها كلمتين فتقول حينئذ: <strong>حبّ</strong> فعل ماض، <strong>ذا</strong> فاعل اسم إشارة مبنية على السكون في محل رفع فاعل.</p>
+
+<p>ماذا يُعرب <strong>الرجل</strong>؟ الرجل هنا حينئذ يكون <strong>نعت</strong>، يكون نعت. تقول: القاتل الرجل — هذا جامد، كيف يكون نعتاً؟ نقول: المراد بالرجل هنا <strong>الكامل في الرجولة</strong>، فخرج من كونه جامداً إلى كونه نعتاً ووصفاً. المراد بالرجل هنا الكامل في الرجولة، وليس المراد ذات الكلمة إنما المراد الوصف بالكلمة.</p>
+
+<p>فتباعداً يكون <strong>الرجل</strong> هنا نعت لنعت اسم الإشارة. ثم هذا كله <strong>خبر مقدم</strong> و<strong>زيد مبتدأ مؤخر</strong>.</p>
+
+<div class="callout">
+  <div class="callout-title">تنبيه: إعراب حبذا الرجل زيد</div>
+  <p><strong>الوجه الأول:</strong> حبذا كلمة واحدة → الرجل فاعل</p>
+  <p><strong>الوجه الثاني:</strong> حبّ فعل ماض + ذا فاعل → الرجل نعت لاسم الإشارة (لأن المراد الكامل في الرجولة)</p>
+  <p>وفي كلا الوجهين: زيد مبتدأ مؤخر والكلام قبله خبر مقدم</p>
+</div>
+
+<!-- ===== النوع الثالث عشر: أفعال الشك واليقين ===== -->
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<div class="final-banner">النوع الثالث عشر — آخر أنواع العوامل السماعية</div>
+
+<h1>النوع الثالث عشر: أفعال الشك واليقين</h1>
+
+<h2>أسماء هذه الأفعال</h2>
+
+<p>هذه الأفعال تسمى بعدة أسماء:</p>
+
+<div class="cols">
+  <div class="comparison-card">
+    <div class="comparison-card-header">أفعال الشك واليقين</div>
+    <div class="comparison-card-body">لأن بعضها يفيد الشك وبعضها يفيد اليقين</div>
+  </div>
+  <div class="comparison-card">
+    <div class="comparison-card-header">أفعال القلوب</div>
+    <div class="comparison-card-body">لأنها تتعلق بعمل القلب من علم وظن وتصيير</div>
+  </div>
+  <div class="comparison-card">
+    <div class="comparison-card-header">ظنّ وأخواتها</div>
+    <div class="comparison-card-body">نسبةً إلى أشهر أفرادها وهو الفعل ظنّ</div>
+  </div>
+</div>
+
+<h2>تعريف أفعال الشك واليقين</h2>
+
+<p>هي من <strong>الأفعال النواسخ</strong> التي تنسخ الرفع إذا دخلت على المبتدأ والخبر، فتنصب الأول الذي هو المبتدأ وتنصب الثاني الذي هو الخبر.</p>
+
+<h2>عدد أفعال القلوب</h2>
+
+<p>كم عددها؟ <strong>13 فعلاً</strong>. المصنف هنا — الإمام العلامة عبد القاهر الجرجاني رحمه الله تعالى المتوفى سنة 471 — ذكر منها <strong>سبعة</strong>. وابن مالك في الألفية عدها <strong>13</strong>.</p>
+
+<!-- CLASSIFICATION: المصنف vs ابن مالك -->
+<div class="cols">
+  <div class="comparison-card">
+    <div class="comparison-card-header">المصنف (الجرجاني)</div>
+    <div class="comparison-card-body" style="font-size:22px;font-weight:700;">7 أفعال</div>
+    <p style="font-size:15px;margin-top:8px;">علمت، وجدت، رأيت<br>ظننت، حسبت، خلت<br>زعمت</p>
+  </div>
+  <div class="comparison-card">
+    <div class="comparison-card-header">ابن مالك (الألفية)</div>
+    <div class="comparison-card-body" style="font-size:22px;font-weight:700;">13 فعلاً</div>
+    <p style="font-size:15px;margin-top:8px;">زاد: درى، جعل (بمعنى اعتقد)،<br>وهب، تعلّم، صيّر</p>
+  </div>
+</div>
+
+<!-- POETRY BOX: Ibn Malik's Alfiyyah -->
+<div class="poetry-box">
+  <div style="font-size:14px;color:var(--gold);margin-bottom:8px;">نظم ابن مالك في الألفية</div>
+  <div class="verse">انصب بفعل القلب جزئي ابتداء<br>قد أعني رأى خالاً علمت وجدا</div>
+  <div class="verse">ظنّ حسبت وزعمت مع عد حجا<br>درى وجعل الذي اعتقد وهب تَعَلَّما</div>
+  <div class="verse">والتيك صيراً أيضاً بها انصب مبتداً<br>وخبراً</div>
+</div>
+
+<div class="callout">
+  <div class="callout-title">تنبيه مهم: قول ابن مالك «جزئي»</div>
+  <p>قال ابن مالك: <strong>انصب بفعل القلب جزئي ابتداء</strong> — قد يفهم شخص أن كل فعل قلب ينصب المبتدأ والخبر. قال: <strong>لا أعني</strong> — أي أعني أفعالاً خاصة — أعني كذا كذا كذا.</p>
+  <p>فليس <strong>كل</strong> فعل من أفعال القلوب ينصب المبتدأ والخبر، بل <strong>بعض</strong> أفعال القلوب التي تنصب المبتدأ والخبر. والذي ينصب المبتدأ والخبر هو بعض أفعال القلوب وليس كل أفعال القلوب.</p>
+  <p><strong>مثال:</strong> الفعل <strong>فكّر</strong> من أفعال القلوب، لكنه لا ينصب المبتدأ والخبر.</p>
+</div>
+
+<!-- CLASSIFICATION TREE: أفعال الشك واليقين -->
+<div class="tree-container">
+  <div class="tree-title">شجرة التصنيف: أفعال الشك واليقين (13 فعلاً)</div>
+  <div class="tree-root">
+    <div class="tree-node">أفعال القلوب (13 فعلاً)</div>
+  </div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">تفيد اليقين (4)</div>
+      <div class="tree-sub-branch">
+        <div class="tree-horizontal">
+          <div class="tree-leaf">علمت</div>
+          <div class="tree-leaf">وجدت</div>
+          <div class="tree-leaf">رأيت</div>
+          <div class="tree-leaf">درى</div>
+        </div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">تفيد الرجحان (الشك) (6)</div>
+      <div class="tree-sub-branch">
+        <div class="tree-horizontal">
+          <div class="tree-leaf">ظننت</div>
+          <div class="tree-leaf">حسبت</div>
+          <div class="tree-leaf">خلت</div>
+          <div class="tree-leaf">زعمت</div>
+          <div class="tree-leaf">جعل (بمعنى اعتقد)</div>
+          <div class="tree-leaf">وهب</div>
+        </div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">تفيد التصيير (2)</div>
+      <div class="tree-sub-branch">
+        <div class="tree-horizontal">
+          <div class="tree-leaf">صيّرت</div>
+          <div class="tree-leaf">تعلّم</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- المذكور من المصنف (7 أفعال) -->
+<h2>الأفعال السبعة التي ذكرها المصنف</h2>
+
+<div class="matn-box">
+  النوع الثالث عشر من ثلاثة عشر نوعاً:<br>
+  <strong>أفعال الشك واليقين وتسمى أفعال القلوب وهي سبعة أفعال</strong>
+</div>
+
+<!-- القسم الأول: أفعال اليقين -->
+<h3>① أفعال اليقين (3): علمت، وجدت، رأيت</h3>
+
+<div class="callout">
+  <div class="callout-title">ملاحظة</div>
+  <p>هذه الثلاثة لليقين، <strong>مع أن بعضها قد يستعمل أيضاً في الظن</strong>.</p>
+</div>
+
+<!-- علمت -->
+<h3>علمت</h3>
+
+<div class="irab-box">
+  <div class="irab-title">مثال: علمتك مجتهداً</div>
+  <div class="irab-example">علمتك مجتهداً</div>
+  <div class="irab-detail">
+    <strong>علمت:</strong> فعل ماض مبني على السكون لاتصاله بتاء الفاعل، والتاء ضمير متصل مبني على الضم في محل رفع فاعل
+  </div>
+  <div class="irab-detail">
+    <strong>الكاف:</strong> ضمير متصل مبني على الفتح في محل نصب مفعول به أول
+  </div>
+  <div class="irab-detail">
+    <strong>مجتهداً:</strong> مفعول به ثاني منصوب علامة نصبه الفتحة الظاهرة على آخره
+  </div>
+  <div class="irab-detail">
+    <strong>أصل الكلام:</strong> علمتك أصله: الكاف = أنت مجتهد. فعلمت دخلت على مبتدأ وخبر فنصبت الأول والثاني
+  </div>
+</div>
+
+<!-- وجدت -->
+<h3>وجدت</h3>
+
+<div class="irab-box">
+  <div class="irab-title">مثال: وجدت الباطل منهزماً</div>
+  <div class="irab-example">وجدت الباطل منهزماً</div>
+  <div class="irab-detail">
+    <strong>وجد:</strong> فعل ماض مبني على السكون لاتصاله بتاء الفاعل، والتاء ضمير متصل مبني على الضم في محل رفع فاعل
+  </div>
+  <div class="irab-detail">
+    <strong>الباطل:</strong> مفعول به منصوب وعلامة نصبه الفتحة الظاهرة على آخره
+  </div>
+  <div class="irab-detail">
+    <strong>منهزماً:</strong> مفعول به ثاني منصوب وعلامة نصبه الفتحة الظاهرة على آخره
+  </div>
+  <div class="irab-detail">
+    <strong>أصل الكلام:</strong> الباطل منهزماً — فلما دخلت وجدت صارت: وجدت الباطل منهزماً
+  </div>
+</div>
+
+<!-- رأيت -->
+<h3>رأيت</h3>
+
+<p>الفعل <strong>رأى</strong> إما أن تكون الرؤية فيه بصرية أو علمية أو منامية:</p>
+
+<!-- CLASSIFICATION: أنواع رأى -->
+<div class="tree-container">
+  <div class="tree-title">شجرة التصنيف: أنواع رؤية الفعل «رأى»</div>
+  <div class="tree-root">
+    <div class="tree-node">رأى</div>
+  </div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">رؤية بصرية</div>
+      <div class="tree-sub-branch">
+        <div class="tree-horizontal">
+          <div class="tree-leaf">تنصب مفعولاً واحداً</div>
+        </div>
+        <div style="font-size:14px;margin-top:4px;">مثال: رأيت الجبل</div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">رؤية علمية</div>
+      <div class="tree-sub-branch">
+        <div class="tree-horizontal">
+          <div class="tree-leaf">تنصب مفعولين</div>
+        </div>
+        <div style="font-size:14px;margin-top:4px;">مثال: رأيت الحق منتصراً</div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">رؤية منامية</div>
+      <div class="tree-sub-branch">
+        <div class="tree-horizontal">
+          <div class="tree-leaf">تنصب مفعولين</div>
+        </div>
+        <div style="font-size:14px;margin-top:4px;">مثال: إني أراني أعصر خمراً</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>إذا كانت الرؤية بصرية فإنه ينصب مفعولاً واحداً. رأيت الجبل — ينصب مفعولاً واحداً.</p>
+<p>أما إذا كانت الرؤية علمية — تقول: <strong>رأيت الحق منتصراً</strong> — الحق لا يرى، ما معنى رأيت الحق منتصراً؟ <strong>علمت الحق منتصراً</strong>. هذه رؤية علمية. ففي الرؤية العلمية ينصب مفعولين.</p>
+<p>وفي الرؤية المنامية أيضاً ينصب مفعولين.</p>
+
+<div class="evidence-box">
+  <div class="evidence-label">دليل من القرآن الكريم — الرؤية المنامية</div>
+  <div class="evidence-text">﴿إِنِّي أَرَانِي أَعْصِرُ خَمْرًا﴾</div>
+  <p style="font-size:15px;margin-top:8px;">أراني: مفعول أول، أعصر خمراً: مفعول ثاني — رؤية منامية</p>
+</div>
+
+<div class="irab-box">
+  <div class="irab-title">مثال: رأيت الله أكبر كل شيء (رؤية علمية)</div>
+  <div class="irab-example">رأيت الله أكبر كل شيء</div>
+  <div class="irab-detail">
+    <strong>الله:</strong> اسم الجلالة — مفعول به أول منصوب
+  </div>
+  <div class="irab-detail">
+    <strong>أكبر:</strong> مفعول به ثاني منصوب
+  </div>
+  <div class="irab-detail">
+    هذه رؤية علمية (أي علمت الله أكبر كل شيء)
+  </div>
+</div>
+
+<!-- الرؤية قد تأتي للظن -->
+<div class="callout">
+  <div class="callout-title">تنبيه: الرؤية قد تأتي للظن</div>
+  <p>الرؤية في الأصل أنها لليقين، لكن قد تأتي للظن.</p>
+</div>
+
+<div class="evidence-box">
+  <div class="evidence-label">دليل من القرآن: الرؤية بمعنى الظن وبمعنى اليقين</div>
+  <div class="evidence-text">﴿إِنَّهُمْ يَرَوْنَهُ بَعِيدًا * وَنَرَاهُ قَرِيبًا﴾</div>
+  <p style="font-size:15px;margin-top:8px;">
+    <strong>إنهم يرونه بعيداً</strong> — أي الكفار — <strong>يظنونه</strong> بعيداً. فهنا الرؤية بمعنى الظن.<br>
+    <strong>ونراه قريباً</strong> — أي <strong>نتيقن</strong> قربه. فهنا الرؤية بمعنى اليقين.
+  </p>
+</div>
+
+<!-- القسم الثاني: أفعال الشك -->
+<h3>② أفعال الشك (3): ظننت، حسبت، خلت</h3>
+
+<!-- ظننت -->
+<h3>ظننت</h3>
+
+<div class="irab-box">
+  <div class="irab-title">مثال: ظننتك صديقاً</div>
+  <div class="irab-example">ظننتك صديقاً</div>
+  <div class="irab-detail">
+    <strong>ظن:</strong> فعل ماض مبني على السكون لاتصاله بتاء الفاعل، والتاء ضمير متصل مبني على الضم في محل رفع فاعل
+  </div>
+  <div class="irab-detail">
+    <strong>الكاف:</strong> ضمير متصل مبني على الفتح في محل نصب مفعول به أول
+  </div>
+  <div class="irab-detail">
+    <strong>صديقاً:</strong> مفعول به ثاني منصوب علامة نصبه الفتحة الظاهرة على آخره
+  </div>
+</div>
+
+<!-- حسبت -->
+<h3>حسبت</h3>
+
+<p>تقول: <strong>حسبتك زيداً</strong>.</p>
+
+<!-- خلت -->
+<h3>خلت</h3>
+
+<div class="irab-box">
+  <div class="irab-title">مثال: خلت زيداً أخاك</div>
+  <div class="irab-example">خلت زيداً أخاك</div>
+  <div class="irab-detail">
+    <strong>خلت:</strong> فعل ماض مبني على السكون لاتصاله بتاء الفاعل، والتاء ضمير متصل مبني على الضم في محل رفع فاعل
+  </div>
+  <div class="irab-detail">
+    <strong>زيداً:</strong> مفعول به أول منصوب وعلامة نصبه الفتحة الظاهرة على آخره
+  </div>
+  <div class="irab-detail">
+    <strong>أخاك:</strong> مفعول به ثاني منصوب وعلامة نصبه الألف لأنه من الأسماء الخمسة وهو مضاف، والكاف ضمير متصل مبني على الفتح في محل جر بالمضاف
+  </div>
+  <div class="irab-detail">
+    <em>أخاك هنا منصوب وعلامة نصبه الألف لأنه تحققت فيه الشروط: فهو مفرد مكبر مضاف لغير ياء المتكلم — «ارفع بواو وانصبن بالألف واجر بياء ما من الأسماء أُخي»</em>
+  </div>
+</div>
+
+<!-- القسم الثالث: زعمت (متوسط) -->
+<h3>③ زعمت — متوسط بين الستة</h3>
+
+<div class="definition-card">
+  <div class="definition-term">زعمت — متوسط بين الستة</div>
+  <div class="definition-text">
+    أي أنه تارة يستعمل <strong>لليقين</strong> وتارة يستعمل <strong>للشك</strong>.
+  </div>
+</div>
+
+<!-- TABLE: Summary of 7 verbs -->
+<h2>ملخص الأفعال السبعة</h2>
+
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>الفعل</th>
+      <th>نوعه</th>
+      <th>مثال</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="font-size:18px;font-weight:700;">علمت</td>
+      <td><span class="ruling-card sunna">يقين</span></td>
+      <td>علمتك مجتهداً</td>
+    </tr>
+    <tr>
+      <td style="font-size:18px;font-weight:700;">وجدت</td>
+      <td><span class="ruling-card sunna">يقين</span></td>
+      <td>وجدت الباطل منهزماً</td>
+    </tr>
+    <tr>
+      <td style="font-size:18px;font-weight:700;">رأيت</td>
+      <td><span class="ruling-card sunna">يقين</span> <small>(وقد يأتي للظن)</small></td>
+      <td>رأيت الحق منتصراً</td>
+    </tr>
+    <tr>
+      <td style="font-size:18px;font-weight:700;">ظننت</td>
+      <td><span class="ruling-card mustahabb">شك</span></td>
+      <td>ظننتك صديقاً</td>
+    </tr>
+    <tr>
+      <td style="font-size:18px;font-weight:700;">حسبت</td>
+      <td><span class="ruling-card mustahabb">شك</span></td>
+      <td>حسبتك زيداً</td>
+    </tr>
+    <tr>
+      <td style="font-size:18px;font-weight:700;">خلت</td>
+      <td><span class="ruling-card mustahabb">شك</span></td>
+      <td>خلت زيداً أخاك</td>
+    </tr>
+    <tr>
+      <td style="font-size:18px;font-weight:700;">زعمت</td>
+      <td><span class="ruling-card wajib">متوسط</span> <small>(يقين/شك)</small></td>
+      <td>زعمت زيداً كريماً</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- المفعول الثاني عبارة عن الأول -->
+<h2>قاعدة: المفعول الثاني عبارة عن الأول</h2>
+
+<div class="matn-box">
+  وهذه السبعة كل منها متعدٍّ إلى مفعولين، والثاني منهما عبارة عن الأول، ويكون فيه ضمير عائد على المفعول الأول
+</div>
+
+<p>معنى أن الثاني منهما عبارة عن الأول — أي أن الثاني منهما مع الأول أصلهما <strong>مبتدأ وخبر</strong>.</p>
+
+<p>انظر: خلت زيداً أخاك — الثاني عبارة عن الأول: أخاك عن الأول (زيداً). رأيت الحق منتصراً — منتصراً عن الحق.</p>
+
+<p>ماذا يريد بهذا الكلام؟ يريد أن يقول إن هناك ما ينصب مفعولين لكن <strong>ليس أصلهما مبتدأ وخبر</strong>:</p>
+
+<div class="irab-box">
+  <div class="irab-title">مثال: منحت الفائزة جائزة</div>
+  <div class="irab-example">منحت الفائزة جائزة</div>
+  <div class="irab-detail">
+    <strong>منح:</strong> نصب المفعول الأول والمفعول الثاني، لكن ليس أصلهما مبتدأ وخبر — فالثاني هنا ليس هو الأول، فلا يصح أن تقول: الفائز جائزة!
+  </div>
+</div>
+
+<div class="irab-box">
+  <div class="irab-title">مثال: أعطيت المسكين ديناراً</div>
+  <div class="irab-example">أعطيت المسكين ديناراً</div>
+  <div class="irab-detail">
+    <strong>أعطى:</strong> نصب مفعولين لكن ليس أصلهما مبتدأ وخبر — فالدينار ليس هو المسكين!
+  </div>
+</div>
+
+<!-- المفعول الثاني يشتمل على ضمير -->
+<h2>المفعول الثاني يشتمل على ضمير يعود على المفعول الأول</h2>
+
+<div class="qaidah-box">
+  <div class="qaidah-label">قاعدة مهمة مقيدة</div>
+  <div class="qaidah-text">
+    المفعول الثاني يشتمل على ضمير يعود على المفعول الأول — <strong>إذا كان المفعول الثاني مشتقاً</strong><br><br>
+    <strong>إذا كان المفعول الثاني مشتقاً</strong> (مثل: اسم فاعل، اسم مفعول) — فهنا يشتمل على ضمير يعود على المفعول الأول.<br><br>
+    <strong>أما إذا كان المفعول الثاني جامداً</strong> — فلا يشتمل على ضمير يعود على المفعول الأول.
+  </div>
+</div>
+
+<div class="callout">
+  <div class="callout-title">أمثلة المفعول الثاني المشتق (يشتمل على ضمير)</div>
+  <p><strong>وجدت زيداً فائزاً</strong> — فائزاً اسم فاعل يشتمل على ضمير يعود على زيد (أي وجدت زيداً فائزاً <strong>هو</strong>)</p>
+  <p><strong>رأيت خالداً مضروباً</strong> — مضروباً اسم مفعول يشتمل على ضمير يعود على خالد (أي رأيت خالداً مضروباً <strong>هو</strong>)</p>
+</div>
+
+<div class="callout">
+  <div class="callout-title">أمثلة المفعول الثاني الجامد (لا يشتمل على ضمير)</div>
+  <p><strong>جعلت الطين إبريقاً</strong> — إبريقاً هنا مفعول ثاني لكنه <strong>جامد</strong>، فلا يشتمل على ضمير يعود على المفعول الأول.</p>
+</div>
+
+<!-- نماذج إعرابية -->
+<h2>نماذج إعرابية من نص المصنف</h2>
+
+<p>قال المصنف رحمه الله:</p>
+
+<div class="matn-box">
+  نحو: حسبت زيداً قائماً، وخلت زيداً مقيماً، وظننت زيداً عالماً، وعلمت زيداً فاضلاً، ورأيت زيداً راكباً، ووجدت زيداً عاقلاً، وزعمت زيداً كريماً
+</div>
+
+<div class="irab-box">
+  <div class="irab-title">نموذج: حسبت زيداً قائماً</div>
+  <div class="irab-example">حسبت زيداً قائماً</div>
+  <div class="irab-detail">
+    <strong>قائماً:</strong> يشتمل على ضمير يعود على زيد
+  </div>
+</div>
+
+<div class="irab-box">
+  <div class="irab-title">نموذج: خلت زيداً مقيماً</div>
+  <div class="irab-example">خلت زيداً مقيماً</div>
+  <div class="irab-detail">
+    <strong>مقيماً:</strong> يشتمل على ضمير يعود على زيد
+  </div>
+</div>
+
+<div class="irab-box">
+  <div class="irab-title">نموذج: ظننت زيداً عالماً</div>
+  <div class="irab-example">ظننت زيداً عالماً</div>
+  <div class="irab-detail">
+    <strong>عالماً:</strong> يشتمل على ضمير يعود على زيد
+  </div>
+</div>
+
+<p>وعلى نفس النمط: <strong>علمت زيداً فاضلاً</strong> (فاضلاً يشتمل على ضمير يعود على زيد)، و<strong>رأيت زيداً راكباً</strong> (راكباً يشتمل على ضمير يعود على زيد)، و<strong>وجدت زيداً عاقلاً</strong> (عاقلاً يشتمل على ضمير يعود على زيد)، و<strong>زعمت زيداً كريماً</strong> (كريماً يشتمل على ضمير يعود على زيد).</p>
+
+<!-- ===== ملخص أفعال الشك واليقين ===== -->
+<div class="summary-box">
+  <div class="summary-title">ملخص أفعال الشك واليقين</div>
+  <div class="summary-text">
+    <strong>1.</strong> تسمى: أفعال الشك واليقين / أفعال القلوب / ظن وأخواتها<br>
+    <strong>2.</strong> هي من الأفعال النواسخ — تنسخ الرفع وتنصب المبتدأ والخبر<br>
+    <strong>3.</strong> عددها 13 فعلاً (عند ابن مالك)، والمصنف ذكر 7<br>
+    <strong>4.</strong> تقسم إلى: يقين (علمت، وجدت، رأيت) + شك (ظننت، حسبت، خلت) + متوسط (زعمت)<br>
+    <strong>5.</strong> كل منها متعدٍّ إلى مفعولين، الثاني عبارة عن الأول (أصلهما مبتدأ وخبر)<br>
+    <strong>6.</strong> المفعول الثاني يشتمل على ضمير يعود على المفعول الأول — إذا كان مشتقاً (اسم فاعل/اسم مفعول)<br>
+    <strong>7.</strong> إذا كان المفعول الثاني جامداً (كإبريق) فلا يشتمل على ضمير<br>
+    <strong>8.</strong> رأى: بصرية = مفعول واحد، علمية/منامية = مفعولان
+  </div>
+</div>
+
+<!-- ===== خاتمة السماعية ===== -->
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h1>خاتمة العوامل السماعية</h1>
+
+<p>الإمام عبد القاهر الجرجاني رحمه الله في بداية الرسالة قسم العوامل إلى قسمين: <strong>عوامل لفظية</strong> و<strong>عوامل معنوية</strong>، وجعل العوامل اللفظية على قسمين: <strong>سماعية</strong> و<strong>قياسية</strong>.</p>
+
+<!-- CLASSIFICATION TREE: تقسيم العوامل المائة -->
+<div class="tree-container">
+  <div class="tree-title">شجرة التصنيف: العوامل المائة (كاملة)</div>
+  <div class="tree-root">
+    <div class="tree-node">العوامل المائة</div>
+  </div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">لفظية (98 عاملاً)</div>
+      <div class="tree-sub-branch">
+        <div class="tree-horizontal">
+          <div style="text-align:center;">
+            <div class="tree-leaf" style="background:var(--gold);color:#fff;font-weight:700;">سماعية: 91 عاملاً</div>
+            <div style="font-size:14px;margin-top:4px;">13 مجموعة<br>انتهينا منها</div>
+          </div>
+          <div style="text-align:center;">
+            <div class="tree-leaf" style="background:var(--primary-green);color:#fff;font-weight:700;">قياسية: 7 عوامل</div>
+            <div style="font-size:14px;margin-top:4px;">موضوعنا الآن</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">معنوية (2 عامل)</div>
+      <div class="tree-sub-branch">
+        <div class="tree-horizontal">
+          <div class="tree-leaf">رافع المبتدأ والخبر</div>
+          <div class="tree-leaf">رافع الفعل المضارع</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>السماعية أحد وتسعون عاملاً، قسمها إلى 13 مجموعة — ونحن الآن انتهينا من هذا القسم كله. بقي الكلام على <strong>العوامل القياسية</strong> وهو كلام سهل، ثم <strong>العوامل المعنوية</strong> وهو أسهل، ونختم الرسالة.</p>
+
+<!-- ===== العوامل القياسية ===== -->
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h1>العوامل القياسية (7 عوامل)</h1>
+
+<div class="matn-box">
+  والقياسية منها سبعة عوامل
+</div>
+
+<!-- ===== الأول: الفعل على الإطلاق ===== -->
+<h2>الأول: الفعل على الإطلاق</h2>
+
+<div class="matn-box">
+  الأول: الفعل على الإطلاق، نحو: ضرب زيد عمراً، وذهب زيد
+</div>
+
+<div class="definition-card">
+  <div class="definition-term">الفعل على الإطلاق</div>
+  <div class="definition-text">
+    الفعل في كل أحواله يعمل — سواء كان الفعل لازماً فإنه يرفع الفاعل، أو متعدياً فإنه يرفع وينصب، سواء تعدى لفعل واحد أو لفعلين، سواء كان ماضياً أو مضارعاً أو أمراً، سواء كان جامداً لا يتصرف أو متصرفاً — <strong>في كل الحالات الفعل يعمل</strong>.
+  </div>
+</div>
+
+<!-- TABLE: الفعل على الإطلاق -->
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>حالة الفعل</th>
+      <th>التفصيل</th>
+      <th>مثال</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>لازم</strong></td>
+      <td>يرفع الفاعل</td>
+      <td>ذهب زيد</td>
+    </tr>
+    <tr>
+      <td><strong>متعدٍ</strong></td>
+      <td>يرفع وينصب</td>
+      <td>ضرب زيد عمراً</td>
+    </tr>
+    <tr>
+      <td><strong>ماضٍ</strong></td>
+      <td>يعمل</td>
+      <td>ضرب</td>
+    </tr>
+    <tr>
+      <td><strong>مضارع</strong></td>
+      <td>يعمل</td>
+      <td>يضرب</td>
+    </tr>
+    <tr>
+      <td><strong>أمر</strong></td>
+      <td>يعمل</td>
+      <td>اضرب</td>
+    </tr>
+    <tr>
+      <td><strong>جامد (لا يتصرف)</strong></td>
+      <td>يعمل</td>
+      <td>ليس، نِعم، بئس</td>
+    </tr>
+    <tr>
+      <td><strong>متصرف</strong></td>
+      <td>يعمل</td>
+      <td>ضرب، يضرب، اضرب</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout">
+  <div class="callout-title">لماذا مثل المصنف بمثالين؟</div>
+  <p>لماذا مثل بـ <strong>ضرب زيد عمراً</strong> و<strong>ذهب زيد</strong>؟ لأن الأول من الأفعال <strong>المتعدية</strong> والثاني من الأفعال <strong>اللازمة</strong>.</p>
+</div>
+
+<p>الفعل هذا قياسي — لماذا؟ ليس سماعياً لأن <strong>الأفعال لا نهاية لها</strong>.</p>
+
+<!-- ===== الثاني: اسم الفاعل ===== -->
+<h2>الثاني: اسم الفاعل</h2>
+
+<div class="matn-box">
+  والثاني: اسم الفاعل، نحو: زيد ضارب غلامه عمراً الآن أو غداً
+</div>
+
+<p>اسم الفاعل يعمل عمل <strong>الفعل المبني للمعلوم</strong>.</p>
+
+<div class="qaidah-box">
+  <div class="qaidah-label">قاعدة: عمل اسم الفاعل</div>
+  <div class="qaidah-text">
+    اسم الفاعل له حالتان:<br><br>
+    <strong>الحالة الأولى: أن يُحلّى بأل</strong> — فإذا تحلى بأل عمل عمل الفعل <strong>مطلقاً</strong>، ما معنى مطلقاً؟ سواء في الماضي أو الحاضر أو المستقبل.<br><br>
+    <strong>الحالة الثانية: أن يتجرد عن أل</strong> — فإذا تجرد عن أل فإنه يعمل عمل الفعل لكن <strong>بشرطين</strong>:
+  </div>
+</div>
+
+<!-- CHECKLIST: شروط عمل اسم الفاعل المجرد -->
+<div class="checklist">
+  <div style="font-weight:700;font-size:18px;color:var(--primary-green);margin-bottom:12px;">شرطا عمل اسم الفاعل المجرد عن أل</div>
+  <div class="checklist-item">
+    <div class="checklist-circle">1</div>
+    <div class="checklist-text">
+      <strong>دلالته على الحال أو الاستقبال</strong> — أما الماضي فلا يعمل فيه اسم الفاعل المجرد
+    </div>
+  </div>
+  <div class="checklist-item">
+    <div class="checklist-circle">2</div>
+    <div class="checklist-text">
+      <strong>أن يعتمد على نحو:</strong> مبتدأ، أو نفي، أو استفهام، أو وصف، أو نداء، أو غيرها
+    </div>
+  </div>
+</div>
+
+<!-- أمثلة اسم الفاعل محلى بأل -->
+<h3>اسم الفاعل محلى بأل — يعمل مطلقاً</h3>
+
+<div class="irab-box">
+  <div class="irab-title">مثال: جاء القاتل فلاناً</div>
+  <div class="irab-example">جاء القاتل فلاناً</div>
+  <div class="irab-detail">
+    <strong>جاء:</strong> فعل
+  </div>
+  <div class="irab-detail">
+    <strong>القاتل:</strong> فاعل — اسم فاعل <strong>تحلى بأل</strong>
+  </div>
+  <div class="irab-detail">
+    <strong>فلاناً:</strong> مفعول به منصوب — نصبه <strong>اسم الفاعل</strong>
+  </div>
+</div>
+
+<p>لاحظ أن اسم الفاعل هنا عندما تحلى بأل عمل مطلقاً — في الماضي والحاضر والمستقبل. تقول:</p>
+<ul>
+  <li><strong>جاء القاتل فلاناً أمس</strong> (ماض)</li>
+  <li><strong>جاء القاتل فلاناً الآن</strong> (حال)</li>
+  <li><strong>يأتي القاتل فلاناً غداً</strong> (استقبال)</li>
+</ul>
+<p>يعمل مطلقاً!</p>
+
+<!-- أمثلة اسم الفاعل مجرد عن أل -->
+<h3>اسم الفاعل مجرد عن أل — يعمل بشرطين</h3>
+
+<div class="callout">
+  <div class="callout-title">تنبيه مهم</div>
+  <p>إذا تجرد اسم الفاعل عن أل:</p>
+  <p>• تقول: <strong>جاء قاتل فلان أمس</strong> — ولا يصح أن تقول «جاء قاتل فلاناً أمس» (لأنه دل على الماضي فلا يعمل)</p>
+  <p>• لكن يصح أن تقول: <strong>يجيء قاتل فلاناً الآن</strong></p>
+  <p>• ويصح: <strong>يجيء قاتل فلاناً غداً</strong></p>
+  <p>إذاً إذا دل اسم الفاعل على الحال أو الاستقبال فإنه يعمل عمل الفعل. أما هنا (جاء قاتل فلان أمس) — لماذا لا يعمل عمل الفعل؟ لأنه دل على <strong>الماضي</strong>، فلا يعمل عمل الفعل.</p>
+</div>
+
+<div class="irab-box">
+  <div class="irab-title">مثال: زيد ضارب غلامه (الآن)</div>
+  <div class="irab-example">زيد ضارب غلامه</div>
+  <div class="irab-detail">
+    <strong>غلامه:</strong> منصوب — ما الذي عمل فيه النصب؟ <strong>اسم الفاعل (ضارب)</strong>
+  </div>
+  <div class="irab-detail">
+    لاحظ أن <strong>ضارب</strong> هنا اعتمد على <strong>المبتدأ</strong> (زيد). تحقق الشرطان: الأول — دلالته على الحال، والثاني — اعتماده على المبتدأ. حينئذ سيعمل عمل الفعل.
+  </div>
+</div>
+
+<div class="irab-box">
+  <div class="irab-title">مثال: ما ضارب غلامه غداً</div>
+  <div class="irab-example">ما ضارب غلامه غداً</div>
+  <div class="irab-detail">
+    تحقق الشرطان: الأول — دلالته على الاستقبال، والثاني — اعتماده على <strong>النفي</strong> (ما). هنا سيعمل.
+  </div>
+</div>
+
+<div class="summary-box">
+  <div class="summary-title">ملخص عمل اسم الفاعل</div>
+  <div class="summary-text">
+    <strong>محلى بأل:</strong> يعمل مطلقاً بلا شرط (ماضٍ / حال / استقبال)<br>
+    <strong>مجرد عن أل:</strong> يعمل بشرطين: (1) دلالته على الحال أو الاستقبال، (2) اعتماده على نحو مبتدأ أو نفي أو استفهام أو نداء أو وصف
+  </div>
+</div>
+
+<!-- قصة الكسائي وأبو يوسف -->
+<div class="story-box">
+  <div class="story-title">قصة طريفة: الكسائي وأبو يوسف في مجلس هارون الرشيد</div>
+  <div class="story-text">
+    كان <strong>الكسائي</strong> — وهو عالم في النحو وعالم في القراءات، إمام في النحو وإمام في القراءات — يحضر مجلس الخليفة <strong>هارون الرشيد</strong>. وكان حاضراً في المجلس أيضاً القاضي الشهير <strong>أبو يوسف</strong> — تلميذ الإمام أبي حنيفة.<br><br>
+    فأبو يوسف في مجلس الخليفة يذم النحو، كان يذم النحو. فأراد الكسائي أن يحرجه، فقال له:<br><br>
+    <strong>جاء رجل فقال: أنا قاتل فلاناً. وآخر جاء فقال: أنا قاتل فلان. فعلى من منهما تقيم القصاص؟</strong><br><br>
+    الأول قال: <strong>أنا قاتل فلاناً</strong> — هنا اسم الفاعل عامل، نصب المفعول (فلاناً).<br>
+    الثاني قال: <strong>أنا قاتل فلان</strong> — هنا اسم الفاعل لم يعمل.<br><br>
+    فقال أبو يوسف: <strong>اقتص منهما جميعاً</strong> — اقتص ممن قال «أنا قاتل فلاناً» واقتص ممن قال «أنا قاتل فلان».<br><br>
+    فقال هارون الرشيد — وكان الخليفة عنده علم بالعربية —: <strong>أخطأتَ!</strong><br><br>
+    <strong>لماذا أخطأ أبو يوسف؟</strong><br><br>
+    لأن الذي قال <strong>أنا قاتل فلاناً</strong> — اسم الفاعل هنا عامل، والتقدير: أنا سأقتل فلاناً الآن أو مستقبلاً. فكيف تقتص منه قبل أن يقتل؟!<br>
+    أما الذي قال <strong>أنا قاتل فلان</strong> — فهذا يعني: أنا الذي قتلته، أي في <strong>الماضي</strong>. وذلك لأن اسم الفاعل المجرد إذا لم يعمل فمعناه الماضي.<br><br>
+    وهنا تفهم <strong>مدى أهمية العربية والنحو خصوصاً في الأحكام الفقهية</strong>.
+  </div>
+</div>
+
+<div class="benefit-box">
+  <div class="benefit-title">فائدة عظيمة</div>
+  <div class="benefit-text">
+    هذه القصة ذكرها <strong>الحافظ السيوطي</strong> في كتاب <strong>الأشباه والنظائر النحوية</strong> (ليس الأشباه والنظائر الفقهية).<br><br>
+    الذي يقول «أنا قاتل فلاناً» (بالتنوين والنصب) — معناه سأقتله الآن أو مستقبلاً — فلا يقام عليه القصاص لأنه لم يقتل بعد.<br>
+    أما الذي يقول «أنا قاتل فلان» (بدون تنوين، مضاف) — معناه أنا الذي قتلته في الماضي — فيقام عليه القصاص.
+  </div>
+</div>
+
+<!-- ===== الثالث: اسم المفعول ===== -->
+<h2>الثالث: اسم المفعول</h2>
+
+<div class="matn-box">
+  والثالث: اسم المفعول، نحو: زيد مضروب غلامه
+</div>
+
+<p>اسم المفعول يعمل عمل <strong>الفعل المبني للمجهول</strong>.</p>
+
+<div class="qaidah-box">
+  <div class="qaidah-label">قاعدة: عمل اسم المفعول</div>
+  <div class="qaidah-text">
+    اسم المفعول — مثل اسم الفاعل — له حالتان:<br><br>
+    <strong>إذا تحلى اسم المفعول بأل:</strong> عمل بلا شرط — مثل اسم الفاعل.<br>
+    <strong>إذا تجرد اسم المفعول عن أل:</strong> عمل بشرطين — دلالته على الحال أو الاستقبال، واعتماده على نحو مبتدأ أو نفي أو استفهام أو نداء أو وصف.
+  </div>
+</div>
+
+<div class="irab-box">
+  <div class="irab-title">مثال: جاء المضروب أبوه أمس (محلى بأل)</div>
+  <div class="irab-example">جاء المضروب أبوه أمس</div>
+  <div class="irab-detail">
+    <strong>جاء:</strong> فعل
+  </div>
+  <div class="irab-detail">
+    <strong>المضروب:</strong> فاعل — اسم مفعول <strong>محلى بأل</strong>
+  </div>
+  <div class="irab-detail">
+    <strong>أبوه:</strong> نائب فاعل — ما الذي عمل الرفع في أبوه؟ <strong>اسم المفعول</strong>
+  </div>
+</div>
+
+<div class="irab-box">
+  <div class="irab-title">مثال: زيد مضروب غلامه (الآن أو غداً)</div>
+  <div class="irab-example">زيد مضروب غلامه</div>
+  <div class="irab-detail">
+    <strong>زيد:</strong> مبتدأ
+  </div>
+  <div class="irab-detail">
+    <strong>مضروب:</strong> خبر
+  </div>
+  <div class="irab-detail">
+    <strong>غلامه:</strong> نائب فاعل لاسم المفعول — تحقق الشرطان: دلالته على الحال أو الاستقبال + اعتماده على المبتدأ
+  </div>
+</div>
+
+<div class="irab-box">
+  <div class="irab-title">مثال: يا مجروحاً قلبه</div>
+  <div class="irab-example">يا مجروحاً قلبه</div>
+  <div class="irab-detail">
+    <strong>قلبه:</strong> لماذا مرفوع؟ ما الذي عمل الرفع في قلبه؟ <strong>اسم المفعول</strong> — نائب فاعل لاسم المفعول
+  </div>
+  <div class="irab-detail">
+    تحقق الشرطان: مجروحاً يدل على الحال (شرط أول)، واعتماده على <strong>النداء</strong> (شرط ثان)
+  </div>
+</div>
+
+<!-- ===== الرابع: الصفة المشبهة ===== -->
+<h2>الرابع: الصفة المشبهة</h2>
+
+<div class="matn-box">
+  والرابع: الصفة المشبهة، نحو: مررت برجل حسن وجهه
+</div>
+
+<div class="definition-card">
+  <div class="definition-term">تعريف الصفة المشبهة</div>
+  <div class="definition-text">
+    الصفة المشبهة هي <strong>ما أُخذ من فعل ثلاثي لازم لتدل على الدوام والثبوت</strong>.
+  </div>
+</div>
+
+<h3>لماذا سميت «مشبهة»؟</h3>
+
+<p>لماذا أقول الصفة المشبهة — مشبهة بماذا؟ مشبهة بـ <strong>اسم الفاعل</strong>.</p>
+
+<h3>وجه الشبه والاختلاف بين الصفة المشبهة واسم الفاعل</h3>
+
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>وجه المقارنة</th>
+      <th>اسم الفاعل</th>
+      <th>الصفة المشبهة</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>وجه الشبه</strong></td>
+      <td colspan="2">كل منهما يدل على الصفة والوصف</td>
+    </tr>
+    <tr>
+      <td><strong>ما يُشتق منه</strong></td>
+      <td>من ثلاثي ورباعي وخماسي وسداسي</td>
+      <td>من فعل <strong>ثلاثي</strong> فقط (غالباً)</td>
+    </tr>
+    <tr>
+      <td><strong>لازم/متعدٍ</strong></td>
+      <td>من اللازم والمتعدّي</td>
+      <td>من اللازم <strong>فقط</strong></td>
+    </tr>
+    <tr>
+      <td><strong>دلالته</strong></td>
+      <td>يدل على <strong>التجدد</strong></td>
+      <td>يدل على <strong>الدوام والثبوت</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>أوزان الصفة المشبهة</h3>
+
+<div class="weights-grid">
+  <div class="weight-card">
+    <div class="weight-pattern">فَعْل</div>
+    <div class="weight-example">حَسَن</div>
+    <div class="weight-root">من: حَسُنَ (ثلاثي لازم)</div>
+  </div>
+  <div class="weight-card">
+    <div class="weight-pattern">فَعَل</div>
+    <div class="weight-example">ضَخْم</div>
+    <div class="weight-root">من: ضَخُمَ (ثلاثي لازم)</div>
+  </div>
+  <div class="weight-card">
+    <div class="weight-pattern">فَعّال</div>
+    <div class="weight-example">جَبّان</div>
+    <div class="weight-root">من: جَبُنَ (ثلاثي لازم)</div>
+  </div>
+  <div class="weight-card">
+    <div class="weight-pattern">فَعِيل</div>
+    <div class="weight-example">كَرِيم</div>
+    <div class="weight-root">من: كَرُمَ (ثلاثي لازم)</div>
+  </div>
+  <div class="weight-card">
+    <div class="weight-pattern">فَعَال</div>
+    <div class="weight-example">شُجَاع</div>
+    <div class="weight-root">من: شَجُعَ (ثلاثي لازم)</div>
+  </div>
+</div>
+
+<p>إذاً الصفة المشبهة تؤخذ من <strong>ثلاثي لازم</strong> وتدل على <strong>الثبوت والدوام</strong>.</p>
+
+<h3>علامة الصفة المشبهة: جواز الإضافة</h3>
+
+<div class="qaidah-box">
+  <div class="qaidah-label">قاعدة: علامة الصفة المشبهة</div>
+  <div class="qaidah-text">
+    علامة أن تعرف أن هذه صفة مشبهة: <strong>جواز الإضافة</strong> — فيصح أن تقول: مررت برجل <strong>حسن الوجه</strong> (بإضافة حسن إلى الوجه).
+  </div>
+</div>
+
+<div class="irab-box">
+  <div class="irab-title">مثال: مررت برجل حسن وجهه</div>
+  <div class="irab-example">مررت برجل حسن وجهه</div>
+  <div class="irab-detail">
+    <strong>وجهه:</strong> ما الذي رفعه؟ <strong>الصفة المشبهة</strong> (حسن) — فإذا أعربت وجهه تقول: <strong>فاعل لحسن</strong> الذي هو صفة مشبهة
+  </div>
+  <div class="irab-detail">
+    علامة أنها صفة مشبهة: جواز الإضافة — فيصح أن تقول: <strong>مررت برجل حسن الوجه</strong>
+  </div>
+</div>
+
+<div class="irab-box">
+  <div class="irab-title">مثال: لقيت شاباً كريم خلقه</div>
+  <div class="irab-example">لقيت شاباً كريم خلقه</div>
+  <div class="irab-detail">
+    <strong>خلقه:</strong> ما الذي رفع خلقه؟ <strong>الصفة المشبهة</strong> (كريم)
+  </div>
+  <div class="irab-detail">
+    يجوز الإضافة — فتقول: <strong>لقيت شاباً كريم الخُلُق</strong>
+  </div>
+</div>
+
+<!-- ===== الخامس: المصدر ===== -->
+<h2>الخامس: المصدر</h2>
+
+<div class="matn-box">
+  والخامس: المصدر، نحو: أعجبني ضرب زيد عمراً
+</div>
+
+<div class="irab-box">
+  <div class="irab-title">إعراب: أعجبني ضرب زيد عمراً</div>
+  <div class="irab-example">أعجبني ضرب زيد عمراً</div>
+  <div class="irab-detail">
+    <strong>أعجب:</strong> فعل ماض مبني على الفتح
+  </div>
+  <div class="irab-detail">
+    <strong>النون:</strong> للوقاية
+  </div>
+  <div class="irab-detail">
+    <strong>الياء:</strong> ضمير متصل مبني على السكون في محل نصب <strong>مفعول به</strong> — وليس فاعلاً!
+  </div>
+  <div class="irab-detail">
+    <strong>ضرب:</strong> فاعل — وهو مضاف
+  </div>
+  <div class="irab-detail">
+    <strong>زيد:</strong> مضاف إليه
+  </div>
+  <div class="irab-detail">
+    <strong>عمراً:</strong> مفعول لضرب الذي هو مصدر
+  </div>
+</div>
+
+<p>المصدر يعمل في حالات، أهم تلك الحالات:</p>
+
+<div class="checklist">
+  <div style="font-weight:700;font-size:18px;color:var(--primary-green);margin-bottom:12px;">حالات عمل المصدر</div>
+  <div class="checklist-item">
+    <div class="checklist-circle">1</div>
+    <div class="checklist-text">
+      <strong>إذا جاء المصدر مضافاً</strong> — وهو الذي مثل له هنا: أعجبني ضرب زيد عمراً
+    </div>
+  </div>
+  <div class="checklist-item">
+    <div class="checklist-circle">2</div>
+    <div class="checklist-text">
+      <strong>إذا دخلت أل على المصدر</strong> — مثل: المؤمن كثير الذكر ربه
+    </div>
+  </div>
+</div>
+
+<div class="irab-box">
+  <div class="irab-title">مثال: المؤمن كثير الذكر ربه (المصدر محلى بأل)</div>
+  <div class="irab-example">المؤمن كثير الذكر ربه</div>
+  <div class="irab-detail">
+    <strong>الذكر:</strong> مصدر محلى بأل + مضاف<br>
+    <strong>ربه:</strong> ما الذي نصب ربه؟ <strong>المصدر</strong> (الذكر) الذي دخلته أل
+  </div>
+</div>
+
+<!-- ===== السادس: المضاف ===== -->
+<h2>السادس: المضاف</h2>
+
+<div class="matn-box">
+  والسادس: المضاف — وهو كل اسم أضيف إلى آخر فإن الأول يجر الثاني، وهذا واضح، ويسمى الجار مضافاً والمجرور مضافاً إليه، نحو: غلام زيد، وخاتم فضة
+</div>
+
+<p>كل اسم أضيف إلى آخر فإن الأول يجر الثاني. يسمى <strong>الجار مضافاً</strong> و<strong>المجرور مضافاً إليه</strong>. ونقول: مجرور بـماذا؟ <strong>مجرور بالمضاف</strong> — ليس بالإضافة.</p>
+
+<div class="callout">
+  <div class="callout-title">لماذا مثل بمثالين؟</div>
+  <p>لأن الإضافة على تقدير حرف جر مختلف:</p>
+</div>
+
+<div class="addition-types">
+  <div class="addition-type-card">
+    <div class="addition-type-header">تقدير اللام</div>
+    <p style="font-size:17px;margin-top:8px;"><strong>غلام زيد</strong> = غلام <strong>لـ</strong> زيد</p>
+    <p style="font-size:15px;color:#666;margin-top:4px;">الإضافة على تقدير اللام</p>
+  </div>
+  <div class="addition-type-card">
+    <div class="addition-type-header">تقدير مِن</div>
+    <p style="font-size:17px;margin-top:8px;"><strong>خاتم فضة</strong> = خاتم <strong>مِن</strong> فضة</p>
+    <p style="font-size:15px;color:#666;margin-top:4px;">الإضافة على تقدير من</p>
+  </div>
+  <div class="addition-type-card">
+    <div class="addition-type-header">تقدير في</div>
+    <p style="font-size:17px;margin-top:8px;"><strong>شهيد المحراب</strong> = شهيد <strong>في</strong> المحراب</p>
+    <p style="font-size:15px;color:#666;margin-top:4px;">الإضافة على تقدير في</p>
+  </div>
+</div>
+
+<div class="evidence-box">
+  <div class="evidence-label">أمثلة القرآن على الإضافة بتقدير «في»</div>
+  <div class="evidence-text">﴿تَرَبَّصُوا أَرْبَعَةَ أَشْهُرٍ﴾</div>
+  <p style="font-size:15px;margin-top:8px;">أي: تربص <strong>في</strong> أربعة أشهر</p>
+</div>
+
+<div class="evidence-box">
+  <div class="evidence-label">دليل آخر من القرآن</div>
+  <div class="evidence-text">﴿بَلْ مَكْرُ اللَّيْلِ وَالنَّهَارِ﴾</div>
+  <p style="font-size:15px;margin-top:8px;">أي: بل مكر <strong>في</strong> الليل والنهار</p>
+</div>
+
+<div class="callout">
+  <div class="callout-title">تنبيه: شهيد المحراب</div>
+  <p><strong>شهيد المحراب</strong> — أي شهيد في المحراب — يقال عن <strong>أمير المؤمنين عمر رضي الله عنه</strong>.</p>
+</div>
+
+<!-- ===== السابع: الاسم التام ===== -->
+<h2>السابع: الاسم التام</h2>
+
+<div class="matn-box">
+  والسابع: الاسم التام، نحو: عندي راقود خلّاً، ومنوان سمنة، وقفيز برّ، وعشرون درهماً، وملؤه عسلاً، ومثله رجلاً
+</div>
+
+<div class="definition-card">
+  <div class="definition-term">الاسم التام</div>
+  <div class="definition-text">
+    المراد بالاسم التام: <strong>الاسم المبهم الذي يفتقر إلى تمييز</strong> — أي الاسم المبهم الذي يحتاج إلى تمييز.
+  </div>
+</div>
+
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>الاسم التام</th>
+      <th>معناه</th>
+      <th>التمييز</th>
+      <th>الإعراب</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="font-weight:700;">راقود</td>
+      <td>نوع من المكايل (مكيال)</td>
+      <td>خلاً</td>
+      <td>خلاً: تمييز منصوب نصبه «راقود»</td>
+    </tr>
+    <tr>
+      <td style="font-weight:700;">منوان</td>
+      <td>نوع من المكايل (بفتح النون)</td>
+      <td>سمنة</td>
+      <td>سمنة: تمييز منصوب نصبه «منوان»</td>
+    </tr>
+    <tr>
+      <td style="font-weight:700;">قفيز</td>
+      <td>نوع من المكايل</td>
+      <td>برّ</td>
+      <td>برّ: تمييز منصوب نصبه «قفيز»</td>
+    </tr>
+    <tr>
+      <td style="font-weight:700;">عشرون</td>
+      <td>عدد</td>
+      <td>درهماً</td>
+      <td>درهماً: تمييز منصوب نصبه «عشرون»</td>
+    </tr>
+    <tr>
+      <td style="font-weight:700;">ملؤه</td>
+      <td>اسم تام</td>
+      <td>عسلاً</td>
+      <td>عسلاً: تمييز منصوب نصبه «ملؤه»</td>
+    </tr>
+    <tr>
+      <td style="font-weight:700;">مثله</td>
+      <td>اسم تام</td>
+      <td>رجلاً</td>
+      <td>رجلاً: تمييز منصوب نصبه «مثله»</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>لاحظ كل هذه الأسماء <strong>مبهمة</strong> تفتقر إلى تمييز. عندما تقول مثلاً «عندي منوان سمنة» — ما الذي نصب سمنة؟ <strong>منوان</strong> — إذا عمل! وعندما تقول «عندي راقود خلاً» — ما الذي نصب خلاً؟ <strong>راقود</strong>.</p>
+
+<!-- ===== ملخص العوامل القياسية ===== -->
+<div class="summary-box">
+  <div class="summary-title">ملخص العوامل القياسية السبعة</div>
+  <div class="summary-text">
+    <strong>1. الفعل على الإطلاق</strong> — يعمل في كل أحواله (لازم/متعد، ماض/مضارع/أمر، جامد/متصرف)<br>
+    <strong>2. اسم الفاعل</strong> — يعمل عمل الفعل المبني للمعلوم. بأل: مطلقاً. مجرد: بشرطين (حال/استقبال + اعتماد)<br>
+    <strong>3. اسم المفعول</strong> — يعمل عمل الفعل المبني للمجهول. بأل: مطلقاً. مجرد: بشرطين (كاسم الفاعل)<br>
+    <strong>4. الصفة المشبهة</strong> — من فعل ثلاثي لازم تدل على الدوام والثبوت. علامتها: جواز الإضافة<br>
+    <strong>5. المصدر</strong> — يعمل إذا جاء مضافاً أو محلى بأل<br>
+    <strong>6. المضاف</strong> — يجر الثاني. تقدير اللام أو مِن أو في<br>
+    <strong>7. الاسم التام</strong> — الاسم المبهم الذي يفتقر إلى تمييز (ينصب التمييز)
+  </div>
+</div>
+
+<!-- ===== العوامل المعنوية ===== -->
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h1>العوامل المعنوية (عاملان)</h1>
+
+<div class="matn-box">
+  والمعنوية منها عدداً رافع المبتدأ والخبر، ورافع الفعل المضارع
+</div>
+
+<p>العوامل المعنوية اثنان:</p>
+
+<div class="cols">
+  <div class="comparison-card">
+    <div class="comparison-card-header">العامل المعنوي الأول</div>
+    <div class="comparison-card-body">
+      <strong>رافع المبتدأ والخبر</strong><br>
+      مثال: زيد قائم<br>
+      المبتدأ مرفوع والخبر مرفوع
+    </div>
+  </div>
+  <div class="comparison-card">
+    <div class="comparison-card-header">العامل المعنوي الثاني</div>
+    <div class="comparison-card-body">
+      <strong>رافع الفعل المضارع</strong><br>
+      مثال: يضرب زيد غلامه<br>
+      الفعل المضارع مرفوع
+    </div>
+  </div>
+</div>
+
+<div class="poetry-box">
+  <div style="font-size:14px;color:var(--gold);margin-bottom:8px;">نظم ابن مالك في الألفية</div>
+  <div class="verse">مبتدأ زيد وعاذر خبر<br>إن قلت زيد عاذر من اعتذر</div>
+</div>
+
+<!-- العامل في الفعل المضارع -->
+<h2>العامل في الفعل المضارع</h2>
+
+<div class="matn-box">
+  والعامل في الفعل المضارع وقوعه موقع الاسم
+</div>
+
+<p>ما الذي رفع الفعل المضارع؟ هذا على طريقة <strong>اللف والنشر المشوش</strong> — كان المتوقع أن يقول «والعامل في المبتدأ والخبر» لأنه ذكره أولاً، لكنه قال «والعامل في الفعل المضارع».</p>
+
+<p>العامل في الفعل المضارع — لماذا الفعل المضارع مرفوع؟ قال: لأن الفعل المضارع يقع موقع الاسم. تقول مثلاً: <strong>زيد قائم</strong> — يمكن بدل قائم تقول <strong>زيد يقوم</strong>. فإن <strong>يقوم</strong> يقع موقع <strong>قائم</strong>. هذا الذي جعل الفعل المضارع مرفوعاً — <strong>هذا رأي المصنف</strong>.</p>
+
+<div class="callout">
+  <div class="callout-title">خلاف العلماء: لماذا رُفع الفعل المضارع؟</div>
+  <p>هذه المسألة فيها <strong>أربعة آراء</strong> ذكرناها في <strong>شرح الكفراوي</strong>، ولولا أني أشعر أنكم مرهقون لذكرتها الآن، لكن راجعوها في شرح الكفراوي.</p>
+</div>
+
+<div class="qaidah-box">
+  <div class="qaidah-label">القول الصحيح</div>
+  <div class="qaidah-text">
+    القول الصحيح أن الفعل المضارع مرفوع <strong>لتجرده عن الناصب والجازم</strong> — وهذا الذي تعرفونه: أن الفعل المضارع مرفوع لتجرده عن عامل يقتضي النصب وعامل يقتضي الجزم.
+  </div>
+</div>
+
+<!-- العامل في المبتدأ والخبر -->
+<h2>العامل في المبتدأ والخبر</h2>
+
+<div class="matn-box">
+  والعامل في المبتدأ والخبر هو الابتداء
+</div>
+
+<p>ماذا يعني: «والعامل في المبتدأ والخبر هو الابتداء»؟ نقول: <strong>الابتداء</strong> هذا عامل في <strong>المبتدأ فقط</strong>. أما الخبر فإن العامل فيه <strong>عامل لفظي</strong> — وهو <strong>المبتدأ</strong>.</p>
+
+<p>ما الذي رفع الخبر؟ <strong>المبتدأ</strong> — هذا عامل لفظي. وما الذي رفع المبتدأ؟ <strong>الابتداء</strong> — هذا عامل معنوي.</p>
+
+<div class="poetry-box">
+  <div style="font-size:14px;color:var(--gold);margin-bottom:8px;">نظم ابن مالك في الألفية</div>
+  <div class="verse">ورفعوا مبتدأً بالابتداء <strong>هذا العامل المعنوي</strong><br>كذاك رفعوا خبراً بالمبتدأ <strong>هذا عامل لفظي</strong></div>
+</div>
+
+<!-- TABLE: العامل المعنوي vs اللفظي -->
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>المعمول</th>
+      <th>العامل</th>
+      <th>نوع العامل</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>المبتدأ</strong></td>
+      <td>الابتداء</td>
+      <td><span class="ruling-card mustahabb">معنوي</span></td>
+    </tr>
+    <tr>
+      <td><strong>الخبر</strong></td>
+      <td>المبتدأ</td>
+      <td><span class="ruling-card sunna">لفظي</span></td>
+    </tr>
+    <tr>
+      <td><strong>الفعل المضارع</strong></td>
+      <td>تجردُه عن الناصب والجازم (الصحيح)</td>
+      <td><span class="ruling-card mustahabb">معنوي</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- معنى الابتداء -->
+<h3>معنى الابتداء</h3>
+
+<div class="definition-card">
+  <div class="definition-term">الابتداء</div>
+  <div class="definition-text">
+    الابتداء أي <strong>التجرد عن العوامل اللفظية غير الزائدة وشبه الزائدة</strong>.
+  </div>
+</div>
+
+<!-- معنى لا يوجد في الخارج -->
+<h3>العامل المعنوي لا يوجد في الخارج</h3>
+
+<p>قوله «وهو الضمير» — يعود على ماذا؟ يمكن على الابتداء، ويمكن على العامل المعنوي مطلقاً.</p>
+
+<p><strong>معناه لا يوجد في الخارج</strong> — أي أن العامل المعنوي <strong>ليس بملفوظ</strong>، هذا معنى لا يوجد في الخارج — أي أن العامل المعنوي ليس بملفوظ، <strong>لا يُلفظ به</strong>.</p>
+
+<div class="callout">
+  <div class="callout-title">تنبيه مهم: العامل المعنوي لا يُلفظ به</div>
+  <p>العامل المعنوي لا يوجد في الخارج — أي أنه <strong>لا يُلفظ به</strong>. بخلاف العامل اللفظي فإنه يُلفظ به ويُذكر في الكلام.</p>
+</div>
+
+<!-- ===== خاتمة الرسالة ===== -->
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h1>خاتمة الرسالة</h1>
+
+<div class="matn-box">
+  وهذه مئة عامل فلا يستغني الصغير والكبير والوضيع والرفيع عن معرفتها واستعمالها
+</div>
+
+<p>يريد أن يقول إن هذه الرسالة <strong>جديرة بالدراسة من كل أحد</strong> يتعلم العربية، سواء كان صغيراً أو كبيراً، وضيعاً أو رفيعاً، مبتدئاً أو متوسطاً — لا بد أن يعتني بدراستها.</p>
+
+<p>والحمد لله أن الله عز وجل منّ علينا بدراستها، فنسأل الله عز وجل أن يجزل الثواب والأجر للمصنف، وأن يتغمده برحمته، وأن يرفع درجته في عليين.</p>
+
+<!-- ===== ملخص العوامل المائة ===== -->
+<div class="summary-box">
+  <div class="summary-title">الملخص النهائي: العوامل المائة</div>
+  <div class="summary-text">
+    <strong>العوامل اللفظية (98 عاملاً):</strong><br>
+    • السماعية: 91 عاملاً — مقسمة إلى 13 مجموعة (انتهينا منها كلها)<br>
+    • القياسية: 7 عوامل — (الفعل، اسم الفاعل، اسم المفعول، الصفة المشبهة، المصدر، المضاف، الاسم التام)<br><br>
+    <strong>العوامل المعنوية (عاملان):</strong><br>
+    • رافع المبتدأ والخبر — العامل فيه: الابتداء (معنوي في المبتدأ، لفظي في الخبر)<br>
+    • رافع الفعل المضارع — العامل فيه: تجردُه عن الناصب والجازم (الصحيح)<br><br>
+    <strong>المجموع: 91 + 7 + 2 = 100 عامل</strong>
+  </div>
+</div>
+
+<!-- CLOSING DUA -->
+<div class="closing-box">
+  <div class="closing-dua">
+    اللهم آمين<br>
+    وصلّ اللهم وسلّم وبارك على سيدنا محمد وآله وصحبه أجمعين<br>
+    والحمد لله رب العالمين
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="page-footer">
+  شرح العوامل المائة — للإمام عبد القاهر الجرجاني رحمه الله تعالى<br>
+  الشرح: د. لبيب نجيب عبدالله | إعداد: أحمد بن إرشاد<br>
+  الدرس الخامس عشر (الأخير) — أفعال الشك واليقين، العوامل القياسية والمعنوية
+</div>
+
+</div><!-- end main-content -->
+
+<script>
+// B&W Toggle
+document.querySelector('.bw-toggle').addEventListener('click', function() {
+  document.body.classList.toggle('bw-mode');
+});
+</script>
+
+</body>
+</html>

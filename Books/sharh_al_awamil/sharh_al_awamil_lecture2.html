@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح العوامل المائة — الدرس الثاني: معاني الباء</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-green: #0d6b3e;
+  --dark-green: #0a4f2e;
+  --gold: #d4a020;
+  --light-gold: #f0e6c0;
+  --teal: #0d7377;
+  --bg: #fefefe;
+  --body-text: #1a1a1a;
+  --border: #c8d6c0;
+  --light-green-bg: #e8f5e9;
+  --light-teal-bg: #e0f2f1;
+  --light-gold-bg: #fff8e1;
+  --quran-bg: #e8f5e9;
+  --hadith-bg: #e0f2f1;
+  --poetry-bg: #fdf6e3;
+}
+
+body.bw-mode {
+  --primary-green: #333;
+  --dark-green: #222;
+  --gold: #555;
+  --light-gold: #ddd;
+  --teal: #444;
+  --bg: #fff;
+  --body-text: #000;
+  --border: #999;
+  --light-green-bg: #eee;
+  --light-teal-bg: #eee;
+  --light-gold-bg: #eee;
+  --quran-bg: #f5f5f5;
+  --hadith-bg: #f0f0f0;
+  --poetry-bg: #f5f5f5;
+}
+
+body.bw-mode .cover-page { background: linear-gradient(135deg, #333, #555) !important; }
+body.bw-mode .cover-page * { color: #fff !important; border-color: #999 !important; }
+body.bw-mode .tree-node { background: #eee !important; border-color: #999 !important; color: #000 !important; }
+body.bw-mode .tree-connector { border-color: #999 !important; }
+body.bw-mode .definition-card { background: #f5f5f5 !important; border-color: #999 !important; }
+body.bw-mode .definition-card .definition-term { color: #000 !important; }
+body.bw-mode .evidence-box { background: #f5f5f5 !important; border-color: #999 !important; }
+body.bw-mode .evidence-box .evidence-label { background: #777 !important; color: #fff !important; }
+body.bw-mode .callout { border-color: #999 !important; background: #f5f5f5 !important; }
+body.bw-mode .callout.callout-gold { border-color: #777 !important; background: #eee !important; }
+body.bw-mode .summary-box { background: #eee !important; border-color: #777 !important; }
+body.bw-mode .comparison-card { border-color: #999 !important; background: #f5f5f5 !important; }
+body.bw-mode .comparison-card .card-header { background: #777 !important; color: #fff !important; }
+body.bw-mode .poetry-box { background: #f5f5f5 !important; border-color: #999 !important; }
+body.bw-mode .ruling-card { border-color: #999 !important; background: #f5f5f5 !important; }
+body.bw-mode .ruling-card .ruling-label { background: #777 !important; color: #fff !important; }
+body.bw-mode .matn-text { border-color: #777 !important; background: #f5f5f5 !important; }
+body.bw-mode .qaidah-box { background: #eee !important; border-color: #777 !important; }
+body.bw-mode .qaidah-box .qaidah-label { background: #777 !important; color: #fff !important; }
+body.bw-mode .benefit-box { background: #f0f0f0 !important; border-color: #777 !important; }
+body.bw-mode .section-divider { border-color: #999 !important; }
+body.bw-mode .section-divider::after { color: #777 !important; }
+body.bw-mode .table-styled th { background: #666 !important; color: #fff !important; border-color: #999 !important; }
+body.bw-mode .table-styled td { border-color: #999 !important; }
+body.bw-mode .tabs-nav .tab-btn.active { background: #555 !important; color: #fff !important; border-color: #777 !important; }
+body.bw-mode .tabs-nav .tab-btn { background: #eee !important; color: #333 !important; }
+body.bw-mode .alert-box { border-color: #999 !important; }
+body.bw-mode .number-circle { background: #555 !important; color: #fff !important; }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--body-text);
+  background: var(--bg);
+  direction: rtl;
+  text-align: justify;
+}
+
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+  @bottom-center {
+    content: "— " counter(page) " —";
+    font-size: 10px;
+    color: #666;
+  }
+}
+
+/* B&W Toggle */
+.bw-toggle {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+  background: var(--primary-green);
+  color: #fff;
+  border: 2px solid var(--gold);
+  padding: 8px 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 14px;
+  transition: all 0.3s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.bw-toggle:hover { background: var(--dark-green); }
+
+/* Cover Page */
+.cover-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a4f2e 0%, #0d6b3e 40%, #1a8a5a 70%, #0d7377 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+}
+.cover-page::before {
+  content: '';
+  position: absolute;
+  top: 15px; left: 15px; right: 15px; bottom: 15px;
+  border: 3px solid var(--gold);
+  border-radius: 12px;
+  opacity: 0.6;
+}
+.cover-page::after {
+  content: '';
+  position: absolute;
+  top: 25px; left: 25px; right: 25px; bottom: 25px;
+  border: 1px solid var(--light-gold);
+  border-radius: 8px;
+  opacity: 0.4;
+}
+.cover-book-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--light-gold);
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+.cover-author-name {
+  font-size: 20px;
+  color: var(--light-gold);
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+  opacity: 0.9;
+}
+.cover-lesson-num {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+.cover-lesson-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  border-top: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  padding: 10px 30px;
+}
+.cover-names {
+  position: relative;
+  z-index: 1;
+  color: var(--light-gold);
+  font-size: 16px;
+  line-height: 2;
+}
+.cover-names span { display: block; }
+.cover-ornament {
+  font-size: 28px;
+  color: var(--gold);
+  margin: 15px 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Content Container */
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 15px;
+}
+
+/* Section Headings */
+h1 { font-size: 26px; color: var(--primary-green); margin: 30px 0 15px; border-bottom: 2px solid var(--gold); padding-bottom: 8px; }
+h2 { font-size: 22px; color: var(--dark-green); margin: 25px 0 12px; }
+h3 { font-size: 19px; color: var(--teal); margin: 20px 0 10px; }
+
+p { margin-bottom: 12px; }
+
+/* Matn Text */
+.matn-text {
+  background: var(--light-gold-bg);
+  border-right: 5px solid var(--gold);
+  padding: 12px 18px;
+  margin: 15px 0;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--dark-green);
+  border-radius: 0 8px 8px 0;
+  line-height: 1.8;
+}
+
+/* Quran Box */
+.evidence-box.quran {
+  background: var(--quran-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 15px 0;
+  text-align: center;
+  position: relative;
+}
+.evidence-box.quran .evidence-label {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: var(--primary-green);
+  color: #fff;
+  padding: 2px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.evidence-box.quran .evidence-text {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dark-green);
+  line-height: 1.9;
+  margin-top: 5px;
+}
+
+/* Hadith Box */
+.evidence-box.hadith {
+  background: var(--hadith-bg);
+  border: 2px solid var(--teal);
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 15px 0;
+  position: relative;
+}
+.evidence-box.hadith .evidence-label {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: var(--teal);
+  color: #fff;
+  padding: 2px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.evidence-box.hadith .evidence-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--teal);
+  line-height: 1.8;
+}
+
+/* Poetry Box */
+.poetry-box {
+  background: var(--poetry-bg);
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 20px 25px;
+  margin: 15px 0;
+  text-align: center;
+  position: relative;
+}
+.poetry-box .poetry-label {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: var(--gold);
+  color: #fff;
+  padding: 2px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.poetry-box .poetry-line {
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 2.2;
+  color: var(--dark-green);
+}
+
+/* Definition Card */
+.definition-card {
+  background: var(--light-green-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 15px 0;
+  position: relative;
+}
+.definition-card .definition-term {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 8px;
+}
+.definition-card .definition-text {
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* Classification Tree */
+.tree-container {
+  margin: 20px 0;
+  padding: 15px;
+  overflow-x: auto;
+}
+.tree-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tree-node {
+  background: var(--primary-green);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 17px;
+  text-align: center;
+  min-width: 120px;
+  border: 2px solid var(--dark-green);
+}
+.tree-node.gold {
+  background: var(--gold);
+  color: #fff;
+  border-color: #b8860b;
+}
+.tree-node.teal {
+  background: var(--teal);
+  color: #fff;
+  border-color: #095455;
+}
+.tree-connector {
+  width: 2px;
+  height: 25px;
+  background: var(--primary-green);
+  margin: 0 auto;
+}
+.tree-branch {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+}
+.tree-branch::before {
+  content: '';
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 25px;
+  background: var(--primary-green);
+}
+.tree-sub-branch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tree-h-line {
+  height: 2px;
+  background: var(--primary-green);
+  width: 50%;
+  position: relative;
+}
+
+/* Comparison Cards */
+.comparison-container {
+  display: flex;
+  gap: 15px;
+  margin: 15px 0;
+  flex-wrap: wrap;
+}
+.comparison-card {
+  flex: 1;
+  min-width: 280px;
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.comparison-card .card-header {
+  background: var(--primary-green);
+  color: #fff;
+  padding: 10px 15px;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+}
+.comparison-card .card-body {
+  padding: 12px 15px;
+  font-size: 16px;
+  line-height: 1.7;
+}
+.comparison-card.view2 .card-header {
+  background: var(--teal);
+}
+.comparison-card.view2 {
+  border-color: var(--teal);
+}
+
+/* Callout */
+.callout {
+  border-right: 5px solid var(--primary-green);
+  background: var(--light-green-bg);
+  padding: 12px 18px;
+  margin: 15px 0;
+  border-radius: 0 8px 8px 0;
+}
+.callout.callout-gold {
+  border-right-color: var(--gold);
+  background: var(--light-gold-bg);
+}
+.callout.callout-teal {
+  border-right-color: var(--teal);
+  background: var(--light-teal-bg);
+}
+
+/* Summary Box */
+.summary-box {
+  background: var(--light-gold-bg);
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 20px 0;
+  position: relative;
+}
+.summary-box .summary-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 10px;
+  text-align: center;
+}
+.summary-box .summary-text {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* Table Styled */
+.table-styled {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+  font-size: 16px;
+}
+.table-styled th {
+  background: var(--primary-green);
+  color: #fff;
+  padding: 10px 12px;
+  border: 1px solid var(--primary-green);
+  font-weight: 700;
+}
+.table-styled td {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  vertical-align: top;
+}
+.table-styled tr:nth-child(even) td {
+  background: var(--light-green-bg);
+}
+
+/* Ruling Card */
+.ruling-card {
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 12px 15px;
+  margin: 10px 0;
+  background: var(--light-green-bg);
+}
+.ruling-card .ruling-label {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 5px;
+}
+.ruling-label.mubah { background: #777; }
+
+/* Benefit Box */
+.benefit-box {
+  background: #f3e5f5;
+  border: 2px solid #7b1fa2;
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 15px 0;
+  position: relative;
+}
+.benefit-box .benefit-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #7b1fa2;
+  margin-bottom: 8px;
+}
+.benefit-box .benefit-text {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Qaidah Box */
+.qaidah-box {
+  background: var(--light-gold-bg);
+  border: 3px solid var(--gold);
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 15px 0;
+  position: relative;
+}
+.qaidah-box .qaidah-label {
+  display: inline-block;
+  background: var(--gold);
+  color: #fff;
+  padding: 3px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.qaidah-box .qaidah-text {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.8;
+  color: var(--dark-green);
+}
+
+/* Section Divider */
+.section-divider {
+  border: none;
+  border-top: 2px solid var(--gold);
+  margin: 30px auto;
+  width: 60%;
+  position: relative;
+  text-align: center;
+}
+.section-divider::after {
+  content: '✦';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg);
+  padding: 0 10px;
+  color: var(--gold);
+  font-size: 18px;
+}
+
+/* Alert Box */
+.alert-box {
+  border: 2px solid var(--teal);
+  border-radius: 10px;
+  padding: 12px 18px;
+  margin: 15px 0;
+  background: var(--light-teal-bg);
+}
+.alert-box.warning { border-color: #e65100; background: #fff3e0; }
+.alert-box.info { border-color: var(--teal); background: var(--light-teal-bg); }
+.alert-box.success { border-color: var(--primary-green); background: var(--light-green-bg); }
+
+/* Number Circle */
+.number-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--primary-green);
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  margin-left: 8px;
+}
+.number-circle.gold { background: var(--gold); }
+.number-circle.teal { background: var(--teal); }
+
+/* Flow Container */
+.flow-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0;
+}
+.flow-step {
+  background: var(--primary-green);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+}
+.flow-arrow {
+  font-size: 22px;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* Tabs */
+.tabs-container { margin: 15px 0; }
+.tabs-nav { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 0; }
+.tab-btn {
+  padding: 8px 18px;
+  border: 2px solid var(--primary-green);
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  background: var(--light-green-bg);
+  color: var(--primary-green);
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.tab-btn.active {
+  background: var(--primary-green);
+  color: #fff;
+}
+.tabs-panels {
+  border: 2px solid var(--primary-green);
+  border-radius: 0 0 10px 10px;
+  padding: 15px;
+  background: var(--light-green-bg);
+}
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* Checklist */
+.checklist { margin: 10px 0; }
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 8px 0;
+}
+.checklist-circle {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--primary-green);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.checklist-text { font-size: 16px; line-height: 1.7; }
+
+/* Quote Block */
+.quote-block {
+  border-right: 4px solid var(--gold);
+  background: var(--light-gold-bg);
+  padding: 12px 18px;
+  margin: 15px 0;
+  border-radius: 0 8px 8px 0;
+}
+.quote-block .quote-text {
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.8;
+}
+.quote-block .quote-attribution {
+  font-size: 14px;
+  color: var(--gold);
+  font-weight: 700;
+  margin-top: 5px;
+  text-align: left;
+}
+
+/* Bismillah */
+.bismillah {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin: 20px 0;
+}
+
+/* Dua */
+.dua-box {
+  text-align: center;
+  background: var(--light-green-bg);
+  border: 1px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 15px 0;
+  font-size: 18px;
+  color: var(--dark-green);
+  line-height: 1.9;
+}
+
+/* Page Break */
+.page-break { page-break-before: always; }
+
+/* Responsive */
+@media (max-width: 600px) {
+  .comparison-container { flex-direction: column; }
+  .tree-branch { flex-direction: column; align-items: center; gap: 10px; }
+  .cover-book-title { font-size: 26px; }
+  .cover-lesson-title { font-size: 24px; }
+  .cover-lesson-num { font-size: 36px; }
+}
+</style>
+</head>
+<body>
+
+<!-- B&W Toggle Button -->
+<button class="bw-toggle" onclick="document.body.classList.toggle('bw-mode')">وضع الأبيض والأسود</button>
+
+<!-- ==================== COVER PAGE ==================== -->
+<div class="cover-page">
+  <div class="cover-ornament">﷽</div>
+  <div class="cover-book-title">شرح العوامل المائة</div>
+  <div class="cover-author-name">للإمام عبد القاهر الجرجاني رحمه الله تعالى</div>
+  <div class="cover-ornament">✦ ✦ ✦</div>
+  <div class="cover-lesson-num">الدرس الثاني</div>
+  <div class="cover-lesson-title">معاني الباء</div>
+  <div class="cover-ornament">✦</div>
+  <div class="cover-names">
+    <span>إعداد: أحمد بن إرشاد</span>
+    <span>شرح: د. لبيب نجيب عبدالله</span>
+    <span>المتن: الإمام عبد القاهر الجرجاني رحمه الله تعالى</span>
+  </div>
+</div>
+
+<!-- ==================== CONTENT ==================== -->
+<div class="content">
+
+<!-- Opening -->
+<div class="bismillah">بسم الله الرحمن الرحيم</div>
+
+<div class="dua-box">
+الحمد لله رب العالمين والصلاة والسلام الأتمان الأكملان على سيد المرسلين سيدنا محمد وعلى آله وصحبه الطيبين الطاهرين، أما بعد فأسأل الله سبحانه وتعالى أن يمن علينا بالعلم النافع والعمل الصالح وأن يفقهنا في الدين وأن يفتح لنا فتوح العارفين وأن يرزقنا الإخلاص في الأقوال والأعمال اللهم آمين.
+</div>
+
+<!-- Recap of Previous Lesson -->
+<h1>مراجعة الدرس الماضي</h1>
+
+<p>في الدرس الماضي تكلمت على المصنف الإمام عبد القاهر الجرجاني رحمه الله تعالى رحمة واسعة وذكرنا نبذة عن حياته وذكرنا أيضاً أنه توفي رحمه الله في سنة 71 و400، فهو من أعيان وعلماء القرن الخامس الهجري، وهو إمام له مصنفات تشد إليها الرحال انتفع الناس بها كثيراً.</p>
+
+<p>ذكرنا في الدرس الماضي أيضاً أن العوامل تنقسم إلى قسمين: إلى عوامل لفظية وعوامل معنوية، وأن عدد العوامل المعنوية اثنان، وأن العوامل اللفظية تنقسم إلى قسمين: منها ما هو سماعي ومنها ما هو قياسي.</p>
+
+<div class="tree-container">
+  <div class="tree-root">
+    <div class="tree-node">العوامل</div>
+    <div class="tree-connector"></div>
+    <div class="tree-branch">
+      <div class="tree-sub-branch">
+        <div class="tree-node gold">عوامل معنوية (2)</div>
+      </div>
+      <div class="tree-sub-branch">
+        <div class="tree-node teal">عوامل لفظية</div>
+        <div class="tree-connector"></div>
+        <div class="tree-branch">
+          <div class="tree-sub-branch">
+            <div class="tree-node gold">سماعية (13 نوعاً)</div>
+          </div>
+          <div class="tree-sub-branch">
+            <div class="tree-node gold">قياسية</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>قال المصنف رحمه الله تعالى: والسماعية منها تتنوع على ثلاثة عشر نوعاً، أي أن العوامل السماعية عددها ثلاثة عشر نوعاً، وسيدرسها الآن واحداً واحداً: النوع الأول، النوع الثاني، النوع الثالث، النوع الرابع، وهكذا سأشرح. واليوم ربما نأخذ الباء فقط سأشرح، وحيثما أردتكم أن تكتبوا أقول لكم اكتبوا المثال واضح، لكن أرجو منكم أن تعطوني أسماعكم وانتباهكم حتى تفهموا الدرس.</p>
+
+<hr class="section-divider">
+
+<!-- Main Topic: حروف الجر -->
+<h1>النوع الأول: حروف تجر الاسم الواحد فقط</h1>
+
+<div class="matn-text">
+قال المصنف رحمه الله تعالى: والسماعية منها تتنوع على ثلاثة عشر نوعاً. النوع الأول: حروف تجر الاسم الواحد فقط.
+</div>
+
+<p>حروف تجر الاسم الواحد فقط وهي سبعة عشر حرفاً، أحدها الباء. بدأ بحرف الباء، وحرف الباء من حروف الجر وله أربعة عشر معنى سيأتي ذكرها إن شاء الله عز وجل في نهاية الدرس، لكن الذي ذكره من معانيها هنا ثمانية فقط، يعني كم بقي؟ ستة. جيد.</p>
+
+<div class="callout callout-gold">
+<strong>تنبيه:</strong> للباء أربعة عشر معنى، لكن المصنف ذكر هنا ثمانية معانٍ فقط، وستة معانٍ ستأتي في بيت الشعر في نهاية الدرس.
+</div>
+
+<!-- معاني الباء Overview Tree -->
+<h2>معاني الباء (الثمانية المذكورة)</h2>
+
+<div class="tree-container">
+  <div class="tree-root">
+    <div class="tree-node" style="font-size:18px;">معاني الباء</div>
+    <div class="tree-connector"></div>
+    <div class="tree-branch" style="flex-wrap:wrap; gap:10px;">
+      <div class="tree-sub-branch"><div class="tree-node gold" style="font-size:14px; padding:8px 12px;">1- الإلصاق</div></div>
+      <div class="tree-sub-branch"><div class="tree-node gold" style="font-size:14px; padding:8px 12px;">2- الاستعانة</div></div>
+      <div class="tree-sub-branch"><div class="tree-node gold" style="font-size:14px; padding:8px 12px;">3- المصاحبة</div></div>
+      <div class="tree-sub-branch"><div class="tree-node gold" style="font-size:14px; padding:8px 12px;">4- المقابلة</div></div>
+      <div class="tree-sub-branch"><div class="tree-node teal" style="font-size:14px; padding:8px 12px;">5- التعدية</div></div>
+      <div class="tree-sub-branch"><div class="tree-node teal" style="font-size:14px; padding:8px 12px;">6- الظرفية</div></div>
+      <div class="tree-sub-branch"><div class="tree-node teal" style="font-size:14px; padding:8px 12px;">7- الزائدة</div></div>
+      <div class="tree-sub-branch"><div class="tree-node teal" style="font-size:14px; padding:8px 12px;">8- التفدية</div></div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ==================== المعنى الأول: الإلصاق ==================== -->
+<h1><span class="number-circle">1</span> المعنى الأول: الإلصاق</h1>
+
+<div class="matn-text">
+قال المصنف رحمه الله: أحدها الباء من حروف الجر ولها معانٍ، الأول للإلصاق.
+</div>
+
+<p>وهذا المعنى بدأ به المصنف رحمه الله تعالى لأنه المعنى الأصلي للباء. وللباء لذلك عندنا هنا في طبعة المنهاج قال: إن الإلصاق لا يفارق الباء، هو المعنى الذي لا يفارق الباء، يعني حتى لو جاءت الباء لمعنى آخر فإن الإلصاق يكون موجوداً، فالمعنى الأقوى للباء هو الإلصاق.</p>
+
+<div class="qaidah-box">
+  <div class="qaidah-label">قاعدة</div>
+  <div class="qaidah-text">الإلصاق لا يفارق الباء، فهو المعنى الأصلي لها، فحتى لو جاءت الباء لمعنى آخر فإن الإلصاق يكون موجوداً.</div>
+</div>
+
+<h3>أقسام الإلصاق</h3>
+<p>الإلصاق ينقسم إلى قسمين: إما إلصاق حقيقي أو إلصاق مجازي.</p>
+
+<div class="tree-container">
+  <div class="tree-root">
+    <div class="tree-node" style="font-size:18px;">الإلصاق</div>
+    <div class="tree-connector"></div>
+    <div class="tree-branch">
+      <div class="tree-sub-branch">
+        <div class="tree-node gold">حقيقي</div>
+        <div class="tree-connector"></div>
+        <div class="tree-node" style="font-size:14px; padding:8px; background:#fff; color:var(--dark-green); border:2px solid var(--gold);">إذا أفضت الباء إلى المجرور مباشرة</div>
+      </div>
+      <div class="tree-sub-branch">
+        <div class="tree-node teal">مجازي</div>
+        <div class="tree-connector"></div>
+        <div class="tree-node" style="font-size:14px; padding:8px; background:#fff; color:var(--teal); border:2px solid var(--teal);">إذا لم تفضِ الباء إلى المجرور بل إلى شيء يقاربه</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3>الإلصاق الحقيقي</h3>
+<div class="definition-card">
+  <div class="definition-term">الإلصاق الحقيقي</div>
+  <div class="definition-text">هو الإلصاق الذي يفضي إلى المجرور مباشرة، أي أن الباء أفادت الإلصاق فأفضت إلى المجرور نفسه.</div>
+</div>
+
+<p><strong>مثال:</strong> لو قلت: <strong>زيد به مرض</strong>، الباء هنا للإلصاق، فإن المرض قد التصق بزيد حتى صار المرض كجزء منه. الباء هنا أفادت الإلصاق أي أن المرض التصق بزيد التصاقاً حقيقياً، فدخلت الباء على مجرور «زيد»، «به مرض» الباء هنا أفادت أو أفضت إلى المجرور مباشرة، هنا هذا إلصاق حقيقي.</p>
+
+<p><strong>ومثال آخر:</strong> <strong>أمسكت بزيد</strong>، فالباء هنا للإلصاق الحقيقي لأنها أفضت مباشرة إلى المجرور.</p>
+
+<h3>الإلصاق المجازي</h3>
+<div class="definition-card">
+  <div class="definition-term">الإلصاق المجازي</div>
+  <div class="definition-text">هو الإلصاق الذي لا يفضي للمجرور بل إلى شيء يقاربه.</div>
+</div>
+
+<p><strong>مثال:</strong> لو قلت: <strong>مررت بزيد</strong>، فإن الباء هنا للإلصاق والمراد: مررت بقرب زيد وليس بذات زيد. وعلى هذا فالإلصاق قد يكون إلصاقاً حقيقياً إذا أفضت الباء إلى المجرور مباشرة، وقد يكون إلصاقاً مجازياً إذا لم تفضِ إلى المجرور وإنما إلى قريب منه.</p>
+
+<p><strong>ومثال آخر:</strong> <strong>طفت بالبيت العتيق</strong>، هذا إلصاق مجازي، أي طفت بقرب البيت العتيق، ليس أنني لامست البيت العتيق. وأنتم تعلمون كما درسنا في الفقه أن من شرط صحة الطواف أن تطوف بالبيت لا في البيت، فلو دخل جزء من الطائف في البيت لا يصح طوافه، إذن الباء هنا للإلصاق المجازي.</p>
+
+<div class="callout callout-gold">
+<strong>تنبيه فقهي:</strong> لو قلت «طفت بالبيت العتيق» فالباء للإلصاق المجازي، أي طفت بقرب البيت العتيق. ومن شرط صحة الطواف أن تطوف بالبيت لا في البيت، فلو دخل جزء من الطائف في البيت لا يصح طوافه.
+</div>
+
+<h3>خلاصة الإلصاق</h3>
+
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>نوع الإلصاق</th>
+      <th>الضابط</th>
+      <th>المثال</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>حقيقي</strong></td>
+      <td>إذا أفضت الباء إلى المجرور مباشرة</td>
+      <td>زيد به مرض / أمسكت بزيد</td>
+    </tr>
+    <tr>
+      <td><strong>مجازي</strong></td>
+      <td>إذا لم تفضِ الباء إلى المجرور بل إلى قريب منه</td>
+      <td>مررت بزيد (بموضع قرب زيد) / طفت بالبيت العتيق (بالقرب من البيت)</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout callout-teal">
+<strong>فائدة:</strong> ينبني على كون الباء للإلصاق أو لا كلام للفقهاء والمفسرين في قول الله عز وجل: <strong>وامسحوا برؤوسكم</strong>، لعلنا نذكره إما في آخر الدرس أو في الدرس القادم، ليس الآن موضوع.
+</div>
+
+<div class="matn-text">
+قال المصنف: أحدها الباء من حروف الجر ولها معانٍ، الأول للإلصاق، نحوه — شوف «نحوه» هذه خبر لمبتدأ محذوف — وذلك نحوه: مررت بزيد. انظر ماذا قال المصنف: أي تسوق مروري بموضع يقرب منه زيد — إيش هذا؟ آه، إلصاق مجازي. لكن لو قلت: زيد به سحر — حقيقي.
+</div>
+
+<hr class="section-divider">
+
+<!-- ==================== المعنى الثاني: الاستعانة ==================== -->
+<h1><span class="number-circle gold">2</span> المعنى الثاني: الاستعانة</h1>
+
+<div class="matn-text">
+قال المصنف رحمه الله: والثاني للاستعانة.
+</div>
+
+<div class="definition-card">
+  <div class="definition-term">باء الاستعانة</div>
+  <div class="definition-text">ضابطها: هي الباء التي تدخل على آلة الفعل، أي أن المجرور بالباء هو آلةُ الفعلِ الذي قبله.</div>
+</div>
+
+<p><strong>أمثلة فقهية:</strong></p>
+
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>المثال</th>
+      <th>الفعل</th>
+      <th>الآلة (ما أعان على الفعل)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>توضأت بالماء</strong></td>
+      <td>التوضؤ</td>
+      <td>الماء</td>
+    </tr>
+    <tr>
+      <td><strong>تيممت بالتراب</strong></td>
+      <td>التيمم</td>
+      <td>التراب</td>
+    </tr>
+    <tr>
+      <td><strong>كتبت بالقلم</strong></td>
+      <td>الكتابة</td>
+      <td>القلم</td>
+    </tr>
+    <tr>
+      <td><strong>قطعت بالسكين</strong></td>
+      <td>القطع</td>
+      <td>السكين</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>الباء هنا للاستعانة، دخلت على آلة الفعل: إلى الكتابة هي القلم، ما إلى القطع؟ السكين. صحيح أو لا؟ إذن الباء التي تدخل على آلة الفعل تسمى باء الاستعانة.</p>
+
+<div class="matn-text">
+قال المصنف: والثاني للاستعانة، نحو: كتبت بالقلم، أي استعنت في الكتابة بالقلم.
+</div>
+
+<div class="evidence-box quran">
+  <div class="evidence-label">آية كريمة — سورة الأنعام</div>
+  <div class="evidence-text">وَلَا طَائِرٍ يَطِيرُ بِجَنَاحَيْهِ</div>
+</div>
+
+<p>ما إلى الطيران؟ الجناح أو الجناحان. صح؟ إذن دخلت الباء على آلة الفعل، إلى الطيران، فالباء هنا للاستعانة.</p>
+
+<hr class="section-divider">
+
+<!-- ==================== المعنى الثالث: المصاحبة ==================== -->
+<h1><span class="number-circle gold">3</span> المعنى الثالث: المصاحبة</h1>
+
+<div class="matn-text">
+قال المصنف رحمه الله: والثالث للمصاحبة، نحو: خرج زيد بعشيرته.
+</div>
+
+<div class="definition-card">
+  <div class="definition-term">باء المصاحبة</div>
+  <div class="definition-text">هي الباء التي تكون بمعنى «مع».</div>
+</div>
+
+<p><strong>مثال:</strong> <strong>خرج زيد بعشيرته</strong>، أي خرج زيد <strong>مع</strong> عشيرته، خرج زيد بصحبة عشيرته. فهذه باء المصاحبة.</p>
+
+<div class="evidence-box quran">
+  <div class="evidence-label">آية كريمة — سورة النصر</div>
+  <div class="evidence-text">فَسَبِّحْ بِحَمْدِ رَبِّكَ</div>
+</div>
+
+<p>قال بعض المفسرين في قول الله عز وجل «فسبح بحمد ربك»: الباء هنا للمصاحبة، أي مع الحمد.</p>
+
+<div class="evidence-box quran">
+  <div class="evidence-label">آية كريمة — سورة المائدة</div>
+  <div class="evidence-text">وَإِذَا جَاءُوكَ قَالُوا آمَنَّا وَقَدْ دَخَلُوا بِالْكُفْرِ وَهُمْ قَدْ خَرَجُوا بِهِ وَاللَّهُ أَعْلَمُ بِمَا يُكْتِمُونَ</div>
+</div>
+
+<p>وإذا جاءوك يا محمد — أي جاءك هؤلاء المنافقون — قالوا آمنا، وقد دخلوا بايش؟ أي مع الكفر، أي أنهم يقولون آمنا بألسنتهم فقط، لكن القلب لم يؤمن. وقد دخلوا مع الكفر، مصاحبين الكفر. وهم قد خرجوا به، أي خرجوا مع الكفر، يعني دخلوا كفاراً وخرجوا كفاراً، يعني لم يؤمنوا. والله أعلم بما يكتمون. إذن الباء هنا ما معناها؟ معناها المصاحبة.</p>
+
+<h3>خلاف العلماء: الباء في البسملة</h3>
+
+<div class="callout callout-gold">
+<strong>لطيفة:</strong> اختلف العلماء في الباء في قول الله عز وجل «بسم الله الرحمن الرحيم»: هل الباء للاستعانة أو للمصاحبة؟
+</div>
+
+<div class="comparison-container">
+  <div class="comparison-card">
+    <div class="card-header">القول الأول: باء الاستعانة</div>
+    <div class="card-body">
+      قال بعض العلماء إن الباء في بسم الله الرحمن الرحيم للاستعانة، أي أستعين باسم الله عز وجل.
+    </div>
+  </div>
+  <div class="comparison-card view2">
+    <div class="card-header">القول الثاني: باء المصاحبة</div>
+    <div class="card-body">
+      وقال بعض العلماء إن الباء في بسم الله الرحمن الرحيم للمصاحبة، أي مصاحباً اسم الله عز وجل على وجه التبرك، ابتدأً أو ألّف أو توضأ أو أتكلم إلى غير ذلك.
+      <br><br>
+      <strong>والعلة في ترجيح المصاحبة:</strong> أن القول بأن الباء للاستعانة يوهم أن اسم الله عز وجل آلة يستعان بها، وهذا فيه ما لا يليق بحق المولى عز وجل، وإن كان هناك من أجاب عنه، لكن اجتنابه أولى، بل نقول واجب، أو أنه خطأ أن تكون الباء للاستعانة لا للمصاحبة.
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ==================== المعنى الرابع: المقابلة ==================== -->
+<h1><span class="number-circle gold">4</span> المعنى الرابع: المقابلة (العوض)</h1>
+
+<div class="matn-text">
+قال المصنف رحمه الله: والرابع للمقابلة، نحو: بعت هذا بهذا، أي قابلت هذا بهذا.
+</div>
+
+<p>هذا المعنى يقال له المقابلة ويقال له العوض، يقال: باء العوض، ويقال: باء المقابلة.</p>
+
+<div class="definition-card">
+  <div class="definition-term">باء المقابلة (باء العوض)</div>
+  <div class="definition-text">هي الباء التي تدخل على الأثمان أو العوض. فما دخلت عليه الباء فهو الثمن أو العوض.</div>
+</div>
+
+<p><strong>مثال:</strong> <strong>بعت هذا بهذا</strong>، أي قابلت هذا بهذا. إذن هي الباء التي تدخل على الثمن أو العوض.</p>
+
+<div class="callout callout-gold">
+<strong>تنبيه فقهي:</strong> مر معنا في الفقه — الذين يحضرون درس فتح المعين — أن الثمن ما دخلت عليه الباء. تذكرون هذا؟ الثمن ما دخلت عليه الباء. فلو قلت: <strong>بعت الكتاب بالثوب</strong>، أين الثمن؟ الثوب. لماذا؟ لأنه هو الذي دخلت عليه الباء. فما دخلت عليه الباء هو الثمن. وهذا يسمى عند الفقهاء بيع المقايضة: سلعة مقابل سلعة.
+</div>
+
+<h3>أنواع الثمن في باء المقابلة</h3>
+
+<p>قد يكون الثمن حسياً وقد يكون معنوياً:</p>
+
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>نوع الثمن</th>
+      <th>المثال</th>
+      <th>الشرح</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>حسي</strong></td>
+      <td>بعت الكتاب بالثوب</td>
+      <td>الثوب حسي وهو الثمن لأنه دخلت عليه الباء</td>
+    </tr>
+    <tr>
+      <td><strong>معنوي</strong></td>
+      <td>أولئك الذين اشتروا الضلالة بالهدى</td>
+      <td>الثمن هو الهدى وهو معنوي — دفعوا الهدى مقابل أن يأخذوا الضلالة</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="evidence-box quran">
+  <div class="evidence-label">آية كريمة — سورة البقرة</div>
+  <div class="evidence-text">أُولَٰئِكَ الَّذِينَ اشْتَرَوُا الضَّلَالَةَ بِالْهُدَىٰ فَمَا رَبِحَتْ تِجَارَتُهُمْ وَمَا كَانُوا مُهْتَدِينَ</div>
+</div>
+
+<p>أين الثمن الذي دفعوه؟ دفعوا الهدى، مقابل ماذا؟ أن يأخذوا الضلالة. هذا في غاية الخسارة، أنك تدفع الهدى ثمناً لتشتري الضلالة. فالباء دخلت على الثمن الذي هو الهدى، لكن هذا حسي أو معنوي؟ معنوي.</p>
+
+<p><strong>مثال آخر:</strong> لو قلت: <strong>قابلت إساءة زيد بالإحسان</strong>، هذه الباء ما هي؟ باء العوض، باء المقابلة. دخلت على حسي أو معنوي؟ على معنوي.</p>
+
+<hr class="section-divider">
+
+<!-- ==================== المعنى الخامس: التعدية ==================== -->
+<h1><span class="number-circle teal">5</span> المعنى الخامس: التعدية</h1>
+
+<div class="matn-text">
+قال المصنف رحمه الله: والخامس للتعدية، نحو: ذهبت بزيد، أي أذهبته.
+</div>
+
+<div class="definition-card">
+  <div class="definition-term">باء التعدية</div>
+  <div class="definition-text">هي التي يتعدى بها الفعل اللازم إلى مفعول به من حيث المعنى. الفعل اللازم لا مفعول له، والفعل المتعدي يتعدى إلى مفعول أول أو ثاني أو ثالث، لكن هذه الباء تجعل الفعل اللازم يتعدى إلى مفعول بواسطة الباء.</div>
+</div>
+
+<p><strong>مثال:</strong> <strong>حج الصبي</strong> — حج فعل لازم ومتعدٍّ: لازم، «حج الصبي». وممكن تقول: <strong>حججت بالصبي</strong>، فأصبح الفعل اللازم الآن — الصبي — الصبي إيش أصبح الآن؟ أصبح مفعولاً به من حيث المعنى. من حيث المعنى مفعول به، لكن هو طبعاً مجرور، لكن من حيث المعنى هو مفعول به «حججت به». إذن ما الذي جعل الفعل اللازم يتعدى إلى مفعول من حيث المعنى؟ الباء. تقول: حججت بالصبي.</p>
+
+<p><strong>مثال آخر:</strong> الفعل <strong>ذهب</strong> لازم أو متعدٍّ؟ لازم. الأصل أن تقول مثلاً: <strong>ذهب نورهم</strong>، لذلك أنظر الآية الكريمة إيش قال الله عز وجل؟</p>
+
+<div class="evidence-box quran">
+  <div class="evidence-label">آية كريمة — سورة البقرة</div>
+  <div class="evidence-text">ذَهَبَ اللَّهُ بِنُورِهِمْ وَتَرَكَهُمْ فِي ظُلُمَاتٍ لَا يُبْصِرُونَ</div>
+</div>
+
+<p>ذهب فعل لازم، لكن بواسطة الباء تعدى إلى مفعول به من حيث المعنى، فسميت هذه الباء باء التعدية. وتذكرون عندما أخذنا في التفسير في تفسير البقرة ذكرنا هذا المعنى.</p>
+
+<div class="callout">
+<strong>تنبيه:</strong> لما أقول الفعل اللازم هذا من باب الغالب، وإلا قد يحصل هذا في الفعل المتعدي، لكن هذا ليس مشهوراً نتركه الآن.
+</div>
+
+<hr class="section-divider">
+
+<!-- ==================== المعنى السادس: الظرفية ==================== -->
+<h1><span class="number-circle teal">6</span> المعنى السادس: الظرفية</h1>
+
+<div class="matn-text">
+قال المصنف رحمه الله: والسادس للظرفية، نحو: جلست بالمسجد، أي جلست في المسجد.
+</div>
+
+<p>الظرفية معناه أن يكون الشيء ظرفاً لشيء آخر، تقول مثلاً: الماء في الكوب، فالكوب هو ظرف للماء. والظرف قد يكون ظرفاً زمانياً وقد يكون ظرفاً مكانياً. لو قلت الماء في الكوب هل ظرف زماني أو مكاني؟ مكاني. ولو قلت الصوم في رمضان — زماني. صح؟</p>
+
+<div class="tree-container">
+  <div class="tree-root">
+    <div class="tree-node" style="font-size:18px;">الظرفية</div>
+    <div class="tree-connector"></div>
+    <div class="tree-branch">
+      <div class="tree-sub-branch">
+        <div class="tree-node gold">زمانية</div>
+        <div class="tree-connector"></div>
+        <div class="tree-node" style="font-size:13px; padding:8px; background:#fff; color:var(--dark-green); border:2px solid var(--gold);">الصوم في رمضان</div>
+      </div>
+      <div class="tree-sub-branch">
+        <div class="tree-node teal">مكانية</div>
+        <div class="tree-connector"></div>
+        <div class="tree-node" style="font-size:13px; padding:8px; background:#fff; color:var(--teal); border:2px solid var(--teal);">الماء في الكوب</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>الباء تأتي بمعنى الظرفية أيضاً. مثاله: <strong>جلست بالمسجد</strong> أي جلست في المسجد. و<strong>اعتكفت بالمسجد</strong> — نسيت أن أكتب نية الاعتكاف — اعتكفت في المسجد. الباء هنا جاء بمعنى الظرفية، زماني أو مكاني؟ مكانية. لأن «في» المعنى الأصلي لها الظرفية.</p>
+
+<h3>أمثلة من القرآن الكريم</h3>
+
+<div class="evidence-box quran">
+  <div class="evidence-label">آية كريمة — سورة آل عمران (ظرفية مكانية)</div>
+  <div class="evidence-text">وَلَقَدْ نَصَرَكُمُ اللَّهُ بِبَدْرٍ</div>
+</div>
+
+<p>ما معنى «ولقد نصركم الله ببدر»؟ أي ولقد نصركم الله في بدر، الموضع الذي اسمه بدر. هذه ظرفية زمانية أو مكانية؟ مكانية.</p>
+
+<div class="evidence-box quran">
+  <div class="evidence-label">آية كريمة — سورة الذاريات (ظرفية زمانية)</div>
+  <div class="evidence-text">وَبِالْأَسْحَارِ هُمْ يَسْتَغْفِرُونَ</div>
+</div>
+
+<p>و «بالأسحار» الباء زمانية. والأسحار يستغفرون، الباء هنا زمانية.</p>
+
+<div class="evidence-box quran">
+  <div class="evidence-label">آية كريمة — سورة الصافات (ظرفية زمانية)</div>
+  <div class="evidence-text">وَإِنَّكُمْ لَتَمُرُّونَ عَلَيْهِمْ مُصْبِحِينَ ﴿١٣٧﴾ وَبِاللَّيْلِ أَفَلَا تَعْقِلُونَ</div>
+</div>
+
+<p>أين الباء؟ «وبالليل» ما معنى الباء هنا؟ الظرفية الزمانية. «وبالليل أفلا تعقلون» — زمانية.</p>
+
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>نوع الظرفية</th>
+      <th>المثال</th>
+      <th>المعنى</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>مكانية</strong></td>
+      <td>ولقد نصركم الله ببدر</td>
+      <td>في بدر</td>
+    </tr>
+    <tr>
+      <td><strong>مكانية</strong></td>
+      <td>جلست بالمسجد</td>
+      <td>في المسجد</td>
+    </tr>
+    <tr>
+      <td><strong>زمانية</strong></td>
+      <td>وبالأسحار هم يستغفرون</td>
+      <td>في الأسحار</td>
+    </tr>
+    <tr>
+      <td><strong>زمانية</strong></td>
+      <td>وبالليل أفلا تعقلون</td>
+      <td>في الليل</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr class="section-divider">
+
+<!-- ==================== المعنى السابع: الزائدة ==================== -->
+<h1><span class="number-circle teal">7</span> المعنى السابع: الزائدة</h1>
+
+<div class="matn-text">
+قال المصنف رحمه الله: والسابع زائدة، نحو: هل زيد بقائم.
+</div>
+
+<p>وهناك فرق بين حرف الجر الأصلي وحرف الجر الزائد وحرف الجر الشبيه بالزائد، درسناه في شرح الكفراوي، إذا احتجتم أن نعيده أعدناه في الدرس القادم.</p>
+
+<h3>أقسام الباء الزائدة</h3>
+<p>الباء الزائدة تنقسم إلى قسمين: إما سماعية وإما قياسية.</p>
+
+<div class="tree-container">
+  <div class="tree-root">
+    <div class="tree-node" style="font-size:18px;">الباء الزائدة</div>
+    <div class="tree-connector"></div>
+    <div class="tree-branch">
+      <div class="tree-sub-branch">
+        <div class="tree-node gold">سماعية</div>
+        <div class="tree-connector"></div>
+        <div class="tree-node" style="font-size:13px; padding:8px; background:#fff; color:var(--dark-green); border:2px solid var(--gold);">سمعت هكذا من العرب — كالباء بعد فعل كفى</div>
+      </div>
+      <div class="tree-sub-branch">
+        <div class="tree-node teal">قياسية</div>
+        <div class="tree-connector"></div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <div class="tree-node" style="font-size:13px; padding:8px; background:#fff; color:var(--teal); border:2px solid var(--teal);">كثيرة الوقوع: في خبر ليس وخبر ما</div>
+          <div class="tree-node" style="font-size:13px; padding:8px; background:#fff; color:var(--teal); border:2px solid var(--teal);">قليلة الوقوع: في خبر لا وخبر كان المنفية</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3>الباء الزائدة السماعية</h3>
+<p>أعطيك مثالاً واحداً أو موضعاً واحداً: كالباء التي تأتي بعد الفعل «كفى»، الباء التي تأتي بعد الفعل «كفى» باء سماعية، سمعت هكذا من العرب.</p>
+
+<div class="evidence-box quran">
+  <div class="evidence-label">آيات كريمة</div>
+  <div class="evidence-text">وَكَفَىٰ بِرَبِّكَ شَهِيدًا<br>وَكَفَىٰ بِاللَّهِ شَهِيدًا<br>وَكَفَىٰ بِاللَّهِ وَلِيًّا</div>
+</div>
+
+<p>الباء هنا زائدة. الباء هنا زائدة. طبعاً تأدباً في القرآن مع القرآن لا يقال زائدة، يقال صلة لتقوية المعنى. الباء هنا زائدة — نجري على الكلام الذي في اصطلاح النحاة — ليس المقصود زائدة أنه لا حاجة إليها، ليس هذا المقصود، وإنما المقصود كما قلت لكم: لتقوية المعنى.</p>
+
+<div class="callout callout-gold">
+<strong>تنبيه أدبي:</strong> عند التعامل مع القرآن الكريم لا يقال عن الحرف «زائد» بل يقال «صلة لتقوية المعنى»، لأن «الزائد» يوهم عدم الحاجة، وليس هذا المقصود عند النحاة، بل المقصود تقوية المعنى.
+</div>
+
+<h3>الباء الزائدة القياسية</h3>
+<p>هذه تجري على القاعدة. الباء القياسية قد تكون في بعض المواضع كثيرة الوقوع وقد تكون في بعض المواضع قليلة الوقوع.</p>
+
+<p><strong>متى تكون كثيرة الوقوع؟</strong> في خبر «ليس» وخبر «ما»، كثيرة الوقوع.</p>
+<p><strong>وأما في خبر «لا» وخبر «كان» المنفية فإنها قليلة الوقوع.</strong></p>
+
+<div class="qaidah-box">
+  <div class="qaidah-label">قاعدة ابن مالك في الألفية</div>
+  <div class="qaidah-text">
+    وبعد ما وليس جرّ البلخبر<br>
+    وبعد لا ونفي كان قد يجرّ<br><br>
+    في بابي ما التي تعمل عمل ليس:<br>
+    إعمال ليس أعملت ما دون إنّ معاقب النفي وترتيب زكي<br>
+    وسبق حرف جر أو ظرف كما بأنت معني أجاز العلماء<br>
+    ورفع معطوف بلا أو ببل من بعد منصوب بما لزم حيث حلّ
+  </div>
+</div>
+
+<p>هذا ما ذكره ابن مالك في الألفية، وبعد ما وليس جرّ البلخبر، وبعد لا ونفي كان قد يجرّ.</p>
+
+<div class="evidence-box quran">
+  <div class="evidence-label">أمثلة — بعد «ليس» وبعد «ما»</div>
+  <div class="evidence-text">
+    أَلَيْسَ اللَّهُ بِكَافٍ عَبْدَهُ<br>
+    أَلَيْسَ اللَّهُ بِعَزِيزٍ ذِي انتِقَامٍ<br>
+    وَمَا رَبُّكَ بِظَلَّامٍ لِّلْعَبِيدِ
+  </div>
+</div>
+
+<p>هذا بعد «ليس» الآن بعد «ما» وما ربك بظلام للعبيد.</p>
+
+<h3>وقوع الباء الزائدة في خبر «لا»</h3>
+
+<p>وأما وقوعها في خبر «لا» فذكرت لكم بيت سواد بن قارب رضي الله عنه وقصة إسلامه التي أخرجها الإمام الحافظ الطبراني في المعجم الكبير، وأنشد أبياتاً أمام النبي صلى الله عليه وسلم منها قوله:</p>
+
+<div class="poetry-box">
+  <div class="poetry-label">شعر — سواد بن قارب رضي الله عنه</div>
+  <div class="poetry-line">فكُلَّ شفيعٍ يومَ لا ذو شفاعةٍ</div>
+  <div class="poetry-line">سِواكَ بمُغنٍ عن سَوادِ بنِ قارِبِ</div>
+</div>
+
+<p>بدليل أني قلتكم ممكن تحولها لبيب بن غالبي، صح؟ لا. فكل شفيع يوم لا ذو شفاعة سواك بمغن عن لبيب بن غالبي نسبة إلى جدي.</p>
+
+<h3>وقوع الباء الزائدة في خبر «كان» المنفية</h3>
+
+<p>خبر «كان» — ذكرت لكم بيت الشنفرة:</p>
+
+<div class="poetry-box">
+  <div class="poetry-label">شعر — الشنفرة</div>
+  <div class="poetry-line">وإذا مدّت الأيدي إلى الزاد لم أكن</div>
+  <div class="poetry-line">بأعجلهم إذ أجشع القوم أعجلوا</div>
+</div>
+
+<p>كان المنفية: لم أكن بأعجلهم. وهذا ذكرته لكم لكن المذاكرة يا أخوان!</p>
+
+<div class="alert-box warning">
+<strong>تنبيه:</strong> الباء الزائدة تجر لفظاً فقط لكن لا تجر في المحل، بخلاف حرف الجر الأصلي يجر لفظاً ومحلاً. وهذا شرحناه في شرح الكفراوي.
+</div>
+
+<div class="matn-text">
+قال المصنف: والسابع زائدة، نحو: هل زيد بقائم. هذا مثال للباء الزائد قياساً لأن من مواضع القياس — طبعاً هذه بعض مواضع القياس ليست كل المواضع — من مواضع القياس أن تأتي بعد الاستفهام.
+</div>
+
+<p>هل زيد بقائم — «زيد» اسم مجرور بالباء لفظاً مرفوع محلاً. مجرور بالباء لفظاً مرفوع محلاً، لأن حرف الجر الزائد يجر لفظاً فقط لكن لا يجر في المحل، بخلاف حرف الجر الأصلي يجر لفظاً ومحلاً.</p>
+
+<hr class="section-divider">
+
+<!-- ==================== المعنى الثامن: التفدية ==================== -->
+<h1><span class="number-circle teal">8</span> المعنى الثامن: التفدية</h1>
+
+<div class="matn-text">
+قال المصنف رحمه الله: والثامن أن تأتي الباء للتفدية، وذلك نحو: بأبي وأمي، أي فداك أبي وأمي.
+</div>
+
+<div class="definition-card">
+  <div class="definition-term">باء التفدية</div>
+  <div class="definition-text">هي التي تأتي بمعنى الفداء، تقول: بأبي أنت وأمي، أي جعلت أبي وأمي فداءً لك.</div>
+</div>
+
+<p>تقول: <strong>بأبي أنت وأمي</strong>، أي جعلت أبي وأمي فداءً لك.</p>
+
+<div class="evidence-box hadith">
+  <div class="evidence-label">حديث شريف — سنن الترمذي</div>
+  <div class="evidence-text">قال النبي صلى الله عليه وسلم لسعد: «ارمِ فداك أبي وأمي»</div>
+</div>
+
+<p>مرة معنا في سنن الترمذي.</p>
+
+<h3>حكم قول «فداك أبي وأمي»</h3>
+
+<div class="quote-block">
+  <div class="quote-text">المذهب الصحيح المختار أنه لا يكره قول الإنسان لغيره: فداك أبي وأمي، أو جعلني الله فداك، لا يكره. وقد تظاهرت على جواز ذلك الأحاديث المشهورة في الصحيحين وغيرهما.</div>
+  <div class="quote-attribution">— الإمام النووي في الأذكار</div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ==================== خلاصة المعاني الثمانية ==================== -->
+<h1>خلاصة معاني الباء الثمانية</h1>
+
+<div class="summary-box">
+  <div class="summary-title">✦ جدول معاني الباء ✦</div>
+  <div class="summary-text">
+    <table class="table-styled">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>المعنى</th>
+          <th>الضابط</th>
+          <th>المثال</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><strong>الإلصاق</strong></td>
+          <td>المعنى الأصلي — لا يفارق الباء. حقيقي: أفضت للمجرور مباشرة / مجازي: أفضت لقريب منه</td>
+          <td>زيد به مرض (حقيقي) / مررت بزيد (مجازي)</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><strong>الاستعانة</strong></td>
+          <td>تدخل على آلة الفعل</td>
+          <td>كتبت بالقلم / توضأت بالماء</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><strong>المصاحبة</strong></td>
+          <td>بمعنى «مع»</td>
+          <td>خرج زيد بعشيرته / وقد دخلوا بالكفر</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><strong>المقابلة (العوض)</strong></td>
+          <td>تدخل على الأثمان أو العوض</td>
+          <td>بعت هذا بهذا / اشتروا الضلالة بالهدى</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><strong>التعدية</strong></td>
+          <td>يتعدى بها الفعل اللازم إلى مفعول به من حيث المعنى</td>
+          <td>ذهبت بزيد / ذهب الله بنورهم</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><strong>الظرفية</strong></td>
+          <td>بمعنى «في» — زمانية أو مكانية</td>
+          <td>جلست بالمسجد / نصركم الله ببدر / وبالأسحار</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td><strong>الزائدة</strong></td>
+          <td>سماعية أو قياسية — تجر لفظاً لا محلاً</td>
+          <td>هل زيد بقائم / وكفى بالله شهيداً / أليس الله بعزيز</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td><strong>التفدية</strong></td>
+          <td>بمعنى الفداء</td>
+          <td>بأبي وأمي / فداك أبي وأمي</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ==================== بيت الشعر: المعاني الأربعة عشر ==================== -->
+<h1>المعاني الأربعة عشر للباء — نظم الناظم</h1>
+
+<p>هناك أربعة عشر معنى للباء في بيتين قال فيهما الناظم:</p>
+
+<div class="poetry-box">
+  <div class="poetry-label">نظم المعاني الأربعة عشر للباء</div>
+  <div class="poetry-line">عُدَّ لِسُوقاً واسْتَعِنْ بِتَسَبُّبي وَبَدِّلْ صِحابَةً قابِلُوكَ بِالاسْتِعْلاءِ</div>
+  <div class="poetry-line">وَزِدْ بَعْضَهُمْ إنْ جاوَزَ الظَّرْفَ غايَةً يَميناً تَحُزْ بِالباءِ مَعانيها كُلِّها</div>
+</div>
+
+<p>سأترك شرح هذا مع تتمة فوائد أذكرها لكم في الدرس القادم، يكفيكم هذا.</p>
+
+<hr class="section-divider">
+
+<!-- Closing Dua -->
+<div class="dua-box">
+والله أعلم، وصلّ اللهم وسلم وبارك على سيدنا محمد وآل وصحبه أجمعين، والحمد لله رب العالمين.
+</div>
+
+</div><!-- end content -->
+
+<!-- ==================== JAVASCRIPT ==================== -->
+<script>
+// B&W Toggle
+document.querySelector('.bw-toggle').addEventListener('click', function() {
+  document.body.classList.toggle('bw-mode');
+});
+
+// Tabs functionality
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const tabId = this.getAttribute('data-tab');
+    const container = this.closest('.tabs-container');
+    container.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    container.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    this.classList.add('active');
+    container.querySelector('#' + tabId).classList.add('active');
+  });
+});
+</script>
+
+</body>
+</html>

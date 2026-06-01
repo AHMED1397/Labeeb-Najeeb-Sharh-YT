@@ -1,0 +1,1590 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح العوامل المائة — الدرس العاشر: أسماء تجزم فعلين</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-green: #0d6b3e;
+  --dark-green: #0a4f2e;
+  --gold: #d4a020;
+  --light-gold: #f0e6c0;
+  --teal: #0d7377;
+  --bg: #fefefe;
+  --body-text: #1a1a1a;
+  --border: #c8d6c0;
+  --cover-gradient-1: #0a4f2e;
+  --cover-gradient-2: #0d6b3e;
+  --cover-gradient-3: #1a8a5c;
+  --light-green-bg: #e8f5e9;
+  --section-bg: #f7faf5;
+}
+
+body.bw-mode {
+  --primary-green: #333;
+  --dark-green: #222;
+  --gold: #555;
+  --light-gold: #ddd;
+  --teal: #444;
+  --bg: #fff;
+  --body-text: #000;
+  --border: #999;
+  --cover-gradient-1: #333;
+  --cover-gradient-2: #555;
+  --cover-gradient-3: #777;
+  --light-green-bg: #f0f0f0;
+  --section-bg: #f5f5f5;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--body-text);
+  background: var(--bg);
+  direction: rtl;
+}
+
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+  @bottom-center {
+    content: "— " counter(page) " —";
+    font-size: 10px;
+    color: #666;
+  }
+}
+
+/* ===== B&W TOGGLE ===== */
+.bw-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 9999;
+  background: var(--primary-green);
+  color: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: all 0.3s;
+}
+.bw-toggle:hover { background: var(--dark-green); }
+
+/* ===== COVER PAGE ===== */
+.cover-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, var(--cover-gradient-1) 0%, var(--cover-gradient-2) 50%, var(--cover-gradient-3) 100%);
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+}
+.cover-page::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a020' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.cover-border {
+  border: 3px solid var(--gold);
+  border-radius: 16px;
+  padding: 50px 60px;
+  position: relative;
+  max-width: 700px;
+}
+.cover-border::after {
+  content: '';
+  position: absolute;
+  top: 8px; left: 8px; right: 8px; bottom: 8px;
+  border: 1px solid rgba(212,160,32,0.4);
+  border-radius: 12px;
+  pointer-events: none;
+}
+.cover-book-title {
+  font-family: 'Amiri', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.cover-author {
+  font-size: 18px;
+  color: #c8e6c9;
+  margin-bottom: 30px;
+}
+.cover-lesson-num {
+  font-size: 22px;
+  color: var(--light-gold);
+  margin-bottom: 8px;
+}
+.cover-lesson-title {
+  font-family: 'Amiri', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 30px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.cover-divider {
+  width: 120px;
+  height: 2px;
+  background: var(--gold);
+  margin: 20px auto;
+}
+.cover-names {
+  font-size: 15px;
+  color: #a5d6a7;
+  line-height: 2;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 24px;
+}
+
+.section-divider {
+  text-align: center;
+  margin: 30px 0;
+  position: relative;
+}
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 30%;
+  height: 1px;
+  background: linear-gradient(to left, var(--gold), transparent);
+}
+.section-divider::before { right: 0; }
+.section-divider::after { left: 0; background: linear-gradient(to right, var(--gold), transparent); }
+.section-divider .divider-icon {
+  color: var(--gold);
+  font-size: 22px;
+  padding: 0 12px;
+  background: var(--bg);
+}
+
+.section-divider.ornate {
+  margin: 40px 0;
+}
+.section-divider.ornate::before,
+.section-divider.ornate::after {
+  width: 35%;
+  background: linear-gradient(to left, var(--primary-green), transparent);
+}
+.section-divider.ornate::after {
+  background: linear-gradient(to right, var(--primary-green), transparent);
+}
+
+h1 {
+  font-size: 26px;
+  color: var(--primary-green);
+  border-bottom: 3px solid var(--gold);
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+h2 {
+  font-size: 22px;
+  color: var(--primary-green);
+  margin-bottom: 14px;
+  margin-top: 28px;
+}
+h3 {
+  font-size: 19px;
+  color: var(--dark-green);
+  margin-bottom: 10px;
+  margin-top: 22px;
+}
+
+p { margin-bottom: 14px; }
+
+/* ===== DUA BOX ===== */
+.dua-box {
+  background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 20px 0;
+  text-align: center;
+  font-size: 18px;
+  line-height: 2;
+  position: relative;
+}
+.dua-box::before {
+  content: '🤲';
+  font-size: 28px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* ===== MATN BOX ===== */
+.matn-box {
+  background: var(--light-gold);
+  border-right: 5px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  padding: 16px 22px;
+  margin: 20px 0;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 2;
+  color: var(--dark-green);
+}
+
+/* ===== TREE CONTAINER ===== */
+.tree-container {
+  background: var(--light-green-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 24px 0;
+  overflow-x: auto;
+}
+.tree-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--primary-green);
+  text-align: center;
+  margin-bottom: 18px;
+}
+.tree-root {
+  text-align: center;
+  margin-bottom: 8px;
+}
+.tree-node {
+  display: inline-block;
+  background: var(--primary-green);
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 17px;
+}
+.tree-branches {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.tree-branch {
+  text-align: center;
+  flex: 1;
+  min-width: 140px;
+}
+.tree-branch-node {
+  background: var(--gold);
+  color: var(--dark-green);
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+.tree-connector {
+  width: 2px;
+  height: 16px;
+  background: var(--primary-green);
+  margin: 0 auto;
+}
+.tree-leaf {
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 15px;
+  margin: 3px auto;
+  display: inline-block;
+  max-width: 100%;
+}
+.tree-sub-branch {
+  margin-top: 6px;
+}
+.tree-horizontal {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+/* ===== TABLE STYLED ===== */
+.table-styled {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 16px;
+}
+.table-styled th {
+  background: var(--primary-green);
+  color: #fff;
+  padding: 10px 14px;
+  font-weight: 700;
+  border: 1px solid var(--dark-green);
+  text-align: center;
+}
+.table-styled td {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  text-align: center;
+  vertical-align: top;
+}
+.table-styled tr:nth-child(even) { background: var(--light-green-bg); }
+.table-styled tr:nth-child(odd) { background: #fff; }
+
+/* ===== CALLOUT BOX ===== */
+.callout {
+  background: #fff8e1;
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 20px 0;
+  position: relative;
+}
+.callout::before {
+  content: '⚡';
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  font-size: 22px;
+  background: var(--bg);
+  padding: 0 6px;
+}
+.callout-title {
+  font-weight: 700;
+  color: var(--dark-green);
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+/* ===== DEFINITION CARD ===== */
+.definition-card {
+  background: #fff;
+  border: 2px solid var(--teal);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 20px 0;
+  position: relative;
+}
+.definition-term {
+  font-weight: 700;
+  color: var(--teal);
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+.definition-text {
+  font-size: 17px;
+  line-height: 1.8;
+}
+.definition-ref {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+}
+
+/* ===== QAIDAH BOX ===== */
+.qaidah-box {
+  background: linear-gradient(135deg, #fff8e1 0%, #fff3cd 100%);
+  border: 3px solid var(--gold);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 24px 0;
+  position: relative;
+}
+.qaidah-label {
+  position: absolute;
+  top: -14px;
+  right: 20px;
+  background: var(--gold);
+  color: #fff;
+  padding: 3px 18px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 14px;
+}
+.qaidah-text {
+  font-size: 17px;
+  line-height: 2;
+  font-weight: 600;
+  color: var(--dark-green);
+  margin-top: 8px;
+}
+
+/* ===== BENEFIT BOX ===== */
+.benefit-box {
+  background: linear-gradient(135deg, #f3e5f5 0%, #e8daef 100%);
+  border: 2px solid #8e44ad;
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 20px 0;
+}
+.benefit-title {
+  font-weight: 700;
+  color: #8e44ad;
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+.benefit-text {
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* ===== EVIDENCE BOX ===== */
+.evidence-box {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 18px 0;
+  position: relative;
+}
+.evidence-box::before {
+  content: '📖';
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  font-size: 22px;
+  background: var(--bg);
+  padding: 0 4px;
+}
+.evidence-label {
+  font-weight: 700;
+  color: var(--primary-green);
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+.evidence-text {
+  font-size: 18px;
+  line-height: 2;
+  font-weight: 600;
+}
+
+/* ===== SUMMARY BOX ===== */
+.summary-box {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  border: 2px solid #1565c0;
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 20px 0;
+}
+.summary-title {
+  font-weight: 700;
+  color: #1565c0;
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+.summary-text {
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* ===== ALERT BOX ===== */
+.alert-box {
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 18px 0;
+  font-size: 17px;
+}
+.alert-box.info {
+  background: #e3f2fd;
+  border: 2px solid #2196f3;
+}
+.alert-box.warning {
+  background: #fff3e0;
+  border: 2px solid #ff9800;
+}
+.alert-box.success {
+  background: #e8f5e9;
+  border: 2px solid #4caf50;
+}
+.alert-box.error {
+  background: #fce4ec;
+  border: 2px solid #e53935;
+}
+
+/* ===== I'RAB EXAMPLE BOX ===== */
+.irab-box {
+  background: #fff;
+  border: 2px solid var(--teal);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin: 18px 0;
+  position: relative;
+}
+.irab-box::before {
+  content: '✏️';
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  font-size: 20px;
+  background: var(--bg);
+  padding: 0 4px;
+}
+.irab-title {
+  font-weight: 700;
+  color: var(--teal);
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+.irab-example {
+  background: var(--light-green-bg);
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 12px;
+  color: var(--dark-green);
+}
+.irab-detail {
+  font-size: 16px;
+  line-height: 2;
+  padding-right: 12px;
+  border-right: 3px solid var(--teal);
+  margin-bottom: 8px;
+}
+.irab-detail strong {
+  color: var(--primary-green);
+}
+
+/* ===== COMPARISON CARDS ===== */
+.cols {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+.cols-3 > div { flex: 1; min-width: 200px; }
+.comparison-card {
+  background: #fff;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  text-align: center;
+}
+.comparison-card-header {
+  background: var(--primary-green);
+  color: #fff;
+  margin: -16px -18px 12px;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  font-weight: 700;
+  font-size: 16px;
+}
+.comparison-card-body {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* ===== SCHOLAR CARD ===== */
+.scholar-card {
+  background: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 20px 0;
+  position: relative;
+}
+.scholar-name {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--dark-green);
+}
+.scholar-badge {
+  display: inline-block;
+  background: var(--primary-green);
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+  margin-right: 8px;
+}
+.scholar-dates {
+  font-size: 14px;
+  color: #666;
+  margin-top: 4px;
+}
+.scholar-bio {
+  font-size: 16px;
+  margin-top: 8px;
+  line-height: 1.7;
+}
+
+/* ===== CHECKLIST ===== */
+.checklist {
+  background: var(--light-green-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 20px 0;
+}
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.checklist-circle {
+  min-width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--primary-green);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+}
+.checklist-text {
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* ===== POETRY BOX ===== */
+.poetry-box {
+  background: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 20px 28px;
+  margin: 20px 0;
+  text-align: center;
+}
+.poetry-box .verse {
+  font-size: 19px;
+  line-height: 2.2;
+  font-weight: 600;
+  color: var(--dark-green);
+}
+
+/* ===== RULING CARD ===== */
+.ruling-card {
+  display: inline-block;
+  border-radius: 8px;
+  padding: 8px 18px;
+  margin: 4px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+}
+.ruling-card.fard { background: #c62828; }
+.ruling-card.wajib { background: #e65100; }
+.ruling-card.sunna { background: #2e7d32; }
+.ruling-card.mustahabb { background: #1565c0; }
+.ruling-card.makruh { background: #f9a825; color: #333; }
+.ruling-card.haram { background: #b71c1c; }
+.ruling-card.mubah { background: #757575; }
+
+/* ===== NINE NAMES GRID ===== */
+.names-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+.name-card {
+  background: #fff;
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 16px 18px;
+  position: relative;
+  overflow: hidden;
+}
+.name-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 6px;
+  height: 100%;
+  background: var(--gold);
+}
+.name-card-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 6px;
+}
+.name-card-desc {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 8px;
+}
+.name-card-example {
+  background: var(--light-green-bg);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+/* ===== SPECIAL PROPERTY BOX ===== */
+.special-box {
+  background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+  border: 2px solid #c62828;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 18px 0;
+  position: relative;
+}
+.special-box::before {
+  content: '🔴';
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  font-size: 20px;
+  background: var(--bg);
+  padding: 0 4px;
+}
+.special-title {
+  font-weight: 700;
+  color: #c62828;
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+/* ===== FLOW CONTAINER ===== */
+.flow-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0;
+  direction: rtl;
+}
+.flow-step {
+  background: var(--primary-green);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  min-width: 100px;
+}
+.flow-arrow {
+  font-size: 22px;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* ===== CLOSING BOX ===== */
+.closing-box {
+  background: linear-gradient(135deg, var(--light-green-bg) 0%, #c8e6c9 100%);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 24px 0;
+  text-align: center;
+}
+.closing-dua {
+  font-size: 18px;
+  line-height: 2;
+  color: var(--dark-green);
+  font-weight: 600;
+}
+
+/* ===== FOOTER ===== */
+.page-footer {
+  text-align: center;
+  font-size: 13px;
+  color: #888;
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+ul, ol { padding-right: 24px; margin-bottom: 14px; }
+li { margin-bottom: 6px; }
+
+.highlight { color: var(--primary-green); font-weight: 700; }
+.gold-highlight { color: var(--gold); font-weight: 700; }
+.teal-highlight { color: var(--teal); font-weight: 700; }
+
+@media print {
+  .bw-toggle { display: none; }
+  .cover-page { page-break-after: always; }
+  body { font-size: 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- B&W TOGGLE BUTTON -->
+<button class="bw-toggle" onclick="document.body.classList.toggle('bw-mode')">وضع الأبيض والأسود</button>
+
+<!-- ===== COVER PAGE ===== -->
+<div class="cover-page">
+  <div class="cover-border">
+    <div class="cover-book-title">شرح العوامل المائة</div>
+    <div class="cover-author">للإمام عبد القاهر الجرجاني رحمه الله تعالى</div>
+    <div class="cover-divider"></div>
+    <div class="cover-lesson-num">الدرس العاشر</div>
+    <div class="cover-lesson-title">أسماء تجزم فعلين</div>
+    <div class="cover-divider"></div>
+    <div class="cover-names">
+      إعداد: أحمد بن إرشاد<br>
+      المتن: الإمام عبد القاهر الجرجاني رحمه الله تعالى<br>
+      الشرح: د. لبيب نجيب عبدالله
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="main-content">
+
+<!-- OPENING DUA -->
+<div class="dua-box">
+بسم الله الرحمن الرحيم<br>
+الحمد لله رب العالمين والصلاة والسلام الأتمان الأكملان على سيد المرسلين سيدنا محمد وعلى آله وصحبه الطيبين الطاهرين<br>
+أما بعد فأسأل الله سبحانه وتعالى أن يمن علينا بالعلم النافع والعمل الصالح وأن يفقهنا في الدين وأن يفتح لنا فتوح العارفين وأن يرزقنا الإخلاص في الأقوال والأعمال اللهم آمين
+</div>
+
+<!-- INTRODUCTION -->
+<h1>مقدمة: الأسماء التي تجزم الأفعال</h1>
+
+<p>فلا زال الكلام متصلا في شرح كتاب العوامل للإمام عبد القاهر الجرجاني رحمه الله تعالى رحمة واسعة المتوفى في سنة 471 وقيل 474، وفرغنا في الدرس الماضي من الكلام حول الحروف التي تجزم الفعل المضارع وهي خمسة حروف كما قال المصنف رحمه الله، ونشرع بإذن الله في الأسماء التي تجزم الأفعال.</p>
+
+<p>لو أردنا بارك الله فيكم أن نأخذ نبذة حول هذا الدرس فإننا نقول: إن الجوازم تنقسم إلى قسمين:</p>
+
+<!-- CLASSIFICATION TREE 1: الجوازم -->
+<div class="tree-container">
+  <div class="tree-title">شجرة التصنيف: الجوازم</div>
+  <div class="tree-root">
+    <div class="tree-node">الجوازم</div>
+  </div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">تجزم فعلاً واحداً</div>
+      <div class="tree-sub-branch">
+        <div class="tree-horizontal">
+          <div class="tree-leaf">لم</div>
+          <div class="tree-leaf">لما</div>
+          <div class="tree-leaf">لام الأمر</div>
+          <div class="tree-leaf">لا الناهية</div>
+          <div class="tree-leaf">لمّا</div>
+        </div>
+        <div style="font-size:14px;color:#666;margin-top:4px;">(درسناها في الدرس الماضي)</div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">تجزم فعلين</div>
+      <div class="tree-sub-branch">
+        <div class="tree-horizontal">
+          <div style="text-align:center;">
+            <div class="tree-leaf" style="background:var(--gold);color:#fff;font-weight:700;">حروف</div>
+            <div style="font-size:14px;margin-top:4px;">إن اتفاقاً<br>إذما على الصحيح</div>
+          </div>
+          <div style="text-align:center;">
+            <div class="tree-leaf" style="background:var(--primary-green);color:#fff;font-weight:700;">أسماء</div>
+            <div style="font-size:14px;margin-top:4px;">موضوع درسنا اليوم</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DETAIL: الحروف التي تجزم فعلين -->
+<h2>الحروف التي تجزم فعلين</h2>
+
+<p>الحروف التي تجزم فعلين حرفان:</p>
+
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>الحرف</th>
+      <th>حكمه</th>
+      <th>التفصيل</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="font-size:20px;font-weight:700;">إن</td>
+      <td><span class="ruling-card sunna">حرف اتفاقاً</span></td>
+      <td>متّفق على أنه حرف</td>
+    </tr>
+    <tr>
+      <td style="font-size:20px;font-weight:700;">إذما</td>
+      <td><span class="ruling-card mustahabb">حرف على الصحيح</span></td>
+      <td>بعض العلماء يقول إن إذما من الأسماء، والصحيح أن إذما من الحروف</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>إعراب الحروف: تقول <strong>حرف شرط جازم مبني على كذا كذا لا محل له من الإعراب</strong>، لأن الحرف لا محل له من الإعراب.</p>
+
+<div class="irab-box">
+  <div class="irab-title">مثال إعرابي: إن يسرق</div>
+  <div class="irab-detail">
+    <strong>إن:</strong> حرف شرط جازم مبني على السكون لا محل له من الإعراب
+  </div>
+</div>
+
+<!-- DETAIL: الأسماء التي تجزم فعلين -->
+<h2>الأسماء التي تجزم فعلين</h2>
+
+<p>هذه الأسماء التي تجزم فعلين — موضوع درسنا اليوم — تنقسم إلى قسمين، تنبهوا معي هذا درس مهم لأنه يحتاج إليه كثيراً في الإعراب:</p>
+
+<!-- CLASSIFICATION TREE 2: أسماء الشرط الجازمة -->
+<div class="tree-container">
+  <div class="tree-title">شجرة التصنيف: الأسماء التي تجزم فعلين</div>
+  <div class="tree-root">
+    <div class="tree-node">الأسماء الجازمة</div>
+  </div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">دالة على الزمان</div>
+      <div class="tree-sub-branch">
+        <div class="tree-horizontal">
+          <div class="tree-leaf">متى</div>
+          <div class="tree-leaf">أيان</div>
+        </div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">دالة على المكان</div>
+      <div class="tree-sub-branch">
+        <div class="tree-horizontal">
+          <div class="tree-leaf">أين</div>
+          <div class="tree-leaf">أن</div>
+          <div class="tree-leaf">أينما</div>
+          <div class="tree-leaf">حيثما</div>
+        </div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">لا تدل على زمان ولا مكان</div>
+      <div class="tree-sub-branch">
+        <div class="tree-horizontal">
+          <div class="tree-leaf">من</div>
+          <div class="tree-leaf">ما</div>
+          <div class="tree-leaf">ونحوهما</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- I'RAB RULES TABLE -->
+<h2>قواعد إعراب أسماء الشرط الجازمة</h2>
+
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>نوع الاسم</th>
+      <th>الإعراب</th>
+      <th>مثال</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>دال على الزمان</strong><br>(متى، أيان)</td>
+      <td>اسم شرط جازم مبني على كذا في محل نصب على <strong>الظرفية الزمانية</strong></td>
+      <td>متى تخرج أخرج<br>← متى: في محل نصب على الظرفية الزمانية</td>
+    </tr>
+    <tr>
+      <td><strong>دال على المكان</strong><br>(أين، أن، أينما، حيثما)</td>
+      <td>اسم شرط جازم مبني على كذا في محل نصب على <strong>الظرفية المكانية</strong></td>
+      <td>أين تمرر به أمرر به<br>← أين: في محل نصب على الظرفية المكانية</td>
+    </tr>
+    <tr>
+      <td><strong>لا يدل على زمان ولا مكان</strong><br>(من، ما، ونحوهما)</td>
+      <td><strong>له إعرابان:</strong><br>① في محل رفع مبتدأ<br>② في محل نصب مفعول به</td>
+      <td>تفصيل في القاعدة الآتية</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- QAIDAH BOX: THE DETAILED RULE -->
+<div class="qaidah-box">
+  <div class="qaidah-label">قاعدة مهمة</div>
+  <div class="qaidah-text">
+    <strong>إذا كان الاسم لا يدل على زمان ولا مكان (مثل: من، ما) فله إعرابان:</strong><br><br>
+    <strong>① في محل رفع مبتدأ</strong> — إذا كان بعده:<br>
+    &nbsp;&nbsp;• فعل لازم<br>
+    &nbsp;&nbsp;• أو فعل ناقص (مثل: كان)<br>
+    &nbsp;&nbsp;• أو فعل متعد استوفى مفعوله<br><br>
+    <strong>② في محل نصب مفعول به</strong> — إذا كان بعده:<br>
+    &nbsp;&nbsp;• فعل متعد لم يستوفي مفعوله
+  </div>
+</div>
+
+<!-- DETAILED I'RAB EXAMPLE 1 -->
+<div class="irab-box">
+  <div class="irab-title">مثال تطبيقي (1): من يذاكر دروسه أذاكر معه</div>
+  <div class="irab-example">من يذاكر دروسه أذاكر معه</div>
+  <div class="irab-detail">
+    <strong>من:</strong> اسم شرط جازم مبني على السكون في محل رفع مبتدأ<br>
+    <em>لماذا في محل رفع مبتدأ؟ لأن بعده فعل متعد استوفى مفعوله (يذاكر مفعوله "دروسه")</em>
+  </div>
+  <div class="irab-detail">
+    <strong>يذاكر:</strong> فعل وفاعل<br>
+    <strong>دروسه:</strong> مفعول ومضاف إليه<br>
+    <strong>أذاكر:</strong> فعل وفاعل<br>
+    <strong>معه:</strong> ظرف ومضاف إليه
+  </div>
+</div>
+
+<!-- WHERE IS THE KHABAR? -->
+<div class="callout">
+  <div class="callout-title">أين الخبر؟</div>
+  <p>نحن قلنا إن <strong>من</strong> في محل رفع مبتدأ — فأين الخبر؟</p>
+  <p><strong>الجواب:</strong> جملة الشرط (<strong>يذاكر دروسه</strong>) في محل رفع خبر المبتدأ.</p>
+  <p>وجملة الجواب (<strong>أذاكر معه</strong>) <strong>لا محل لها من الإعراب</strong>، إلا إذا اتصل بها الفاء فإنها تكون في محل جزم.</p>
+</div>
+
+<div class="evidence-box">
+  <div class="evidence-label">دليل: اتصال الفاء بجواب الشرط</div>
+  <div class="evidence-text">﴿إِن يَسْرِقْ فَقَدْ سَرَقَ أَخٌ لَّهُ مِن قَبْلُ﴾</div>
+  <p style="font-size:15px;margin-top:8px;">لما اتصلت الفاء بجواب الشرط صار في محل جزم</p>
+</div>
+
+<!-- DETAILED I'RAB EXAMPLE 2 -->
+<div class="irab-box">
+  <div class="irab-title">مثال تطبيقي (2): من يذاكر أذاكر معه</div>
+  <div class="irab-example">من يذاكر أذاكر معه</div>
+  <div class="irab-detail">
+    <strong>من:</strong> اسم شرط جازم مبني على السكون في محل نصب مفعول به مقدم<br>
+    <em>لماذا مفعول به هنا وهناك مبتدأ؟ لأن هنا الفعل لم يستوفي مفعوله (يذاكر لم يأخذ مفعوله)، فكان في محل نصب مفعول به. لكن هناك استوفى مفعوله فكان في محل رفع مبتدأ.</em>
+  </div>
+</div>
+
+<!-- REPEAT OF THE COMPLETE RULE -->
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h2>إعادة عرض قاعدة الجوازم كاملة</h2>
+
+<p>الجوازم — مبارك الله فيكم — إما أن تكون جازمة لفعل مضارع واحد مثل <strong>لا تكتب</strong>، <strong>لا تهمل درسك</strong>، وإما أنها تجزم فعلين. وهذه التي تجزم فعلين إما أنها حروف أو أسماء:</p>
+
+<!-- FLOW CHART: COMPLETE RULE -->
+<div class="flow-container">
+  <div class="flow-step">الجوازم</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-step">تجزم فعلاً واحداً<br><small>(لم، لما، لا الناهية، لام الأمر)</small></div>
+</div>
+
+<div class="flow-container">
+  <div class="flow-step">الجوازم</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-step">تجزم فعلين</div>
+  <div class="flow-arrow">←</div>
+  <div class="flow-step">حروف<br><small>إن اتفاقاً<br>إذما على الصحيح</small></div>
+  <div class="flow-arrow">|</div>
+  <div class="flow-step">أسماء<br><small>٩ أسماء</small></div>
+</div>
+
+<!-- COMPARISON CARDS: HOW TO I'RAB EACH TYPE -->
+<div class="cols cols-3">
+  <div class="comparison-card">
+    <div class="comparison-card-header">الحروف (إن، إذما)</div>
+    <div class="comparison-card-body">
+      <strong>حرف شرط جازم</strong><br>
+      مبني على كذا<br>
+      <strong>لا محل له من الإعراب</strong>
+    </div>
+  </div>
+  <div class="comparison-card">
+    <div class="comparison-card-header">أسماء دالة على زمان/مكان</div>
+    <div class="comparison-card-body">
+      <strong>اسم شرط جازم</strong><br>
+      مبني على كذا<br>
+      في محل نصب على <strong>الظرفية</strong><br>
+      (الزمانية أو المكانية)
+    </div>
+  </div>
+  <div class="comparison-card">
+    <div class="comparison-card-header">أسماء لا تدل على زمان/مكان</div>
+    <div class="comparison-card-body">
+      <strong>اسم شرط جازم</strong><br>
+      مبني على كذا<br>
+      <strong>في محل رفع مبتدأ</strong><br>
+      أو <strong>في محل نصب مفعول به</strong>
+    </div>
+  </div>
+</div>
+
+<!-- I'RAB EXAMPLES: أين ومتى -->
+<div class="irab-box">
+  <div class="irab-title">مثال: أين تجلس أجلس</div>
+  <div class="irab-example">أين تجلس أجلس</div>
+  <div class="irab-detail">
+    <strong>أين:</strong> اسم شرط جازم مبني على الفتح في محل نصب على الظرفية المكانية
+  </div>
+</div>
+
+<div class="irab-box">
+  <div class="irab-title">مثال: متى تسافر أسافر</div>
+  <div class="irab-example">متى تسافر أسافر</div>
+  <div class="irab-detail">
+    <strong>متى:</strong> اسم شرط جازم مبني على السكون في محل نصب على الظرفية الزمانية
+  </div>
+</div>
+
+<!-- MATN TEXT -->
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h1>نص المصنف رحمه الله</h1>
+
+<div class="matn-box">
+  النوع السابع من ثلاثة عشر نوعاً:<br>
+  <strong>أسماء تجزم الأفعال على معنى إن</strong><br>
+  للشرط والجزاء وهي تسعة أسماء
+</div>
+
+<div class="definition-card">
+  <div class="definition-term">معنى "على معنى إن"</div>
+  <div class="definition-text">
+    أي أنها تجزم فعلين كما أن <strong>إن</strong> تجزم فعلين. فهذه الأسماء تعمل عمل إن الشرطية في جزمها فعلين: فعل الشرط وجواب الشرط.
+  </div>
+</div>
+
+<div class="callout">
+  <div class="callout-title">تنبيه</div>
+  <p>يقال لهذه الأسماء: <strong>أسماء منقوصة</strong> — يسمونها أسماء منقوصة.</p>
+</div>
+
+<!-- THE NINE NAMES -->
+<h2>الأسماء التسعة التي تجزم فعلين</h2>
+
+<p>وهي تسعة أسماء، نقولها واحداً واحداً مع إعرابها:</p>
+
+<!-- 1. من -->
+<div class="names-grid">
+
+<div class="name-card">
+  <div class="name-card-title">① من</div>
+  <div class="name-card-desc">للعاقل — كما درستم في الأصول</div>
+  <div class="name-card-example">مثال: من يكرمني أكرمه</div>
+</div>
+
+<div class="name-card">
+  <div class="name-card-title">② أي</div>
+  <div class="name-card-desc">للعاقل والغير عاقل</div>
+  <div class="name-card-example">مثال: أيهم يكرمني أكرمه</div>
+</div>
+
+<div class="name-card">
+  <div class="name-card-title">③ ما</div>
+  <div class="name-card-desc">لغير العاقل — بمعنى شيء</div>
+  <div class="name-card-example">مثال: ما تصنع أصنع</div>
+</div>
+
+<div class="name-card">
+  <div class="name-card-title">④ متى</div>
+  <div class="name-card-desc">للزمان</div>
+  <div class="name-card-example">مثال: متى تخرج أخرج</div>
+</div>
+
+<div class="name-card">
+  <div class="name-card-title">⑤ مهما</div>
+  <div class="name-card-desc">للعاقل أو غير العاقل</div>
+  <div class="name-card-example">مثال: مهما تصنع أصنع</div>
+</div>
+
+<div class="name-card">
+  <div class="name-card-title">⑥ أين</div>
+  <div class="name-card-desc">للظرف المكان</div>
+  <div class="name-card-example">مثال: أين تمرر به أمرر به</div>
+</div>
+
+<div class="name-card">
+  <div class="name-card-title">⑦ أن</div>
+  <div class="name-card-desc">تدل على المكان</div>
+  <div class="name-card-example">من أسماء المكان</div>
+</div>
+
+<div class="name-card">
+  <div class="name-card-title">⑧ حيثما</div>
+  <div class="name-card-desc">للظرف المكان</div>
+  <div class="name-card-example">مثال: حيثما تذهب أذهب</div>
+</div>
+
+<div class="name-card">
+  <div class="name-card-title">⑨ إذما</div>
+  <div class="name-card-desc">حرف شرط جازم على الصحيح (وليس من الأسماء)</div>
+  <div class="name-card-example">مثال: إذ ما تفعل أفعل</div>
+</div>
+
+</div>
+
+<!-- DETAILED I'RAB FOR EACH NAME -->
+
+<h2>الإعراب التفصيلي لكل اسم</h2>
+
+<!-- 1. من -->
+<h3>① من — للعاقل</h3>
+
+<div class="irab-box">
+  <div class="irab-title">مثال: من يكرمني أكرمه</div>
+  <div class="irab-example">من يكرمني أكرمه</div>
+  <div class="irab-detail">
+    <strong>من:</strong> اسم شرط جازم مبني على السكون في محل رفع مبتدأ<br>
+    <em>لأن الفعل الذي بعده استوفى مفعوله (يكرمني أخذ مفعوله "ني")</em>
+  </div>
+  <div class="irab-detail">
+    <strong>يكرمني:</strong> فعل مضارع وفاعل مستتر ومفعول به (الضمير "ني" المتصل مبني على السكون في محل نصب مفعول به)
+  </div>
+  <div class="irab-detail">
+    <strong>جملة فعل الشرط</strong> (يكرمني) <strong>في محل رفع خبر المبتدأ</strong>
+  </div>
+  <div class="irab-detail">
+    <strong>جملة جواب الشرط</strong> (أكرمه) <strong>لا محل لها من الإعراب</strong>
+  </div>
+</div>
+
+<!-- 2. أي -->
+<h3>② أي — للعاقل والغير عاقل</h3>
+
+<div class="special-box">
+  <div class="special-title">قاعدة مهمة في "أي"</div>
+  <p><strong>أولاً:</strong> أي تستعمل للعاقل والغير عاقل.</p>
+  <p><strong>ثانياً:</strong> كل أسماء الشرط مبنية إلا <strong>أي</strong> فإنها <strong>معربة</strong>.</p>
+</div>
+
+<div class="irab-box">
+  <div class="irab-title">مثال: أيهم يكرمني أكرمه</div>
+  <div class="irab-example">أيهم يكرمني أكرمه</div>
+  <div class="irab-detail">
+    <strong>أي:</strong> اسم شرط <strong>مرفوع بالابتداء معرب</strong> — لا تقول "في محل رفع"<br>
+    <em>هي الوحيدة من أسماء الشرط المعربة</em>
+  </div>
+  <div class="irab-detail">
+    <strong>هم:</strong> مضاف إليه
+  </div>
+  <div class="irab-detail">
+    <strong>جملة فعل الشرط</strong> (يكرمني) <strong>في محل رفع خبر المبتدأ</strong>
+  </div>
+  <div class="irab-detail">
+    <strong>جملة جواب الشرط</strong> (أكرمه) <strong>لا محل لها من الإعراب</strong>
+  </div>
+</div>
+
+<!-- 3. ما -->
+<h3>③ ما — لغير العاقل بمعنى شيء</h3>
+
+<div class="irab-box">
+  <div class="irab-title">مثال: ما تصنع أصنع</div>
+  <div class="irab-example">ما تصنع أصنع</div>
+  <div class="irab-detail">
+    <strong>ما:</strong> اسم شرط جازم مبني على السكون في محل نصب مفعول به<br>
+    <em>لأنه جاء بعده فعل متعد لم يستوفي مفعوله (تصنع لم يأخذ مفعوله)</em>
+  </div>
+</div>
+
+<!-- 4. متى -->
+<h3>④ متى — للزمان</h3>
+
+<div class="irab-box">
+  <div class="irab-title">مثال: متى تخرج أخرج</div>
+  <div class="irab-example">متى تخرج أخرج</div>
+  <div class="irab-detail">
+    <strong>متى:</strong> اسم شرط جازم مبني على السكون في محل نصب على الظرفية الزمانية
+  </div>
+  <div class="irab-detail">
+    <strong>جملة فعل الشرط:</strong> متى تخرج<br>
+    <strong>جملة جواب الشرط:</strong> أخرج
+  </div>
+</div>
+
+<!-- 5. مهما -->
+<h3>⑤ مهما</h3>
+
+<div class="irab-box">
+  <div class="irab-title">مثال: مهما تصنع أصنع</div>
+  <div class="irab-example">مهما تصنع أصنع</div>
+  <div class="irab-detail">
+    <strong>مهما:</strong> اسم شرط جازم مبني على السكون في محل نصب مفعول به<br>
+    <em>لأنه جاء بعده فعل متعد لم يستوفي مفعوله (تصنع لم يأخذ مفعوله)</em>
+  </div>
+</div>
+
+<!-- 6. أين -->
+<h3>⑥ أين — للظرف المكان</h3>
+
+<div class="irab-box">
+  <div class="irab-title">مثال: أين تمرر به أمرر به</div>
+  <div class="irab-example">أين تمرر به أمرر به</div>
+  <div class="irab-detail">
+    <strong>أين:</strong> اسم شرط جازم مبني على الفتح في محل نصب على الظرفية المكانية
+  </div>
+</div>
+
+<!-- 7. أن -->
+<h3>⑦ أن — تدل على المكان</h3>
+
+<div class="irab-box">
+  <div class="irab-title">إعراب أن</div>
+  <div class="irab-detail">
+    <strong>أن:</strong> اسم شرط جازم مبني على السكون في محل نصب على الظرفية المكانية<br>
+    <em>أن مما يدل على المكان</em>
+  </div>
+</div>
+
+<!-- 8. حيثما -->
+<h3>⑧ حيثما — للظرف المكان</h3>
+
+<div class="special-box">
+  <div class="special-title">خاصة حيثما</div>
+  <p><strong>حيثما لا تجزم إلا مع ما</strong> — حيث وحدها بدون ما لا تجزم.</p>
+</div>
+
+<div class="irab-box">
+  <div class="irab-title">مثال: حيثما تذهب أذهب</div>
+  <div class="irab-example">حيثما تذهب أذهب</div>
+  <div class="irab-detail">
+    <strong>حيثما:</strong> اسم شرط جازم على الظرفية المكانية
+  </div>
+</div>
+
+<!-- THREE TOOLS THAT DON'T GOVERN WITHOUT MA -->
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h2>ثلاث أدوات لا تجزم إلا مع "ما"</h2>
+
+<div class="callout">
+  <div class="callout-title">تنبيه مهم</div>
+  <p>ثلاث أدوات لا تجزم إلا مع <strong>ما</strong>، بدون <strong>ما</strong> لا تجزم:</p>
+</div>
+
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>الأداة وحدها (لا تجزم)</th>
+      <th>مع "ما" (تجزم فعلين)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>إذ</strong></td>
+      <td><strong>إذما</strong></td>
+    </tr>
+    <tr>
+      <td><strong>حيث</strong></td>
+      <td><strong>حيثما</strong></td>
+    </tr>
+    <tr>
+      <td><strong>كيف</strong></td>
+      <td><strong>كيفما</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>بدون <strong>ما</strong> يعني: كيف لوحدها بدون ما لا تجزم، وإذ لوحدها بدون ما لا تجزم، وحيث وحدها دون ما لا تجزم.</p>
+
+<!-- 9. إذما -->
+<h3>⑨ إذما — حرف شرط جازم (على الصحيح)</h3>
+
+<div class="irab-box">
+  <div class="irab-title">مثال: إذ ما تفعل أفعل</div>
+  <div class="irab-example">إذ ما تفعل أفعل</div>
+  <div class="irab-detail">
+    <strong>إذما:</strong> حرف شرط جازم يجزم فعلين، لا محل له من الإعراب<br>
+    <em>لأنه من الحروف لا من الأسماء على الصحيح</em>
+  </div>
+</div>
+
+<!-- SUMMARY TABLE: ALL NINE NAMES -->
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h2>جدول ملخص: الأسماء التسعة التي تجزم فعلين</h2>
+
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>الاسم</th>
+      <th>يدل على</th>
+      <th>لمن يُستعمل</th>
+      <th>بناء/إعراب</th>
+      <th>المثال</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td style="font-weight:700;font-size:18px;">من</td>
+      <td>—</td>
+      <td>العاقل</td>
+      <td>مبني على السكون<br>مبتدأ أو مفعول به</td>
+      <td>من يكرمني أكرمه</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td style="font-weight:700;font-size:18px;">أي</td>
+      <td>—</td>
+      <td>العاقل والغير عاقل</td>
+      <td><strong>معربة</strong> مرفوع بالابتداء</td>
+      <td>أيهم يكرمني أكرمه</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td style="font-weight:700;font-size:18px;">ما</td>
+      <td>— (بمعنى شيء)</td>
+      <td>غير العاقل</td>
+      <td>مبني على السكون<br>مبتدأ أو مفعول به</td>
+      <td>ما تصنع أصنع</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td style="font-weight:700;font-size:18px;">متى</td>
+      <td>الزمان</td>
+      <td>—</td>
+      <td>مبني على السكون<br>ظرفية زمانية</td>
+      <td>متى تخرج أخرج</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td style="font-weight:700;font-size:18px;">مهما</td>
+      <td>—</td>
+      <td>العاقل أو غير العاقل</td>
+      <td>مبني على السكون<br>مبتدأ أو مفعول به</td>
+      <td>مهما تصنع أصنع</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td style="font-weight:700;font-size:18px;">أين</td>
+      <td>المكان</td>
+      <td>—</td>
+      <td>مبني على الفتح<br>ظرفية مكانية</td>
+      <td>أين تمرر به أمرر به</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td style="font-weight:700;font-size:18px;">أن</td>
+      <td>المكان</td>
+      <td>—</td>
+      <td>مبني على السكون<br>ظرفية مكانية</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td style="font-weight:700;font-size:18px;">حيثما</td>
+      <td>المكان</td>
+      <td>—</td>
+      <td>لا تجزم إلا مع ما<br>ظرفية مكانية</td>
+      <td>حيثما تذهب أذهب</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td style="font-weight:700;font-size:18px;">إذما</td>
+      <td>—</td>
+      <td>—</td>
+      <td><strong>حرف</strong> لا اسم على الصحيح<br>لا محل له من الإعراب</td>
+      <td>إذ ما تفعل أفعل</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- CHECKLIST: KEY RULES TO REMEMBER -->
+<div class="checklist">
+  <div style="font-weight:700;font-size:18px;color:var(--primary-green);margin-bottom:14px;text-align:center;">📋 قواعد أساسية يجب تذكّرها</div>
+  <div class="checklist-item">
+    <div class="checklist-circle">1</div>
+    <div class="checklist-text">كل أسماء الشرط <strong>مبنية</strong> إلا <strong>أي</strong> فإنها <strong>معربة</strong></div>
+  </div>
+  <div class="checklist-item">
+    <div class="checklist-circle">2</div>
+    <div class="checklist-text">حيثما لا تجزم إلا مع <strong>ما</strong> — حيث وحدها لا تجزم</div>
+  </div>
+  <div class="checklist-item">
+    <div class="checklist-circle">3</div>
+    <div class="checklist-text">إذما حرف على الصحيح (بعض العلماء يقول إنها من الأسماء)</div>
+  </div>
+  <div class="checklist-item">
+    <div class="checklist-circle">4</div>
+    <div class="checklist-text">إذا كان الاسم لا يدل على زمان/مكان: فعل متعد استوفى مفعوله ← <strong>مبتدأ</strong></div>
+  </div>
+  <div class="checklist-item">
+    <div class="checklist-circle">5</div>
+    <div class="checklist-text">إذا كان الاسم لا يدل على زمان/مكان: فعل متعد لم يستوفي مفعوله ← <strong>مفعول به</strong></div>
+  </div>
+  <div class="checklist-item">
+    <div class="checklist-circle">6</div>
+    <div class="checklist-text">جملة فعل الشرط في محل <strong>رفع خبر المبتدأ</strong></div>
+  </div>
+  <div class="checklist-item">
+    <div class="checklist-circle">7</div>
+    <div class="checklist-text">جملة جواب الشرط <strong>لا محل لها من الإعراب</strong> إلا إذا اتصل بها الفاء</div>
+  </div>
+  <div class="checklist-item">
+    <div class="checklist-circle">8</div>
+    <div class="checklist-text">ثلاث أدوات لا تجزم إلا مع ما: <strong>إذما، حيثما، كيفما</strong></div>
+  </div>
+</div>
+
+<!-- CLOSING -->
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<div class="closing-box">
+  <p>نكون بهذا انتهينا بارك الله فيكم من الأسماء التي تجزم فعلين، نقف عندها هذا القدر إن شاء الله عز وجل.</p>
+  <p style="margin-top:14px;">الدروس تستأنف بعد الإجازة يعني بعد نحو شهر من الآن، للإخوة الذين يتابعون الدروس عبر اليوتيوب فيصبروا إلى بعد جار حتى ترفع الدروس ونواصل الكتاب إلى الختام إن شاء الله عز وجل والله أعلم.</p>
+</div>
+
+<div class="dua-box">
+  وصل اللهم وسلم وبارك على سيدنا محمد وآله وصحبه أجمعين<br>
+  والحمد لله رب العالمين
+</div>
+
+<!-- FOOTER -->
+<div class="page-footer">
+  شرح العوامل المائة — الدرس العاشر: أسماء تجزم فعلين<br>
+  إعداد: أحمد بن إرشاد | المتن: الإمام عبد القاهر الجرجاني رحمه الله تعالى | الشرح: د. لبيب نجيب عبدالله
+</div>
+
+</div><!-- end main-content -->
+
+<!-- JAVASCRIPT FOR B&W TOGGLE -->
+<script>
+(function() {
+  var btn = document.querySelector('.bw-toggle');
+  btn.addEventListener('click', function() {
+    document.body.classList.toggle('bw-mode');
+    if (document.body.classList.contains('bw-mode')) {
+      btn.textContent = 'وضع الألوان';
+    } else {
+      btn.textContent = 'وضع الأبيض والأسود';
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

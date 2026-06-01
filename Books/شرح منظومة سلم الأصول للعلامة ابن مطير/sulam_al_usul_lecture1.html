@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح منظومة سلم الأصول — الدرس الأول</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+  @bottom-center {
+    content: "— " counter(page) " —";
+    font-size: 10px;
+    color: #666;
+  }
+}
+
+:root {
+  --primary-green: #0d6b3e;
+  --dark-green: #0a4f2e;
+  --gold: #d4a020;
+  --light-gold: #f0e6c0;
+  --teal: #0d7377;
+  --bg: #fefefe;
+  --body-text: #1a1a1a;
+  --border: #c8d6c0;
+  --light-green: #e8f5e9;
+  --quran-bg: #f0f7f0;
+  --hadith-bg: #f0f7f7;
+  --matn-border: #d4a020;
+  --ruling-fard: #c0392b;
+  --ruling-wajib: #e67e22;
+  --ruling-sunna: #27ae60;
+  --ruling-mustahab: #2980b9;
+  --ruling-makruh: #f39c12;
+  --ruling-haram: #8e1a1a;
+  --ruling-mubah: #7f8c8d;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Noto Naskh Arabic', 'Amiri', 'Traditional Arabic', serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--body-text);
+  background: var(--bg);
+  direction: rtl;
+  text-align: justify;
+  padding: 0;
+  margin: 0;
+}
+
+/* B&W TOGGLE */
+body.bw-mode {
+  filter: grayscale(100%);
+}
+
+.bw-toggle {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 9999;
+  background: var(--primary-green);
+  color: white;
+  border: 2px solid var(--dark-green);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 13px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: all 0.3s;
+}
+.bw-toggle:hover {
+  background: var(--dark-green);
+}
+
+@media print {
+  .bw-toggle { display: none !important; }
+}
+
+/* COVER PAGE */
+.cover-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0a4f2e 0%, #0d6b3e 30%, #0d7377 60%, #0a4f2e 100%);
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+}
+
+.cover-page::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(212,160,32,0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(212,160,32,0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.cover-border {
+  position: absolute;
+  top: 15px; left: 15px; right: 15px; bottom: 15px;
+  border: 3px solid rgba(212,160,32,0.6);
+  border-radius: 12px;
+  pointer-events: none;
+}
+.cover-border::before {
+  content: '';
+  position: absolute;
+  top: 8px; left: 8px; right: 8px; bottom: 8px;
+  border: 1px solid rgba(212,160,32,0.3);
+  border-radius: 8px;
+}
+
+.cover-content {
+  position: relative;
+  z-index: 2;
+  padding: 40px 30px;
+}
+
+.cover-ornament {
+  font-size: 36px;
+  color: var(--gold);
+  margin: 15px 0;
+  letter-spacing: 8px;
+}
+
+.cover-title {
+  font-family: 'Amiri', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--light-gold);
+  margin: 20px 0;
+  line-height: 1.5;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.cover-subtitle {
+  font-size: 22px;
+  color: rgba(255,255,255,0.9);
+  margin: 15px 0;
+  font-weight: 500;
+}
+
+.cover-lesson {
+  font-size: 26px;
+  color: var(--gold);
+  font-weight: 700;
+  margin: 20px 0;
+  padding: 10px 30px;
+  border: 2px solid rgba(212,160,32,0.5);
+  border-radius: 8px;
+  display: inline-block;
+  background: rgba(212,160,32,0.1);
+}
+
+.cover-meta {
+  margin-top: 30px;
+  font-size: 16px;
+  line-height: 2;
+  color: rgba(255,255,255,0.85);
+}
+
+.cover-meta strong {
+  color: var(--light-gold);
+}
+
+/* MAIN CONTENT */
+.content-wrapper {
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 20px 15px;
+}
+
+/* SECTION HEADINGS */
+h1 {
+  font-size: 26px;
+  color: var(--primary-green);
+  text-align: center;
+  margin: 30px 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--gold);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 22px;
+  color: var(--dark-green);
+  margin: 25px 0 15px;
+  padding-right: 15px;
+  border-right: 5px solid var(--primary-green);
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 19px;
+  color: var(--teal);
+  margin: 20px 0 12px;
+  padding-right: 12px;
+  border-right: 4px solid var(--gold);
+  font-weight: 600;
+}
+
+/* MATN TEXT (from the poem) */
+.matn-text {
+  font-weight: 700;
+  font-size: 19px;
+  border-right: 4px solid var(--matn-border);
+  background: var(--light-gold);
+  padding: 12px 18px;
+  margin: 15px 0;
+  border-radius: 0 6px 6px 0;
+  line-height: 2;
+  color: var(--dark-green);
+}
+
+/* QURAN VERSES */
+.quran-box {
+  background: var(--quran-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 15px 0;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--dark-green);
+  position: relative;
+  line-height: 2;
+}
+.quran-box::before {
+  content: '﴿';
+  font-size: 24px;
+  color: var(--primary-green);
+  position: absolute;
+  top: -2px;
+  right: 8px;
+}
+.quran-box::after {
+  content: '﴾';
+  font-size: 24px;
+  color: var(--primary-green);
+  position: absolute;
+  bottom: -2px;
+  left: 8px;
+}
+
+/* HADITH */
+.hadith-box {
+  background: var(--hadith-bg);
+  border: 2px solid var(--teal);
+  border-radius: 10px;
+  padding: 12px 18px;
+  margin: 15px 0;
+  font-size: 18px;
+  color: var(--teal);
+  position: relative;
+}
+.hadith-box::before {
+  content: 'حدثنا';
+  position: absolute;
+  top: -10px;
+  right: 15px;
+  background: var(--hadith-bg);
+  padding: 0 8px;
+  font-size: 13px;
+  color: var(--teal);
+  font-weight: 600;
+}
+
+/* POETRY BOX */
+.poetry-box {
+  text-align: center;
+  font-size: 20px;
+  line-height: 2.2;
+  padding: 20px 25px;
+  margin: 20px 0;
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  background: linear-gradient(135deg, #fefef8, #f8f4e8);
+  color: var(--dark-green);
+  font-weight: 600;
+}
+
+/* CALLOUT / ALERT BOXES */
+.callout-box {
+  background: #fff8e1;
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 15px 18px;
+  margin: 15px 0;
+  position: relative;
+}
+.callout-box .callout-title {
+  font-weight: 700;
+  color: var(--dark-green);
+  margin-bottom: 8px;
+  font-size: 17px;
+}
+
+.benefit-box {
+  background: #e8f5e9;
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 15px 18px;
+  margin: 15px 0;
+  position: relative;
+}
+.benefit-box .benefit-title {
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 8px;
+  font-size: 17px;
+}
+
+.principle-box {
+  background: #f3e5f5;
+  border: 2px solid #7b1fa2;
+  border-radius: 10px;
+  padding: 15px 18px;
+  margin: 15px 0;
+}
+.principle-box .principle-title {
+  font-weight: 700;
+  color: #7b1fa2;
+  margin-bottom: 8px;
+  font-size: 17px;
+}
+
+/* DEFINITION CARDS */
+.definition-card {
+  background: white;
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 18px;
+  margin: 18px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+.definition-card .def-term {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 2px dashed var(--gold);
+}
+.definition-card .def-body {
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* SCHOLAR CARD */
+.scholar-card {
+  background: linear-gradient(135deg, #f8f4e8, #fefef8);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 18px;
+  margin: 18px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+.scholar-card .scholar-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dark-green);
+  margin-bottom: 8px;
+}
+.scholar-card .scholar-info {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+}
+.scholar-card .scholar-info span {
+  font-weight: 600;
+  color: var(--primary-green);
+}
+
+/* COMPARISON CARDS */
+.comparison-container {
+  display: flex;
+  gap: 15px;
+  margin: 18px 0;
+  flex-wrap: wrap;
+}
+.comparison-card {
+  flex: 1;
+  min-width: 250px;
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+.comparison-card.card-a {
+  border-top: 4px solid var(--primary-green);
+}
+.comparison-card.card-b {
+  border-top: 4px solid var(--teal);
+}
+.comparison-card .comp-title {
+  font-weight: 700;
+  font-size: 17px;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px dashed var(--border);
+}
+.comparison-card.card-a .comp-title { color: var(--primary-green); }
+.comparison-card.card-b .comp-title { color: var(--teal); }
+
+/* RULING CARDS */
+.ruling-label {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 6px;
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  margin: 2px 3px;
+}
+.ruling-fard { background: var(--ruling-fard); }
+.ruling-wajib { background: var(--ruling-wajib); }
+.ruling-sunna { background: var(--ruling-sunna); }
+.ruling-mustahab { background: var(--ruling-mustahab); }
+.ruling-makruh { background: var(--ruling-makruh); color: #333; }
+.ruling-haram { background: var(--ruling-haram); }
+.ruling-mubah { background: var(--ruling-mubah); }
+
+/* CLASSIFICATION TREE */
+.tree-container {
+  background: white;
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  overflow-x: auto;
+}
+.tree-title {
+  text-align: center;
+  font-weight: 700;
+  color: var(--primary-green);
+  font-size: 19px;
+  margin-bottom: 15px;
+}
+.tree-root {
+  text-align: center;
+  background: var(--primary-green);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 17px;
+  display: inline-block;
+  margin: 0 auto;
+}
+.tree-branches {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.tree-branch {
+  text-align: center;
+  min-width: 160px;
+}
+.tree-connector {
+  width: 2px;
+  height: 20px;
+  background: var(--primary-green);
+  margin: 0 auto;
+}
+.tree-node {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+.tree-leaf {
+  background: var(--light-green);
+  border: 1px solid var(--primary-green);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 15px;
+  margin: 4px 0;
+}
+
+/* FLOW CHART */
+.flow-container {
+  background: white;
+  border: 2px solid var(--teal);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+}
+.flow-title {
+  text-align: center;
+  font-weight: 700;
+  color: var(--teal);
+  font-size: 19px;
+  margin-bottom: 15px;
+}
+.flow-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 8px 0;
+  flex-wrap: wrap;
+}
+.flow-box {
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+  min-width: 100px;
+  font-size: 16px;
+}
+.flow-arrow {
+  font-size: 22px;
+  color: var(--primary-green);
+  font-weight: 700;
+}
+
+/* TABLES */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  font-size: 16px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+.data-table th {
+  background: var(--primary-green);
+  color: white;
+  padding: 12px 15px;
+  text-align: right;
+  font-weight: 700;
+  font-size: 16px;
+}
+.data-table td {
+  padding: 10px 15px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.data-table tr:nth-child(even) td {
+  background: #f8faf8;
+}
+.data-table tr:hover td {
+  background: var(--light-gold);
+}
+
+/* SECTION DIVIDERS */
+.section-divider {
+  text-align: center;
+  margin: 30px 0;
+  color: var(--gold);
+  font-size: 24px;
+  letter-spacing: 6px;
+}
+
+/* SUMMARY BOX */
+.summary-box {
+  background: linear-gradient(135deg, #e8f5e9, #f0f7f0);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 18px;
+  margin: 20px 0;
+}
+.summary-box .summary-title {
+  font-weight: 700;
+  color: var(--primary-green);
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* EVIDENCE BOX */
+.evidence-box {
+  background: #fff3e0;
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 15px 18px;
+  margin: 15px 0;
+}
+.evidence-box .evidence-title {
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+/* NUMBERED LIST WITH CIRCLES */
+.numbered-list {
+  list-style: none;
+  counter-reset: item-counter;
+  padding: 0;
+  margin: 12px 0;
+}
+.numbered-list li {
+  counter-increment: item-counter;
+  position: relative;
+  padding: 8px 45px 8px 10px;
+  margin: 6px 0;
+  background: #f8faf8;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+.numbered-list li::before {
+  content: counter(item-counter);
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  background: var(--primary-green);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* PARAGRAPH SPACING */
+p {
+  margin: 8px 0;
+  text-indent: 0;
+}
+
+/* INLINE HIGHLIGHTS */
+.highlight-green {
+  background: #c8e6c9;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.highlight-gold {
+  background: var(--light-gold);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.highlight-teal {
+  background: #b2dfdb;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* QUOTE BLOCK */
+.quote-block {
+  border-right: 4px solid var(--gold);
+  padding: 10px 18px;
+  margin: 12px 0;
+  background: #fafaf0;
+  font-style: italic;
+  color: #444;
+}
+
+/* KEY TERM */
+.key-term {
+  font-weight: 700;
+  color: var(--primary-green);
+}
+
+/* PAGE BREAKS */
+.page-break {
+  page-break-before: always;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .comparison-container {
+    flex-direction: column;
+  }
+  .tree-branches {
+    flex-direction: column;
+    align-items: center;
+  }
+  body {
+    font-size: 16px;
+  }
+  h1 { font-size: 22px; }
+  h2 { font-size: 19px; }
+  h3 { font-size: 17px; }
+}
+</style>
+</head>
+<body>
+
+<!-- B&W TOGGLE BUTTON -->
+<button class="bw-toggle" onclick="document.body.classList.toggle('bw-mode')">🔄 وضع الأبيض والأسود</button>
+
+<!-- ==================== COVER PAGE ==================== -->
+<div class="cover-page">
+  <div class="cover-border"></div>
+  <div class="cover-content">
+    <div class="cover-ornament">✦ ❖ ✦</div>
+    <div class="cover-title">شرح منظومة سلم الأصول<br>لكل من يرقى إلى الأصول</div>
+    <div class="cover-ornament">❃ ✾ ❃</div>
+    <div class="cover-subtitle">للعلامة ابن مطير الحكمي اليمني</div>
+    <div class="cover-lesson">الدرس الأول</div>
+    <div class="cover-meta">
+      <strong>الناظم:</strong> العلامة إبراهيم بن أبي القاسم بن عمر بن مطير الحكمي اليمني<br>
+      <strong>الشارح:</strong> د. لبيب نجيب عبدالله<br>
+      <strong>الشرح المقروء:</strong> شرح العلامة سعيد بن نصاري الزبيدي<br>
+      <strong>نوع الدرس:</strong> جديد
+    </div>
+    <div class="cover-ornament" style="margin-top:20px">✦ ❖ ✦</div>
+  </div>
+</div>
+
+<!-- ==================== MAIN CONTENT ==================== -->
+<div class="content-wrapper">
+
+<!-- ===== SECTION: OPENING ===== -->
+<h1>افتتاح الدرس</h1>
+
+<p>إن تنصروا الله ينصركم ويثبت أقدامكم</p>
+
+<p>بسم الله الرحمن الرحيم، الحمد لله نحمده تعالى ونستعينه ونستغفره ونعوذ بالله من شرور أنفسنا وسيئات أعمالنا، من يهده الله فلا مضل له ومن يضلل فلا هدي له، وأشهد أن لا إله إلا الله وحده لا شريك له، وأشهد أن سيدنا محمد صلى الله عليه وعلى آله وسلم عبده ورسوله، اللهم إنا نسألك علما نافعا ونسألك عملا صالحا، اللهم فقهنا في الدين وافتح علينا كتوح العارفين، اللهم آمين.</p>
+
+<div class="section-divider">❃ ✾ ❃</div>
+
+<!-- ===== SECTION: INTRODUCTION TO THE MANZHUMAH ===== -->
+<h1>مقدمة عن المنظومة والناظم والشارح</h1>
+
+<p>فهذا مقبسنا الأول في شرح منظومة سلم الأصول لكل من يرقى إلى الأصول مع قراءة شرح العلامة سعيد بن نصاري الزبيدي رحمه الله تعالى عليه. وهذه المنظومة منظومة مختصرة في أصول الفقه سأتكلم عنها بعد قليل، أتكلم عن نظمها وأتكلم أيضا بإيجاز عن المنظومة وأتكلم أيضا على الشارح.</p>
+
+<!-- SCHOLAR CARD: الناظم -->
+<div class="scholar-card">
+  <div class="scholar-name">العلامة إبراهيم بن أبي القاسم بن عمر بن مطير الحكمي اليمني</div>
+  <div class="scholar-info">
+    <span>المولد:</span> سنة 888 هـ<br>
+    <span>الوفاة:</span> سنة 959 هـ<br>
+    <span>المدينة:</span> زبيد — اليمن<br>
+    <span>أهم مؤلفاته:</span> منظومة سلم الأصول (99 بيتاً) وشرحها
+  </div>
+</div>
+
+<p>هذه المنظومة منظومة سلم الأصول لكل من يرقى إلى الأصول منظومة نظمها العلامة إبراهيم بن أبي القاسم بن عمر بن مطير الحكمي اليمني، إبراهيم بن أبي القاسم رحمه الله ولد في سنة ثمانمائة وثمانية وثمانين من هجرة النبي صلى الله عليه وسلم وتوفي في سنة تسعة وخمسين وتسعمائة. وفي تلك الفترة كانت مدينته مدينة زبيد ومجاورها كانت مقصدا للعلماء بل كانت اليمن في تلك الفترة مقصدا للعلماء يأتون إليها من بقاع بعيدة.</p>
+
+<h2>زبيد عاصمة العلم</h2>
+
+<p>في تلك الفترة دخل اليمن أئمة زمانهم: منهم شمس الدين بن القزري صاحب القراءات، ومنهم الفيروزآبادي مجد الدين شيرازي صاحب القاموس، ومنهم الحافظ ابن حجر العسقلاني صاحب فتح الباري وغيرهم من الأئمة في ذلك الزمن توجهوا إلى اليمن وقصدوا زبيد على وجه التحديد لأن زبيد في تلك الفترة كانت تعج بالعلماء خاصة فقهاء الشافعية مع وجود فقهاء من المذهب الحنفي فيها أيضا ولا زال بقاياهم إلى يومنا هذا ولهم مؤلفات. فكانت زبيد عاصمة علم وكانت قلعة من قلاع الشافعية ولا زالت إلى يومنا هذا يوجد فيها كثير من فقهاء الشافعية.</p>
+
+<h2>مميزات المنظومة</h2>
+
+<p>الناظم رحمه الله تعالى نظم هذه المنظومة في تسعة وتسعين بيتا وامتازت هذه المنظومة بمميزات:</p>
+
+<ol class="numbered-list">
+  <li>أنه استوعب أبواب أصول الفقه التي ذكرها العلامة تاج الدين السبكي في كتابه جمع الجوامع. أقول استوعب الأبواب ليس استوعب المسائل. فإن تاج الدين السبكي رحمه الله تعالى المتوفى في سنة واحد وسبعين وسبعمائة قسم كتابه جمع الجوامع إلى سبعة أبواب وهذه المنظومة جاءت في سبعة أبواب ومشى على نفس النسق.</li>
+  <li>أنها قليلة الأبيات سهلة الحفظ.</li>
+  <li>أن صاحبها نظمها أصولي فقيه فجمع بين الفقه والأصول. والعالم إذا نظم أو كتب متناً وهو متخصص في ذلك العلم يكون ما يكتبه متناً بخلاف من يكتب في فن وهو أجنبي عن ذلك الفن غير متخصص فيه فإن كتابته لا تخلو من ثغرات.</li>
+  <li>أن الناظم نفسه قام بشرحها وشرحه مطبوع. وأن حفيده قام بكتابة شرح آخر أخصر من شرحه بل مستمد من شرحه. وأن من سنقرأ شرحه العلامة سعيد بن نصاري الزبيدي أيضاً كتب شرحا ثالثاً وهو مستمد من شرح الناظم.</li>
+</ol>
+
+<div class="benefit-box">
+  <div class="benefit-title">✦ فائدة: طريقة علماء زبيد في مزج الفقه بالأصول</div>
+  <p>شرح الناظم تميز بأنه سبك الأصول بالفقه فيذكر المسألة الأصولية ثم يذكر ما يبنى عليها من الفروع الفقهية فصار الكتاب أشبه ما يكون بكتاب تخريج فروع على أصول. وفي الحقيقة هذه طريقة علماء زبيد وكتبوا في أصول الفقه يمزجون الفقه بالأصول فيتكلمون على المسألة الأصولية ثم يقولون ومما يبنى عليها كذا وكذا وكذا. ولهم في هذا أكثر من مؤلف منها شرح هذه المنظومة للناظم ومنها ما صنعه تلميذ الناظم العلامة جمال الدين الأشخر، هذا مشهور له نظم اسمه الذريعة في أصول الفقه وله شرح عليه في شرحه هذا مزج الفقه بالأصول بحيث أن الطالب والدارس لهذا الفن يستطيع أن يربط الكليات بالجزئيات ويستطيع أن يربط الفروع بالأصول.</p>
+</div>
+
+<!-- CLASSIFICATION TREE: علوم الغايات والآلات -->
+<div class="tree-container">
+  <div class="tree-title">شجرة التصنيف: انقسام العلوم الشرعية</div>
+  <div style="text-align:center;">
+    <div class="tree-root">العلوم الشرعية</div>
+  </div>
+  <div style="text-align:center;"><div class="tree-connector"></div></div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="tree-node" style="background:var(--primary-green);color:white;">علوم الغايات والمقاصد</div>
+      <div class="tree-leaf">علم التفسير</div>
+      <div class="tree-leaf">علم الحديث</div>
+      <div class="tree-leaf">علم الفقه</div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-node" style="background:var(--teal);color:white;">علوم الوسائل والآلات</div>
+      <div class="tree-leaf">علم أصول الفقه</div>
+      <div class="tree-leaf">علم أصول التفسير</div>
+      <div class="tree-leaf">علم اللغة العربية</div>
+      <div class="tree-leaf">علم أصول الحديث</div>
+    </div>
+  </div>
+</div>
+
+<p>وهذه ثمرة علم أصول الفقه. علم أصول الفقه بارك الله فيكم يعتبر من علوم الآلات فالعلوم تنقسم إلى قسمين: علوم الغايات ومقاصد وعلوم وسائل وآلات. علم الغايات والمقاصد ثلاثة: علم التفسير وعلم الحديث وعلم الفقه. وبقية العلوم هي علوم آلات يتوصل بها إلى التمكن في هذه العلوم. فعلم أصول الفقه وعلم أصول التفسير وعلم اللغة العربية وعلم أصول الحديث ونحوها من العلوم إنما هي علوم الآلات يتوصل بها إلى فهم ومعرفة والتمكن في علم التفسير وفي علم الحديث وفي علم الفقه.</p>
+
+<div class="callout-box">
+  <div class="callout-title">⚡ تنبيه مهم: شرط ثمرة علوم الآلات</div>
+  <p>وطالب العلم عندما يدرس علوم الآلات لا بد أن تكون دراسته لعلوم الآلات منعكسة على مدى استيعابه لعلوم المقاصد. وهذا أمر مهم فانتبه له. أما إذا كان يدرس علوم الآلات ويرى نفسه لا ترتقي في علوم المقاصد فالدراسة لعلوم الآلات لا تفيده كثيراً. إذا كان الإنسان يدرس أصول الفقه مرة بعد مرة أو يدرس النحو مرة بعد مرة أو يدرس أصول الحديث مرة بعد مرة ثم بعد ذلك لا يستشعر أنه يتمكن في فهم الفقه أو في فهم الحديث أو في فهم التفسير فإن دراسته لعلوم الآلات لم تثمر لم تنضج بعد. فلا بد على طالب العلم كلما درس في علوم الآلات وتعمق في دراستها أن ينظر مدى انعكاس أثر ذلك على نفسه وعلى فهمه. لأنك ترى أحيانا بعض الطلبة سنوات وهو يدرس علم النحو وسنوات وهو يدرس علم أصول الفقه وسنوات وهو يدرس علم أصول الحديث ثم بعد ذلك تجده لم يتطور ولم يرتج فهمه فيما يتعلق بعلوم الغايات والمقاصد. هناك خلل في منهجية طلبه للعلم.</p>
+</div>
+
+<!-- SCHOLAR CARD: الشارح -->
+<div class="scholar-card">
+  <div class="scholar-name">العلامة سعيد بن نصاري الزبيدي</div>
+  <div class="scholar-info">
+    <span>المولد:</span> سنة 1034 هـ<br>
+    <span>الوفاة:</span> سنة 1417 هـ (قبل نحو ثلاثة عشر سنة تقريباً)<br>
+    <span>شيوخه:</span> العلامة أبكر الأهدل، العلامة محمد بن سليمان الأهدل وغيرهم<br>
+    <span>آثاره العلمية:</span> شرح منظومة سلم الأصول، شرح منظومة الذريعة في أصول الفقه لجمال الدين الأشخر
+  </div>
+</div>
+
+<p>الشارح الذي استمد شرحه من شرح الناظم هو العلامة سعيد بن نصاري الزبيدي وهو مولود في سنة ألف وثلاثمائة وأربعة وثلاثين من الهجرة متوفى في سنة ألف وأربعمائة وسبعة عشر يعني قريب قبل نحو ثلاثة عشر سنة تقريباً. توفي قريباً رحمة الله تعالى عليه ورحمة الله على جميع العلماء. فهو تتلمذ على عدد من علماء تهامة منهم العلامة أبكر الأهدل ومنهم العلامة محمد بن سليمان الأهدل وغيرهم من العلماء. وهو من آثاره العلمية شرح هذه المنظومة الذي بين أيدينا الآن وشرح على منظومة جمال الدين الأشخر التي هي الذريعة في أصول الفقه.</p>
+
+<p>هذه مقدمة تتعلق بتعريف موجز بالناظم والمنظوم والشارح.</p>
+
+<div class="section-divider">❃ ✾ ❃</div>
+
+<!-- ===== SECTION: مبادئ علم أصول الفقه ===== -->
+<h1>مبادئ علم أصول الفقه</h1>
+
+<p>وقبل أن ندخل في علم أصول الفقه، قبل أن ندخل في قراءة النظم والشرح، لابد أن نعرف أولا مبادئ هذا العلم. وكتبت لكم أبيات على السبورة هي للعلامة إسماعيل بن أبي بكر المقري.</p>
+
+<!-- SCHOLAR CARD: المقري -->
+<div class="scholar-card">
+  <div class="scholar-name">العلامة إسماعيل بن أبي بكر المقري</div>
+  <div class="scholar-info">
+    <span>الوفاة:</span> سنة 832 هـ<br>
+    <span>أهم مؤلفاته:</span> متن الإرشاد في الفقه الشافعي — كتاب متين حتى ذكروا في كتب التاريخ أنه في زبيد كانت خمسمائة فتاة يحفظنه من النساء فقط غير الرجال<br>
+    <span>مؤلف آخر:</span> عنوان الشرف الوافي — يُقرأ نحواً وتاريخاً وعلماً
+  </div>
+</div>
+
+<p>علامة إسماعيل بن أبي بكر المقري هذا هو صاحب الإرشاد في الفقه الشافعي. كتاب متين، متن متين في الفقه. والذي ذكرت لكم في الصباح أن العلامة ابن حجر الهيتمي رحمه الله كتب عليه ثلاث شروح. هذا المؤلف المتن وهذا المتن اعتنى به العلماء وكان الناس يحفظونه ليس رجالا فقط بل رجالا ونساء. حتى ذكروا في كتب التاريخ أنه في زبيد كانت خمسمائة فتاة تحفظه. النساء فقط خمسمائة يحفظن متن الإرشاد هذا من النساء فقط غير الرجال. حتى قال بعض العلماء أن المسائل التي تضمنها متن الإرشاد منطوقا ومفهوما تفوق المسائل التي تضمنها متن المنهاج. فهو متن متين.</p>
+
+<p>نحن عادة ما نذكر الأبيات التي هي للعلامة الصبان «إن مبادئ كل فن عشرها الحد والتعريف ثم ثمرة...» إلى آخره لكن قلت اليوم أذكر لكم هذه الأبيات بما أن الناظم من زبيد والشارح من زبيد ويكون صاحب هذه الأبيات أيضا من زبيد وتعريفا به أيضا.</p>
+
+<div class="poetry-box">
+  من رام فنّاً فليقدّم أوّلاً<br>
+  علماً بحدٍ ثم موضوعٍ تلا<br>
+  وواضعٍ ونسبةٍ وما استُمدّ منه<br>
+  وفضله وحكمٍ يعتمدُه<br>
+  واسمٍ وما أفاد والمسائل<br>
+  فتلك عشرٌ للمنى وسائل<br>
+  وبعضهم منها على البعض اقتصر<br>
+  ومن يكون يدري جميعها انتصر
+</div>
+
+<!-- TABLE: مبادئ علم أصول الفقه -->
+<table class="data-table">
+  <thead>
+    <tr>
+      <th style="width:5%">#</th>
+      <th style="width:25%">المبدأ</th>
+      <th>بيانه في علم أصول الفقه</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><strong>الحد (التعريف)</strong></td>
+      <td>أدلة الفقه الإجمالية وكيفية الاستفادة منها وحال المستفيد — سيأتي شرحه لاحقاً</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>الموضوع</strong></td>
+      <td>المسائل التي تذكر فيه غالباً</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><strong>الواضع</strong></td>
+      <td>الإمام الشافعي رحمه الله تعالى فهو الذي صنف فيه أولاً حتى قال العمريطي: «وتابعته الناس حتى صار كتباً صغاراً أو كباراً»</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><strong>النسبة</strong></td>
+      <td>ينسب إلى العلوم الشرعية، ونسبته بين العلوم الشرعية نسبة مغايرة والتباين — فعلم أصول الفقه غير علم الفرائض وغير علم الحديث وغير علم التفسير وغير علم أصول التفسير</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><strong>الفضل</strong></td>
+      <td>شرفه من شرف الفقه فالفقه مبني عليه</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td><strong>الاستمداد</strong></td>
+      <td>استمد من ثلاثة أشياء كما ذكر الآمدي رحمه الله في الإحكام: من الكتاب والسنة، ومن أصول الدين، ومن اللغة العربية</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td><strong>الحكم</strong></td>
+      <td><span class="ruling-label ruling-wajib">فرض كفاية</span> ويكون فرض عين في حق المجتهد</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td><strong>الاسم</strong></td>
+      <td>علم أصول الفقه</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td><strong>الفائدة</strong></td>
+      <td>عصمة المجتهد عن الخطأ في استنباط الأحكام من الأدلة الشرعية — لا يعني أن المجتهد لا يخطئ أبداً بل هذا العلم يضع له قواعد يعتمد عليها حتى يجنب الخطأ عند الاستنباط</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td><strong>المسائل</strong></td>
+      <td>المسائل التي تذكر فيه غالباً</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>قال «وبعضهم منها على البعض اقتصر» أي بعض العلماء اقتصر على بعض هذه الأشياء «ومن يكون يدري جميعها انتصر».</p>
+
+<div class="section-divider">❃ ✾ ❃</div>
+
+<!-- ===== SECTION: قراءة النظم ===== -->
+<h1>قراءة المنظومة</h1>
+
+<p>نبدأ بإذن الله تعالى فنقرأ بسم الله الرحمن الرحيم وبه نستعين.</p>
+
+<h2>البيت الأول: الحمدلة</h2>
+
+<div class="matn-text">
+  الحمد لله الذي علمنا<br>
+  والاكتساب شرعه ألهمنا
+</div>
+
+<p>بدأ الناظم رحمه الله تعالى منظومته بحمد الله سبحانه وتعالى أي أن الحمد مستحق لله عز وجل ثم وصف الله سبحانه وتعالى بأنه الذي علمنا أي وفقنا للتعلم ووفقنا لاكتساب علم الشريعة وألهمها فقال «والاكتساب شرعه ألهمنا» تقدير الكلام ألهمنا اكتساب شرعه أي تعلم شرعه.</p>
+
+<p>ولذا قال الشارح رحمه الله: الحمد لله الذي اسم موصول يتوصل به إلى نعت المعارف بالجمل، علمنا ما لم نكن نعلم قبل تعليمه لنا من الهداية والعلم والكتابة وغير ذلك، والاكتساب شرعه قال: والكسب والاكتساب واحد لا فرق بينهما وهو الأصح عند أهل اللغة، ألهمنا أي أوقع في قلوبنا ذلك.</p>
+
+<h2>البيت الثاني: براعة الاستهلال</h2>
+
+<div class="matn-text">
+  علمنا التفريع والتأصيل<br>
+  والحكم والعلة والدليل
+</div>
+
+<p>هذه المصطلحات: التفريع، التأصيل، الحكم، العلة، الدليل — هذه مصطلحات تذكر في علم أصول الفقه. وهذا البيت يتضمن براعة الاستهلال ومعنى براعة الاستهلال وهو مبحث بلاغي أن يذكر الإنسان بين يدي الموضوع الذي يريده ما يدل عليه، أن يذكر بين يدي الموضوع الذي يريد أن يتكلم فيه ما يدل عليه.</p>
+
+<div class="callout-box">
+  <div class="callout-title">📝 براعة الاستهلال</div>
+  <p>هو مبحث بلاغي: أن يذكر الإنسان بين يدي الموضوع الذي يريده ما يدل عليه. فمثلا إذا أراد أن يتكلم في النحو يقول: «الحمد لله الذي رفع شأن العلماء ونصب لنا أمارات وخفض السفهاء من الناس وأمر أمرا جازما بتعلم الشريعة» فيكون قد ذكر الرفع والنصب والخفض والجزم التي هي مصطلحات تذكر في علم النحو. فهنا من براعة الاستهلال أنه ذكر هذه الأشياء التي هي مصطلحات يتداولها علماء أصول الفقه.</p>
+</div>
+
+<p>قال «علمنا» وجدت في نسخة بدل «علمنا» «فهمنا» التفريع والتأصيل والحكم والعلة والدليل ولا يخفى ما في كلامه من براعة الاستهلال.</p>
+
+<h2>البيت الثالث: الصلاة على النبي ﷺ</h2>
+
+<div class="matn-text">
+  ثم الصلاة والسلام سرمد<br>
+  على الذي زحزحنا عن الردى
+</div>
+
+<p>بعد أن حمد الله سبحانه وتعالى صلى وسلم على سيد الأنام محمد صلى الله عليه وسلم.</p>
+
+<h2>البيت الرابع: الصحابة كالنجوم</h2>
+
+<div class="matn-text">
+  محمد وصحبه والآل<br>
+  فهم نجوم في دجى الليالي
+</div>
+
+<p>قال الشارح رحمه الله: محمد وصحبه والآل فهم نجوم أي كالنجوم لقوله صلى الله عليه وسلم «أصحابي كالنجوم» وهذا الحديث في سنده ضعف واحتج به من يرى أن قول الصحابة حجة.</p>
+
+<div class="hadith-box">
+  أصحابي كالنجوم فبأيهم اقتديتم اهتديتم
+</div>
+
+<p>وكما تعلمون أن مذهب الشافعي رحمة الله تعالى عليه في الجديد أن قول الصحابة ليس حجة وأشار إلى ذلك العمريطي رحمه الله تعالى في منظومته فقال:</p>
+
+<div class="poetry-box">
+  ثم الصحابة قوله عن مذهبه<br>
+  فهو على الجديد لا يحتج به<br>
+  وفي القديم حجة لما ورد<br>
+  في حقهم وضعفوه فليرد
+</div>
+
+<p>فقال هنا «أصحابي كالنجوم» الحديثة أي أكمل الحديث أو اقرأ الحديث فهو منصوب لأنه مفعول به لفعل محذوف تقديره اقرأ أو أكمل. قال «في دجى الليالي» ودجى بمعنى ظلمة.</p>
+
+<!-- COMPARISON CARDS: الصحابي عند المحدثين والأصوليين -->
+<h3>اختلاف مصطلح الصحابي بين المحدثين والأصوليين</h3>
+
+<div class="comparison-container">
+  <div class="comparison-card card-a">
+    <div class="comp-title">الصحابي عند المحدثين</div>
+    <p>من لقي النبي صلى الله عليه وسلم مؤمناً به ومات على ذلك ولو تقلبت ردة على الصحيح كما قال الحافظ ابن حجر رحمه الله في النخبة.</p>
+    <p>يشمل من رأى النبي ﷺ ولو لم يأخذ الفقه عنه مباشرة.</p>
+  </div>
+  <div class="comparison-card card-b">
+    <div class="comp-title">الصحابي عند الأصوليين</div>
+    <p>من طالت صحبته للنبي صلى الله عليه وسلم.</p>
+    <p>المقصود من الصحابي في خلاف «هل قول الصحابي حجة» هو من طالت صحبته للنبي ﷺ ويأخذ الفقه عنه، وليس من رأى النبي ﷺ فقط.</p>
+  </div>
+</div>
+
+<div class="callout-box">
+  <div class="callout-title">⚡ تنبيه: اختلاف المصطلحات بين الفنون</div>
+  <p>لا بد أن تعرف أن بعض المصطلحات تستعمل في علم بمعنى وتستعمل في علم آخر بمعنى آخر فكن على تيقظ. فمثلا وأنت تقرأ في علم أصول الحديث تقرأ أن الحديث المرسل ما أضافه التابعي إلى النبي صلى الله عليه وسلم هذا في علم الحديث لكن في علم أصول الفقه شيء آخر فالمرسل عند الأصوليين كل ما لم يتصل إسناده المنقطع سواء حصل الانقطاع في أول الإسناد أو في وسطه أو في آخره على التوالي أو ليس على التوالي هذا كله يسمى مرسل.</p>
+</div>
+
+<!-- TABLE: مصطلح الشاذ في الفنون المختلفة -->
+<h3>مصطلح «الشاذ» في الفنون المختلفة</h3>
+
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>الفن</th>
+      <th>معنى الشاذ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>النحو</strong></td>
+      <td>ما لم يُقرأ على القواعد وليس مسموعاً عند العرب</td>
+    </tr>
+    <tr>
+      <td><strong>علم الحديث</strong></td>
+      <td>إذا خالف الراوي المقبول الروايةَ من هو أولى منه حفظاً أو عدداً — قال صاحب البيقونية: «وما يخالف ثقة به الملاق الشاذ»</td>
+    </tr>
+    <tr>
+      <td><strong>القراءات</strong></td>
+      <td>ما فوق العشرة عند القراء — كقراءة الأربع وقراءة الحسن البصري وقراءة الأعمش</td>
+    </tr>
+    <tr>
+      <td><strong>الفقه (الشافعية)</strong></td>
+      <td>ما كان فوق السبع — وهو الذي قرره النووي رحمه الله في المجموع</td>
+    </tr>
+    <tr>
+      <td><strong>المصطلح الفقهي</strong></td>
+      <td>ما يخالف القول المشهور في المذهب — فإذا قالوا «هذا قول شاذ» يعني يخالف القول المشهور في المذهب</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>إذن كلمة واحدة لها عدة مصطلحات في فنون مختلفة. فأنت إذا كنت تقرأ في أصول الفقه أو تقرأ في أصول الحديث أو تقرأ في القراءات لا تفسر الشذوذ بما تقرأه في علم آخر تفسر المصطلح باصطلاح أهل ذلك الفن.</p>
+
+<div class="section-divider">❃ ✾ ❃</div>
+
+<h2>البيت الخامس: فضل أصول الفقه</h2>
+
+<div class="matn-text">
+  وبعد فالأصول خير مكتسب<br>
+  وقد يكون كسبه فيما وجب
+</div>
+
+<p>قال «وبعد فالأصول» أي أصول الفقه أي أصول علم الفقه خير مكتسب لأنه أشرف من الفقه إذ الأصل أشرف من الفرع. يقول إن أصول الفقه أشرف من الفقه لأن الأصل أشرف من الفرع هكذا قال. لكن قد يقال إن الفقه أشرف من الأصول لأن الفقه علمه غاية والأصول علمه آلة وكيف يكون علم الغاية أدنى من علم الآلة فالمقاصد والوسائل أقل رتبة من المقاصد.</p>
+
+<p>قال رحمه الله «وقد يكون كسبه فيما وجب» قال «قد» للتحقيق يعني هنا يقول لك إن دراسة علم أصول الفقه واجبة لكن وجوبها هل هو وجوب عيني أو وجوب كفائي؟ وجوب كفائي. وقد تتعين دراسة علم أصول الفقه على بعض الناس كالمجتهد.</p>
+
+<p>قال «وقد» للتحقيق على وزان قوله تعالى: <span class="highlight-green">قد يعلم الله</span> ويكون حشو والمعنى علمها معدود من فروض الكفاية. وفروض الكفاية بارك الله فيكم ما كان النظر فيه إلى الفعل لا إلى الفاعل. قال الحافظ السيوطي رحمه الله تعالى في الكوكب الساطع:</p>
+
+<div class="poetry-box">
+  فرض كفاية مهم يُقصد<br>
+  ونظرٌ عن فاعلٍ يُجرد
+</div>
+
+<p>وزعم الأستاذ والجويني ونجله يفضل فرض العين — هؤلاء الثلاثة الأئمة الكبار: الأستاذ أبو إسحاق الإسفرائيني والإمام الجويني ووالد إمام الحرمين يقولون إن فرض الكفاية قد يفضل فرض العين لأنه الذي قام به يسقط الحرج والإثم عن عموم الأمة فلذا كان أفضل وإن كان الجمهور على خلاف ما قال.</p>
+
+<p>قال هنا والمعنى علمها معدود أي علم أصول الفقه معدود من فرض الكفاية لتوقف الاجتهاد عليه. قال «كسبه» وفي نسخة «علمها» «فيما» وفي نسخة «علمها فيما وجب» هكذا «وبعد فالأصول خير مكتسب وقد يكون علمه فيما وجب» هكذا علمه. قال «فيما» أي من الذي وجب أي على الكفاية وقلت لكم قد يكون واجبا عينيا.</p>
+
+<div class="section-divider">❃ ✾ ❃</div>
+
+<h2>البيتان السادس والسابع: وصف المنظومة</h2>
+
+<div class="matn-text">
+  فهذه منظومة مختصرة<br>
+  في علمه نظمتها محررة
+</div>
+
+<p>قال «فهذه منظومة» النظم المقصود به هنا بالاصطلاح الخاص جعل مسائل العلم بصورة شعر موزون. والعلماء رحمهم الله تعالى ينظمون العلوم تسهيلا لحفظها ولمذاكرتها وصارت هذه عادة بين العلماء ونظموا علوم شتى ليس العلوم الشرعية فقط حتى أنه توجد منظومات في علم النجوم وتوجد منظومات في علم الطب بل ويقال توجد منظومات في علم التشريح. إذا نظموا العلوم حتى الطبيعية صارت هذه عادة العلماء. وأشار إلى ذلك السفاريني رحمه الله تعالى بقوله:</p>
+
+<div class="poetry-box">
+  وصار من عادة أهل العلم<br>
+  أن يعتنوا بسلوك درب النظم<br>
+  لأنه يسهل للحفظ كما يروق للسمع<br>
+  ويشفي من ظمأ
+</div>
+
+<p>فالمنظوم إذا حفظته حتى وإن تفلت منك يمكن أنك تذاكره في وقت قصير بمجرد أن تسمعه مرة أو مرتين أو ثلاث يعود مرة أخرى إلى ذهنك بخلاف المنثور حفظه صعب ومذاكرته صعبة.</p>
+
+<div class="benefit-box">
+  <div class="benefit-title">✦ فائدة: خطة حفظ المنظومات</div>
+  <p>يستطيع الإنسان لو يحفظ على سبيل المثال في كل يوم ثلاثة أبيات يستطيع في كل سنة أن يحفظ ألفية! في كل يوم ثلاثة أبيات فقط في كل سنة يحفظ ألفية، في خمس سنوات خمس ألفية ما شاء الله. إذا يحفظ كل يوم ثلاثة أبيات أحسب في الشهر كم؟ تسعون. نقول في عشرة أشهر كم؟ تسعمائة. كم يبقى مئة يحتاج إلى كم شهر؟ شهر. إذا عشرة أشهر يبقى معه شهران: شهر رمضان إجازة يقرأ القرآن ويمكن أيضا شهر آخر يأخذ للسياحة يستريح ففي عشرة أشهر يختم ألفية ممكن.</p>
+  <p>ولذلك للأسف أحيانا نحن نطلب العلم من غير منهجية فالواحد له في طلب العلم سبع سنوات ثمان سنوات عشر سنوات وإذا جلست معه تتناقش معه في بعض المسائل ربما لا يضبط هذه المسائل لأنه ليس عنده أصل في ذلك الفن يعتمد عليه ولو كان حصيفا لجعل له في كل فن نظم يعتمد عليه هذا النظم يذاكر به مسائل ذلك الفن. ففي الفقه يحفظ نظما وفي الأصول يحفظ نظما وفي النحو يحفظ نظما في قواعد الفقه يحفظ نظما وهكذا في الفرائض يحفظ نظما هذا النظم يكون له مصاحبا سفرا وحضرا في البيت وفي المسجد وفي الطريق في أي وقت يخرج نظمه يذاكر فإذا أخطأ فتح ونظر.</p>
+</div>
+
+<h3>أنواع النظم</h3>
+
+<p>طريقة العلماء في النظم تنقسم إلى قسمين:</p>
+
+<ol class="numbered-list">
+  <li><strong>نظم كتب منثورة فيحولها إلى نظم</strong> — ومن أمثلة ذلك نظم نهاية التدريب ونظم متن الغاية والتقريب العمريطي ونظم الورقات العمريطي كتب منثورة يحولها إلى كتب منظومة وكذلك الزبد وغيرها من الكتب التي كانت منثورات ثم صارت منظومة.</li>
+  <li><strong>نظم ابتداء لا يرتبط بكتاب آخر</strong> — وهذه المنظومة من هذا القسم هو لم ينظم كتابا معينا وإنما كتب منظومة في أصول الفقه غير مرتبطة بكتاب وإن كان قد مشى إلى حد ما على طريقة إمام الحرمين لكن لا تستطيع أن تقول أنه نظم الورقات.</li>
+</ol>
+
+<div class="matn-text">
+  نظمتها لتسهل حفظها<br>
+  لا حاجة إليه
+</div>
+
+<p>وهذا مما يمدح الإنسان به عمله ليرغب فيه الطالب وليس تفاخراً وتباهياً على غرار ما قاله ابن مالك رحمه الله تعالى في أول ألفيته. فهو يمدح نظمه ليرغب فيه الطالب.</p>
+
+<p>وفي الحقيقة هذه المنظومة أنا أفضلها على الورقات لأنها أكثر تحريراً من نظم الورقات وكما قلت لكم في بداية الدرس إن نظم العالم المتخصص يكون أمكن وأمت من نظم العالم غير المتخصص فالعمريطي رحمه الله وإن كان نظمه عذباً فهو يتأثر بأمته لأنه غير متخصص ولذلك الأبيات التي نظمها في الورقات لا تخلو من حشو وإذا أردت أن تجد فيها الثغرات وأن تقف على ثغراتها فاقرأ شرح لطائف الإشارات ستجده أنه في كل مرة بعد أن يذكر نظم الأبيات يقول «ولو قال كذا وكذا لسلم من الإيرادات ولو قال كذا وكذا لكان أخصر وأشمل» لأن العمريطي رحمه الله تعالى على جلالته وعذوبة نظمه لكنه ليس متخصصاً.</p>
+
+<h2>البيت الثامن: تهدي إلى مطولات كتبه</h2>
+
+<div class="matn-text">
+  تهدي إلى مطولات كتبه<br>
+  وتدخل العارف بها في حزبه
+</div>
+
+<p>أي تكون سلماً للكتب المطولة تهدي إلى مطولات كتبه وتدخل العارف بها في حزبه يعني من علم المسائل التي تضمنتها هذه المنظومة فإنه يرجى أن يدخل في حزب الأصوليين.</p>
+
+<p>قال الشارح: تهدي أي توصل إلى مطولات كتبه وتدخل العارف فيها — موصولة أي الذي عرفها — في حزبه أي مع علماء الأصول لأنه يحصل له بمعرفته طرف من كل باب مهم يتأهل به لفهم باقيه. ويمكن أن نراجع الشرح الكبير للناظم وننظر هذه الكلمة.</p>
+
+<h2>البيتان التاسع والعاشر: تسمية المنظومة وعدد أبياتها</h2>
+
+<div class="matn-text">
+  سميتها بسلم الوصول<br>
+  لكل من يرقى إلى الأصول<br>
+  أبياتها كعدد الأسماء<br>
+  والحمد لله على النعماء
+</div>
+
+<p>قال «سميتها بسلم الوصول لكل من يرقى إلى الأصول» أي يريد أن يرقى رأس الأصول إذ السلم ما يرقى منه لغيره. يقول إن أبياتها بعدد أسماء الله الحسنى تسعة وتسعين اسماً. في الحديث في الصحيحين «إن لله تسعة وتسعين اسما من أحصاها دخل الجنة» قال «أبياتها كعدد الأسماء» أي الأسماء الحسنى وهي تسعة وتسعون اسماً. طبعا ليس المراد أن أسماء الله منحصرة بهذا العدد في الحديث «أسألك بكل اسم هو لك سميت به نفسك أو أنزلته في كتابك أو علمته أحداً من خلقك أو استأثرت به في علم الغيب عندك».</p>
+
+<div class="hadith-box">
+  إن لله تسعة وتسعين اسماً من أحصاها دخل الجنة
+</div>
+
+<p>قال «والحمد لله على النعماء ملتمساً من ربنا النفع بها ودعوة من كل من يحفظها» أنا لست شاعراً لكن لو كان الناظم رحمه الله عليه قال «ملتمساً من ربنا النفع بها ودعوة من كل من يقرأها» كان أعم وأشمل حتى يتسع لكن أن يحفظها — إلا إن رغبتم أن تحفظوا حتى يناله الدعاء منكم هذا أفضل إن شاء الله.</p>
+
+<h2>البيت الحادي عشر: الشروع في المطلوب</h2>
+
+<div class="matn-text">
+  وها أنا أشرع في المطلوب<br>
+  ليحصل الإسعاف بالمحبوب
+</div>
+
+<p>الإسعاف أي الإعانة بالمحبوب.</p>
+
+<div class="section-divider">❃ ✾ ❃</div>
+
+<!-- ===== SECTION: تعريف أصول الفقه ===== -->
+<h1>تعريف أصول الفقه</h1>
+
+<p>هذه مقدمة بارك الله فيكم الآن سنبدأ الكلام على تعريف أصول الفقه.</p>
+
+<div class="definition-card">
+  <div class="def-term">تعريف أصول الفقه (التعريف اللقبى)</div>
+  <div class="def-body">
+    <strong>أصول الفقه:</strong> أدلة الفقه الإجمالية وكيفية الاستفادة منها وحال المستفيد.
+  </div>
+</div>
+
+<p>عرف العلماء أصول الفقه بهذا التعريف قالوا أصول الفقه هو أدلة الفقه الإجمالية وكيفية الاستفادة منها وحال المستفيد.</p>
+
+<p>تاج الدين السبكي رحمه الله تعالى في كتابه جمع الجوامع بدل أن يقول أدلة الفقه قال دلائل الفقه فاستعمل كلمة دلائل بدل أدلة. فلما جاء شيخ الإسلام زكريا الأنصاري رحمه الله واختصر كتابه جمع الجوامع في كتاب سماه لب الأصول استبدل كلمة دلائل بكلمة أدلة وقال إنه قد قيل أنه لا يعرف جمع فعائل إذا كان المفرد فعيل فلذلك قال إن الأفصح والأنسب أن يقال أدلة لا دلائل.</p>
+
+<h3>أدلة الفقه الإجمالية</h3>
+
+<p>قوله أدلة الفقه الإجمالية قد يفهم بعض الناس أن الأدلة تنقسم إجمالياً وأنه توجد عندنا أدلة إجمالية وتوجد عندنا أدلة تفصيلية وهذا فهم غير سديد. الأدلة شيء واحد وإنما تنظر إليها بنظرين فإذا نظرت من زاوية تقول عنها أدلة إجمالية وإذا نظرت من زاوية أخرى تقول عنها أدلة تفصيلية.</p>
+
+<!-- TABLE: أمثلة على الأدلة الإجمالية والتفصيلية -->
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>الآية</th>
+      <th>النظر من زاوية إجمالية</th>
+      <th>النظر من زاوية تفصيلية</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><div class="quran-box" style="margin:0;font-size:16px;padding:8px">وَأَقِيمُوا الصَّلَاةَ</div></td>
+      <td>الأمر يفيد الوجوب — دليل إجمالي</td>
+      <td>يفيد وجوب إقامة الصلاة — دليل تفصيلي</td>
+    </tr>
+    <tr>
+      <td><div class="quran-box" style="margin:0;font-size:16px;padding:8px">وَلَا تَقْرَبُوا الزِّنَى</div></td>
+      <td>النهي يقتضي التحريم — دليل إجمالي</td>
+      <td>الآية تحرم الزنى — دليل تفصيلي</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>إذن الأدلة شيء واحد لكن تنظر إليها من زاوية فتكون إجمالية وتنظر إليها من زاوية أخرى فتكون تفصيلية فعناية الأصول بالأدلة الإجمالية لا التفصيلية.</p>
+
+<p>تاج الدين السبكي رحمه الله تعالى وسأذكره بين فترة وأخرى وهو إمام في فنون كثير منها أصول الفقه لما جاء يعرف أصول الفقه قال أصول الفقه أدلة الفقه الإجمالية فقط أدلة الفقه الإجمالية. بقية الأشياء كيفية الاستفادة منها حال المستفيد قال هذه من لوازم الأصول لكن ليست هي أصول الفقه. لكن الذي عليه عامة أو كثير من من عرفوا أصول الفقه ذكروا هذه الأشياء الثلاثة.</p>
+
+<h3>تفصيل أقسام التعريف</h3>
+
+<ol class="numbered-list">
+  <li><strong>أدلة الفقه الإجمالية</strong> — كالأمر يقتضي الوجوب والنهي يقتضي التحريم والإجماع حجة والقياس حجة وقول الصحابي ليس بحجة.</li>
+  <li><strong>وكيفية الاستفادة منها</strong> — أي عند التعارض إذا تعارضت هذه الأدلة تقدم من تؤخر من تجمع بينها بأي كيفية.</li>
+  <li><strong>وحال المستفيد</strong> — أي الذي يقوم على استنباط الجزئيات من هذه الأصول ما شروط هذا الرجل ما هو الاجتهاد ما أنواع الاجتهاد ما شروط المجتهد.</li>
+</ol>
+
+<p>قال بعض العلماء لماذا لا نضيف هنا كلمة نقول أصول الفقه هو معرفة الأدلة الإجمالية وكيفية الاستفادة منها وحال المستفيد لماذا لا نقول أصول الفقه معرفة نقول مباشرة أصول الفقه أدلة الفقه أولاً؟ قالوا لا نقول معرفة لأن أصول الفقه هو الأدلة سواء عرفت أو لم تُعرف فهو الأدلة لا يتغير اسمها. هذا في أصول الفقه لكن لما جاءوا إلى الفقه قالوا الفقه معرفة الأحكام. طيب لماذا قلتم في الفقه معرفة الأحكام لماذا لا تقولون الفقه الأحكام الشرعية التي طريق الاجتهاد؟ قالوا إنما قلنا في الفقه أن الفقه معرفة الأحكام لتقارب المعنى اللغوي لأن الفقه معناه في اللغة الفهم وهو قريب من معنى المعرفة بخلاف الأصول.</p>
+
+<!-- FLOW CHART: طريقتا التعريف -->
+<div class="flow-container">
+  <div class="flow-title">مخطط انسيابي: طريقتا تعريف أصول الفقه</div>
+  <div class="flow-row">
+    <div class="flow-box" style="background:var(--primary-green);color:white;">تعريف أصول الفقه</div>
+  </div>
+  <div class="flow-row">
+    <div class="flow-arrow">⬇</div>
+  </div>
+  <div class="flow-row">
+    <div class="flow-box" style="background:var(--teal);color:white;min-width:200px;">الطريقة الأولى: تعريفه بمفرديه</div>
+    <div style="width:20px"></div>
+    <div class="flow-box" style="background:var(--gold);color:white;min-width:200px;">الطريقة الثانية: تعريفه كعلم ولقب</div>
+  </div>
+  <div class="flow-row">
+    <div class="flow-arrow">⬇</div>
+    <div style="width:20px"></div>
+    <div class="flow-arrow">⬇</div>
+  </div>
+  <div class="flow-row">
+    <div class="flow-box" style="background:#e8f5e9;border:1px solid var(--primary-green);min-width:200px;">تعريف الأصول + تعريف الفقه</div>
+    <div style="width:20px"></div>
+    <div class="flow-box" style="background:var(--light-gold);border:1px solid var(--gold);min-width:200px;">أدلة الفقه الإجمالية وكيفية الاستفادة منها وحال المستفيد</div>
+  </div>
+</div>
+
+<h2>تعريف الأصول (باعتبار المفردين)</h2>
+
+<p>إذا عرفوه باعتبار مفرديه يعرفون أولا كلمة أصول ثم يعرفون كلمة فقه فيقولون إن الأصول جمع أصل والأصل كما قال إمام الحرمين في الورقات ما يُبنى عليه غيره. وقال بعضهم الأصل ما يتفرع منه غيره. في فرق ما في الأصل كذا وقيل كذا لا تظن أنهم يقولون هذا الكلام اعتباطاً هم يدققون في جزئيات. نحن عندما نقرأ نقرأ قراءة من لا يقف عند مغازيهم عند مقاصدهم. قلنا الأصول جمع أصل والأصل ما يبنى عليه غيره وقيل الأصل ما يتفرع منه غيره. قالوا لماذا قلنا ما يتفرع منه غيره؟ قالوا لأن الأب أصل والابن تفرع منه لكن هل يقال إن القدح تفرع من القاعدة لا ولذلك قالوا أضبط أن نقول إن الأصل ما يتفرع منه غيره.</p>
+
+<div class="definition-card">
+  <div class="def-term">إطلاقات الأصل عند الأصوليين</div>
+  <div class="def-body">
+    <ol class="numbered-list">
+      <li>الأصل بمعنى <strong>الدليل</strong> — ولذلك قلنا أصول الفقه أدلة الفقه مباشرة لا نقول معرفة أدلة الفقه</li>
+      <li>الأصل بمعنى <strong>القاعدة المستمرة</strong></li>
+      <li>الأصل بمعنى <strong>المقسوم عليه</strong></li>
+      <li>وله عدة إطلاقات أخرى</li>
+    </ol>
+  </div>
+</div>
+
+<h2>تعريف الفقه (باعتبار المفردين)</h2>
+
+<div class="definition-card">
+  <div class="def-term">تعريف الفقه — لإمام الحرمين رحمه الله</div>
+  <div class="def-body">
+    <strong>الفقه:</strong> معرفة الأحكام الشرعية التي طريقها الاجتهاد.
+  </div>
+</div>
+
+<p>انتبه: معرفة الأحكام الشرعية. قوله معرفة الأحكام — الأحكام جمع حكم والحكم نسبة شيء إلى شيء إما إثباتاً وإما نفياً. تقول مثلا زيد مجتهد نسبت الاجتهاد إلى زيد هذا إثبات تقول زيد ليس مجتهد نفيت الاجتهاد عن زيد. إذن نسبة شيء إلى شيء إثباتاً أو نفياً هذا يسمى حكم.</p>
+
+<div class="callout-box">
+  <div class="callout-title">⚡ تنبيه: التصور لا يدخل في الفقه</div>
+  <p>تفهموا من هذا أن تصور الشيء بلا حكم لا يدخل في الفقه فما يذكر في الفقه تعريف الوضوء هذا مقرر التصور ما هو الوضوء؟ تتصور ما هو الوضوء، تعريف الغسل تعريف التيمم تعريف الصلاة تعريف الصيام تعريف الزكاة هذه تصورات هذه ليست من علم الفقه إنما هي تصورات لتقرب لك المعنى حتى نسقط الأحكام على هذه الأشياء التي تصورناها. فلما يقولون لك بعد ذلك الصلاة واجبة عندك تصور ما هي الصلاة. إذن ما يذكر في الفقه من تعريفات لمثل الصلاة والوضوء والسرقة والزنا إلى آخر هذا ليس من الفقه لأنه ليس حكما وإنما تصور.</p>
+</div>
+
+<h3>تفصيل التعريف</h3>
+
+<ol class="numbered-list">
+  <li><strong>معرفة الأحكام</strong> — الأحكام جمع حكم والحكم نسبة شيء إلى شيء إما إثباتاً وإما نفياً. إذن تصور الشيء بلا حكم لا يدخل في الفقه.</li>
+  <li><strong>الشرعية</strong> — أخرج الأحكام العقلية وأخرج الأحكام العادية والعرفية واللغوية كل ما ليس من الأحكام الشرعية هذا ليس من الفقه.</li>
+  <li><strong>التي طريقها الاجتهاد</strong> — يعني التي هي محل اجتهاد أي أن للاجتهاد فيها مجال. تفهم من هذا أن الأحكام الشرعية التي طريقها القطع واليقين ليست فقهاً فمعرفتك أن الصلاة واجبة ليست فقهاً في الاصطلاح أن الصوم واجب ليست فقهاً في الاصطلاح أن الزكاة واجبة ليست فقهاً في الاصطلاح لأن هذه المعرفة طريقها القطع ليست طريقها الاجتهاد.</li>
+</ol>
+
+<div class="callout-box">
+  <div class="callout-title">💡 أمثلة على ما هو فقه وما ليس فقهاً</div>
+  <p><strong>ليس فقهاً (طريقها القطع):</strong> وجوب الصلاة، وجوب الصوم، وجوب الزكاة</p>
+  <p><strong>فقهاً (طريقها الاجتهاد):</strong></p>
+  <ul style="margin-right:20px; margin-top:5px;">
+    <li>أن الوتر ليس واجباً خلافاً للإمام أبي حنيفة الذي يرى وجوب الوتر</li>
+    <li>أن زكاة الحلي ليست واجبة خلافاً للإمام أبي حنيفة الذي يرى وجوب زكاة الحلي</li>
+    <li>أن غسل الجمعة مستحب خلافاً لمن يرى من الفقهاء أنه واجب</li>
+  </ul>
+</div>
+
+<h3>هل جملة «التي طريقها الاجتهاد» صفة للأحكام أم صفة للمعرفة؟</h3>
+
+<p>ثم انظر نقول الفقه معرفة الأحكام الشرعية التي طريقها الاجتهاد — جملة «التي طريقها الاجتهاد» صفة لماذا؟ هل هي صفة للمعرفة أو هي صفة للأحكام؟ محتمل. ما هو الاحتمال الأرجح؟ أنا أراها أنها صفة للمعرفة ليست صفة للأحكام. لماذا صفة للمعرفة؟ أقول لك لو قلت معرفة الأحكام الشرعية التي طريق الاجتهاد سيكون تقدير الكلام: الأحكام التي طريقها الاجتهاد معرفتها فقه. إذن الأحكام الشرعية التي طريقها الاجتهاد معرفتها تسمى فقهاً. هل يسمى الشخص المقلد فقيهاً؟ المقلد ليس فقيهاً. المقلد لا يستنبط المقلد يأخذ من شيخه ومن الكتاب لكن نحن نريد نعرف الفقه الذي هو بمعناه الاصطلاحي.</p>
+
+<h3>تعريف شيخ الإسلام زكريا الأنصاري</h3>
+
+<p>شيخ الإسلام زكريا الأنصاري عندما عرف قال: الفقه علم بحكم شرعي هكذا قال علم بحكم. لماذا قال بحكم ولم يقل العلم بالأحكام لماذا أفرد ولم يجمع؟ قال لأنه حصل خلاف عند من ذكر الجمع. هذا المقصود كل الأحكام الشرعية هذا صعب. الإمام مالك رحمه الله سئل عن مسائل فأجاب عن كثير منها بقوله لا أدري وقال سئل عن ثمانية وأربعين مسألة فقال في ست وثلاثين لا أدري هل معنى ذلك أن الإمام مالك ليس فقيهاً؟ لا. إذن ما المقصود بقولنا معرفة الأحكام هل المقصود أقل الجمع يعني لو عرف ثلاثة أحكام يصير فقيهاً؟ أيضا ليس هذا. ولذلك بعضهم هذا يعد من أحسن ما أجيب به على هذا الإيراد أن المقصود معرفة الأحكام بالقوة وبالفعل يعني إما أنه يعرف الأحكام بالفعل مباشرة يستنبطها أو بالقوة القريبة أي أن عنده القدرة والمكنة تمكن من معرفة الأحكام لو أنه نظر في الأدلة.</p>
+
+<p>شيخ الإسلام زكريا الأنصاري لما هذب جمع الجوامع قال إذن أنا لا أذكر الجمع لا أقول الأحكام أذكره فأقول علم بحكم شرعي ذكره بصيغة الإفراد.</p>
+
+<p>قال الشارح هنا أي معرفة الأحكام الشرعية التي طريقها الاجتهاد كالعلم بأن النية في الوضوء واجبة وأن الوتر مندوب — هذا كله خلاف الحنفية لأن الحنفية يرون أن النية في الوضوء ليست واجبة ويرون أن الوتر واجب. قال «وهكذا السامي» أي العالم. فخرج بالأحكام العلم بالذوات والصفات والأفعال. انظر فخرج بالأحكام العلم بالذوات كذات زيد والصفات كسواده والأفعال كقيامه — هذا لف ونشر مرتب. وخرج بالشرعية غيرها كالنحوية والعقلية وخرج بالتي طريقها الاجتهاد ما طريقها القطع كوجوب الصلوات الخمس فلا نسمي شيئا من ذلك فقهاً اصطلاحاً.</p>
+
+<div class="section-divider">❃ ✾ ❃</div>
+
+<!-- ===== SECTION: تعريف الحكم الشرعي ===== -->
+<h1>تعريف الحكم الشرعي</h1>
+
+<p>انظر إلى التسلسل الذي يمشي عليه علماء أصول الفقه في التعريفات أولا عرفوا الأصول ثم عرفوا الفقه ثم عرفوا أصول الفقه باعتباره لقباً لهذا العلم ثم بعد ذلك سيعرف الأحكام لماذا يعرف الأحكام؟ لأنها مذكورة في تعريف الفقه فلما كانت مذكورة في تعريف الفقه كان من المناسب جدا أننا نعرفها للطالب.</p>
+
+<div class="definition-card">
+  <div class="def-term">تعريف الحكم الشرعي</div>
+  <div class="def-body">
+    <strong>الحكم الشرعي:</strong> خطاب الله المتعلق بأفعال المكلفين اقتضاءً أو تخييراً أو وضعاً.
+  </div>
+</div>
+
+<p>خطاب الله المتعلق بأفعال المكلفين — تفهم من هذا أن خطاب الله المتعلق بغير أفعال المكلفين ليس حكماً شرعياً. هذا يخرج خطاب الله المتعلق بمخلوقات أخرى كالسماوات والأرض والجبال والبحار فهذا ليس حكماً شرعياً وخطاب الله المتعلق بذوات المكلفين هذا ليس حكماً شرعياً مثل «ما منعك أن تسجد لما خلقت بيدي» هذا خطاب الله لكن يتعلق بذات آدم عليه الصلاة والسلام هذا لا يتعلق به حكم شرعي إنما يكون الحكم شرعياً إذا كان يتعلق بأفعال مكلفين.</p>
+
+<p>ومن المكلف؟ المكلف هو البالغ العاقل.</p>
+
+<!-- CLASSIFICATION TREE: الأحكام الشرعية -->
+<div class="tree-container">
+  <div class="tree-title">شجرة التصنيف: الأحكام الشرعية</div>
+  <div style="text-align:center;">
+    <div class="tree-root">خطاب الله المتعلق بأفعال المكلفين</div>
+  </div>
+  <div style="text-align:center;"><div class="tree-connector"></div></div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="tree-node" style="background:var(--primary-green);color:white;">الاقتضاء (الطلب)</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+        <div style="text-align:center;">
+          <div class="tree-leaf" style="background:#c8e6c9;border-color:#27ae60;"><strong>طلب فعل</strong></div>
+          <div class="tree-leaf" style="font-size:14px;"><span class="ruling-label ruling-fard">إيجاب</span> جازم</div>
+          <div class="tree-leaf" style="font-size:14px;"><span class="ruling-label ruling-sunna">ندب</span> غير جازم</div>
+        </div>
+        <div style="text-align:center;">
+          <div class="tree-leaf" style="background:#f8d7da;border-color:#c0392b;"><strong>طلب ترك</strong></div>
+          <div class="tree-leaf" style="font-size:14px;"><span class="ruling-label ruling-haram">تحريم</span> جازم</div>
+          <div class="tree-leaf" style="font-size:14px;"><span class="ruling-label ruling-makruh">كراهة</span> غير جازم</div>
+        </div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-node" style="background:var(--teal);color:white;">التخيير</div>
+      <div class="tree-leaf"><span class="ruling-label ruling-mubah">إباحة</span></div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-node" style="background:var(--gold);color:white;">الوضع</div>
+      <div class="tree-leaf">السبب</div>
+      <div class="tree-leaf">الشرط</div>
+      <div class="tree-leaf">المانع</div>
+      <div class="tree-leaf">الصحة والفساد</div>
+      <div class="tree-leaf">الرخصة والعزيمة</div>
+    </div>
+  </div>
+</div>
+
+<p>الاقتضاء يعني طلب هذا الطلب ينقسم إلى قسمين إما طلب فعل أو طلب ترك. وطلب الفعل هذا ينقسم إلى قسمين إما طلب فعل جازم أو طلب فعل غير جازم. وطلب الترك ينقسم إلى قسمين إما طلب ترك جازم وإما طلب ترك غير جازم. وبالتالي تقول إما أن يكون الاقتضاء إيجاباً فالإيجاب هو طلب فعل جازم وإما أن يكون هذا الاقتضاء ندباً فالندب طلب فعل غير جازم وإما أن يكون هذا الاقتضاء تحريماً فالتحريم طلب ترك جازم وإما أن يكون هذا الاقتضاء كراهة فالكراهة طلب ترك غير جازم. وإما تخييراً هذا هو المباح وإما وضعاً هذا يدخل فيه الأحكام الوضعية كالسبب والشرط والمانع والصحة والفساد والرخصة والعزيمة.</p>
+
+<!-- COMPARISON CARDS: الأحكام التكليفية والوضعية -->
+<div class="comparison-container">
+  <div class="comparison-card card-a">
+    <div class="comp-title">الأحكام التكليفية (5)</div>
+    <p>تتعلق <strong>بالمكلف</strong> فقط لا تتعلق بغير المكلف. بالتالي لو سألتك المجنون المكلف أو غير مكلف؟ غير مكلف إذاً لا يوصف فعل المجنون أنه واجب ولا يوصف أنه مستحب ولا محرم ولا مكروه لماذا؟ لأنه غير مكلف وهذه تتعلق بأفعال المكلفين.</p>
+    <p>كذلك فعل الصبي خاصة الصبي الذي لم يميز وفعل الساهي أو الغافل أو المكره الملقى لا توصف بالوجوب ولا بالاستحباب ولا بالكراهة ولا بالتحريم لماذا؟ لأن هذه تتعلق بأفعال المكلف فهؤلاء ليسوا مكلفين.</p>
+    <ul style="margin-right:20px;margin-top:8px;">
+      <li><span class="ruling-label ruling-fard">الواجب</span></li>
+      <li><span class="ruling-label ruling-sunna">المستحب</span></li>
+      <li><span class="ruling-label ruling-mubah">المباح</span></li>
+      <li><span class="ruling-label ruling-makruh">المكروه</span></li>
+      <li><span class="ruling-label ruling-haram">الحرام</span></li>
+    </ul>
+  </div>
+  <div class="comparison-card card-b">
+    <div class="comp-title">الأحكام الوضعية (7+)</div>
+    <p>أعم فتتعلق بفعل المكلف وتتعلق بفعل غير المكلف بل وتتعلق بأمور ليست داخلة في مقدورنا.</p>
+    <ul style="margin-right:20px;margin-top:8px;">
+      <li><strong>السبب</strong></li>
+      <li><strong>الشرط</strong></li>
+      <li><strong>المانع</strong></li>
+      <li><strong>الصحة</strong></li>
+      <li><strong>الفساد</strong></li>
+      <li><strong>الرخصة</strong></li>
+      <li><strong>العزيمة</strong></li>
+    </ul>
+  </div>
+</div>
+
+<div class="benefit-box">
+  <div class="benefit-title">✦ فائدة: خطاب الوضع أعم من خطاب التكليف</div>
+  <p>فعل المجنون هل يتناوله خطاب الوضع أو لا يتناوله؟ نعم يتناوله. المجنون على سبيل المثال إذا أتلف شيئاً إذا كسر زقاقاً مثلاً فإنه يضمن ذلك الذي أتلفه لأن ضمان المتلف من باب ربط السبب بالمسبب. المجنون إذا خرج منه مني فإنه يصبح جنباً لماذا؟ لأن خروج المني سبب في حصول الجنابة هذا من ربط السبب بالمسبب. إذا مات والد المجنون فإن المجنون يرث لأن القرابة سبب من أسباب الإرث. وزوال الشمس وغروب الشمس سبب في وجوب العبادة — إذا غربت تجب علينا صلاة المغرب إذا زالت وجبت علينا صلاة الظهر — زوال الشمس وغروب الشمس ليست داخلة في قدرتنا هذا من باب خطاب الوضع.</p>
+</div>
+
+<p>هنا الناظم رحمه الله تعالى لم يذكر لك خطاب الوضع وإنما ذكر لك خطاب التكليف فذكر لك الأحكام التكليفية الخمسة التي هي الواجب والمستحب والمباح والمكروه والحرام وأضاف إليها الصحة والفساد — كم ذكر أحكام سبعة. لماذا ذكر هذه السبعة في نظري والله أعلم أنه فعل ذلك تسهيلاً لطالب العلم ومتابعة لإمام الحرمين في الورقات. حتى أن بعض الشراح من شراح الورقات تساءل لماذا إمام الحرمين في الورقات ذكر السبعة هذه فقط فقال هذا الجواب لكن أنا أراه غير صحيح يقول إمام الحرمين ذكر هذه السبعة قال لأن الأحكام الخمسة الأولى تتعلق بالعبادات والصحة والفساد تتعلق بالمعاملات فكانت هذه السبعة شاملة لكن أنا أرى أن هذا الجواب غير صحيح لأن قضية أن الصحة والفساد يتعلق بالمعاملات فقط هذا غير صحيح فالعبادات توصف بالصحة والفساد والمعاملات توصف بأنها واجبة ومستحبة ومباحة ومكروهة ومحرمة.</p>
+
+<div class="callout-box">
+  <div class="callout-title">⚡ تنبيه: كل الأحكام تتعلق بالعبادات والمعاملات</div>
+  <p>على سبيل المثال خذ العارية فالعارية مثلاً تكون مباحة والأصل فيها الاستحباب وتكون مباحة على استثناء من القاعدة. وخذ على سبيل المثال الطلاق قد يكون واجباً قد يكون مستحباً قد يكون مكروهاً قد يكون حراماً وكذلك البيع قد يكون واجباً قد يكون مستحباً قد يكون مكروهاً قد يكون حراماً. فكيف نقول إن الأحكام الخمسة تتعلق بالعبادات وإن الصحة والفساد تتعلق بالمعاملات هذا كلام غير دقيق كلها تتعلق بالعبادات وكلها تتعلق بالمعاملات.</p>
+</div>
+
+<div class="section-divider">❃ ✾ ❃</div>
+
+<!-- ===== SECTION: أبيات الناظم في الأحكام ===== -->
+<h1>أحكام المنظومة في الأحكام التكليفية</h1>
+
+<div class="matn-text">
+  والحكم إن عوقب تارك وجب<br>
+  أو فاعل فهو حرام مجتنب
+</div>
+
+<p>قال «والحكم هو خطاب الله المتعلق بفعل المكلف» — أنا قلت بفعل المكلفين عبارته أفضل لماذا عبارته أفضل؟ يشمل الذكر والأنثى. قالوا لأنه أحيانا توجد بعض الخطابات في الشرع لا تتعلق بمكلفين وإنما تتعلق بواحد كخطابات خاصة بالنبي صلى الله عليه وسلم فعندما نقول خطاب الله المتعلق بأفعال المكلفين قد يتوهم شخص أنه لابد على الأقل من ثلاثة يتعلق بهم الخطاب بينما توجد خطابات تتعلق بشخص واحد كالخطابات التي خصص بها النبي صلى الله عليه وسلم.</p>
+
+<p>قال رحمه الله تعالى «من حيث إنه مكلف» أي بالنظر لا كونه مكلفاً وليس بفعل مكلف لا من حيث أنه مكلف يعني مثلا أفعال المؤمنين في الجنة الله عز وجل قال: <span class="highlight-green">ويلبسون ثياباً من سندس</span> هذا فعل مكلف في الجنة لكن هل هذا فعل مكلف من حيث أنه مكلف؟ لا إذن هذا لا يدخل. المقصود هنا خطاب الله المتعلق بفعل مكلف من حيث إنه مكلف فالأفعال التي حكاها الله عز وجل عن المؤمنين في الجنة ليس من حيث أنهم مكلفين فلا تدخل في هذا.</p>
+
+<p>قال «بالاقتضاء» أي بالطلب و«التخيير» بالطلب والتخيير لم يذكر الوضع لماذا لم يذكر الوضع؟ لأنه رأى أن الناظم لم يذكر الأحكام الوضعية فقال إذن لا أذكره في التعريف.</p>
+
+<h2>تعريف الواجب</h2>
+
+<div class="matn-text">
+  إن عوقب تارك وجب
+</div>
+
+<p>انتبه للتحرير — الناظم قال لكم إن هذه المنظومة محررة. الواجب نقول الواجب ما يثاب فاعله ويعاقب تاركه لو قلنا الواجب ما يعاقب تاركه فقط يكفي أو لا يكفي؟ فكر لو قلنا إن الواجب ما يعاقب تاركه المستحب هل يعاقب تاركه؟ لا يخرج المستحب. المباح هل يعاقب تاركه؟ لا يخرج المباح. المكروه هل يعاقب تاركه؟ لا يخرج المكروه. الحرام هل يعاقب تاركه؟ لا لا يعاقب فاعله يخرج الحرام. ما الذي يبقى؟ يبقى الواجب. قولنا الواجب ما يعاقب تاركه كافي في التعريف. قال لك إن منظومته خالية عن الحشو منظومته خالية عن الحشو ما فيها حشو ما فيها كلام زايد. انظر ماذا قال لك في النظم قال «والحكم إن عوقب تارك وجب» فقط يكفي أن تقول هذا. هؤلاء فقهاء زبيد يتكلمون كلاما قليلا لكن معانيه كثيرة.</p>
+
+<div class="benefit-box">
+  <div class="benefit-title">✦ فائدة: فقهاء اليمن وعلماء زبيد</div>
+  <p>هذا المعنى قد ذكره كما قلت لك في الصباح ابن رجب في بيان فضل علم السلف على علم الخلف قال علماء اليمن وإذا قالوا علماء اليمن وورد في فضلهم فأول ناس يدخلون أهل زبيد لأنهم أهل سكينة ووقار وعلم وحلم وأهل تواضع وإخبات هذا مشهور عنهم إلى يومنا هذا فهم يتكلمون بكلام قليل لكنه له معاني ضخمة. ولذلك من المهم جدا إذا زرتم اليمن مستقبلا أن تذهبوا إلى هناك وأن تطلبوا العلم هناك ليس فقط في مأرب مأرب قديمة أنا أحب مأرب ودرست فيها لكن أيضا تذهبون إلى هناك إلى زبيد تستفيدون من علمائها.</p>
+</div>
+
+<p>قال الشارح «إن عوقب تارك وأثيب فاعله» نقول للشارح لا نحتاج إلى قولك «وأثيب فاعله» يكفي أن نقول إن عوقب تارك وجب أي يسمى واجباً وفرضاً عندنا. قوله «يسمى واجباً أو فرضاً عندنا» فيه إشارة إلى أنه مترادف عندنا أي عند جمهور الفقهاء ومنهم الشافعية خلافاً للحنفية. فالحنفية يرون أن الفرض ما وجب أو ما ثبت بدليل قطعي وأن الواجب ما ثبت بدليل ظني.</p>
+
+<!-- COMPARISON CARDS: الواجب والفرض -->
+<div class="comparison-container">
+  <div class="comparison-card card-a">
+    <div class="comp-title">عند الجمهور (ومنهم الشافعية)</div>
+    <p>الواجب والفرض <strong>مترادفان</strong> بمعنى واحد لا فرق بينهما.</p>
+  </div>
+  <div class="comparison-card card-b">
+    <div class="comp-title">عند الحنفية</div>
+    <p><strong>الفرض:</strong> ما ثبت بدليل قطعي</p>
+    <p><strong>الواجب:</strong> ما ثبت بدليل ظني</p>
+  </div>
+</div>
+
+<h2>تعريف الحرام</h2>
+
+<div class="matn-text">
+  أو فاعل فهو حرام مجتنب
+</div>
+
+<p>قال الشارح «أو عوقب فاعل له وأثيب تاركه امتثالاً». قوله «امتثالاً» يشير إلى أنه لو فعله غير ممتثل فإنه لا يثاب. ولذلك الذي يجتنب المعصية امتثالاً يثاب أما الذي يجتنب المعصية لا امتثالاً بل لأنها مثلا تضره فهذا لا يثاب. عندنا شخصان أحدهما يترك شرب الخمر لأن الله سبحانه وتعالى نهاه عن ذلك هذا يثاب وشخص آخر يترك شرب الخمر لأنه يخشى على نفسه أن يصاب بتليف الكبد مثلاً فهذا لا يثاب.</p>
+
+<h2>تعريف المندوب والمكروه</h2>
+
+<div class="matn-text">
+  واندب إذا أثيب من قد فعله<br>
+  أو تارك ممتثل فكره له
+</div>
+
+<p>ذكر تعريف المندوب وتعريف المكروه فقال «واندب إذا أثيب من قد فعله ولم يعاقب تاركه أو أثيب تارك له ممتثلاً فكره له» أي فهو المكروه. وهذه طريقة الجمهور.</p>
+
+<p>وطبعا الناظم رحمه الله تعالى عرف هذه الأحكام بما يسمى عند علماء المنطق طريقة الرسم وهي عند المنطقيين طريقة مرجوحة والأفضل عندهم أن التعريف يكون بالحد فمثلا تقول الواجب ما أمر به الشارع أمراً جازماً لأن هذا فيه بيان للماهية والمستحب ما أمر به الشارع أمراً غير جازم والمكروه ما نهى عنه الشارع نهياً غير جازم والحرام ما نهى الشارع عنه نهياً جازماً هذا تعريف بالحد.</p>
+
+<!-- TABLE: الأحكام التكليفية بالرسم والحد -->
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>الحكم</th>
+      <th>التعريف بالرسم (طريقة الناظم)</th>
+      <th>التعريف بالحد (طريقة المنطقيين)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="ruling-label ruling-fard">الواجب</span></td>
+      <td>إن عوقب تاركه</td>
+      <td>ما أمر به الشارع أمراً جازماً</td>
+    </tr>
+    <tr>
+      <td><span class="ruling-label ruling-sunna">المندوب</span></td>
+      <td>أثيب من فعله ولم يعاقب تاركه</td>
+      <td>ما أمر به الشارع أمراً غير جازم</td>
+    </tr>
+    <tr>
+      <td><span class="ruling-label ruling-mubah">المباح</span></td>
+      <td>—</td>
+      <td>ما خير الشارع بين فعله وتركه</td>
+    </tr>
+    <tr>
+      <td><span class="ruling-label ruling-makruh">المكروه</span></td>
+      <td>أثيب تاركه ممتثلاً ولم يعاقب فاعله</td>
+      <td>ما نهى عنه الشارع نهياً غير جازم</td>
+    </tr>
+    <tr>
+      <td><span class="ruling-label ruling-haram">الحرام</span></td>
+      <td>عوقب فاعله</td>
+      <td>ما نهى الشارع عنه نهياً جازماً</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>الفرق بين المكروه وخلاف الأولى</h2>
+
+<p>هنا أشار إلى الخلاف فقال على طريقة الجمهور نقول المكروه ما نهي عنه نهياً غير جازم وكان النهي نهياً مخصوصاً أو نهياً مقصوداً هذا يسمى مكروه. أما إذا كان النهي عنه ليس مخصوصاً أو مقصوداً فهذا يسمى خلاف الأولى. إذاً عندنا مرتبتان: مرتبة المكروه ومرتبة خلاف الأولى.</p>
+
+<!-- COMPARISON CARDS: المكروه وخلاف الأولى -->
+<div class="comparison-container">
+  <div class="comparison-card card-a">
+    <div class="comp-title">المكروه</div>
+    <p>ما ورد فيه <strong>نهي مقصود</strong> أي مخصوص في المسألة بعينها.</p>
+    <p><strong>مثال:</strong> غسل اليدين في الوضوء أكثر من ثلاث مرات — ورد فيه نهي مخصوص قال النبي ﷺ «هذا الوضوء فمن زاد أو نقص فقد أساء وظلم»</p>
+    <p><strong>مثال:</strong> نهر المسلم عن القلوس إذا دخل المسجد قبل أن يصلي ركعتين</p>
+  </div>
+  <div class="comparison-card card-b">
+    <div class="comp-title">خلاف الأولى</div>
+    <p>ما ورد فيه <strong>نهي غير مقصود</strong> أي غير مخصوص.</p>
+    <p><strong>مثال:</strong> ترك صلاة الضحى — ليس هناك نهي خاص يقول لك لا تترك صلاة الضحى وإنما استُفيد هذا النهي من الأمر بفعل المستحبات لأن الأمر بالشيء نهي عن ضده فنقول إن ترك صلاة الضحى خلاف الأولى لكن ليس مكروهاً.</p>
+  </div>
+</div>
+
+<p>وعلى كل حال المكروه له أربعة معاني غداً إن شاء الله في افتتاح الدرس أذكرها لكم لأن الإشارة جاءت من الخلف أن الوقت قد انتهى والله أعلم.</p>
+
+<p>وصلى الله وسلم وبارك على نبينا محمد وآله وصحبه أجمعين. السلام عليكم ورحمة الله وبركاته. نهاية الدرس.</p>
+
+<div class="section-divider">❃ ✾ ❃</div>
+
+<!-- ===== SUMMARY BOX ===== -->
+<div class="summary-box">
+  <div class="summary-title">📋 خلاصة الدرس الأول</div>
+  <ol class="numbered-list">
+    <li>التعريف بالناظم العلامة ابن مطير الحكمي اليمني (888-959 هـ) والشارح العلامة سعيد بن نصاري الزبيدي (1034-1417 هـ)</li>
+    <li>مميزات المنظومة: استوعبت أبواب جمع الجوامع (7 أبواب)، قليلة الأبيات (99 بيتاً)، نظمها أصولي فقيه متخصص</li>
+    <li>طريقة علماء زبيد في مزج الفقه بالأصول: يذكر المسألة الأصولية ثم ما يبنى عليها من الفروع الفقهية</li>
+    <li>انقسام العلوم: علوم الغايات (التفسير، الحديث، الفقه) وعلوم الآلات (أصول الفقه، أصول التفسير، اللغة...)</li>
+    <li>مبادئ علم أصول الفقه العشرة: الحد، الموضوع، الواضع، النسبة، الفضل، الاستمداد، الحكم، الاسم، الفائدة، المسائل</li>
+    <li>تعريف أصول الفقه: أدلة الفقه الإجمالية وكيفية الاستفادة منها وحال المستفيد</li>
+    <li>تعريف الفقه: معرفة الأحكام الشرعية التي طريقها الاجتهاد</li>
+    <li>تعريف الحكم الشرعي: خطاب الله المتعلق بأفعال المكلفين اقتضاءً أو تخييراً أو وضعاً</li>
+    <li>الأحكام التكليفية الخمسة: الواجب والمستحب والمباح والمكروه والحرام</li>
+    <li>الفرق بين المكروه وخلاف الأولى: المكروه ورد فيه نهي مقصود مخصوص وخلاف الأولى ورد فيه نهي غير مقصود</li>
+    <li>الواجب والفرض مترادفان عند الجمهور ومتغايران عند الحنفية</li>
+    <li>أهمية فهم اختلاف المصطلحات بين الفنون المختلفة (مثال: الشاذ، المرسل، الصحابي)</li>
+  </ol>
+</div>
+
+</div><!-- end content-wrapper -->
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+function toggleBW() {
+  document.body.classList.toggle('bw-mode');
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح منظومة سلم الأصول — الدرس الرابع</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+  @bottom-center {
+    content: "— " counter(page) " —";
+    font-size: 10px;
+    color: #666;
+    font-family: 'Amiri', serif;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #0d6b3e;
+  --dark-green: #0a4f2e;
+  --gold: #d4a020;
+  --light-gold: #f0e6c0;
+  --teal: #0d7377;
+  --bg: #fefefe;
+  --body-text: #1a1a1a;
+  --border: #c8d6c0;
+  --light-green: #e8f5e9;
+  --light-teal: #e0f2f1;
+  --light-red: #fde8e8;
+  --light-orange: #fff3e0;
+  --light-blue: #e3f2fd;
+  --light-yellow: #fffde7;
+  --light-gray: #f5f5f5;
+  --card-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--body-text);
+  background: var(--bg);
+  direction: rtl;
+  text-align: justify;
+  padding: 0;
+  margin: 0;
+}
+
+body.bw-mode {
+  --primary: #333;
+  --dark-green: #222;
+  --gold: #555;
+  --light-gold: #eee;
+  --teal: #444;
+  --bg: #fff;
+  --body-text: #000;
+  --border: #aaa;
+  --light-green: #f5f5f5;
+  --light-teal: #f0f0f0;
+  --light-red: #f5f5f5;
+  --light-orange: #f5f5f5;
+  --light-blue: #f5f5f5;
+  --light-yellow: #f5f5f5;
+  --light-gray: #f5f5f5;
+}
+
+body.bw-mode .quran-box,
+body.bw-mode .hadith-box,
+body.bw-mode .matn-box,
+body.bw-mode .poetry-box,
+body.bw-mode .ruling-card,
+body.bw-mode .definition-card,
+body.bw-mode .benefit-box,
+body.bw-mode .evidence-box,
+body.bw-mode .comparison-card,
+body.bw-mode .summary-box,
+body.bw-mode .fiqh-principle-box {
+  border-color: #666 !important;
+  background: #f9f9f9 !important;
+}
+
+body.bw-mode .quran-box { border-right: 4px solid #333 !important; }
+body.bw-mode .hadith-box { border-right: 4px solid #444 !important; }
+body.bw-mode .matn-box { border-right: 4px solid #555 !important; }
+
+h1 {
+  font-size: 26px;
+  color: var(--dark-green);
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+h2 {
+  font-size: 22px;
+  color: var(--primary);
+  font-weight: 700;
+  margin-top: 28px;
+  margin-bottom: 12px;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 6px;
+  line-height: 1.5;
+}
+
+h3 {
+  font-size: 19px;
+  color: var(--dark-green);
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+p {
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
+/* COVER HEADER */
+.cover-header {
+  min-height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary) 50%, var(--teal) 100%);
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+  margin-bottom: 30px;
+  position: relative;
+  border-radius: 0 0 20px 20px;
+  page-break-after: auto;
+}
+
+.cover-header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+  pointer-events: none;
+}
+
+.cover-label {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark-green);
+  font-size: 22px;
+  font-weight: 700;
+  padding: 6px 30px;
+  border-radius: 25px;
+  margin-bottom: 14px;
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 1;
+}
+
+.cover-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+  line-height: 1.6;
+}
+
+.cover-lesson {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.cover-names {
+  font-size: 16px;
+  opacity: 0.9;
+  position: relative;
+  z-index: 1;
+  line-height: 1.8;
+}
+
+/* MATN BOX */
+.matn-box {
+  background: var(--light-gold);
+  border-right: 5px solid var(--gold);
+  border-radius: 8px 0 0 8px;
+  padding: 18px 22px;
+  margin: 18px 0;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 2;
+  position: relative;
+}
+
+.matn-box::before {
+  content: 'المتن';
+  position: absolute;
+  top: -10px;
+  right: 15px;
+  background: var(--gold);
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 12px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+/* QURAN BOX */
+.quran-box {
+  background: linear-gradient(to left, #f1f8e9, #f9fbe7);
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  padding: 16px 24px;
+  margin: 14px 0;
+  font-size: 19px;
+  line-height: 2;
+  position: relative;
+  text-align: center;
+}
+
+.quran-box::before {
+  content: '﴿ القرآن الكريم ﴾';
+  display: block;
+  font-size: 12px;
+  color: var(--primary);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.quran-box::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  right: 8px;
+  left: 8px;
+  border: 1px dashed var(--primary);
+  border-radius: 8px;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+/* HADITH BOX */
+.hadith-box {
+  background: var(--light-teal);
+  border-right: 5px solid var(--teal);
+  border-radius: 8px 0 0 8px;
+  padding: 14px 20px;
+  margin: 14px 0;
+  font-size: 18px;
+  line-height: 1.9;
+  position: relative;
+}
+
+.hadith-box::before {
+  content: 'الحديث الشريف';
+  display: block;
+  font-size: 12px;
+  color: var(--teal);
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+/* POETRY BOX */
+.poetry-box {
+  background: #fffdf5;
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 20px 28px;
+  margin: 18px 0;
+  text-align: center;
+  font-size: 19px;
+  line-height: 2.2;
+  position: relative;
+}
+
+.poetry-box::before {
+  content: '❊';
+  position: absolute;
+  top: -12px;
+  right: 50%;
+  transform: translateX(50%);
+  background: var(--bg);
+  padding: 0 10px;
+  color: var(--gold);
+  font-size: 18px;
+}
+
+.poetry-line {
+  display: block;
+  margin: 4px 0;
+}
+
+.poetry-hemistich {
+  display: inline;
+}
+
+/* DEFINITION CARD */
+.definition-card {
+  background: var(--light-green);
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 14px 0;
+  position: relative;
+}
+
+.definition-card::before {
+  content: '📖 تعريف';
+  display: block;
+  font-size: 13px;
+  color: var(--primary);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.definition-term {
+  font-weight: 700;
+  color: var(--dark-green);
+  font-size: 18px;
+}
+
+/* RULING CARDS */
+.ruling-card {
+  border-radius: 10px;
+  padding: 12px 18px;
+  margin: 10px 0;
+  border-right: 5px solid;
+  position: relative;
+}
+
+.ruling-card.fard { background: var(--light-red); border-color: #c0392b; }
+.ruling-card.wajib { background: var(--light-orange); border-color: #e67e22; }
+.ruling-card.sunna { background: var(--light-green); border-color: #27ae60; }
+.ruling-card.mustahabb { background: var(--light-blue); border-color: #2980b9; }
+.ruling-card.makruh { background: var(--light-yellow); border-color: #f1c40f; }
+.ruling-card.haram { background: #fce4e4; border-color: #8b0000; }
+.ruling-card.mubah { background: var(--light-gray); border-color: #7f8c8d; }
+
+.ruling-label {
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.ruling-card.fard .ruling-label { background: #c0392b; }
+.ruling-card.wajib .ruling-label { background: #e67e22; }
+.ruling-card.sunna .ruling-label { background: #27ae60; }
+.ruling-card.mustahabb .ruling-label { background: #2980b9; }
+.ruling-card.makruh .ruling-label { background: #f1c40f; color: #333; }
+.ruling-card.haram .ruling-label { background: #8b0000; }
+.ruling-card.mubah .ruling-label { background: #7f8c8d; }
+
+/* COMPARISON CARD */
+.comparison-card {
+  display: flex;
+  gap: 12px;
+  margin: 16px 0;
+  flex-wrap: wrap;
+}
+
+.comparison-side {
+  flex: 1;
+  min-width: 250px;
+  border-radius: 12px;
+  padding: 14px 18px;
+  border: 2px solid var(--border);
+  background: #fff;
+}
+
+.comparison-side.vs-left {
+  border-color: var(--primary);
+  background: var(--light-green);
+}
+
+.comparison-side.vs-right {
+  border-color: var(--teal);
+  background: var(--light-teal);
+}
+
+.comparison-side h4 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+/* EVIDENCE BOX */
+.evidence-box {
+  background: #fffde7;
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 10px 0;
+  position: relative;
+}
+
+.evidence-box::before {
+  content: '📋 دليل';
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* BENEFIT BOX */
+.benefit-box {
+  background: linear-gradient(to left, #fff8e1, #fffde7);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 14px 20px;
+  margin: 14px 0;
+  position: relative;
+}
+
+.benefit-box::before {
+  content: '✦ فائدة';
+  display: block;
+  font-size: 13px;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+/* SUMMARY BOX */
+.summary-box {
+  background: var(--light-green);
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  padding: 16px 22px;
+  margin: 16px 0;
+  position: relative;
+}
+
+.summary-box::before {
+  content: '✦ خلاصة';
+  display: block;
+  font-size: 14px;
+  color: var(--primary);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+/* FIQH PRINCIPLE BOX */
+.fiqh-principle-box {
+  background: linear-gradient(to left, #e8f5e9, #f1f8e9);
+  border: 2px solid var(--dark-green);
+  border-radius: 12px;
+  padding: 14px 20px;
+  margin: 14px 0;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--dark-green);
+}
+
+.fiqh-principle-box::before {
+  content: '⚖️ قاعدة فقهية / أصولية';
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 6px;
+  text-align: right;
+}
+
+/* CLASSIFICATION TREE */
+.tree-container {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.tree-root {
+  display: inline-block;
+  background: var(--dark-green);
+  color: #fff;
+  padding: 10px 28px;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 0;
+  position: relative;
+}
+
+.tree-branches {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  position: relative;
+  padding-top: 20px;
+}
+
+.tree-branches::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 20%;
+  left: 20%;
+  height: 20px;
+  border-top: 3px solid var(--primary);
+  border-left: 3px solid var(--primary);
+  border-right: 3px solid var(--primary);
+  border-radius: 50% 50% 0 0;
+}
+
+.tree-branch {
+  background: #fff;
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  padding: 12px 16px;
+  min-width: 160px;
+  max-width: 240px;
+  text-align: center;
+  position: relative;
+  margin-top: 10px;
+}
+
+.tree-branch::before {
+  content: '';
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  width: 3px;
+  height: 22px;
+  background: var(--primary);
+}
+
+.tree-branch-title {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.tree-branch-desc {
+  font-size: 14px;
+  color: var(--body-text);
+  line-height: 1.5;
+}
+
+/* FLOW CHART */
+.flow-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin: 16px 0;
+}
+
+.flow-step {
+  background: var(--light-green);
+  border: 2px solid var(--primary);
+  border-radius: 10px;
+  padding: 10px 20px;
+  text-align: center;
+  min-width: 200px;
+  font-weight: 600;
+  color: var(--dark-green);
+}
+
+.flow-arrow {
+  font-size: 20px;
+  color: var(--gold);
+  line-height: 1;
+}
+
+/* TABLE */
+.usul-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0;
+  font-size: 15px;
+}
+
+.usul-table th {
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 14px;
+  font-weight: 700;
+  text-align: center;
+  border: 1px solid var(--dark-green);
+}
+
+.usul-table td {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  text-align: center;
+  background: #fff;
+}
+
+.usul-table tr:nth-child(even) td {
+  background: var(--light-green);
+}
+
+/* CALLOUT */
+.callout {
+  background: var(--light-gold);
+  border-right: 4px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+  padding: 12px 18px;
+  margin: 12px 0;
+  font-style: italic;
+}
+
+/* SECTION DIVIDER */
+.section-divider {
+  text-align: center;
+  margin: 30px 0;
+  position: relative;
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 35%;
+  height: 2px;
+  background: linear-gradient(to left, transparent, var(--gold));
+}
+
+.section-divider::before { right: 0; background: linear-gradient(to right, transparent, var(--gold)); }
+.section-divider::after { left: 0; background: linear-gradient(to left, transparent, var(--gold)); }
+
+.section-divider span {
+  background: var(--bg);
+  padding: 0 16px;
+  color: var(--gold);
+  font-size: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* SCHOLAR CARD */
+.scholar-card {
+  background: #fff;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin: 12px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.scholar-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.scholar-info h4 {
+  font-size: 16px;
+  color: var(--dark-green);
+  margin-bottom: 4px;
+}
+
+.scholar-info p {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+  text-align: right;
+}
+
+/* B&W TOGGLE */
+.bw-toggle {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 9999;
+  background: var(--dark-green);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-family: 'Noto Naskh Arabic', serif;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: all 0.3s;
+}
+
+.bw-toggle:hover {
+  background: var(--primary);
+  transform: scale(1.05);
+}
+
+@media print {
+  .bw-toggle { display: none !important; }
+  .cover-header { page-break-after: always; }
+  .matn-box, .quran-box, .hadith-box, .poetry-box, .definition-card,
+  .ruling-card, .evidence-box, .benefit-box, .summary-box, .fiqh-principle-box,
+  .comparison-card, .scholar-card, .tree-branch, .flow-step {
+    break-inside: avoid;
+  }
+  h2, h3 { page-break-after: avoid; }
+}
+
+/* MAIN CONTAINER */
+.main-container {
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 0 12mm;
+}
+
+/* INLINE HIGHLIGHTS */
+.highlight-gold {
+  background: var(--light-gold);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.highlight-green {
+  background: var(--light-green);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  color: var(--dark-green);
+}
+
+.highlight-teal {
+  background: var(--light-teal);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  color: var(--teal);
+}
+
+/* Nested tree sub-branches */
+.tree-sub-branches {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.tree-sub-branch {
+  background: var(--light-gold);
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 14px;
+  text-align: center;
+  min-width: 120px;
+}
+
+/* Note box */
+.note-box {
+  background: #fff3e0;
+  border-right: 4px solid #ff9800;
+  border-radius: 0 8px 8px 0;
+  padding: 12px 18px;
+  margin: 12px 0;
+}
+
+.note-box::before {
+  content: '📝 ملاحظة';
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #e65100;
+  margin-bottom: 4px;
+}
+
+/* Numbered list */
+.numbered-list {
+  counter-reset: item;
+  list-style: none;
+  padding: 0;
+}
+
+.numbered-list li {
+  counter-increment: item;
+  margin-bottom: 8px;
+  padding-right: 30px;
+  position: relative;
+}
+
+.numbered-list li::before {
+  content: counter(item);
+  position: absolute;
+  right: 0;
+  top: 2px;
+  width: 22px;
+  height: 22px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+/* Multi-column flex for side-by-side items */
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 14px 0;
+}
+
+.flex-row > * {
+  flex: 1;
+  min-width: 220px;
+}
+</style>
+</head>
+<body>
+
+<!-- B&W Toggle Button -->
+<button class="bw-toggle" onclick="toggleBW()">🔄 وضع الأبيض والأسود</button>
+
+<script>
+function toggleBW() {
+  document.body.classList.toggle('bw-mode');
+}
+</script>
+
+<div class="main-container">
+
+<!-- ═══════════════════════ COVER HEADER ═══════════════════════ -->
+<div class="cover-header">
+  <div class="cover-label">تابع</div>
+  <div class="cover-title">شرح منظومة سلم الأصول<br>لكل من يرقى إِلى الأصول</div>
+  <div class="cover-lesson">الدرس الرابع</div>
+  <div class="cover-names">
+    الناظم: العلامة إبراهيم بن أبي القاسم بن مطير الحكمي المتوفى سنة 959 هـ<br>
+    الشارح: د. لبيب نجيب عبدالله<br>
+    المنظومة لصاحبها: العلامة ابن مطير
+  </div>
+</div>
+
+<!-- ═══════════════════════ OPENING ═══════════════════════ -->
+<div class="quran-box">
+  ﴿ إِن تَنصُرُوا اللَّهَ يَنصُرْكُمْ وَيُثَبِّتْ أَقْدَامَكُمْ ﴾
+</div>
+
+<p>لا إله إلا الله وحده لا شريك له، وأشهد أن سيدنا محمدًا صلَّى الله عليه وعلى آله وسلَّم عبده ورسوله. أمّا بعد:</p>
+
+<div class="section-divider"><span>❧</span></div>
+
+<!-- ═══════════════════════ SECTION 1: الإجمال والبيان ═══════════════════════ -->
+<h2>الإجمال والبيان</h2>
+
+<div class="matn-box">
+  <span class="poetry-line">ومُجملٌ محتاجٌ للبيان ◂ وذلك الإيضاحُ للمعاني</span>
+</div>
+
+<p>قال الناظم رحمه الله تعالى وهو العلامة إبراهيم بن أبي القاسم بن مطير الحكمي المتوفى في سنة 959 من الهجرة: <span class="highlight-gold">"ومجمل محتاج للبيان وذلك الإيضاح للمعاني"</span>.</p>
+
+<p>طبعًا الذي قبله قرأنا الأبيات لكن لم نقرأ الشرح لأننا ذكرنا الأمثلة من الدفتر.</p>
+
+<p>قال الشارح رحمه الله تعالى: <span class="highlight-green">"ومجمل وهو ما لم تتضح دلالته محتاج للبيان أي محتاج إلى البيان يسمى مجملاً، وذلك الإيضاح للمعاني المشتركة أي إخراجها من حيز الإشكال إلى حيز التجلي"</span>.</p>
+
+<div class="definition-card">
+  <span class="definition-term">المجمل:</span> ما كان مفتقرًا إلى بيان، وهو ما لم تتضح دلالته، محتاج إلى البيان. والإيضاح: إخراج المعاني المشتركة من حيز الإشكال إلى حيز التجلي.
+</div>
+
+<h3>أسباب الإجمال — الاشتراك</h3>
+
+<p>انتبه! <span class="highlight-gold">الاشتراك</span> معناه أن الكلمة تطلق على معنيين على التساوي، ليس أحد المعنيين أقوى من الآخر. أما إذا كانت الكلمة تطلق على معنيين أحدهما قوي والآخر ضعيف، فاستعمالها في المعنى الأقوى هذا يسمى <span class="highlight-teal">حقيقة</span> واستعمالها في المعنى الآخر يسمى <span class="highlight-teal">مجازًا</span>. لكن إذا كانت الكلمة لها معنيان متساويان فتسمى: <span class="highlight-gold">مشترك</span>.</p>
+
+<p>هذا الاشتراك قد يكون في الاسم، وقد يكون في الفعل، وقد يكون في الحرف.</p>
+
+<!-- Classification Tree: Types of Ishtirak -->
+<div class="tree-container">
+  <div class="tree-root">أسباب الإجمال — الاشتراك</div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="tree-branch-title">في الاسم</div>
+      <div class="tree-branch-desc">القرء: يطلق على الطهر والحيض إطلاقًا متساويًا</div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-branch-title">في الفعل</div>
+      <div class="tree-branch-desc">عسَّ: بمعنى دخل وبمعنى خرج</div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-branch-title">في الحرف</div>
+      <div class="tree-branch-desc">الواو: عطف أو استئناف</div>
+    </div>
+  </div>
+</div>
+
+<h3>مثال الاشتراك في الاسم — كلمة «القرء»</h3>
+
+<div class="quran-box">
+  ﴿ وَالْمُطَلَّقَاتُ يَتَرَبَّصْنَ بِأَنفُسِهِنَّ ثَلَاثَةَ قُرُوءٍ ﴾
+</div>
+
+<p>القرء جمع قَرْء، يطلق على الطهر ويطلق على الحيض، إذن هو لفظ مشترك يطلق على هذا المعنى وعلى هذا المعنى إطلاقًا متساويًا ليس إطلاقه على واحد منهما بأقوى من الآخر. هذا يسبب الإجمال.</p>
+
+<p>فعندما تقرأ في الآية <span class="highlight-gold">والمطلقات يتربصن بأنفسهن ثلاثة قرؤ</span> هل تحمله على الطهر ثلاثة أطهار كما حمله الإمام مالك والإمام الشافعي أو ثلاث حيض كما حمله الإمام أبو حنيفة والإمام أحمد؟ فتحتاج أنك تنظر في أدلة خارجية تحدد المراد.</p>
+
+<!-- Comparison Card: Qar' -->
+<div class="comparison-card">
+  <div class="comparison-side vs-left">
+    <h4>الإمام مالك والإمام الشافعي</h4>
+    <p>القرء = الطهر</p>
+    <p>ثلاثة أطهار</p>
+  </div>
+  <div class="comparison-side vs-right">
+    <h4>الإمام أبو حنيفة والإمام أحمد</h4>
+    <p>القرء = الحيض</p>
+    <p>ثلاث حيض</p>
+  </div>
+</div>
+
+<h3>مثال الاشتراك في الفعل — كلمة «عسعس»</h3>
+
+<div class="quran-box">
+  ﴿ وَاللَّيْلِ إِذَا عَسْعَسَ ﴾
+</div>
+
+<p>عسعس: بمعنى دخل، وعسعس: بمعنى خرج. إذن هذا مشترك، تُفسَّر الآية بالدخول أو بالخروج، اختلف المفسرون.</p>
+
+<h3>مثال الاشتراك في الحرف — الواو في آل عمران</h3>
+
+<div class="quran-box">
+  ﴿ وَمَا يَعْلَمُ تَأْوِيلَهُ إِلَّا اللَّهُ وَالرَّاسِخُونَ فِي الْعِلْمِ ﴾
+</div>
+
+<p>الواو هنا: هل هي واو عطف فيكون «والراسخون» معطوف على لفظ الجلالة فيكون المعنى أن الذين يعلمون تأويله الراسخون في العلم أيضًا؟ أو أن الواو واو استئناف فيكون الوقف لازمًا على لفظ الجلالة «وما يعلم تأويله إلا الله» كلام قديد، والراسخون في العلم يقولون؟ الواو هذا مشترك يطلق أو يراد به تارة الاستئناف ويراد به تارة العطف.</p>
+
+<h3>أسباب أخرى للإجمال</h3>
+
+<p>من أسباب الإجمال أيضًا: <span class="highlight-gold">الاختلاف في الإعراب</span> أو <span class="highlight-gold">الاختلاف في مرجع الصفة</span>.</p>
+
+<div class="quran-box">
+  ﴿ ذُو الْعَرْشِ الْمَجِيدُ ﴾ / ﴿ ذُو الْعَرْشِ الْمَجِيدِ ﴾
+</div>
+
+<p>إذا قرأت <span class="highlight-gold">المجيدُ</span> بالرفع فهو صفة لله عز وجل، وإذا قرأت <span class="highlight-gold">المجيدِ</span> بالكسر فهو صفة للعرش.</p>
+
+<p>وقد يكون سبب الإجمال الاختلاف في الإعراب نحو: <span class="highlight-gold">ذكاة الجنين ذكاة أمه</span> بالرفع والنصب.</p>
+
+<p>إذن هناك أسباب تجعل الإجمال موجودًا. فالإجمال ما كان يفتقر إلى بيان.</p>
+
+<h3>الآية قد تكون مجملة ومبينة في نفس الوقت</h3>
+
+<p>والآية الواحدة بارك الله فيكم قد تكون مجملة مبينة في نفس الوقت، قد تكون مجملة من زاوية مبينة من زاوية أخرى. أعطيكم مثال:</p>
+
+<div class="quran-box">
+  ﴿ يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ ﴾
+</div>
+
+<p>هذه الآية في سورة البقرة. هذه الآية مبينة من جهة إيجاب الصيام علينا، «كتب عليكم» واضح في الإيجاب. لكن تحديد الصيام: متى يبدأ؟ متى ينتهي؟ يمتنع الصائم عن ماذا؟ لم تُحدَّد. إذن من هذه الناحية من ناحية بيان حقيقة الصيام يوجد إجمال. لكن من ناحية أن الصوم واضحة مبينة.</p>
+
+<div class="quran-box">
+  ﴿ وَآتُوا حَقَّهُ يَوْمَ حَصَادِهِ ﴾
+</div>
+
+<p>ومثاله قول الله سبحانه وتعالى: وآتوا حقه يوم حصاده. من جهة أن في هذا أمرًا بإخراج الزكاة في الزروع هذا واضح، هذا مبين. لكن من جهة أن التحديد لم يُبيَّن كم النصاب وكم المقدار الذي يجب إخراجه، واضح هذا يبقى هنا إجمال. فنحتاج إلى بيان.</p>
+
+<div class="summary-box">
+  الآية الواحدة قد تكون مجملة ومبينة في نفس الوقت — مجملة من زاوية ومبينة من زاوية أخرى.
+</div>
+
+<h3>مثال الإجمال — القرء في المذهب الشافعي</h3>
+
+<p>قال الشارح رحمه الله: <span class="highlight-green">"مثاله والمطلقات يتربصن بأنفسهن ثلاثة قروء فالقرء مجمل لاشتراكه بين الطهر والحيض. وعندنا أي في المذهب الشافعي هو الطهر المحتوش بين دمين."</span></p>
+
+<div class="definition-card">
+  <span class="definition-term">القرء عند الشافعية:</span> هو الطهر المحتوش بين دمين. المحتوش = المحاط بدمين، قبله دم وبعده دم.
+</div>
+
+<p>فأمّا إذا كان الطهر ليس قبله دم وبعده دم فهذا ليس قرءًا.</p>
+
+<div class="note-box">
+  <strong>مثال:</strong> لو أن الرجل طلَّق زوجته التي لم تحض من قبل (لا تزال صغيرة)، وقد أخذنا من قبل أن سنة إمكان الحيض تسع سنوات قمرية تقريبًا. لو أن الرجل طلق زوجته التي لم تحض من قبل، في تلك الفترة عندما طلقها كانت طاهرًا، بمعنى أنه لم يزل منها حيض، ثم نزل الحيض. هل هذا الطهر الذي وقع فيه الحيض يحسب في العدة أو لا يحسب؟ <strong>لا يحسب.</strong> لماذا لا يحسب؟ لأنه غير محتوش بين دمين.
+</div>
+
+<p>إذا أن حاضت ثم تطهرت هذا القرء الأول، ثم حاضت ثم تطهرت هذا الثاني، ثم حاضت ثم تطهرت هذا الثالث. فإذا انتهت من هذا فقد انتهت عدتها.</p>
+
+<div class="section-divider"><span>❧</span></div>
+
+<!-- ═══════════════════════ SECTION 2: النص والظاهر والمؤول ═══════════════════════ -->
+<h2>النص والظاهر والمؤول</h2>
+
+<div class="matn-box">
+  <span class="poetry-line">والنصُّ ما لا ممكن تأويلُه ◂ وقيل ما تأويلُه تنزيلُه</span>
+  <span class="poetry-line">والظاهرُ الذي لأمرينِ احتملْ ◂ بعضُهما أظهرُ فافهم ذا عمَلْ</span>
+  <span class="poetry-line">وإن يكونُ على الخفيِّ يُحملْ ◂ لما يدلُّ فهو المؤوَّلْ</span>
+</div>
+
+<p>هذه ثلاثة مصطلحات: <span class="highlight-gold">النص</span> و<span class="highlight-gold">الظاهر</span> و<span class="highlight-gold">المؤول</span>.</p>
+
+<!-- Classification: Nass / Zahir / Mu'awwal -->
+<div class="tree-container">
+  <div class="tree-root">أقسام الدلالة اللفظية</div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="tree-branch-title">النص</div>
+      <div class="tree-branch-desc">ما لا يحتمل إلا معنى واحدًا</div>
+      <div class="tree-sub-branches">
+        <div class="tree-sub-branch">لغويًا: لا يحتمل غير معنى<br>كزيد في: رأيت زيدًا</div>
+        <div class="tree-sub-branch">عرفًا: كل لفظ لم يحتمل<br>إلا معنى واحد</div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-branch-title">الظاهر</div>
+      <div class="tree-branch-desc">ما احتمل معنيين أحدهما أظهر</div>
+      <div class="tree-sub-branches">
+        <div class="tree-sub-branch">يطلق على اللفظ<br>الذي يحتمل معنيين</div>
+        <div class="tree-sub-branch">يطلق على المعنى الراجح<br>من المعنيين</div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-branch-title">المؤول</div>
+      <div class="tree-branch-desc">الاحتمال المرجوح إذا دلت القرينة على أنه المراد</div>
+    </div>
+  </div>
+</div>
+
+<h3>أولًا: النص</h3>
+
+<div class="definition-card">
+  <span class="definition-term">النص لغةً:</span> ما ليس له إلا معنى واحد، كزيد في قولهم «رأيت زيدًا».
+</div>
+
+<div class="definition-card">
+  <span class="definition-term">النص عرفًا (عند الأصوليين):</span> كل لفظ وارد لم يحتمل إلا لمعنى واحد فقط.
+</div>
+
+<p>وهذا يمثّل له علماء الأصول بالأعداد، فقوله تعالى:</p>
+
+<div class="quran-box">
+  ﴿ فَصِيَامُ ثَلَاثَةِ أَيَّامٍ فِي الْحَجِّ وَسَبْعَةٍ إِذَا رَجَعْتُمْ تِلْكَ عَشَرَةٌ كَامِلَةٌ ﴾
+</div>
+
+<p>هذا نص لا يحتمل أكثر من عشرة ولا أقل من عشرة.</p>
+
+<div class="definition-card">
+  <span class="definition-term">وقيل:</span> النص ما تأويله تنزيله، بمعنى أنك عندما تسمع به لا تحتاج إلى شرح وإضاحة، مباشرة تبادر بالعمل به.
+</div>
+
+<p>نحو: <span class="highlight-gold">فصيام ثلاثة أيام</span> فإنه بمجرد ما نزل فُهم معناه، وكذلك في كفارة اليمين فالصيام ثلاثة أيام تعرف أنها ثلاثة أيام لا أقل ولا أكثر.</p>
+
+<p>وأشار إلى هذا الشارح رحمه الله والعلامة سعيد الزبيدي رحمه الله فقال: <span class="highlight-green">"والنص ما لا ممكن تأويله أي شيء لا يمكن تأويله أي لا يحتمل غير معنى كزيد في قولهم رأيت زيدًا"</span>.</p>
+
+<div class="note-box">
+  <strong>تنبيه:</strong> بعضهم قال إن «رأيت زيدًا» ليس نصًّا لأن «رأيته» تحتمل معنى آخر وهو ضربته برئته (الرئة)، فإذا ضربه هنا «رأيت زيدًا» أي ضربته برئته. قال: يحتمل. لكن هذا بعيد جدًّا.
+</div>
+
+<h3>ثانيًا: الظاهر</h3>
+
+<p>الظاهر يطلق على معنيين: تارة يطلق على اللفظ، وتارة يطلق على المعنى الراجح.</p>
+
+<ul class="numbered-list">
+  <li><strong>اللفظ:</strong> الذي يحتمل معنيين مثل كلمة «أسد» تحتمل معنيين: الحيوان المفترس والرجل الشجاع، نقول هذا اللفظ ظاهر لأنه يحتمل معنيين.</li>
+  <li><strong>المعنى الراجح:</strong> فنقول إن معنى كلمة الأسد حيوان مفترس، أو إن تفسير الأسد بالحيوان المفترس هذا هو المعنى الظاهر.</li>
+</ul>
+
+<p>إذن الظاهر قد يطلق على اللفظ وقد يطلق على المعنى الراجح من معنيين أو أكثر.</p>
+
+<p>قال الشارح رحمه الله: <span class="highlight-green">"والظاهر هو الذي لأمرين احتمل بعضهما أي أحدهما أظهر من الآخر كالأسد في قولك رأيت أسدًا فإنه يحتمل أنك أردت رجلًا شجاعًا ويحتمل أنك أردت الحيوان المعروف وهو في الثاني أظهر"</span>.</p>
+
+<div class="callout">
+  لكن لو قلت: «رأيت أسدًا يصول ويجول في المعركة» — القرينة هنا تصرف المعنى إلى الرجل الشجاع، وهذا هو الظاهر في هذا السياق.
+</div>
+
+<h3>ثالثًا: المؤول</h3>
+
+<div class="definition-card">
+  <span class="definition-term">المؤول:</span> الاحتمال المرجوح إذا دلت القرينة على أنه هو المراد فيسمى مؤولًا بالدليل.
+</div>
+
+<p>لكن ما الذي يلك أن تحمل المعنى على المرجوح؟ وجود القرينة. وهذا هو المؤول.</p>
+
+<div class="quran-box">
+  ﴿ وَالسَّمَاءَ بَنَيْنَاهَا بِأَيْدٍ ﴾
+</div>
+
+<p>قد تقدم أن هذه الآية ليست من آيات الصفة. قال: ظاهره جمع يد الجارحة، ودل الدليل القاطع على أن ذلك محال على الله تعالى، فحُمل على القدرة تنزيهًا له تعالى عن ظاهرها.</p>
+
+<div class="summary-box">
+  <strong>النص:</strong> لا يحتمل إلا معنى واحد — <strong>الظاهر:</strong> يحتمل معنيين أحدهما أظهر — <strong>المؤول:</strong> حمل اللفظ على الاحتمال المرجوح لدليل قريني صارف.
+</div>
+
+<div class="section-divider"><span>❧</span></div>
+
+<!-- ═══════════════════════ SECTION 3: النسخ ═══════════════════════ -->
+<h2>النسخ</h2>
+
+<div class="matn-box">
+  <span class="poetry-line">ونسخُ الآيةِ بيانُ انتهاءِ ◂ تَعَبُّدٍ بقراءتِها أو الحُكمِ</span>
+  <span class="poetry-line">المستفادِ منها أو لهما معًا</span>
+</div>
+
+<p>أشار بهذا رحمه الله إلى أن النسخ ينقسم إلى ثلاثة أقسام: إما نسخ تلاوة فقط، وإما نسخ حكم فقط، وإما نسخ لهما معًا أي نسخ للحكم ونسخ للتلاوة.</p>
+
+<!-- Classification Tree: Types of Naskh -->
+<div class="tree-container">
+  <div class="tree-root">أقسام النسخ (من حيث التلاوة والحكم)</div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="tree-branch-title">نسخ التلاوة فقط</div>
+      <div class="tree-branch-desc">مع بقاء الحكم</div>
+      <div class="tree-sub-branches">
+        <div class="tree-sub-branch">الشيخ والشيخة إذا زنيا<br>فارجموهما البتة</div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-branch-title">نسخ الحكم فقط</div>
+      <div class="tree-branch-desc">مع بقاء التلاوة</div>
+      <div class="tree-sub-branches">
+        <div class="tree-sub-branch">وصية لأزواجهم متاعًا<br>إلى الحول غير إخراج</div>
+        <div class="tree-sub-branch">وعلى الذين يطيقونه<br>فدية طعام مسكين</div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-branch-title">نسخ التلاوة والحكم معًا</div>
+      <div class="tree-branch-desc">نسخ التحريم بعشر رضاعات</div>
+      <div class="tree-sub-branches">
+        <div class="tree-sub-branch">العشر: نسخ حكم وتلاوة</div>
+        <div class="tree-sub-branch">الخمس: نسخ تلاوة دون حكم</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3>القسم الأول: نسخ التلاوة فقط وبقاء الحكم</h3>
+
+<div class="evidence-box">
+  <strong>مثاله:</strong> «الشيخ والشيخة إذا زنيا فارجموهما البتة» — هذه كانت آية من سورة الأحزاب، نُسخت تلاوتها وبقي الحكم.
+</div>
+
+<h3>القسم الثاني: نسخ الحكم وبقاء التلاوة</h3>
+
+<div class="quran-box">
+  ﴿ وَالَّذِينَ يُتَوَفَّوْنَ مِنكُمْ وَيَذَرُونَ أَزْوَاجًا وَصِيَّةً لِّأَزْوَاجِهِم مَّتَاعًا إِلَى الْحَوْلِ غَيْرَ إِخْرَاجٍ ﴾
+</div>
+
+<p>ومثاله أيضًا قوله تعالى:</p>
+
+<div class="quran-box">
+  ﴿ وَعَلَى الَّذِينَ يُطِيقُونَهُ فِدْيَةٌ طَعَامُ مِسْكِينٍ فَمَن تَطَوَّعَ خَيْرًا فَهُوَ خَيْرٌ لَّهُ ﴾
+</div>
+
+<p>على قول لجماعة من المفسرين والفقهاء.</p>
+
+<h3>القسم الثالث: نسخ الحكم والتلاوة معًا</h3>
+
+<p>نسخ التحريم بعشر رضاعات، فإنه كان فيما أُنزل من القرآن أن عشر رضاعات معلومات يُحرِّمن، فنسخنّ بخمس، ومات النبي صلَّى الله عليه وسلم وهنَّ فيما يُتلى من القرآن كما قالت أم المؤمنين عائشة رضي الله عنها.</p>
+
+<div class="hadith-box">
+  قالت أم المؤمنين عائشة رضي الله عنها: «كان فيما أُنزل من القرآن عشر رضاعات معلومات يحرمن ثم نسخن بخمس معلومات فتوفِّي رسول الله صلَّى الله عليه وسلم وهنَّ فيما يُتلى من القرآن» رواه مسلم.
+</div>
+
+<p>فنسخ العشر: نسخ حكم وتلاوة، ونسخ الخمس: نسخ تلاوة دون حكم.</p>
+
+<p>ومعنى قول أم المؤمنين عائشة رضي الله عنها «ومات رسول الله صلَّى الله عليه وسلم وهن فيما يتلى من القرآن» أي أن نسخهن كان قريبًا من وفاته صلَّى الله عليه وسلم حتى أن خبر النسخ لم يبلغ بعض الصحابة فكان يقرأها فيما يقرأ من القرآن.</p>
+
+<h3>تعريف النسخ</h3>
+
+<div class="matn-box">
+  <span class="poetry-line">النسخُ رفعُ الحُكمِ بالخطابِ ◂ إذا تراخى يا أولي الألبابِ</span>
+</div>
+
+<p>قال الشارح رحمه الله تعالى: <span class="highlight-green">"النسخ هو رفع الحكم"</span> — هذا يخرج رفع البراءة الأصلية التي هي عدم التكليف عدم الحكم، فهذا لا يسمى نسخًا. فالشيء الذي ليس له حكم ثم نزل حكم له، واضح هذا لا يسمى نسخًا.</p>
+
+<div class="definition-card">
+  <span class="definition-term">النسخ:</span> رفع الحكم خارج البراءة الأصلية (أي عدم التكليف بشيء).
+</div>
+
+<p>قال: <span class="highlight-green">"والمخرج بغاية وغيرها من التخصيصات"</span> — كذلك يقول لك إن الحكم الذي له غاية محددة بغاية واضح فإن رفعه لا يسمى نسخًا لأن له غاية انتهت هذه الغاية. إنما يسمى رفع الحكم نسخًا إذا نزل الحكم وليس له غاية.</p>
+
+<div class="quran-box">
+  ﴿ وَاللَّاتِي يَأْتِينَ الْفَاحِشَةَ مِن نِّسَائِكُمْ فَأَمْسِكُوهُنَّ فِي الْبُيُوتِ حَتَّى يَتَوَفَّاهُنَّ الْمَوْتُ أَوْ يَجْعَلَ اللَّهُ لَهُنَّ سَبِيلًا ﴾
+</div>
+
+<p>في الحديث: «قد جعل الله لهن سبيلًا». البكر بالبكر جلد مئة وتغريب عام. إذن هذا حكم إلى غاية محددة إلى أن يجعل الله لهن سبيل — هذا لا يدخل في باب النسخ.</p>
+
+<p>قال: <span class="highlight-green">"وغيرها من التخصيصات بالخطاب خارق به المتصل بالخطاب"</span> كالتخصيصات المتصلة التي مرت معنا في درس أمس: الاستثناء والصفة والشرط. قال: <span class="highlight-green">"من صفة أو شرط أو استثناء لأن هذا يكون حينئذ تخصيصًا وليس نسخًا كما علم مما سبق"</span>.</p>
+
+<p>وكذلك رفع الحكم بالموت والجنون ونحوهما كالإغماء فإن هذا ليس نسخًا.</p>
+
+<h3>النسخ ببدل وبغير بدل</h3>
+
+<div class="matn-box">
+  <span class="poetry-line">بغيرِ إبدالٍ وبالإبدالِ ◂ كنسخِ الاستقبالِ باستقبالِ</span>
+  <span class="poetry-line">وبدلُ أغلظَ كالتخييرِ بين○ صيامِ الشهرِ والتكفيرِ بصومِهِ</span>
+  <span class="poetry-line">وبدلُ خفيفٍ كآيةِ العِدَّةِ ◂ والتخفيفِ</span>
+</div>
+
+<p>ذكر في هذه الأبيات الثلاثة انقسام النسخ باعتبار كونه ببدل أو إلى بدل أو إلى غير بدل. فقال إن النسخ ينقسم لقسمين: إما نسخ إلى غير بدل، وإما نسخ إلى بدل.</p>
+
+<!-- Flow Chart: Naskh with/without Badal -->
+<div class="flow-chart">
+  <div class="flow-step">النسخ</div>
+  <div class="flow-arrow">⬇</div>
+  <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
+    <div class="flow-step" style="background:var(--light-gold); border-color:var(--gold);">بغير بدل</div>
+    <div class="flow-step" style="background:var(--light-green); border-color:var(--primary);">ببدل</div>
+  </div>
+  <div class="flow-arrow">⬇</div>
+  <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
+    <div class="flow-step" style="opacity:0.5;">—</div>
+    <div class="flow-step" style="background:var(--light-red); border-color:#c0392b;">بدل أشدّ</div>
+    <div class="flow-step" style="background:var(--light-teal); border-color:var(--teal);">بدل مساوٍ</div>
+    <div class="flow-step" style="background:var(--light-blue); border-color:#2980b9;">بدل أخفّ</div>
+  </div>
+</div>
+
+<h3>١. النسخ إلى غير بدل</h3>
+
+<p>مثال النسخ إلى غير بدل: نسخ وجوب التصدق بين يدي مناجاة النبي صلَّى الله عليه وسلم المذكور في سورة المجادلة، فإنه نُسخ إلى غير بدل.</p>
+
+<h3>٢. النسخ إلى بدل أشدّ</h3>
+
+<p>أن المسلم كان مخيَّرًا في بداية الأمر بين الصيام وبين الإطعام، ثم إن الله عز وجل نسخ هذا التخيير وألزم بالصيام فقال سبحانه وتعالى:</p>
+
+<div class="quran-box">
+  ﴿ فَمَن شَهِدَ مِنكُمُ الشَّهْرَ فَلْيَصُمْهُ ﴾
+</div>
+
+<p>هذا نسخ إلى بدل أشدّ.</p>
+
+<h3>٣. النسخ إلى بدل مساوٍ</h3>
+
+<p>كنسخ استقبال بيت المقدس بوجوب استقبال الكعبة في الصلاة.</p>
+
+<div class="quran-box">
+  ﴿ فَوَلِّ وَجْهَكَ شَطْرَ الْمَسْجِدِ الْحَرَامِ ﴾
+</div>
+
+<h3>٤. النسخ إلى بدل أخفّ</h3>
+
+<p>ذكر له الناظم رحمه الله تعالى مثالين:</p>
+
+<p><strong>المثال الأول:</strong> آية العدة — فالمرأة التي مات زوجها كانت عدتها عامًا كاملًا، نُسخت بأربعة أشهر وعشرة.</p>
+
+<div class="quran-box">
+  ﴿ وَالَّذِينَ يُتَوَفَّوْنَ مِنكُمْ وَيَذَرُونَ أَزْوَاجًا يَتَرَبَّصْنَ بِأَنفُسِهِنَّ أَرْبَعَةَ أَشْهُرٍ وَعَشْرًا ﴾
+</div>
+
+<p>نُسخت بقوله تعالى: يتربصن بأنفسهن أربعة أشهر وعشرة. وآية العدة المنسوخة:</p>
+
+<div class="quran-box">
+  ﴿ وَصِيَّةً لِّأَزْوَاجِهِم مَّتَاعًا إِلَى الْحَوْلِ غَيْرَ إِخْرَاجٍ ﴾
+</div>
+
+<div class="benefit-box">
+  <strong>فائدة البلقيني:</strong> هذا هو الموضع الوحيد الذي جاء الناسخ فيه في القرآن مقدمًا في الذكر على المنسوخ. الآية الناسخة: «والذين يتوفون منكم ويذرون أزواجًا يتربصن بأنفسهن أربعة أشهر وعشرة» في الذكر مقدمة على الآية المنسوخة: «والذين يتوفون منكم ويذرون أزواجًا وصية لأزواجهم متاعًا إلى الحول غير إخراج».
+</div>
+
+<p>وإن كان هناك من تعقّبه وقال وجدت لهذا نظائر. يعني على سبيل المثال من العلماء من يقول إن الآية في سورة الحشر <span class="highlight-gold">ما أفاء الله على رسوله من أهل القرى فلله وللرسول</span> الآية منسوخة بآية الأنفال وإن كان فيه نزاع لكن فقط نذكر أمثلها.</p>
+
+<p>وقالوا أيضًا إن قول الله سبحانه وتعالى في سورة الأعراف:</p>
+
+<div class="quran-box">
+  ﴿ خُذِ الْعَفْوَ وَأْمُرْ بِالْعُرْفِ وَأَعْرِضْ عَنِ الْجَاهِلِينَ ﴾
+</div>
+
+<p>الأمر بالإعراض عن الجاهلين منسوخ بآية السيف. كذلك في البقرة في أكثر من آية الحث على قتال العفو أيضًا في التوبة.</p>
+
+<div class="quran-box">
+  ﴿ فَاقْتُلُوا الْمُشْرِكِينَ ﴾
+</div>
+
+<p>وقال تعالى:</p>
+
+<div class="quran-box">
+  ﴿ أُذِنَ لِلَّذِينَ يُقَاتَلُونَ بِأَنَّهُمْ ظُلِمُوا وَإِنَّ اللَّهَ عَلَى نَصْرِهِمْ لَقَدِيرٌ ﴾
+</div>
+
+<p>هذه في سورة التوبة، هناك آية قتال للمشركين في سورة البقرة، قالوا هذه منسوخة بتلك. فتقدُّم الناسخ على المنسوخ.</p>
+
+<div class="note-box">
+  <strong>آية الأعراف:</strong> تكاد تكون الآية الوحيدة التي تفردت بأمر أن أولها قيل فيه منسوخ وآخرها قيل فيه منسوخ وأواسطها محكم: «خذ العفو وأمر بالعرف وأعرض عن الجاهلين» — الإعراض عن الجاهلين قالوا منسوخ بآية السيف، «خذ العفو» منسوخ بآيات وجوب الزكاة (أن العفو: الزائد عما يحتاجون إليه، هذا كان قبل أن تفرض الزكاة فلما فرضت الزكاة نُسخ هذا). فقالوا إن أولها منسوخ وإن آخرها منسوخ وإن أوسطها «وأمر بالعرف» محكم. هذا لا يكاد يوجد في آية أخرى. نعم يوجد في بعض الآيات أن تكون الآية جزء منها محكم وجزء منها منسوخ، منها على سبيل المثال في آية البقرة: «وعلى الذين يطيقونه فدية طعام مسكين» هذا منسوخ وما قبله محكم.
+</div>
+
+<p><strong>المثال الثاني:</strong> للتخفيف — التخفيف في المصابرة الثابت بقوله تعالى:</p>
+
+<div class="quran-box">
+  ﴿ إِن يَكُن مِّنكُمْ عِشْرُونَ صَابِرُونَ يَغْلِبُوا مِائَتَيْنِ ﴾
+</div>
+
+<p>نُسخت بقوله تعالى:</p>
+
+<div class="quran-box">
+  ﴿ الْآنَ خَفَّفَ اللَّهُ عَنكُمْ وَعَلِمَ أَنَّ فِيكُمْ ضَعْفًا ﴾
+</div>
+
+<p>قال رحمه الله تعالى: <span class="highlight-green">"وكل ما نُسخ إلى الأخف فهو أسهل في العمل ففيه امتنان من الله سبحانه وتعالى على عباده، وما نُسخ إلى الأغلظ فيه تكثير للأجر، فهذا معنى الخيرية في قوله تعالى:"</span></p>
+
+<div class="quran-box">
+  ﴿ مَا نَنسَخْ مِنْ آيَةٍ أَوْ نُنسِهَا نَأْتِ بِخَيْرٍ مِّنْهَا أَوْ مِثْلِهَا ﴾
+</div>
+
+<!-- Table: Naskh Types Summary -->
+<table class="usul-table">
+  <thead>
+    <tr>
+      <th>نوع النسخ</th>
+      <th>المثال</th>
+      <th>الآية / الدليل</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>بغير بدل</td>
+      <td>نسخ وجوب التصدق عند المناجاة</td>
+      <td>سورة المجادلة</td>
+    </tr>
+    <tr>
+      <td>إلى بدل أشدّ</td>
+      <td>التخيير بين الصيام والفدية → تعيين الصيام</td>
+      <td>فمن شهد منكم الشهر فليصمه</td>
+    </tr>
+    <tr>
+      <td>إلى بدل مساوٍ</td>
+      <td>استقبال بيت المقدس → استقبال الكعبة</td>
+      <td>فولِّ وجهك شطر المسجد الحرام</td>
+    </tr>
+    <tr>
+      <td>إلى بدل أخفّ (العدة)</td>
+      <td>العدة سنة → أربعة أشهر وعشرة</td>
+      <td>يتربصن بأنفسهن أربعة أشهر وعشرة</td>
+    </tr>
+    <tr>
+      <td>إلى بدل أخفّ (المصابرة)</td>
+      <td>عشرون يغلبوا مئتين → تخفيف</td>
+      <td>الآن خفّف الله عنكم</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>تنسخ السنة بالكتاب وبالسنة</h3>
+
+<div class="matn-box">
+  <span class="poetry-line">وتُنسخُ السُّنَّةُ بالكتابِ ◂ وسُنَّةٌ كهوى بالارتيابِ</span>
+</div>
+
+<p>يقول لك: إن السنة تنسخ بالقرآن الكريم، وإن السنة تنسخ بالسنة.</p>
+
+<p>قال الشارح رحمه الله: <span class="highlight-green">"وتنسخ السنة بالكتاب كنسخ استقبال بيت المقدس الثابت بالسنة الفعلية بالكتاب بقوله فولِّ وجهك شطر المسجد الحرام"</span>.</p>
+
+<p><span class="highlight-green">"وسنة أي وتنسخ السنة بالسنة كقوله صلَّى الله عليه وسلم: كنت نهيتكم عن زيارة القبور فزوروها"</span> رواه مسلم.</p>
+
+<div class="hadith-box">
+  قال النبي صلَّى الله عليه وسلم: «كنت نهيتكم عن زيارة القبور فزوروها» رواه مسلم.
+</div>
+
+<p><span class="highlight-green">"كهوى أي كنسخ الكتاب بالكتاب وبالسنة أيضًا كآية الوصية بقوله صلَّى الله عليه وسلم: لا وصية لوالد"</span>.</p>
+
+<p>آية الوصية: <span class="highlight-gold">كُتِبَ عَلَيْكُمْ إِذَا حَضَرَ أَحَدَكُمُ الْمَوْتُ إِن تَرَكَ خَيْرًا الْوَصِيَّةُ لِلْوَالِدَيْنِ وَالْأَقْرَبِينَ</span> كان هذا في بداية الأمر يجب على من مات قبل أن يموت إذا ترك مالًا أن يكتب الوصية للوالدين والأقربين، نُسخ ذلك بقول النبي صلَّى الله عليه وسلم: <span class="highlight-gold">لا وصية لوالد</span>.</p>
+
+<div class="section-divider"><span>❧</span></div>
+
+<!-- ═══════════════════════ SECTION 4: مباحث السنة — أفعال النبي ═══════════════════════ -->
+<h2>مباحث السنة — أفعال النبي صلَّى الله عليه وسلَّم</h2>
+
+<p>المراد بالسنة: أقواله وأفعاله وتقريره صلَّى الله عليه وسلَّم. وقد ذكر في النظم على الترتيب: ذكر الأقوال أولًا ثم الأفعال ثم التقريرات.</p>
+
+<div class="matn-box">
+  <span class="poetry-line">محمَّدٌ صلَّى الله عليه وسلَّم حُجَّةٌ بلا نَزَلْ ◂ لأنه المبيِّنُ المَحَجَّةْ</span>
+  <span class="poetry-line">وَاحْمِلْ عَلَى اخْتِصَاصِهِ بِمَا فَعَلْ ◂ إِنْ كَانَ فِي الْقُرْبَةِ وَالدَّلِيلُ دَلَّ</span>
+  <span class="poetry-line">إِنِ انْتَفَى فَاحْمِلْ عَلَى أَقْوَالِهِ ◂ ثالثُها يُوقَفُ لِلْإِشْكَالِ</span>
+  <span class="poetry-line">أو إِنْ تَفَتِ القُرْبَةُ والدَّليلُ ◂ فهوَ على إباحةٍ محمولُ</span>
+  <span class="poetry-line">أو يُوجَدُ الدَّليلُ دونَ القُرْبَةِ ◂ فَخَصِّصْ بهِ كَمِثْلِ ضدِّ العُزْبَةِ</span>
+</div>
+
+<p>المحجة: أي الطريق إلى الله تعالى.</p>
+
+<p>نستطيع أن نقسم أفعال النبي صلَّى الله عليه وسلَّم إلى قسمين كبيرين: فنقول إن أفعال النبي صلَّى الله عليه وسلَّم إما أن تكون خاصة به وإما أنها لا تكون خاصة به.</p>
+
+<!-- Classification Tree: Af'al al-Nabi -->
+<div class="tree-container">
+  <div class="tree-root">أفعال النبي صلَّى الله عليه وسلَّم</div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="tree-branch-title">خاصة به صلَّى الله عليه وسلَّم</div>
+      <div class="tree-branch-desc">مع وجود الدليل على الاختصاص</div>
+      <div class="tree-sub-branches">
+        <div class="tree-sub-branch">قربة ظاهرة (تعبد)<br>→ واجبة عليه، لا يشرع التأسي</div>
+        <div class="tree-sub-branch">غير قربة ظاهرة<br>→ مباحة له، لا يشرع التأسي</div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-branch-title">ليست خاصة به</div>
+      <div class="tree-branch-desc">لم يقم دليل على الاختصاص</div>
+      <div class="tree-sub-branches">
+        <div class="tree-sub-branch">قربة ظاهرة<br>→ أقوال: وجوب/ندب/وقف</div>
+        <div class="tree-sub-branch">عادة ظاهرة<br>→ محل اقتداء</div>
+        <div class="tree-sub-branch">مشتبهة (عادة/تعبد)<br>→ خلاف بين العلماء</div>
+        <div class="tree-sub-branch">غير قربة ولا دليل<br>→ مباحة</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3>أفعال النبي الخاصة به — يظهر فيها جانب التعبد</h3>
+
+<p>أفعال النبي صلَّى الله عليه وسلَّم الخاصة به التي يظهر فيها جانب التعبد، هذه الأصل فيها <span class="highlight-gold">واجبة عليه صلَّى الله عليه وسلَّم</span> ولا يشرع التأسي، يعني ليست محلًّا للاقتداء من حيث الوجوب، لا من حيث مشروعية الأصل نعم.</p>
+
+<p>مثل: وجوب الأضحية، والتهجد عليه صلَّى الله عليه وسلَّم لزيادة قربه من الله.</p>
+
+<p>قال الشارح رحمه الله: <span class="highlight-green">"واحمل على اختصاصه بما فعل إن كان ذلك في القربة والدليل دلَّ على الاختصاص به كوجوب صلاة الضحى والأضحى"</span> — يقصد بالأضحى الأضحية، وجوب الأضحية والتهجد عليه صلَّى الله عليه وسلَّم.</p>
+
+<div class="benefit-box">
+  <strong>عادة الفقهاء:</strong> أنهم يتكلمون على خصائص النبي صلَّى الله عليه وسلَّم في أول كتاب النكاح لكثرة ما اختص به النبي عليه الصلاة والسلام في هذا الباب. كما أن عادة الفقهاء أنهم يتكلمون على فروض الكفايات في أول كتاب الجهاد، لأن الجهاد يكون في الغالب من فروض الكفاية. على التقسيم في الجهاد: قد يكون فرض عين وقد يكون فرض كفاية، جهاد دفع وجهاد طلب.
+</div>
+
+<h3>أفعال النبي الخاصة به — لا يظهر فيها جانب التعبد</h3>
+
+<p>ما لا يظهر فيه جانب التعبد هذا مباحة له صلَّى الله عليه وسلَّم وأيضًا ليست محلًّا للاقتداء. مثل زواجه صلَّى الله عليه وسلَّم بأكثر من أربع نساء، ومثل زواجه بلا ولي.</p>
+
+<p>قال الشارح: <span class="highlight-green">"أو يوجد الدليل على اختصاصه به صلَّى الله عليه وسلَّم دون القربة فلم توجد فيه يعني شيء خاص بالنبي صلَّى الله عليه وسلَّم لكن لا يظهر فيه جانب التعبد جانب القربة. فخصّص به كمثل ضد العزبة وهو النكاح كزيادته فيه على أربع فهو مخصوص به وليس لنا الاقتداء به فيه."</span></p>
+
+<h3>أفعال النبي ليس خاصة به — قربة ظاهرة</h3>
+
+<p>في الحالة الثالثة إذا لم يكن خاصًّا بالنبي صلَّى الله عليه وسلَّم وهو عبادة، هل هذا يُحمل على كونه واجبًا أو على كونه مستحبًّا أو نتوقف؟ هذه الأقوال فيما لم يكن خاصًّا بالنبي صلَّى الله عليه وسلَّم وظهر فيه جانب التعبد: هل التأسي بهذا الفعل على سبيل الوجوب أو على سبيل الاستحباب أو محل وقف؟</p>
+
+<!-- Comparison Card: Three Views on Non-Specific Acts of Worship -->
+<div class="comparison-card">
+  <div class="comparison-side vs-left">
+    <h4>القول الأول: الوجوب</h4>
+    <p>في حقه وحقنا احتياطًا</p>
+  </div>
+  <div class="comparison-side vs-right">
+    <h4>القول الثاني: الندب</h4>
+    <p>لأنه القدر المتيقن، والأصل براءة الذمة من الواجبات</p>
+  </div>
+</div>
+
+<div class="ruling-card mustahabb" style="max-width:600px; margin: 10px auto;">
+  <span class="ruling-label">القول الثالث</span>
+  <p><strong>الوقف</strong> — يوقف عنه للإشكال الحاصل بسبب ذلك، حتى يقوم عليه الدليل.</p>
+</div>
+
+<h3>أفعال النبي ليس خاصة به — عادة ظاهرة</h3>
+
+<p>ما فعله النبي صلَّى الله عليه وسلَّم على سبيل العادة مثل النوم والأكل والشرب لا يظهر في أصله محل للتأسي ولا اقتداء. ما فعله النبي صلَّى الله عليه وسلَّم على سبيل العبادة هذا محل الاقتداء، كاستعمال السواك عند دخول البيت.</p>
+
+<p>قال الشارح: <span class="highlight-green">"أو تنتفي القربة إن لم يكن فعله قربة والدليل أي وانتفى الدليل أيضًا على الاختصاص به فهو على إباحة محمول لقوله تعالى: لقد كان لكم في رسول الله أسوة حسنة"</span> أي خصلة بمعنى قدوة.</p>
+
+<h3>أفعال النبي مشتبهة — عادة أم تعبُّد؟</h3>
+
+<p>مشتبه في كون النبي صلَّى الله عليه وسلَّم فعله عادة أو تعبدًا، هذا اختلف فيه العلماء: منهم من غلب فيه جانب العادة ومنهم من غلب فيه جانب العبادة. وبناء على هذا اختلفوا في مسائل.</p>
+
+<div class="evidence-box">
+  <strong>مثال:</strong> جلوس النبي صلَّى الله عليه وسلَّم للاستراحة في صلاته — جلسة الراحة في كل ركعة تقوم عنها. أكثر من روى صفة صلاة النبي صلَّى الله عليه وسلَّم لم ينقل جلوس النبي صلَّى الله عليه وسلَّم للاستراحة وإنما نقلها أبو حميد الساعدي، وكان في وفد زار النبي صلَّى الله عليه وسلَّم في آخر حياته، نقل أن النبي صلَّى الله عليه وسلَّم جلس للاستراحة في صلاته. ووُجدت في حديث آخر أيضًا من نقل جلسة النبي صلَّى الله عليه وسلَّم للاستراحة.
+</div>
+
+<!-- Comparison Card: Jalsat al-Istiraha -->
+<div class="comparison-card">
+  <div class="comparison-side vs-left">
+    <h4>من غلب جانب العادة</h4>
+    <p>لعل النبي صلَّى الله عليه وسلَّم إنما فعلها لما كبر سنه، فهو فعلها لحاجته لها، إذن هو فعلها عادة.</p>
+    <p>→ <strong>لا يُستحبّ</strong> التأسي بها</p>
+  </div>
+  <div class="comparison-side vs-right">
+    <h4>من غلب جانب العبادة (مذهب الشافعية)</h4>
+    <p>الأصل أنه صلَّى الله عليه وسلَّم يفعلها تعبدًا.</p>
+    <p>→ <strong>يُستحبّ</strong> التأسي بها</p>
+  </div>
+</div>
+
+<p>إذن هذا ينبني على مشتبه في كونه مغلبًا فيه جانب التعبد أو مغلبًا فيه جانب العادة.</p>
+
+<p>ولذلك تقرر أن أفعال النبي صلَّى الله عليه وسلَّم مجردة تدل على الإباحة.</p>
+
+<div class="section-divider"><span>❧</span></div>
+
+<!-- ═══════════════════════ SECTION 5: تقرير النبي ═══════════════════════ -->
+<h2>تقرير النبي صلَّى الله عليه وسلَّم</h2>
+
+<p>بعد أن تكلم على أقوال النبي صلَّى الله عليه وسلَّم وبعد أن تكلم على أفعال النبي صلَّى الله عليه وسلَّم سيتكلم على تقريراته عليه الصلاة والسلام.</p>
+
+<div class="definition-card">
+  <span class="definition-term">تقرير النبي صلَّى الله عليه وسلَّم:</span> حجة لأنه معصوم من أن يُقرَّ أحدًا على باطل.
+</div>
+
+<p>كتقرير أبي بكر بإعطاء سلب القتيل لقاتله: «من قتل قتيلًا فله سلبُه». أقرَّ النبي صلَّى الله عليه وسلَّم هذا من أبي بكر الصديق رضي الله عنه.</p>
+
+<p>وغير ذلك إطلاقًا، ما معنى إطلاقًا؟ أي سواء فُعل ذلك بحضرة النبي صلَّى الله عليه وسلَّم أو فُعل في عهده وعلم به وسكت عنه، ففي الحالتين هذا حجة.</p>
+
+<p>قال: سواء فعل في حضرته أو فعل في عهده وعلم به وسكت عنه. فلذلك قال: ولو سكوت فإنه حجة.</p>
+
+<h3>مثال: حلف أبي بكر</h3>
+
+<p>كعلمه بحلف أبي بكر عندما نزل عنده ضيوف والقصة معروفة في الصحيح: فأمر أبو بكر ابنه عبد الرحمن أن يضيفهم وأن يطعمهم، فحلفوا أنهم لا يأكلون حتى يأتي أبو بكر الصديق. فجاء متأخرًا فقال لابنه: هل عشيتم؟ قال: إنهم حلفوا أنهم لا يأكلوا حتى تأتي. فغضب، حلف أنه لا يأكل. ثم لما رأى أن الأمر اشتد أكل معهم. أبو بكر الصديق أكل قبل أن يُكفِّر — هذا محل الشاهد — وبلغ الخبر النبي صلَّى الله عليه وسلَّم وسكت على ذلك.</p>
+
+<p>فكان فيه دليل على جواز تقديم الحنث على الكفارة، وأن من حلف على شيء أنه لا يفعله فله أن يفعله قبل أن يُكفِّر.</p>
+
+<div class="hadith-box">
+  رواه البخاري — أن أبا بكر حلف أن لا يأكل ثم أكل معهم قبل أن يُكفِّر، فسكت النبي صلَّى الله عليه وسلَّم على ذلك.
+</div>
+
+<h3>مثال: المرأة التي بكى صبيها في المسجد</h3>
+
+<p>فترك المشاقة أيضًا من الإقرار — إقرار النبي صلَّى الله عليه وآله وسلَّم تلك المرأة التي بكى صبيها في المسجد على إحضاره إلى المسجد، إذ لم يُنكر عليها النبي صلَّى الله عليه وسلَّم ولا طلب منها أنها مرة أخرى لا تأتي بالطفل إلى المسجد.</p>
+
+<p>قال: <span class="highlight-green">"فترك المشاقة أي النزاع في ذلك والتشبث بما خلفه فإنه أصح المذاهب"</span>.</p>
+
+<div class="section-divider"><span>❧</span></div>
+
+<!-- ═══════════════════════ SECTION 6: المتواتر ═══════════════════════ -->
+<h2>المتواتر</h2>
+
+<div class="definition-card">
+  <span class="definition-term">المتواتر:</span> ما رواه جماعة يستحيل اتفاقهم على الكذب عن مثلهم إلى منتهى الإسناد وأسنَدوه إلى شيء محسوس.
+</div>
+
+<p>ثم إن المتواتر ينقسم إلى قسمين: إما <span class="highlight-gold">متواتر لفظي</span> وإما <span class="highlight-gold">متواتر معنوي</span>. والمتواتر اللفظي قليل والمتواتر المعنوي كثير.</p>
+
+<p>وقد جمع بعض الحفاظ الأحاديث المتواترة في كتب مستقلة، منهم الحافظ السيوطي رحمه الله له كتاب اسمه <span class="highlight-gold">«الأزهار المتناثرة في الأحاديث المتواترة»</span>. طبعًا هذا الكتاب «الأزهار المتناثرة» اختصره السيوطي أصلاً من كتاب له أكبر ساق فيه الأحاديث بأسانيدها، الأحاديث المتواترة بأسانيدها. قال: «ثم لما رأيت أن مثل هذا الكتاب يعجز عنه الناس عن نسقه ومطالعته اختصرته في هذا في الأزهار المتناثرة».</p>
+
+<p>قال الشارح رحمه الله تعالى: <span class="highlight-green">"وما رُوي من الخبر عن جمعٍ مستكثِرين أحيَلت العادة تواطؤهم على الكذب أو وقوعه منهم اتفاقًا بلا قصد، واتصف بذلك في كل طبقاته إلى النبي صلَّى الله عليه وسلَّم فيوجب العلم بصدق الخبر"</span>.</p>
+
+<div class="fiqh-principle-box">
+  المتواتر يوجب العلم — أي يوجب اليقين — كما مر معنا من قبل أن من طرق تحصيل اليقين العلم الضروري: التواتر.
+</div>
+
+<p>يوجب العلم بصدق الخبر قطعًا لاستحالة وقوع الكذب منهم.</p>
+
+<h3>أمثلة المتواتر</h3>
+
+<div class="flex-row">
+  <div class="evidence-box">
+    <strong>حديث: من كذب عليّ</strong><br>
+    «من كذب عليّ متعمدًا فليتبوأ مقعده من النار» — رواه نحو المئة من الصحابة وقيل المئتين من الصحابة.
+  </div>
+  <div class="evidence-box">
+    <strong>حديث: مسح الخفين</strong><br>
+    يقول الحسن: حدثني به سبعون من أصحاب النبي صلَّى الله عليه وسلَّم، فقد رواه نحو التسعين منهم.
+  </div>
+  <div class="evidence-box">
+    <strong>حديث: رفع اليدين في الصلاة</strong><br>
+    وقد مر معنا أن البيهقي رحمه الله تعالى قال: لم يجتمع العشرة المبشرون بالجنة في رواية سنة إلا في هذه. فقد رواه نحو الخمسين منهم.
+  </div>
+</div>
+
+<p>وقد جمع بعضهم في النظم الذي تحفظنا بيتيه:</p>
+
+<div class="poetry-box">
+  <span class="poetry-line">مما تواتر حديثُ من كذَبْ ◂ ومن بنى لله بيتًا واحتسبْ</span>
+  <span class="poetry-line">ورؤيةٌ شفاعةٌ والحوضُ ◂ ومسحُ خفَّينِ</span>
+</div>
+
+<p>وهذه بعض.</p>
+
+<div class="section-divider"><span>❧</span></div>
+
+<!-- ═══════════════════════ SECTION 7: الآحاد ═══════════════════════ -->
+<h2>الآحاد</h2>
+
+<div class="matn-box">
+  <span class="poetry-line">ويُوجبُ الآحادِ أيضًا عملًا</span>
+</div>
+
+<p>الآحاد: ما لم يكن متواترًا. وينقسم إلى ثلاثة أقسام:</p>
+
+<!-- Classification Tree: Ahad -->
+<div class="tree-container">
+  <div class="tree-root">خبر الآحاد</div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="tree-branch-title">غريب</div>
+      <div class="tree-branch-desc">ما تفرّد بروايته واحد</div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-branch-title">عزيز</div>
+      <div class="tree-branch-desc">ما كان في طبقة من طبقات إسناده راويان على الأقل</div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-branch-title">مشهور</div>
+      <div class="tree-branch-desc">ما رواه ثلاثة فأكثر ولم يصل إلى حد التواتر</div>
+    </div>
+  </div>
+</div>
+
+<p>قال الشارح رحمه الله: <span class="highlight-green">"ويوجب الآحاد وهو الذي لم تصل طرقه إلى المرتبة المذكورة فيسمى آحادًا، والآحاد يشمل الواحد والاثنين والثلاثة والأربعة"</span>.</p>
+
+<h3>العمل بخبر الواحد والاثنين</h3>
+
+<table class="usul-table">
+  <thead>
+    <tr>
+      <th>عدد الرواة</th>
+      <th>يعمل به في</th>
+      <th>مثال</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>الواحد</td>
+      <td>هلال رمضان والفتوى</td>
+      <td>يعمل بقول الواحد في ثبوت هلال رمضان، وفي نقل الفتوى</td>
+    </tr>
+    <tr>
+      <td>الاثنان</td>
+      <td>الأمور الدينية والدنيوية — الشهادات على الأمور المالية</td>
+      <td>إثبات الشهور غير رمضان لا بد من اثنين</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>ومفهوم قوله «بهلال رمضان» أنه لا يعمل بقول الواحد في هلال غير رمضان.</p>
+
+<h3>خبر الآحاد يُعمل به لكن لا يُفيد العلم</h3>
+
+<p>قال: <span class="highlight-green">"وهكذا أيضًا عملًا دون علم"</span> — أي أن الآحاد يجب العمل به لكن لا يصل إلى درجة العلم، وإنما يفيد غلبة الظن.</p>
+
+<p>ولذلك مما يُقبل فيه خبر الآحاد — يعني مما بُني على هذا — أنه لو كان الإنسان نائمًا ممكنًا مقعده من الأرض فأخبره عدل أنه أحدث، هل يجب عليه أن يأخذ بقوله أو لا يجب؟ الآن عنده أصل يستصحب وهو بقاء الطهارة، وهذا خبره من أجل أصلًا، ويجب أن يخبره عدل يفيد الظن.</p>
+
+<p>صورة أخرى: لو أن هذا العدل أخبره أن امرأة أجنبية عندما كان نائمًا لمسته، هل يأخذ بقول العدل أو يستصحب الأصل؟ اعتمد العلامة ابن حجر رحمه الله أنه يأخذ بقول العدل وقال إن هذا وإن كان ظنًّا إلا أنه في هذه الحالة ينزل منزلة اليقين.</p>
+
+<div class="fiqh-principle-box">
+  من هنا تعلم أنه في بعض الأحيان قد يُعطى للظن حكم اليقين، وستجد الفقهاء يعبرون على ذلك بقولهم: <strong>تُعطى المظنة أو تُنزَّل المظنة منزلة المئنة</strong> — المئنة يعني اليقين.
+</div>
+
+<h3>شرط العدالة في المخبر</h3>
+
+<p>وكل من يُقبل خبره يُشترط فيه أن يكون عدلًا. فأمّا الفاسق فلا يُقبل خبره إلا إذا أخبر عن فعل نفسه فيُقبل.</p>
+
+<div class="callout">
+  الفاسق لا يُقبل خبره إلا إذا أخبر عن فعل نفسه. كان يقول الفاسق: «أنا أتلفت هذا الشيء» مثلًا، أو يقول الفاسق: «هذا الماء نقيض، أنا بلت فيه» مثلًا وما شابه ذلك، فحينئذ يُقبل قول الفاسق. لا تقول هذا فاسق لا يُقبل خبره أفعال!
+</div>
+
+<p>فنقول: إذن الأصل اشتراط العدالة في المخبر، لكن العدالة لا تُشترط في الفاسق إذا كان يخبر عن فعل نفسه.</p>
+
+<div class="section-divider"><span>❧</span></div>
+
+<!-- ═══════════════════════ SECTION 8: المرسل ═══════════════════════ -->
+<h2>المرسل</h2>
+
+<div class="matn-box">
+  <span class="poetry-line">واتركْ مقالَ تابعيٍّ أرسلَهْ ◂ فلا تعملْ به لأنه من المردودِ</span>
+</div>
+
+<p>الحديث عند الأصوليين ينقسم إلى قسمين: ينقسم إلى مرسل ومسند.</p>
+
+<div class="definition-card">
+  <span class="definition-term">المسند:</span> ما اتصل إسناده.
+</div>
+
+<div class="definition-card">
+  <span class="definition-term">المرسل:</span> ما لم يتصل إسناده، سواء كان انقطاعه في أول السند أو في وسط السند أو في آخر السند، سواء أن انقطاع بسقوط راوٍ أو أكثر.
+</div>
+
+<p>وأشار إلى ذلك العمريق رحمه الله تعالى بقوله:</p>
+
+<div class="poetry-box">
+  <span class="poetry-line">لمُرسَلٍ ومُسنَدٍ قد قُسِّما ◂ وسوف يأتي ذكرُ كلٍّ منهما</span>
+  <span class="poetry-line">فحيثما بعضُ الرواةِ يُفقَدوا ◂ فمُرسَلٌ وما عداه مُسنَدُ</span>
+</div>
+
+<h3>لا يُحتج بالمرسل</h3>
+
+<p><span class="highlight-gold">واترك مقال تابعي أرسل</span> أي لا تحتج بالمرسل.</p>
+
+<p>وقوله «واترك مقال تابعي أرسل» ظاهره أنه لا يفرق بين تابعي صغير وتابعي كبير مطلقًا. فعنده مراسيل التابعين عامة — صغار التابعين وكبار التابعين — غير مقبولة، ما لم تحتف بقرينة سيأتي ذكرها إن شاء الله.</p>
+
+<p>قال: <span class="highlight-green">"واترك مقال تابعي أرسله فلا تعمل به لأنه من المردود كان يقول التابعي كبيرًا كان أو صغيرًا: قال رسول الله صلَّى الله عليه وسلَّم كذا وفعل كذا، وإنما رُدّ للجهل بالساقط"</span> — أي وإنما رُدّ المرسل للجهل بالساقط إذ يحتمل أن يكون صحابيًّا وأن يكون تابعيًّا.</p>
+
+<div class="benefit-box">
+  <strong>قوله «واترك مقال تابعي أرسل» أحسن من قول صاحب البيقونية:</strong> «ومرسل منه الصحابي سقط» — لأن قول الناظم يقول لك إن المرسل ما أرسله التابعي فأنت لا تعرف من الساقط، قد يكون الساقط صحابيًّا وقد يكون الساقط تابعيًا آخر. لكن صاحب البيقونية يقول: «ومرسل منه الصحابي سقط» — لو سقط منه الصحابي لما رده كثير من العلماء لأن الصحابة كلهم عدول.
+</div>
+
+<h3>هذا من الأصول المهمة — الاحتجاج بالمرسل وعدم الاحتجاج به</h3>
+
+<p>وهذا بارك الله فيكم من الأصول: الاحتجاج بالمرسل وعدم الاحتجاج بالمرسل، وسببها يدخل في كثير من الفروع الفقهية. فالذي يحتج بالمرسل يبني فرعًا فقهيًّا على هذا المرسل لأنه يحتج به، والذي لا يحتج بالمرسل لا يبني تلك الفرع الفقهية لأن المرسل عنده ليس حجة.</p>
+
+<h3>استثناء: مراسيل سعيد بن المسيب</h3>
+
+<p>ثم استثنى: <span class="highlight-gold">إلا مراسيل الفتى سعيد بن المسيب فإنها من جملة المسند</span>.</p>
+
+<div class="scholar-card">
+  <div class="scholar-icon">ع</div>
+  <div class="scholar-info">
+    <h4>سعيد بن المسيب — سيد التابعين</h4>
+    <p>ولد في سنة 15 من الهجرة في خلافة عمر، توفي في سنة 94 من الهجرة.</p>
+    <p>سمع عن كبار الصحابة رضي الله تعالى عنهم.</p>
+    <p>كان زوج بنت أبي هريرة رضي الله عنه — إذن أبو هريرة هذا عمُّه (صهره).</p>
+    <p>وأبو هريرة كان أكثر أصحاب النبي صحيحة حديثًا.</p>
+  </div>
+</div>
+
+<p>ولذا هذا قوّى قول من قال أن مراسيل سعيد مسندة، لأنه في الغالب يُرسل عن عمه أبي هريرة.</p>
+
+<p>اختلف الشافعية رحمهم الله تعالى في مراسيل سعيد بن المسيب، وخلافهم بناء على كلام الإمام الشافعي: فتارة الإمام الشافعي احتج بمراسيل سعيد، وتارة ردّ مراسيل سعيد. وله كلام في بعض المواضع يصرح أنه يقبل مراسيل سعيد وتارة يردّ مراسيل سعيد بن المسيب.</p>
+
+<p>أولًا حصل خلاف بين الشافعية: هل هذا الأمر اختص به سعيد فقط أو أن هذا الأمر أيضًا يشاركه من حاله حال سعيد؟ فحينئذٍ إذا كان يشاركه من حاله حال سعيد نقول لا بد أن نفتش فننظر هل هذا المرسل يقبل أو لا يقبل، لا نقول على الإطلاق مراسيل سعيد مقبولة.</p>
+
+<p>بعض الشافعية — وهو الذي يظهر من كلام الشارح هنا — يقولون إن مراسيل سعيد مقبولة وبنوا على ذلك مطلقًا.</p>
+
+<div class="summary-box">
+  <strong>المرسل عند الأصوليين:</strong> ما لم يتصل إسناده — لا يُحتج به للجهل بالساقط — استُثني مراسيل سعيد بن المسيب لأنه في الغالب يُرسل عن أبي هريرة — خلاف الشافعية في قبولها مطلقًا أو في حال كون المرسل من طريق آخر أيضًا.
+</div>
+
+<div class="section-divider"><span>❧</span></div>
+
+<!-- ═══════════════════════ SUMMARY ═══════════════════════ -->
+<h2>خلاصة الدرس الرابع</h2>
+
+<div class="summary-box">
+  <p><strong>١. الإجمال والبيان:</strong> المجمل ما لم تتضح دلالته ويحتاج إلى بيان. من أسباب الإجمال: الاشتراك (في الاسم كالقرء، في الفعل كعسعس، في الحرف كالواو)، والاختلاف في الإعراب أو مرجع الصفة. الآية الواحدة قد تكون مجملة من جهة ومبينة من جهة أخرى.</p>
+  <p><strong>٢. النص والظاهر والمؤول:</strong> النص ما لا يحتمل إلا معنى واحد. الظاهر ما يحتمل معنيين أحدهما أظهر. المؤول حمل اللفظ على الاحتمال المرجوح لدليل قريني.</p>
+  <p><strong>٣. النسخ:</strong> ثلاثة أقسام من حيث التلاوة والحكم: نسخ تلاوة فقط، نسخ حكم فقط، نسخ هما معًا. والنسخ من حيث البدل: بغير بدل، ببدل أشدّ، ببدل مساوٍ، ببدل أخفّ. السنة تنسخ بالكتاب وبالسنة، والكتاب يننسخ بالكتاب وبالسنة.</p>
+  <p><strong>٤. أفعال النبي صلَّى الله عليه وسلَّم:</strong> إما خاصة به (مع دليل الاختصاص: قربة=واجبة عليه، غير قربة=مباحة له) أو ليست خاصة به (قربة: أقوال في الوجوب/الندب/الوقف، عادة: محل اقتداء، مشتبهة: خلاف).</p>
+  <p><strong>٥. تقرير النبي:</strong> حجة لأنه معصوم، سواء في حضرته أو في عهده وسكوته.</p>
+  <p><strong>٦. المتواتر:</strong> يوجب العلم اليقيني، لفظي (قليل) ومعنوي (كثير).</p>
+  <p><strong>٧. الآحاد:</strong> غريب/عزيز/مشهور، يُعمل به ولا يفيد العلم بل غلبة الظن. المظنة تنزل منزلة المئنة. الفاسق لا يُقبل خبره إلا عن فعل نفسه.</p>
+  <p><strong>٨. المرسل:</strong> ما لم يتصل إسناده، لا يُحتج به للجهل بالساقط، استُثني مراسيل سعيد بن المسيب.</p>
+</div>
+
+</div><!-- end main-container -->
+
+</body>
+</html>

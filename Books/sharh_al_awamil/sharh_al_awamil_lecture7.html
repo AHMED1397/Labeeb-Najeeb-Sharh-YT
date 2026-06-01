@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح العوامل المائة — الدرس السابع: (ما) و(لا) المشبهتان بـ(ليس)</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+  @bottom-center {
+    content: "— " counter(page) " —";
+    font-size: 10px;
+    color: #666;
+  }
+}
+
+:root {
+  --primary-green: #0d6b3e;
+  --dark-green: #0a4f2e;
+  --gold: #d4a020;
+  --light-gold: #f0e6c0;
+  --teal: #0d7377;
+  --bg: #fefefe;
+  --body-text: #1a1a1a;
+  --border: #c8d6c0;
+  --light-green-bg: #e8f5e9;
+  --light-teal-bg: #e0f2f1;
+  --light-gold-bg: #fff8e1;
+  --purple: #6a1b9a;
+  --light-purple-bg: #f3e5f5;
+  --red: #c62828;
+  --light-red-bg: #ffebee;
+  --orange: #e65100;
+  --blue: #1565c0;
+  --light-blue-bg: #e3f2fd;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--body-text);
+  background: var(--bg);
+  direction: rtl;
+  text-align: justify;
+  padding: 0;
+}
+
+body.bw-mode {
+  --primary-green: #333;
+  --dark-green: #222;
+  --gold: #555;
+  --light-gold: #eee;
+  --teal: #444;
+  --bg: #fff;
+  --body-text: #000;
+  --border: #999;
+  --light-green-bg: #f5f5f5;
+  --light-teal-bg: #f0f0f0;
+  --light-gold-bg: #f5f5f5;
+  --purple: #333;
+  --light-purple-bg: #f0f0f0;
+  --red: #333;
+  --light-red-bg: #f5f5f5;
+  --orange: #333;
+  --blue: #333;
+  --light-blue-bg: #f5f5f5;
+}
+
+body.bw-mode .cover-page {
+  background: linear-gradient(135deg, #333, #555, #333) !important;
+}
+
+body.bw-mode .cover-page .cover-title,
+body.bw-mode .cover-page .cover-subtitle,
+body.bw-mode .cover-page .cover-lesson-num,
+body.bw-mode .cover-page .cover-lesson-title,
+body.bw-mode .cover-page .cover-names p {
+  color: #fff !important;
+  text-shadow: none !important;
+}
+
+body.bw-mode .evidence-box,
+body.bw-mode .qaidah-box,
+body.bw-mode .benefit-box,
+body.bw-mode .callout,
+body.bw-mode .summary-box,
+body.bw-mode .definition-card,
+body.bw-mode .alert-box,
+body.bw-mode .poetry-box,
+body.bw-mode .ruling-card,
+body.bw-mode .matn-box,
+body.bw-mode .tree-container,
+body.bw-mode .checklist,
+body.bw-mode .comparison-table-wrap,
+body.bw-mode .cols .col-card {
+  border-color: #999 !important;
+  background: #f9f9f9 !important;
+}
+
+body.bw-mode .evidence-box .evidence-title,
+body.bw-mode .qaidah-box .qaidah-label,
+body.bw-mode .benefit-box .benefit-title,
+body.bw-mode .callout .callout-title,
+body.bw-mode .summary-box .summary-title,
+body.bw-mode .definition-card .definition-term,
+body.bw-mode .poetry-box .poetry-title,
+body.bw-mode .matn-box .matn-label {
+  color: #333 !important;
+}
+
+/* B&W Toggle */
+.bw-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 9999;
+  background: var(--primary-green);
+  color: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+.bw-toggle:hover {
+  background: var(--dark-green);
+}
+
+/* Cover Page */
+.cover-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #0a4f2e 0%, #0d6b3e 30%, #1a8a50 50%, #0d6b3e 70%, #0a4f2e 100%);
+  padding: 40px 30px;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+}
+
+.cover-page::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(212,160,32,0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(212,160,32,0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.cover-ornament {
+  font-size: 40px;
+  color: var(--gold);
+  margin: 10px 0;
+  text-shadow: 0 0 10px rgba(212,160,32,0.5);
+  position: relative;
+  z-index: 1;
+}
+
+.cover-title {
+  font-family: 'Amiri', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--light-gold);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  margin: 10px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.cover-author {
+  font-size: 19px;
+  color: #c8e6c9;
+  margin: 8px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.cover-lesson-num {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gold);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  margin: 15px 0 5px;
+  position: relative;
+  z-index: 1;
+}
+
+.cover-lesson-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  margin: 5px 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.cover-names {
+  position: relative;
+  z-index: 1;
+  margin-top: 20px;
+}
+
+.cover-names p {
+  font-size: 15px;
+  color: #a5d6a7;
+  margin: 4px 0;
+}
+
+.cover-border {
+  position: absolute;
+  top: 15px; left: 15px; right: 15px; bottom: 15px;
+  border: 2px solid rgba(212,160,32,0.4);
+  border-radius: 12px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cover-border-inner {
+  position: absolute;
+  top: 20px; left: 20px; right: 20px; bottom: 20px;
+  border: 1px solid rgba(212,160,32,0.25);
+  border-radius: 10px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Page container */
+.page-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 25px;
+}
+
+/* Headings */
+h1 {
+  font-size: 26px;
+  color: var(--primary-green);
+  border-bottom: 3px solid var(--gold);
+  padding-bottom: 8px;
+  margin: 30px 0 18px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 22px;
+  color: var(--dark-green);
+  margin: 25px 0 14px;
+  padding-right: 12px;
+  border-right: 4px solid var(--gold);
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 19px;
+  color: var(--teal);
+  margin: 20px 0 10px;
+  font-weight: 700;
+}
+
+p {
+  margin: 8px 0;
+  text-align: justify;
+}
+
+/* Section Divider */
+.section-divider {
+  text-align: center;
+  margin: 30px 0;
+  font-size: 22px;
+  color: var(--gold);
+  letter-spacing: 6px;
+}
+.section-divider.ornate::before,
+.section-divider.ornate::after {
+  content: ' ❁ ';
+  color: var(--primary-green);
+}
+.section-divider.bismillah {
+  font-size: 26px;
+  color: var(--primary-green);
+  font-weight: 700;
+}
+
+/* Evidence Box (Quran/Hadith) */
+.evidence-box {
+  background: var(--light-green-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  position: relative;
+}
+.evidence-box::before {
+  content: '﴿';
+  position: absolute;
+  top: 8px;
+  right: -2px;
+  font-size: 28px;
+  color: var(--gold);
+}
+.evidence-box .evidence-title {
+  font-weight: 700;
+  color: var(--primary-green);
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+.evidence-box .evidence-text {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dark-green);
+  text-align: center;
+  line-height: 2;
+}
+
+/* Poetry Box */
+.poetry-box {
+  background: var(--light-gold-bg);
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 14px 20px;
+  margin: 14px 0;
+  text-align: center;
+}
+.poetry-box .poetry-title {
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+.poetry-box .poetry-line {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--dark-green);
+  line-height: 2.2;
+}
+
+/* Matn Box */
+.matn-box {
+  background: var(--light-gold-bg);
+  border-right: 5px solid var(--gold);
+  border-left: 2px solid var(--gold);
+  border-top: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+.matn-box .matn-label {
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+.matn-box .matn-text {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--dark-green);
+  line-height: 2;
+}
+
+/* Callout */
+.callout {
+  background: var(--light-teal-bg);
+  border-right: 4px solid var(--teal);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 14px 0;
+}
+.callout .callout-title {
+  font-weight: 700;
+  color: var(--teal);
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+/* Summary Box */
+.summary-box {
+  background: var(--light-gold-bg);
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+.summary-box .summary-title {
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+/* Benefit Box */
+.benefit-box {
+  background: var(--light-purple-bg);
+  border: 2px solid var(--purple);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+.benefit-box .benefit-title {
+  font-weight: 700;
+  color: var(--purple);
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+/* Qaidah Box */
+.qaidah-box {
+  background: var(--light-gold-bg);
+  border: 3px solid var(--gold);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+.qaidah-box .qaidah-label {
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+.qaidah-box .qaidah-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--dark-green);
+}
+
+/* Alert Box */
+.alert-box {
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 14px 0;
+  border-right: 4px solid;
+}
+.alert-box.info {
+  background: var(--light-blue-bg);
+  border-color: var(--blue);
+}
+.alert-box.warning {
+  background: var(--light-gold-bg);
+  border-color: var(--orange);
+}
+.alert-box.error {
+  background: var(--light-red-bg);
+  border-color: var(--red);
+}
+.alert-box.success {
+  background: var(--light-green-bg);
+  border-color: var(--primary-green);
+}
+
+/* Definition Card */
+.definition-card {
+  background: #fff;
+  border: 2px solid var(--teal);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+.definition-card .definition-term {
+  font-weight: 700;
+  color: var(--teal);
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+.definition-card .definition-text {
+  font-size: 17px;
+}
+
+/* Tree Container */
+.tree-container {
+  background: var(--light-green-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 14px 0;
+  text-align: center;
+}
+.tree-root {
+  background: var(--primary-green);
+  color: #fff;
+  font-weight: 700;
+  font-size: 17px;
+  padding: 8px 20px;
+  border-radius: 8px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+.tree-branches {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.tree-branch {
+  background: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 8px 14px;
+  min-width: 100px;
+  font-weight: 600;
+  color: var(--dark-green);
+}
+.tree-sub-branch {
+  background: var(--light-gold-bg);
+  border: 1px solid var(--gold);
+  border-radius: 6px;
+  padding: 5px 10px;
+  margin-top: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--body-text);
+}
+
+/* Comparison Table */
+.comparison-table-wrap {
+  overflow-x: auto;
+  margin: 14px 0;
+}
+.table-styled {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  border: 2px solid var(--primary-green);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.table-styled th {
+  background: var(--primary-green);
+  color: #fff;
+  padding: 10px 12px;
+  font-weight: 700;
+  text-align: center;
+  border: 1px solid var(--dark-green);
+}
+.table-styled td {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  text-align: center;
+  vertical-align: top;
+}
+.table-styled tr:nth-child(even) td {
+  background: var(--light-green-bg);
+}
+.table-styled tr:nth-child(odd) td {
+  background: #fff;
+}
+
+/* Checklist */
+.checklist {
+  background: #fff;
+  border: 2px solid var(--teal);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 14px 0;
+}
+.checklist-title {
+  font-weight: 700;
+  color: var(--teal);
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+.checklist-progress {
+  background: #e0e0e0;
+  border-radius: 10px;
+  height: 10px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.checklist-progress-bar {
+  background: var(--teal);
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.3s;
+}
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 8px 0;
+  padding: 8px 10px;
+  background: var(--light-teal-bg);
+  border-radius: 6px;
+}
+.checklist-circle {
+  min-width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--teal);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+}
+.checklist-text {
+  font-size: 16px;
+  line-height: 1.6;
+}
+.checklist-text strong {
+  color: var(--teal);
+}
+
+/* Cols */
+.cols {
+  display: flex;
+  gap: 14px;
+  margin: 14px 0;
+  flex-wrap: wrap;
+}
+.cols-3 .col-card {
+  flex: 1 1 30%;
+  min-width: 220px;
+}
+.col-card {
+  background: #fff;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+.col-card h4 {
+  color: var(--primary-green);
+  font-size: 17px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+/* Ruling Card */
+.ruling-card {
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 10px 0;
+}
+.ruling-card .ruling-label {
+  display: inline-block;
+  color: #fff;
+  padding: 2px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+/* I'rab Box */
+.irab-box {
+  background: #fff;
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  font-size: 16px;
+}
+.irab-box .irab-title {
+  font-weight: 700;
+  color: var(--primary-green);
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+.irab-item {
+  margin: 4px 0;
+  padding-right: 15px;
+  border-right: 3px solid var(--light-gold);
+}
+
+/* Example highlight */
+.example-highlight {
+  background: var(--light-gold-bg);
+  border: 1px solid var(--gold);
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-weight: 600;
+  display: inline;
+}
+
+/* Note inline */
+.note-mark {
+  color: var(--teal);
+  font-weight: 700;
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  font-size: 13px;
+  color: #888;
+  margin-top: 30px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
+@media print {
+  .bw-toggle { display: none; }
+  .cover-page { break-after: page; }
+  h1, h2 { break-after: avoid; }
+  .evidence-box, .poetry-box, .matn-box, .callout, .summary-box,
+  .benefit-box, .qaidah-box, .alert-box, .definition-card,
+  .tree-container, .checklist, .comparison-table-wrap, .irab-box {
+    break-inside: avoid;
+  }
+}
+
+@media (max-width: 600px) {
+  body { font-size: 16px; padding: 5px; }
+  h1 { font-size: 22px; }
+  h2 { font-size: 19px; }
+  .cover-title { font-size: 26px; }
+  .cover-lesson-title { font-size: 20px; }
+  .cols { flex-direction: column; }
+  .tree-branches { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- B&W Toggle Button -->
+<button class="bw-toggle" onclick="document.body.classList.toggle('bw-mode')">وضع الأبيض والأسود</button>
+
+<!-- ==================== COVER PAGE ==================== -->
+<div class="cover-page">
+  <div class="cover-border"></div>
+  <div class="cover-border-inner"></div>
+  <div class="cover-ornament">✦ ❖ ✦</div>
+  <div class="cover-title">شرح العوامل المائة</div>
+  <div class="cover-author">للإمام عبد القاهر بن عبد الرحمن بن محمد الجرجاني المتوفى سنة 471 وقيل 474 رحمه الله تعالى</div>
+  <div class="cover-ornament">✦</div>
+  <div class="cover-lesson-num">الدرس السابع</div>
+  <div class="cover-lesson-title">(ما) و(لا) المشبهتان بـ(ليس)</div>
+  <div class="cover-ornament">❖</div>
+  <div class="cover-names">
+    <p>إعداد: أحمد بن إرشاد</p>
+    <p>المتن: الإمام عبد القاهر الجرجاني رحمه الله تعالى</p>
+    <p>الشرح: د. لبيب نجيب عبدالله</p>
+  </div>
+</div>
+
+<!-- ==================== CONTENT ==================== -->
+<div class="page-content">
+
+<!-- Opening Dua -->
+<div class="section-divider bismillah">بسم الله الرحمن الرحيم</div>
+
+<p>الحمد لله رب العالمين، والصلاة والسلام الأتمّان الأكملان على سيد المرسلين سيدنا محمد، وعلى آله وصحبه الطيبين الطاهرين، أما بعد:</p>
+
+<p>فأسأل الله سبحانه وتعالى أن يمنّ علينا بالعلم النافع والعمل الصالح، وأن يفقّهنا في الدين، وأن يفتح لنا فتوح العارفين، وأن يرزقنا الإخلاص في الأقوال والأعمال، اللهم آمين.</p>
+
+<!-- ==================== SECTION 1: Recap ==================== -->
+<h1>مراجعة: تقسيم العوامل</h1>
+
+<p>لا زال الكلام متّصلاً في <strong>العوامل</strong> للإمام عبد القاهر بن عبد الرحمن بن محمد الجرجاني المتوفى في سنة 471 وقيل 474. الإمام الجرجاني رحمه الله تعالى قسم العوامل إلى قسمين:</p>
+
+<div class="tree-container">
+  <div class="tree-root">تقسيم العوامل</div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      عوامل معنوية
+      <div class="tree-sub-branch">عدد 2</div>
+    </div>
+    <div class="tree-branch">
+      عوامل لفظية
+      <div class="tree-sub-branch">سماعية: 91 عاملاً</div>
+      <div class="tree-sub-branch">قياسية: 7 عوامل</div>
+    </div>
+  </div>
+</div>
+
+<p>والآن نتكلّم في <strong>العوامل السماعية اللفظية</strong>. عمل منها مجموعات:</p>
+
+<p><strong>المجموعة الأولى:</strong> العوامل التي تختصّ بجرّ الاسم، وهي حروف الجرّ، وذكر منها <strong>سبعة عشر عاملاً</strong> — درسناها.</p>
+
+<p><strong>المجموعة الثانية:</strong> الحروف التي تنصب الاسم وترفع الخبر، وذكر منها <strong>إنّ وأخواتها</strong> وهي <strong>ستة</strong>.</p>
+
+<div class="callout">
+  <div class="callout-title">📌 حساب ما درسناه</div>
+  <p>سبعة عشر + ستة = <strong>ثلاثة وعشرون عاملاً</strong> درسناها من جملة المئة. إذن تقريباً درسنا ربع العوامل.</p>
+</div>
+
+<p>الآن سنأخذ <strong>عاملين جديدين</strong> هما: <span class="example-highlight">ما</span> و<span class="example-highlight">لا</span> المشبهتان بـ<span class="example-highlight">ليس</span>.</p>
+
+<!-- ==================== SECTION 2: Introduction ==================== -->
+<h1>مقدمة: ليس وأخواتها</h1>
+
+<p>سأقدّم بمقدمة قبل أن أقرأ كلامه رحمه الله تعالى، فأقول بارك الله فيكم:</p>
+
+<p>معلوم لدينا أن <strong>ليس</strong> من أخوات <span class="example-highlight">كان</span>. ماذا تعمل <span class="example-highlight">كان</span>؟ ترفع الاسم وتنصب الخبر.</p>
+
+<p>إذن لو أردت جملة <span class="example-highlight">ليس</span> رفعت الاسم ونصبت الخبر، ماذا ستقول؟</p>
+
+<div class="example-highlight" style="display:block; text-align:center; font-size:20px; padding:10px; margin:10px 0;">ليس زيدٌ صائماً</div>
+
+<div class="irab-box">
+  <div class="irab-title">📝 إعراب: ليس زيدٌ صائماً</div>
+  <div class="irab-item"><strong>ليس:</strong> فعل ماضٍ ناسخ يرفع الاسم وينصب الخبر</div>
+  <div class="irab-item"><strong>زيدٌ:</strong> اسم ليس مرفوع علامة رفعه الضمة الظاهرة على آخره</div>
+  <div class="irab-item"><strong>صائماً:</strong> خبر ليس منصوب علامة نصبه الفتحة الظاهرة على آخره</div>
+</div>
+
+<div class="callout">
+  <div class="callout-title">📌 تنبيه: ليس فعل جامد</div>
+  <p>ليس فعل، لكنه <strong>فعل جامد</strong> لا يتصرف: لا يأتي منه مضارع ولا يأتي منه أمر.</p>
+</div>
+
+<!-- ==================== SECTION 3: الحروف المشبهة بليس ==================== -->
+<h1>الحروف التي تشبه ليس</h1>
+
+<p>عندنا بعض الحروف تشبه <span class="example-highlight">ليس</span>. ذكر منها هنا حرفان: <span class="example-highlight">ما</span> و<span class="example-highlight">لا</span>.</p>
+
+<p>يُسأل: هل في حروف أخرى؟ نعم، في حروف أخرى منها: <span class="example-highlight">إن</span> و<span class="example-highlight">لات</span>. إذن من باب الفائدة:</p>
+
+<div class="tree-container">
+  <div class="tree-root">الحروف التي تشبه ليس (4)</div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="border-color: var(--gold); background: var(--light-gold-bg);">
+      ما
+      <div class="tree-sub-branch">✅ ندرسها الآن</div>
+    </div>
+    <div class="tree-branch" style="border-color: var(--gold); background: var(--light-gold-bg);">
+      لا
+      <div class="tree-sub-branch">✅ ندرسها الآن</div>
+    </div>
+    <div class="tree-branch" style="border-color: #ccc; background: #f5f5f5; color: #999;">
+      إن
+      <div class="tree-sub-branch">⏳ لاحقاً</div>
+    </div>
+    <div class="tree-branch" style="border-color: #ccc; background: #f5f5f5; color: #999;">
+      لات
+      <div class="tree-sub-branch">⏳ لاحقاً</div>
+    </div>
+  </div>
+</div>
+
+<p>إنّ ولات هذه لا ندرسها الآن إن شاء الله نتركها إلى المستقبل لأن صاحب الكتاب لم يذكرها، سندرس ما ذكره صاحب الكتاب.</p>
+
+<!-- ==================== SECTION 4: ما ==================== -->
+<h1>ما الحجازية عاملة عمل ليس</h1>
+
+<div class="definition-card">
+  <div class="definition-term">ما</div>
+  <div class="definition-text">اسم أو فعل أو حرف؟ <strong>حرف</strong> يشبه <span class="example-highlight">ليس</span>. يشبه ليس في <strong>النفي</strong>، ويشبه ليس في <strong>العمل</strong>، ويشبه ليس في <strong>أمور أخرى</strong> سيذكرها بعد قليل.</div>
+</div>
+
+<p>وبالتالي انظر ماذا ستقول مثلاً — نفس المثال هذا — ستقول:</p>
+
+<div class="example-highlight" style="display:block; text-align:center; font-size:20px; padding:10px; margin:10px 0;">ما زيدٌ صائماً</div>
+
+<p>انظر عملت عمل ليس. <span class="example-highlight">ما زيدٌ صائماً</span> مثل <span class="example-highlight">ليس</span>.</p>
+
+<div class="irab-box">
+  <div class="irab-title">📝 إعراب: ما زيدٌ صائماً</div>
+  <div class="irab-item"><strong>ما:</strong> تسمى <strong>ما الحجازية</strong> عاملة عمل ليس (يمكن أن تعرّف: ما نافية تعمل عمل ليس) مبنية على السكون لا محل لها من الإعراب</div>
+  <div class="irab-item"><strong>زيدٌ:</strong> اسمها مرفوع وعلامة رفعه الضمة الظاهرة على آخره</div>
+  <div class="irab-item"><strong>صائماً:</strong> خبرها منصوب وعلامة نصبه الفتحة الظاهرة على آخره</div>
+</div>
+
+<!-- ==================== SECTION 5: لا ==================== -->
+<h1>لا النافية للوحدة</h1>
+
+<div class="definition-card">
+  <div class="definition-term">لا</div>
+  <div class="definition-text">اسم أو فعل أو حرف؟ <strong>حرف</strong> يشبه <span class="example-highlight">ليس</span>.</div>
+</div>
+
+<p>ستقول في <span class="example-highlight">لا</span>:</p>
+
+<div class="example-highlight" style="display:block; text-align:center; font-size:20px; padding:10px; margin:10px 0;">لا رجلٌ في الدارِ</div>
+
+<p>عملت <span class="example-highlight">لا</span> عمل <span class="example-highlight">ليس</span> — أفادت النفي وعملت عمل ليس: رفعت الأول ونصبت الثاني.</p>
+
+<div class="irab-box">
+  <div class="irab-title">📝 إعراب: لا رجلٌ في الدارِ</div>
+  <div class="irab-item"><strong>لا:</strong> نافية للوحدة تعمل عمل ليس</div>
+  <div class="irab-item"><strong>رجلٌ:</strong> اسمها مرفوع</div>
+  <div class="irab-item"><strong>في الدارِ:</strong> شبه جملة في محل نصب خبرها</div>
+</div>
+
+<!-- ==================== SECTION 6: الفرق بين لا النافية للجنس ولا النافية للوحدة ==================== -->
+<h1>الفرق بين لا النافية للجنس ولا النافية للوحدة</h1>
+
+<p>انظر عندك <strong>لا نافية للجنس</strong> وعندك <strong>لا نافية للوحدة</strong>. ما الفرق بينهما؟ الفرق بينهما في <strong>المعنى</strong> والفرق بينهما في <strong>العمل</strong>.</p>
+
+<div class="comparison-table-wrap">
+<table class="table-styled">
+  <tr>
+    <th>الوجه</th>
+    <th>لا النافية للجنس</th>
+    <th>لا النافية للوحدة</th>
+  </tr>
+  <tr>
+    <td><strong>المعنى</strong></td>
+    <td>لا يوجد أيّ رجل أصلاً<br><span class="example-highlight">لا رجلَ في الدارِ</span> = لا يوجد أيّ رجل</td>
+    <td>لا يوجد رجل واحد بل أكثر<br><span class="example-highlight">لا رجلٌ في الدارِ</span> = لا يوجد رجل واحد (بل رجلان أو أكثر)</td>
+  </tr>
+  <tr>
+    <td><strong>يصحّ أن تقول بعدها</strong></td>
+    <td>لا يصحّ: <em>بل رجلان</em><br>لأنها تنفي الجنس بالكامل</td>
+    <td>يصحّ: <em>بل رجلان</em> أو <em>بل رجال</em> أو <em>بل اثنان</em><br>لأن النفي لوحدة لا لجنس</td>
+  </tr>
+  <tr>
+    <td><strong>العمل</strong></td>
+    <td>تعمل عمل <span class="example-highlight">إنّ</span><br>تنصب الأول وترفع الثاني<br><span class="example-highlight">لا رجلَ</span> (مبني على الفتح في محل نصب)</td>
+    <td>تعمل عمل <span class="example-highlight">ليس</span><br>ترفع الأول وتنصب الثاني<br><span class="example-highlight">لا رجلٌ</span> (مرفوع)</td>
+  </tr>
+  <tr>
+    <td><strong>إفادة العموم</strong></td>
+    <td>تفيد العموم (هي المقصودة في كلام العمريطي)</td>
+    <td>لا تفيد العموم</td>
+  </tr>
+</table>
+</div>
+
+<p>الذي تفيد العموم — هل هذه أو هذه؟ التي للجنس أو التي للوحدة؟ <strong>التي للجنس</strong>.</p>
+
+<div class="poetry-box">
+  <div class="poetry-title">📖 من نظم العمريطي رحمه الله</div>
+  <div class="poetry-line">ولفظ لا في النكراتِ</div>
+  <div class="poetry-line">ثمّ ما في لفظِ من أتى بها مستفهماً</div>
+</div>
+
+<p>التي تفيد العموم أي لا تفيد العموم؟ <strong>لا النافية للجنس</strong> هي التي تفيد العموم.</p>
+
+<!-- ==================== SECTION 7: شروط عمل ما عمل ليس ==================== -->
+<h1>شروط عمل (ما) عمل (ليس)</h1>
+
+<p>تنبّه معي: متى تكون <span class="example-highlight">ما</span> تعمل عمل ليس؟ بشروط سندرسها الآن.</p>
+
+<div class="poetry-box">
+  <div class="poetry-title">📖 بيت ابن مالك رحمه الله في شروط عمل ما عمل ليس</div>
+  <div class="poetry-line">أعمالَ ليس أعملتْ ما</div>
+  <div class="poetry-line">دونَ إنٍ معابقاً نَفيٍ</div>
+  <div class="poetry-line">وترتيبٍ زَكِي</div>
+</div>
+
+<p>القاعدة تقول: <strong>أعمالَ ليس أعملتْ ما</strong> بكم شرط؟ بثلاثة شروط. الشروط كالتالي:</p>
+
+<div class="checklist">
+  <div class="checklist-title">شروط عمل (ما) عمل (ليس) — ثلاثة شروط</div>
+  <div class="checklist-progress"><div class="checklist-progress-bar" style="width: 100%;"></div></div>
+  <div class="checklist-item">
+    <div class="checklist-circle">1</div>
+    <div class="checklist-text"><strong>عدم وجود إن</strong> (دون إن) — إذا وُجدت <span class="example-highlight">إن</span> فما لا تعمل.<br>
+    <span style="color: var(--teal);">مثال الانتقاض:</span> <span class="example-highlight">ما إن زيدٌ صائماً</span> — هنا ما لا ترفع الأول وتنصب الثاني لوجود <span class="example-highlight">إن</span>.</div>
+  </div>
+  <div class="checklist-item">
+    <div class="checklist-circle">2</div>
+    <div class="checklist-text"><strong>بقاء النفي</strong> (معابقاً نفي) — إذا جاء إثبات فما لا تعمل.<br>
+    <span style="color: var(--teal);">مثال الانتقاض:</span> <span class="example-highlight">ما محمدٌ إلا رسولٌ</span> — هل ما هنا تعمل (ترفع وتنصب)؟ الجواب: لا، لأنه وجد إثبات، <span class="example-highlight">إلا</span> هذه أداة حصر. ما محمدٌ (نفي) ثم (إلا رسول) — انتفى النفي.</div>
+  </div>
+  <div class="checklist-item">
+    <div class="checklist-circle">3</div>
+    <div class="checklist-text"><strong>بقاء الترتيب</strong> (وترتيب زكي) — أي مع بقاء الترتيب (الاسم ثم الخبر).<br>
+    <span style="color: var(--teal);">مثال الانتقاض:</span> <span class="example-highlight">ما صائمٌ زيدٌ</span> — الترتيب اختلف، انتفى الترتيب، لم يبقَ الترتيب. هل ما تعمل هنا؟ لا تعمل. وبالتالي هذا مرفوع وهذا مرفوع — لا تعمل عمل ليس.</div>
+  </div>
+</div>
+
+<div class="summary-box">
+  <div class="summary-title">📋 خلاصة شروط عمل ما عمل ليس</div>
+  <p>ما تعمل عمل ليس بثلاثة شروط:</p>
+  <p><strong>1.</strong> عدم وجود إن &nbsp;&nbsp; <strong>2.</strong> بقاء النفي &nbsp;&nbsp; <strong>3.</strong> بقاء الترتيب</p>
+</div>
+
+<p>ماذا قال ابن مالك؟</p>
+
+<div class="poetry-box">
+  <div class="poetry-title">📖 بيت ابن مالك — يُقرأ بالنصب</div>
+  <div class="poetry-line">أعمالَ ليس أعملتْ ما</div>
+  <div class="poetry-line">دونَ إنٍ معابقاً نَفيٍ</div>
+  <div class="poetry-line">وترتيبٍ زَكِي</div>
+</div>
+
+<div class="alert-box info">
+  <p><strong>💡 ملاحظة:</strong> زكي = عَلَم. شوف إيش قال عندك في البيقونية: ذكر زكي هذا — من يذكر البيت؟ لا لا لا ركبت بيتين حصل عنده اختلاط. وما أضافه إلى الأصحاب من قول وفعل فهو موقوف. ما معنى زكي؟ <strong>علم</strong>.</p>
+</div>
+
+<!-- ==================== SECTION 8: شروط عمل لا عمل ليس ==================== -->
+<h1>شروط عمل (لا) عمل (ليس)</h1>
+
+<p>ما شروط عمل <span class="example-highlight">لا</span> عمل <span class="example-highlight">ليس</span>؟ <strong>نفس الشروط السابقة</strong> ويزيد شرط واحد فقط زائد. ما هو الشرط؟</p>
+
+<div class="checklist">
+  <div class="checklist-title">شروط عمل (لا) عمل (ليس) — أربعة شروط</div>
+  <div class="checklist-progress"><div class="checklist-progress-bar" style="width: 100%;"></div></div>
+  <div class="checklist-item">
+    <div class="checklist-circle">1</div>
+    <div class="checklist-text"><strong>عدم وجود إن</strong> — نفس الشرط الأول</div>
+  </div>
+  <div class="checklist-item">
+    <div class="checklist-circle">2</div>
+    <div class="checklist-text"><strong>بقاء النفي</strong> — نفس الشرط الثاني</div>
+  </div>
+  <div class="checklist-item">
+    <div class="checklist-circle">3</div>
+    <div class="checklist-text"><strong>بقاء الترتيب</strong> — نفس الشرط الثالث</div>
+  </div>
+  <div class="checklist-item">
+    <div class="checklist-circle" style="background: var(--red);">4</div>
+    <div class="checklist-text"><strong>أن يكون اسمها وخبرها نكرتين</strong> فقط — هذا الشرط الزائد</div>
+  </div>
+</div>
+
+<div class="callout">
+  <div class="callout-title">📌 تطبيق: هل يستوفي المثال الشروط؟</div>
+  <p><strong>المثال الأول:</strong> <span class="example-highlight">لا زيدٌ حاضراً</span> — هل يستوفي الشروط أو لا يستوفي؟ <strong>لا يستوفي الشروط.</strong> ما السبب؟ لأن زيد هذا <strong>معرفة</strong> لا نكرة.</p>
+  <p><strong>المثال الثاني:</strong> <span class="example-highlight">لا رجلٌ حاضراً</span> — استوفى الشروط:</p>
+  <p>• الشرط الأول: عدم وجود إن — غير موجودة ✅</p>
+  <p>• الشرط الثاني: بقاء النفي — النفي باقٍ ✅</p>
+  <p>• الشرط الثالث: بقاء الترتيب — الترتيب باقٍ ✅</p>
+  <p>• الشرط الرابع: الاسم والخبر نكرتان — تحققت الشروط ✅</p>
+</div>
+
+<div class="irab-box">
+  <div class="irab-title">📝 إعراب: لا رجلٌ حاضراً</div>
+  <div class="irab-item"><strong>لا:</strong> نافية للوحدة تعمل عمل ليس</div>
+  <div class="irab-item"><strong>رجلٌ:</strong> اسمها مرفوع</div>
+  <div class="irab-item"><strong>حاضراً:</strong> خبرها منصوب</div>
+</div>
+
+<!-- ==================== SECTION 9: نص المصنف ==================== -->
+<div class="section-divider ornate"></div>
+
+<h1>نص المصنف رحمه الله تعالى</h1>
+
+<div class="matn-box">
+  <div class="matn-label">📜 من المتن</div>
+  <div class="matn-text">
+    النوع الثالث عشر: حرفان يرفعان الاسم وينصبان الخبر، وهما: <strong>ما</strong> و<strong>لا</strong>. نحو: <span class="example-highlight">ما زيدٌ قائماً</span> و<span class="example-highlight">لا رجلٌ حاضراً</span>.
+  </div>
+</div>
+
+<h2>إعراب مثالي المصنف</h2>
+
+<div class="irab-box">
+  <div class="irab-title">📝 إعراب: ما زيدٌ قائماً</div>
+  <div class="irab-item"><strong>ما:</strong> حرف يعمل عمل ليس (ما حجازية) — ويمكن أن تعرّف: ما نافية تعمل عمل ليس — مبنية على السكون لا محل لها من الإعراب</div>
+  <div class="irab-item"><strong>زيدٌ:</strong> اسم ما مرفوع وعلامة رفعه الضمة الظاهرة على آخره</div>
+  <div class="irab-item"><strong>قائماً:</strong> خبرها منصوب</div>
+</div>
+
+<div class="callout">
+  <div class="callout-title">📌 هل تحققت الشروط في قوله: ما زيدٌ قائماً؟</div>
+  <p><strong>الشرط الأول:</strong> عدم وجود إن — وإن غير موجودة ✅ أحسنت</p>
+  <p><strong>الشرط الثاني:</strong> بقاء النفي — والنفي باقٍ ✅ أحسنت</p>
+  <p><strong>الشرط الثالث:</strong> بقاء الترتيب — والترتيب باقٍ ✅ صح</p>
+  <p>فتحققت الشروط فما تعمل عمل ليس. جميل.</p>
+</div>
+
+<div class="irab-box">
+  <div class="irab-title">📝 إعراب: لا رجلٌ حاضراً</div>
+  <div class="irab-item"><strong>لا:</strong> نافية تعمل عمل ليس</div>
+  <div class="irab-item"><strong>رجلٌ:</strong> اسمها مرفوع</div>
+  <div class="irab-item"><strong>حاضراً:</strong> خبرها منصوب</div>
+</div>
+
+<div class="callout">
+  <div class="callout-title">📌 هل تحققت الشروط في قوله: لا رجلٌ حاضراً؟</div>
+  <p><strong>الشرط الأول:</strong> عدم وجود إن ✅</p>
+  <p><strong>الشرط الثاني:</strong> بقاء النفي ✅</p>
+  <p><strong>الشرط الثالث:</strong> بقاء الترتيب ✅</p>
+  <p><strong>الشرط الرابع:</strong> أن يكون الاسم والخبر نكرتين ✅ أحسنت</p>
+  <p>فهمنا القاعدة إن شاء الله.</p>
+</div>
+
+<!-- ==================== SECTION 10: وجه الشبه ==================== -->
+<h1>وجه الشبه بين ما ولا وليس</h1>
+
+<p>قال المصنف رحمه الله: <strong>ويسمّى ما ولا المشبهتين بليس</strong> من حيث إنّ ما ولا <strong>للنفي</strong>.</p>
+
+<div class="callout">
+  <div class="callout-title">⚠️ تنبيه لغوي مهم</div>
+  <p>هذا شَبَه — لا يحتاج إلى نقطتين. تمام، الشَّبَه هذا من الأخطاء الشائعة: بعض الناس إذا يكتب <strong>شبه</strong> يضع نقطتين فوقه. بعض الناس حتى عندما يكتب اسم الجلالة <strong>الله</strong> يضع نقطتين! لا أدري لماذا عنده ما شاء الله توزيع مجاني للنقاط — يوزّع هنا نقطتين هنا نقطة ما في مشكلة — عنده كريم في باب النقاط! انتبهوا بارك الله فيكم.</p>
+</div>
+
+<p>لماذا أشبهت ليس؟ قال: من حيث إنّ ما ولا <strong>للنفي</strong>، وليس — لماذا؟ ليس فعل يفيد <strong>النفي</strong>. واضح. قال: من حيث إنّ ما ولا للنفي.</p>
+
+<!-- ==================== SECTION 11: الفروق ==================== -->
+<h1>الفروق بين ليس وما ولا</h1>
+
+<p>لكن في <strong>فروق</strong>. هذه الفروق لُخّصت هنا (على السبورة). وهذا ليس خطي — خطّ أحد الفضلاء، أنا لا أدري من كتب هذا لكنه مشكور على كل حال.</p>
+
+<div class="comparison-table-wrap">
+<table class="table-styled">
+  <tr>
+    <th>وجه الفرق</th>
+    <th>ليس</th>
+    <th>ما</th>
+    <th>لا (النافية للوحدة)</th>
+  </tr>
+  <tr>
+    <td><strong>النفي</strong></td>
+    <td>لنفي الحال<br><span style="font-size:14px;">(تنفي الحاضر فقط)</span></td>
+    <td>لنفي الحال<br><span style="font-size:14px;">(تنفي الحاضر فقط)</span></td>
+    <td>لنفي المطلق<br><span style="font-size:14px;">(تنفي الماضي والحال والمستقبل)</span><br>وقيل: للاستقبال</td>
+  </tr>
+  <tr>
+    <td><strong>الدخول على المبتدأ والخبر</strong></td>
+    <td>تدخل على المبتدأ والخبر</td>
+    <td>تدخل على المبتدأ والخبر</td>
+    <td>تدخل على المبتدأ والخبر</td>
+  </tr>
+  <tr>
+    <td><strong>الدخول على المعارف</strong></td>
+    <td>تدخل على المعرفة</td>
+    <td>تدخل على المعرفة</td>
+    <td>لا تدخل على المعارف<br><span style="font-size:14px;">(تختصّ بالنكرات، وإن دخلت على معرفة فتُؤوّل بنكرة)</span></td>
+  </tr>
+  <tr>
+    <td><strong>دخول الباء على خبرها</strong></td>
+    <td>ممكن (كثير)<br><span class="example-highlight">ليس زيدٌ بصائمٍ</span></td>
+    <td>ممكن (كثير)<br><span class="example-highlight">ما زيدٌ بصائمٍ</span></td>
+    <td>ممكن (قليل)<br><span class="example-highlight">لا رجلٌ بحاضرٍ</span></td>
+  </tr>
+</table>
+</div>
+
+<!-- الفرق الأول: نفي الحال -->
+<h2>الفرق الأول: نفي الحال مقابل نفي المطلق</h2>
+
+<p><strong>ليس</strong> تدلّ على نفي الحال. لو قلت <span class="example-highlight">ليس زيدٌ صائماً</span> الآن — لما أقول ليس زيد صائماً الآن: ليس صائماً. لكن أمس الله أعلم، غداً الله أعلم. فليس تنفي <strong>الحال</strong>.</p>
+
+<p>أنا لو قلت مثلاً الآن: <span class="example-highlight">ليس آكلُ جائعاً</span> — متى يعني ليس جائعاً؟ الآن. ليس جائعاً الآن. لكن بعد صلاة الفجر كان جائعاً ربما، بعد ساعتين ربما. لكن الآن ليس جائعاً. إذن ليس لنفي <strong>الحال</strong>.</p>
+
+<p><strong>ما</strong> كذلك لنفي الحال. لو قلت مثلاً: <span class="example-highlight">ما سلمانٌ جائعاً</span> الآن.</p>
+
+<p><strong>لا</strong> — هل هي لنفي الحال أو لنفي المطلق؟ قالوا: لا لنفي <strong>المطلق</strong>. كيف لنفي المطلق؟ يعني لو قلت <span class="example-highlight">لا رجلٌ حاضراً</span> يعني لا حاضر الآن ولا في المستقبل ولا في الماضي — ما في حال. تمام؟ بل يمكن تقول <span class="example-highlight">بل رجلان</span> — طبعاً هي قد تم في الجنس لكن نفيها للجنس ظاهر ليس نصاً ليست كـ <span class="example-highlight">لا</span> التي نفي الجنس.</p>
+
+<p>وبعض العلماء — كالإمام الخضر الأزري — يقول إن <span class="example-highlight">لا</span> لنفي <strong>المستقبل</strong>. لو قلت مثلاً: <span class="example-highlight">لا رجلٌ قادماً</span> أي في المستقبل — يعني لن يقدم عليكم أحد. واضح؟ أي في المستقبل.</p>
+
+<!-- الفرق الثاني: الدخول على المبتدأ والخبر -->
+<h2>الفرق الثاني: الدخول على المبتدأ والخبر</h2>
+
+<p>كلّها تدخل على المبتدأ والخبر. يعني في الأصل: زيد صائم — مبتدأ وخبر. في الأصل: سعيد مشتهد — مبتدأ وخبر. لكن تدخل عليه ليس تقول: <span class="example-highlight">ليس سعيدٌ مشتهداً</span> صح. وتدخل عليه ما: <span class="example-highlight">ما سعيدٌ مشتهداً</span>.</p>
+
+<p>أما <span class="example-highlight">لا</span> فتحتاج إلى نكرة — قلت لكم في درس الألفية الذين حضروا معنا بعضكم حضر — قلت إنّ لا هذه قد تدخل على المعرفة لكنها <strong>تُؤوّل</strong>.</p>
+
+<div class="callout">
+  <div class="callout-title">📌 لا تدخل على المعرفة مع التأويل</div>
+  <p>لو قلت <span class="example-highlight">لا هذه فائدة</span> — يعني خارج الدرس تركوها، لا تشغلوا بالكم.</p>
+  <p>لو قلت <span class="example-highlight">لا زيدٌ حاضراً</span> — قالوا إنّ زيد معرفة لكنه <strong>مؤوّل بنكرة</strong>، تقدير الكلام: <span class="example-highlight">لا رجلٍ مسمّىً بزيد حاضراً</span>. فقالوا إنّ المعرفة هنا مؤوّلة بنكرة. اتركوا هذا خلّوه لحالته.</p>
+</div>
+
+<!-- الفرق الثالث: الدخول على المعارف -->
+<h2>الفرق الثالث: الدخول على المعارف</h2>
+
+<p><span class="example-highlight">ليس</span> تدخل على المعرفة أو لا تدخل على المعرفة؟ <strong>تدخل</strong> على المعرفة.</p>
+<p><span class="example-highlight">ما</span> تدخل على المعرفة لكن لا تختصّ بالنكرة. وهذا شرحناه قبل قليل.</p>
+<p><span class="example-highlight">لا</span> تختصّ بالنكرات — لا تدخل على المعارف.</p>
+
+<!-- الفرق الرابع: دخول الباء على الخبر -->
+<h2>الفرق الرابع: دخول الباء على خبرها</h2>
+
+<p>كيف يعني دخول الباء على خبرها؟ يعني مثلاً تقول: <span class="example-highlight">ليس زيدٌ بصائمٍ</span> — انظر دخلت الباء على خبرها. يصحّ أو لا يصح؟ نعم يصحّ.</p>
+
+<p>وممكن تقول: <span class="example-highlight">ما زيدٌ بصائمٍ</span> — دخلت الباء، صح.</p>
+
+<p>وممكن تقول: <span class="example-highlight">لا رجلٌ بحاضرٍ</span> — دخلت الباء ولا دخلت الباء؟ صح.</p>
+
+<p>إذن الباء تدخل على خبرها — تدخل على الجميع. لكن دخول الباء هنا <strong>قليل</strong> (مع لا)، وهنا <strong>كثير</strong> (مع ليس وما).</p>
+
+<div class="qaidah-box">
+  <div class="qaidah-label">📜 القاعدة: دخول الباء على الخبر</div>
+  <div class="qaidah-text">
+    دخول الباء على خبر <span class="example-highlight">ليس</span>: ممكن (كثير) — <span class="example-highlight">ليس زيدٌ بصائمٍ</span><br>
+    دخول الباء على خبر <span class="example-highlight">ما</span>: ممكن (كثير) — <span class="example-highlight">ما زيدٌ بصائمٍ</span><br>
+    دخول الباء على خبر <span class="example-highlight">لا</span>: ممكن (قليل) — <span class="example-highlight">لا رجلٌ بحاضرٍ</span> / <span class="example-highlight">لا رجلٌ بصائمين</span> / <span class="example-highlight">لا رجلٌ بغائبٍ</span>
+  </div>
+</div>
+
+<!-- ابن مالك بيت -->
+<h2>بيت ابن مالك في دخول الباء على الخبر</h2>
+
+<div class="poetry-box">
+  <div class="poetry-title">📖 بيت ابن مالك رحمه الله</div>
+  <div class="poetry-line">وبعدَ ما وليس جرَّ البخبرِ</div>
+  <div class="poetry-line">وبعدَ لا ونفي كان قد يجرُّ</div>
+</div>
+
+<p>هذا قرص — تعمل إيوه.</p>
+
+<div class="callout">
+  <div class="callout-title">📌 شرح البيت</div>
+  <p><strong>وبعد ما وليس جرّ البخبر:</strong> أي أنّ الباء تدخل على خبر <span class="example-highlight">ما</span> وخبر <span class="example-highlight">ليس</span> — وهذا <strong>كثير</strong>.</p>
+  <p><strong>وبعد لا ونفي كان قد يجرّ:</strong> <span class="example-highlight">قد</span> = للتقليل. أي أنّ الباء تدخل على خبر <span class="example-highlight">لا</span> وخبر <span class="example-highlight">نفي كان</span> — وهذا <strong>قليل</strong>.</p>
+</div>
+
+<!-- الأدلة من القرآن -->
+<h2>الأدلة من القرآن الكريم على دخول الباء</h2>
+
+<div class="evidence-box">
+  <div class="evidence-title">القرآن الكريم — الباء مع خبر ليس (ما)</div>
+  <div class="evidence-text">أليس اللهُ بأحكمِ الحاكمينَ</div>
+</div>
+
+<div class="evidence-box">
+  <div class="evidence-title">القرآن الكريم — الباء مع خبر ليس (ما)</div>
+  <div class="evidence-text">أليس اللهُ بعزيزٍ ذي انتقامٍ</div>
+</div>
+
+<div class="evidence-box">
+  <div class="evidence-title">القرآن الكريم — الباء مع خبر ليس (ما)</div>
+  <div class="evidence-text">أليس اللهُ بكافٍ عبدَهُ</div>
+</div>
+
+<div class="evidence-box">
+  <div class="evidence-title">القرآن الكريم — الباء مع خبر ما</div>
+  <div class="evidence-text">وما ربُّكَ بغافلٍ</div>
+</div>
+
+<div class="evidence-box">
+  <div class="evidence-title">القرآن الكريم — الباء مع خبر ما</div>
+  <div class="evidence-text">وما ربُّكَ بظلّامٍ للعبيدِ</div>
+</div>
+
+<p>انظر يوجد الباء فهمت في القرآن الكريم. وما ربك بغافل — يوجد الباء. وما ربك بظلام للعبيد — الباء موجودة. لكن مع خبر <span class="example-highlight">لا</span> قليل.</p>
+
+<!-- شعر سواد بن قارب -->
+<h2>شاهد شعري: سواد بن قارب</h2>
+
+<div class="poetry-box">
+  <div class="poetry-title">📖 من شعر سواد بن قارب</div>
+  <div class="poetry-line">فكُلُّ شفيعٍ يومَ لا ذو شفاعةٍ</div>
+  <div class="poetry-line">بمغنٍ سواكَ عن سوادِ بنِ قاربِ</div>
+</div>
+
+<!-- ==================== SECTION 12: ملخص السبورة ==================== -->
+<h1>ملخص ما على السبورة</h1>
+
+<div class="summary-box">
+  <div class="summary-title">📋 ملخص الفروق بين ليس وما ولا</div>
+
+  <p><strong>ويسمّى ما ولا المشبهتين بليس</strong> من حيث إنّ ما ولا <strong>للنفي</strong> — أي للنفي المطلق.</p>
+
+  <p><strong>وما لنفي الحال</strong> — ما لنفي الحال (مثل ليس).</p>
+
+  <p><strong>والدخول على المعارف</strong> — ما تدخل على المعارف (مثل ليس).</p>
+
+  <p><strong>ودخول الباء على خبرها</strong> — نحو: <span class="example-highlight">ما زيدٌ بقائمٍ</span> كما أنّ ليس كذلك.</p>
+
+  <p>إيش معنى لكن ليس كذلك؟ ليس أيضاً لنفي الحال وتدخل على المعارف ويقترن الباء بخبرها — نفس الكلام. إذن لا فرق. انظر في كل شيء، في كل شيء تقريباً لا فرق بين ليس وما — بل في كل شيء لا فرق بين ليس وما.</p>
+
+  <p><strong>لكن لا تخالفهما في بعض الأشياء:</strong></p>
+  <p>وأنّ لا إنما هي للنفي — <strong>والدخول على النكرات</strong> — لا تختصّ بالنكرات، فلا تدخل على المعارف.</p>
+  <p><strong>وعلى المبتدأ والخبر</strong> — دون نفي الحال — لا ليست لنفي الحال بل النفي بها <strong>مطلق</strong> و<strong>قيل للاستقبال</strong>.</p>
+  <p><strong>دون نفي الحال والدخول على المعارف</strong> — أي ودون الدخول على المعارف فلا تدخل على المعارف.</p>
+  <p><strong>ودخول الباء على خبرها</strong> — أي ولا تدخل الباء على خبر لا. لا تدخل الباء — هو قال لا تدخل لكن قلت لك تدخل <strong>بقلّة</strong>.</p>
+</div>
+
+<!-- تصحيح الضبط -->
+<h2>تصحيح ضبط الطباعة</h2>
+
+<div class="alert-box warning">
+  <p><strong>⚠️ تنبيه على خطأ في الطباعة:</strong></p>
+  <p>الضبط الصحيح: <span class="example-highlight" style="font-size:20px;">لا رجلٌ في الدارِ</span> — وليس <span style="text-decoration: line-through; color: var(--red);">لا رجلَ في الدار</span>.</p>
+  <p>لأنه يتكلّم على <span class="example-highlight">لا</span> التي تنفي الوحدة وليس التي تنفي الجنس. فصوّبها عندك — <span class="example-highlight">لا رجلٌ في الدارِ</span> (بالتنوين). هذا خطأ في الطباعة. لا رجلٌ في الدار.</p>
+</div>
+
+<!-- Closing Dua -->
+<div class="section-divider ornate"></div>
+
+<p>والله أعلم. وصلّى اللهم وسلّم وبارك على سيدنا محمد وآله وصحبه أجمعين، والحمد لله رب العالمين.</p>
+
+<div class="page-footer">
+  شرح العوامل المائة — الدرس السابع: (ما) و(لا) المشبهتان بـ(ليس)<br>
+  إعداد: أحمد بن إرشاد | المتن: الإمام عبد القاهر الجرجاني رحمه الله تعالى | الشرح: د. لبيب نجيب عبدالله
+</div>
+
+</div><!-- end page-content -->
+
+<script>
+// B&W Toggle
+document.querySelector('.bw-toggle').addEventListener('click', function() {
+  document.body.classList.toggle('bw-mode');
+  if (document.body.classList.contains('bw-mode')) {
+    this.textContent = 'وضع الألوان';
+  } else {
+    this.textContent = 'وضع الأبيض والأسود';
+  }
+});
+</script>
+
+</body>
+</html>

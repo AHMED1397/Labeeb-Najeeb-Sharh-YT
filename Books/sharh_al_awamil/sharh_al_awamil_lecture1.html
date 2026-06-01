@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح العوامل المائة — الدرس الأول: المقدمة</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-green: #0d6b3e;
+  --dark-green: #0a4f2e;
+  --gold: #d4a020;
+  --light-gold: #f0e6c0;
+  --teal: #0d7377;
+  --bg: #fefefe;
+  --body-text: #1a1a1a;
+  --border: #c8d6c0;
+  --light-green-bg: #e8f5e9;
+  --light-teal-bg: #e0f2f1;
+  --light-gold-bg: #fff8e1;
+  --light-red-bg: #fce4ec;
+  --light-purple-bg: #f3e5f5;
+  --light-blue-bg: #e3f2fd;
+  --light-gray-bg: #f5f5f5;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--body-text);
+  background: var(--bg);
+  direction: rtl;
+}
+
+/* B&W Mode */
+body.bw-mode {
+  --primary-green: #333;
+  --dark-green: #222;
+  --gold: #555;
+  --light-gold: #eee;
+  --teal: #444;
+  --bg: #fff;
+  --body-text: #000;
+  --border: #999;
+  --light-green-bg: #f0f0f0;
+  --light-teal-bg: #f0f0f0;
+  --light-gold-bg: #f0f0f0;
+  --light-red-bg: #f0f0f0;
+  --light-purple-bg: #f0f0f0;
+  --light-blue-bg: #f0f0f0;
+  --light-gray-bg: #f0f0f0;
+}
+body.bw-mode .cover-page { background: #333 !important; }
+body.bw-mode .cover-page .cover-gold-text { color: #ccc !important; }
+body.bw-mode .cover-page .cover-white-text { color: #fff !important; }
+body.bw-mode .ruling-card.fard .ruling-label { background: #555 !important; }
+body.bw-mode .ruling-card.sunna .ruling-label { background: #777 !important; }
+body.bw-mode .tree-node { border-color: #555 !important; }
+body.bw-mode .tree-branch::before { border-color: #555 !important; }
+body.bw-mode .poetry-box { border-color: #666 !important; background: #f5f5f5 !important; }
+body.bw-mode .evidence-box { border-color: #888 !important; background: #f0f0f0 !important; }
+body.bw-mode .scholar-card { border-color: #888 !important; }
+body.bw-mode .definition-card { border-color: #888 !important; }
+body.bw-mode .callout { border-color: #999 !important; background: #f0f0f0 !important; }
+body.bw-mode .benefit-box { border-color: #888 !important; background: #f0f0f0 !important; }
+body.bw-mode .qaidah-box { border-color: #888 !important; background: #f0f0f0 !important; }
+body.bw-mode .alert-box { border-color: #999 !important; }
+body.bw-mode .quote-block { border-color: #888 !important; background: #f5f5f5 !important; }
+body.bw-mode .section-divider.ornate span { color: #666 !important; }
+body.bw-mode .matn-text { border-color: #666 !important; background: #f0f0f0 !important; }
+
+/* B&W Toggle Button */
+.bw-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 9999;
+  background: var(--primary-green);
+  color: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+.bw-toggle:hover { background: var(--dark-green); transform: scale(1.05); }
+
+/* Page layout */
+.page-content {
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 10mm 12mm;
+}
+
+/* Cover Page */
+.cover-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #0a4f2e 0%, #0d6b3e 30%, #0d7377 60%, #0a4f2e 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 40px 20px;
+}
+.cover-page::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a020' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.cover-ornament {
+  font-size: 32px;
+  color: var(--gold);
+  margin: 10px 0;
+  opacity: 0.9;
+}
+.cover-book-title {
+  font-family: 'Amiri', serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #fff;
+  margin: 15px 0;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+}
+.cover-lesson-num {
+  font-size: 26px;
+  color: var(--gold);
+  margin: 10px 0;
+  font-weight: 700;
+}
+.cover-lesson-title {
+  font-size: 30px;
+  color: #f0e6c0;
+  margin: 10px 0 25px;
+  font-weight: 700;
+}
+.cover-names {
+  margin-top: 20px;
+  line-height: 2.2;
+}
+.cover-names .label {
+  color: #a0d0b0;
+  font-size: 15px;
+}
+.cover-names .name {
+  color: var(--gold);
+  font-size: 18px;
+  font-weight: 700;
+}
+.cover-border {
+  position: absolute;
+  top: 15px; left: 15px; right: 15px; bottom: 15px;
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  opacity: 0.4;
+  pointer-events: none;
+}
+.cover-border-inner {
+  position: absolute;
+  top: 22px; left: 22px; right: 22px; bottom: 22px;
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+/* Headings */
+h1 { font-size: 26px; color: var(--primary-green); margin: 30px 0 15px; font-weight: 700; }
+h2 { font-size: 22px; color: var(--dark-green); margin: 25px 0 12px; font-weight: 700; }
+h3 { font-size: 19px; color: var(--teal); margin: 20px 0 10px; font-weight: 700; }
+
+/* Paragraphs */
+p { margin-bottom: 12px; text-align: justify; }
+
+/* Matn text (from the original book) */
+.matn-text {
+  background: var(--light-gold-bg);
+  border-right: 5px solid var(--gold);
+  padding: 12px 16px;
+  margin: 15px 0;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.8;
+  border-radius: 0 8px 8px 0;
+}
+
+/* Quran verse */
+.quran-verse {
+  background: var(--light-green-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 15px 0;
+  text-align: center;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.9;
+  position: relative;
+}
+.quran-verse::before {
+  content: '﴿';
+  color: var(--primary-green);
+  font-size: 22px;
+  margin-left: 5px;
+}
+.quran-verse::after {
+  content: '﴾';
+  color: var(--primary-green);
+  font-size: 22px;
+  margin-right: 5px;
+}
+
+/* Hadith box */
+.hadith-box {
+  background: var(--light-teal-bg);
+  border: 2px solid var(--teal);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 15px 0;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* Poetry Box */
+.poetry-box {
+  background: var(--light-gold-bg);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin: 18px 0;
+  text-align: center;
+}
+.poetry-box .poetry-title {
+  color: var(--dark-green);
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+.poetry-box .poetry-line {
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 2;
+  color: var(--body-text);
+}
+.poetry-box .poetry-hemistich {
+  display: inline-block;
+  min-width: 40%;
+}
+.poetry-box .poetry-explanation {
+  margin-top: 12px;
+  font-size: 16px;
+  color: #444;
+  text-align: right;
+  border-top: 1px dashed var(--gold);
+  padding-top: 10px;
+}
+
+/* Scholar Card */
+.scholar-card {
+  background: #fff;
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 18px;
+  margin: 18px 0;
+  box-shadow: 0 2px 8px rgba(13,107,62,0.1);
+}
+.scholar-card .scholar-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 6px;
+}
+.scholar-card .scholar-badge {
+  display: inline-block;
+  background: var(--primary-green);
+  color: #fff;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  margin: 3px 4px;
+}
+.scholar-card .scholar-badge.shafii { background: #0d6b3e; }
+.scholar-card .scholar-badge.ashari { background: #0d7377; }
+.scholar-card .scholar-dates {
+  font-size: 15px;
+  color: var(--teal);
+  margin: 6px 0;
+}
+.scholar-card .scholar-bio {
+  font-size: 16px;
+  margin-top: 8px;
+  line-height: 1.7;
+}
+.scholar-card .scholar-meta {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+  font-size: 15px;
+  color: #555;
+}
+
+/* Definition Card */
+.definition-card {
+  background: var(--light-blue-bg);
+  border: 2px solid #1565c0;
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin: 15px 0;
+}
+.definition-card .definition-term {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1565c0;
+  margin-bottom: 6px;
+}
+.definition-card .definition-text {
+  font-size: 17px;
+  line-height: 1.7;
+}
+.definition-card .definition-ref {
+  font-size: 14px;
+  color: #888;
+  margin-top: 6px;
+}
+
+/* Classification Tree */
+.tree-container {
+  background: #fff;
+  border: 2px solid var(--primary-green);
+  border-radius: 14px;
+  padding: 20px;
+  margin: 20px 0;
+  overflow-x: auto;
+}
+.tree-container .tree-title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--primary-green);
+  margin-bottom: 15px;
+}
+.tree-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tree-node {
+  background: var(--primary-green);
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 17px;
+  text-align: center;
+  min-width: 140px;
+  border: 2px solid var(--dark-green);
+}
+.tree-branch {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 15px;
+  position: relative;
+}
+.tree-branch::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  right: 25%;
+  left: 25%;
+  height: 15px;
+  border-top: 3px solid var(--primary-green);
+  border-left: 3px solid var(--primary-green);
+  border-right: 3px solid var(--primary-green);
+  border-radius: 10px 10px 0 0;
+}
+.tree-branch .tree-sub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.tree-branch .tree-sub::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  width: 3px;
+  height: 15px;
+  background: var(--primary-green);
+}
+.tree-branch .tree-node { font-size: 15px; padding: 6px 14px; }
+.tree-sub-branch {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 15px;
+  position: relative;
+}
+.tree-sub-branch::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  right: 15%;
+  left: 15%;
+  height: 15px;
+  border-top: 2px solid var(--teal);
+  border-left: 2px solid var(--teal);
+  border-right: 2px solid var(--teal);
+  border-radius: 8px 8px 0 0;
+}
+.tree-sub-branch .tree-sub {
+  position: relative;
+}
+.tree-sub-branch .tree-sub::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  width: 2px;
+  height: 15px;
+  background: var(--teal);
+}
+.tree-sub-branch .tree-node {
+  background: var(--teal);
+  border-color: #065a5c;
+  font-size: 14px;
+  padding: 5px 10px;
+  min-width: 100px;
+}
+.tree-count {
+  display: block;
+  font-size: 13px;
+  color: var(--gold);
+  margin-top: 3px;
+  direction: ltr;
+}
+
+/* Table */
+.table-styled {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+  font-size: 16px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+.table-styled th {
+  background: var(--primary-green);
+  color: #fff;
+  padding: 10px 14px;
+  font-weight: 700;
+  text-align: center;
+}
+.table-styled td {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  text-align: center;
+}
+.table-styled tr:nth-child(even) { background: var(--light-green-bg); }
+.table-styled tr:nth-child(odd) { background: #fff; }
+
+/* Callout box */
+.callout {
+  background: var(--light-gold-bg);
+  border-right: 5px solid var(--gold);
+  padding: 12px 16px;
+  margin: 15px 0;
+  border-radius: 0 10px 10px 0;
+}
+.callout.callout-title {
+  font-weight: 700;
+  color: var(--dark-green);
+  margin-bottom: 6px;
+}
+
+/* Benefit Box */
+.benefit-box {
+  background: var(--light-purple-bg);
+  border: 2px solid #7b1fa2;
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin: 15px 0;
+}
+.benefit-box .benefit-title {
+  color: #7b1fa2;
+  font-weight: 700;
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+.benefit-box .benefit-text {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Alert boxes */
+.alert-box {
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin: 15px 0;
+  border-right: 5px solid;
+}
+.alert-box.success { background: #e8f5e9; border-color: #2e7d32; }
+.alert-box.info { background: #e3f2fd; border-color: #1565c0; }
+.alert-box.warning { background: #fff8e1; border-color: #f9a825; }
+.alert-box.error { background: #fce4ec; border-color: #c62828; }
+
+/* Ruling Cards */
+.ruling-card {
+  background: #fff;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 12px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.ruling-card .ruling-label {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.ruling-card.fard .ruling-label { background: #c62828; }
+.ruling-card.wajib .ruling-label { background: #e65100; }
+.ruling-card.sunna .ruling-label { background: #2e7d32; }
+.ruling-card.mustahabb .ruling-label { background: #1565c0; }
+.ruling-card.makruh .ruling-label { background: #f9a825; color: #333; }
+.ruling-card.haram .ruling-label { background: #880e4f; }
+.ruling-card.mubah .ruling-label { background: #757575; }
+.ruling-card .ruling-text { flex: 1; font-size: 16px; line-height: 1.6; }
+
+/* Summary Box */
+.summary-box {
+  background: var(--light-green-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin: 15px 0;
+}
+.summary-box .summary-title {
+  color: var(--primary-green);
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+/* Qaidah Box (Fiqh Principle) */
+.qaidah-box {
+  background: var(--light-gold-bg);
+  border: 3px solid var(--gold);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin: 15px 0;
+}
+.qaidah-box .qaidah-label {
+  display: inline-block;
+  background: var(--gold);
+  color: #fff;
+  padding: 2px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.qaidah-box .qaidah-text {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.8;
+}
+
+/* Quote Block */
+.quote-block {
+  background: var(--light-gray-bg);
+  border-right: 5px solid var(--teal);
+  padding: 14px 18px;
+  margin: 15px 0;
+  border-radius: 0 10px 10px 0;
+  font-style: italic;
+}
+.quote-block .quote-text {
+  font-size: 17px;
+  line-height: 1.8;
+}
+.quote-block .quote-attribution {
+  font-size: 15px;
+  color: var(--teal);
+  margin-top: 8px;
+  font-weight: 700;
+}
+
+/* Comparison columns */
+.cols {
+  display: flex;
+  gap: 15px;
+  margin: 15px 0;
+  flex-wrap: wrap;
+}
+.cols .col {
+  flex: 1;
+  min-width: 250px;
+  background: #fff;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+.cols .col.col-title {
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--primary-green);
+  margin-bottom: 8px;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 6px;
+}
+
+/* Section Divider */
+.section-divider {
+  text-align: center;
+  margin: 30px 0;
+  position: relative;
+}
+.section-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: var(--gold);
+}
+.section-divider.ornate span {
+  position: relative;
+  background: var(--bg);
+  padding: 0 15px;
+  color: var(--gold);
+  font-size: 22px;
+}
+.section-divider.bismillah span {
+  font-size: 24px;
+  color: var(--primary-green);
+  font-weight: 700;
+}
+
+/* Evidence Box */
+.evidence-box {
+  background: var(--light-teal-bg);
+  border: 2px solid var(--teal);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 15px 0;
+}
+.evidence-box .evidence-label {
+  display: inline-block;
+  background: var(--teal);
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 15px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.evidence-box .evidence-text {
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* Flow chart */
+.flow-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin: 15px 0;
+}
+.flow-step {
+  background: var(--primary-green);
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 16px;
+  min-width: 200px;
+  text-align: center;
+}
+.flow-arrow {
+  font-size: 20px;
+  color: var(--gold);
+}
+
+/* Checklist */
+.checklist {
+  background: #fff;
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin: 15px 0;
+}
+.checklist .checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 8px 0;
+}
+.checklist .checklist-circle {
+  min-width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--primary-green);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* FAQ Accordion */
+.faq-item {
+  background: #fff;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  margin: 10px 0;
+  overflow: hidden;
+}
+.faq-question {
+  padding: 12px 16px;
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--primary-green);
+  cursor: pointer;
+  background: var(--light-green-bg);
+}
+.faq-answer {
+  padding: 12px 16px;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Dua box */
+.dua-box {
+  background: var(--light-gold-bg);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin: 15px 0;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.9;
+}
+
+/* Footnote */
+.footnote {
+  font-size: 14px;
+  color: #666;
+  border-top: 1px solid var(--border);
+  margin-top: 20px;
+  padding-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .cover-book-title { font-size: 28px; }
+  .cover-lesson-title { font-size: 22px; }
+  .tree-branch { flex-direction: column; gap: 15px; align-items: center; }
+  .tree-branch::before { display: none; }
+  .tree-sub-branch { flex-direction: column; gap: 10px; align-items: center; }
+  .tree-sub-branch::before { display: none; }
+  .cols { flex-direction: column; }
+  h1 { font-size: 22px; }
+  h2 { font-size: 19px; }
+}
+
+/* Print */
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+  @bottom-center {
+    content: "— " counter(page) " —";
+    font-size: 10px;
+    color: #666;
+  }
+}
+@media print {
+  .bw-toggle { display: none; }
+  .page-content { max-width: 100%; padding: 0; }
+}
+
+/* Numbered inline marker */
+.marker-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--primary-green);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  margin-left: 6px;
+}
+
+/* Tooltip */
+.tooltip {
+  position: relative;
+  border-bottom: 1px dashed var(--teal);
+  cursor: help;
+}
+.tooltip .tooltip-content {
+  visibility: hidden;
+  position: absolute;
+  bottom: 100%;
+  right: 50%;
+  transform: translateX(50%);
+  background: #333;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  white-space: nowrap;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.tooltip:hover .tooltip-content {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Tabs */
+.tabs-container { margin: 15px 0; }
+.tabs-nav { display: flex; gap: 4px; flex-wrap: wrap; }
+.tab-btn {
+  padding: 8px 18px;
+  border: 2px solid var(--primary-green);
+  border-radius: 8px 8px 0 0;
+  background: var(--light-green-bg);
+  color: var(--primary-green);
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  font-family: inherit;
+}
+.tab-btn.active {
+  background: var(--primary-green);
+  color: #fff;
+}
+.tabs-panels {
+  border: 2px solid var(--primary-green);
+  border-radius: 0 0 10px 10px;
+  padding: 16px;
+}
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+</style>
+</head>
+<body>
+
+<!-- B&W Toggle Button -->
+<button class="bw-toggle" onclick="toggleBW()">وضع الأبيض والأسود</button>
+
+<!-- ===================== COVER PAGE ===================== -->
+<div class="cover-page">
+  <div class="cover-border"></div>
+  <div class="cover-border-inner"></div>
+  <div class="cover-ornament">❊ ✦ ❊</div>
+  <div class="cover-book-title">شرح العوامل المائة</div>
+  <div class="cover-ornament">✧ ❃ ✧</div>
+  <div class="cover-lesson-num cover-gold-text" style="color:#d4a020;">الدرس الأول</div>
+  <div class="cover-lesson-title cover-white-text" style="color:#f0e6c0;">المقدمة</div>
+  <div class="cover-names">
+    <div><span class="label">المؤلف: </span><span class="name" style="color:#d4a020;">الإمام عبد القاهر الجرجاني رحمه الله تعالى</span></div>
+    <div><span class="label">الشارح: </span><span class="name" style="color:#d4a020;">د. لبيب نجيب عبدالله</span></div>
+    <div><span class="label">إعداد: </span><span class="name" style="color:#d4a020;">أحمد بن إرشاد</span></div>
+  </div>
+</div>
+
+<!-- ===================== PAGE CONTENT ===================== -->
+<div class="page-content">
+
+<!-- Opening Dua -->
+<div class="dua-box">
+لله رب العالمين والصلاة والسلام الأتمان الأكملان على سيد المرسلين سيدنا محمد وعلى آله وصحبه الطيبين الطاهرين أما بعد فأسأل الله سبحانه وتعالى أن يمن علينا بالعلم النافع والعمل الصالح وأن يفقهنا في الدين وأن يفتح لنا فتوح العارفين وأن يرزقنا الإخلاص في الأقوال والأعمال اللهم آمين
+</div>
+
+<p>نشرع بإذن الله تعالى في قراءة هذه الرسالة النافعة المباركة للإمام العلامة عبد القاهر الجرجاني رحمه الله تعالى رحمة واسعة، ونحن اليوم في الأول من شهر محرم سنة 1445 من الهجرة، إذن بدايتنا لهذا الكتاب في أول السنة، وإن شاء الله نحاول أن لا نطيل فيه.</p>
+
+<p>طيب اليوم أجعل الدرس في المقدمة، سأتكلم في المقدمة على ثلاثة محاور:</p>
+
+<div class="checklist">
+  <div class="checklist-item">
+    <span class="checklist-circle">1</span>
+    <span class="checklist-text"><strong>المحور الأول:</strong> التعريف بالمؤلف</span>
+  </div>
+  <div class="checklist-item">
+    <span class="checklist-circle">2</span>
+    <span class="checklist-text"><strong>المحور الثاني:</strong> نبذة حول العوامل</span>
+  </div>
+  <div class="checklist-item">
+    <span class="checklist-circle">3</span>
+    <span class="checklist-text"><strong>المحور الثالث:</strong> مقدمة المتن — نقرأ المقدمة وننظر ماذا أراد أن يوضح لنا المصنف رحمه الله تعالى في هذه المقدمة</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h1>المحور الأول: التعريف بالمؤلف</h1>
+<!-- ============================================================ -->
+
+<div class="scholar-card">
+  <div class="scholar-name">عبد القاهر بن عبد الرحمن بن محمد الجرجاني</div>
+  <span class="scholar-badge shafii">شافعي المذهب</span>
+  <span class="scholar-badge ashari">أشعري العقيدة</span>
+  <div class="scholar-dates">تاريخ الوفاة: 471 هـ — وقيل 474 هـ</div>
+  <div class="scholar-bio">
+    <p>الإمام عبد القاهر الجرجاني أشعري العقيدة شافعي الفروع شافعي المذهب. الشافعية كما تعلمون أنهم برزوا في كل علم ألفوا فيه أعظم بهم أئمة وحسبهم إمامهم وخير كتب كتبهم، واضح لست أنا الذي قلت العمري ثقالي.</p>
+  </div>
+  <div class="scholar-meta">
+    <strong>الكنية:</strong> أبو بكر &nbsp;|&nbsp; <strong>المولد:</strong> جرجان — شمال جمهورية إيران حالياً
+  </div>
+</div>
+
+<h2>مدينة جرجان وموقعها</h2>
+
+<p>جرجان هذه مدينة تقع حالياً شمال جمهورية إيران. طبعاً اليمن تقع جنوب جزيرة العرب، وبلاد الشام في الشمال، وهناك بلاد فارس قديماً (إيران حالياً)، شمالها تقع هذه المدينة — مدينة المؤلف: جرجان.</p>
+
+<div class="callout">
+  <div class="callout-title">تنبيه حول عدم كثرة الشيوخ وعدم الرحلة</div>
+  <p>الإمام عبد القاهر الجرجاني امتاز بشيء: امتاز بأنه لم يكن له شيوخ كثير، الشيوخ الذين ذكروا في ترجمته يعدون بالأصابع، إذاً ليس له الكثرة من الشيوخ، بل ولم يرحل في طلب العلم في بلده فقط. ومع ذلك صار إماماً يقصده بالرحلة من بلاد كثيرة، يرحلون إليه مع أنه ليس له كثرة شيوخ وليس له رحلة في طلب العلم.</p>
+</div>
+
+<h2>مؤلفاته</h2>
+
+<div class="benefit-box">
+  <div class="benefit-title">📚 من مؤلفات الإمام عبد القاهر الجرجاني</div>
+  <div class="benefit-text">
+    <ul style="list-style:disc; padding-right:20px;">
+      <li><strong>دلائل الإعجاز</strong> — يعد من أعمدة علم البلاغة</li>
+      <li><strong>المغني شرح الإيضاح</strong> — في ثلاثين مجلداً، والإيضاح لأبي علي الفارسي</li>
+      <li><strong>تفسير الفاتحة</strong></li>
+      <li><strong>رسالة العوامل</strong> — وهي التي ندرسها</li>
+    </ul>
+  </div>
+</div>
+
+<p>ذكر من شيوخه: أبو الحسين الفارسي، ابن أخت أبي علي الفارسي الإمام اللغوي المشهور.</p>
+
+<p>المغني شرح الإيضاح — الإيضاح هذا لأبي علي الفارسي، شرحه في المغني.</p>
+
+<h3>تاريخ الوفاة</h3>
+
+<p>لم أقف على من ذكر تاريخ ولادته، لكنهم ذكروا تاريخ وفاته بأنه أربعمئة وواحد وسبعون هجرية، وقيل أربعمئة وأربعة وسبعون هجرية.</p>
+
+<div class="alert-box warning">
+  <strong>⚠️ تنبيه:</strong> هناك عالمان باسم الجرجاني — يجب التفريق بينهما! يُبيَّن ذلك فيما يلي:
+</div>
+
+<div class="cols">
+  <div class="col">
+    <div class="col-title">الإمام عبد القاهر الجرجاني</div>
+    <p>العالم الذي ندرسه الآن، من القرن الخامس الهجري، توفي سنة 471 هـ أو 474 هـ. صاحب دلائل الإعجاز والمغني ورسالة العوامل.</p>
+  </div>
+  <div class="col">
+    <div class="col-title">الشريف الجرجاني</div>
+    <p>عالم آخر، من القرن التاسع والعاشر تقريباً. من أشهر كتبه كتاب <strong>التعريفات</strong>. هذا عالم آخر غير عبد القاهر الجرجاني، بينهما قرون.</p>
+  </div>
+</div>
+
+<div class="callout">
+  <div class="callout-title">📌 تنبيه حول الطبعات</div>
+  <p>لديك في طبعة دار الكتب العلمية لما طبعوا العوامل كتبوا بعد ذلك — يعني ليس الدار ربما المحقق حتى لا نتهم أحداً — كتبوا أنها تأليف الشريف الجرجاني! الشريف الجرجاني هذا متأخر في القرن التاسع والعاشر تقريباً، أما عبد القاهر ففي القرن الخامس. بينهما قرون. فيجب التمييز بين العلامة عبد القاهر الجرجاني وبين العلامة الشريف الجرجاني.</p>
+</div>
+
+<h2>فقره وتذمره — وشعره في ذلك</h2>
+
+<p>الإمام عبد القاهر الجرجاني كما قلت لكم يعد من أعمدة علم البلاغة على سبيل التحديد وله مصنفات في علوم كثيرة، لكنه مع توسعه في العلوم إلا أنه لم يجد سبيلاً في اكتساب معيشته، فكانت الدنيا ضيقة عليه، بمعنى أنه كان فقيراً. والعلم الواسع الذي عنده لم يكن سبباً في تحصيله للمعيشة الجيدة في حياته. ولذلك تذمر يوماً — ما معنى تذمر؟ ضاق به الأمر — علم واسع ومع ذلك لا أجد وظيفة أتكسب منها، فأنشد أبيات يقول فيها:</p>
+
+<div class="poetry-box">
+  <div class="poetry-title">شعر الإمام عبد القاهر الجرجاني في التبرم من الفقر</div>
+  <div class="poetry-line">
+    <span class="poetry-hemistich">كبر على العلم يا خليلي</span> *** <span class="poetry-hemistich">ومِل إلى الجهل ميلاً هائما</span>
+  </div>
+  <div class="poetry-line">
+    <span class="poetry-hemistich">وعش حماراً تعش سعيداً</span> *** <span class="poetry-hemistich">إنما السعد في طلع البهائم</span>
+  </div>
+  <div class="poetry-explanation">
+    <p><strong>شرح الأبيات:</strong> الأبيات جميلة لكن لا تعملوا بها، إنما قالها في ساعة تضجر.</p>
+    <p><strong>كبر على العلم يا خليلي:</strong> يعني كبّر على العلم تكبيرة الجنازة، كأنه يقول: كان قديماً الناس إذا وجدوا العالم استفادوا من علمه ووجدوا العمل عندهم فعلمهم وعلم أولادهم ووجد المعيشة. أما الآن العلم هذا أصبح في دنيا الناس لا ينفع. فقال كبر في الأمر — كبر على العلم يا خليلي يا صاحبي يا صديقي — يعني كبر على العلم مثل تكبيرات الجنازة تكبيرات الأربع، أي أن العلم مات فصلِّ عليه صلاة الجنازة خلاص، العلم الآن لا ينفع قد مات.</p>
+    <p><strong>ومِل إلى الجهل ميلاً هائما:</strong> أقصد إلى الجهل، الهائم هو المحب، يعني ادخل في الجهل كأنك تحبه، عش جاهلاً وأقف جاهلاً — يعني ما الفائدة أنك تتعب في العلم وتحصل العلم ثم لا تجد بعد ذلك سبباً تعيش به.</p>
+    <p><strong>وعش حماراً تعش سعيداً:</strong> إنما السعد — السعادة في طلق البهائم. يعني يقول هذا طلق البهائم، كان يعني أقول العرب قديماً يقول: إذا وُلد الشخص في برج القوساء يكون سعيداً، إذا وُلد في برج الأسد، برج الدلو، برج العذراء في أبراج — يعني هذه والقمر قدّرناه منازل، الإنسان إذا وُلد في شهر معين يكون غنياً، إذا وُلد في شهر آخر يكون فقيراً، إذا وُلد في كذا يكون كذا. فهو عبارة عن موروث عربي أو موروث ما قبل الإسلام، وطبعاً الشريعة نقضت هذا، لكن هو فقط يقول هذا متبرماً متضجراً من هذا الباب.</p>
+  </div>
+</div>
+
+<div class="alert-box info">
+  <strong>💡 تنبيه:</strong> لا تعملوا بهذا الكلام! إنما ذكرته لكم لأنكم قد تقرؤون هذا في التراجم.
+</div>
+
+<p>وكما يقال: الفقر والعلم متلازمان، صحيح ولا لا؟ الفقيه هو الفقير، وإنما راء الفقير تحرفت أطرافها.</p>
+
+<p>وله أيضاً شعر آخر يدل على محبته لإخوانه وعدم قدرته على مفارقتهم، حيث يقول:</p>
+
+<div class="poetry-box">
+  <div class="poetry-title">شعره في محبة الإخوان</div>
+  <div class="poetry-line">
+    <span class="poetry-hemistich">إن بيني وبينهم لإخاءً</span> *** <span class="poetry-hemistich">وعزيز عليَّ ترك الإخاءِ</span>
+  </div>
+  <div class="poetry-explanation">
+    <p>يعني إن بيني وبينهم لإخاءً، وعزيز عليّ ترك الإخاء — أنا لا أستطيع أن أتركهم، يصعب علي أن أترك إخواني.</p>
+  </div>
+</div>
+
+<p>فهم بارك الله فيكم هذا يعني نبذة عن حياته.</p>
+
+<h2>ملخص المحور الأول</h2>
+
+<div class="summary-box">
+  <div class="summary-title">خلاصة التعريف بالمؤلف</div>
+  <p>إذن عرفنا اسمه، وعرفنا كنيته، وعرفنا مذهبه، وعرفنا بعض مؤلفاته، وعرفنا أنه لم يكن له كثير شيوخ، وأنه لم يرحل في طلب العلم ومع ذلك برز في العلوم — وهذا إشارة إلى أنه قد يبرز في العلوم من لم يرحل في طلب العلم، ومن النماذج لمن لم يرحل: الإمام مالك رحمه الله لم تُعرف له رحلة في طلب العلم — وعرفنا أيضاً وفاته، وعرفنا نبذة عن شعره.</p>
+</div>
+
+<!-- ============================================================ -->
+<div class="section-divider ornate"><span>✧ ❃ ✧</span></div>
+<!-- ============================================================ -->
+
+<h1>المحور الثاني: نبذة حول العوامل</h1>
+<!-- ============================================================ -->
+
+<p>كلمة العوامل هذه تمر معنا في النحو. في تعريف الإعراب ماذا نقول؟ ما هو الإعراب؟</p>
+
+<div class="definition-card">
+  <div class="definition-term">تعريف الإعراب</div>
+  <div class="definition-text">تغيير أحوال أواخر الكلمة لاختلاف العوامل الداخلة عليها لفظاً أو تقديراً</div>
+</div>
+
+<p>عندنا شيء في النحو اسمه <strong>نظرية العامل</strong>، هذه لها أربعة أركان: هناك عامل وهناك معمول وهناك عمل وهناك أثر. وأنا أذكر أنني في شرح الكفراوي ذكرت لكم هذا: عندنا عامل وعندنا معمول وعندنا عمل وعندنا أثر.</p>
+
+<h2>نظرية العامل — الأركان الأربعة</h2>
+
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>الركن</th>
+      <th>المعنى</th>
+      <th>المثال الأول: إن زيداً مجتهد</th>
+      <th>المثال الثاني: إن المسلمين فائزون</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>العامل</strong></td>
+      <td>ما أوجب الإعراب</td>
+      <td>إن</td>
+      <td>إن</td>
+    </tr>
+    <tr>
+      <td><strong>المعمول</strong></td>
+      <td>ما وقع عليه العمل</td>
+      <td>زيداً (اسم إن) — مجتهد (خبر إن)</td>
+      <td>المسلمين (اسم إن) — فائزون (خبر إن)</td>
+    </tr>
+    <tr>
+      <td><strong>العمل</strong></td>
+      <td>نوع التأثير الإعرابي</td>
+      <td>النصب في اسم إن — الرفع في خبر إن</td>
+      <td>النصب في اسم إن — الرفع في خبر إن</td>
+    </tr>
+    <tr>
+      <td><strong>الأثر / العلامة</strong></td>
+      <td>العلامة الظاهرة على آخر الكلمة</td>
+      <td>علامة النصب: الفتحة — علامة الرفع: الضمة</td>
+      <td>علامة النصب: الياء — علامة الرفع: الواو</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>لو قلت مثلاً: <strong>هذا كتاب محمد</strong> — محمد مضاف إليه مجرور، من الذي عمل فيه الجر؟ المضاف، المضاف عمل فيه الجر. إذاً المضاف عامل، المضاف إليه معمول، ما العمل؟ الجر، ما علامة الجر؟ الكسرة.</p>
+
+<p>إذاً الأثر هذا قد يكون — نقول هذا الأثر — إما علامة أصلية وإما علامة فرعية، وهذا الذي ندرسه في النحو في الأجرومية.</p>
+
+<h2>طريقة التأليف في النحو</h2>
+
+<p>التأليف في كتب النحو — تبع معي — هناك طريقة تسمى <strong>الطريقة التقليدية</strong> (ممكن تسميها الطريقة الكلاسيكية): يبدأون النحو بالكلام على تعريف الكلام، ثم أقسام الكلمة: اسم فعل حرف، ثم يتكلمون على علامات الاسم، ثم علامات الفعل وعلامات الحرف، ثم بعد ذلك يبدأون في الكلام على الإعراب والبناء. هذه طريقة:</p>
+
+<div class="cols cols-3">
+  <div class="col" style="min-width:180px;">
+    <div class="col-title">الطريقة التقليدية في التأليف</div>
+    <ul style="list-style:disc; padding-right:18px;">
+      <li>الأجرومية</li>
+      <li>متممة الأجرومية</li>
+      <li>قطر الندى</li>
+      <li>ألفية بن مالك</li>
+    </ul>
+  </div>
+  <div class="col" style="min-width:250px;">
+    <div class="col-title">طريقة متخصصة — الإمام عبد القاهر الجرجاني</div>
+    <p>كتب في شيء معين: تكلم على العامل فقط، فلم يتكلم على المعمول ولم يتكلم على الأثر والعلامات، ما تكلم عليها، تكلم على العوامل فقط.</p>
+  </div>
+  <div class="col" style="min-width:250px;">
+    <div class="col-title">طريقة متخصصة — ابن هشام</div>
+    <p>له رسالة صغيرة في الحجم كبيرة في الفائدة والمعنى اسمها <strong>قواعد الإعراب</strong>، تكلم على: الجمل التي لها محل من الإعراب، الجمل التي ليس لها محل من الإعراب، أخطاء بعض المعربين في الإعراب، وإعراب جملة من الكلمات المشهورة المتداولة كيف تعرب. هذه الرسالة من المهم جداً أن نقرأها.</p>
+  </div>
+</div>
+
+<p>هذه أيضاً ليست على الطريقة التقليدية في التأليف في النحو، طريقة متميزة. بل إن من العلماء من ألف في النحو في أسماء الخلافيات مثلاً، الخلافيات بين البصريين والكوفيين، منهم من تكلم في أمور جزئية. إذن هذه ليست هي الطريقة التقليدية الكلاسيكية المشهورة في التأليف التي أُلفت في علم النحو.</p>
+
+<h2>شروح العوامل المشهورة</h2>
+
+<p>هذه الرسالة اشتهرت عند أهل العلم وشرحت كثيراً. من أهم الشروح المتداولة:</p>
+
+<div class="benefit-box">
+  <div class="benefit-title">📖 من أهم شروح العوامل</div>
+  <div class="benefit-text">
+    <ul style="list-style:disc; padding-right:20px;">
+      <li><strong>شرح الشيخ خالد الأزهري</strong> — وقد ذكرت لكم من قبل قصة الشيخ خالد الأزهري</li>
+      <li><strong>شرح العلامة الفطاني</strong> — العلامة الفطاني هذا في تايلاند، وشرحه مشهور: <strong>تسهيل العوامل</strong> / <strong>تسهيل بلغ الأماني</strong> / <strong>تسهيل الليل الأماني</strong> — هذا الشرح جيد</li>
+    </ul>
+    <p>إذاً منى علينا أن نختم هذا نمر عليه مروراً سريعاً، قراءة جرد وليست قراءة دراسة، حتى تعزز المعلومات بقراءة هذا الشرح، لأن هذا الشرح مقرر في كثير من المعاهد في بلادكم.</p>
+  </div>
+</div>
+
+<h2>مقارنة: عوامل الجرجاني وعوامل البركوي</h2>
+
+<div class="cols">
+  <div class="col">
+    <div class="col-title">عوامل الجرجاني (رسالتنا)</div>
+    <p>تكلم على <strong>العوامل فقط</strong>، لم يتكلم على المعمول ولا على الأثر والعلامات. عدد العوامل: مئة عامل.</p>
+  </div>
+  <div class="col">
+    <div class="col-title">عوامل البركوي</div>
+    <p>العلامة البركوي هذا تركي من تركيا. رسالته أيضاً تسمى "العوامل" (عوامل البركوي)، لكنها تختلف اختلافاً يسيراً عن عوامل الجرجاني: تكلمت على العامل <strong>وعلى المعمول أيضاً</strong>، لكن ذكر العوامل بشكل أكبر (ذكروا تقريباً 60)، ثم ذكر المعمول. وسُميت "عوامل" من باب <strong>التغليب</strong>.</p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<div class="section-divider ornate"><span>✧ ❃ ✧</span></div>
+<!-- ============================================================ -->
+
+<h1>المحور الثالث: مقدمة المتن</h1>
+<!-- ============================================================ -->
+
+<p>ندخل الآن في النقطة الثالثة من الدرس. هذه الرسالة تتكلم عن ماذا؟ تتكلم عن العامل. إذن رسالتنا اليوم التي سندرسها تتحدث عن العوامل فقط.</p>
+
+<p>جاء إلى العوامل فقال: إن العوامل هذه تنقسم إلى قسمين كبيرين:</p>
+
+<div class="tree-container">
+  <div class="tree-title">شجرة تصنيف العوامل المائة</div>
+  <div class="tree-root">
+    <div class="tree-node">العوامل<span class="tree-count">المجموع: 100</span></div>
+    <div class="tree-branch">
+      <div class="tree-sub">
+        <div class="tree-node" style="background:#0d6b3e;">عوامل لفظية<span class="tree-count">98 عاملًا</span></div>
+        <div class="tree-sub-branch">
+          <div class="tree-sub">
+            <div class="tree-node">سماعية<span class="tree-count">91 عاملاً</span></div>
+          </div>
+          <div class="tree-sub">
+            <div class="tree-node">قياسية<span class="tree-count">7 عوامل</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="tree-sub">
+        <div class="tree-node" style="background:#0d7377;">عوامل معنوية<span class="tree-count">عاملان</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>العوامل اللفظية هذه قال تنقسم إلى قسمين: إما سماعية (سمعت عن العرب ولا يقاس عليها، تحفظ كما هي)، وإما قياسية.</p>
+
+<p>كم عدد السماعية؟ 91 عاملاً. كم عدد القياسية؟ 7 عوامل. كم عدد المعنوية؟ عددها 2. كم نجمع؟ 91 + 7 + 2 = 100.</p>
+
+<div class="alert-box warning">
+  <strong>⚠️ تنبيه حول عدد العوامل:</strong> وهذا في النسخة المشهورة. هو لما ذكر أفعال المقاربة هنا في هذه الرسالة ذكر أربعة فقط، في بعض النسخ زاد عليها ذكر أخذ من أفعال مقاربة — أخذ وجعل وطفق — في نسختنا هنا غير موجودة، في بعض النسخ موجودة بزيادة ثلاثة. إذاً كم تصير العوامل؟ مئة وثلاثة. وحتى قولوه مئة أو مئة وثلاثة هذا <strong>ليس للحصر</strong>، فهو ذكر أكثر العوامل لكنه لم يحصر العوامل بهذا، وإن لا فتوجد عوامل أخرى لم يذكرها.
+</div>
+
+<p>السماعية قال نقسمها إلى 13 نوعاً، تقسم إلى 13 نوعاً ندرسها نوعاً نوعاً حتى ننتهي منها. إذن هذا تقسيم الرسالة، هذا تصور عام عن الرسالة التي سندرسها الآن.</p>
+
+<!-- ===================== قراءة المتن ===================== -->
+<div class="section-divider bismillah"><span>بسم الله الرحمن الرحيم</span></div>
+
+<p>نقرأ المقدمة بسم الله. بسم الله يا الله يسِّر أمري يا رب. قال رحمه الله تعالى رحمة واسعة:</p>
+
+<div class="matn-text">
+بسم الله الرحمن الرحيم
+</div>
+
+<p>طبعاً افتتح بالبسملة عملاً بالقرآن الكريم واقتداءً بالقرآن الكريم وعملاً بالحديث.</p>
+
+<div class="evidence-box">
+  <div class="evidence-label">حديث</div>
+  <div class="evidence-text">كل أمر ذي بال لا يبدأ فيه ببسم الله فهو أقطع فهو أبتر فهو أجذم</div>
+</div>
+
+<div class="matn-text">
+الحمد لله رب العالمين والصلاة والسلام على محمد وآله وصحبه أجمعين
+</div>
+
+<div class="matn-text">
+وبعده فإن العوامل في النحو على ما ألفه الشيخ الإمام عبد القاهر بن عبد الرحمن بن محمد الجرجاني رحمه الله تعالى مئة عامل
+</div>
+
+<p>تلحظ معي أن هذه المقدمة ليست من كلامه، لعلها من كلام بعض طلابه — قال "فإن العوامل في النحو على ما ألفه الشيخ الإمام..."</p>
+
+<h2>تعريف العامل</h2>
+
+<div class="definition-card">
+  <div class="definition-term">تعريف العامل</div>
+  <div class="definition-text">ما أوجب كون آخر الكلمة مرفوعاً أو منصوباً أو مجروراً أو مجزوماً</div>
+  <div class="definition-ref">العوامل جمع عامل، وهو ما أوجب كون آخر الكلمة مرفوعاً أو منصوباً أو مجروراً أو مجزوماً</div>
+</div>
+
+<p>انظر لو قلت في هذا المثال مثلاً: <strong>قام زيد</strong> — ما الذي أوجب الرفع في زيد؟ قام، هذا العامل. ولو قلت مثلاً: <strong>إن زيداً حاضر</strong> — من الذي أوجب النصب في زيد؟ واضح إذاً العامل ما هو؟ ما أوجب كون آخر الكلمة مرفوعاً أو منصوباً أو مجروراً أو مجزوماً.</p>
+
+<p>أو تقول: <strong>هذا قلم زيد</strong> — أوجب الاسم الأول مضاف، هذا أوجب كون المضاف إليه مجروراً.</p>
+
+<p>أو مجزوماً تقول مثلاً: <strong>لم يذهب</strong> — ما الذي جعل الفعل المضارع مجزوماً؟ العامل: لم.</p>
+
+<h2>تعريف الشيخ</h2>
+
+<div class="definition-card">
+  <div class="definition-term">الشيخ</div>
+  <div class="definition-text">
+    <strong>لغة:</strong> من تجاوز الأربعين، يقال له شيخ<br>
+    <strong>اصطلاحاً:</strong> من بلغ رتبة أهل الفضل ولو كان صبياً
+  </div>
+  <div class="definition-ref">يعني مثلاً لو قلنا غفار شيخ ما بلغ الأربعين — غفار إذن لا أريد المعنى اللغوي تمام، وإنما أريد المعنى الاصطلاحي. صح ولو بلغت الأربعين ليس تمام.</div>
+</div>
+
+<h2>تعريف الإمام</h2>
+
+<div class="definition-card">
+  <div class="definition-term">الإمام</div>
+  <div class="definition-text">المقتدى به في الأمور</div>
+</div>
+
+<p>"رحمه الله تعالى عليه" — هذه الجملة جملة دعائية لا محل لها من الإعراب، مثل جملة "رضي الله عنهم" — جملة دعائية لا محل لها من الإعراب.</p>
+
+<h2>إكمال قراءة المتن</h2>
+
+<div class="matn-text">
+وهي تنقسم إلى قسمين: لفظية ومعنوية
+</div>
+
+<p>لفظية بالجر — بدل — ومعنوية. "وهي" من هذه التي تنقسم إلى قسمين؟ العوامل. أحسنتم.</p>
+
+<div class="matn-text">
+فاللفظية منها تنقسم إلى قسمين: سماعية وقياسية
+</div>
+
+<p>انظر إلى السبورة تجد أول التقسيم إلى لفظية ومعنوية، وبعدين اللفظية تنقسم إلى سماعية وقياسية. جيد.</p>
+
+<div class="matn-text">
+فالسماعية منها أحد وتسعون عاملاً والقياسية منها سبعة عوامل والمعنوية منها عددان فالجملة مئة عامل
+</div>
+
+<h2>لماذا قُدِّمت العوامل اللفظية على المعنوية؟</h2>
+
+<div class="qaidah-box">
+  <div class="qaidah-label">قاعدة</div>
+  <div class="qaidah-text">
+    العوامل اللفظية أقوى من العوامل المعنوية، لأن العوامل اللفظية تعرف بالقلب وتلفظ باللسان فيجتمع فيها القلب واللسان. أما العوامل المعنوية فلا يلفظ باللسان وإنما يعرف بالقلب فقط.
+  </div>
+</div>
+
+<div class="cols">
+  <div class="col">
+    <div class="col-title">العامل اللفظي</div>
+    <p>يعرف بالقلب <strong>و</strong> يلفظ باللسان — فاجتمع فيه القلب واللسان، فهو أقوى.</p>
+  </div>
+  <div class="col">
+    <div class="col-title">العامل المعنوي</div>
+    <p>يعرف بالقلب <strong>لكن لا</strong> يلفظ باللسان. مثال: ما سبب — ما عامل — رفع المضارع؟ تجرده عن الناصب والجازم، هذا عامل معنوي. هل يلفظ باللسان؟ لا يلفظ باللسان. والابتداء في المبتدأ — هذا عامل معنوي أيضاً لا يلفظ باللسان.</p>
+  </div>
+</div>
+
+<h2>لماذا قُدِّمت السماعية على القياسية؟</h2>
+
+<div class="callout">
+  <div class="callout-title">سبب تقديم السماعية على القياسية</div>
+  <p>قدم السماعية لأنها أكثر عدداً من القياسية — السماعية عددها أحد وتسعون عاملاً، القياسية عددها سبعة فقط — فقدم الأكثر على الأقل. خاصة في بداية الكتاب، الطالب والقارئ تكون همته مرتفعة، فناسباً يقدم له الأكثر حتى إذا وصل إلى آخر الكتاب رأى أن الباقي سبعة فاستطاعه. لكن لو انتهى من السبعة ثم ينظر أمامه واحد وتسعين عامل — يا الله! واحد وتسعين مازال! — لا يدرس الكتاب!</p>
+</div>
+
+<h2>الفرق بين السماعية والقياسية</h2>
+
+<div class="cols">
+  <div class="col">
+    <div class="col-title">العوامل السماعية</div>
+    <p>هي التي سمعت من العرب ولا يقاس عليها. ما سمع من العرب فلا يقاس عليه. طريقته أن يحفظ السماعي يحفظ.</p>
+    <p><strong>مثال:</strong> حروف الجر — عند العرب محصورة، هل يمكن أن نقيس كلمة على حروف الجر؟ لا. والحروف المشبهة بالفعل: إن أن ليت كأن لعل — لكن هذه محصورة، هل يمكن أن نأتي بأخت لها إضافية نقيس؟ لا يمكن.</p>
+  </div>
+  <div class="col">
+    <div class="col-title">العوامل القياسية</div>
+    <p>سمعت من العرب لكن يقاس عليها. لا يلزم أن تحصر.</p>
+    <p><strong>مثال:</strong> الفعل — كل فعل يرفع فاعلاً. هل لابد أن تذكر الأفعال: ضربوا قاموا كتبوا ناموا صاموا راحوا عادوا جاءوا طلعوا نزلوا دخلوا خرجوا... حصرها صعب! لكن خلاص كل فعل يعمل فيرفع الفاعل — تدخل تحت القاعدة، لا يشرط أن تعدها. بخلاف الحروف المشبهة بالفعل تحصر، حروف الجر تحصر، الجوازم تحصر، النواصب تحصر.</p>
+  </div>
+</div>
+
+<h2>الألف واللام في "السماعية"</h2>
+
+<p>قال "فالسماعية" — نكرة أم معرفة؟ معرفة. ثم أيش قال؟ فالسماعية — أيش من سماعية يقصد؟ التي ذكرها. إذاً الألف واللام هذه <strong>للعهد الذكري</strong>.</p>
+
+<div class="definition-card">
+  <div class="definition-term">الألف واللام للعهد الذكري</div>
+  <div class="definition-text">المراد بها الإشارة إلى ما سبق ذكره. كما في قوله تعالى:</div>
+</div>
+
+<div class="quran-verse">
+إنا أرسلنا إليكم رسولاً شاهداً
+</div>
+<p>كما أرسلنا إلى فرعون رسولاً فعصى فرعون الرسول الذي أرسلناه إليه.</p>
+
+<h2>العاملان المعنويان</h2>
+
+<p>قال: والمعنوية أي والعوامل المعنوية عدداً اثنان، هما:</p>
+
+<div class="cols">
+  <div class="col" style="text-align:center;">
+    <div class="col-title" style="text-align:center;">الأول</div>
+    <p style="font-size:18px; font-weight:700;">التجرد عن الناصب والجازم في المضارع</p>
+  </div>
+  <div class="col" style="text-align:center;">
+    <div class="col-title" style="text-align:center;">الثاني</div>
+    <p style="font-size:18px; font-weight:700;">الابتداء في المبتدأ</p>
+  </div>
+</div>
+
+<p>هما هذان العاملان، سيأتي هذا في آخر الدرس إن شاء الله.</p>
+
+<h2>إعادة قراءة المقطع</h2>
+
+<p>نعيد قراءة هذا المقطع. قال: لفظية ومعنوية، فاللفظية منها تنقسم إلى قسمين سماعية وقياسية، فالسماعية منها أحد وتسعون عاملاً والقياسية منها سبعة عوامل والمعنوية منها عددان فالجملة مئة عامل.</p>
+
+<div class="matn-text">
+ثم قال: والسماعية منها تتنوع على ثلاثة عشر نوعاً
+</div>
+
+<p>كما قلت لكم على السبورة: النوع الأول حروف تجر الاسم الواحد فقط وهي سبعة عشر حرفاً. هذا مفتتح درسنا القادم إن شاء الله تعالى.</p>
+
+<!-- ============================================================ -->
+<div class="section-divider ornate"><span>✧ ❃ ✧</span></div>
+<!-- ============================================================ -->
+
+<h1>ملخص الدرس</h1>
+
+<div class="summary-box">
+  <div class="summary-title">خلاصة الدرس الأول — المقدمة</div>
+  <p><strong>المحور الأول — التعريف بالمؤلف:</strong> الإمام عبد القاهر بن عبد الرحمن بن محمد الجرجاني (أبو بكر)، أشعري العقيدة شافعي المذهب، من جرجان شمال إيران. لم يكن له كثير شيوخ ولم يرحل في طلب العلم ومع ذلك برز وصار إماماً يقصده الناس. من مؤلفاته: دلائل الإعجاز، المغني شرح الإيضاح، تفسير الفاتحة، رسالة العوامل. توفي سنة 471 هـ وقيل 474 هـ. كان فقيراً مع سعة علمه. يجب التفريق بينه وبين الشريف الجرجاني (صاحب التعريفات) الذي هو من القرن التاسع والعاشر.</p>
+  <p><strong>المحور الثاني — نبذة حول العوامل:</strong> نظرية العامل تقوم على أربعة أركان: العامل، المعمول، العمل، الأثر/العلامة. هناك طريقتان للتأليف في النحو: التقليدية (كالأجرومية والألفية) والمتخصصة (كالعوامل وقواعد الإعراب). عوامل الجرجاني تختلف عن عوامل البركوي: الجرجاني تكلم على العوامل فقط، والبركوي تكلم على العوامل والمعمول.</p>
+  <p><strong>المحور الثالث — مقدمة المتن:</strong> العوامل تنقسم إلى لفظية (98) ومعنوية (2). اللفظية تنقسم إلى سماعية (91) وقياسية (7). قدمت اللفظية على المعنوية لأنها أقوى (تجمع القلب واللسان). قدمت السماعية على القياسية لأنها أكثر عدداً. السماعية: سمعت من العرب ولا يقاس عليها. القياسية: سمعت ويقاس عليها. العاملان المعنويان: التجرد عن الناصب والجازم في المضارع، والابتداء في المبتدأ. السماعية تتنوع إلى 13 نوعاً.</p>
+</div>
+
+<div class="footnote" style="text-align:center;">
+  نكتفي بهذا والله أعلم<br>
+  صلّ اللهم وسلم وبارك على سيدنا محمد وعلى آله وصحبه أجمعين<br>
+  والحمد لله رب العالمين
+</div>
+
+<div class="footnote" style="text-align:center; margin-top:10px;">
+  إعداد: أحمد بن إرشاد &nbsp;|&nbsp; المؤلف: الإمام عبد القاهر الجرجاني رحمه الله تعالى &nbsp;|&nbsp; الشارح: د. لبيب نجيب عبدالله
+</div>
+
+</div><!-- end page-content -->
+
+<script>
+function toggleBW() {
+  document.body.classList.toggle('bw-mode');
+  var btn = document.querySelector('.bw-toggle');
+  if (document.body.classList.contains('bw-mode')) {
+    btn.textContent = 'وضع الألوان';
+  } else {
+    btn.textContent = 'وضع الأبيض والأسود';
+  }
+}
+</script>
+
+</body>
+</html>

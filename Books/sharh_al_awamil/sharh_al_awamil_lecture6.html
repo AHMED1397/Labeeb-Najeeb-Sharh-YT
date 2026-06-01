@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح العوامل المائة — الدرس السادس: الحروف المشبهة بالفعل</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-green: #0d6b3e;
+  --dark-green: #0a4f2e;
+  --gold: #d4a020;
+  --light-gold: #f0e6c0;
+  --teal: #0d7377;
+  --bg: #fefefe;
+  --body-text: #1a1a1a;
+  --border: #c8d6c0;
+  --light-green-bg: #e8f5e9;
+  --light-teal-bg: #e0f2f1;
+  --light-gold-bg: #fff8e1;
+  --light-red-bg: #fce4ec;
+  --light-blue-bg: #e3f2fd;
+  --light-purple-bg: #f3e5f5;
+  --light-gray-bg: #f5f5f5;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--body-text);
+  background: var(--bg);
+  direction: rtl;
+}
+
+/* B&W Mode */
+body.bw-mode {
+  --primary-green: #333;
+  --dark-green: #222;
+  --gold: #555;
+  --light-gold: #eee;
+  --teal: #444;
+  --bg: #fff;
+  --body-text: #000;
+  --border: #999;
+  --light-green-bg: #f0f0f0;
+  --light-teal-bg: #f0f0f0;
+  --light-gold-bg: #f5f5f5;
+  --light-red-bg: #f5f5f5;
+  --light-blue-bg: #f0f0f0;
+  --light-purple-bg: #f0f0f0;
+  --light-gray-bg: #f5f5f5;
+}
+body.bw-mode .cover-page { background: linear-gradient(135deg, #333 0%, #555 50%, #333 100%) !important; }
+body.bw-mode .cover-page * { color: #fff !important; border-color: #999 !important; }
+body.bw-mode .tree-node,
+body.bw-mode .tree-branch { border-color: #666 !important; }
+body.bw-mode .tree-node { background: #eee !important; color: #000 !important; }
+body.bw-mode .ruling-card { border-color: #666 !important; }
+body.bw-mode .ruling-card .ruling-label { background: #555 !important; color: #fff !important; }
+body.bw-mode .evidence-box { border-color: #666 !important; background: #f5f5f5 !important; }
+body.bw-mode .callout { border-color: #666 !important; background: #f0f0f0 !important; }
+body.bw-mode .definition-card { border-color: #666 !important; }
+body.bw-mode .poetry-box { border-color: #666 !important; background: #f5f5f5 !important; }
+body.bw-mode .qaidah-box { border-color: #666 !important; background: #f5f5f5 !important; }
+body.bw-mode .benefit-box { border-color: #666 !important; background: #f0f0f0 !important; }
+body.bw-mode .summary-box { border-color: #666 !important; background: #f0f0f0 !important; }
+body.bw-mode .section-divider { border-color: #999 !important; }
+body.bw-mode .section-divider::before { color: #666 !important; }
+body.bw-mode .table-styled th { background: #555 !important; color: #fff !important; }
+body.bw-mode .table-styled td { border-color: #999 !important; }
+body.bw-mode .scholar-card { border-color: #666 !important; }
+
+/* B&W Toggle Button */
+.bw-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 9999;
+  background: var(--primary-green);
+  color: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: all 0.3s;
+}
+.bw-toggle:hover { background: var(--dark-green); }
+
+/* Page Setup */
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+  @bottom-center {
+    content: "— " counter(page) " —";
+    font-size: 10px;
+    color: #666;
+  }
+}
+
+.page-content {
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 0 12mm;
+}
+
+/* Cover Page */
+.cover-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0a4f2e 0%, #0d6b3e 30%, #0d7377 60%, #0d6b3e 100%);
+  color: #fff;
+  text-align: center;
+  padding: 40px 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cover-page::before {
+  content: '';
+  position: absolute;
+  top: 15px; left: 15px; right: 15px; bottom: 15px;
+  border: 2px solid rgba(212,160,32,0.5);
+  border-radius: 12px;
+  pointer-events: none;
+}
+
+.cover-page::after {
+  content: '';
+  position: absolute;
+  top: 22px; left: 22px; right: 22px; bottom: 22px;
+  border: 1px solid rgba(212,160,32,0.3);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.cover-ornament {
+  font-size: 36px;
+  color: var(--gold);
+  margin: 10px 0;
+}
+
+.cover-book-title {
+  font-family: 'Amiri', serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--light-gold);
+  margin: 15px 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.cover-lecture-num {
+  font-family: 'Amiri', serif;
+  font-size: 28px;
+  color: var(--gold);
+  margin: 10px 0;
+  padding: 8px 30px;
+  border: 1px solid var(--gold);
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.cover-lecture-title {
+  font-family: 'Amiri', serif;
+  font-size: 24px;
+  color: #fff;
+  margin: 20px 0;
+  padding: 0 20px;
+}
+
+.cover-author-info {
+  margin-top: 30px;
+  font-size: 16px;
+  color: var(--light-gold);
+  line-height: 2;
+}
+
+.cover-author-info span {
+  display: block;
+}
+
+/* Section Headings */
+h1 {
+  font-family: 'Amiri', serif;
+  font-size: 26px;
+  color: var(--primary-green);
+  margin: 30px 0 15px;
+  padding-bottom: 8px;
+  border-bottom: 3px solid var(--gold);
+}
+
+h2 {
+  font-family: 'Amiri', serif;
+  font-size: 22px;
+  color: var(--dark-green);
+  margin: 25px 0 12px;
+  padding-right: 12px;
+  border-right: 4px solid var(--gold);
+}
+
+h3 {
+  font-family: 'Amiri', serif;
+  font-size: 19px;
+  color: var(--teal);
+  margin: 20px 0 10px;
+}
+
+p { margin: 8px 0; text-align: justify; }
+
+/* Matn Text */
+.matn-text {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--dark-green);
+  border-right: 4px solid var(--gold);
+  padding: 8px 14px;
+  margin: 12px 0;
+  background: var(--light-gold-bg);
+  border-radius: 0 6px 6px 0;
+  line-height: 1.8;
+}
+
+/* Evidence Box (Quran/Hadith) */
+.evidence-box {
+  background: var(--light-green-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  position: relative;
+}
+.evidence-box::before {
+  content: '﴿ قرآن كريم ﴾';
+  position: absolute;
+  top: -10px;
+  right: 16px;
+  background: var(--primary-green);
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 10px;
+  border-radius: 10px;
+}
+.evidence-box.hadith::before {
+  content: '﴿ حديث شريف ﴾';
+  background: var(--teal);
+}
+.evidence-box .ev-text {
+  font-family: 'Amiri', serif;
+  font-size: 19px;
+  text-align: center;
+  color: var(--dark-green);
+  line-height: 1.8;
+}
+.evidence-box.hadith .ev-text {
+  color: var(--teal);
+}
+
+/* Poetry Box */
+.poetry-box {
+  background: var(--light-gold-bg);
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 14px 0;
+  text-align: center;
+}
+.poetry-box .poetry-label {
+  font-size: 13px;
+  color: var(--gold);
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+.poetry-box .poetry-line {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  line-height: 2;
+  color: var(--dark-green);
+}
+
+/* Callout Box */
+.callout {
+  background: var(--light-blue-bg);
+  border-right: 5px solid #1565c0;
+  padding: 12px 16px;
+  margin: 12px 0;
+  border-radius: 0 8px 8px 0;
+}
+.callout.gold {
+  background: var(--light-gold-bg);
+  border-right-color: var(--gold);
+}
+.callout.teal {
+  background: var(--light-teal-bg);
+  border-right-color: var(--teal);
+}
+.callout.green {
+  background: var(--light-green-bg);
+  border-right-color: var(--primary-green);
+}
+.callout.red {
+  background: var(--light-red-bg);
+  border-right-color: #c62828;
+}
+.callout.purple {
+  background: var(--light-purple-bg);
+  border-right-color: #6a1b9a;
+}
+.callout .callout-title {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+/* Definition Card */
+.definition-card {
+  background: #fff;
+  border: 2px solid var(--teal);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  position: relative;
+}
+.definition-card .definition-term {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--teal);
+  margin-bottom: 6px;
+}
+.definition-card .definition-text {
+  font-size: 17px;
+  color: var(--body-text);
+}
+.definition-card .definition-ref {
+  font-size: 14px;
+  color: #888;
+  margin-top: 6px;
+}
+
+/* Classification Tree */
+.tree-container {
+  margin: 16px 0;
+  padding: 16px;
+  background: var(--light-green-bg);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  overflow-x: auto;
+}
+.tree-container .tree-title {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--primary-green);
+  text-align: center;
+  margin-bottom: 12px;
+}
+.tree-branch {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.tree-node {
+  background: #fff;
+  border: 2px solid var(--primary-green);
+  border-radius: 8px;
+  padding: 8px 14px;
+  text-align: center;
+  font-size: 15px;
+  min-width: 100px;
+  position: relative;
+}
+.tree-node.root {
+  background: var(--primary-green);
+  color: #fff;
+  font-weight: 700;
+  font-size: 17px;
+  border: none;
+}
+.tree-node .node-label {
+  font-size: 12px;
+  color: var(--gold);
+  font-weight: 700;
+  display: block;
+}
+.tree-sub-branch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Table */
+.table-styled {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0;
+  font-size: 16px;
+}
+.table-styled th {
+  background: var(--primary-green);
+  color: #fff;
+  padding: 10px 12px;
+  font-weight: 700;
+  text-align: center;
+  border: 1px solid var(--dark-green);
+}
+.table-styled td {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  text-align: center;
+  vertical-align: top;
+}
+.table-styled tr:nth-child(even) td {
+  background: var(--light-green-bg);
+}
+
+/* Comparison Cards */
+.cols {
+  display: flex;
+  gap: 12px;
+  margin: 14px 0;
+  flex-wrap: wrap;
+}
+.cols-3 > * { flex: 1; min-width: 180px; }
+.cols-4 > * { flex: 1; min-width: 130px; }
+.comp-card {
+  background: #fff;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
+}
+.comp-card .comp-label {
+  font-weight: 700;
+  font-size: 15px;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+.comp-card .comp-text {
+  font-size: 16px;
+}
+
+/* Ruling Cards */
+.ruling-card {
+  background: #fff;
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 12px 0;
+  position: relative;
+}
+.ruling-card .ruling-label {
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  background: var(--primary-green);
+  color: #fff;
+  font-size: 13px;
+  padding: 2px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+.ruling-card .ruling-text {
+  margin-top: 6px;
+  font-size: 16px;
+}
+
+/* Summary Box */
+.summary-box {
+  background: var(--light-gold-bg);
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+.summary-box .summary-title {
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.summary-box ul {
+  list-style: none;
+  padding: 0;
+}
+.summary-box ul li {
+  padding: 4px 0;
+  padding-right: 20px;
+  position: relative;
+}
+.summary-box ul li::before {
+  content: '◆';
+  position: absolute;
+  right: 0;
+  color: var(--gold);
+  font-size: 12px;
+}
+
+/* Benefit Box */
+.benefit-box {
+  background: var(--light-purple-bg);
+  border: 2px solid #6a1b9a;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+.benefit-box .benefit-title {
+  font-weight: 700;
+  color: #6a1b9a;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+.benefit-box .benefit-text {
+  font-size: 16px;
+}
+
+/* Qaidah Box */
+.qaidah-box {
+  background: var(--light-gold-bg);
+  border: 3px solid var(--gold);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+.qaidah-box .qaidah-label {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 6px;
+}
+.qaidah-box .qaidah-text {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--dark-green);
+  text-align: center;
+}
+
+/* Section Divider */
+.section-divider {
+  text-align: center;
+  margin: 30px 0;
+  border-top: 1px solid var(--border);
+  position: relative;
+}
+.section-divider::before {
+  content: '❁';
+  position: absolute;
+  top: -14px;
+  right: 50%;
+  transform: translateX(50%);
+  background: var(--bg);
+  padding: 0 12px;
+  color: var(--gold);
+  font-size: 22px;
+}
+
+/* Scholar Card */
+.scholar-card {
+  background: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  position: relative;
+}
+.scholar-card .scholar-name {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--dark-green);
+}
+.scholar-card .scholar-badge {
+  display: inline-block;
+  font-size: 12px;
+  padding: 2px 10px;
+  border-radius: 10px;
+  color: #fff;
+  margin-right: 6px;
+}
+.scholar-badge.shafii { background: var(--teal); }
+.scholar-badge.hanbali { background: #8d6e63; }
+.scholar-card .scholar-dates {
+  font-size: 14px;
+  color: #888;
+  margin-top: 4px;
+}
+.scholar-card .scholar-bio {
+  font-size: 16px;
+  margin-top: 6px;
+}
+.scholar-card .scholar-meta {
+  font-size: 14px;
+  color: var(--teal);
+  margin-top: 6px;
+}
+
+/* Alert Box */
+.alert-box {
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 12px 0;
+  font-size: 16px;
+}
+.alert-box.success { background: #e8f5e9; border-right: 4px solid #2e7d32; }
+.alert-box.info { background: #e3f2fd; border-right: 4px solid #1565c0; }
+.alert-box.warning { background: #fff8e1; border-right: 4px solid #f9a825; }
+.alert-box.error { background: #fce4ec; border-right: 4px solid #c62828; }
+
+/* Inline highlight */
+.highlight-gold { background: var(--light-gold-bg); padding: 2px 6px; border-radius: 4px; }
+.highlight-green { background: var(--light-green-bg); padding: 2px 6px; border-radius: 4px; }
+.highlight-teal { background: var(--light-teal-bg); padding: 2px 6px; border-radius: 4px; }
+.highlight-red { background: var(--light-red-bg); padding: 2px 6px; border-radius: 4px; }
+
+/* Quote Block */
+.quote-block {
+  border-right: 4px solid var(--gold);
+  padding: 10px 16px;
+  margin: 12px 0;
+  background: var(--light-gold-bg);
+  font-style: italic;
+}
+.quote-block .quote-text {
+  font-size: 17px;
+  color: var(--dark-green);
+}
+.quote-block .quote-attribution {
+  font-size: 14px;
+  color: #888;
+  margin-top: 4px;
+  text-align: left;
+}
+
+/* I'rab Box */
+.irab-box {
+  background: var(--light-teal-bg);
+  border: 2px solid var(--teal);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 12px 0;
+}
+.irab-box .irab-title {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--teal);
+  margin-bottom: 6px;
+}
+.irab-box .irab-text {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* Four Reasons Card */
+.reason-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #fff;
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 10px 0;
+}
+.reason-number {
+  min-width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--primary-green);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.reason-content {
+  flex: 1;
+}
+.reason-content .reason-heading {
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--dark-green);
+  margin-bottom: 4px;
+}
+.reason-content .reason-text {
+  font-size: 16px;
+}
+
+@media print {
+  .bw-toggle { display: none; }
+  .cover-page { min-height: 100vh; page-break-after: always; }
+  h1, h2, h3 { page-break-after: avoid; }
+  .evidence-box, .callout, .tree-container, .table-styled, .poetry-box { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- B&W Toggle Button -->
+<button class="bw-toggle" onclick="document.body.classList.toggle('bw-mode')">وضع الأبيض والأسود</button>
+
+<!-- ========== COVER PAGE ========== -->
+<div class="cover-page">
+  <div class="cover-ornament">✦ ❁ ✦</div>
+  <div class="cover-book-title">شرح العوامل المائة</div>
+  <div class="cover-ornament">❁</div>
+  <div style="font-size:16px; color:#e0e0e0; margin:8px 0;">للإمام عبد القاهر الجُرجاني رحمه الله تعالى</div>
+  <div class="cover-lecture-num">الدرس السادس</div>
+  <div class="cover-lecture-title">الحروف المشبّهة بالفعل</div>
+  <div class="cover-ornament">✦ ❁ ✦</div>
+  <div class="cover-author-info">
+    <span>المتن: الإمام عبد القاهر الجرجاني رحمه الله تعالى</span>
+    <span>الشرح: د. لبيب نجيب عبدالله</span>
+    <span>إعداد: أحمد بن إرشاد</span>
+  </div>
+</div>
+
+<!-- ========== MAIN CONTENT ========== -->
+<div class="page-content">
+
+<!-- Opening Dua -->
+<h1>الافتتاح</h1>
+
+<p>بسم الله الرحمن الرحيم، الحمد لله رب العالمين، والصلاة والسلام الأتمّان الأكملان على سيد المرسلين سيدنا محمد، وعلى آله وصحبه الطيبين الطاهرين، أما بعد: فأسأل الله سبحانه وتعالى أن يمنّ علينا بالعلم النافع والعمل الصالح، وأن يفقهنا في الدين، وأن يفتح لنا فتوح العارفين، وأن يرزقنا الإخلاص في الأقوال والأعمال، اللهم آمين.</p>
+
+<div class="section-divider"></div>
+
+<!-- ========== مراجعة ========== -->
+<h1>مراجعة: تقسيم العوامل المائة</h1>
+
+<p>فلا زال الحديث متصلاً في كتاب العوامل للإمام العلامة عبد القاهر بن عبد الرحمن بن محمد الجرجاني المتوفّى سنة 471 وقيل 474، وذكر رحمه الله تعالى في هذه الرسالة أن العوامل مئة، وقسّم العوامل إلى قسمين:</p>
+
+<div class="tree-container">
+  <div class="tree-title">شجرة تصنيف: العوامل المائة</div>
+  <div style="text-align:center; margin-bottom:12px;">
+    <div class="tree-node root" style="display:inline-block;">العوامل المائة</div>
+  </div>
+  <div class="tree-branch">
+    <div class="tree-sub-branch">
+      <div class="tree-node">العوامل اللفظية<br><span class="node-label">98 عاملًا</span></div>
+      <div style="margin-top:8px;">
+        <div class="tree-branch">
+          <div class="tree-sub-branch">
+            <div class="tree-node" style="font-size:13px;">السماعية<br><span class="node-label">91</span></div>
+          </div>
+          <div class="tree-sub-branch">
+            <div class="tree-node" style="font-size:13px;">القياسية<br><span class="node-label">7</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">العوامل المعنوية<br><span class="node-label">عاملان</span></div>
+    </div>
+  </div>
+</div>
+
+<p>ونحن الآن في القسم الأول الذي هو العوامل اللفظية السماعية، والعوامل اللفظية السماعية عددها 13 نوعًا، أخذنا النوع الأول وهو <span class="highlight-gold">حروف الجر</span>، واليوم ندخل بإذن الله تعالى في النوع الثاني.</p>
+
+<div class="callout green">
+  <div class="callout-title">تنبيه فات: لم بدأ المصنف بالباء قبل مِن؟</div>
+  ومما فات التنبيه عليه في حروف الجر أن حروف الجر أُمّ الباب فيها حرف <span class="highlight-gold">مِن</span> من حروف الجر، لكن المصنف الجرجاني رحمه الله تعالى لم يبدأ بحرف مِن وإنما بدأ بحرف الباء. ولماذا بدأ بحرف الباء؟ أظنّ والله أعلم لأحد أمرين:<br><br>
+  <strong>الأمر الأول:</strong> لأن الباء من حيث المعاني أكثر فبدأ بها.<br>
+  <strong>الأمر الثاني:</strong> وهو ما أشار إليه بعض العلماء، لأن الباء موجودة في البسملة التي يُستحبّ الافتتاح بها، فقُدّمت الباء على مِن.<br><br>
+  فعلى كل حال هذه لطيفة يمكن أن تُلحق بالدرس الماضي، فالحفظ عَملاً من أجل العلماء يجب أن نغرم كم عدد حروف الجر؟ سبعة عشر. هذه العوامل سبعة عشر كلها حروف. هذا الكتاب فيه كم عامل؟ أكثر من مائة. الآن درسنا سبعة عشر أكثر من مائة.
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ========== النوع الثاني: الحروف المشبهة بالفعل ========== -->
+<h1>النوع الثاني: الحروف المشبّهة بالفعل</h1>
+
+<div class="matn-text">
+  النوع الثاني من ثلاثة عشر نوعًا: حروف تنصب الاسم وترفع الخبر، وهي ستة أحرف.
+</div>
+
+<p>والحروف المشبّهة بالفعل هي <span class="highlight-gold">إنّ وأخواتها</span>. فقال هنا: النوع الثاني من ثلاثة عشر نوعًا — حروف تنصب الاسم وترفع الخبر، وهي ستة أحرف.</p>
+
+<p>وهي التي أشار إليها الإمام ابن مالك رحمه الله تعالى في الألفية فقال:</p>
+
+<div class="poetry-box">
+  <div class="poetry-label">نظم الألفية — الإمام ابن مالك رحمه الله</div>
+  <div class="poetry-line">لـِإنَّ أنْ ليتَ لكنْ لَعَلَّ كأنْ *** عكسُ ما لِكانَ مِنْ عَمَلْ</div>
+  <div class="poetry-line">كأنَّ زيدًا عالِمٌ بأنِّي كُفءٌ *** ولكنَّ ابنَهُ ذو ضِغْنِ</div>
+</div>
+
+<p>قال ابن مالك رحمه الله تعالى في الألفية: <span class="highlight-green">لِإنَّ أنْ ليتَ لكنْ لَعَلَّ كأنْ</span> — هذه ستة. <span class="highlight-green">عكسُ ما لِكانَ مِن عَمَلْ</span> — عكس هنا مبتدأ مؤخّر، أي عكس ما كان من عمل، لإنّ وأنّ. ثم ضرب كم أمثلة؟ ثلاثة أمثلة:</p>
+
+<ul style="margin:8px 20px; line-height:2;">
+  <li><strong>المثال الأول:</strong> كأنّ زيدًا عالم</li>
+  <li><strong>المثال الثاني:</strong> بأنّي كفء</li>
+  <li><strong>المثال الثالث:</strong> لكنّ ابنه ذو ضِغْنِ</li>
+</ul>
+
+<div class="definition-card">
+  <div class="definition-term">ضِغْن</div>
+  <div class="definition-text">الضغن — بكسر الضاد وسكون الغين — معناه الحِقد. وهو قريب من معنى الحسد. شدّة البغض يسمّى حقدًا.</div>
+</div>
+
+<div class="callout purple">
+  <div class="callout-title">خلاف: هل إنّ وأنّ حرف واحد أو حرفان؟</div>
+  إنّ وأخواتها عددها ستة. ومنهم من قال خمس، ليش؟ قال لأن إنّ وأنّ واحدة، الفرق بينهما كسر الهمزة وفتح الهمزة، وإلا من حيث العمل ومن حيث المعنى شيء واحد. الفرق كسر الهمزة وفتحها فقط. فعدها خمسة. لكن المشهور أنها ستة.
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ========== Classification Tree ========== -->
+<h2>شجرة تصنيف: الحروف المشبّهة بالفعل</h2>
+
+<div class="tree-container">
+  <div class="tree-title">الحروف المشبّهة بالفعل (إنّ وأخواتها) — 6 أحرف</div>
+  <div style="text-align:center; margin-bottom:12px;">
+    <div class="tree-node root" style="display:inline-block;">الحروف المشبّهة بالفعل<br><span class="node-label">تنصب الاسم وترفع الخبر</span></div>
+  </div>
+  <div class="tree-branch">
+    <div class="tree-sub-branch">
+      <div class="tree-node">إنّ / أنّ<br><span class="node-label">للتوكيد والتحقيق</span></div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">كأنّ<br><span class="node-label">للتشبيه</span></div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">لكنّ<br><span class="node-label">للاستدراك</span></div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">ليت<br><span class="node-label">للتمنّي</span></div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">لعلّ<br><span class="node-label">للترجّي</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ========== الأول: إنّ وأنّ ========== -->
+<h1>الأول والثاني: إنّ وأنّ — للتحقيق</h1>
+
+<div class="matn-text">
+  إنّ وأنّ وهما للتحقيق. نحو: إنّ زيدًا قائم. وبلغني أنّ زيدًا ذاهب.
+</div>
+
+<p>إنّ وأنّ — قال وهما للتحقيق. ما معنى للتحقيق؟ التحقيق المراد به <span class="highlight-gold">توكيد الخبر</span>. توكيد الخبر.</p>
+
+<p>ممكن أن تقول: زيد مجتهد. فيتعجّب شخص آخر: كيف يكون مجتهدًا؟ أنا أعرفه بعدم الاجتهاد. فأردت أن تؤكّد المعلومة فماذا تقول؟ <span class="highlight-green">إنّ زيدًا مجتهد</span>. إذاً إنّ تأتي لتوكيد الخبر. وكذلك أن تقول: علمتُ أنّ زيدًا مجتهد — أنّ تأتي لتوكيد الخبر.</p>
+
+<h3>إعراب المثال الأول: إنّ زيدًا قائم</h3>
+
+<div class="irab-box">
+  <div class="irab-title">إعراب: إنّ زيدًا قائم</div>
+  <div class="irab-text">
+    <strong>إنّ:</strong> حرف توكيد ونصب مبني على الفتح لا محلّ له من الإعراب.<br>
+    <strong>زيدًا:</strong> اسم إنّ منصوب وعلامة نصبه الفتحة الظاهرة على آخره.<br>
+    <strong>قائم:</strong> خبر إنّ مرفوع وعلامة رفعه الضمّة الظاهرة على آخره.
+  </div>
+</div>
+
+<p>لاحظ معي الشاهد من إيراد هذه الأحرف في هذا الكتاب: أن إنّ عملت عملاً، عملت النصب في اسمها وعملت الرفع في خبرها، ولذلك هي من الحروف العاملة، هي من العوامل. فإنّ عاملة واسمها معمول وخبرها معمول.</p>
+
+<h3>إعراب المثال الثاني: بلغني أنّ زيدًا ذاهب</h3>
+
+<div class="irab-box">
+  <div class="irab-title">إعراب: بلغني أنّ زيدًا ذاهب</div>
+  <div class="irab-text">
+    <strong>بلغني:</strong> بلغ فعل ماضٍ مبني على الفتح، النون للوقاية، الياء ضمير متّصل مبني على السكون في محلّ نصب مفعول به.<br>
+    <strong>أنّ:</strong> حرف توكيد ومصدري مبني على الفتح.<br>
+    <strong>زيدًا:</strong> اسم أنّ منصوب وعلامة نصبه فتحة ظاهرة على آخره.<br>
+    <strong>ذاهب:</strong> خبر أنّ مرفوع وعلامة رفعه ضمّة ظاهرة على آخره.<br>
+    <strong>والمصدر المؤوّل</strong> من أنّ وما دخلت عليه في محلّ رفع فاعل — فاعل لِمَ؟ بلغني.
+  </div>
+</div>
+
+<p>لو سألتكم سؤالاً: متى تُفتح همزة أنّ ومتى تُكسر؟ متى تُفتح همزة أنّ ومتى تُكسر؟ فتقول: إن القاعدة في هذا قاعدة يسيرة يمكن أن تُلخّص لك معلومات كثيرة.</p>
+
+<div class="section-divider"></div>
+
+<!-- ========== قاعدة فتح وكسر همزة إنّ ========== -->
+<h2>قاعدة: متى تُفتح همزة إنّ ومتى تُكسر؟</h2>
+
+<div class="qaidah-box">
+  <div class="qaidah-label">قاعدة</div>
+  <div class="qaidah-text">
+    إذا صحّ أن تُؤوّل أنّ وما بعدها بمصدرٍ — فافتحن الهمزة<br>
+    وفي سوى ذاك اكسرن
+  </div>
+</div>
+
+<p>أنت أعربت أنّ زيدًا ذاهب، لكن أين فاعل بلغني؟ أنّ وما دخلت عليه مصدر، المكوّن من أنّ وما دخلت عليه في محلّ — في محلّ رفع فاعل — فاعل لِمَ؟ بلغني. هنا صحّ أن تُؤوّل أنّ وما دخلت عليه في مصدر، واضح. فتقول في الإعراب: بلغ فعل ماضٍ، النون للوقاية، الياء مفعول به، أنّ حرف توكيد ومصدري، زيدًا اسم أنّ منصوب، ذاهب خبر أنّ مرفوع، والمصدر المؤوّل من أنّ وما دخلت عليه في محلّ رفع فاعل. واضح. إذاً القاعدة: أنّ وما دخلت عليه إذا صحّ أن يُؤوّل بمصدر فافتح الهمزة.</p>
+
+<p>قال ابن مالك رحمه الله:</p>
+
+<div class="poetry-box">
+  <div class="poetry-label">نظم القاعدة — ابن مالك</div>
+  <div class="poetry-line">وهمزَ إنَّ افتحْ لِسدِّ مصدريٍّ مَسَدَها</div>
+  <div class="poetry-line">وفي سوى ذاك اكسرن</div>
+</div>
+
+<p><span class="highlight-gold">وهمز إن افتح</span> — فعل أمر، <span class="highlight-gold">همزًا</span> مفعول به — افتح همز إنّ متى؟ <span class="highlight-gold">لسدّ مصدريّ مسدها</span> واضح؟ مسدها. <span class="highlight-gold">وفي سوى ذاك اكسرن</span>.</p>
+
+<h3>مثال تطبيقي</h3>
+
+<p>بلغني أنّ الطلاب مجتهدون — بلغ فعل، النون للوقاية، الياء ضمير متّصل مبني على السكون في محلّ نصب مفعول به، أنّ حرف توكيد ومصدري، الطلاب اسم أنّ منصوب، مجتهدون خبر أنّ مرفوع علامة رفعه الواو لأنه جمع مذكّر سالم. أين فاعل بلغني؟ تقول: والمصدر المؤوّل من أنّ وما بعدها في محلّ رفع فاعل — فاعل أيش؟ بلغني. واضح ولا لا؟</p>
+
+<div class="benefit-box">
+  <div class="benefit-title">فائدة: معنى القاعدة</div>
+  <div class="benefit-text">
+    القاعدة: إذا صحّ أن تُؤوّل أنّ وما دخلت عليه بمصدر — فافتح همزتها (أنْ). وفي غير هذه الحالة — اكسر الهمزة (إنْ).<br><br>
+    ففي قولك: بلغني أنّ زيدًا ذاهب — صحّ أن تُؤوّل أنّ وما بعدها بمصدر (أي: بلغني ذهاب زيد)، فتُفتح الهمزة.
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ========== الثالث: كأنّ ========== -->
+<h1>الثالث: كأنّ — للتشبيه</h1>
+
+<div class="matn-text">
+  والثالث من الحروف كأنّ، للتشبيه. نحو: كأنّ زيدًا الأسد.
+</div>
+
+<p>كأنّ — قال للتشبيه. كأنّ زيدًا أسد. كأنّ هندًا قمر. واضح له؟</p>
+
+<p>ولكن ذكر الإمام ابن هشام النحوي — الذي كان شافعيّ المذهب ثم انتقل إلى المذهب الحنبلي — في كتاب شرح قطر الندى، له متن صغير جميل اسمه قطر الندى وشرحه، ذكر في هذا الكتاب أن كأنّ تأتي بمعنى الظنّ. فتقول مثلًا: كأنّ زيدًا كاتب — يعني أظنّ زيدًا كاتب. زيدًا كاتب. زيدًا كاتب. زيدًا قد قدِم يعني قد جاء من السفر، يعني أظنّ أن زيدًا جاء من السفر. فتأتي أحيانًا بمعنى أيش؟ بمعنى الظنّ.</p>
+
+<div class="scholar-card">
+  <div class="scholar-name">الإمام ابن هشام النحوي</div>
+  <span class="scholar-badge shafii">شافعي المذهب</span>
+  <span class="scholar-badge hanbali">ثم انتقل إلى الحنبلي</span>
+  <div class="scholar-dates">المتوفّى سنة 761 هـ</div>
+  <div class="scholar-bio">صاحب كتاب «شرح قطر الندى» — ذكر أن كأنّ تأتي بمعنى الظنّ أيضًا، لا للتشبيه فقط.</div>
+  <div class="scholar-meta">كتابه: قطر الندى وشرحه</div>
+</div>
+
+<h3>إعراب المثال: كأنّ زيدًا الأسد</h3>
+
+<div class="irab-box">
+  <div class="irab-title">إعراب: كأنّ زيدًا الأسد</div>
+  <div class="irab-text">
+    <strong>كأنّ:</strong> حرف تشبيه مبني على الفتح لا محلّ له من الإعراب.<br>
+    <strong>زيدًا:</strong> اسم كأنّ منصوب وعلامة نصبه فتحة ظاهرة على آخره.<br>
+    <strong>الأسد:</strong> خبر كأنّ مرفوع وعلامة رفعه ضمّة ظاهرة على آخره.
+  </div>
+</div>
+
+<p>وهذا يُسمّى تشبيهًا. وذكرنا في درس ماضٍ أركان التشبيه فلا نعيده.</p>
+
+<div class="section-divider"></div>
+
+<!-- ========== الرابع: لكنّ ========== -->
+<h1>الرابع: لكنّ — للاستدراك</h1>
+
+<div class="matn-text">
+  والرابع لكنّ، للاستدراك. نحو: ما جاءني زيد لكنّ عمرًا حاضر.
+</div>
+
+<p>لكنّ — قال للاستدراك. ما معنى الاستدراك؟</p>
+
+<div class="definition-card">
+  <div class="definition-term">تعريف الاستدراك</div>
+  <div class="definition-text">
+    <strong>التعريف الأول:</strong> أن يتوسّط هذا الحرف — حرف لكنّ — بين كلامين متغايرين في النفي والإثبات.<br><br>
+    <strong>التعريف الثاني (أسهل):</strong> تعقيب الكلام بدفع توهم ثبوت شيء أو نفيه. تعقيب الكلام بدفع توهم ثبوت شيء أو نفيه.
+  </div>
+</div>
+
+<h3>مثال 1: دفع توهم ثبوت شيء</h3>
+
+<p>لو قلت مثلًا: زيد شجاع. عندما أقول زيد شجاع، قد يتوهّم بعض السامعين أن زيدًا إذا كان شجاعًا فإنه أيضًا كريم، لأن الذي يكون شجاعًا ويذهب للقتال ويقاتل العدوّ ولا يخاف منه، الغالب فيه أنه أيضًا كريم بالمال. إذا كان كريمًا بنفسه يقدّم نفسه في الشجاعة من باب أولى أن يكون كريمًا في المال. صح. فقلت: زيد شجاع — لكن زيدًا هذا ليس كريمًا — بخيل. فحتى لا يتوهّم إنسان أنه كريم، ماذا أقول؟ زيد شجاع، لكنّه بخيل. لاحظ معي الآن، أنا عندما قلت زيد شجاع، قد يتوهّم ثبوت صفة أخرى ما هي؟ الكرم. فدفعت هذا التوهم فقلت: لكنّه بخيل. هذا <span class="highlight-red">بدفع توهم ثبوت شيء</span>.</p>
+
+<h3>مثال 2: دفع توهم نفي شيء</h3>
+
+<p>لو قلت: ليس زيد عالمًا. إذا قلت ليس زيد عالمًا، قد يظنّ بعض الناس أن زيدًا من أهل الفسق — فاسق. فقلت: ليس زيد عالمًا، لكنّه صالح. لما قلت ليس زيد عالمًا، قد يظنّ بعض الناس فينفي عنه الصلاح — ما دام ليس عالمًا، إذن ليس بصالح — ينفي عنه الصلاح. فأثبتّ له الصلاح فقلت: لكنّه صالح. إذاً أنا دفعت النفي بالإثبات. فهمتم علي أم لا؟ هذا معنى الاستدراك.</p>
+
+<div class="callout gold">
+  <div class="callout-title">الخلاصة: معنى الاستدراك</div>
+  الاستدراك هو: تعقيب الكلام بدفع توهم ثبوت شيء أو نفيه. إمّا أن يدفع توهم ثبوت صفة (زيد شجاع لكنّه بخيل)، أو يدفع توهم نفي صفة (ليس زيد عالمًا لكنّه صالح).
+</div>
+
+<h3>إعراب المثال: ما جاءني زيد لكنّ عمرًا حاضر</h3>
+
+<div class="irab-box">
+  <div class="irab-title">إعراب: ما جاءني زيد لكنّ عمرًا حاضر</div>
+  <div class="irab-text">
+    <strong>ما:</strong> حرف نفي مبني لا محلّ له من الإعراب.<br>
+    <strong>جاءني:</strong> جاء فعل ماضٍ مبني على الفتح، والنون للوقاية، والياء ضمير متّصل مبني على السكون في محلّ نصب مفعول به. والياء إذا اتّصل بالفعل يكون في محلّ نصب مفعول به — قاعدة: الياء إذا اتّصل بالفعل يكون في محلّ نصب مفعول به.<br>
+    <strong>زيد:</strong> فاعل مرفوع.<br>
+    <strong>لكنّ:</strong> حرف استدراك يعمل عمل إنّ.<br>
+    <strong>عمرًا:</strong> اسم لكنّ منصوب.<br>
+    <strong>حاضر:</strong> خبر لكنّ مرفوع.
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ========== الخامس: ليت ========== -->
+<h1>الخامس: ليت — للتمنّي</h1>
+
+<div class="matn-text">
+  والخامس ليت، للتمنّي. نحو: ليت زيدًا منطلق.
+</div>
+
+<p>ليت — للتمنّي. ومعنى التمنّي: طلب حصول الشيء، سواء كان ممكنًا أو ممتنعًا. سواء كان ممكنًا — أي ممكنًا مع صعوبة حصوله — أو ممتنعًا — أي في العادة لا يحصل.</p>
+
+<div class="definition-card">
+  <div class="definition-term">التمنّي</div>
+  <div class="definition-text">
+    طلب حصول الشيء، سواء كان:<br>
+    <strong>ممكنًا:</strong> أي ممكن مع صعوبة حصوله<br>
+    <strong>أو ممتنعًا:</strong> أي في العادة لا يحصل
+  </div>
+</div>
+
+<h3>1. الممكن (مع صعوبة الحصول)</h3>
+
+<p>نحو: <span class="highlight-green">ليت زيدًا قائم</span> — هذا ممكن، لكن في الحقيقة هذا ليس صعب الحصول إلا إذا كان زيد مثلًا فيه مرض لا يستطيع القيام. أو تقول في شخص يتعلم يريد الزواج وهو فقير: ليت فلانًا يتزوّج — هذا في صعوبة.</p>
+
+<h3>2. الممتنع</h3>
+
+<p>نحو: <span class="highlight-red">ليت زيدًا طائر</span> — في العادة ممتنع.</p>
+
+<h3>إعراب المثال: ليت زيدًا طائر</h3>
+
+<div class="irab-box">
+  <div class="irab-title">إعراب: ليت زيدًا طائر</div>
+  <div class="irab-text">
+    <strong>ليت:</strong> حرف يفيد التمنّي من أخوات إنّ مبني على الفتح لا محلّ له من الإعراب.<br>
+    <strong>زيدًا:</strong> اسم ليت منصوب وعلامة نصبه الفتحة الظاهرة على آخره.<br>
+    <strong>طائر:</strong> خبر ليت مرفوع وعلامة رفعه الضمّة الظاهرة على آخره.
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ========== السادس: لعلّ ========== -->
+<h1>السادس: لعلّ — للترجّي</h1>
+
+<div class="matn-text">
+  والسادس لعلّ، للترجّي. نحو: لعلّ زيدًا قاعد.
+</div>
+
+<p>لعلّ — للترجّي. والترجّي يُستعمل في الأشياء الممكنة قريبة الوقوع، قريبة الحصول.</p>
+
+<div class="definition-card">
+  <div class="definition-term">الترجّي</div>
+  <div class="definition-text">
+    يُستعمل في الممكن فقط، قريب الوقوع والحصول. بخلاف التمنّي فإنه يكون في الممكن والممتنع.
+  </div>
+</div>
+
+<h3>إعراب المثال: لعلّ زيدًا قاعد</h3>
+
+<div class="irab-box">
+  <div class="irab-title">إعراب: لعلّ زيدًا قاعد</div>
+  <div class="irab-text">
+    <strong>لعلّ:</strong> حرف ترجّي من أخوات إنّ مبني على الفتح لا محلّ له من الإعراب.<br>
+    <strong>زيدًا:</strong> اسم لعلّ منصوب وعلامة نصبه الفتحة الظاهرة على آخره.<br>
+    <strong>قاعد:</strong> خبر لعلّ مرفوع وعلامة رفعه الضمّة الظاهرة على آخره.
+  </div>
+</div>
+
+<div class="callout red">
+  <div class="callout-title">تنبيه: أهمية ضبط الكتاب</div>
+  طلبت أن يكون مع هذه المادة دفتر خاص، وكل مادة تدرسها يكون معها دفتر خاص. لا أريدك أن تصنع لي «جامع العلوم والحكم» دفترًا واحدًا تجمع فيه كل المواد. عندما تكبر وتصبح عالمًا كابن رجب الحافظ الشهير — اصنع كتابًا يحمل اسم «جامع العلوم والحكم». أما الآن فكل مادة لها دفترها الخاص. لا بأس أن تأخذ دفترًا هذا الذي يكون مثلًا مئة صفحة، عشرين صفحة للفقه — مع أن عشرين صفحة للفقه قليل جدًا — وعشرين صفحة للأصول وعشرين صفحة للحديث والمنطق. لكن أن تأخذ دفترًا واحدًا وتجمع المواد كلها في دفتر واحد ثم إذا ضاع الدفتر ضاع العلم. لأن للأسف اليوم أحسن الطلاب من عنده ضبط كتاب، أحسن الطلاب. أما أصحاب ضبط الصدر فرحمة الله تعالى عزّ وجلّ قد ماتوا. في الزمن الماضي لا يوجد أصحاب ضبط الصدر، إنما ضبط كتاب. فإذا ضاع الكتاب اختلط ولا يُقبل حديثه حينئذ ولا تُقبل معلوماته حينئذ ويُضعّف، إذا وُجد في معلومة أو مسألة فإذا ذكر مسألة أو معلومة وهو صاحب ضبط كتاب وقد ضاع كتابه — ضعيفة المسألة تلك، ضعيفة لا تُقبل.
+</div>
+
+<h3>الترجّي في الممكن فقط</h3>
+
+<p>قال: الترجّي يُستعمل في الممكن فقط، كقوله تعالى:</p>
+
+<div class="evidence-box">
+  <div class="ev-text">لَعَلَّ اللَّهَ يُحْدِثُ بَعْدَ ذَٰلِكَ أَمْرًا</div>
+</div>
+
+<h3>إعراب: لعلّ الله يحدث بعد ذلك أمرًا</h3>
+
+<div class="irab-box">
+  <div class="irab-title">إعراب: لعلّ الله يحدث بعد ذلك أمرًا</div>
+  <div class="irab-text">
+    <strong>لعلّ:</strong> حرف ترجّ وتنجّي مبني على الفتح لا محلّ له من الإعراب.<br>
+    <strong>الله:</strong> اسم الجلالة — اسم لعلّ منصوب وعلامة نصبه الفتحة الظاهرة على آخره.<br>
+    <strong>يحدث:</strong> فعل مضارع مرفوع لتجرّده من الناصب والجازم وعلامة رفعه الضمّة الظاهرة على آخره، وفاعله ضمير مستتر جوازًا تقديره هو يعود على الله — قال مستتر جوازًا لأن الفعل مضارع مبدوء بياء، والفعل المضارع إذا بدئ بياء فإن فاعله مستتر جوازًا.<br>
+    <strong>بعد:</strong> ظرف زمن مبني على الفتح متعلّق بالفعل يحدث، وعلامة نصبه فتحة ظاهرة على آخره، وهو مضاف.<br>
+    <strong>ذلك:</strong> اسم إشارة مبني على السكون في محلّ جرّ مضاف إليه.<br>
+    <strong>أمرًا:</strong> مفعول به منصوب وعلامة نصبه الفتحة الظاهرة على آخره.<br><br>
+    <strong>الجملة الفعلية (يحدث بعد ذلك أمرًا):</strong> في محلّ رفع خبر لعلّ.
+  </div>
+</div>
+
+<div class="callout green">
+  <div class="callout-title">أدب في الإعراب: اسم الجلالة</div>
+  من باب الأدب أن تقول «اسم الجلالة» أفضل من قولك «لفظ الجلالة». لأن اللفظ بمعنى ملفوظ، واللفظ معناه في اللغة لفظ الشيء أي رمى الشيء، فالملفوظ المرميّ — من باب الأدب نقول من باب الأدب فقط، تكمّلًا في الأدب — أن تقول اسم الجلالة أفضل من قولك لفظ الجلالة. لكن لو قال أحد لفظ الجلالة ما في مشكلة، لم يرتكب حرامًا ولا مكروهًا، لكن الأكثر أدبًا أن تقول اسم الجلالة.
+</div>
+
+<h3>مثال آخر: لعلّ الساعة قريب</h3>
+
+<div class="evidence-box">
+  <div class="ev-text">لَعَلَّ السَّاعَةَ قَرِيبٌ</div>
+</div>
+
+<h3>تنبيه: الكاف حرف في ثلاثة مواضع</h3>
+
+<div class="callout teal">
+  <div class="callout-title">الكاف حرفًا لا ضميرًا — في ثلاثة مواضع</div>
+  الكاف تأتي حرفًا في كم موضع؟ في ثلاثة:<br><br>
+  <strong>1. الكاف مع إيّاك وأخوات إيّاك</strong> — الكاف هنا ليست ضميرًا، الكاف هنا حرف.<br>
+  <strong>2. الكاف مع أسماء الإشارة</strong> — قال لك ابن مالك في الألفية: «بالكاف حرفًا دون لام أو معه، واللام إن قدّمتها ممتنعة».<br>
+  <strong>3. في اسم الفعل ها</strong> — تقول هاك. «ها» اسم الفعل فقط — «ها» فعل. هذا اسم الفعل. والكاف حرف للخطاب. تقول: هاك أصول الفقه لَكَ، لفظًا لقَبًا، للفنّ من جزأين قد رُكّبا — اسم الفعل «ها» بمعنى خُذ، والكاف حرف خطاب.<br><br>
+  كم مواضع هذه؟ ثلاثة.
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ========== ملخص الحروف الستة ========== -->
+<h2>ملخص: الحروف المشبّهة بالفعل ومعانيها</h2>
+
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>الحرف</th>
+      <th>المعنى</th>
+      <th>المثال</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><strong>إنّ</strong></td>
+      <td>التوكيد والتحقيق</td>
+      <td>إنّ زيدًا قائم</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>أنّ</strong></td>
+      <td>التوكيد والتحقيق</td>
+      <td>بلغني أنّ زيدًا ذاهب</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><strong>كأنّ</strong></td>
+      <td>التشبيه (ويأتي بمعنى الظنّ)</td>
+      <td>كأنّ زيدًا الأسد</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><strong>لكنّ</strong></td>
+      <td>الاستدراك</td>
+      <td>ما جاءني زيد لكنّ عمرًا حاضر</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><strong>ليت</strong></td>
+      <td>التمنّي (ممكن أو ممتنع)</td>
+      <td>ليت زيدًا منطلق / ليت زيدًا طائر</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td><strong>لعلّ</strong></td>
+      <td>الترجّي (ممكن فقط قريب الوقوع)</td>
+      <td>لعلّ زيدًا قاعد</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="section-divider"></div>
+
+<!-- ========== مقارنة: التمنّي والترجّي ========== -->
+<h2>مقارنة: التمنّي (ليت) والترجّي (لعلّ)</h2>
+
+<div class="cols cols-3">
+  <div class="comp-card">
+    <div class="comp-label" style="background:#6a1b9a;">ليت — التمنّي</div>
+    <div class="comp-text">
+      <strong>يكون في:</strong><br>
+      ✅ الممكن (مع صعوبة)<br>
+      ✅ الممتنع<br><br>
+      <strong>مثال الممكن:</strong> ليت زيدًا قائم<br>
+      <strong>مثال الممتنع:</strong> ليت زيدًا طائر
+    </div>
+  </div>
+  <div class="comp-card">
+    <div class="comp-label" style="background:var(--primary-green);">لعلّ — الترجّي</div>
+    <div class="comp-text">
+      <strong>يكون في:</strong><br>
+      ✅ الممكن فقط<br>
+      ❌ لا يكون في الممتنع<br><br>
+      <strong>شرط:</strong> قريب الوقوع والحصول<br><br>
+      <strong>مثال:</strong> لعلّ زيدًا قاعد
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ========== لماذا سمّيت بالحروف المشبّهة بالفعل؟ ========== -->
+<h1>لماذا سمّيت بالحروف المشبّهة بالفعل؟</h1>
+
+<p>وإنما سمّيت هذه الحروف الحروف المشبّهة بالفعل لأنها أشبهت الفعل من <span class="highlight-gold">أربعة أوجه</span>:</p>
+
+<div class="reason-card">
+  <div class="reason-number">1</div>
+  <div class="reason-content">
+    <div class="reason-heading">لكونها على ثلاثة أحرف فصاعدًا</div>
+    <div class="reason-text">
+      العادة في الحروف أنها تتكوّن إمّا من حرف أو من حرفين وربّما من ثلاثة على قلّة. يعني تقول مثلًا: همزة الاستفهام — حرف واحد. الباء في حرف الجر — حرف واحد. اللام في حرف الجر — واحدة. أو من حرفين مثل: مِن وعَن وفي. أو من ثلاثة أحرف مثل: على. لكن هذه الحروف تتكوّن من ثلاثة فصاعدًا:<br><br>
+      <strong>إنّ:</strong> ثلاثة أحرف (همزة ونونين).<br>
+      <strong>لعلّ:</strong> أربعة أحرف (لام وعين ولام ولام) لأن المشدّدة بلامين.<br>
+      <strong>كأنّ:</strong> أربعة أحرف (كاف وهمزة ونونين).<br>
+      <strong>ليت:</strong> ثلاثة أحرف.<br>
+      <strong>لكنّ:</strong> خمسة أحرف (لام وألف وكاف ونون ونون).<br><br>
+      والفعل ممّا يتكوّن؟ يتكوّن من ثلاثة أحرف فصاعدًا: ذهب ثلاثة أحرف، دحرج أربعة أحرف، بعثر أربعة أحرف. إذاً أشبهت الأفعال في أنها تتكوّن من ثلاثة أحرف فصاعدًا.
+    </div>
+  </div>
+</div>
+
+<div class="reason-card">
+  <div class="reason-number">2</div>
+  <div class="reason-content">
+    <div class="reason-heading">فتح أواخرها كما فُتح آخر الفعل</div>
+    <div class="reason-text">
+      لاحظ معي: كلها مفتوحة الآخر. إنّ — أنّ — لعلّ — كأنّ — ليت — لكنّ. والفعل مفتوح الآخر: ذهبَتْ — كتبَ — قرأَ — صامَ — قامَ. فأشبهت الفعل في كونها مفتوحة الآخر.
+    </div>
+  </div>
+</div>
+
+<div class="reason-card">
+  <div class="reason-number">3</div>
+  <div class="reason-content">
+    <div class="reason-heading">وجود معنى الفعل في كلّ واحدة منها</div>
+    <div class="reason-text">
+      فإنك لو قلت إنّ وأنّ — كأنك تقول أؤكّد — معنى الفعل موجود. ولو قلت كأنّ — كأنك تقول أشبِه. ولو قلت ليت — كأنك تقول أتمنّى. ولو قلت لعلّ — كأنك تقول أرجو. ولو قلت لكنّ — كأنك تقول أستدرك. إذاً معاني الفعل موجودة.
+    </div>
+  </div>
+</div>
+
+<div class="reason-card">
+  <div class="reason-number">4</div>
+  <div class="reason-content">
+    <div class="reason-heading">كما أنّ الفعل يرفع وينصب فكذلك هي ترفع وتنصب</div>
+    <div class="reason-text">
+      تقول مثلًا: قرأ زيدٌ الكتابَ. قرأ — زيد فاعل ما الذي رفعه؟ الفعل قرأ. الكتاب ما الذي نصبه؟ الفعل قرأ. كذلك لو قلت: إنّ زيدًا كاتبٌ. ما الذي رفع كاتب؟ إنّ. ما الذي نصب زيدًا؟ إنّ. إذاً تعمل الرفع وتعمل النصب. لمشابهتها الفعل من هذه الوجوه.
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ========== جدول ملخص الأوجه الأربعة ========== -->
+<h2>ملخص: أوجه المشابهة بين الحروف المشبّهة بالفعل والفعل</h2>
+
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>وجه المشابهة</th>
+      <th>في الفعل</th>
+      <th>في إنّ وأخواتها</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><strong>التركيب من ثلاثة أحرف فصاعدًا</strong></td>
+      <td>ذهب (3)، دحرج (4)</td>
+      <td>إنّ (3)، لعلّ (4)، لكنّ (5)</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>فتح الآخر</strong></td>
+      <td>كتبَ، قرأَ، قامَ</td>
+      <td>إنّ، أنّ، لعلّ، كأنّ، ليت، لكنّ</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><strong>وجود معنى الفعل</strong></td>
+      <td>أؤكّد، أشبِه، أستدرك، أتمنّى، أرجو</td>
+      <td>إنّ (توكيد)، كأنّ (تشبيه)، لكنّ (استدراك)، ليت (تمنّي)، لعلّ (ترجّي)</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><strong>الرفع والنصب</strong></td>
+      <td>قرأ زيدٌ الكتابَ</td>
+      <td>إنّ زيدًا كاتبٌ</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="section-divider"></div>
+
+<!-- ========== جدول عدد أحرف كل حرف ========== -->
+<h2>عدد أحرف كلّ حرف من الحروف المشبّهة بالفعل</h2>
+
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>الحرف</th>
+      <th>عدد الأحرف</th>
+      <th>تفصيل الأحرف</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>إنّ</strong></td>
+      <td>3</td>
+      <td>همزة + نون + نون</td>
+    </tr>
+    <tr>
+      <td><strong>أنّ</strong></td>
+      <td>3</td>
+      <td>همزة + نون + نون</td>
+    </tr>
+    <tr>
+      <td><strong>كأنّ</strong></td>
+      <td>4</td>
+      <td>كاف + همزة + نون + نون</td>
+    </tr>
+    <tr>
+      <td><strong>ليت</strong></td>
+      <td>3</td>
+      <td>لام + ياء + تاء</td>
+    </tr>
+    <tr>
+      <td><strong>لكنّ</strong></td>
+      <td>5</td>
+      <td>لام + ألف + كاف + نون + نون</td>
+    </tr>
+    <tr>
+      <td><strong>لعلّ</strong></td>
+      <td>4</td>
+      <td>لام + عين + لام + لام (المشدّدة بلامين)</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="section-divider"></div>
+
+<!-- ========== نص المصنّف ========== -->
+<h1>نص المصنّف رحمه الله تعالى</h1>
+
+<div class="matn-text">
+  النوع الثاني: حروف تنصب الاسم وترفع الخبر، وهي ستة أحرف:<br>
+  إنّ وأنّ — وهما للتحقيق. نحو: إنّ زيدًا قائم، وبلغني أنّ زيدًا ذاهب.<br>
+  وكأنّ — للتشبيه. نحو: كأنّ زيدًا الأسد.<br>
+  ولكنّ — للاستدراك. نحو: ما جاءني زيد لكنّ عمرًا حاضر.<br>
+  وليت — للتمنّي. نحو: ليت زيدًا منطلق.<br>
+  ولعلّ — للترجّي. نحو: لعلّ زيدًا قاعد.<br><br>
+  وإنما سمّيت هذه الحروف الحروف المشبّهة بالفعل لمشابهتها الفعل من أربعة أوجه: أحدها لكونها على ثلاثة أحرف فصاعدًا، والثاني فتح أواخرها كما فُتح آخر الفعل، والثالث وجود معنى الفعل في كلّ واحدة منها، والرابع كما أنّ الفعل يرفع وينصب فكذلك هي ترفع وتنصب.
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ========== Closing Dua ========== -->
+<h1>الدعاء الختامي</h1>
+
+<p>نقف هنا، لأنني أرى بعض الوجوه تحبّ الوقوف. نقف هنا، وإن شاء الله هذا نأخذه في الدرس القادم. والله أعلم.</p>
+
+<p>وصلّى الله وسلّم وبارك على سيدنا محمد وآله وصحبه أجمعين، والحمد لله ربّ العالمين.</p>
+
+</div><!-- page-content -->
+
+<!-- JavaScript for B&W Toggle -->
+<script>
+document.querySelector('.bw-toggle').addEventListener('click', function() {
+  document.body.classList.toggle('bw-mode');
+});
+</script>
+
+</body>
+</html>

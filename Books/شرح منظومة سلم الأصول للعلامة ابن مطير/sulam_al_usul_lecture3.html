@@ -1,0 +1,1736 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح منظومة سلم الأصول — الدرس الثالث</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+  @bottom-center {
+    content: "— " counter(page) " —";
+    font-size: 10px;
+    color: #666;
+    font-family: 'Amiri', serif;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #0d6b3e;
+  --dark-green: #0a4f2e;
+  --gold: #d4a020;
+  --light-gold: #f0e6c0;
+  --teal: #0d7377;
+  --bg: #fefefe;
+  --body-text: #1a1a1a;
+  --border: #c8d6c0;
+  --light-green: #e8f5e9;
+  --light-teal: #e0f2f1;
+  --light-red: #fde8e8;
+  --light-orange: #fff3e0;
+  --light-blue: #e3f2fd;
+  --light-yellow: #fffde7;
+  --light-gray: #f5f5f5;
+  --card-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--body-text);
+  background: var(--bg);
+  direction: rtl;
+  text-align: justify;
+  padding: 0;
+  margin: 0;
+}
+
+body.bw-mode {
+  --primary: #333;
+  --dark-green: #222;
+  --gold: #555;
+  --light-gold: #eee;
+  --teal: #444;
+  --bg: #fff;
+  --body-text: #000;
+  --border: #aaa;
+  --light-green: #f5f5f5;
+  --light-teal: #f0f0f0;
+  --light-red: #f5f5f5;
+  --light-orange: #f5f5f5;
+  --light-blue: #f5f5f5;
+  --light-yellow: #f5f5f5;
+  --light-gray: #f5f5f5;
+}
+
+body.bw-mode .quran-box,
+body.bw-mode .hadith-box,
+body.bw-mode .matn-box,
+body.bw-mode .poetry-box,
+body.bw-mode .ruling-card,
+body.bw-mode .definition-card,
+body.bw-mode .benefit-box,
+body.bw-mode .evidence-box,
+body.bw-mode .comparison-card,
+body.bw-mode .summary-box,
+body.bw-mode .fiqh-principle-box {
+  border-color: #666 !important;
+  background: #f9f9f9 !important;
+}
+
+body.bw-mode .quran-box { border-right: 4px solid #333 !important; }
+body.bw-mode .hadith-box { border-right: 4px solid #444 !important; }
+body.bw-mode .matn-box { border-right: 4px solid #555 !important; }
+
+h1 {
+  font-size: 26px;
+  color: var(--dark-green);
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+h2 {
+  font-size: 22px;
+  color: var(--primary);
+  font-weight: 700;
+  margin-top: 28px;
+  margin-bottom: 12px;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 6px;
+  line-height: 1.5;
+}
+
+h3 {
+  font-size: 19px;
+  color: var(--dark-green);
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+p {
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
+/* COVER HEADER */
+.cover-header {
+  min-height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary) 50%, var(--teal) 100%);
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+  margin-bottom: 30px;
+  position: relative;
+  border-radius: 0 0 20px 20px;
+  page-break-after: auto;
+}
+
+.cover-header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+  pointer-events: none;
+}
+
+.cover-label {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark-green);
+  font-size: 22px;
+  font-weight: 700;
+  padding: 6px 30px;
+  border-radius: 25px;
+  margin-bottom: 14px;
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 1;
+}
+
+.cover-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+  line-height: 1.6;
+}
+
+.cover-lesson {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.cover-names {
+  font-size: 16px;
+  opacity: 0.9;
+  position: relative;
+  z-index: 1;
+  line-height: 1.8;
+}
+
+/* MATN BOX */
+.matn-box {
+  background: var(--light-gold);
+  border-right: 5px solid var(--gold);
+  border-radius: 8px 0 0 8px;
+  padding: 18px 22px;
+  margin: 18px 0;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 2;
+  position: relative;
+}
+
+.matn-box::before {
+  content: 'المتن';
+  position: absolute;
+  top: -10px;
+  right: 15px;
+  background: var(--gold);
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 12px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+/* QURAN BOX */
+.quran-box {
+  background: linear-gradient(to left, #f1f8e9, #f9fbe7);
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  padding: 16px 24px;
+  margin: 14px 0;
+  font-size: 19px;
+  line-height: 2;
+  position: relative;
+  text-align: center;
+}
+
+.quran-box::before {
+  content: '﴿ القرآن الكريم ﴾';
+  display: block;
+  font-size: 12px;
+  color: var(--primary);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.quran-box::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  right: 8px;
+  left: 8px;
+  border: 1px dashed var(--primary);
+  border-radius: 8px;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+/* HADITH BOX */
+.hadith-box {
+  background: var(--light-teal);
+  border-right: 5px solid var(--teal);
+  border-radius: 8px 0 0 8px;
+  padding: 14px 20px;
+  margin: 14px 0;
+  font-size: 18px;
+  line-height: 1.9;
+  position: relative;
+}
+
+.hadith-box::before {
+  content: 'الحديث الشريف';
+  display: block;
+  font-size: 12px;
+  color: var(--teal);
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+/* POETRY BOX */
+.poetry-box {
+  background: #fffdf5;
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 20px 28px;
+  margin: 18px 0;
+  text-align: center;
+  font-size: 19px;
+  line-height: 2.2;
+  position: relative;
+}
+
+.poetry-box::before {
+  content: '❊';
+  position: absolute;
+  top: -12px;
+  right: 50%;
+  transform: translateX(50%);
+  background: var(--bg);
+  padding: 0 10px;
+  color: var(--gold);
+  font-size: 18px;
+}
+
+.poetry-line {
+  display: block;
+  margin: 4px 0;
+}
+
+.poetry-hemistich {
+  display: inline;
+}
+
+/* DEFINITION CARD */
+.definition-card {
+  background: var(--light-green);
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 14px 0;
+  position: relative;
+}
+
+.definition-card::before {
+  content: '📖 تعريف';
+  display: block;
+  font-size: 13px;
+  color: var(--primary);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.definition-term {
+  font-weight: 700;
+  color: var(--dark-green);
+  font-size: 18px;
+}
+
+/* RULING CARDS */
+.ruling-card {
+  border-radius: 10px;
+  padding: 12px 18px;
+  margin: 10px 0;
+  border-right: 5px solid;
+  position: relative;
+}
+
+.ruling-card.fard { background: var(--light-red); border-color: #c0392b; }
+.ruling-card.wajib { background: var(--light-orange); border-color: #e67e22; }
+.ruling-card.sunna { background: var(--light-green); border-color: #27ae60; }
+.ruling-card.mustahabb { background: var(--light-blue); border-color: #2980b9; }
+.ruling-card.makruh { background: var(--light-yellow); border-color: #f1c40f; }
+.ruling-card.haram { background: #fce4e4; border-color: #8b0000; }
+.ruling-card.mubah { background: var(--light-gray); border-color: #7f8c8d; }
+
+.ruling-label {
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.ruling-card.fard .ruling-label { background: #c0392b; }
+.ruling-card.wajib .ruling-label { background: #e67e22; }
+.ruling-card.sunna .ruling-label { background: #27ae60; }
+.ruling-card.mustahabb .ruling-label { background: #2980b9; }
+.ruling-card.makruh .ruling-label { background: #f1c40f; color: #333; }
+.ruling-card.haram .ruling-label { background: #8b0000; }
+.ruling-card.mubah .ruling-label { background: #7f8c8d; }
+
+/* COMPARISON CARD */
+.comparison-card {
+  display: flex;
+  gap: 12px;
+  margin: 16px 0;
+  flex-wrap: wrap;
+}
+
+.comparison-side {
+  flex: 1;
+  min-width: 250px;
+  border-radius: 12px;
+  padding: 14px 18px;
+  border: 2px solid var(--border);
+  background: #fff;
+}
+
+.comparison-side.vs-left {
+  border-color: var(--primary);
+  background: var(--light-green);
+}
+
+.comparison-side.vs-right {
+  border-color: var(--teal);
+  background: var(--light-teal);
+}
+
+.comparison-side h4 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+/* EVIDENCE BOX */
+.evidence-box {
+  background: #fffde7;
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 10px 0;
+  position: relative;
+}
+
+.evidence-box::before {
+  content: '📋 دليل';
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* BENEFIT BOX */
+.benefit-box {
+  background: linear-gradient(to left, #fff8e1, #fffde7);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 14px 20px;
+  margin: 14px 0;
+  position: relative;
+}
+
+.benefit-box::before {
+  content: '✦ فائدة';
+  display: block;
+  font-size: 13px;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+/* SUMMARY BOX */
+.summary-box {
+  background: var(--light-green);
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  padding: 16px 22px;
+  margin: 16px 0;
+  position: relative;
+}
+
+.summary-box::before {
+  content: '✦ خلاصة';
+  display: block;
+  font-size: 14px;
+  color: var(--primary);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+/* FIQH PRINCIPLE BOX */
+.fiqh-principle-box {
+  background: linear-gradient(to left, #e8f5e9, #f1f8e9);
+  border: 2px solid var(--dark-green);
+  border-radius: 12px;
+  padding: 14px 20px;
+  margin: 14px 0;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--dark-green);
+}
+
+.fiqh-principle-box::before {
+  content: '⚖️ قاعدة فقهية / أصولية';
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 6px;
+  text-align: right;
+}
+
+/* CLASSIFICATION TREE */
+.tree-container {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.tree-root {
+  display: inline-block;
+  background: var(--dark-green);
+  color: #fff;
+  padding: 10px 28px;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 0;
+  position: relative;
+}
+
+.tree-branches {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  position: relative;
+  padding-top: 20px;
+}
+
+.tree-branches::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 20%;
+  left: 20%;
+  height: 20px;
+  border-top: 3px solid var(--primary);
+  border-left: 3px solid var(--primary);
+  border-right: 3px solid var(--primary);
+  border-radius: 50% 50% 0 0;
+}
+
+.tree-branch {
+  background: #fff;
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  padding: 12px 16px;
+  min-width: 160px;
+  max-width: 220px;
+  text-align: center;
+  position: relative;
+  margin-top: 10px;
+}
+
+.tree-branch::before {
+  content: '';
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  width: 3px;
+  height: 22px;
+  background: var(--primary);
+}
+
+.tree-branch-title {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.tree-branch-desc {
+  font-size: 14px;
+  color: var(--body-text);
+  line-height: 1.5;
+}
+
+/* FLOW CHART */
+.flow-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin: 16px 0;
+}
+
+.flow-step {
+  background: var(--light-green);
+  border: 2px solid var(--primary);
+  border-radius: 10px;
+  padding: 10px 20px;
+  text-align: center;
+  min-width: 200px;
+  font-weight: 600;
+  color: var(--dark-green);
+}
+
+.flow-arrow {
+  font-size: 20px;
+  color: var(--gold);
+  line-height: 1;
+}
+
+/* TABLE */
+.usul-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0;
+  font-size: 15px;
+}
+
+.usul-table th {
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 14px;
+  font-weight: 700;
+  text-align: center;
+  border: 1px solid var(--dark-green);
+}
+
+.usul-table td {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  text-align: center;
+  background: #fff;
+}
+
+.usul-table tr:nth-child(even) td {
+  background: var(--light-green);
+}
+
+/* CALLOUT */
+.callout {
+  background: var(--light-gold);
+  border-right: 4px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+  padding: 12px 18px;
+  margin: 12px 0;
+  font-style: italic;
+}
+
+/* SECTION DIVIDER */
+.section-divider {
+  text-align: center;
+  margin: 30px 0;
+  position: relative;
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 35%;
+  height: 2px;
+  background: linear-gradient(to left, transparent, var(--gold));
+}
+
+.section-divider::before { right: 0; background: linear-gradient(to right, transparent, var(--gold)); }
+.section-divider::after { left: 0; background: linear-gradient(to left, transparent, var(--gold)); }
+
+.section-divider span {
+  background: var(--bg);
+  padding: 0 16px;
+  color: var(--gold);
+  font-size: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* SCHOLAR CARD */
+.scholar-card {
+  background: #fff;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin: 12px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.scholar-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.scholar-info h4 {
+  font-size: 16px;
+  color: var(--dark-green);
+  margin-bottom: 4px;
+}
+
+.scholar-info p {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+  text-align: right;
+}
+
+/* B&W TOGGLE */
+.bw-toggle {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 9999;
+  background: var(--dark-green);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-family: 'Noto Naskh Arabic', serif;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: all 0.3s;
+}
+
+.bw-toggle:hover {
+  background: var(--primary);
+  transform: scale(1.05);
+}
+
+@media print {
+  .bw-toggle { display: none !important; }
+  .cover-header { page-break-after: always; }
+  .matn-box, .quran-box, .hadith-box, .poetry-box, .definition-card,
+  .ruling-card, .evidence-box, .benefit-box, .summary-box, .fiqh-principle-box,
+  .comparison-card, .scholar-card, .tree-branch, .flow-step {
+    break-inside: avoid;
+  }
+  h2, h3 { page-break-after: avoid; }
+}
+
+/* MAIN CONTAINER */
+.main-container {
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 0 12mm;
+}
+
+/* INLINE HIGHLIGHTS */
+.highlight-gold {
+  background: var(--light-gold);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.highlight-green {
+  background: var(--light-green);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  color: var(--dark-green);
+}
+
+.highlight-teal {
+  background: var(--light-teal);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  color: var(--teal);
+}
+
+/* Nested tree sub-branches */
+.tree-sub-branches {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.tree-sub-branch {
+  background: var(--light-gold);
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 14px;
+  text-align: center;
+  min-width: 120px;
+}
+
+/* Note box */
+.note-box {
+  background: #fff3e0;
+  border-right: 4px solid #ff9800;
+  border-radius: 0 8px 8px 0;
+  padding: 12px 18px;
+  margin: 12px 0;
+}
+
+.note-box::before {
+  content: '📝 ملاحظة';
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #e65100;
+  margin-bottom: 4px;
+}
+
+/* Numbered list */
+.numbered-list {
+  counter-reset: item;
+  list-style: none;
+  padding: 0;
+}
+
+.numbered-list li {
+  counter-increment: item;
+  margin-bottom: 8px;
+  padding-right: 30px;
+  position: relative;
+}
+
+.numbered-list li::before {
+  content: counter(item);
+  position: absolute;
+  right: 0;
+  top: 2px;
+  width: 22px;
+  height: 22px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+</style>
+</head>
+<body>
+
+<!-- B&W Toggle Button -->
+<button class="bw-toggle" onclick="toggleBW()">🔄 وضع الأبيض والأسود</button>
+
+<script>
+function toggleBW() {
+  document.body.classList.toggle('bw-mode');
+}
+</script>
+
+<div class="main-container">
+
+<!-- ═══════════════════════ COVER HEADER ═══════════════════════ -->
+<div class="cover-header">
+  <div class="cover-label">تابع</div>
+  <div class="cover-title">شرح منظومة سلم الأصول<br>لكل من يرقى إِلى الأصول</div>
+  <div class="cover-lesson">الدرس الثالث</div>
+  <div class="cover-names">
+    الناظم: العلامة إبراهيم بن أبي القاسم بن مطير الحكمي المتوفى سنة 959 هـ<br>
+    الشارح: د. لبيب نجيب عبدالله<br>
+    المنظومة لصاحبها: العلامة ابن مطير
+  </div>
+</div>
+
+<!-- ═══════════════════════ OPENING DU'A ═══════════════════════ -->
+<div class="quran-box">
+  ﴿ إِن تَنصُرُوا اللَّهَ يَنصُرْكُمْ وَيُثَبِّتْ أَقْدَامَكُمْ ﴾
+</div>
+
+<p>لا إله إلا الله وحده لا شريك له، وأشهد أن سيدنا محمدًا صلَّى الله عليه وعلى آله وسلَّم عبده ورسوله. اللهم إنَّا نسألك علمًا نافعًا وعملًا صالحًا ورزقًا طيبًا. اللهم فقِّهنا في الدين وافتح علينا كنوز العارفين. اللهم آمين.</p>
+
+<div class="section-divider"><span>❧</span></div>
+
+<!-- ═══════════════════════ SECTION 1: REVIEW ═══════════════════════ -->
+<h2>مراجعة الدرس السابق — مسألة مخاطبة الكفار بفروع الشريعة</h2>
+
+<p>كان آخر ما تكلمنا عليه في درس أمس مسألة <span class="highlight-gold">مخاطبة الكفار بفروع الشريعة</span>.</p>
+
+<div class="section-divider"><span>❧</span></div>
+
+<!-- ═══════════════════════ SECTION 2: MATN — COMMAND FORMS ═══════════════════════ -->
+<h2>صيغة الأمر قد لا توجب المأمور به</h2>
+
+<div class="matn-box">
+  <span class="poetry-line">والكافرون بالفروع خُطِّبوا ◂ وشرطها والأمرُ قد لا يُوجبُ</span>
+  <span class="poetry-line">كمثلُ تهديدٍ به والتسوية ◂ والندبِ والإباحةِ المستويةِ</span>
+</div>
+
+<p>ذكر العلامة إبراهيم بن أبي القاسم بن مطير الحكمي المتوفى في سنة تسعة وخمسين وتسعمئة في هذين البيتين مسألتين:</p>
+
+<ol class="numbered-list">
+  <li><strong>المسألة الأولى:</strong> مخاطبة الكفار بفروع الشريعة</li>
+  <li><strong>المسألة الثانية:</strong> أن صيغة الأمر قد ترد لكن لغير الوجوب، بل ترد لمعانٍ أخرى</li>
+</ol>
+
+<p>فقال: <span class="highlight-gold">"والأمرُ قد لا يُوجبُ"</span> ثم بدأ يذكر المعاني التي يأتي لها الأمر غير الوجوب:</p>
+
+<h3>١. التهديد</h3>
+
+<div class="definition-card">
+  <span class="definition-term">التهديد:</span> أن تأتي صيغة الأمر للتهديد والوعيد لا للإلزام بالفعل.
+</div>
+
+<p>قال الناظم: <span class="highlight-gold">"كمثل تهديدٍ به"</span> أي قد يأتي الأمر للتهديد.</p>
+
+<div class="quran-box">
+  ﴿ اعْمَلُوا مَا شِئْتُمْ إِنَّهُ بِمَا تَعْمَلُونَ بَصِيرٌ ﴾
+</div>
+
+<div class="hadith-box">
+  قال النبي صلَّى الله عليه وسلَّم: «إذا لم تستحِ فاصنع ما شئت»
+</div>
+
+<p>قال الشارح رحمه الله تعالى: <span class="highlight-green">"والأمر قد لا يوجب المأمور به بأن وُجد فيه ما يصرفه عن الوجوب، كمثل تهديد به"</span> أي كما لو صرفته قرينة إلى التهديد. نحن: <span class="highlight-gold">"اعملوا ما شئتم إنه بما تعملون بصير"</span> إذ من المعلوم من الدين بالضرورة أنه لا يأمرهم بإطلاق العنان في ميدان العصيان، فعُلم أن المراد: فسأجازيكم عليه.</p>
+
+<div class="evidence-box">
+  بدليل أنه قال: ﴿ إِنَّهُ بِمَا تَعْمَلُونَ بَصِيرٌ ﴾ أي أن الله عزَّ وجلَّ يبصر ما تعملون. هذا المقطع من الآية يدل على أن الله سبحانه وتعالى سيجازي بتلك الأعمال. وقال: ﴿ مَن يَعْمَلْ سُوءًا يُجْزَهُ ﴾
+</div>
+
+<div class="callout">
+  ولم يتضح لي وقه ذكر هذا المقطع من الآية ﴿مَن يَعْمَلْ سُوءًا يُجْزَهُ﴾ في هذا الموضع؛ ليس فيها صيغة أمر واضح، فلا أدري ما سبب إيراد هذا المقطع من الآية في هذا الموضع. لا أدري ما سبب المجازة؟ فسأجازيكم مناسبة، ليس أنه أمر، ليس مثلًا جديدًا ممكن أحسن إذا كان هذا المقصود. قال: وقال لكن ظاهره لو كان مثلًا قال: فعُلم أن المراد فسأجازيكم به لقوله. نعم لكن أوضح لقوله ﴿مَن يَعْمَلْ سُوءًا يُجْزَهُ﴾ لكن أوضح.
+</div>
+
+<h3>٢. التسوية</h3>
+
+<p>قال: <span class="highlight-gold">"والتسوية"</span> كقول الله سبحانه وتعالى:</p>
+
+<div class="quran-box">
+  ﴿ آمِنُوا أَوْ لَا تُؤْمِنُوا سَوَاءٌ عَلَيْكُمْ ﴾<br>
+  ﴿ فَاصْبِرُوا أَوْ لَا تَصْبِرُوا سَوَاءٌ عَلَيْكُمْ ﴾
+</div>
+
+<p>قال الشارح: <span class="highlight-green">"والتسوية نحو فاصبروا أو لا تصبروا أي سواء صبرهم وعدمهم"</span>.</p>
+
+<h3>٣. الندب</h3>
+
+<p>قال: <span class="highlight-gold">"والندب"</span> كقول النبي صلَّى الله عليه وسلَّم:</p>
+
+<div class="hadith-box">
+  قال النبي صلَّى الله عليه وسلَّم: «تسحَّروا فإنَّ في السحور بركة»
+</div>
+
+<p>وكقوله تعالى:</p>
+
+<div class="quran-box">
+  ﴿ فَكَاتِبُوهُمْ إِنْ عَلِمْتُمْ فِيهِمْ خَيْرًا ﴾
+</div>
+
+<p>وعقد الكتابة عقد يكون بين السيد وعبده، بحيث أن العبد يدفع نُجومًا إلى سيده، وعقد الكتابة يكون بين السيد وعبده ويعتق عند دفعها كاملة.</p>
+
+<h3>٤. الإباحة المستوية</h3>
+
+<p>قال: <span class="highlight-gold">"والإباحة المستوية"</span> أي التي يستوي فيها طلب الفعل وطلب الترك.</p>
+
+<div class="quran-box">
+  ﴿ وَإِذَا حَلَلْتُمْ فَاصْطَادُوا ﴾
+</div>
+
+<p>ولا يجب الاستياد لعموم هذه الآية إجماعًا، فحُمل على الإباحة.</p>
+
+<!-- Comparison Card: Meanings of Command -->
+<div class="comparison-card">
+  <div class="comparison-side vs-left">
+    <h4>🟢 صيغة الأمر تفيد الوجوب</h4>
+    <p>الأصل في صيغة الأمر أنها تفيد الوجوب عند الإطلاق</p>
+  </div>
+  <div class="comparison-side vs-right">
+    <h4>🔵 صيغة الأمر قد لا تفيد الوجوب</h4>
+    <p>إذا وجدت قرينة تصرفها إلى معنى آخر من: تهديد، تسوية، ندب، أو إباحة</p>
+  </div>
+</div>
+
+<!-- Ruling Cards for Command Meanings -->
+<div style="display:flex; flex-wrap:wrap; gap:10px; margin:16px 0;">
+  <div class="ruling-card haram" style="flex:1; min-width:180px;">
+    <span class="ruling-label">تهديد</span>
+    <p>اعملوا ما شئتم إنه بما تعملون بصير</p>
+  </div>
+  <div class="ruling-card mubah" style="flex:1; min-width:180px;">
+    <span class="ruling-label">تسوية</span>
+    <p>فاصبروا أو لا تصبروا سواء عليكم</p>
+  </div>
+  <div class="ruling-card mustahabb" style="flex:1; min-width:180px;">
+    <span class="ruling-label">ندب</span>
+    <p>فكاتبوهم إن علمتم فيهم خيرًا</p>
+  </div>
+  <div class="ruling-card mubah" style="flex:1; min-width:180px;">
+    <span class="ruling-label">إباحة</span>
+    <p>وإذا حللتم فاصطادوا</p>
+  </div>
+</div>
+
+<div class="section-divider"><span>❧</span></div>
+
+<!-- ═══════════════════════ SECTION 3: AL-NAHY (PROHIBITION) ═══════════════════════ -->
+<h2>النهي</h2>
+
+<div class="matn-box">
+  <span class="poetry-line">والنهيُ ضدُّ الأمرِ فيما سبق ◂ كـ"لا تَقُم" محرَّمٌ إن أُطلق</span>
+</div>
+
+<p>ذكر الناظم رحمه الله تعالى في هذا البيت ثلاث مسائل:</p>
+
+<ol class="numbered-list">
+  <li><strong>المسألة الأولى:</strong> تعريف النهي</li>
+  <li><strong>المسألة الثانية:</strong> صيغة النهي</li>
+  <li><strong>المسألة الثالثة:</strong> ما يفيده النهي إذا أُطلق</li>
+</ol>
+
+<p>ثلاث مسائل في بيت واحد، وهذا يدل على أنه قد حرَّر هذه المنظومة.</p>
+
+<h3>تعريف النهي</h3>
+
+<div class="definition-card">
+  <span class="definition-term">النهي:</span> طلبُ التركِ بالقولِ ممن هو دونه. عكس الأمر: الأمر طلب فعل بالقول ممن هو دونه، والنهي طلب ترك بالقول ممن هو دونه.
+</div>
+
+<p>وهنا يقول إن النهي ضد الأمر فيما سبق:</p>
+
+<!-- Comparison Card: Al-Amr vs Al-Nahy -->
+<div class="comparison-card">
+  <div class="comparison-side vs-left">
+    <h4>الأمر</h4>
+    <p>طلب فعل بالقول ممن هو دونه</p>
+    <p>❌ لا يفيد الفورية</p>
+    <p>❌ لا يفيد التكرار</p>
+    <p>الأمر بالشيء نهي عن ضده</p>
+  </div>
+  <div class="comparison-side vs-right">
+    <h4>النهي</h4>
+    <p>طلب ترك بالقول ممن هو دونه</p>
+    <p>✅ يفيد الفورية</p>
+    <p>✅ يفيد التكرار</p>
+    <p>النهي عن الشيء أمر بضده (استلزامًا)</p>
+  </div>
+</div>
+
+<p>وقد سبق معنا أن الأمر لا يفيد الفورية لكن النهي يفيد الفورية، وسبق معنا أن الأمر لا يفيد التكرار لكن النهي يفيد التكرار، وسبق معنا أن الأمر بالشيء نهي عن ضده، كذلك النهي عن الشيء أمر بضده أي استلزامًا. فيقول لك إن مسائل النهي هي عكس مسائل الأمر في الغالب.</p>
+
+<p>قال الشارح رحمه الله: <span class="highlight-green">"والنهي استدعاء الترك لأنه ضد الأمر فيما سبق من الأحكام، فلا يكون طلبه إلا ممن دونك، كـ«لا تقم» فيكون قد استدعى أي قد طلب منه ترك القيام."</span></p>
+
+<p>ثم ذكر ما تفيده: <span class="highlight-green">"وحقيقة ذلك أمر بأحد أضداده بخلاف الأمر فإنه نهي عن جميع أضداده."</span></p>
+
+<h3>ما يفيده النهي عند الإطلاق</h3>
+
+<div class="ruling-card haram">
+  <span class="ruling-label">حرام</span>
+  <p><strong>النهي عند الإطلاق يفيد التحريم</strong></p>
+  <p>نحو: ﴿وَلَا تَقْرَبُوا الزِّنَا﴾ و﴿وَلَا تَقْرَبُوا مَالَ الْيَتِيمِ﴾ و﴿وَلَا يَغْتَب بَّعْضُكُم بَعْضًا﴾ إلى غير ذلك من الآيات التي ورد فيها النهي.</p>
+</div>
+
+<h3>صيغ النهي</h3>
+
+<p>وفي البيت ذكر الناظم رحمه الله صيغة من صيغ النهي وهي: <span class="highlight-gold">المضارع الذي سبق بـ«لا» الناهية</span>. وهذه الصيغة المشهورة. لكن هناك صيغ أخرى للنهي:</p>
+
+<table class="usul-table">
+  <thead>
+    <tr>
+      <th>الصيغة</th>
+      <th>المثال</th>
+      <th>البيان</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>الفعل المضارع المسبوق بـ«لا» الناهية</td>
+      <td>ولا تقربوا الزنا</td>
+      <td>هذه أمُّ الباب وهي الصيغة المشهورة</td>
+    </tr>
+    <tr>
+      <td>نفي الحل</td>
+      <td>﴿لَا يَحِلُّ لَكُمْ أَن تَرِثُوا النِّسَاءَ كَرْهًا﴾</td>
+      <td>نفي الحل يفيد التحريم</td>
+    </tr>
+    <tr>
+      <td>التصريح بالإثم</td>
+      <td>﴿فِيهِمَا إِثْمٌ كَبِيرٌ﴾ / ﴿وَمَن يَكْتُمْهَا فَإِنَّهُ آثِمٌ قَلْبُهُ﴾</td>
+      <td>التصريح بالإثم صيغة تحريم</td>
+    </tr>
+    <tr>
+      <td>«لا» النافية للجنس مع الإثم</td>
+      <td>«لا صلاة بغير طهور» / «لا صلاة لمن لم يقرأ بأم القرآن»</td>
+      <td>معناه: لا تصل صلاة بغير طهور / لا تصل صلاة دون أم القرآن</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="benefit-box">
+  ذكرت هذه الصيغة في باب النهي، إلا أن الصيغة التي أمَّ الباب وتقرأها: الفعل المضارع إذا سُبق بـ«لا» الناهية.
+</div>
+
+<div class="section-divider"><span>❧</span></div>
+
+<!-- ═══════════════════════ SECTION 4: AL-KHABAR & AL-INSHA ═══════════════════════ -->
+<h2>الخبر والإنشاء</h2>
+
+<div class="matn-box">
+  <span class="poetry-line">وخبرٌ للصدقِ والكذبِ احتمل ◂ وغيرُهُ الإنشاءُ</span>
+</div>
+
+<p>ذكر الناظم رحمه الله تعالى في البيت الأول من هذه الأبيات الثلاثة تعريف الخبر والإنشاء، وقد مرَّ معنا هذا وقلنا:</p>
+
+<!-- Classification: Kalam -->
+<div class="tree-container">
+  <div class="tree-root">الكلام</div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="tree-branch-title">الخبر</div>
+      <div class="tree-branch-desc">ما يحتمل الصدق والكذب لذاته</div>
+      <div class="tree-sub-branches">
+        <div class="tree-sub-branch">مقطوع بصدقه<br>(خبر الله ورسوله)</div>
+        <div class="tree-sub-branch">مقطوع بكذبه<br>(خبر مسلمة الكذاب)</div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-branch-title">الإنشاء</div>
+      <div class="tree-branch-desc">ما لا يحتمل الصدق والكذب لذاته</div>
+      <div class="tree-sub-branches">
+        <div class="tree-sub-branch">مقترن لفظه بمعنى<br>(كبيعت واشتريت)</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>قال الشارح رحمه الله: <span class="highlight-green">"وخبر للصدق والكذب احتمل أي ذاته تقتضي ذلك كقام زيد، وإن قطع بصدقه كخبر الله ورسوله أي بالنظر إلى قائله، أو قطع بكذبه كخبر مسلمة الكذاب الذي ادعى النبوة."</span></p>
+
+<p><span class="highlight-gold">"وغيره"</span> أي غير الخبر فإنه يدعى الخبر: <span class="highlight-gold">"الإنشاء"</span> بالقصر للوزن، وهو مقترن لفظه بمعنى كـ«بيعت» و«اشتريت».</p>
+
+<h3>الخبر بصيغة الخبر المتضمن للأمر أو النهي</h3>
+
+<p>وقد يريد — بارك الله فيكم — الخبر بصيغة الخبر لكنه يتضمن الأمر، وقد يريد الخبر بصيغة الخبر لكنه يتضمن النهي.</p>
+
+<div class="comparison-card">
+  <div class="comparison-side vs-left">
+    <h4>خبر يتضمن الأمر</h4>
+    <div class="quran-box" style="margin:6px 0;">
+      ﴿ وَالْوَالِدَاتُ يُرْضِعْنَ أَوْلَادَهُنَّ حَوْلَيْنِ كَامِلَيْنِ ﴾
+    </div>
+    <p>خبر لكنه يفيد الأمر، أي أمر للوالدات بأن يرضعن أولادهن حولين كاملين</p>
+  </div>
+  <div class="comparison-side vs-right">
+    <h4>خبر يتضمن النهي</h4>
+    <div class="quran-box" style="margin:6px 0;">
+      ﴿ لَا يَمَسُّهُ إِلَّا الْمُطَهَّرُونَ ﴾
+    </div>
+    <p>خبر لكنه يتضمن النهي كما مرَّ معنا في درس الفقه</p>
+  </div>
+</div>
+
+<div class="summary-box">
+  إذن الخبر قد يأتي ومعناه الأمر، وقد يأتي الخبر ومعناه النهي.
+</div>
+
+<div class="section-divider"><span>❧</span></div>
+
+<!-- ═══════════════════════ SECTION 5: AL-'AAM (THE GENERAL) ═══════════════════════ -->
+<h2>العام</h2>
+
+<div class="matn-box">
+  <span class="poetry-line">وعامٌّ ما شمَلَ ما فوقَ واحد ◂ بلامِ الفردِ والجمعِ كالإنسانِ</span>
+  <span class="poetry-line">خيرُ عبدٍ ومَنْ وما أينَ وأيْ ◂ ومتى ولا إذا في النكراتِ قد أتى</span>
+</div>
+
+<p>ذكر في هذين البيتين تعريف العام وذكر صيغ العام.</p>
+
+<h3>تعريف العام</h3>
+
+<div class="definition-card">
+  <span class="definition-term">العام:</span> اللفظ الذي يستغرق جميع أفراده بلا حصر. أي الذي يشمل جميع أفراده بلا حصر.
+</div>
+
+<p>قالوا: العام اللفظ الذي يشمل جميع أفراده بلا حصر <span class="highlight-gold">ولو كانت نادرة</span>.</p>
+
+<div class="benefit-box">
+  <strong>ولو كانت نادرة:</strong> اضرب لكم مثالًا قريبًا ثم مثالًا فقهيًا:<br><br>
+  <strong>المثال القريب:</strong> لو أن أحد الطلبة على سبيل المثال لا يحضر الدرس إلا مرة في الشهر، ثم قلت لك: «أكرم الطلاب»، فهل تكرم هذا الطالب أو لا تكرمه؟ تكرم الطالب مع أن دخوله نادر. مع كون دخوله نادر لكن العموم «أكرم الطلاب» يشمله. فكلمة «الطلاب» لفظ يشمل جميع الأفراد الصالح للدخول وهذا منهم مع أن دخوله نادر أو حضوره نادر.
+</div>
+
+<div class="evidence-box">
+  <strong>المثال الفقهي (١):</strong> قول النبي صلَّى الله عليه وسلَّم: «لا سبق إلا في قَدْحٍ أو نصلٍ أو حافر». «لا سبق» هذا في المسابقة المذكورة في الفقه الإسلامي، يعني لا يأخذ العوض في المسابقة المذكورة في الفقه الإسلامي. الخف المعتاد هو في الإبل — الإبل عندها خُفاف. والمسابقة المعتادة هي على الإبل. الفيل أيضًا عنده خف. لكن المسابقة على الفيل نادرة. نفترض أنه حصلت مسابقة على الفيل — هل يصح أخذ السبق أو لا يصح؟ نعم يصح، لأنه يدخل في العموم حتى وإن كان تناوله على وجه الندرة.
+</div>
+
+<div class="evidence-box">
+  <strong>المثال الفقهي (٢):</strong> قال النبي صلَّى الله عليه وآله وسلَّم: «من اشترى مُصَرَّاةً فهو بخير النظرين إن شاء أمسكها وإن شاء ردها وصاعًا من تمر». التصْرِية أو المُصَرَّاة هي البهيمة التي حُبس لبنها في ضرعها من أجل أن يبدو للمشتري أنها ذات لبن. النبي عليه الصلاة والسلام يقول: «من اشترى مُصَرَّاة» وهذا لفظ عام. المُصَرَّاة المعتاد أنها تكون من الغنم والبقر والإبل. لكن نفترض أن شخصًا اشترى أرنبة مثلًا، وكان البائع قد عمل لها التصرية فأظهرها أنها ذات لبن ثم تبين أنها ليست ذات لبن — هل له أن يردها أم ليس له أن يردها؟ تدخل في عموم الحديث مع أن لبن الأرنبة لا يُقصد غالبًا — هذا دخوله على وجه الندرة.
+</div>
+
+<div class="fiqh-principle-box">
+  العام: ما يصلح لجميع أفراده من غير حصر ولو على سبيل الندرة
+</div>
+
+<h3>قيد: ما فوق واحد بلا حصر</h3>
+
+<p>وقال بعضهم: العام كما قال لك الناظم — <span class="highlight-gold">العام ما شمل ما فوق واحد بلا حصر</span>.</p>
+
+<div class="callout">
+  <strong>قوله «ما شمل ما فوق واحد»</strong> تفهم أن أسماء الأعلام كزيد وعمر وخالد وسالم وسعيد أنها لا تدخل في العموم، لأن هذه إذا قلت «يا زيد» قصدت واحدًا، وإذا قلت «خالد» قصدت شخصًا بعينه، والعام يكون فوق الواحد لا يكون واحدًا.
+</div>
+
+<div class="callout">
+  <strong>قوله «بلا حصر»</strong> تفهم من هذا أن الأفراد إذا كانوا محصورين فإنه لا مدخل لهم في باب العموم. فلو قلت: أكرم ألف طالب، أكرم مئة ألف طالب، أكرم مليون طالب — كل هذه ليست من صيغ العموم لأنها محصورة. فالعموم ما شمل أفراده لكن بغير حصر. أما ما كان محصورًا فهذا ليس من العموم.
+</div>
+
+<div class="note-box">
+  ولذلك قال العلماء رحمهم الله: إن المفرد إذا دخلت عليه «ال» والجمع إذا دخل عليه «ال» يفيد العموم. لكن قالوا أيضًا إن المثنى إذا دخل عليه «ال» لا يفيد العموم لأنه يحصر — تقول: ذهب الطالبان، جاء القاضيان. هذا لا يفيد العموم لأنه يحصر. بخلاف المفرد فأنت تقول مثلًا: ﴿إِنَّ الْإِنسَانَ لَفِي خُسْرٍ﴾ تقصد كل إنسان. وتقول: ﴿قَدْ أَفْلَحَ الْمُؤْمِنُونَ﴾ يعني كل مؤمن. لكن المثنى لا يفيد العموم لأنه يدل على الحصر.
+</div>
+
+<h3>صيغ العام</h3>
+
+<p>صيغ العام كثيرة ومبحث العام من المباحث المهمة في أصول الفقه، ولذلك أُفرد بالتصنيف حتى عند العلماء من قديم. فالقرافي رحمه الله تعالى له كتاب مطبوع في مجلدين اسمه <strong>«العقد المنظوم في الخصوص والعموم»</strong>، وأذكر أيضًا أن العلائي الشافعي له كتاب آخر اسمه <strong>«تلقيح الفهم في صيغ العموم»</strong>. وكون العلماء يصنفون — خاصة العلماء المتقدمين — يصنفون في قضية جزئية في أصول الفقه هذا يدل على أهمية ذلك الفهم.</p>
+
+<p>ودائمًا العلماء يذكرون مباحث العام بعد مباحث الأمر والنهي، لأن هذا الأمر ينظرون فيه: هل هو عام أو خاص؟ هذا النهي هل هو عام أو خاص؟ فكان من المناسب أن يوردوا مباحث العموم والخصوص بعد مباحث الأوامر والنواهي.</p>
+
+<!-- Flow Chart: Sighat Al-'Aam -->
+<div class="tree-container">
+  <div class="tree-root">صيغ العام</div>
+  <div class="tree-branches" style="max-width:100%;">
+    <div class="tree-branch">
+      <div class="tree-branch-title">١. «ال» الداخلة على المفرد</div>
+      <div class="tree-branch-desc">﴿إِنَّ الْإِنسَانَ لَفِي خُسْرٍ﴾<br>«المسلم أخو المسلم»</div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-branch-title">٢. الجمع المعرَّف بـ«ال»</div>
+      <div class="tree-branch-desc">﴿قَدْ أَفْلَحَ الْمُؤْمِنُونَ﴾<br>«الصالحين» في التشهد</div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-branch-title">٣. أسماء الشرط والاستفهام</div>
+      <div class="tree-branch-desc">مَن / مَا / أين / أي / متى</div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-branch-title">٤. «لا» مع النكرات</div>
+      <div class="tree-branch-desc">«لا إله إلا الله»<br>«لا صلاة بغير طهور»</div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-branch-title">٥. كل وجميع</div>
+      <div class="tree-branch-desc">﴿فَسَجَدَ الْمَلَائِكَةُ كُلُّهُمْ أَجْمَعُونَ﴾<br>أمُّ الباب</div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-branch-title">٦. المفرد المضاف</div>
+      <div class="tree-branch-desc">﴿وَإِن تَعُدُّوا نِعْمَتَ اللَّهِ لَا تُحْصُوهَا﴾<br>خلافية</div>
+    </div>
+  </div>
+</div>
+
+<!-- Detailed Sighat -->
+
+<h3>الصيغة الأولى: «ال» الداخلة على المفرد</h3>
+
+<p>قال: <span class="highlight-gold">"بلام الفرد"</span> أي اللام إذا دخلت على المفرد. طبعًا قال «بلام الفرد» بناءً على أن التعريف يحصل باللام فقط — الأداة تعريف أو اللام فقط. فكبيب؟ هل زال فكبيب؟ الأداة تعريف أو اللام فقط. من يحفظ ملحة العراق — الله أكبر! لأ، الأداة تعريف أو اللام فقط. فكبيب عرفت أنش، نسيت البيت. المهم هو ذكر القلاف صاحب ملحة العرب الحريري رحمه الله تعالى هل التعريف يكون بالألف واللام أو باللام فقط. فهنا ظاهر كلامه أنه يرى التعريف باللام فقط.</p>
+
+<div class="quran-box">
+  ﴿ وَالْعَصْرِ • إِنَّ الْإِنسَانَ لَفِي خُسْرٍ ﴾
+</div>
+
+<p>أي كل إنسان، بدليل وجود الاستثناء لأن <span class="highlight-green">الاستثناء معيار العموم</span> — إذا وجدت الاستثناء فاعلم أن هناك عموم لأنه لا يوجد استثناء إلا بعموم.</p>
+
+<div class="quran-box">
+  ﴿ إِنَّ الْإِنسَانَ خُلِقَ هَلُوعًا ﴾ إلى أن قال: ﴿ إِلَّا الْمُصَلِّينَ ﴾
+</div>
+
+<div class="hadith-box">
+  قال النبي صلَّى الله عليه وسلَّم: «المسلم أخو المسلم» أي كل مسلم أخ لكل مسلم
+</div>
+
+<div class="fiqh-principle-box">
+  وعلامة إفادتها للعموم أنه يصلح أن تدخل «كل» بدل «أل»<br>
+  تقول: إن كل إنسان — المسلم أخو كل مسلم
+</div>
+
+<h3>الصيغة الثانية: الجمع المعرَّف بـ«ال»</h3>
+
+<p>قال: <span class="highlight-gold">"والجمع"</span> كقول الله سبحانه وتعالى:</p>
+
+<div class="quran-box">
+  ﴿ قَدْ أَفْلَحَ الْمُؤْمِنُونَ ﴾
+</div>
+
+<div class="quran-box">
+  ﴿ إِنَّ الْمُسْلِمِينَ وَالْمُسْلِمَاتِ وَالْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ ﴾ إلى آخر الآية في سورة الأحزاب
+</div>
+
+<p>ومن ذلك قولك في التشهد: <strong>التحيات المباركات الصلوات الطيبات لله، السلام عليك أيها النبي ورحمة الله وبركاته، السلام علينا وعلى عباد الله الصالحين</strong>. قال: فإنك إن قلت ذلك في الحديث سلمت على كل عبد صالح في السماء وفي الأرض. <span class="highlight-gold">الصالحين</span> يشمل كل عبد صالح في السماء وفي الأرض من مَلَكٍ وإنسيٍّ وجنٍّ عموم.</p>
+
+<div class="benefit-box">
+  <strong>ومن المراد بـ«الصالحين»؟</strong> الصالحين جمع صالح، ومن هو الصالح؟ الصالح يطلق على معنيين:<br><br>
+  <strong>المعنى الأول:</strong> الصالح هو القائم بحق الله وحقوق عباده، وهو المراد بهذا الحديث «وعلى عباد الله الصالحين».<br><br>
+  <strong>المعنى الثاني:</strong> ويطلق الصالح ويراد به المسلم عمومًا — كل مسلم يسمى صالحًا. قالوا وهذا هو المراد بقول النبي صلَّى الله عليه وسلَّم: «إذا مات ابن آدم انقطع عمله إلا من ثلاث» ذكر من الثلاث: «ولد صالح يدعو له». قالوا: صالح أي مسلم، لأن المقصود من الحديث هنا الحث على التزوُّج لأجل النسل. والمقصود هناك أن يسلم عباده ويقوم بإنقاذه على من له شرف، والذي له شرف هو من قام بحق الله وحق عباده.
+</div>
+
+<h3>الصيغة الثالثة: أسماء الشرط والاستفهام</h3>
+
+<p>قال: <span class="highlight-gold">"ومَنْ ومَا وأينَ وأيٌّ ومتى"</span> وهذه تسمى <span class="highlight-teal">الأسماء المهمة</span> وهي مما يفيد العموم.</p>
+
+<table class="usul-table">
+  <thead>
+    <tr>
+      <th>الاسم</th>
+      <th>يُستعمل لـ</th>
+      <th>المثال</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>مَنْ</strong></td>
+      <td>للعاقل غالبًا</td>
+      <td>﴿مَن يَعْمَلْ سُوءًا يُجْزَهُ﴾</td>
+    </tr>
+    <tr>
+      <td><strong>مَا</strong></td>
+      <td>لغير العاقل غالبًا</td>
+      <td>«ما جاءني منك أخذته»</td>
+    </tr>
+    <tr>
+      <td><strong>أيٌّ</strong></td>
+      <td>للعاقل وغير العاقل</td>
+      <td>«أيُّ رجل جاءني أكرمته»</td>
+    </tr>
+    <tr>
+      <td><strong>أينَ</strong></td>
+      <td>للمكان</td>
+      <td>«أينما تكونوا يدرككم الموت»</td>
+    </tr>
+    <tr>
+      <td><strong>متى</strong></td>
+      <td>للزمان</td>
+      <td>«متى شئت جئت»</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>قال الشارح: <span class="highlight-green">"ومَن تختص بمن يعقل نحو: ﴿مَن يَعْمَلْ سُوءًا يُجْزَهُ﴾، ومَا تختص بما لا يعقل نحو: ما جاءني منك أخذته، وتعم في الاستفهام نحو: ما عندكم؟ ما في يدك؟ وفي الجزاء نحو: ﴿وَمَا تَفْعَلُوا مِنْ خَيْرٍ يَعْلَمْهُ اللَّهُ﴾ يعني من خير قل أو كثر. وفي الخبر نحو: ما علمت. وأين مختصة بالمكان وعامة في الأمكنة نحو: أين تكون أكون معك، أينما تكون يدرككم الموت، وأين سبق الكلام عليها وتكون للعاقل وغير العاقل. ومتى مختصة بالزمان وعامة فيه نحو: متى شئت جئت."</span></p>
+
+<h3>الصيغة الرابعة: «لا» مع النكرات</h3>
+
+<p>قال: <span class="highlight-gold">"ولا إذا في النكرات قد أتى"</span> إذا جاءت «لا» مع النكرات، أي جاءت النكرات بعد «لا» النافية.</p>
+
+<div class="quran-box">
+  لا إله إلا الله — نفي لجميع الآلهة إلا إله حق هو الله
+</div>
+
+<div class="hadith-box">
+  «لا صلاة لمن لم يقرأ بأم القرآن»<br>
+  «لا صلاة بغير طهور»
+</div>
+
+<p>وكذلك إذا جاءت النكرات بعد النهي تفيد العموم:</p>
+
+<div class="quran-box">
+  ﴿ وَأَنَّ الْمَسَاجِدَ لِلَّهِ فَلَا تَدْعُوا مَعَ اللَّهِ أَحَدًا ﴾
+</div>
+
+<p>نهي أن يُدعى مع الله أي أحد — لا مَلَك من الملائكة، لا مَلَك مقرب ولا نبي مرسل. «فلا تدعو» — «لا» ناهية، «أحدًا» نكرة وقعت في سياق النهي تفيد العموم.</p>
+
+<div class="summary-box">
+  <strong>النكرة تفيد العموم في ثلاث حالات:</strong>
+  <ol style="margin-right:20px; margin-top:6px;">
+    <li>إذا وقعت في سياق الشرط</li>
+    <li>إذا وقعت في سياق النهي</li>
+    <li>إذا وقعت في سياق النفي</li>
+  </ol>
+</div>
+
+<h3>الصيغة الخامسة: كل وجميع (زيادة على ما ذكره المؤلف)</h3>
+
+<p>بل هذه الصيغة تعد <span class="highlight-gold">أمَّ الباب</span> — كل وجميع.</p>
+
+<div class="quran-box">
+  ﴿ فَسَجَدَ الْمَلَائِكَةُ كُلُّهُمْ أَجْمَعُونَ إِلَّا إِبْلِيسَ ﴾<br>
+  ﴿ كُلٌّ لَّهُ قَانِتُونَ ﴾
+</div>
+
+<h3>الصيغة السادسة: المفرد المضاف (خلافية — زيادة على ما ذكره المؤلف)</h3>
+
+<p>وأيضًا مما يدل على العموم — وإن حصل فيه خلاف — <span class="highlight-gold">الجمع أو المفرد المضاف</span>.</p>
+
+<div class="quran-box">
+  ﴿ وَإِن تَعُدُّوا نِعْمَتَ اللَّهِ لَا تُحْصُوهَا ﴾ — نعمة مفرد مضاف إلى لفظ الجلالة يفيد العموم، تقدير الكلام: وإن تعدوا نعم الله
+</div>
+
+<div class="quran-box">
+  ﴿ وَأَمَّا بِنِعْمَةِ رَبِّكَ فَحَدِّثْ ﴾
+</div>
+
+<p>قال جماعة من العلماء إن المفرد إذا أضيف فإنه يفيد العموم. لكن هذه المسألة خلافية.</p>
+
+<div class="scholar-card">
+  <div class="scholar-icon">📚</div>
+  <div class="scholar-info">
+    <h4>الرازي رحمه الله</h4>
+    <p>ممن صرَّح بهذا — أن المفرد المضاف يفيد العموم — كما نقل ذلك عنه الزركشي.</p>
+  </div>
+</div>
+
+<div class="scholar-card">
+  <div class="scholar-icon">📚</div>
+  <div class="scholar-info">
+    <h4>الشافعية</h4>
+    <p>وبعضهم ينسب إلى الشافعية أنهم لا يقولون بهذا. ولعل السبب في نسبة هذا إلى الشافعية أنه لم يُبنِ الشافعية على هذه القاعدة — أي على أن المفرد المضاف يفيد العموم — لم يبنوا عليها بعض الفروع.</p>
+  </div>
+</div>
+
+<div class="evidence-box">
+  <strong>مثال:</strong> لو قال رجل عنده زوجات: «زوجتي طالق». هل نقول إن هذا مفرد مضاف يفيد العموم فبالتالي يقع الطلاق على جميع زوجاتك؟ أو لا نقول هذا؟<br><br>
+  هنا قال الشافعية رحمة الله تعالى عليهم: يقع الطلاق على واحدة منهن مُبهَمة، لا يقع الطلاق على الجميع. لم يطبقوا هذه القاعدة. قالوا: لأن محل تطبيق هذه القاعدة هو نصوص الوحي واللغة العربية، أما كلام الناس فلا تُطبق عليه، لأن كلام الناس غالبًا يُبنى على العرف — هكذا قالوا.
+</div>
+
+<div class="scholar-card">
+  <div class="scholar-icon">📚</div>
+  <div class="scholar-info">
+    <h4>الشربيني (عبد الرحمن)</h4>
+    <p>ومن ذكر هذا الشربيني — ليس الشربيني الخطيب الشربيني المتأخر — هذا في حاشيته عبد الرحمن الشربيني في حاشيته على الغرر البهية لشيخ الإسلام زكريا الأنصاري.</p>
+  </div>
+</div>
+
+<div class="callout">
+  فبعضهم فهم من هذا التفريع أن الشافعية يقولون إن المفرد المضاف لا يفيد العموم، وهم في الحقيقة في الأصول بل حتى في الفقه يعني على سبيل المثال النووي رحمه الله قال في المنهاج باب الوضوء وقال في المنهاج: «وفروضه» — قال يقصد الوضوء وقال وفروضه تقال. فقال العلامة ابن حجر رحمه الله في التحفة يقول: «وفروضه» — فرض مفرد مضاف يفيد العموم أي يفيد العموم على الصحيح، أي فرضه يفيد العموم.
+</div>
+
+<!-- Interactive question box -->
+<div class="benefit-box">
+  <strong>❓ سؤال تطبيقي:</strong> هل يجوز للإنسان أن يعتكف في غير المساجد الثلاثة؟ الحرم المكي، الحرم المدني، بيت المقدس — هل يجوز أن يعتكف في مساجد أخرى أو لا يجوز؟<br><br>
+  إذا كان يجوز فما الدليل؟ إذا كان لا يجوز فما الدليل؟<br><br>
+  <strong>الجواب:</strong> يجوز، والدليل من القرآن: ﴿وَلَا تُبَاشِرُوهُنَّ وَأَنتُمْ عَاكِفُونَ فِي الْمَسَاجِدِ﴾ — «المساجد» جمع مُعرَّف بـ«ال» يفيد العموم. فيه دليل على جواز الاعتكاف في عموم المساجد. فمن ادعى أن الاعتكاف خاص بمساجد معينة هو الذي يُطالب بالدليل، لأن دلالة العام على أفراده دلالة ظنية.
+</div>
+
+<div class="note-box">
+  وهذه الصيغ لا تكاد تقرأ آية من القرآن إلا وتجد فيها مثل هذه الصيغ، وعندما تقرأ القرآن حاول أن تطبق ما درست حتى تكون دراستك لعلم الفقه دراسة مثمرة.
+</div>
+
+<div class="section-divider"><span>❧</span></div>
+
+<!-- ═══════════════════════ SECTION 6: 'UMOOM FI AL-AQWAL ═══════════════════════ -->
+<h2>العموم في الأقوال لا في الأفعال</h2>
+
+<div class="matn-box">
+  <span class="poetry-line">فهذه تعمُّم الأقوال ◂ ولا عُمومَ يطرُقُ الأفعال</span>
+</div>
+
+<p>يقول لك إن هذه الصيغ التي مرَّت عليك تعمُّم الأقوال، لأن العموم — بارك الله فيكم — من عوارض الألفاظ. تقول: هذا لفظ عام. نحن عندما عرَّفنا العموم ماذا قلنا؟ هو اللفظ الذي يستغرق جميع أفراده من غير حصر. العموم يكون في الألفاظ.</p>
+
+<div class="fiqh-principle-box">
+  العموم من عوارض الألفاظ لا من عوارض الأفعال ولا قضايا الأعيان
+</div>
+
+<h3>الأفعال لا تفيد العموم</h3>
+
+<p>فقال: <span class="highlight-gold">"فهذه تعمم الأقوال ولا عموم يطرق الأفعال"</span> — العموم لا يدخل في الأفعال، كما أن العموم بارك الله فيكم لا يدخل في قضايا الأعيان.</p>
+
+<div class="evidence-box">
+  <strong>مثال ١ — جمع النبي صلَّى الله عليه وسلم بين الظهر والعصر في السفر:</strong> هل نقول هذا عام يشمل السفر القصير والسفر الطويل؟ قالوا: لا، لأن الجمع حصل من النبي صلَّى الله عليه وسلم فهو إما أنه حصل في الطويل أو أنه حصل في القصير. هذا الفعل — الجمع — لا يفيد العموم فلا يمكن أن تحمله على الأمرين.
+</div>
+
+<div class="evidence-box">
+  <strong>مثال ٢ — أمر النبي صلَّى الله عليه وسلم الرجل الذي جامع في نهار رمضان بالكفارة المغلظة:</strong> هل نقول نستنبط من هذا الحديث أن الحديث عام فالكفارة تجب على من جامع في نهار رمضان سواء كان عامدًا أو ناسيًا ذاكرًا أو ناسيًا؟ لا، لأن كون هذا الرجل جامع في نهار رمضان فهو أحد الحالين إما أنه كان ناسيًا أو أنه كان ذاكرًا، فلا يمكن أن نحمله على الأمرين.
+</div>
+
+<h3>قضايا الأعيان لا تفيد العموم</h3>
+
+<p>كذلك قضايا الأعيان — كون النبي صلَّى الله عليه وسلم حكم في قضية ما بحكم واضح ولم يُنقل اللفظ بصيغة العموم — هذا لا يفيد العموم.</p>
+
+<div class="evidence-box">
+  <strong>مثال — قضى النبي صلَّى الله عليه وسلم للجار بالشفعة:</strong><br><br>
+  <strong>الشفعة:</strong> معناها حق تملك قهري يثبت للشريك القديم على الشريك الحادث فيما مُلك بعوض.<br><br>
+  <strong>مثال الشفعة:</strong> اشتريت أنا وزيد هذه الأرض — اشتريناها مثلًا بعشر مليون ريع. أنا دفعت نصفها وهو دفع نصفها. هذه الأرض يملكها أنا وزيد نملكها ملكًا مشاعًا، أي أنها لم تُقسَّم — كل جزء في هذه الأرض نملكه مناصفة. هذا الملك ملك مشاع. قام زيد فباع نصيبه لشخص آخر — من حقي أنا الشريك القديم أن أنتزع ذلك بالثمن الذي وقع عليه العقد. قام زيد فباع نصيبه مثلًا لأحمد — أنا أنتزع هذا النصيب الذي اشتراه أحمد بالثمن الذي أخذه به. بكم اشتريت؟ قال: اشتريت بستة ملايين. قل: ستة ملايين وأخذ منه هذا النصيب حتى وإن لم يكن راضيًا. ولذلك قلنا في التعريف: حق تملك قهري يثبت للشريك القديم على الشريك الحادث فيما مُلك بعوض.<br><br>
+  هذه الشفعة تثبت في الشيء المشاع الذي لم يُقسَّم. لكن الجار — حقه مقسوم. فلو كانت هذه أرضي هنا وهذه أرض جاري — فقام جاري وباع نصيبه — نصيبه يتميز عن نصيبي — فقام جاري وباع نصيبه لشخص ثالث — هل يحق لي أن آخذ بالشفعة؟ لا، لا يحق لي أن آخذ بالشفعة.<br><br>
+  طيب يقول قائل: قضى النبي صلَّى الله عليه وسلم بالشفعة للجار. نقول: هذه حادثة عين، لعله احتفَّ بها ما جعل النبي صلَّى الله عليه وسلم يقضي لذلك الجار بالشفعة. وإلا فعندنا الحديث في الصحيحين: «إذا وقعت الحدود وصُرِّفت الطرق فلا شفعة».
+</div>
+
+<div class="evidence-box">
+  <strong>مثال آخر — حادثة الصائم في السفر:</strong> كان النبي صلَّى الله عليه وسلم في سفر فرأى رجلًا قد ظُلِّل عليه. قال: ما هذا؟ قالوا: إنه صائم يا رسول الله. قال: «ليس من البرِّ الصيام في السفر». هذا رجل صام في السفر فشقَّ على نفسه فأُغمي عليه. وقى النبي عليه الصلاة والسلام والناس مجتمعون قد ظلَّلوا عليه. قال: ما هذا؟ ويرى أنه رجل — عندما قال «ما» يعني ما الذي حصل ما الحادثة — هو لا يسأل عن عين الرجل، لو كان يسأل عن عين الرجل يقول: من هذا. وقال: ما هذا. قالوا: يا رسول الله إنه صائم. قال: «ليس من البر الصيام في السفر».<br><br>
+  هل نقول هذا عام فالصوم في السفر ليس من البر؟ نقول: هذه حادثة عين لا تفيد العموم، تحمل على تلك الحالة. لا تقول أن جميع حالات الصيام في السفر ليست من البر — بدليل أن النبي صلَّى الله عليه وسلم صام في السفر.
+</div>
+
+<div class="fiqh-principle-box">
+  العموم إنما يعتري الألفاظ<br>أما الأفعال وقضايا الأعيان فلا يعتريها العموم
+</div>
+
+<p>قال الشارح رحمه الله تعالى: <span class="highlight-green">"فهذه الألفاظ تعمم الأقوال كما تقرر، ولا عموم يطرق الأفعال، بل العموم صفات الألفاظ، كجمعه صلى الله عليه وسلم بين الصلاتين في السفر الثابت في الصحيح فلا يعم كل سفر طويلًا كان أو قصيرًا، فإنه إنما يقع على واحد منهما."</span></p>
+
+<p>وبالتالي حمَله فقهاء الشافعية رحمهم الله تعالى في المعتمد كما قلت لكم في الصباح على السفر الطويل احتياطًا. فقالوا إن الجمع إنما يكون في السفر الطويل أما السفر القصير لا جمع فيه بين الصلاتين. وطبعًا قلت لك هذا فيه خلاف في المذهب بناءً على هذه المسألة: هل هذا اللفظ يفيد العموم أو لا يفيد العموم؟</p>
+
+<div class="benefit-box">
+  <strong>رُخَص السفر الطويل أربع:</strong>
+  <ol style="margin-right:20px; margin-top:6px;">
+    <li>المسح على الخفين ثلاثًا</li>
+    <li>قصر الصلاة الرباعية</li>
+    <li>الإفطار في رمضان</li>
+    <li>الجمع بين الصلاتين — على المعتمد في المذهب (وإن كان هناك رأي آخر)</li>
+  </ol>
+  والثلاث الأولى بلا خلاف في المذهب.
+</div>
+
+<div class="section-divider"><span>❧</span></div>
+
+<!-- ═══════════════════════ SECTION 7: AL-TAKHSIS ═══════════════════════ -->
+<h2>التخصيص</h2>
+
+<div class="matn-box">
+  <span class="poetry-line">وإنما التخصيصُ تمييزُ ◂ لِما مِنْ جملةٍ بالشرطِ لو مقدمةً وصفة</span>
+  <span class="poetry-line">وحملٌ على المقيَّدِ مُطلقُها ◂ الممكنُ بل واعتمدْ مُطلقُها الممكنُ بل واعتمدْ</span>
+  <span class="poetry-line">في ذاك الاستثناءِ بلا استغراقِ ◂ ليثبتَ الحكمُ به في الباقي</span>
+  <span class="poetry-line">متصلاً ولو بغيرِ الجنسِ ◂ نحوُ قبضةِ التُّبرِ غيرُ فلسينِ</span>
+</div>
+
+<div class="definition-card">
+  <span class="definition-term">التخصيص:</span> إخراج بعض أفراد العام.
+</div>
+
+<p>وقبل أن ندخل معكم في بحث التخصيص لا بد أن نتكلم على <span class="highlight-gold">أقسام العموم</span>.</p>
+
+<h3>أقسام العام</h3>
+
+<div class="tree-container">
+  <div class="tree-root">أقسام العام</div>
+  <div class="tree-branches" style="max-width:100%;">
+    <div class="tree-branch" style="min-width:240px;">
+      <div class="tree-branch-title">١. عام باقٍ على عمومه</div>
+      <div class="tree-branch-desc">وذلك قليل في القرآن الكريم.<br>مثال: ﴿وَاللَّهُ بِكُلِّ شَيْءٍ عَلِيمٌ﴾<br>هذا عام باقٍ على عمومه لا يُستثنى منه شيء.</div>
+    </div>
+    <div class="tree-branch" style="min-width:240px;">
+      <div class="tree-branch-title">٢. عام يراد به الخصوص</div>
+      <div class="tree-branch-desc">اللفظ عام لكن القصد لشخص واحد.<br>لا يحتاج إلى دليل آخر يخصصه — يُعرف من السياق والقرائن.<br>مثال: ﴿أَمْ يَحْسُدُونَ النَّاسَ﴾ — المراد النبي صلَّى الله عليه وسلم.<br>﴿الَّذِينَ قَالَ لَهُمُ النَّاسُ إِنَّ النَّاسَ قَدْ جَمَعُوا لَكُمْ﴾ — أي بعض الناس (نعيم بن مسعود).</div>
+    </div>
+    <div class="tree-branch" style="min-width:240px;">
+      <div class="tree-branch-title">٣. عام دخله تخصيص</div>
+      <div class="tree-branch-desc">يحتاج إلى دليل يخصصه.<br>مثال: ﴿حُرِّمَتْ عَلَيْكُمُ الْمَيْتَةُ﴾ — عام (مفرد دخل عليه «ال») خص بالسنة: «أُحلَّت لنا ميتتان: السمك والجراد».</div>
+    </div>
+  </div>
+</div>
+
+<p>القسم الثاني — عام يراد به الخصوص — هذا لا يحتاج إلى دليل مخصص، فالذي تكلم مراده وقصده شخص بعينه فهو عام يراد به الخصوص. وأما القسم الثالث فعام جاء التخصيص لإخراج بعض أفراده.</p>
+
+<h3>المُخصِّصات</h3>
+
+<p>المُخصِّصات تنقسم إلى قسمين: <span class="highlight-gold">مُخصِّصات متصلة</span> و<span class="highlight-gold">مُخصِّصات منفصلة</span>.</p>
+
+<div class="tree-container">
+  <div class="tree-root">المُخصِّصات</div>
+  <div class="tree-branches" style="max-width:100%;">
+    <div class="tree-branch" style="min-width:300px;">
+      <div class="tree-branch-title">مُخصِّصات متصلة (٥)</div>
+      <div class="tree-branch-desc">
+        <ol style="margin-right:18px; text-align:right; line-height:2;">
+          <li>الاستثناء</li>
+          <li>الصفة</li>
+          <li>الشرط</li>
+          <li>البدل</li>
+          <li>الغاية</li>
+        </ol>
+      </div>
+    </div>
+    <div class="tree-branch" style="min-width:300px;">
+      <div class="tree-branch-title">مُخصِّصات منفصلة (٣)</div>
+      <div class="tree-branch-desc">
+        <ol style="margin-right:18px; text-align:right; line-height:2;">
+          <li>الحس</li>
+          <li>العقل</li>
+          <li>النص</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3>المُخصِّصات المنفصلة</h3>
+
+<p>نبدأ أولًا بالمُخصِّصات المنفصلة لأنها قصيرة.</p>
+
+<h4>١. الحس</h4>
+
+<div class="quran-box">
+  ﴿ تَدْمُرُ كُلَّ شَيْءٍ بِأَمْرِ رَبِّهَا ﴾ — أي الريح تدمر كل شيء
+</div>
+
+<p>أين العموم؟ «كل». هل دمرت السماوات؟ لا — نحن ندرك بالحس أنها لم تدمر السماوات. هل دمرت القِباع؟ لا — نحن ندرك بالحس أنها لم تدمر القِباع. إذن هذا تخصيص بماذا؟ <span class="highlight-green">تخصيص بالحس</span>.</p>
+
+<h4>٢. العقل</h4>
+
+<div class="quran-box">
+  ﴿ اللَّهُ خَالِقُ كُلِّ شَيْءٍ ﴾
+</div>
+
+<p>ضرورة العقل تقتضي أنه لم يخلق نفسه عزَّ وجلَّ. هذا <span class="highlight-green">تخصيص بالعقل</span>.</p>
+
+<h4>٣. النص</h4>
+
+<p>أن يأتي نص عام فيأتي نص آخر إما من القرآن أو من السنة يخصصه.</p>
+
+<div class="quran-box">
+  ﴿ حُرِّمَتْ عَلَيْكُمُ الْمَيْتَةُ ﴾
+</div>
+
+<div class="hadith-box">
+  «أُحلَّت لنا ميتتان: السمك والجراد»
+</div>
+
+<p>«الميتة» جاء النص: «أُحلَّت لنا ميتتان» — هذا تخصيص بالنص.</p>
+
+<h3>المُخصِّصات المتصلة</h3>
+
+<p>قالوا لك خمسة:</p>
+
+<h4>١. الاستثناء</h4>
+
+<div class="quran-box">
+  ﴿ وَالْعَصْرِ • إِنَّ الْإِنسَانَ لَفِي خُسْرٍ • إِلَّا الَّذِينَ آمَنُوا ﴾
+</div>
+
+<p>تجد المثال في كلمة التوحيد: «لا إله إلا الله».</p>
+
+<h4>٢. الصفة</h4>
+
+<div class="quran-box">
+  ﴿ وَمَن لَّمْ يَسْتَطِعْ مِنكُمْ طَوْلًا أَن يَنكِحَ الْمُحْصَنَاتِ الْمُؤْمِنَاتِ فَمِن مَّا مَلَكَتْ أَيْمَانُكُم مِّن فَتَيَاتِكُمُ الْمُؤْمِنَاتِ ﴾
+</div>
+
+<p>«من فتياتكم» — أين العموم؟ «فتياتكم» — جمع مضاف إلى الكاف. هذا العموم خصّ بالصفة: <span class="highlight-gold">«المؤمنات»</span>.</p>
+
+<div class="callout">
+  المحلل — ابن حزم رحمه الله — «من فتياتكم» فتيات... أحسن! الجمع المضاف، الجمع المضاف إلى الكاف — فتياتكم. هذا عموم، خص بالصفة: المؤمنات.
+</div>
+
+<h4>٣. الشرط</h4>
+
+<p>كأن تقول مثلًا: «أكرم الفقهاء إذا جاءوك» — هذا شرط.</p>
+
+<div class="quran-box">
+  ﴿ وَإِنْ أَحَدٌ مِّنَ الْمُشْرِكِينَ اسْتَجَارَكَ فَأَجِرْهُ ﴾
+</div>
+
+<h4>٤. البدل</h4>
+
+<div class="quran-box">
+  ﴿ وَلِلَّهِ عَلَى النَّاسِ حِجُّ الْبَيْتِ مَنِ اسْتَطَاعَ إِلَيْهِ سَبِيلًا ﴾
+</div>
+
+<p>«على الناس» — على الناس جميعًا. البدل: «من استطاع إليه سبيلا» — هذا بدل بعض من كل.</p>
+
+<h4>٥. الغاية</h4>
+
+<div class="quran-box">
+  ﴿ الْآنَ أُحِلَّ لَكُمْ لَيْلَةَ الصِّيَامِ... ﴾
+</div>
+
+<p>والغاية هي ما يدل على نهاية الحكم — كأن يقول: «إلى كذا» فيكون ما بعد الغاية بخلاف ما قبلها.</p>
+
+<div class="section-divider"><span>❧</span></div>
+
+<!-- ═══════════════════════ SCHOLAR BIOGRAPHIES ═══════════════════════ -->
+<h2>تراجم العلماء المذكورين</h2>
+
+<div class="scholar-card">
+  <div class="scholar-icon">🏛</div>
+  <div class="scholar-info">
+    <h4>أبو المحاسن الروياني</h4>
+    <p>توفي سنة خمسمائة وعشر. كتب كتابه «البحر». يقال إنه استمد عامته من كتاب «الحاوي» للماوردي. وكان حافظًا حتى كان يقول: «إذا احترقت كتب الشافعي أمليتها من حفظي».</p>
+  </div>
+</div>
+
+<div class="scholar-card">
+  <div class="scholar-icon">🏛</div>
+  <div class="scholar-info">
+    <h4>أبو الحسن الماوردي</h4>
+    <p>توفي سنة أربعمائة وخمسين. إمام كبير، صنف في فنون متعددة: الفقه والتفسير والآداب والأحكام السلطانية. وهو إمام قوي، والذي يقرأ في الحاوي الكبير سيجد براعة هذا الإمام ومدى طلعه.</p>
+  </div>
+</div>
+
+<div class="scholar-card">
+  <div class="scholar-icon">🏛</div>
+  <div class="scholar-info">
+    <h4>البرهان البيجوري</h4>
+    <p>ليس إبراهيم البيجوري صاحب الحاشية هذا متأخر — البرهان البيجوري هذا في القرن الثامن. أنه كان يسرد روضة الطالبين سردًا. سرد الروضة — هذه مطبوعة في 13 مجلدًا. نحن نعجز أن نحفظ منظومة في 99 بيت لا أقصدكم.</p>
+  </div>
+</div>
+
+<div class="scholar-card">
+  <div class="scholar-icon">🏛</div>
+  <div class="scholar-info">
+    <h4>القرافي</h4>
+    <p>له كتاب مطبوع في مجلدين اسمه «العقد المنظوم في الخصوص والعموم».</p>
+  </div>
+</div>
+
+<div class="scholar-card">
+  <div class="scholar-icon">🏛</div>
+  <div class="scholar-info">
+    <h4>العلائي الشافعي</h4>
+    <p>له كتاب اسمه «تلقيح الفهم في صيغ العموم».</p>
+  </div>
+</div>
+
+<div class="section-divider"><span>❧</span></div>
+
+<!-- ═══════════════════════ COMPREHENSIVE SUMMARY ═══════════════════════ -->
+<h2>خلاصة الدرس الثالث</h2>
+
+<div class="summary-box">
+  <h3 style="margin-bottom:10px; color:var(--dark-green);">أهم المسائل المبحوثة:</h3>
+  <ol style="margin-right:20px; line-height:2.2;">
+    <li><strong>صيغة الأمر قد لا تفيد الوجوب:</strong> بل قد تأتي للتهديد أو التسوية أو الندب أو الإباحة المستوية.</li>
+    <li><strong>النهي:</strong> طلب الترك بالقول ممن هو دونه، وهو ضد الأمر في كثير من الأحكام (يفيد الفورية والتكرار)، وعند الإطلاق يفيد التحريم.</li>
+    <li><strong>الخبر والإنشاء:</strong> الخبر ما يحتمل الصدق والكذب لذاته، والإنشاء ما لا يحتملهما. والخبر قد يتضمن أمرًا أو نهيًا.</li>
+    <li><strong>العام:</strong> اللفظ الذي يستغرق جميع أفراده بلا حصر ولو على سبيل الندرة. وصيغه كثيرة منها: «ال» على المفرد، والجمع المعرف، وأسماء الشرط والاستفهام، و«لا» مع النكرات، وكل وجميع، والمفرد المضاف (خلافية).</li>
+    <li><strong>العموم في الأقوال لا في الأفعال:</strong> العموم من عوارض الألفاظ، أما الأفعال وقضايا الأعيان فلا يُدعى فيها العموم.</li>
+    <li><strong>أقسام العام:</strong> عام باقٍ على عمومه، وعام يراد به الخصوص، وعام دخله تخصيص.</li>
+    <li><strong>التخصيص:</strong> إخراج بعض أفراد العام. والمخصصات المتصلة خمسة (الاستثناء، الصفة، الشرط، البدل، الغاية)، والمنفصلة ثلاثة (الحس، العقل، النص).</li>
+  </ol>
+</div>
+
+<div class="section-divider"><span>❧</span></div>
+
+<!-- ═══════════════════════ SHARH QUOTES ═══════════════════════ -->
+<h2>نقولات من كلام الشارح</h2>
+
+<div class="evidence-box">
+  <strong>في تعريف الخبر:</strong> «وخبر للصدق والكذب احتمل أي ذاته تقتضي ذلك كقام زيد، وإن قطع بصدقه كخبر الله ورسوله أي بالنظر إلى قائله، أو قطع بكذبه كخبر مسلمة الكذاب الذي ادعى النبوة.»
+</div>
+
+<div class="evidence-box">
+  <strong>في العام:</strong> «وعام ما شمل ما فوق واحد اثنين فصاعدًا بشرط صلاحيته له أي صدقه عليه، فإن صدق في بعض الأفراد دون بعض كان عامًا فيما صدق عليه فقط. مثاله "ما" فإنها تستغرق ما لا يعقل لصلاحيتها له دون ما يعقل عكس "مَن".»
+</div>
+
+<div class="evidence-box">
+  <strong>في «ال» على المفرد:</strong> «بلام الفرد نحو: أحل الله البيع وحرم الربا. أحل الله البيع أي بجميع أفراده هذا الأصل فيه إلا ما قام الدليل على أنه محرم. وكالإنسان: إن الإنسان لفي خسر.»
+</div>
+
+<div class="evidence-box">
+  <strong>في الجمع:</strong> «والجمع نحو: فاقتلوا المشركين — المشركين يفيد العموم حتى جاء المخصص: من قتل معاهدًا لم يرح رائحة الجنة. وفي سورة التوبة: حتى يعطوا الجزية عن يد وهم صاغرون.»
+</div>
+
+<div class="evidence-box">
+  <strong>في المفرد المضاف:</strong> «ومثله المضاف كما إذا أوصى لولد زيد وله أولاد دخلوا كلهم كما في البحر.»
+</div>
+
+<div class="evidence-box">
+  <strong>في «لا» النافية:</strong> «ولا إذا في النكرات قد أتى سواء باشر النكرة نحو: لا ريب فيه، أو باشر عاملها نحو: لا يقم أحد. فلاحظ أن "لا" باشرت العامل الذي هو الفعل المضارع "يقم". ولا مثل النفي مثال للنفي وجميع أدوات النفي كذلك نحو: ما ولم ولن وليس. والمراد بالنكرة المعنوية — يعني غير معينة.»
+</div>
+
+<div class="evidence-box">
+  <strong>في نفي العموم عن الأفعال:</strong> «فهذه الألفاظ تعمم الأقوال كما تقرر ولا عموم يطرق الأفعال، بل العموم صفات الألفاظ، كجمعه صلى الله عليه وسلم بين الصلاتين في السفر الثابت في الصحيح فلا يعم كل سفر طويلًا كان أو قصيرًا، فإنه إنما يقع على واحد منهما.»
+</div>
+
+<div class="section-divider"><span>❧</span></div>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<div style="text-align:center; padding:20px 0; color:var(--primary); font-size:14px; border-top:2px solid var(--gold); margin-top:30px;">
+  <p>شرح منظومة سلم الأصول لكل من يرقى إِلى الأصول</p>
+  <p>الناظم: العلامة ابن مطير الحكمي | الشارح: د. لبيب نجيب عبدالله</p>
+  <p>الدرس الثالث — تابع</p>
+</div>
+
+</div><!-- end main-container -->
+
+</body>
+</html>

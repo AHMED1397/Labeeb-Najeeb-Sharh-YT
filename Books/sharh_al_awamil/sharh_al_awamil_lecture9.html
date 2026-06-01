@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح العوامل المائة — الدرس التاسع: أدوات النصب + ما يجزم فعلًا واحدًا</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-green: #0d6b3e;
+  --dark-green: #0a4f2e;
+  --gold: #d4a020;
+  --light-gold: #f0e6c0;
+  --teal: #0d7377;
+  --bg: #fefefe;
+  --body-text: #1a1a1a;
+  --border: #c8d6c0;
+  --light-green-bg: #e8f5e9;
+  --light-teal-bg: #e0f2f1;
+  --light-gold-bg: #fff8e1;
+  --light-red-bg: #fce4ec;
+  --light-blue-bg: #e3f2fd;
+  --light-purple-bg: #f3e5f5;
+  --light-gray-bg: #f5f5f5;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--body-text);
+  background: var(--bg);
+  direction: rtl;
+}
+
+/* B&W Mode */
+body.bw-mode {
+  --primary-green: #333;
+  --dark-green: #222;
+  --gold: #555;
+  --light-gold: #eee;
+  --teal: #444;
+  --bg: #fff;
+  --body-text: #000;
+  --border: #999;
+  --light-green-bg: #f0f0f0;
+  --light-teal-bg: #f0f0f0;
+  --light-gold-bg: #f5f5f5;
+  --light-red-bg: #f5f5f5;
+  --light-blue-bg: #f0f0f0;
+  --light-purple-bg: #f0f0f0;
+  --light-gray-bg: #f5f5f5;
+}
+body.bw-mode .cover-page { background: linear-gradient(135deg, #333 0%, #555 50%, #333 100%) !important; }
+body.bw-mode .cover-page * { color: #fff !important; border-color: #999 !important; }
+body.bw-mode .tree-node,
+body.bw-mode .tree-branch { border-color: #666 !important; }
+body.bw-mode .tree-node { background: #eee !important; color: #000 !important; }
+body.bw-mode .ruling-card { border-color: #666 !important; }
+body.bw-mode .ruling-card .ruling-label { background: #555 !important; color: #fff !important; }
+body.bw-mode .evidence-box { border-color: #666 !important; background: #f5f5f5 !important; }
+body.bw-mode .callout { border-color: #666 !important; background: #f0f0f0 !important; }
+body.bw-mode .definition-card { border-color: #666 !important; }
+body.bw-mode .poetry-box { border-color: #666 !important; background: #f5f5f5 !important; }
+body.bw-mode .qaidah-box { border-color: #666 !important; background: #f5f5f5 !important; }
+body.bw-mode .benefit-box { border-color: #666 !important; background: #f0f0f0 !important; }
+body.bw-mode .summary-box { border-color: #666 !important; background: #f0f0f0 !important; }
+body.bw-mode .section-divider { border-color: #999 !important; }
+body.bw-mode .section-divider::before { color: #666 !important; }
+body.bw-mode .table-styled th { background: #555 !important; color: #fff !important; }
+body.bw-mode .table-styled td { border-color: #999 !important; }
+body.bw-mode .comp-card { border-color: #666 !important; }
+body.bw-mode .faq-item { border-color: #666 !important; }
+body.bw-mode .iqrab-box { border-color: #666 !important; background: #f5f5f5 !important; }
+
+/* B&W Toggle Button */
+.bw-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 9999;
+  background: var(--primary-green);
+  color: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: all 0.3s;
+}
+.bw-toggle:hover { background: var(--dark-green); }
+
+/* Page Setup */
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+  @bottom-center {
+    content: "— " counter(page) " —";
+    font-size: 10px;
+    color: #666;
+  }
+}
+
+.page-content {
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 0 12mm;
+}
+
+/* Cover Page */
+.cover-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0a4f2e 0%, #0d6b3e 30%, #0d7377 60%, #0d6b3e 100%);
+  color: #fff;
+  text-align: center;
+  padding: 40px 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cover-page::before {
+  content: '';
+  position: absolute;
+  top: 15px; left: 15px; right: 15px; bottom: 15px;
+  border: 2px solid rgba(212,160,32,0.5);
+  border-radius: 12px;
+  pointer-events: none;
+}
+
+.cover-page::after {
+  content: '';
+  position: absolute;
+  top: 22px; left: 22px; right: 22px; bottom: 22px;
+  border: 1px solid rgba(212,160,32,0.3);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.cover-ornament {
+  font-size: 36px;
+  color: var(--gold);
+  margin: 10px 0;
+}
+
+.cover-book-title {
+  font-family: 'Amiri', serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--light-gold);
+  margin: 15px 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.cover-lecture-num {
+  font-family: 'Amiri', serif;
+  font-size: 28px;
+  color: var(--gold);
+  margin: 10px 0;
+  padding: 8px 30px;
+  border: 1px solid var(--gold);
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.cover-lecture-title {
+  font-family: 'Amiri', serif;
+  font-size: 24px;
+  color: #fff;
+  margin: 20px 0;
+  padding: 0 20px;
+}
+
+.cover-author-info {
+  margin-top: 30px;
+  font-size: 16px;
+  color: var(--light-gold);
+  line-height: 2;
+}
+
+.cover-author-info span {
+  display: block;
+}
+
+/* Section Headings */
+h1 {
+  font-family: 'Amiri', serif;
+  font-size: 26px;
+  color: var(--primary-green);
+  margin: 30px 0 15px;
+  padding-bottom: 8px;
+  border-bottom: 3px solid var(--gold);
+}
+
+h2 {
+  font-family: 'Amiri', serif;
+  font-size: 22px;
+  color: var(--dark-green);
+  margin: 25px 0 12px;
+  padding-right: 12px;
+  border-right: 4px solid var(--gold);
+}
+
+h3 {
+  font-family: 'Amiri', serif;
+  font-size: 19px;
+  color: var(--teal);
+  margin: 20px 0 10px;
+}
+
+p { margin: 8px 0; text-align: justify; }
+
+/* Matn Text */
+.matn-text {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--dark-green);
+  border-right: 4px solid var(--gold);
+  padding: 8px 14px;
+  margin: 12px 0;
+  background: var(--light-gold-bg);
+  border-radius: 0 6px 6px 0;
+  line-height: 1.8;
+}
+
+/* Evidence Box (Quran/Hadith) */
+.evidence-box {
+  background: var(--light-green-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  position: relative;
+}
+.evidence-box::before {
+  content: '﴿ قرآن كريم ﴾';
+  position: absolute;
+  top: -10px;
+  right: 16px;
+  background: var(--primary-green);
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 10px;
+  border-radius: 10px;
+}
+.evidence-box.hadith::before {
+  content: '﴿ حديث شريف ﴾';
+  background: var(--teal);
+}
+.evidence-box .ev-text {
+  font-family: 'Amiri', serif;
+  font-size: 19px;
+  text-align: center;
+  color: var(--dark-green);
+  line-height: 1.8;
+}
+.evidence-box.hadith .ev-text {
+  color: var(--teal);
+}
+
+/* Poetry Box */
+.poetry-box {
+  background: var(--light-gold-bg);
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 14px 0;
+  text-align: center;
+}
+.poetry-box .poetry-label {
+  font-size: 13px;
+  color: var(--gold);
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+.poetry-box .poetry-line {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  line-height: 2;
+  color: var(--dark-green);
+}
+
+/* Callout Box */
+.callout {
+  background: var(--light-blue-bg);
+  border-right: 5px solid #1565c0;
+  padding: 12px 16px;
+  margin: 12px 0;
+  border-radius: 0 8px 8px 0;
+}
+.callout.gold {
+  background: var(--light-gold-bg);
+  border-right-color: var(--gold);
+}
+.callout.teal {
+  background: var(--light-teal-bg);
+  border-right-color: var(--teal);
+}
+.callout.green {
+  background: var(--light-green-bg);
+  border-right-color: var(--primary-green);
+}
+.callout.red {
+  background: var(--light-red-bg);
+  border-right-color: #c62828;
+}
+.callout.purple {
+  background: var(--light-purple-bg);
+  border-right-color: #6a1b9a;
+}
+.callout .callout-title {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+/* Definition Card */
+.definition-card {
+  background: #fff;
+  border: 2px solid var(--teal);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  position: relative;
+}
+.definition-card .definition-term {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--teal);
+  margin-bottom: 6px;
+}
+.definition-card .definition-text {
+  font-size: 17px;
+  color: var(--body-text);
+}
+.definition-card .definition-ref {
+  font-size: 14px;
+  color: #888;
+  margin-top: 6px;
+}
+
+/* Classification Tree */
+.tree-container {
+  margin: 16px 0;
+  padding: 16px;
+  background: var(--light-green-bg);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  overflow-x: auto;
+}
+.tree-container .tree-title {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--primary-green);
+  text-align: center;
+  margin-bottom: 12px;
+}
+.tree-branch {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.tree-node {
+  background: #fff;
+  border: 2px solid var(--primary-green);
+  border-radius: 8px;
+  padding: 8px 14px;
+  text-align: center;
+  font-size: 15px;
+  min-width: 100px;
+  position: relative;
+}
+.tree-node.root {
+  background: var(--primary-green);
+  color: #fff;
+  font-weight: 700;
+  font-size: 17px;
+  border: none;
+}
+.tree-node .node-label {
+  font-size: 12px;
+  color: var(--gold);
+  font-weight: 700;
+  display: block;
+}
+.tree-sub-branch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Table */
+.table-styled {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0;
+  font-size: 16px;
+}
+.table-styled th {
+  background: var(--primary-green);
+  color: #fff;
+  padding: 10px 12px;
+  font-weight: 700;
+  text-align: center;
+  border: 1px solid var(--dark-green);
+}
+.table-styled td {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  text-align: center;
+  vertical-align: top;
+}
+.table-styled tr:nth-child(even) td {
+  background: var(--light-green-bg);
+}
+
+/* Comparison Cards */
+.cols {
+  display: flex;
+  gap: 12px;
+  margin: 14px 0;
+  flex-wrap: wrap;
+}
+.cols-3 > * { flex: 1; min-width: 180px; }
+.cols-4 > * { flex: 1; min-width: 130px; }
+.comp-card {
+  background: #fff;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
+}
+.comp-card .comp-label {
+  font-weight: 700;
+  font-size: 15px;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+.comp-card .comp-text {
+  font-size: 16px;
+}
+
+/* Ruling Cards */
+.ruling-card {
+  background: #fff;
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 12px 0;
+  position: relative;
+}
+.ruling-card .ruling-label {
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  background: var(--primary-green);
+  color: #fff;
+  font-size: 13px;
+  padding: 2px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+.ruling-card .ruling-text {
+  margin-top: 6px;
+  font-size: 16px;
+}
+
+/* Summary Box */
+.summary-box {
+  background: var(--light-gold-bg);
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+.summary-box .summary-title {
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.summary-box ul {
+  list-style: none;
+  padding: 0;
+}
+.summary-box ul li {
+  padding: 4px 0;
+  padding-right: 20px;
+  position: relative;
+}
+.summary-box ul li::before {
+  content: '◆';
+  position: absolute;
+  right: 0;
+  color: var(--gold);
+  font-size: 12px;
+}
+
+/* Benefit Box */
+.benefit-box {
+  background: var(--light-purple-bg);
+  border: 2px solid #6a1b9a;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+.benefit-box .benefit-title {
+  font-weight: 700;
+  color: #6a1b9a;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+.benefit-box .benefit-text {
+  font-size: 16px;
+}
+
+/* Qaidah Box */
+.qaidah-box {
+  background: var(--light-gold-bg);
+  border: 3px solid var(--gold);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+.qaidah-box .qaidah-label {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 6px;
+}
+.qaidah-box .qaidah-text {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--dark-green);
+  text-align: center;
+}
+
+/* Section Divider */
+.section-divider {
+  text-align: center;
+  margin: 30px 0;
+  border-top: 1px solid var(--border);
+  position: relative;
+}
+.section-divider::before {
+  content: '❁';
+  position: absolute;
+  top: -14px;
+  right: 50%;
+  transform: translateX(50%);
+  background: var(--bg);
+  padding: 0 12px;
+  color: var(--gold);
+  font-size: 22px;
+}
+
+/* FAQ Accordion */
+details.faq-item {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin: 8px 0;
+  overflow: hidden;
+}
+details.faq-item summary.faq-question {
+  padding: 10px 14px;
+  font-weight: 700;
+  color: var(--primary-green);
+  cursor: pointer;
+  background: var(--light-green-bg);
+}
+details.faq-item .faq-answer {
+  padding: 10px 14px;
+  font-size: 16px;
+}
+
+/* Flow Chart */
+.flow-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin: 16px 0;
+}
+.flow-step {
+  background: #fff;
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 15px;
+  min-width: 200px;
+}
+.flow-arrow {
+  font-size: 22px;
+  color: var(--gold);
+  line-height: 1;
+}
+
+/* Checklist */
+.checklist {
+  margin: 12px 0;
+  padding: 0;
+  list-style: none;
+}
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 6px 0;
+}
+.checklist-circle {
+  min-width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--primary-green);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Alert Box */
+.alert-box {
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 12px 0;
+  font-size: 16px;
+}
+.alert-box.success { background: #e8f5e9; border-right: 4px solid #2e7d32; }
+.alert-box.info { background: #e3f2fd; border-right: 4px solid #1565c0; }
+.alert-box.warning { background: #fff8e1; border-right: 4px solid #f9a825; }
+.alert-box.error { background: #fce4ec; border-right: 4px solid #c62828; }
+
+/* Inline highlight */
+.highlight-gold { background: var(--light-gold-bg); padding: 2px 6px; border-radius: 4px; }
+.highlight-green { background: var(--light-green-bg); padding: 2px 6px; border-radius: 4px; }
+.highlight-teal { background: var(--light-teal-bg); padding: 2px 6px; border-radius: 4px; }
+.highlight-red { background: var(--light-red-bg); padding: 2px 6px; border-radius: 4px; }
+
+/* Quote Block */
+.quote-block {
+  border-right: 4px solid var(--gold);
+  padding: 10px 16px;
+  margin: 12px 0;
+  background: var(--light-gold-bg);
+  font-style: italic;
+}
+.quote-block .quote-text {
+  font-size: 17px;
+  color: var(--dark-green);
+}
+.quote-block .quote-attribution {
+  font-size: 14px;
+  color: #888;
+  margin-top: 4px;
+  text-align: left;
+}
+
+/* I'rab Box */
+.iqrab-box {
+  background: var(--light-teal-bg);
+  border: 2px solid var(--teal);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+.iqrab-box .iqrab-title {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--teal);
+  margin-bottom: 8px;
+}
+.iqrab-box .iqrab-text {
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+@media print {
+  .bw-toggle { display: none; }
+  .cover-page { min-height: 100vh; page-break-after: always; }
+  h1, h2, h3 { page-break-after: avoid; }
+  .evidence-box, .callout, .tree-container, .table-styled, .poetry-box { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- B&W Toggle Button -->
+<button class="bw-toggle" onclick="document.body.classList.toggle('bw-mode')">وضع الأبيض والأسود</button>
+
+<!-- ========== COVER PAGE ========== -->
+<div class="cover-page">
+  <div class="cover-ornament">✦ ❁ ✦</div>
+  <div class="cover-book-title">شرح العوامل المائة</div>
+  <div class="cover-ornament">❁</div>
+  <div style="font-size:16px; color:#e0e0e0; margin:8px 0;">للإمام عبد القاهر الجُرجاني رحمه الله تعالى</div>
+  <div class="cover-lecture-num">الدرس التاسع</div>
+  <div class="cover-lecture-title">أدوات النصب + ما يجزم فعلًا واحدًا</div>
+  <div class="cover-ornament">✦ ❁ ✦</div>
+  <div class="cover-author-info">
+    <span>المتن: الإمام عبد القاهر الجرجاني رحمه الله تعالى</span>
+    <span>الشرح: د. لبيب نجيب عبدالله</span>
+    <span>إعداد: أحمد بن إرشاد</span>
+  </div>
+</div>
+
+<!-- ========== MAIN CONTENT ========== -->
+<div class="page-content">
+
+<!-- Opening Dua -->
+<h1>الافتتاح</h1>
+
+<p>بسم الله الرحمن الرحيم، الحمد لله رب العالمين، والصلاة والسلام الأتمّان الأكملان على سيد المرسلين سيدنا محمد، وعلى آله وصحبه الطيبين الطاهرين، أما بعد: فأسأل الله سبحانه وتعالى أن يمنّ علينا بالعلم النافع والعمل الصالح، وأن يفقهنا في الدين، وأن يفتح لنا فتوح العارفين، وأن يرزقنا الإخلاص في الأقوال والأعمال، اللهم آمين.</p>
+
+<p>يقول العلام الإمام عبد القاهر الجرجاني رحمه الله تعالى رحمة واسعة: النوع الخامس من ثلاثة عشر نوعاً حروف تنصب المضارعة وهي أربعة أحرف.</p>
+
+<div class="section-divider"></div>
+
+<!-- ========== تذكير: النواصب في الأجرومية ========== -->
+<h1>تذكير: تقسيم النواصب</h1>
+
+<p>نحن مرّ معنا في دروس الأجرومية وفي شرحها شرح العلامة الكفراوي رحمه الله تعالى الكلام على النواصب، وأن النواصب أكثر من أربعة، ولذلك في ذلك اليوم عندما درسنا قسمنا النواصب إلى قسمين: قسمنا النواصب إلى ما ينصب بنفسه، والقسم الثاني ما ينصب بأن مضمرة.</p>
+
+<!-- Classification Tree for النواصب -->
+<div class="tree-container">
+  <div class="tree-title">شجرة تصنيف: تقسيم النواصب</div>
+  <div style="text-align:center; margin-bottom:12px;">
+    <div class="tree-node root" style="display:inline-block;">النواصب</div>
+  </div>
+  <div class="tree-branch">
+    <div class="tree-sub-branch">
+      <div class="tree-node">ما ينصب بنفسه<br><span class="node-label">اتفاقاً: أن</span><br><span class="node-label">على الصحيح: لن، كي، إذن</span></div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">ما ينصب بأن مضمرة<br><span class="node-label">جوازاً: لام التعليل (لام كي)</span><br><span class="node-label">وجوباً: حروف العطف والجر</span></div>
+    </div>
+  </div>
+</div>
+
+<p>الذي ينصب بنفسه <span class="highlight-gold">أن</span> بهمزة مفتوحة ونون ساكنة — أن — وهذه تنصب بنفسها اتفاقاً. وما ينصب بنفسه على الصحيح ثلاثة: <span class="highlight-gold">لن</span> و<span class="highlight-gold">كي</span> و<span class="highlight-gold">إذن</span>.</p>
+
+<p>والمصنف هنا رحمه الله اقتصر فقط على ما ينصب بنفسه، وأغفل النواصب ولم يذكر النواصب التي تنصب بأن مضمرة، لم يذكرها. وكأنه رحمه الله رأى أن هذه النواصب لما كانت تنصب بأن مضمرة واضح، اكتفى بذكر أن فلم يتعرض لها.</p>
+
+<h2>النواصب التي تنصب بأن مضمرة</h2>
+
+<p>هذه النواصب التي تنصب بأن مضمرة إما أن تنصب بأن مضمرة جوازاً أو أنها تنصب بأن مضمرة وجوباً.</p>
+
+<h3>بأن مضمرة جوازاً</h3>
+<p>بأن مضمرة جوازاً في موضع واحد أو مع حرف واحد، وهو <span class="highlight-gold">لام التعليل</span> الذي يسمى <span class="highlight-gold">لام كي</span>، هنا النصب للفعل المضارع بأن مضمرة جوازاً.</p>
+
+<h3>بأن مضمرة وجوباً</h3>
+<p>وأما بأن مضمرة وجوباً ففي الباقيات، والباقيات على قسمين: إما حروف عطف أو حروف جر.</p>
+
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>القسم</th>
+      <th>الحروف</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>حروف العطف</strong></td>
+      <td>فاء السببية، واو المعية</td>
+    </tr>
+    <tr>
+      <td><strong>حروف الجر</strong></td>
+      <td>كي، حتى، لام الجحود</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>إذن هذا فقط تذكير لكم بما درسناه من قبل. درسنا اليوم سيتكلم حول النواصب التي تنصب الفعل المضارع بنفسها، مع أننا درسناها من قبل، وبعضها له شروط مثل إذن له شروط، لكن سنعيد هذا سريعاً حتى تستذكر المعلومات التي قد درست من قبل.</p>
+
+<div class="section-divider"></div>
+
+<!-- ========== النوع الخامس ========== -->
+<h1>النوع الخامس: حروف تنصب الفعل المضارع</h1>
+
+<div class="matn-text">
+  النوع الخامس من ثلاثة عشر نوعاً: حروف تنصب الفعل المضارع، وهي أربعة أحرف: أن، ولن، وكي، وإذن.
+</div>
+
+<p>قال رحمه الله تعالى هنا: النوع الخامس من ثلاثة عشر نوعاً، وذلك أن المصنف رحمه الله قسم العوامل إلى قسمين: إلى عوامل معنوية وعوامل لفظية، إلى عوامل لفظية. فالمعنوية اثنان واللفظية قسمها إلى قسمين: إما سماعية، إما قياسية. فالقياسية سبعة، والآن هو يتكلم على السماعية. والسماعية جعلها ثلاثة عشر نوعاً. درسنا النوع الأول والنوع الثاني والنوع الثالث والنوع الرابع، اليوم درسنا في النوع الخامس. وأرجو أن تقرأوا ما درستم في الدروس السابقة مرة أخرى.</p>
+
+<!-- Classification Tree for حروف النصب الأربعة -->
+<div class="tree-container">
+  <div class="tree-title">شجرة تصنيف: حروف النصب الأربعة</div>
+  <div style="text-align:center; margin-bottom:12px;">
+    <div class="tree-node root" style="display:inline-block;">حروف تنصب الفعل المضارع (4)</div>
+  </div>
+  <div class="tree-branch">
+    <div class="tree-sub-branch">
+      <div class="tree-node">أن<br><span class="node-label">نصب + مصدر + استقبال</span><br><span class="node-label">أم الباب</span></div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">لن<br><span class="node-label">نصب + نفي + استقبال</span><br><span class="node-label">تأكيد النفي</span></div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">كي<br><span class="node-label">نصب + مصدر + تعليل</span><br><span class="node-label">إذا سبقت باللام</span></div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">إذن<br><span class="node-label">نصب + جواب وجزاء</span><br><span class="node-label">بشروط</span></div>
+    </div>
+  </div>
+</div>
+
+<h2>لماذا قُدّمت النواصب على الجوازم؟</h2>
+
+<p>قد يسأل سائل يقول: لماذا قُدّمت النواصب على الجوازم؟ لماذا تكلم على النواصب أولاً ثم تكلم على الجوازم؟ نقول: لأن أثر النواصب أثر ظاهر، أثر ناصب أثر ظاهر، أما الجازم فإن أثره عدم، عدم الحركة، أثر عدمي. فقُدّم ما كان أثره وجودي على ما كان أثره عدمي. ولأنه قبل ذلك كان يتكلم على حروف تنصب الاسم المفرد، فناسب أن يتكلم على النواصب ثم يتكلم بعد ذلك على الجوازم.</p>
+
+<div class="callout green">
+  <div class="callout-title">تنبيه: سبب تقديم النواصب على الجوازم</div>
+  قُدّمت النواصب على الجوازم لوجهين:<br>
+  <strong>أولًا:</strong> لأن أثر النواصب وجودي (الفتحة ظاهرة) وأثر الجازم عدمي (السكون)، فقُدّم ما كان أثره وجودي على ما كان أثره عدمي.<br>
+  <strong>ثانيًا:</strong> لأنه قبل ذلك كان يتكلم على حروف تنصب الاسم المفرد، فناسب أن يتكلم على النواصب ثم الجوازم.
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ========== أن ========== -->
+<h1>الأول: أن</h1>
+
+<div class="matn-text">
+  أن: نحو أحب أن يقوم زيد
+</div>
+
+<p>قال رحمه الله: أن، نحو: <span class="highlight-gold">أحب أن يقوم زيد</span>.</p>
+
+<p>أن هذه اختصت بخصيصة أنها تنصب ظاهرة وتنصب مضمرة، تنصب ظاهرة وتنصب مضمرة. أي حال كونها ظاهرة تنصب وحال كونها مضمرة كما في هذه الحالات أيضاً تنصب. فهي تنصب في حال كونها ظاهرة وتنصب في حال كونها مضمرة.</p>
+
+<div class="callout teal">
+  <div class="callout-title">خصيصة أن: أم الباب</div>
+  أن هي <strong>أم الباب</strong> لأنها تعمل ظاهرة ومضمرة. أي حال كونها ظاهرة تنصب وحال كونها مضمرة تنصب أيضاً.
+</div>
+
+<h2>إعراب: أحب أن يقوم زيد</h2>
+
+<div class="iqrab-box">
+  <div class="iqrab-title">إعراب المثال: أحب أن يقوم زيد</div>
+  <div class="iqrab-text">
+    <strong>أحبّ:</strong> فعل مضارع مرفوع لتجرده عن الناصب والجازم، مرفوع وعلامة رفعه ضمة ظاهرة على آخره، وفاعله ضمير مستتر وجوباً تقديره أنا.<br><br>
+    <strong>أن:</strong> حرف نصب ومصدر واستقبال.<br>
+    — <strong>نصب:</strong> لأنها تنصب الفعل المضارع بعدها.<br>
+    — <strong>مصدر:</strong> لأنها تؤول مع ما بعدها بمصدر، تقدير الكلام: أحبّ قيام زيد (قام يقوم قياماً).<br>
+    — <strong>استقبال:</strong> لأنها تجعل الفعل المضارع دالاً على المستقبل.<br><br>
+    <strong>يقوم:</strong> فعل مضارع منصوب بأن وعلامة نصبه فتحة ظاهرة على آخره.<br><br>
+    <strong>زيد:</strong> فاعل مرفوع وعلامة رفعه ضمة ظاهرة على آخره.
+  </div>
+</div>
+
+<div class="qaidah-box">
+  <div class="qaidah-label">قاعدة</div>
+  <div class="qaidah-text">
+    الفعل المضارع في الأصل يدل على الحال والاستقبال، فإذا دخلت عليه <span class="highlight-gold">لم</span> صار دالاً على الماضي فقط، وإذا دخلت عليه <span class="highlight-gold">لن</span> أو <span class="highlight-gold">أن</span> أو <span class="highlight-gold">إن</span> (وغيرها) صار دالاً على المستقبل فقط.
+  </div>
+</div>
+
+<p>انتبه معي: الفعل المضارع متردد بين الحال والاستقبال. إذا دخلت عليه لن أو دخلت عليه أن أو دخلت عليه إن، يتجرد للاستقبال. تقول: <span class="highlight-green">لن أكتب</span> أي في المستقبل، <span class="highlight-green">أحب أن أفعل كذا</span> أي في المستقبل، <span class="highlight-green">إن يأتِ زيد أفعل كذا</span> أي في المستقبل. هنا يتجرد الفعل للاستقبال متى؟ بعد حروف مخصوصة منها: أن، لن، إن.</p>
+
+<p>وهل يمكن أن الفعل المضارع يتجرد للماضي؟ متى؟ بعده <span class="highlight-gold">لم</span>، تقول: <span class="highlight-green">لم يكتب</span> أي في الماضي.</p>
+
+<div class="summary-box">
+  <div class="summary-title">خلاصة: تجرد المضارع</div>
+  <ul>
+    <li>الفعل المضارع في الأصل: يدل على <strong>الحال والاستقبال</strong></li>
+    <li>إذا دخلت عليه <strong>لم</strong>: صار دالاً على <strong>الماضي</strong> فقط</li>
+    <li>إذا دخلت عليه <strong>لن / أن / إن</strong> (ونحوها): صار دالاً على <strong>المستقبل</strong> فقط</li>
+  </ul>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ========== لن ========== -->
+<h1>الثاني: لن</h1>
+
+<div class="matn-text">
+  ولن: لتأكيد النفي في المستقبل، نحو: لن يضرب زيد
+</div>
+
+<p>قال رحمه الله: ولن لتأكيد النفي في المستقبل، نحو: <span class="highlight-gold">لن يضرب زيد</span>.</p>
+
+<p>انظر: لتأكيد النفي في المستقبل. ولذلك النفي بلن أبلغ من النفي بلا. يسألك شخص مثلاً: أتصوم غداً؟ تقول: <span class="highlight-green">لا أصوم</span>، واضح. فيريد أن يتأكد: هل تصوم غداً؟ تقول: <span class="highlight-green">لن أصوم</span>. الأبلغ النفي بلن. فالنفي بلن أبلغ من النفي بلا.</p>
+
+<h2>إعراب: لن يضرب زيد</h2>
+
+<div class="iqrab-box">
+  <div class="iqrab-title">إعراب المثال: لن يضرب زيد</div>
+  <div class="iqrab-text">
+    <strong>لن:</strong> حرف نفي ونصب واستقبال.<br><br>
+    <strong>يضرب:</strong> فعل مضارع منصوب بلن وعلامة نصبه فتحة ظاهرة على آخره.<br><br>
+    <strong>زيد:</strong> فاعل مرفوع وعلامة رفعه ضمة ظاهرة على آخره.
+  </div>
+</div>
+
+<h2>الفرق بين أن ولن</h2>
+
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>وجه المقارنة</th>
+      <th>أن</th>
+      <th>لن</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>النصب</td>
+      <td>✓ تنصب المضارع</td>
+      <td>✓ تنصب المضارع</td>
+    </tr>
+    <tr>
+      <td>الاستقبال</td>
+      <td>✓ تجعل المضارع للمستقبل</td>
+      <td>✓ تجعل المضارع للمستقبل</td>
+    </tr>
+    <tr>
+      <td>المصدرية</td>
+      <td>✓ تؤول مع ما بعدها بمصدر</td>
+      <td>✗ ليست من حروف المصادر</td>
+    </tr>
+    <tr>
+      <td>النفي</td>
+      <td>✗ لا تفيد النفي</td>
+      <td>✓ تفيد تأكيد النفي</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>ما الفرق بين أن ولن؟ نحن ماذا قلنا في أن؟ نصب ومصدر واستقبال. إذن في شيء يختلف: في أن مصدر. لكن لن هذه ليست من حروف المصادر.</p>
+
+<h2>حروف المصادر الخمسة — النظم</h2>
+
+<div class="poetry-box">
+  <div class="poetry-label">نظم حروف المصادر — ابن مالك رحمه الله</div>
+  <div class="poetry-line">وَهاكَ حُروفاً بِالمَصادِرِ أُولِتْ</div>
+  <div class="poetry-line">وَعُدَّ لَها خَمساً أَصَحَّ كَما رَوَوا</div>
+  <div class="poetry-line">وَها هِيَ أَنْ بِالفَتحِ أَنْ مُشَدَّداً</div>
+  <div class="poetry-line">وَزيدُ عَلَيها كَي فَخُذها وَما وَلَو</div>
+</div>
+
+<p>حروف المصادر خمسة: <span class="highlight-gold">أنْ</span> (الساكنة)، و<span class="highlight-gold">أنَّ</span> (المشددة المفتوحة)، و<span class="highlight-gold">كي</span> (إذا سبقت باللام لفظاً أو تقديراً)، و<span class="highlight-gold">ما</span>، و<span class="highlight-gold">لو</span>.</p>
+
+<div class="callout gold">
+  <div class="callout-title">تنبيه على كي في حروف المصادر</div>
+  كي تكون من حروف المصادر إذا سبقت باللام لفظاً أو تقديراً. أما إذا لم تسبق باللام فإنها حرف جر.
+</div>
+
+<h2>الشاهد القرآني: فلن أبرح الأرض</h2>
+
+<div class="evidence-box">
+  <div class="ev-text">فَلَنْ أَبْرَحَ الْأَرْضَ حَتَّى يَأْذَنَ لِي أَبِي</div>
+</div>
+
+<div class="iqrab-box">
+  <div class="iqrab-title">إعراب: فلن أبرح الأرض حتى يأذن لي أبي</div>
+  <div class="iqrab-text">
+    <strong>لن:</strong> حرف نصب واستقبال.<br><br>
+    <strong>أبرح:</strong> فعل مضارع منصوب بلن وعلامة نصبه فتحة ظاهرة على آخره. والفاعل ضمير مستتر وجوباً تقديره أنا.<br><br>
+    <strong>الأرض:</strong> مفعول به.<br><br>
+    <strong>حتى:</strong> حرف جر.<br><br>
+    <strong>يأذن:</strong> فعل مضارع منصوب بأن مضمرة وعلامة نصبه فتحة ظاهرة على آخره.<br><br>
+    <strong>لي:</strong> اللام حرف جر، والياء ضمير متصل مبني على السكون في محل جر باللام.<br><br>
+    <strong>أبي:</strong> فاعل مرفوع وعلامة رفعه ضمة مقدرة منع من ظهورها المناسبة (تمام مناسبة الكسرة للياء)، وهو مضاف، والياء ضمير متصل مبني على السكون في محل جر مضاف إليه.
+  </div>
+</div>
+
+<p>الشاهد هنا: حيث لن عملت النصب في أبرح.</p>
+
+<h2>لن حرفان للنفي</h2>
+
+<p>ولنا حرفان للنفي: هما <span class="highlight-gold">لا</span> و<span class="highlight-gold">لن</span>، ولكن لن أبلغ في تأكيد النفي في المستقبل. يسألك تصوم غداً تقول: لا. تريد أن تؤكد؟ لن أصوم غداً. فهمت؟ فالنفي بلن أبلغ من النفي بلا.</p>
+
+<div class="section-divider"></div>
+
+<!-- ========== خلاف المعتزلة ========== -->
+<h1>خلاف المعتزلة: هل لن تفيد التأبيدي؟</h1>
+
+<div class="matn-text">
+  وقال بعضهم: لن نفياً تأبيدياً وهم المعتزلة
+</div>
+
+<p>قال بعضهم: لن نفياً تأبيدياً وهم المعتزلة، أي قالوا إن لن تفيد النفي التأبيدي. لكن في الحقيقة بعضهم نسب هذا القول إلى الزمخشري. والزمخشري رحمه الله وإن كان معتزلياً لكن لم يصرح بهذا القول في تفسيره في الكشاف، لم يصرح به. وإنما جاء في بعض نسخ كتاب له اسمه <span class="highlight-gold">الأنموذج</span> في بعض كتب النحو. في بعض نسخ هذا الكتاب جاءت أنها للتأبيد، وفي بعض النسخ أنها للتوكيد. فليس الكلام صريحاً أنه قاله. لكنه هو معتزلي، وبعض المعتزلة يقولون إن لن تفيد التأبيد.</p>
+
+<div class="callout red">
+  <div class="callout-title">تنبيه مهم</div>
+  المعتزلة أتباع واصل بن عطاء المعتزلي، ولهم عقائد تخصهم في باب الأسماء والصفات، وفي باب الإيمان، وفي باب الأحكام (الحكم على الشخص بأنه مسلم أو كافر)، وفي باب أيضاً ما يتعلق بعذاب القبر وأمور البرزخ وأمور الميزان ونحوها.
+</div>
+
+<h2>ردّ قول المعتزلة من وجهين</h2>
+
+<p>هذا رُدّ من وجهين:</p>
+
+<!-- Comparison Cards for الردّين -->
+<div class="cols cols-3">
+  <div class="comp-card">
+    <div class="comp-label" style="background: #c62828;">الوجه الأول</div>
+    <div class="comp-text">
+      لو كانت لن تفيد التأبيد، ما جاء للفعل بعدها غاية. أي لا يأتي الفعل بعدها له غاية أو نهاية.
+    </div>
+  </div>
+  <div class="comp-card">
+    <div class="comp-label" style="background: #1565c0;">مثال 1</div>
+    <div class="comp-text">
+      <span class="highlight-gold">لن أبرح الأرض</span> — لو كانت لن تفيد التأبيد لا يأتي "حتى يرجع"، لأن حتى يرجع غاية. يعني أنا لن أبرح الأرض إلى متى؟ حتى يرجع إلينا موسى.
+    </div>
+  </div>
+  <div class="comp-card">
+    <div class="comp-label" style="background: #0d7377;">مثال 2</div>
+    <div class="comp-text">
+      <span class="highlight-gold">فلن أكلم اليوم إنسياً</span> — إذا كانت لن تفيد التأبيد لا تقيده بـ "اليوم"، فلو كانت للتأبيد لا يتقيّد الفعل بعدها ولا يتغيا.
+    </div>
+  </div>
+</div>
+
+<div class="evidence-box">
+  <div class="ev-text">وَلَن يَتَمَنَّوْهُ أَبَدًا</div>
+</div>
+
+<p>الأمر الثاني: قال الله عز وجل: <span class="highlight-gold">ولن يتمنوه أبداً</span>. لو كانت لن تفيد التأبيد، فما الحاجة إلى قوله "أبداً"؟ فلما قال "أبداً" علمنا أن لن لا تفيد التأبيد، لأن التأبيد استُفيد من كلمة "أبداً" لا من كلمة "لن".</p>
+
+<h2>حالات لن: الإطلاق والتقييد</h2>
+
+<div class="definition-card">
+  <div class="definition-term">حالات لن</div>
+  <div class="definition-text">
+    <strong>1. إذا قُيّدت:</strong> كما في قوله تعالى: <span class="highlight-green">ولن يتمنوه أبداً</span> — جاءت "أبداً" فهذا واضح أنها تفيد التأبيد.<br><br>
+    <strong>2. إذا أُطلقت:</strong> قد تفيد التأبيد وقد لا تفيده — تفيد النفي فقط. قد تفيد التأبيد محتمل لكن ليس هو المعنى الأصلي لها.<br><br>
+    معناها الأصلي: <strong>النفي</strong> فقط.
+  </div>
+</div>
+
+<div class="evidence-box">
+  <div class="ev-text">فَإِن لَّمْ تَفْعَلُوا وَلَن تَفْعَلُوا أَبَدًا</div>
+</div>
+
+<p>مثلاً الله عز وجل قال: فإن لم تفعلوا — ولم تفعلوا يعني ولن تفعلوا أبداً — واضح. وإن كنتم في ريب مما نزلنا على عبدنا فاتوا بسورة من مثله وادعوا شهداكم من دون الله إن كنتم صادقين، فإن لم تفعلوا ولن تفعلوا أبداً — هنا جاءت للتأبيد، لكن ليس معنى ذلك أنها تلازم التأبيد في كل موضع.</p>
+
+<div class="evidence-box">
+  <div class="ev-text">وَلَن يَخْلُقُوا ذُبَابًا</div>
+</div>
+
+<p>قال الله عز وجل: ولن يخلقوا ذباباً — هنا أفادت التأبيد، لكن ليس معنى ذلك أنها تلازم التأبيد في كل موضع. فقد تفيد التأبيد وقد لا تفيد التأبيد. وإلا فمعناها الأصلي: النفي.</p>
+
+<div class="callout red">
+  <div class="callout-title">تنبيه: علة قول المعتزلة</div>
+  والمعتزلة منهم من قال إنها تفيد التأبيد ليتوصل إلى نفي رؤية المؤمنين لربهم في الآخرة. فقالوا: الله عز وجل قال <span class="highlight-red">لن تراني</span> — لن للتأبيد، إذن لا يُرى أبداً لا في الدنيا ولا في الآخرة. وهذا باطل، وقد رُدّ بالوجهين المذكورين.
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ========== كي ========== -->
+<h1>الثالث: كي</h1>
+
+<div class="matn-text">
+  وكي: للتعليل، نحو: جئتك كي تقوم
+</div>
+
+<p>قال رحمه الله: وكي للتعليل، نحو: <span class="highlight-gold">جئتك كي تقوم</span>.</p>
+
+<p>كي تحتاج إلى تركيز. أنا أريدك أن تميّز حالات كي.</p>
+
+<h2>حالات كي الثلاث</h2>
+
+<p>لو قلت: <span class="highlight-green">جئت لكي أتعلم</span> — هذه الجملة الأولى. ولو قلت: <span class="highlight-green">جئت كي أتعلم</span> — هذه الثانية. ولو قلت: <span class="highlight-green">جئت لأتعلم</span> — هذه الجملة الثالثة. كيف سنعرب كل جملة من هذه الجمل؟</p>
+
+<!-- Table for حالات كي -->
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>الجملة</th>
+      <th>إعراب كي</th>
+      <th>إعراب الفعل المضارع</th>
+      <th>المصدر المؤول</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>جئت لكي أتعلم</strong><br>(اللام لفظية)</td>
+      <td>اللام: حرف جر<br>كي: مصدرية ناصبة</td>
+      <td>أتعلم: فعل مضارع منصوب بكي وعلامة نصبه فتحة ظاهرة</td>
+      <td>كي مع ما دخلت عليه في تأويل مصدر مجرور باللام<br>أي: جئت لتعلّمي</td>
+    </tr>
+    <tr>
+      <td><strong>جئت كي أتعلم</strong><br>(اللام مقدّرة)</td>
+      <td>اللام مقدرة<br>كي: مصدرية ناصبة</td>
+      <td>أتعلم: فعل مضارع منصوب بكي وعلامة نصبه فتحة ظاهرة</td>
+      <td>كي مع ما دخلت عليه في تأويل مصدر مجرور باللام المقدرة<br>أي: جئت لتعلّمي</td>
+    </tr>
+    <tr>
+      <td style="background:var(--light-gold-bg);"><strong>جئت كي أتعلم</strong><br>(وجه آخر: بدون تقدير اللام)</td>
+      <td style="background:var(--light-gold-bg);">كي: حرف جر</td>
+      <td style="background:var(--light-gold-bg);">أتعلم: فعل مضارع منصوب بأن مضمرة وجوباً</td>
+      <td style="background:var(--light-gold-bg);">—</td>
+    </tr>
+    <tr>
+      <td><strong>جئت لأتعلم</strong><br>(بدون كي)</td>
+      <td>اللام: لام كي (لام التعليل)<br>لا كي هنا أصلاً</td>
+      <td>أتعلم: فعل مضارع منصوب بأن مضمرة جوازاً</td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>تفصيل الحالة الأولى: جئت لكي أتعلم</h3>
+
+<p>جئت طبعاً فعل وفاعل في الجمل الثلاث. لكن هنا سأقول: اللام حرف جر، وكي مصدرية ناصبة. ما معنى ناصبة؟ أي تنصب الفعل المضارع بنفسها، هي التي تنصب الفعل المضارع وليس بأن مضمرة، تنصب الفعل المضارع بنفسها. متى؟ إذا سبقت باللام لفظاً أو تقديراً.</p>
+
+<p>يصح هنا وجه آخر: أنك لا تقدر اللام فتجعل كي حرف جر بنفسها، حينئذ تكون كي حرف جر، فتجعل كي مصدرية ناصبة بأن مضمرة وجوباً. كي حرف جر، والفعل بعدها منصوب بأن مضمرة وجوباً.</p>
+
+<h3>تفصيل الحالة الثانية: جئت كي أتعلم (بتقدير اللام)</h3>
+
+<p>إما أن تقدر اللام فتكون كي مصدرية ناصبة، فحينئذ تنصب المضارع بنفسها. ويكون كي مع ما دخلت عليه في محل جر باللام المقدرة، في تأويل مصدر مجرور باللام.</p>
+
+<h3>تفصيل الحالة الثالثة: جئت لأتعلم</h3>
+
+<p>هنا ما في كي أصلاً وإنما اللام تسمى لام كي وهي لام التعليل. فالفعل المضارع منصوب بأن مضمرة جوازاً.</p>
+
+<div class="summary-box">
+  <div class="summary-title">خلاصة حالات كي</div>
+  <ul>
+    <li><strong>إذا سبقت كي باللام لفظاً أو تقديراً:</strong> فكي مصدرية ناصبة — تنصب المضارع بنفسها.</li>
+    <li><strong>إذا لم تسبق كي باللام:</strong> فكي حرف جر — والفعل بعدها منصوب بأن مضمرة وجوباً.</li>
+    <li><strong>إذا حُذفت كي وبقيت اللام:</strong> فهي لام كي (لام التعليل) — والفعل منصوب بأن مضمرة جوازاً.</li>
+  </ul>
+</div>
+
+<h2>إعراب: جئتك كي تقوم</h2>
+
+<div class="iqrab-box">
+  <div class="iqrab-title">إعراب المثال: جئتك كي تقوم</div>
+  <div class="iqrab-text">
+    <strong>جئتك:</strong> جئتُ فعل ماض مبني على السكون، والتاء ضمير متصل مبني على الضم في محل رفع فاعل، والكاف ضمير متصل مبني على الفتح في محل نصب مفعول به.<br><br>
+    <strong>كي:</strong> مصدرية ناصبة (واللام مقدرة).<br><br>
+    <strong>تقوم:</strong> فعل مضارع منصوب بكي وعلامة نصبه فتحة ظاهرة على آخره. والفاعل ضمير مستتر تقديره أنت.
+  </div>
+</div>
+
+<h2>معنى التعليل</h2>
+
+<p>ما معنى التعليل؟ ما كان ما قبله سبباً لما بعده. لماذا جئت؟ كي تقوم — فما قبله علّة لما بعده. يذكرونه في مبحث القياس وأصول الفقه.</p>
+
+<p>قال هنا معناه: ما كان ما قبله سبباً لما بعده، نحو: <span class="highlight-green">أسلمت كي أدخل الجنة</span>، فيكون الإسلام سبباً لدخول الجنة.</p>
+
+<div class="callout gold">
+  <div class="callout-title">تنبيه على النظم</div>
+  وهاك حروفاً بالمصادر أُولتْ وعُدّ لها خمساً أصحّ كما رووا<br>
+  وها هي أن بالفتح أن مشدداً وزيد عليها كي فخذها وما ولو<br><br>
+  <strong>متى كي تكون من حروف المصادر؟</strong> إذا سبقت باللام لفظاً أو تقديراً.
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ========== إذن ========== -->
+<h1>الرابع: إذن</h1>
+
+<div class="matn-text">
+  وإذن: للجواب والجزاء، كقولك: لمن قال أنا آتيك — إذن أكرمك
+</div>
+
+<p>قال رحمه الله: وإذن للجواب والجزاء، كقولك لمن قال: أنا آتيك — <span class="highlight-gold">إذن أكرمك</span>.</p>
+
+<h2>شروط نصب المضارع بإذن</h2>
+
+<p>قال ابن مالك في الألفية:</p>
+
+<div class="poetry-box">
+  <div class="poetry-label">نظم شروط إذن — ابن مالك رحمه الله</div>
+  <div class="poetry-line">وَنُصِبَتْ بِإِذَنْ مُستَقْبَلاً إِنْ صُدِرَتْ</div>
+  <div class="poetry-line">وَالفِعلُ بَعدُ مُتَّصِلٌ</div>
+</div>
+
+<p>كم شروط نصب المضارع بإذن؟ ثلاثة:</p>
+
+<ol class="checklist">
+  <li class="checklist-item">
+    <span class="checklist-circle">1</span>
+    <span>أن يكون المضارع بعدها مستقبلاً — أي دالاً على الاستقبال.</span>
+  </li>
+  <li class="checklist-item">
+    <span class="checklist-circle">2</span>
+    <span>أن يتصدر الجواب المضارع — يتصدر جملة الجواب.</span>
+  </li>
+  <li class="checklist-item">
+    <span class="checklist-circle">3</span>
+    <span>أن لا يفصل فاصل بين إذن والمضارع إلا القسم.</span>
+  </li>
+</ol>
+
+<div class="qaidah-box">
+  <div class="qaidah-label">قاعدة: شروط نصب المضارع بإذن (3 شروط)</div>
+  <div class="qaidah-text">
+    <strong>1.</strong> أن يكون المضارع مستقبلاً<br>
+    <strong>2.</strong> أن يتصدر جملة الجواب<br>
+    <strong>3.</strong> أن لا يُفصل بين إذن والمضارع إلا القسم
+  </div>
+</div>
+
+<h2>إعراب: إذن أكرمك</h2>
+
+<div class="iqrab-box">
+  <div class="iqrab-title">إعراب المثال: إذن أكرمك</div>
+  <div class="iqrab-text">
+    <strong>إذن:</strong> حرف جواب وجزاء ونصب.<br><br>
+    <strong>أكرم:</strong> فعل مضارع منصوب بإذن وعلامة نصبه فتحة ظاهرة على آخره. والفاعل ضمير مستتر تقديره أنا.<br><br>
+    <strong>الكاف:</strong> ضمير متصل مبني على الفتح في محل نصب مفعول به.
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ========== النوع السادس ========== -->
+<h1>النوع السادس: حروف تجزم الفعل المضارع</h1>
+
+<div class="matn-text">
+  النوع السادس من ثلاثة عشر نوعاً: حروف تجزم الفعل المضارع
+</div>
+
+<p>بعد أن فرغ من الكلام على العوامل التي تنصب الفعل المضارع، شرع في العوامل التي تجزم الفعل المضارع.</p>
+
+<h2>معنى الجزم</h2>
+
+<p>والجزم ما معناه لغةً؟ <span class="highlight-gold">قطع</span>. لماذا سميت جوازم؟ قالوا: لأنها تقطع الفعل المضارع عن الحركة أو عن الحرف. تقول مثلاً: <span class="highlight-green">لم يكتب</span> — انظر الباء ساكنة. ما معنى السكون؟ عدم الحركة. وإذا قطعته عن الحركة أو قطعت منه حرفاً، تقول مثلاً: <span class="highlight-green">لم يَرَ</span> — الأصل يرى هكذا، لكنه يجزم، علامة جزمه حذف حرف العلة.</p>
+
+<div class="definition-card">
+  <div class="definition-term">تعريف الجازم</div>
+  <div class="definition-text">
+    سميت جوازم لأنها تقطع الفعل المضارع عن الحركة (فيجزم بالسكون) أو تقطع منه حرفاً (فيجزم بحذف حرف العلة).
+  </div>
+</div>
+
+<h2>تقسيمات الجوازم</h2>
+
+<p>الجوازم هذه تنقسم بعدة اعتبارات:</p>
+
+<!-- Classification Tree for تقسيمات الجوازم -->
+<div class="tree-container">
+  <div class="tree-title">شجرة تصنيف: تقسيمات الجوازم</div>
+  <div style="text-align:center; margin-bottom:12px;">
+    <div class="tree-node root" style="display:inline-block;">الجوازم</div>
+  </div>
+  <div class="tree-branch" style="margin-bottom:16px;">
+    <div class="tree-sub-branch">
+      <div class="tree-node" style="border-color: var(--teal);">باعتبار اللفظ</div>
+      <div style="display:flex; gap:8px; margin-top:6px; justify-content:center; flex-wrap:wrap;">
+        <div class="tree-node" style="font-size:14px;">حروف<br><span class="node-label">لم، لما، لام الأمر، لا الناهية</span></div>
+        <div class="tree-node" style="font-size:14px;">أسماء<br><span class="node-label">أين، متى، إلخ</span></div>
+      </div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node" style="border-color: var(--gold);">باعتبار عدد الأفعال</div>
+      <div style="display:flex; gap:8px; margin-top:6px; justify-content:center; flex-wrap:wrap;">
+        <div class="tree-node" style="font-size:14px;">ما يجزم فعلاً واحداً<br><span class="node-label">كل الحروف إلا إن وإذما</span></div>
+        <div class="tree-node" style="font-size:14px;">ما يجزم فعلين<br><span class="node-label">إن الشرطية</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>تنقسم الجوازم باعتبار إلى حروف وأسماء. هناك جوازم هي حروف مثل: إن، لم، لما، لام الأمر، لام النهي. وقد تكون أسماء مثل: أين، متى. وتنقسم أيضاً الجوازم باعتبار آخر: ما يجزم فعلاً واحداً وما يجزم فعلين. وكل الحروف تجزم فعلاً واحداً إلا <span class="highlight-gold">إن</span> و<span class="highlight-gold">إذما</span> — حرفان.</p>
+
+<div class="section-divider"></div>
+
+<!-- ========== إن الشرطية ========== -->
+<h2>إن الشرطية (تجزم فعلين)</h2>
+
+<div class="matn-text">
+  إن: للشرط والجزاء، نحو: إن تكرمني أكرمك
+</div>
+
+<p>قال رحمه الله: إن للشرط والجزاء، نحو: <span class="highlight-gold">إن تكرمني أكرمك</span>.</p>
+
+<div class="iqrab-box">
+  <div class="iqrab-title">إعراب المثال: إن تكرمني أكرمك</div>
+  <div class="iqrab-text">
+    <strong>إن:</strong> حرف جازم يجزم فعلين.<br><br>
+    <strong>تكرمني:</strong> تكرم — فعل الشرط فعل مضارع مجزوم بإن وعلامة جزمه السكون. والنون للوقاية، والياء ضمير متصل مبني على السكون في محل نصب مفعول به. والفاعل ضمير مستتر تقديره أنت.<br><br>
+    <strong>أكرمك:</strong> أكرم — جواب الشرط فعل مضارع مجزوم وعلامة جزمه السكون. والفاعل ضمير مستتر تقديره أنا. والكاف ضمير متصل مبني على الفتح في محل نصب مفعول به.
+  </div>
+</div>
+
+<h3>نون الوقاية</h3>
+
+<p>لماذا سميت نون الوقاية؟ يقي الفعل عن الكسر، ويقي الفعل عن شيء آخر: يقي الفعل عن الالتباس بفعل الأمر الذي اتصلت به ياء المخاطبة. أكرمِ — أكرمِي — صح؟</p>
+
+<div class="poetry-box">
+  <div class="poetry-label">نظم نون الوقاية — من ألفية ابن مالك</div>
+  <div class="poetry-line">وَقَبلَ يَا النَّفسِ مَعَ الفِعلِ التُزِمْ</div>
+  <div class="poetry-line">نونُ وِقايَةٍ وَلَيسَ قَدْ يُضَمْ</div>
+  <div class="poetry-line">وَلَيتَنِي فَشَتْ وَلَيتَنِي نَدُرْ</div>
+  <div class="poetry-line">وَمَعلَعُ الأَعكَسِ وَكُن مُخَيِّراً في الباقيات</div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ========== لم ========== -->
+<h1>لم</h1>
+
+<div class="matn-text">
+  ولم: تقلب معنى المضارع ماضياً وتنفيه
+</div>
+
+<p>قال رحمه الله: ولم تقلب معنى المضارع ماضياً وتنفيه. كم تجزم؟ تجزم فعلاً واحداً. ولديك إيش بنقول عن لم؟ <span class="highlight-gold">حرف نفي وجزم وقلب</span>. حرف نفي: تنفي المضارع. وجزم: تجزم المضارع. وقلب: تقلب زمنه من المضارع إلى الماضي. <span class="highlight-green">لم يكتب</span> — في الماضي.</p>
+
+<div class="definition-card">
+  <div class="definition-term">لم</div>
+  <div class="definition-text">
+    <strong>حرف نفي وجزم وقلب</strong><br>
+    — <strong>نفي:</strong> تنفي الفعل المضارع<br>
+    — <strong>جزم:</strong> تجزم الفعل المضارع<br>
+    — <strong>قلب:</strong> تقلب زمن الفعل من الحال/الاستقبال إلى الماضي<br><br>
+    مثال: لم يضرب — أي لم يقع منه الضرب في الماضي
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ========== لما ========== -->
+<h1>لما</h1>
+
+<div class="matn-text">
+  وكذلك لما — حرف نفي وجزم وقلب
+</div>
+
+<p>قال رحمه الله: وكذلك لما. كذلك — ما معنى كذلك؟ في كونها حرف نفي وجزم وقلب. ما مثاله؟ <span class="highlight-gold">لما يضرب</span>.</p>
+
+<div class="iqrab-box">
+  <div class="iqrab-title">إعراب المثال: لما يضرب</div>
+  <div class="iqrab-text">
+    <strong>لما:</strong> حرف نفي وجزم وقلب. لماذا قالوا حرف قلب؟ يقلب زمن الفعل المضارع من المضارع إلى الماضي.<br><br>
+    <strong>يضرب:</strong> فعل مضارع مجزوم بلما وعلامة جزمه السكون. والفاعل ضمير مستتر تقديره هو.
+  </div>
+</div>
+
+<h2>حالات لما في اللغة العربية (ثلاث حالات)</h2>
+
+<!-- Classification Tree for حالات لما -->
+<div class="tree-container">
+  <div class="tree-title">شجرة تصنيف: حالات لما الثلاث</div>
+  <div style="text-align:center; margin-bottom:12px;">
+    <div class="tree-node root" style="display:inline-block;">لما</div>
+  </div>
+  <div class="tree-branch">
+    <div class="tree-sub-branch">
+      <div class="tree-node">لما الجازمة<br><span class="node-label">تختص بالمضارع</span></div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">لما الحينية<br><span class="node-label">بمعنى: حين</span><br><span class="node-label">تختص بالماضي</span></div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">لما بمعنى: إلا<br><span class="node-label">استثناء</span></div>
+    </div>
+  </div>
+</div>
+
+<h3>1. لما الجازمة</h3>
+
+<p>لما الجازمة — هذه التي ندرسها — تختص بالمضارع. في القرآن الكريم: <span class="highlight-gold">لما يذوقوا عذاب</span> — هذه لما التي تختص بالمضارع، التي تجزم المضارع. لما هنا حرف جزم ونفي وقلب. يذوق فعل مضارع مجزوم بلما وعلامة جزمه حذف النون لأنه من الأفعال الخمسة، والواو فاعل، وعذاب مفعول به.</p>
+
+<div class="evidence-box">
+  <div class="ev-text">لَمَّا يَذُوقُوا عَذَابَ</div>
+</div>
+
+<h3>2. لما الحينية</h3>
+
+<p>لما الحينية — هذه تدخل على الماضي، وتكون بمعنى <span class="highlight-gold">حين</span>. هي أداة شرط لكن غير جازمة. فعل الشرط ماضي، وجواب الشرط ماضي. هي أداة شرط لكنها غير جازمة، فعل الشرط ماضي، جواب الشرط ماضي.</p>
+
+<p>مثال: <span class="highlight-green">لما جاء زيد ذهبت</span> — إيش معنى الكلام؟ حين جاء زيد ذهبت. فهمت؟ لما جاء زيد ذهبت.</p>
+
+<p>وفي القرآن:</p>
+
+<div class="evidence-box">
+  <div class="ev-text">وَلَمَّا تَوَجَّهَ تِلْقَاءَ مَدْيَنَ قَالَ</div>
+</div>
+
+<p>شوف: توجه — ماضي. قال — ماضي. هذا تسمى لما الحينية، بمعنى حين، هي أداة شرط نعم، أداة شرط لكنها لا تجزم، تختص بالماضي، لا تدخل على المضارع، فعل الشرط ماضي، جواب الشرط ماضي.</p>
+
+<h3>3. لما بمعنى إلا</h3>
+
+<p>لما تأتي بمعنى <span class="highlight-gold">إلا</span>. قال الله عز وجل:</p>
+
+<div class="evidence-box">
+  <div class="ev-text">وَقُلْ إِن كُلُّ نَفْسٍ لَّمَّا عَلَيْهَا حَافِظٌ</div>
+</div>
+
+<p>ما معنى هنا لما؟ إن كل نفس إلا عليها حافظ. "إن" هنا بمعنى "ما" نافية. إن كل نفس — ما كل نفس — إلا عليها حافظ.</p>
+
+<p>لكن ممكن تعرف بطريقة أخرى أو في قراءة أخرى: <span class="highlight-green">إن كل نفس لما</span> وحينئذ تكون إن هذه ليست نافية وإنما مخففة. لكن هذه قراءة أخرى، نحن قراءتنا هذه القراءة فوقفوا الاستشهاد بالآية على القراءة التي نقرأ بها. لما هنا بمعنى إيش؟ إلا. إن كل نفس لما عليها حافظ — إن كل نفس إلا عليها حافظ.</p>
+
+<div class="summary-box">
+  <div class="summary-title">خلاصة: حالات لما الثلاث</div>
+  <ul>
+    <li><strong>لما الجازمة:</strong> تختص بالمضارع — نفي وجزم وقلب — نحو: لما يذوقوا عذاب</li>
+    <li><strong>لما الحينية:</strong> بمعنى حين — أداة شرط غير جازمة تختص بالماضي — نحو: لما جاء زيد ذهبت / ولما توجه تلقاء مدين قال</li>
+    <li><strong>لما بمعنى إلا:</strong> — نحو: إن كل نفس لما عليها حافظ (ما كل نفس إلا عليها حافظ)</li>
+  </ul>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ========== الفروق بين لم ولما ========== -->
+<h1>الفروق بين لم ولما</h1>
+
+<p>اكتبوا سريعاً أمليها لكم سريعاً:</p>
+
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>رقم</th>
+      <th>الفرق</th>
+      <th>لم</th>
+      <th>لما</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>توقع حصول المنفي</td>
+      <td>المنفي بـ <strong>لم</strong> متوقع الحصول — يمكن أن يحصل<br>مثال: لم يتزوّج فلان (سيتزوج)</td>
+      <td>المنفي بـ <strong>لما</strong> غير متوقع الحصول<br>مثال: لما يتزوّج فلان (غير متوقع)</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>حذف الفعل بعدها</td>
+      <td>لا يصح حذف الفعل بعد <strong>لم</strong></td>
+      <td>يصح حذف الفعل بعد <strong>لما</strong> — نحو: أسألك فعلك لما (أي لما تفعل)</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>دخول الشرط عليها</td>
+      <td>يصح دخول الشرط على <strong>لم</strong> — نحو: إن لم</td>
+      <td>لا يدخل الشرط على <strong>لما</strong> — لا يصح: إن لما</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>اتصال النفي أو انقطاعه</td>
+      <td>النفي بـ <strong>لم</strong> قد يكون متصلاً مستمراً وقد يكون منقطعاً<br>— متصل: وأنا مستمر على ذلك<br>— منقطع: لم يكن شيئاً مذكوراً (ثم كان)</td>
+      <td>النفي بـ <strong>لما</strong> يكون متصلاً مستمراً دائماً<br>— نحو: لما يذوقوا عذاب (ما زال النفي مستمراً)<br>— نحو: لما أحفظ (ما زال النفي مستمراً)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>تفصيل الفرق الرابع: اتصال النفي وانقطاعه</h3>
+
+<p>النفي بلما يكون متصلاً، إيش معنى متصلاً؟ مستمراً. ما زال النفي بلما مستمراً. <span class="highlight-green">لما يذوقوا عذاب</span> — إلى الآن ما ذاقوه، ما زال الأمر مستمراً. تقول: <span class="highlight-green">لما أحفظ</span> — ما زال النفي مستمراً. <span class="highlight-green">لما آكل</span> — ما زال النفي مستمراً.</p>
+
+<p>لكن النفي بـ لم قد يكون متصلاً مستمراً وقد يكون منقطعاً. <span class="highlight-green">وأنا مستمر على ذلك</span> — هنا متصل. وقال ربنا عز وجل في سورة الإنسان في أول آية:</p>
+
+<div class="evidence-box">
+  <div class="ev-text">هَلْ أَتَى عَلَى الْإِنسَانِ حِينٌ مِّنَ الدَّهْرِ لَمْ يَكُن شَيْئًا مَّذْكُورًا</div>
+</div>
+
+<p>أي ثم كان شيئاً مذكوراً — هنا إيش متصل أو منقطع؟ منقطع. إذاً النفي بلم قد يكون متصلاً وقد يكون منقطعاً.</p>
+
+<div class="section-divider"></div>
+
+<!-- ========== لام الأمر ========== -->
+<h1>لام الأمر</h1>
+
+<div class="matn-text">
+  ولام الأمر نحو: ليضرب
+</div>
+
+<p>قال رحمه الله: لام الأمر، نحو: <span class="highlight-gold">ليضرب</span>.</p>
+
+<p>والأمر ما هو؟ هو طلب الفعل من الفاعل، أو نقول كما درسنا في الأصول: <span class="highlight-gold">استدعاء فعل بالقول</span>، استدعاء فعل بالقول.</p>
+
+<div class="definition-card">
+  <div class="definition-term">تعريف الأمر</div>
+  <div class="definition-text">
+    الأمر: استدعاء فعل بالقول — أي طلب القيام بالفعل من المخاطب.
+  </div>
+</div>
+
+<h2>بناء لام الأمر</h2>
+
+<p>وهذه اللام مبنية على الكسر إلا إذا اتصلت بها الفاء أو الواو، فإنها تبنى على السكون.</p>
+
+<div class="callout green">
+  <div class="callout-title">حكم بناء لام الأمر</div>
+  لام الأمر مبنية على <strong>الكسر</strong> أصلاً، لكن إذا اتصلت بها <strong>الفاء</strong> أو <strong>الواو</strong> فإنها تُبنى على <strong>السكون</strong>.
+</div>
+
+<p>قال الله عز وجل:</p>
+
+<div class="evidence-box">
+  <div class="ev-text">فَلْيَنظُرِ الْإِنسَانُ إِلَى طَعَامِهِ</div>
+</div>
+
+<p>بُنيت على السكون لاتصالها بالفاء.</p>
+
+<div class="evidence-box">
+  <div class="ev-text">ثُمَّ لْيَقْضُوا تَفَثَهُمْ وَلْيُوفُوا نُذُورَهُمْ</div>
+</div>
+
+<p>بُنيت على السكون لاتصالها بالفاء والواو.</p>
+
+<div class="section-divider"></div>
+
+<!-- ========== لا الناهية ========== -->
+<h1>لا الناهية</h1>
+
+<div class="matn-text">
+  ولا للنهي نحو: لا تضرب
+</div>
+
+<p>قال رحمه الله: ولا للنهي، نحو: <span class="highlight-gold">لا تضرب</span>.</p>
+
+<p>وما هو النهي؟ <span class="highlight-gold">استدعاء الترك بالقول</span>، كما درسناه في الأصول.</p>
+
+<div class="poetry-box">
+  <div class="poetry-label">نظم تعريف الأمر والنهي — من ألفية ابن مالك</div>
+  <div class="poetry-line">وَحَدُّهُ استِدعاءُ نَهيٍ قَد وَجَبْ</div>
+  <div class="poetry-line">بِالقَولِ مِمَّن كانَ دُونَهُ ما انْتُخِبْ</div>
+  <div class="poetry-line">وَصيغَةُ الأَمرِ الَّتي مَضَتْ تَرِدْ</div>
+  <div class="poetry-line">وَالقَصدُ مِنها أَن يُباحَ ما وُجِدْ</div>
+</div>
+
+<p>والنهي طالب ترك الفعل.</p>
+
+<div class="section-divider"></div>
+
+<!-- ========== خاتمة ========== -->
+<h1>خاتمة</h1>
+
+<p>ثم قال: النوع السابع — نجعله مفتتح الدرس القادم والله أعلم.</p>
+
+<p>وصلّى اللهم وسلّم وبارك على سيدنا محمد وآله وصحبه أجمعين، والحمد لله رب العالمين.</p>
+
+<div class="summary-box">
+  <div class="summary-title">خلاصة الدرس التاسع</div>
+  <ul>
+    <li><strong>النوع الخامس:</strong> حروف تنصب الفعل المضارع — أربعة أحرف: أن (نصب ومصدر واستقبال)، لن (تأكيد النفي في المستقبل)، كي (للتعليل، حالاتها)، إذن (للجواب والجزاء بشروطها الثلاثة)</li>
+    <li><strong>النوع السادس:</strong> حروف تجزم الفعل المضارع — لم (نفي وجزم وقلب)، لما (نفي وجزم وقلب — ثلاث حالات)، لام الأمر، لا الناهية</li>
+    <li><strong>إن الشرطية:</strong> تجزم فعلين</li>
+    <li><strong>خلاف المعتزلة:</strong> في أن لن تفيد التأبيد — ورُدّ من وجهين</li>
+    <li><strong>الفروق بين لم ولما:</strong> أربعة فروق</li>
+    <li><strong>حروف المصادر الخمسة:</strong> أن، أنَّ، كي، ما، لو</li>
+  </ul>
+</div>
+
+</div><!-- end page-content -->
+
+<!-- JAVASCRIPT FOR TOGGLE -->
+<script>
+function toggleBW() {
+  document.body.classList.toggle('bw-mode');
+}
+</script>
+
+</body>
+</html>

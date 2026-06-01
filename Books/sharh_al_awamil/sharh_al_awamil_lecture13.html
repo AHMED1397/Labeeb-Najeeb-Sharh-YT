@@ -1,0 +1,1726 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح العوامل المائة — الدرس الثالث عشر: الأفعال الناقصة</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-green: #0d6b3e;
+  --dark-green: #0a4f2e;
+  --gold: #d4a020;
+  --light-gold: #f0e6c0;
+  --teal: #0d7377;
+  --bg: #fefefe;
+  --body-text: #1a1a1a;
+  --border: #c8d6c0;
+  --cover-gradient-1: #0a4f2e;
+  --cover-gradient-2: #0d6b3e;
+  --cover-gradient-3: #1a8a5c;
+  --light-green-bg: #e8f5e9;
+  --section-bg: #f7faf5;
+}
+
+body.bw-mode {
+  --primary-green: #333;
+  --dark-green: #222;
+  --gold: #555;
+  --light-gold: #ddd;
+  --teal: #444;
+  --bg: #fff;
+  --body-text: #000;
+  --border: #999;
+  --cover-gradient-1: #333;
+  --cover-gradient-2: #555;
+  --cover-gradient-3: #777;
+  --light-green-bg: #f0f0f0;
+  --section-bg: #f5f5f5;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--body-text);
+  background: var(--bg);
+  direction: rtl;
+}
+
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+  @bottom-center {
+    content: "— " counter(page) " —";
+    font-size: 10px;
+    color: #666;
+  }
+}
+
+/* ===== B&W TOGGLE ===== */
+.bw-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 9999;
+  background: var(--primary-green);
+  color: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: all 0.3s;
+}
+.bw-toggle:hover { background: var(--dark-green); }
+
+/* ===== COVER PAGE ===== */
+.cover-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, var(--cover-gradient-1) 0%, var(--cover-gradient-2) 50%, var(--cover-gradient-3) 100%);
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+}
+.cover-page::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a020' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.cover-border {
+  border: 3px solid var(--gold);
+  border-radius: 16px;
+  padding: 50px 60px;
+  position: relative;
+  max-width: 700px;
+}
+.cover-border::after {
+  content: '';
+  position: absolute;
+  top: 8px; left: 8px; right: 8px; bottom: 8px;
+  border: 1px solid rgba(212,160,32,0.4);
+  border-radius: 12px;
+  pointer-events: none;
+}
+.cover-book-title {
+  font-family: 'Amiri', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.cover-author {
+  font-size: 18px;
+  color: #c8e6c9;
+  margin-bottom: 30px;
+}
+.cover-lesson-num {
+  font-size: 22px;
+  color: var(--light-gold);
+  margin-bottom: 8px;
+}
+.cover-lesson-title {
+  font-family: 'Amiri', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 30px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.cover-divider {
+  width: 120px;
+  height: 2px;
+  background: var(--gold);
+  margin: 20px auto;
+}
+.cover-names {
+  font-size: 15px;
+  color: #a5d6a7;
+  line-height: 2;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 24px;
+}
+
+.section-divider {
+  text-align: center;
+  margin: 30px 0;
+  position: relative;
+}
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 30%;
+  height: 1px;
+  background: linear-gradient(to left, var(--gold), transparent);
+}
+.section-divider::before { right: 0; }
+.section-divider::after { left: 0; background: linear-gradient(to right, var(--gold), transparent); }
+.section-divider .divider-icon {
+  color: var(--gold);
+  font-size: 22px;
+  padding: 0 12px;
+  background: var(--bg);
+}
+
+.section-divider.ornate {
+  margin: 40px 0;
+}
+.section-divider.ornate::before,
+.section-divider.ornate::after {
+  width: 35%;
+  background: linear-gradient(to left, var(--primary-green), transparent);
+}
+.section-divider.ornate::after {
+  background: linear-gradient(to right, var(--primary-green), transparent);
+}
+
+h1 {
+  font-size: 26px;
+  color: var(--primary-green);
+  border-bottom: 3px solid var(--gold);
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+h2 {
+  font-size: 22px;
+  color: var(--primary-green);
+  margin-bottom: 14px;
+  margin-top: 28px;
+}
+h3 {
+  font-size: 19px;
+  color: var(--dark-green);
+  margin-bottom: 10px;
+  margin-top: 22px;
+}
+
+p { margin-bottom: 14px; }
+
+/* ===== DUA BOX ===== */
+.dua-box {
+  background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 20px 0;
+  text-align: center;
+  font-size: 18px;
+  line-height: 2;
+  position: relative;
+}
+.dua-box::before {
+  content: '🤲';
+  font-size: 28px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* ===== MATN BOX ===== */
+.matn-box {
+  background: var(--light-gold);
+  border-right: 5px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  padding: 16px 22px;
+  margin: 20px 0;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 2;
+  color: var(--dark-green);
+}
+
+/* ===== TREE CONTAINER ===== */
+.tree-container {
+  background: var(--light-green-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 24px 0;
+  overflow-x: auto;
+}
+.tree-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--primary-green);
+  text-align: center;
+  margin-bottom: 18px;
+}
+.tree-root {
+  text-align: center;
+  margin-bottom: 8px;
+}
+.tree-node {
+  display: inline-block;
+  background: var(--primary-green);
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 17px;
+}
+.tree-branches {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.tree-branch {
+  text-align: center;
+  flex: 1;
+  min-width: 140px;
+}
+.tree-branch-node {
+  background: var(--gold);
+  color: var(--dark-green);
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+.tree-connector {
+  width: 2px;
+  height: 16px;
+  background: var(--primary-green);
+  margin: 0 auto;
+}
+.tree-leaf {
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 15px;
+  margin: 3px auto;
+  display: inline-block;
+  max-width: 100%;
+}
+.tree-sub-branch {
+  margin-top: 6px;
+}
+.tree-horizontal {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+/* ===== TABLE STYLED ===== */
+.table-styled {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 16px;
+}
+.table-styled th {
+  background: var(--primary-green);
+  color: #fff;
+  padding: 10px 14px;
+  font-weight: 700;
+  border: 1px solid var(--dark-green);
+  text-align: center;
+}
+.table-styled td {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  text-align: center;
+  vertical-align: top;
+}
+.table-styled tr:nth-child(even) { background: var(--light-green-bg); }
+.table-styled tr:nth-child(odd) { background: #fff; }
+
+/* ===== CALLOUT BOX ===== */
+.callout {
+  background: #fff8e1;
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 20px 0;
+  position: relative;
+}
+.callout::before {
+  content: '⚡';
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  font-size: 22px;
+  background: var(--bg);
+  padding: 0 6px;
+}
+.callout-title {
+  font-weight: 700;
+  color: var(--dark-green);
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+/* ===== DEFINITION CARD ===== */
+.definition-card {
+  background: #fff;
+  border: 2px solid var(--teal);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 20px 0;
+  position: relative;
+}
+.definition-term {
+  font-weight: 700;
+  color: var(--teal);
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+.definition-text {
+  font-size: 17px;
+  line-height: 1.8;
+}
+.definition-ref {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+}
+
+/* ===== QAIDAH BOX ===== */
+.qaidah-box {
+  background: linear-gradient(135deg, #fff8e1 0%, #fff3cd 100%);
+  border: 3px solid var(--gold);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 24px 0;
+  position: relative;
+}
+.qaidah-label {
+  position: absolute;
+  top: -14px;
+  right: 20px;
+  background: var(--gold);
+  color: #fff;
+  padding: 3px 18px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 14px;
+}
+.qaidah-text {
+  font-size: 17px;
+  line-height: 2;
+  font-weight: 600;
+  color: var(--dark-green);
+  margin-top: 8px;
+}
+
+/* ===== BENEFIT BOX ===== */
+.benefit-box {
+  background: linear-gradient(135deg, #f3e5f5 0%, #e8daef 100%);
+  border: 2px solid #8e44ad;
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 20px 0;
+}
+.benefit-title {
+  font-weight: 700;
+  color: #8e44ad;
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+.benefit-text {
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* ===== EVIDENCE BOX ===== */
+.evidence-box {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 18px 0;
+  position: relative;
+}
+.evidence-box::before {
+  content: '📖';
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  font-size: 22px;
+  background: var(--bg);
+  padding: 0 4px;
+}
+.evidence-label {
+  font-weight: 700;
+  color: var(--primary-green);
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+.evidence-text {
+  font-size: 18px;
+  line-height: 2;
+  font-weight: 600;
+}
+
+/* ===== SUMMARY BOX ===== */
+.summary-box {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  border: 2px solid #1565c0;
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 20px 0;
+}
+.summary-title {
+  font-weight: 700;
+  color: #1565c0;
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+.summary-text {
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* ===== ALERT BOX ===== */
+.alert-box {
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 18px 0;
+  font-size: 17px;
+}
+.alert-box.info {
+  background: #e3f2fd;
+  border: 2px solid #2196f3;
+}
+.alert-box.warning {
+  background: #fff3e0;
+  border: 2px solid #ff9800;
+}
+.alert-box.success {
+  background: #e8f5e9;
+  border: 2px solid #4caf50;
+}
+.alert-box.error {
+  background: #fce4ec;
+  border: 2px solid #e53935;
+}
+
+/* ===== I'RAB EXAMPLE BOX ===== */
+.irab-box {
+  background: #fff;
+  border: 2px solid var(--teal);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin: 18px 0;
+  position: relative;
+}
+.irab-box::before {
+  content: '✏️';
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  font-size: 20px;
+  background: var(--bg);
+  padding: 0 4px;
+}
+.irab-title {
+  font-weight: 700;
+  color: var(--teal);
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+.irab-example {
+  background: var(--light-green-bg);
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 12px;
+  color: var(--dark-green);
+}
+.irab-detail {
+  font-size: 16px;
+  line-height: 2;
+  padding-right: 12px;
+  border-right: 3px solid var(--teal);
+  margin-bottom: 8px;
+}
+.irab-detail strong {
+  color: var(--primary-green);
+}
+
+/* ===== COMPARISON CARDS ===== */
+.cols {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+.cols-3 > div { flex: 1; min-width: 200px; }
+.comparison-card {
+  background: #fff;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  text-align: center;
+}
+.comparison-card-header {
+  background: var(--primary-green);
+  color: #fff;
+  margin: -16px -18px 12px;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  font-weight: 700;
+  font-size: 16px;
+}
+.comparison-card-body {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* ===== CHECKLIST ===== */
+.checklist {
+  background: var(--light-green-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 20px 0;
+}
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.checklist-circle {
+  min-width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--primary-green);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+}
+.checklist-text {
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* ===== POETRY BOX ===== */
+.poetry-box {
+  background: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 20px 28px;
+  margin: 20px 0;
+  text-align: center;
+}
+.poetry-box .verse {
+  font-size: 19px;
+  line-height: 2.2;
+  font-weight: 600;
+  color: var(--dark-green);
+}
+
+/* ===== NOUN GRID ===== */
+.names-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+.name-card {
+  background: #fff;
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 16px 18px;
+  position: relative;
+  overflow: hidden;
+}
+.name-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 6px;
+  height: 100%;
+  background: var(--gold);
+}
+.name-card-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 6px;
+}
+.name-card-desc {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 8px;
+}
+.name-card-example {
+  background: var(--light-green-bg);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+/* ===== SPECIAL PROPERTY BOX ===== */
+.special-box {
+  background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+  border: 2px solid #c62828;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 18px 0;
+  position: relative;
+}
+.special-box::before {
+  content: '🔴';
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  font-size: 20px;
+  background: var(--bg);
+  padding: 0 4px;
+}
+.special-title {
+  font-weight: 700;
+  color: #c62828;
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+/* ===== FLOW CONTAINER ===== */
+.flow-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0;
+  direction: rtl;
+}
+.flow-step {
+  background: var(--primary-green);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  min-width: 100px;
+}
+.flow-arrow {
+  font-size: 22px;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* ===== CLOSING BOX ===== */
+.closing-box {
+  background: linear-gradient(135deg, var(--light-green-bg) 0%, #c8e6c9 100%);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 24px 0;
+  text-align: center;
+}
+.closing-dua {
+  font-size: 18px;
+  line-height: 2;
+  color: var(--dark-green);
+  font-weight: 600;
+}
+
+/* ===== FOOTER ===== */
+.page-footer {
+  text-align: center;
+  font-size: 13px;
+  color: #888;
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+ul, ol { padding-right: 24px; margin-bottom: 14px; }
+li { margin-bottom: 6px; }
+
+.highlight { color: var(--primary-green); font-weight: 700; }
+.gold-highlight { color: var(--gold); font-weight: 700; }
+.teal-highlight { color: var(--teal); font-weight: 700; }
+
+@media print {
+  .bw-toggle { display: none; }
+  .cover-page { page-break-after: always; }
+  body { font-size: 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- B&W TOGGLE BUTTON -->
+<button class="bw-toggle" onclick="document.body.classList.toggle('bw-mode')">وضع الأبيض والأسود</button>
+
+<!-- ===== COVER PAGE ===== -->
+<div class="cover-page">
+  <div class="cover-border">
+    <div class="cover-book-title">شرح العوامل المائة</div>
+    <div class="cover-author">للإمام عبد القاهر الجرجاني رحمه الله تعالى</div>
+    <div class="cover-divider"></div>
+    <div class="cover-lesson-num">الدرس الثالث عشر</div>
+    <div class="cover-lesson-title">الأفعال الناقصة</div>
+    <div class="cover-divider"></div>
+    <div class="cover-names">
+      إعداد: أحمد بن إرشاد<br>
+      المتن: الإمام عبد القاهر الجرجاني رحمه الله تعالى<br>
+      الشرح: د. لبيب نجيب عبدالله
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="main-content">
+
+<!-- OPENING -->
+<div class="dua-box">
+بسم الله الرحمن الرحيم<br>
+اللهم أمين
+</div>
+
+<!-- ===== INTRODUCTION: الأفعال الناقصة ===== -->
+<h1>النوع العاشر: الأفعال الناقصة</h1>
+
+<p>الأفعال تسمى <strong>أفعال النواسخ</strong> لأنها تدخل على المبتدأ والخبر فتنسخ الحالة التي يكون عليها المبتدأ والخبر، إذ أن المبتدأ مرفوع والخبر مرفوع، فإذا دخلت هذه النواسخ التي هي <strong>كان وأخواتها</strong> و<strong>كاد وأخواتها</strong> أو أفعال مقاربة أو <strong>ظن وأخواتها</strong> نسخت العمل. وهذه أفعال. وقد يكون الذي ينسخ العمل حروف مثل <strong>إن وأخواتها</strong> ومثل بعض الحروف الأخرى التي مرت دراستها معنا في بعض المتن. هنا الكلام في <strong>الأفعال الناقصة</strong>.</p>
+
+<!-- ===== لماذا سميت ناقصة؟ ===== -->
+<h2>لماذا سميت بالأفعال الناقصة؟</h2>
+
+<p>لأنها تحتاج إلى الخبر. انظر ماذا قال المصنف رحمه الله:</p>
+
+<div class="matn-box">
+  وهي التي ترفع الاسم وتنصب الخبر<br>
+  وهي ١٣ فعلاً
+</div>
+
+<div class="qaidah-box">
+  <div class="qaidah-label">السبب الأول</div>
+  <div class="qaidah-text">
+    إنما سميت الأفعال الناقصة لأنه لم يتم الكلام بالفاعل بل يحتاج إلى خبر منصوب، فلهذا سميت الأفعال الناقصة.<br><br>
+    لو قلت على سبيل المثال <strong>كان زيد</strong> وسكت الكلام لا يتم. فهي لا تكتفي بالمرفوع. لكن لو قلت مثلاً <strong>كان زيد صابراً</strong> — هي ناقصة لأنه لا يتم الكلام إلا بالخبر.
+  </div>
+</div>
+
+<div class="benefit-box">
+  <div class="benefit-title">فائدة: سبب آخر لتسميتها بالناقصة</div>
+  <div class="benefit-text">
+    بعضهم ذكر أمراً آخر لتسميتها بالناقصة فقال: إن الفعل إما <strong>حقيقي</strong> وإما <strong>غير حقيقي</strong>.<br><br>
+    <strong>الفعل الحقيقي:</strong> ما دل على حدث وزمن. والمراد دل على <strong>حدث خاص</strong> وزمن. فأنت عندما تقول مثلاً <strong>كتب</strong> — هذا اللفظ دل على حدث وهو الكتابة ودل على أن الكتابة كانت في الماضي. ولو قلت <strong>يكتب</strong> دلت على حدث وعلى زمنه، دلت على حدث خاص.<br><br>
+    لكن عندما قلته <strong>كان</strong> — فإذا كانت لتدل على حدث خاص وإنما تدل على <strong>كون عام</strong>. فنقصت دلالتها — تدل على زمن كما أن الفعل الحقيقي يدل على الزمن — لكن الفعل الحقيقي يدل على حدث خاص أيضاً. أما <strong>كان</strong> فإنها تدل على <strong>كون عام</strong>.<br><br>
+    فلما نقصت دلالة <strong>كان</strong> سميت فعلاً ناقصاً.<br><br>
+    <strong>إذن يمكن أن نقول:</strong> إنما ذكره المصنف رحمه الله تعالى من أن السبب في تسميتها بالأفعال الناقصة كونها تحتاج إلى خبر — هذا سبب وجيد. لكن أيضاً يوجد سبب آخر وهو أن <strong>دلالتها ناقصة</strong>، فدلالة كان وأخواتها أنقص من دلالة الأفعال الحقيقية، لأن الفعل الحقيقي يدل على حدث خاص وعلى زمن، وأما كان وأخواتها فلا تدل على حدث خاص وإنما تدل على كون عام وتدل على الزمن.
+  </div>
+</div>
+
+<!-- ===== لماذا لا نعرب المرفوع فاعلاً والمنصوب مفعولاً به؟ ===== -->
+<h2>لماذا لا نعرب الاسم فاعلاً والخبر مفعولاً به؟</h2>
+
+<p>لماذا لا نقول مثلاً <strong>كان زيد مجتهداً</strong>: زيد فاعل، مجتهداً مفعول به؟ لماذا؟</p>
+
+<div class="callout">
+  <div class="callout-title">السببان لعدم إعراب المرفوع فاعلاً والمنصوب مفعولاً به</div>
+  <p><strong>السبب الأول:</strong> لأن المفعول به يجوز حذفه — تقول <strong>كتب الطلاب</strong> وتسكت، ممكن تقول كتب الطلاب وتسكت، لا يتعين أن تقول كتب الطلاب الدرس. لكن <strong>خبر كان لا يجوز حذفه</strong>.</p>
+  <p><strong>السبب الثاني — وهو الأهم:</strong> أن المفعول به غير الفاعل. <strong>كتب الطلاب الدرس</strong> — الطلاب شيء، الدرس آخر. <strong>أكل الولد الطعام</strong> — الطعام شيء، الولد شيء آخر. <strong>كسر الحجر الزجاج</strong> — الحجر شيء، الزجاج شيء آخر. المفعول غير الفاعل. لكن <strong>كان زيد مجتهداً</strong> — من المجتهد؟ زيد! فالمجتهد وصف لزيد. واضح؟ كان عمر صابراً — من الصابر؟ عمر!</p>
+  <p>إذا لهذين السببين لا نعرب هذا مفعولاً به وإنما نعربه <strong>خبر كان منصوب</strong>.</p>
+</div>
+
+<!-- ===== الأفعال الناقصة الثلاثة عشر ===== -->
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h1>الأفعال الناقصة الثلاثة عشر — نظم الألفية</h1>
+
+<p>قال الله تعالى في الألفية نظمها فقال:</p>
+
+<div class="poetry-box">
+  <div class="verse">
+    ترفع كان المبتدأ اسماً والخبر تنصبه ككان سيداً عُمَرْ
+  </div>
+  <div class="verse">
+    ككان ظلّ بات أضحى أصبح أمسى وصار ليس زال برح فتئ وانفكّا
+  </div>
+  <div class="verse">
+    وهذه الأربعة لشبه نفي أو لنفي مُتْبَعَه
+  </div>
+  <div class="verse">
+    ومثل كان دام مسبوقاً بما كأعطِ ما دمت مصيباً درهما
+  </div>
+</div>
+
+<p>نكرر الأبيات: قال ابن مالك رحمه الله:</p>
+
+<div class="poetry-box">
+  <div class="verse">
+    ترفع كان المبتدأ اسماً والخبر تنصبه ككان سيداً عُمَرْ
+  </div>
+  <div class="verse">
+    ككان ظلّ بات أضحى أصبح أمسى وصار ليس زال برح فتئ وانفكّا
+  </div>
+  <div class="verse">
+    وهذه الأربعة لشبه نفي أو لنفي مُتْبَعَه
+  </div>
+  <div class="verse">
+    ومثل كان دام مسبوقاً بما كأعطِ ما دمت مصيباً درهما
+  </div>
+</div>
+
+<!-- ===== CLASSIFICATION TREE: تقسيم كان وأخواتها ===== -->
+<h2>تقسيم كان وأخواتها إلى ثلاث مجموعات</h2>
+
+<p>تستطيع أن تقسم هذه الأفعال إلى <strong>ثلاث مجموعات</strong>:</p>
+
+<div class="tree-container">
+  <div class="tree-title">شجرة التصنيف: تقسيم كان وأخواتها</div>
+  <div class="tree-root">
+    <div class="tree-node">كان وأخواتها (١٣ فعلاً)</div>
+  </div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">تعمل بلا شرط (٨ أفعال)</div>
+      <div class="tree-sub-branch">
+        <div class="tree-horizontal">
+          <div class="tree-leaf">كان</div>
+          <div class="tree-leaf">ظلّ</div>
+          <div class="tree-leaf">بات</div>
+          <div class="tree-leaf">أضحى</div>
+        </div>
+        <div class="tree-horizontal">
+          <div class="tree-leaf">أصبح</div>
+          <div class="tree-leaf">أمسى</div>
+          <div class="tree-leaf">صار</div>
+          <div class="tree-leaf">ليس</div>
+        </div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">تعمل بشرط نفي أو شبه نفي (٤ أفعال)</div>
+      <div class="tree-sub-branch">
+        <div class="tree-horizontal">
+          <div class="tree-leaf">زال</div>
+          <div class="tree-leaf">برح</div>
+          <div class="tree-leaf">فتئ</div>
+          <div class="tree-leaf">انفك</div>
+        </div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">تعمل بشرط سبق ما المصدرية (فعل واحد)</div>
+      <div class="tree-sub-branch">
+        <div class="tree-horizontal">
+          <div class="tree-leaf">دام</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>انظر: <strong>كان</strong> لم يذكر لها شرط وهي <strong>أم الباب</strong> ولها خصائص اختصت بها عن سائر أخواتها.</p>
+
+<!-- ===== خصائص كان ===== -->
+<h2>خصائص كان</h2>
+
+<div class="special-box">
+  <div class="special-title">خصائص كان عن سائر أخواتها</div>
+  <p><strong>الأولى:</strong> أن كان يمكن أن تحذف ويحذف اسمها ومع ذلك يبقى الخبر.</p>
+  <p><strong>الثانية:</strong> أن كان يمكن أن يحذف منها حرف النون. وفي آخر الباب يقول ابن مالك:</p>
+</div>
+
+<div class="poetry-box">
+  <div class="verse">
+    ومن مضارع لكان منجزم تحذف نون وهو حذف ملتزم
+  </div>
+</div>
+
+<p>أما <strong>ظلّ بات أضحى أصبح أمسى صار ليس</strong> — هذه الثمان تعمل بلا شرط، ليس عندها شروط.</p>
+
+<p>أما <strong>زال وبرح وفتئ وانفك</strong> فلها شرط حتى تعمل: أن تسبق بنفي أو شبه نفي كاستفهام أو نهي.</p>
+
+<p>وأما <strong>دام</strong> فذكر شرطها وقال إنها تسبق بما المصدرية الظرفية.</p>
+
+<!-- ===== TABLE: تقسيم الأفعال الناقصة ===== -->
+<h2>جدول: تقسيم كان وأخواتها حسب الشرط</h2>
+
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>المجموعة</th>
+      <th>الشرط</th>
+      <th>الأفعال</th>
+      <th>العدد</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>الأولى</strong></td>
+      <td>تعمل بلا شرط</td>
+      <td>كان، ظلّ، بات، أضحى، أصبح، أمسى، صار، ليس</td>
+      <td>٨</td>
+    </tr>
+    <tr>
+      <td><strong>الثانية</strong></td>
+      <td>تعمل بشرط نفي أو شبه نفي</td>
+      <td>زال، برح، فتئ، انفك</td>
+      <td>٤</td>
+    </tr>
+    <tr>
+      <td><strong>الثالثة</strong></td>
+      <td>تعمل بشرط سبق ما المصدرية الظرفية</td>
+      <td>دام</td>
+      <td>١</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ===== نص المصنف ===== -->
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h1>نص المصنف رحمه الله</h1>
+
+<div class="matn-box">
+  النوع العاشر من ١٣ نوعاً: الأفعال الناقصة<br>
+  وهي التي ترفع الاسم وتنصب الخبر<br>
+  وهي ١٣ فعلاً<br>
+  وإنما سميت الأفعال الناقصة لأنه لم يتم الكلام بالفاعل بل يحتاج إلى خبر منصوب<br>
+  فلهذا سميت الأفعال الناقصة
+</div>
+
+<!-- ===== كان — أم الباب ===== -->
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h1>كان — أم الباب</h1>
+
+<p>الأول <strong>كان</strong> نحو <strong>كان زيد قائماً</strong>. ولها معان:</p>
+
+<!-- ===== CLASSIFICATION TREE: معاني كان ===== -->
+<div class="tree-container">
+  <div class="tree-title">شجرة التصنيف: معاني كان الخمسة</div>
+  <div class="tree-root">
+    <div class="tree-node">كان</div>
+  </div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">١. الاستمرار</div>
+      <div class="tree-sub-branch">
+        <div class="tree-leaf">اتصاف المخبر عنه بالخبر في الماضي مع الاستمرار</div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">٢. حدث / وجد (تامة)</div>
+      <div class="tree-sub-branch">
+        <div class="tree-leaf">لا تحتاج إلى خبر منصوب</div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">٣. الانتقال</div>
+      <div class="tree-sub-branch">
+        <div class="tree-leaf">صار — من حال إلى حال أخرى</div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">٤. الماضي</div>
+      <div class="tree-sub-branch">
+        <div class="tree-leaf">اتصاف المخبر عنه بالخبر في الماضي دون المستقبل</div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">٥. زائدة</div>
+      <div class="tree-sub-branch">
+        <div class="tree-leaf">حشو بين متلازمين</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== المعنى الأول: الاستمرار ===== -->
+<h2>المعنى الأول: الاستمرار</h2>
+
+<p><strong>كان</strong> تدل على اتصاف المخبر عنه (بفتح الباء) بالخبر في الماضي، إما مع الاستمرار وإما مع الانقطاع.</p>
+
+<p>وعندما نقول هكذا — مع الاستمرار أو مع الانقطاع — أعطيكم مثال:</p>
+
+<div class="evidence-box">
+  <div class="evidence-label">دليل: كان بمعنى الاستمرار</div>
+  <div class="evidence-text">﴿وَكَانَ اللَّهُ عَلِيمًا حَكِيمًا﴾</div>
+  <p style="font-size:15px;margin-top:8px;"><strong>كان</strong> تدل على اتصاف المخبر عنه وهو المولى عز وجل بالخبر — كان عليماً حكيماً — هذا مع الاستمرار أو مع الانقطاع؟ <strong>مع الاستمرار</strong>. لأن الفعل إذا أضيف لله عز وجل تجرد عن الزمان، وكان معناه الاستمرار، لأن الله خالق الزمان.</p>
+</div>
+
+<p>أما مع الانقطاع فمثل: <strong>كنت شاباً</strong> — أنا الآن خلاص كبرت في السنة. أو <strong>كان الشيخ شاباً</strong> — كان شاباً ثم كبر.</p>
+
+<p>إذاً <strong>كان</strong> تدل على اتصاف مخبر عنه بالخبر في الماضي إما مع الاستمرار وإما مع الانقطاع.</p>
+
+<!-- ===== فائدة خارج الدرس ===== -->
+<div class="benefit-box">
+  <div class="benefit-title">فائدة خارج الدرس: أقسام الوجود الزماني</div>
+  <div class="benefit-text">
+    <p>أريد أن أسألكم سؤالاً خارج الدرس:</p>
+    <p><strong>الشيء الذي لا بداية له</strong> ماذا يسمى؟ <strong>أزلي</strong>.</p>
+    <p><strong>الشيء الذي لا نهاية له</strong> ماذا يسمى؟ <strong>أبدي</strong>.</p>
+    <p><strong>الشيء الذي لا بداية له ولا نهاية له</strong> — يجمع الوصفين — هذا يسمى <strong>سرمدي</strong>. لا بداية ولا نهاية.</p>
+    <p><strong>الشيء الذي له أول وله آخر</strong> — هذا يسمى <strong>أمَدي</strong>. له أول وآخر.</p>
+    <p>فاحفظوا لنا: <strong>أزلي</strong> (لا بداية)، <strong>أبدي</strong> (لا نهاية)، <strong>سرمدي</strong> (لا بداية ولا نهاية)، <strong>أمَدي</strong> (له أول وآخر).</p>
+    <p>في أسماء الله عز وجل: <strong>الأول</strong> — أنت الأول فليس قبلك شيء. <strong>الآخر</strong> الذي لا نهاية له. في القرآن الكريم: <strong>هو الأول والآخر والظاهر والباطن</strong>.</p>
+  </div>
+</div>
+
+<!-- جدول: أقسام الوجود الزماني -->
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>المصطلح</th>
+      <th>المعنى</th>
+      <th>مثال</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>أزلي</strong></td>
+      <td>لا بداية له</td>
+      <td>اسم الله <strong>الأول</strong></td>
+    </tr>
+    <tr>
+      <td><strong>أبدي</strong></td>
+      <td>لا نهاية له</td>
+      <td>اسم الله <strong>الآخر</strong></td>
+    </tr>
+    <tr>
+      <td><strong>سرمدي</strong></td>
+      <td>لا بداية له ولا نهاية له</td>
+      <td>يجمع الوصفين</td>
+    </tr>
+    <tr>
+      <td><strong>أمَدي</strong></td>
+      <td>له أول وله آخر</td>
+      <td>المخلوقات</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ===== المعنى الثاني: حدث أو وجد (تامة) ===== -->
+<h2>المعنى الثاني: بمعنى حدث أو وجد (كان التامة)</h2>
+
+<p>وهذه <strong>كان</strong> التي بمعنى حدث أو بمعنى وجد أو بمعنى حصل أو بمعنى تم — هذه <strong>كان التامة</strong> التي لا تحتاج إلى منصوب بل تكتفي بمرفوعها.</p>
+
+<div class="evidence-box">
+  <div class="evidence-label">دليل: كان التامة</div>
+  <div class="evidence-text">﴿وَإِن كَانَ ذُو عُسْرَةٍ فَنَظِرَةٌ إِلَىٰ مَيْسَرَةٍ﴾</div>
+  <p style="font-size:15px;margin-top:8px;">أي وإن <strong>وجد</strong> ذو عسرة — أي وإن وجد من عليه الدين ذو عسرة — فنظرة إلى ميسرة. هنا كان تامة.</p>
+</div>
+
+<!-- ===== الأفعال الناقصة التي لا تكون إلا ناقصة ===== -->
+<h2>الأفعال الناقصة: تامة وناقصة</h2>
+
+<p>ذكر ابن مالك رحمه الله في الألفية أن كان وأخواتها بعضها تلازم حالة نقص لا تكون إلا ناقصة، وبعضها يمكن أن يكون تاماً.</p>
+
+<div class="poetry-box">
+  <div class="verse">
+    ومنع سبق خبر ليس اصطُفِي
+  </div>
+  <div class="verse">
+    وذو تمام ما برفع يكتفي
+  </div>
+  <div class="verse">
+    وما سواه ناقص والنقص في
+  </div>
+  <div class="verse">
+    فتئ ليس زال دائماً قُفِي
+  </div>
+</div>
+
+<div class="qaidah-box">
+  <div class="qaidah-label">قاعدة مهمة</div>
+  <div class="qaidah-text">
+    <strong>كل الأفعال الناقصة يمكن أن تستعمل تامة إلا ثلاثة:</strong> <strong>فتئ</strong>، <strong>ليس</strong>، <strong>زال</strong> — هذه لا تكون إلا ناقصة، تحتاج إلى مرفوع ومنصوب.<br><br>
+    بقية الأفعال يمكن أن تكون ناقصة ويمكن أن تكون تامة.
+  </div>
+</div>
+
+<p>مثال: لو قلت لكم في الحديث <strong>وإن كان في إسناده ضعف</strong> — كان هنا تامة.</p>
+
+<p><strong>ما شاء الله كان</strong> — ما معنى كان هنا؟ <strong>حصل</strong> و<strong>وقع</strong>. مخصّص إيجاب. لماذا؟ لأنها اكتفت بالمرفوع.</p>
+
+<div class="evidence-box">
+  <div class="evidence-label">دليل: الأفعال الناقصة تستعمل تامة</div>
+  <div class="evidence-text">﴿فَسَبِّحْ بِحَمْدِ رَبِّكَ حِينَ تَمْسُونَ وَحِينَ تُصْبِحُونَ﴾</div>
+  <p style="font-size:15px;margin-top:8px;">تمسون وتصبحون — الفعلان هنا تاما أو لا؟ <strong>تاما</strong>. إذا كل الأفعال الناقصة يمكن أن تستعمل تاماً إلا ثلاثة: فتئ، ليس، زال.</p>
+</div>
+
+<!-- ===== حالات كان الثلاث ===== -->
+<h2>حالات كان الثلاث</h2>
+
+<p>كان من خصائصها أنها قد تكون <strong>تامة</strong> وقد تكون <strong>ناقصة</strong> وقد تكون <strong>زائدة</strong>:</p>
+
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>الحالة</th>
+      <th>المعنى</th>
+      <th>الإعراب</th>
+      <th>المثال</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ناقصة</strong></td>
+      <td>اتصاف المخبر عنه بالخبر في الماضي</td>
+      <td>ترفع الاسم وتنصب الخبر</td>
+      <td>كان سيداً عُمَر (كما مثل ابن مالك، ولاحظ أنه قدّم الخبر على الاسم إشارة للجواز)</td>
+    </tr>
+    <tr>
+      <td><strong>تامة</strong></td>
+      <td>حصل ووقع</td>
+      <td>تكتفي بالفاعل فقط</td>
+      <td>ما شاء الله كان</td>
+    </tr>
+    <tr>
+      <td><strong>زائدة</strong></td>
+      <td>حشو بين متلازمين</td>
+      <td>لا إعراب لها — لا ناقصة ولا تامة</td>
+      <td>جاء الذي كان علمته (الأصل: جاء الذي علمته)</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ===== المعنى الثالث: الانتقال ===== -->
+<h2>المعنى الثالث: الانتقال</h2>
+
+<p>كان تأتي بمعنى الانتقال والتحول والصيرورة — <strong>صار كذا وكذا</strong>.</p>
+
+<div class="evidence-box">
+  <div class="evidence-label">دليل: كان بمعنى الانتقال</div>
+  <div class="evidence-text">﴿فَأَبَىٰ وَاسْتَكْبَرَ وَكَانَ مِنَ الْكَافِرِينَ﴾</div>
+  <p style="font-size:15px;margin-top:8px;">ما معنى وكان من الكافرين؟ <strong>صار من الكافرين</strong> — انتقل.</p>
+</div>
+
+<div class="evidence-box">
+  <div class="evidence-label">دليل آخر: كانت بمعنى صارت</div>
+  <div class="evidence-text">﴿وَبُسَّتِ الْجِبَالُ بَسًّا ﴿١٤﴾ فَكَانَتْ هَبَاءً مُّنبَثًّا﴾</div>
+  <p style="font-size:15px;margin-top:8px;">ما معنى فكانت؟ <strong>فصارت</strong> هباءً منبثّاً. إذاً كانت تأتي بمعنى الانتقال والتحول والصيرورة.</p>
+</div>
+
+<!-- ===== المعنى الرابع: الماضي ===== -->
+<h2>المعنى الرابع: الماضي</h2>
+
+<p>هذا الذي قلت لكم في بداية الدرس إن كان تفيد اتصاف المخبر عنه بالخبر لكن مع الانقطاع — هذا معنى بالماضي. أي اتصاف المخبر عنه بالخبر في الماضي دون المستقبل.</p>
+
+<p>مثل: <strong>كان زيد غنياً</strong> — متى كان غنياً؟ في الماضي. والآن؟ أصبح ماذا؟ أصبح فقيراً. إذاً هذه كان التي تفيد الاتصاف بالخبر لكن في الزمن الماضي.</p>
+
+<!-- ===== المعنى الخامس: زائدة ===== -->
+<h2>المعنى الخامس: زائدة</h2>
+
+<p>وهي التي أشار إليها ابن مالك في الألفية فقال:</p>
+
+<div class="poetry-box">
+  <div class="verse">
+    وقد تُزاد كان في حشو كما *** كان أصحّ علمٌ من تقدُّما
+  </div>
+</div>
+
+<p><strong>كان أصحّ علم</strong> — الأصل <strong>ما أصحّ علم</strong>. وقعت بين ما التعجبية وفعل التعجب. فوقعت بين أمرين متلازمين. هذه كان زائدة. وبالتالي ليست لا ناقصة فتحتاج إلى اسم وخبر ولا تامة تحتاج إلى فاعل.</p>
+
+<p>ومثال آخر: <strong>جاء الذي كان علمته</strong>. الأصل: <strong>جاء الذي علمته</strong>. لكنها وقعت حشواً بين الاسم الموصول وجملة الصلة. وقعت بين المتلازمين. هذه كان زائدة.</p>
+
+<div class="evidence-box">
+  <div class="evidence-label">دليل: كان الزائدة</div>
+  <div class="evidence-text">﴿كَيْفَ نُكَلِّمُ مَن كَانَ فِي الْمَهْدِ صَبِيًّا﴾</div>
+</div>
+
+<!-- ===== إعراب الآية: ثلاثة أقوال ===== -->
+<h2>إعراب الآية: اختلاف المعربين في كان</h2>
+
+<p>لو قرأت الآية في غير القرآن هكذا: <strong>كيف نكلم من في المهد صبياً</strong> — يستقيم المعنى ولا يستقيم؟ <strong>يستقيم</strong>. ولذلك المفسرون في هذه الآية عندما جاءوا إلى إعرابها اختلفوا:</p>
+
+<div class="cols cols-3">
+  <div class="comparison-card">
+    <div class="comparison-card-header">القول الأول: كان زائدة</div>
+    <div class="comparison-card-body">
+      <strong>المعنى:</strong> كيف نكلم من في المهد صبياً<br><br>
+      <strong>الإعراب:</strong><br>
+      نكلم: فعل وفاعل مستتر<br>
+      من: اسم موصول مفعول به<br>
+      في المهد: شبه جملة صلة الموصول<br>
+      صبياً: حال
+    </div>
+  </div>
+  <div class="comparison-card">
+    <div class="comparison-card-header">القول الثاني: كان تامة</div>
+    <div class="comparison-card-body">
+      <strong>المعنى:</strong> كيف نكلم من <strong>وجد</strong> في المهد صبياً<br><br>
+      <strong>الإعراب:</strong><br>
+      نكلم: فعل وفاعل<br>
+      من: اسم موصول مفعول به<br>
+      في المهد: متعلق بالصلة<br>
+      صبياً: حال
+    </div>
+  </div>
+  <div class="comparison-card">
+    <div class="comparison-card-header">القول الثالث: كان ناقصة</div>
+    <div class="comparison-card-body">
+      <strong>المعنى:</strong> كيف نكلم من كان <strong>هو</strong> (اسمها محذوف) في المهد صبياً<br><br>
+      <strong>الإعراب:</strong><br>
+      نكلم: فعل وفاعل<br>
+      من: اسم موصول مفعول به<br>
+      كان: فعل ماضٍ ناقص واسمه ضمير مستتر (هو)<br>
+      في المهد: شبه جملة خبر كان منصوب<br>
+      صبياً: خبر كان منصوب
+    </div>
+  </div>
+</div>
+
+<p>إذاً في هذه الآية اختلف المعربون على <strong>ثلاثة أقوال</strong>: منهم من جعل كان ناقصة، ومنهم من جعل كان تامة، ومنهم من جعل كان زائدة.</p>
+
+<p><strong>كان أم الباب</strong> والذي تكلمنا عليها كثيراً. بقية الباب سهل.</p>
+
+<!-- ===== صار ===== -->
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h1>بقية الأفعال الناقصة</h1>
+
+<h2>الثاني: صار — للانتقال</h2>
+
+<div class="matn-box">
+  وثانيها صار للانتقال، أي من حال إلى حال أخرى
+</div>
+
+<p>نحو: <strong>صار زيد غنياً</strong>، <strong>صار العازب متزوجاً</strong>.</p>
+
+<div class="definition-card">
+  <div class="definition-term">صار</div>
+  <div class="definition-text">
+    للانتقال، أي من حال إلى حال أخرى. وهي بمعنى صار — تحول من حالة إلى حالة أخرى.
+  </div>
+</div>
+
+<!-- ===== أصبح ===== -->
+<h2>الثالث: أصبح</h2>
+
+<div class="matn-box">
+  وثالثها أصبح نحو أصبح زيد غنياً
+</div>
+
+<p>أي لاتصاف المخبر عنه بالخبر <strong>صباحاً</strong>. لكنها في القرآن الكريم لم تستعمل بهذا المعنى إلا في آية على احتمال وهي:</p>
+
+<div class="evidence-box">
+  <div class="evidence-label">دليل: أصبح</div>
+  <div class="evidence-text">﴿فَأَصْبَحَ فِي الْمَدِينَةِ خَائِفًا يَتَرَقَّبُ﴾</div>
+  <p style="font-size:15px;margin-top:8px;">هذه على احتمال أن أصبح هنا للاتصاف صباحاً.</p>
+</div>
+
+<!-- ===== أمسى ===== -->
+<h2>الرابع: أمسى</h2>
+
+<div class="matn-box">
+  ورابعها أمسى نحو أمسى زيد قائماً
+</div>
+
+<p>لاتصاف المخبر عنه بالخبر <strong>مساءً</strong>.</p>
+
+<!-- ===== أضحى ===== -->
+<h2>الخامس: أضحى</h2>
+
+<div class="matn-box">
+  وخامسها أضحى نحو أضحى زيد راكباً
+</div>
+
+<p>لاتصاف المخبر عنه بالخبر <strong>ضحوةً</strong>.</p>
+
+<!-- ===== ظل ===== -->
+<h2>السادس: ظلّ</h2>
+
+<div class="matn-box">
+  وسادسها ظلّ نحو ظلّ زيد قائماً
+</div>
+
+<p>لاتصاف المخبر عنه بالخبر في <strong>النهار</strong>. لكن <strong>ظلّ</strong> هذه تستعمل أيضاً بمعنى <strong>صار</strong> في القرآن الكريم:</p>
+
+<div class="evidence-box">
+  <div class="evidence-label">دليل: ظلّ بمعنى صار</div>
+  <div class="evidence-text">﴿وَإِذَا بُشِّرَ أَحَدُهُم بِالْأُنثَىٰ ظَلَّ وَجْهُهُ مُسْوَدًّا﴾</div>
+  <p style="font-size:15px;margin-top:8px;">ما معنى ظل؟ <strong>صار</strong> وجهه مسودّاً. وهو كظيل.</p>
+</div>
+
+<!-- ===== بات ===== -->
+<h2>السابع: بات</h2>
+
+<div class="matn-box">
+  وسابعها بات نحو بات زيد عروساً
+</div>
+
+<p>لاتصاف المخبر عنه بالخبر <strong>ليلاً</strong>. و<strong>عروس</strong> يصلح أن يطلق على الذكر وعلى الأنثى — يقال <strong>رجل عروس</strong> ويقال <strong>امرأة عروس</strong>.</p>
+
+<!-- ===== ما زال ===== -->
+<h2>الثامن: ما زال</h2>
+
+<div class="matn-box">
+  وثامنها ما زال نحو ما زال الأمير مسروراً
+</div>
+
+<p>وهي من الأفعال الناقصة التي يشترط أن تسبق بنفي أو شبه نفي.</p>
+
+<!-- ===== ما برح ===== -->
+<h2>التاسع: ما برح</h2>
+
+<div class="matn-box">
+  وتاسعها ما برح نحو ما برح زيد غنياً
+</div>
+
+<p>وهي أيضاً من الأفعال التي يشترط أن تسبق بنفي أو شبه نفي.</p>
+
+<!-- ===== ما فتئ ===== -->
+<h2>العاشر: ما فتئ</h2>
+
+<div class="matn-box">
+  وعاشرها ما فتئ نحو ما فتئ زيد قائماً
+</div>
+
+<p>وهي من الأفعال الناقصة التي يشترط أن تسبق بنفي أو شبه نفي. لكن <strong>تنبه معي</strong>: أحياناً لا تسبق بنفي — متى لا تسبق بنفي؟ إذا سبقت بقسم وكانت فعلاً مضارعاً.</p>
+
+<div class="evidence-box">
+  <div class="evidence-label">دليل: فتئ سبقت بقسم ولم تسبق بنفي</div>
+  <div class="evidence-text">﴿قَالُوا تَاللَّهِ تَفْتَأُ تَذْكُرُ يُوسُفَ﴾</div>
+  <p style="font-size:15px;margin-top:8px;">تفتأ هنا فعل مضارع سبق بقسم. فلما كانت تفتأ فعلاً مضارعاً سبق بقسم لم يشترط أن تسبق بنفي.</p>
+</div>
+
+<!-- ===== انفك ===== -->
+<h2>الحادي عشر: ما انفك</h2>
+
+<div class="matn-box">
+  والحادي عشر ما انفك نحو ما انفك زيد قائماً
+</div>
+
+<p>وهي أيضاً من الأفعال التي يشترط أن تسبق بنفي أو شبه نفي.</p>
+
+<!-- ===== ما دام ===== -->
+<h2>الثاني عشر: ما دام</h2>
+
+<div class="matn-box">
+  والثاني عشر ما دام نحو ما دام زيد كريماً
+</div>
+
+<p>والأصل أن <strong>دام</strong> لا بد أن تسبق بما المصدرية الظرفية.</p>
+
+<!-- ===== ليس ===== -->
+<h2>الثالث عشر: ليس</h2>
+
+<div class="matn-box">
+  والثالث عشر ليس
+</div>
+
+<p><strong>ليس</strong> للنفي — للنفي — للنفي. لنفي الحال عند الإطلاق.</p>
+
+<div class="definition-card">
+  <div class="definition-term">ليس</div>
+  <div class="definition-text">
+    <strong>لنفي الحال عند الإطلاق.</strong> تقول <strong>ليس زيد صائماً</strong> أي الآن. فإن أردت ليس صائماً أمسِ أو ليس صائماً غداً — قيدت — فتقول: <strong>ليس زيد صائماً أمسِ</strong>، <strong>ليس زيد صائماً غداً</strong>.<br><br>
+    لكن لو قلت <strong>ليس زيد صائماً</strong> أو <strong>ليس زيد بصائم</strong> — الآن. إذن عند الإطلاق ليس لنفي الحال لا لنفي الماضي ولا لنفي المستقبل.
+  </div>
+</div>
+
+<div class="irab-box">
+  <div class="irab-title">إعراب: ليس زيد قائماً</div>
+  <div class="irab-example">ليس زيد قائماً</div>
+  <div class="irab-detail">
+    <strong>ليس:</strong> فعل ماضٍ ناقص مبني على الفتح<br>
+    <strong>زيد:</strong> اسم ليس مرفوع<br>
+    <strong>قائماً:</strong> خبر ليس منصوب
+  </div>
+</div>
+
+<!-- ===== جدول: الأفعال الناقصة الثلاثة عشر ===== -->
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h1>جدول شامل: الأفعال الناقصة الثلاثة عشر</h1>
+
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>الفعل</th>
+      <th>المعنى</th>
+      <th>المثال</th>
+      <th>الشرط</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>١</td>
+      <td><strong>كان</strong></td>
+      <td>اتصاف المخبر عنه بالخبر في الماضي (استمرار/انقطاع) — أو حدث — أو انتقال — أو الماضي — أو زائدة</td>
+      <td>كان زيد قائماً</td>
+      <td>لا شرط</td>
+    </tr>
+    <tr>
+      <td>٢</td>
+      <td><strong>صار</strong></td>
+      <td>الانتقال (من حال إلى حال أخرى)</td>
+      <td>صار زيد غنياً</td>
+      <td>لا شرط</td>
+    </tr>
+    <tr>
+      <td>٣</td>
+      <td><strong>أصبح</strong></td>
+      <td>اتصاف المخبر عنه بالخبر صباحاً</td>
+      <td>أصبح زيد غنياً</td>
+      <td>لا شرط</td>
+    </tr>
+    <tr>
+      <td>٤</td>
+      <td><strong>أمسى</strong></td>
+      <td>اتصاف المخبر عنه بالخبر مساءً</td>
+      <td>أمسى زيد قائماً</td>
+      <td>لا شرط</td>
+    </tr>
+    <tr>
+      <td>٥</td>
+      <td><strong>أضحى</strong></td>
+      <td>اتصاف المخبر عنه بالخبر ضحوةً</td>
+      <td>أضحى زيد راكباً</td>
+      <td>لا شرط</td>
+    </tr>
+    <tr>
+      <td>٦</td>
+      <td><strong>ظلّ</strong></td>
+      <td>اتصاف المخبر عنه بالخبر في النهار (وتأتي بمعنى صار)</td>
+      <td>ظلّ زيد قائماً</td>
+      <td>لا شرط</td>
+    </tr>
+    <tr>
+      <td>٧</td>
+      <td><strong>بات</strong></td>
+      <td>اتصاف المخبر عنه بالخبر ليلاً</td>
+      <td>بات زيد عروساً</td>
+      <td>لا شرط</td>
+    </tr>
+    <tr>
+      <td>٨</td>
+      <td><strong>ليس</strong></td>
+      <td>نفي الحال عند الإطلاق</td>
+      <td>ليس زيد قائماً</td>
+      <td>لا شرط (لا تكون إلا ناقصة)</td>
+    </tr>
+    <tr>
+      <td>٩</td>
+      <td><strong>زال</strong></td>
+      <td>الاستمرار مع النفي</td>
+      <td>ما زال الأمير مسروراً</td>
+      <td>تسبق بنفي أو شبه نفي (لا تكون إلا ناقصة)</td>
+    </tr>
+    <tr>
+      <td>١٠</td>
+      <td><strong>برح</strong></td>
+      <td>الاستمرار مع النفي</td>
+      <td>ما برح زيد غنياً</td>
+      <td>تسبق بنفي أو شبه نفي</td>
+    </tr>
+    <tr>
+      <td>١١</td>
+      <td><strong>فتئ</strong></td>
+      <td>الاستمرار مع النفي</td>
+      <td>ما فتئ زيد قائماً</td>
+      <td>تسبق بنفي أو شبه نفي (لا تكون إلا ناقصة) — إلا إذا سبقت بقسم وكانت مضارعاً</td>
+    </tr>
+    <tr>
+      <td>١٢</td>
+      <td><strong>انفك</strong></td>
+      <td>الاستمرار مع النفي</td>
+      <td>ما انفك زيد قائماً</td>
+      <td>تسبق بنفي أو شبه نفي</td>
+    </tr>
+    <tr>
+      <td>١٣</td>
+      <td><strong>دام</strong></td>
+      <td>الاستمرار</td>
+      <td>ما دام زيد كريماً</td>
+      <td>تسبق بما المصدرية الظرفية</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ===== ما يتصرف منها ===== -->
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h1>ما يتصرف منها</h1>
+
+<div class="matn-box">
+  وما يتصرف منها كذلك
+</div>
+
+<p>ما معنى "ما يتصرف منها كذلك"؟ يعني وما يتصرف من هذه الأفعال في المضارع وفي الأمر وله مصدر يعمل نفس العمل — يرفع الأول وينصب الثاني.</p>
+
+<p>ماذا قال ابن مالك في هذا؟</p>
+
+<div class="poetry-box">
+  <div class="verse">
+    وغير ماضٍ مثله قد عمل *** إن كان غير الماضي منه استُعمِلا
+  </div>
+</div>
+
+<p>ما معنى غير الماضي؟ يعني المضارع. مثال: <strong>يكون زيد مجتهداً</strong>. أمر؟ <strong>كن مجتهداً</strong>. مصدر: <strong>كونك مجتهداً</strong>.</p>
+
+<div class="callout">
+  <div class="callout-title">تنبيه: التصرف في الأفعال الناقصة</div>
+  <p>وغير ماضٍ يشمل المضارع ويشمل الأمر ويشمل المصدر. وقد يشمل اسم الفاعل. وليس كلها ما جاء منها — يعني بعضها له مضارع فقط، وبعضها يأتي له مضارع وأمر ومصدر.</p>
+</div>
+
+<!-- ===== شاهد شعري: ببذل وحلم ===== -->
+<h2>الشاهد الشعري: ببذل وحلم</h2>
+
+<div class="poetry-box">
+  <div class="verse">
+    بِبَذْلٍ وحِلْمٍ سادَ في قَوْمِهِ الفَتَى
+  </div>
+  <div class="verse">
+    وكونُكَ إيّاهُ عليكَ يسيرُ
+  </div>
+</div>
+
+<div class="definition-card">
+  <div class="definition-term">شرح البيت</div>
+  <div class="definition-text">
+    <p><strong>ببذل:</strong> الباء هنا باء السببية — أي بسبب البذل وبسبب الحلم يسود الفتى في قومه.</p>
+    <p><strong>البذل:</strong> الكرم والجود والعطاء.</p>
+    <p><strong>الحلم:</strong> الاحتمال — لا يقابل الإساءة بالإساءة، مسامح يحتمل إساءة الآخرين إليه.</p>
+    <p>متى يكون سيداً في قومه؟ إذا كان سخياً كريماً وحداً، وحليماً مسامحاً اثنين.</p>
+    <p><strong>وكونك إياه عليك يسير:</strong> وكونك إياه (أي: كونك ذا بذل وحلم) عليك يسير — إذا اتصفت بالبذل واتصلت بالحلم.</p>
+    <p><strong>وهذا البيت شاهد</strong> على أن المصدر يعمل عمل كان — فـ<strong>كونك</strong> مصدر كان عمل عملها فرفع الكاف (اسمها) ونصب إياه (خبرها).</p>
+  </div>
+</div>
+
+<!-- ===== ملخص: حالات كان الثلاث ===== -->
+<div class="summary-box">
+  <div class="summary-title">ملخص: حالات كان الثلاث</div>
+  <div class="summary-text">
+    <p><strong>كان ناقصة:</strong> مثل <strong>كان سيداً عمر</strong> — كما مثل ابن مالك في الألفية، ولاحظ أنه قدّم الخبر على الاسم إشارة للجواز.</p>
+    <p><strong>كان تامة:</strong> مثل <strong>ما شاء الله كان</strong> — معنى كان: حصل ووقع. هنا تامة تحتاج إلى فاعل فقط.</p>
+    <p><strong>كان زائدة:</strong> مثل <strong>جاء الذي كان علمته</strong> — الأصل <strong>جاء الذي علمته</strong>. وقعت حشواً بين الاسم الموصول وجملة الصلة. فوقعت بين المتلازمين. ليست لا ناقصة فتحتاج إلى اسم وخبر ولا تامة تحتاج إلى فاعل.</p>
+  </div>
+</div>
+
+<!-- ===== ملخص: الأفعال التي لا تكون إلا ناقصة ===== -->
+<div class="summary-box">
+  <div class="summary-title">ملخص: الأفعال الناقصة التي لا تكون إلا ناقصة</div>
+  <div class="summary-text">
+    <p><strong>ثلاثة أفعال فقط</strong> من الأفعال الناقصة لا يمكن أن تستعمل تامة، بل تكون دائماً ناقصة تحتاج إلى مرفوع ومنصوب:</p>
+    <p><strong>① فتئ</strong> — لا تكون إلا ناقصة</p>
+    <p><strong>② ليس</strong> — لا تكون إلا ناقصة</p>
+    <p><strong>③ زال</strong> — لا تكون إلا ناقصة</p>
+    <p>أما بقية الأفعال الناقصة فيمكن أن تكون ناقصة ويمكن أن تكون تامة.</p>
+  </div>
+</div>
+
+<!-- ===== نص المصنف كامل ===== -->
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h1>نص المصنف رحمه الله تعالى — إعادة قراءة الباب من أوله</h1>
+
+<div class="matn-box">
+  النوع العاشر من ١٣ نوعاً: الأفعال الناقصة<br><br>
+  وهي التي ترفع الاسم وتنصب الخبر<br>
+  وهي ١٣ فعلاً<br><br>
+  وإنما سميت الأفعال الناقصة لأنه لم يتم الكلام بالفاعل بل يحتاج إلى خبر منصوب فلهذا سميت الأفعال الناقصة<br><br>
+  الأول كان نحو كان زيد قائماً ولها معان:<br>
+  أحدها بمعنى الاستمرار كقوله تعالى: ﴿وكان الله عليماً حكيماً﴾<br>
+  والثاني بمعنى حدث أو وجد ولا يحتاج إلى خبر منصوب كقوله تعالى: ﴿وإن كان ذو عسرة فنظرة إلى ميسرة﴾ أي وجد ذو عسرة<br>
+  والثالث بمعنى الانتقال كقوله تعالى: ﴿وكان من الكافرين﴾<br>
+  والرابع بمعنى الماضي<br>
+  والخامس زائدة كقوله تعالى: ﴿كيف نكلم من كان في المهد صبياً﴾<br><br>
+  وثانيها صار للانتقال أي من حال إلى حال أخرى نحو صار زيد غنياً<br>
+  وثالثها أصبح نحو أصبح زيد غنياً<br>
+  ورابعها أمسى نحو أمسى زيد قائماً<br>
+  وخامسها أضحى نحو أضحى زيد راكباً<br>
+  وسادسها ظلّ نحو ظلّ زيد قائماً<br>
+  وسابعها بات نحو بات زيد عروساً<br>
+  وثامنها ما زال نحو ما زال الأمير مسروراً<br>
+  وتاسعها ما برح نحو ما برح زيد غنياً<br>
+  وعاشرها ما فتئ نحو ما فتئ زيد قائماً<br>
+  والحادي عشر ما انفك نحو ما انفك زيد قائماً<br>
+  والثاني عشر ما دام نحو ما دام زيد كريماً<br>
+  والثالث عشر ليس نحو ليس زيد قائماً<br><br>
+  وما يتصرف منها كذلك
+</div>
+
+<!-- ===== CLOSING ===== -->
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<div class="closing-box">
+  <div class="closing-dua">
+    نكتفي بهذا يكفيكم اليوم والله أعلم<br>
+    وصلّى اللهم وسلّم وبارك على سيدنا محمد وآله وصحبه أجمعين<br>
+    والحمد لله رب العالمين
+  </div>
+</div>
+
+<div class="page-footer">
+  شرح العوامل المائة — للإمام عبد القاهر الجرجاني رحمه الله تعالى<br>
+  الشرح: د. لبيب نجيب عبدالله | إعداد: أحمد بن إرشاد<br>
+  الدرس الثالث عشر: الأفعال الناقصة
+</div>
+
+</div><!-- end main-content -->
+
+<script>
+document.querySelector('.bw-toggle').addEventListener('click', function() {
+  document.body.classList.toggle('bw-mode');
+  if (document.body.classList.contains('bw-mode')) {
+    this.textContent = 'الوضع الملون';
+  } else {
+    this.textContent = 'وضع الأبيض والأسود';
+  }
+});
+</script>
+
+</body>
+</html>

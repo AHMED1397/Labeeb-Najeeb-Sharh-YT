@@ -70,7 +70,12 @@ const alIbanaLinks = [
   "https://www.youtube.com/watch?v=4y6ds0jH904&list=PL7cjLZ8WuCQITy5Neb9i5aUIhAuTG_WJb&index=16",
 ]
 
+const sharhAwamilLinks: string[] = []
+const sulamUsulLinks: string[] = []
+
 export const youtubeLinks: Record<string, string[]> = {
   'fath-al-muin': fathulMuinLinks,
   'al-ibana': alIbanaLinks,
+  'sharh-al-awamil': sharhAwamilLinks,
+  'sulam-al-usul': sulamUsulLinks,
 }

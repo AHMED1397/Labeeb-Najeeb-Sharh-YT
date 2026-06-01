@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح العوامل المائة — الدرس الرابع: من (إلى) - إلى (ربَّ)</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-green: #0d6b3e;
+  --dark-green: #0a4f2e;
+  --gold: #d4a020;
+  --light-gold: #f0e6c0;
+  --teal: #0d7377;
+  --bg: #fefefe;
+  --body-text: #1a1a1a;
+  --border: #c8d6c0;
+  --light-green-bg: #e8f5e9;
+  --light-teal-bg: #e0f2f1;
+  --light-gold-bg: #fff8e1;
+  --light-red-bg: #fce4ec;
+  --light-purple-bg: #f3e5f5;
+  --light-blue-bg: #e3f2fd;
+  --light-gray-bg: #f5f5f5;
+}
+
+body.bw-mode {
+  --primary-green: #333;
+  --dark-green: #222;
+  --gold: #555;
+  --light-gold: #ddd;
+  --teal: #444;
+  --bg: #fff;
+  --body-text: #000;
+  --border: #999;
+  --light-green-bg: #eee;
+  --light-teal-bg: #eee;
+  --light-gold-bg: #eee;
+  --light-red-bg: #eee;
+  --light-purple-bg: #eee;
+  --light-blue-bg: #eee;
+  --light-gray-bg: #eee;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+  @bottom-center {
+    content: "— " counter(page) " —";
+    font-size: 10px;
+    color: #666;
+  }
+}
+
+body {
+  font-family: 'Noto Naskh Arabic', 'Amiri', 'Traditional Arabic', serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--body-text);
+  background: var(--bg);
+  direction: rtl;
+  text-align: justify;
+  padding: 0;
+}
+
+/* B&W Toggle */
+.bw-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 9999;
+  background: var(--primary-green);
+  color: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.bw-toggle:hover { background: var(--dark-green); }
+body.bw-mode .bw-toggle { background: #444; border-color: #888; }
+
+/* Cover Page */
+.cover-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0a4f2e 0%, #0d6b3e 30%, #0d7377 60%, #0a4f2e 100%);
+  text-align: center;
+  padding: 40px 30px;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+}
+.cover-page::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a020' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.cover-border {
+  border: 3px solid var(--gold);
+  border-radius: 16px;
+  padding: 50px 40px;
+  position: relative;
+  max-width: 700px;
+  width: 100%;
+}
+.cover-border::after {
+  content: '';
+  position: absolute;
+  top: 8px; left: 8px; right: 8px; bottom: 8px;
+  border: 1px solid rgba(212,160,32,0.4);
+  border-radius: 12px;
+  pointer-events: none;
+}
+.cover-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.cover-subtitle {
+  font-size: 22px;
+  color: #fff;
+  margin-bottom: 25px;
+  opacity: 0.9;
+}
+.cover-lesson {
+  font-size: 26px;
+  color: var(--light-gold);
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+.cover-lesson-title {
+  font-size: 20px;
+  color: #e0e0e0;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgba(212,160,32,0.4);
+  padding-bottom: 20px;
+}
+.cover-info {
+  font-size: 16px;
+  color: #ccc;
+  line-height: 2;
+}
+.cover-info span { color: var(--light-gold); font-weight: 600; }
+.cover-bismillah {
+  font-size: 28px;
+  color: var(--gold);
+  margin-bottom: 30px;
+}
+.cover-ornament {
+  font-size: 24px;
+  color: var(--gold);
+  margin: 15px 0;
+  letter-spacing: 8px;
+}
+
+/* Content Area */
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+h1 {
+  font-size: 26px;
+  color: var(--primary-green);
+  border-bottom: 3px solid var(--gold);
+  padding-bottom: 8px;
+  margin: 35px 0 20px;
+}
+h2 {
+  font-size: 22px;
+  color: var(--dark-green);
+  margin: 28px 0 14px;
+  border-right: 5px solid var(--gold);
+  padding-right: 12px;
+}
+h3 {
+  font-size: 19px;
+  color: var(--teal);
+  margin: 20px 0 10px;
+}
+
+p { margin-bottom: 12px; text-align: justify; }
+
+/* Matn Text */
+.matn-text {
+  background: var(--light-gold-bg);
+  border-right: 5px solid var(--gold);
+  padding: 12px 18px;
+  margin: 14px 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.8;
+  border-radius: 0 8px 8px 0;
+}
+
+/* Quran Verse */
+.quran-box {
+  background: var(--light-green-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 14px 20px;
+  margin: 14px 0;
+  text-align: center;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.9;
+  position: relative;
+}
+.quran-box::before {
+  content: '﴿';
+  position: absolute;
+  top: -2px;
+  right: 8px;
+  font-size: 24px;
+  color: var(--primary-green);
+}
+.quran-box::after {
+  content: '﴾';
+  position: absolute;
+  bottom: -2px;
+  left: 8px;
+  font-size: 24px;
+  color: var(--primary-green);
+}
+
+/* Hadith Box */
+.hadith-box {
+  background: var(--light-teal-bg);
+  border: 2px solid var(--teal);
+  border-radius: 10px;
+  padding: 14px 20px;
+  margin: 14px 0;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+/* Poetry Box */
+.poetry-box {
+  background: var(--light-purple-bg);
+  border: 2px solid #9c27b0;
+  border-radius: 10px;
+  padding: 16px 24px;
+  margin: 14px 0;
+  text-align: center;
+  font-size: 19px;
+  line-height: 2.2;
+}
+
+/* Callout Box */
+.callout {
+  background: var(--light-gold-bg);
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  position: relative;
+}
+.callout-title {
+  font-weight: 700;
+  color: var(--dark-green);
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+/* Summary Box */
+.summary-box {
+  background: var(--light-green-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+.summary-box .summary-title {
+  font-weight: 700;
+  color: var(--primary-green);
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+/* Definition Card */
+.definition-card {
+  background: #fff;
+  border: 2px solid var(--teal);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+.definition-term {
+  font-weight: 700;
+  color: var(--teal);
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+.definition-text {
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* Ruling Card */
+.ruling-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  border-right: 5px solid;
+}
+.ruling-card.fard { border-color: #c62828; }
+.ruling-card.wajib { border-color: #e65100; }
+.ruling-card.sunna { border-color: var(--primary-green); }
+.ruling-card.mustahabb { border-color: #1565c0; }
+.ruling-card.makruh { border-color: #f9a825; }
+.ruling-card.haram { border-color: #880e4f; }
+.ruling-card.mubah { border-color: #757575; }
+.ruling-label {
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.ruling-label.fard { background: #c62828; }
+.ruling-label.wajib { background: #e65100; }
+.ruling-label.sunna { background: var(--primary-green); }
+.ruling-label.mustahabb { background: #1565c0; }
+.ruling-label.makruh { background: #f9a825; }
+.ruling-label.haram { background: #880e4f; }
+.ruling-label.mubah { background: #757575; }
+
+/* Evidence Box */
+.evidence-box {
+  background: var(--light-teal-bg);
+  border: 2px solid var(--teal);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+.evidence-box .evidence-label {
+  font-weight: 700;
+  color: var(--teal);
+  margin-bottom: 4px;
+}
+
+/* Key Benefit Box */
+.benefit-box {
+  background: var(--light-purple-bg);
+  border: 2px solid #7b1fa2;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+.benefit-box .benefit-title {
+  font-weight: 700;
+  color: #7b1fa2;
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+/* Alert Boxes */
+.alert-box {
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin: 14px 0;
+  border-right: 5px solid;
+}
+.alert-box.success { background: #e8f5e9; border-color: #2e7d32; }
+.alert-box.info { background: #e3f2fd; border-color: #1565c0; }
+.alert-box.warning { background: #fff8e1; border-color: #f57f17; }
+.alert-box.error { background: #fce4ec; border-color: #c62828; }
+
+/* Quote Block */
+.quote-block {
+  background: var(--light-gray-bg);
+  border-right: 4px solid var(--gold);
+  padding: 12px 18px;
+  margin: 14px 0;
+  font-style: italic;
+  border-radius: 0 8px 8px 0;
+}
+.quote-attribution {
+  text-align: left;
+  font-size: 14px;
+  color: #666;
+  margin-top: 6px;
+  font-style: normal;
+}
+
+/* Qaidah Box */
+.qaidah-box {
+  background: #fffef5;
+  border: 3px solid var(--gold);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+.qaidah-label {
+  display: inline-block;
+  background: var(--gold);
+  color: #fff;
+  padding: 2px 14px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+.qaidah-text {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+/* Scholar Card */
+.scholar-card {
+  background: #fff;
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+.scholar-name {
+  font-weight: 700;
+  color: var(--primary-green);
+  font-size: 18px;
+}
+.scholar-badge {
+  display: inline-block;
+  background: var(--primary-green);
+  color: #fff;
+  padding: 1px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin: 0 6px;
+}
+.scholar-dates {
+  font-size: 14px;
+  color: #666;
+}
+.scholar-bio {
+  margin-top: 6px;
+  font-size: 16px;
+}
+
+/* Classification Tree */
+.tree-container {
+  background: #fff;
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 14px 0;
+  overflow-x: auto;
+}
+.tree-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  direction: rtl;
+}
+.tree-container li {
+  position: relative;
+  padding: 6px 30px 6px 0;
+}
+.tree-container li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 12px;
+  width: 2px;
+  height: 100%;
+  background: var(--primary-green);
+}
+.tree-container li:last-child::before {
+  height: 20px;
+}
+.tree-container li::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  right: 12px;
+  width: 18px;
+  height: 2px;
+  background: var(--primary-green);
+}
+.tree-container > ul > li::before,
+.tree-container > ul > li::after {
+  display: none;
+}
+.tree-node {
+  display: inline-block;
+  background: var(--light-green-bg);
+  border: 1px solid var(--primary-green);
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--dark-green);
+}
+.tree-node.root {
+  background: var(--primary-green);
+  color: #fff;
+  font-size: 17px;
+  padding: 6px 16px;
+}
+.tree-node.sub {
+  background: var(--light-gold-bg);
+  border-color: var(--gold);
+  color: #795548;
+}
+
+/* Flow Container */
+.flow-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin: 14px 0;
+  direction: rtl;
+}
+.flow-step {
+  background: var(--light-green-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 10px 16px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 15px;
+  min-width: 100px;
+}
+.flow-arrow {
+  font-size: 22px;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* Table Styled */
+.table-styled {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0;
+  font-size: 16px;
+}
+.table-styled th {
+  background: var(--primary-green);
+  color: #fff;
+  padding: 10px 12px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 15px;
+}
+.table-styled td {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  text-align: center;
+  vertical-align: top;
+}
+.table-styled tr:nth-child(even) { background: var(--light-green-bg); }
+.table-styled tr:nth-child(odd) { background: #fff; }
+
+/* Cols */
+.cols {
+  display: flex;
+  gap: 14px;
+  margin: 14px 0;
+  flex-wrap: wrap;
+}
+.cols-2 > div { flex: 1; min-width: 280px; }
+.cols-3 > div { flex: 1; min-width: 200px; }
+.cols-4 > div { flex: 1; min-width: 150px; }
+
+.comparison-card {
+  background: #fff;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  flex: 1;
+  min-width: 250px;
+}
+.comparison-card h4 {
+  color: var(--primary-green);
+  margin-bottom: 8px;
+  font-size: 16px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 6px;
+}
+
+/* Section Divider */
+.section-divider {
+  text-align: center;
+  margin: 30px 0;
+  color: var(--gold);
+  font-size: 22px;
+  letter-spacing: 6px;
+}
+.section-divider.ornate {
+  border-top: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  padding: 10px 0;
+}
+
+/* Checklist */
+.checklist {
+  margin: 14px 0;
+  padding: 0;
+  list-style: none;
+}
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 6px 0;
+  font-size: 16px;
+}
+.checklist-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--primary-green);
+  background: var(--light-green-bg);
+}
+
+/* FAQ Accordion */
+.faq-item {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin: 8px 0;
+  overflow: hidden;
+}
+.faq-question {
+  padding: 12px 16px;
+  font-weight: 700;
+  color: var(--primary-green);
+  cursor: pointer;
+  font-size: 16px;
+  background: var(--light-green-bg);
+}
+.faq-answer {
+  padding: 12px 16px;
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+/* Tooltip */
+.tooltip {
+  position: relative;
+  border-bottom: 1px dashed var(--gold);
+  cursor: help;
+  color: var(--dark-green);
+  font-weight: 600;
+}
+.tooltip-content {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  background: #333;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 400;
+  white-space: nowrap;
+  z-index: 100;
+}
+.tooltip:hover .tooltip-content { display: block; }
+
+/* Numbered Step */
+.step-diagram {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 14px 0;
+}
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 8px 0;
+}
+.step-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--primary-green);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+.step-text { padding-top: 4px; }
+
+/* Isnad Chain */
+.isnad-chain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin: 14px 0;
+}
+.isnad-person {
+  background: var(--light-teal-bg);
+  border: 2px solid var(--teal);
+  border-radius: 8px;
+  padding: 8px 16px;
+  text-align: center;
+}
+.isnad-name { font-weight: 700; color: var(--teal); font-size: 16px; }
+.isnad-title { font-size: 13px; color: #666; }
+.isnad-link {
+  width: 2px;
+  height: 20px;
+  background: var(--teal);
+}
+
+/* Inline emphasis */
+.emphasis { color: var(--primary-green); font-weight: 700; }
+.gold-emphasis { color: var(--gold); font-weight: 700; }
+.teal-emphasis { color: var(--teal); font-weight: 700; }
+
+/* Page Footer */
+.page-footer {
+  text-align: center;
+  font-size: 13px;
+  color: #999;
+  padding: 20px 0 10px;
+  border-top: 1px solid var(--border);
+  margin-top: 30px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .cover-border { padding: 30px 20px; }
+  .cover-title { font-size: 26px; }
+  .cover-subtitle { font-size: 18px; }
+  .cols { flex-direction: column; }
+  .flow-container { flex-direction: column; align-items: stretch; }
+  .flow-arrow { transform: rotate(90deg); text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- B&W Toggle Button -->
+<button class="bw-toggle" onclick="document.body.classList.toggle('bw-mode')">وضع الأبيض والأسود</button>
+
+<!-- ==================== COVER PAGE ==================== -->
+<div class="cover-page">
+  <div class="cover-border">
+    <div class="cover-bismillah">بسم الله الرحمن الرحيم</div>
+    <div class="cover-ornament">✦ ❋ ✦</div>
+    <div class="cover-title">شرح العوامل المائة</div>
+    <div class="cover-subtitle">للإمام عبد القاهر الجرجاني رحمه الله تعالى</div>
+    <div class="cover-lesson">الدرس الرابع</div>
+    <div class="cover-lesson-title">من (إلى) — إلى (ربَّ)</div>
+    <div class="cover-ornament">✦ ❋ ✦</div>
+    <div class="cover-info">
+      <span>الشارح:</span> د. لبيب نجيب عبدالله<br>
+      <span>المؤلف:</span> الإمام عبد القاهر الجرجاني رحمه الله تعالى<br>
+      <span>إعداد:</span> أحمد بن إرشاد
+    </div>
+  </div>
+</div>
+
+<!-- ==================== CONTENT ==================== -->
+<div class="content">
+
+<!-- Opening -->
+<p>بسم الله الرحمن الرحيم وعلى أقوال والأعمال اللهم آمين، فهذا هو الدرس الثالث ولا زلنا في العوامل التي هي في القسم الأول وهي حروف الجر.</p>
+
+<div class="section-divider ornate">❊ ❊ ❊</div>
+
+<!-- ==================== حرف الجر: إلاء ==================== -->
+<h1>الحرف الثالث من حروف الجر: إلاء</h1>
+
+<div class="matn-text">
+  قال والثالث إلاء ولها معنيان
+</div>
+
+<p>قال المصنف العلامة الإمام عبد القاهر الجرجاني رحمه الله تعالى: <strong>والثالث إلاء ولها معنيان</strong>، ويمكن أن تزيد على ذلك.</p>
+
+<h2>المعنى الأول: انتهاء الغاية</h2>
+
+<div class="matn-text">
+  أحدهما لانتهاء الغاية نحو: سِرتُ من البصرة إلى الكوفة
+</div>
+
+<p>يعني انتهاء سيري من البصرة إلى الكوفة. فإلاء هنا لانتهاء الغاية.</p>
+
+<h2>المعنى الثاني: بمعنى مع (وهو قليل)</h2>
+
+<div class="matn-text">
+  والثاني بمعنى مع وهو قليل
+</div>
+
+<div class="evidence-box">
+  <div class="evidence-label">📖 الدليل من القرآن الكريم:</div>
+  <div class="quran-box">وَيَزِدْكُمْ قُوَّةً إِلَى قُوَّتِكُمْ</div>
+  <p>أي مع قوتكم.</p>
+</div>
+
+<div class="evidence-box">
+  <div class="evidence-label">📖 الدليل الثاني من القرآن الكريم:</div>
+  <div class="quran-box">وَلَا تَأْكُلُوا أَمْوَالَهُمْ إِلَى أَمْوَالِكُمْ</div>
+  <p>أي مع أموالكم وما أشبه ذلك.</p>
+</div>
+
+<h2>المعنى الثالث: بمعنى في</h2>
+
+<div class="evidence-box">
+  <div class="evidence-label">📖 الدليل من القرآن الكريم:</div>
+  <div class="quran-box">لَا يَجْمَعَنَّكُمْ إِلَى يَوْمِ الْقِيَامَةِ لَا رَيْبَ فِيهِ</div>
+  <p>ما معنى إلاء يوم القيامة؟ في يوم القيامة لا ريب فيه. فإلاء هنا بمعنى <strong>في</strong>.</p>
+</div>
+
+<h2>المعنى الرابع: بمعنى اللام</h2>
+
+<div class="evidence-box">
+  <div class="evidence-label">📖 الدليل من القرآن الكريم — سورة النمل:</div>
+  <p>في قصة قوم بلقيس ملكة سبأ، قالوا لها:</p>
+  <div class="quran-box">نَحْنُ أُولُو قُوَّةٍ وَأُولُو بَأْسٍ شَدِيدٍ وَالْأَمْرُ إِلَيْكِ</div>
+  <p>ما معنى إليك؟ والأمر <strong>لك</strong>، نحن أولو قوة وأولو بأس شديد والأمر إليك أي والأمر لك. فإلاء هنا بمعنى <strong>اللام</strong>.</p>
+</div>
+
+<!-- Summary Table for إلاء -->
+<div class="summary-box">
+  <div class="summary-title">✦ خلاصة معاني إلاء — أربعة معانٍ</div>
+  <table class="table-styled">
+    <thead>
+      <tr><th>#</th><th>المعنى</th><th>المثال</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>١</td><td>انتهاء الغاية</td><td>سِرتُ من البصرة إلى الكوفة</td></tr>
+      <tr><td>٢</td><td>بمعنى مع (قليل)</td><td>وَيَزِدْكُمْ قُوَّةً إِلَى قُوَّتِكُمْ</td></tr>
+      <tr><td>٣</td><td>بمعنى في</td><td>لَا يَجْمَعَنَّكُمْ إِلَى يَوْمِ الْقِيَامَةِ</td></tr>
+      <tr><td>٤</td><td>بمعنى اللام</td><td>وَالْأَمْرُ إِلَيْكِ</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- الفرق بين إلاء وحتى -->
+<h2>الفرق بين إلاء وحتى في دخول الغاية</h2>
+
+<div class="callout">
+  <div class="callout-title">⚡ تنبيه مهم — الفرق بين إلاء وحتى:</div>
+  <p>من الفروق بين إلاء وحتى أن <strong>إلاء الأصح أن ما بعدها لا يدخل فيما قبلها</strong>، وأما <strong>حتى</strong> فإن ما بعدها <strong>يدخل فيما قبلها</strong>.</p>
+</div>
+
+<div class="cols cols-2">
+  <div class="comparison-card" style="border-color: #c62828;">
+    <h4 style="color: #c62828;">إلاء — لا يدخل ما بعدها</h4>
+    <p>لو قلت: <strong>قرأت من سورة البقرة إلى سورة التوبة</strong></p>
+    <p>هل قرأت سورة التوبة أم لم تقرأ؟ <span class="emphasis">لم تقرأ سورة التوبة</span>، لأن ما بعد إلاء لا يدخل فيما قبلها.</p>
+  </div>
+  <div class="comparison-card" style="border-color: var(--primary-green);">
+    <h4 style="color: var(--primary-green);">حتى — يدخل ما بعدها</h4>
+    <p>لو قلت: <strong>قرأت من سورة البقرة حتى سورة التوبة</strong></p>
+    <p>هل قرأت سورة التوبة أو لا؟ <span class="emphasis">قرأت سورة التوبة</span>، ولذلك عندما كتبنا الاختبار السابق كان: <strong>من الدرس الأول حتى الخامس</strong>، ليش حتى الخامس؟ <strong>ليشمل الخامس</strong> فالخامس داخل في الاختبار.</p>
+  </div>
+</div>
+
+<div class="poetry-box">
+  <p>ويقول الحافظ السيوطي رحمه الله تعالى في الكوكب:</p>
+  <p style="font-size: 18px; line-height: 2;">وَفِي دُخُولِ الغَايَةِ الأَصَحُّ لَا<br>يَدْخُلُ مَعَ إلَى وَحَتَّى دَخَلَا</p>
+  <p style="font-size: 15px; color: #666;">أي: وفي دخول الغاية الأصح لا يدخل مع إلاء، وحتى دخل — أي ودخل مع حتى.</p>
+</div>
+
+<div class="section-divider ornate">❊ ❊ ❊</div>
+
+<!-- ==================== حرف الجر: في ==================== -->
+<h1>الحرف الرابع من حروف الجر: في</h1>
+
+<div class="matn-text">
+  والرابع في ولها معنيان
+</div>
+
+<p>قال رحمه الله تعالى: <strong>والرابع في ولها معنيان</strong>، طبعا معنيان باختصار وإلا لها معانٍ أخرى سنذكر بعضها.</p>
+
+<h2>المعنى الأول: الظرفية</h2>
+
+<div class="definition-card">
+  <div class="definition-term">📌 الظرفية</div>
+  <div class="definition-text">ومعنى الظرفية: حلول الشيء في غيره حقيقة أو مجازاً.</div>
+</div>
+
+<div class="cols cols-2">
+  <div class="comparison-card" style="border-color: var(--primary-green);">
+    <h4 style="color: var(--primary-green);">ظرفية حقيقية</h4>
+    <p><strong>الماء في الكوز</strong> — هذا حلول حقيقي، فالكوز ظرف للماء.</p>
+    <p><strong>المال في الكيس</strong> — الكيس مثل الحقيبة الصغيرة، حلول حقيقي.</p>
+    <p><strong>الأساتذة في المسجد</strong> — حلول حقيقي.</p>
+  </div>
+  <div class="comparison-card" style="border-color: var(--gold);">
+    <h4 style="color: var(--gold);">ظرفية مجازية</h4>
+    <p><strong>النجاة في الصدق</strong> — هذا مجازي.</p>
+    <p><strong>الهلاك في الكذب</strong> — هذا مجازي أيضاً.</p>
+  </div>
+</div>
+
+<h2>المعنى الثاني: بمعنى على (وهو قليل)</h2>
+
+<div class="matn-text">
+  والمعنى الثاني من معاني في: بمعنى على وهو قليل
+</div>
+
+<div class="evidence-box">
+  <div class="evidence-label">📖 الدليل من القرآن الكريم:</div>
+  <div class="quran-box">وَلَأُصَلِّبَنَّكُمْ فِي جُذُوعِ النَّخْلِ</div>
+  <p>الصلب هل يكون داخل الجذوع أو عليها؟ <strong>عليها</strong> واضح. ولو قلنا إن في بمعنى الظرفية وأخذناها على ظاهرها سنقول إن الصلب في داخل الجذوع، سيكون الجذع ظرفاً للمصلوب.</p>
+  <p>فقال العلماء هنا: <strong>في بمعنى على</strong> — لأصلبنكم في جذوع النخل أي <strong>على جذوع النخل</strong>. هذا ما قاله المصنف رحمه الله.</p>
+</div>
+
+<h3>رأي جمال الدين ابن مالك رحمه الله</h3>
+
+<div class="scholar-card">
+  <div class="scholar-name">جمال الدين ابن مالك رحمه الله تعالى</div>
+  <span class="scholar-badge">نحوي</span>
+  <div class="scholar-bio">
+    <p>له رأي آخر فيقول: إن <strong>في هنا على بابها</strong> على معناها الأصلي، وهذه الآية معناها أن فرعون سيصلب أولئك السحرة الذين آمنوا بموسى عليه الصلاة والسلام تصليباً يثبتهم تثبيتاً شديداً، من شدة التثبيت <strong>حتى كأنهم دخلوا في جذوع النخل</strong>.</p>
+    <p>إذا ربطت شيئاً في خشبة وشددت عليه وكأن بعضه ينغرس. ففرعون أراد أن يشير إلى شدة العقوبة التي سيعاقبهم بها فقال: <strong>لأصلبنكم في</strong> ولم يقل <strong>على</strong> — لأصلبنكم في جذوع النخل أي صلباً شديداً أثبتكم فيه حتى كأن أجسادكم تنغرس فيه.</p>
+    <p>إذن على هذا الكلام الذي قاله جمال الدين ابن مالك رحمه الله تعالى ستكون <strong>في على بابها</strong>.</p>
+  </div>
+</div>
+
+<h2>المعنى الثالث: بمعنى السببية</h2>
+
+<div class="evidence-box">
+  <div class="evidence-label">📖 الدليل من القرآن الكريم — سورة النور:</div>
+  <p>في قصة الإفك لما تكلم من تكلم في أم المؤمنين عائشة رضي الله تعالى عنها وأرضاها:</p>
+  <div class="quran-box">لَتُسْأَلُنَّ عَمَّا كُنْتُمْ تَفْتَرُونَ ... فِيمَا أَفَضْتُمْ فِيهِ عَذَابٌ أَلِيمٌ</div>
+  <p><strong>فيما</strong> أي <strong>بسبب ما</strong>، فـ <span class="emphasis">في هنا بمعنى السببية</span> — بسبب ما أفضتم.</p>
+</div>
+
+<div class="evidence-box">
+  <div class="evidence-label">📖 الدليل من السنة النبوية:</div>
+  <div class="hadith-box">
+    قال النبي ﷺ: <strong>دخلت امرأة النار في هرة حبستها، لا هي أطعمتها ولا تركتها تأكل من خشاش الأرض</strong>
+  </div>
+  <p>دخلت النار امرأة <strong>في هرة</strong> — ما معنى في هرة؟ <strong>بسبب هرة</strong>. إذن هنا <span class="emphasis">في بمعنى السببية</span>.</p>
+</div>
+
+<h2>المعنى الرابع: بمعنى مع</h2>
+
+<div class="evidence-box">
+  <div class="evidence-label">📖 الدليل من القرآن الكريم — سورة الأعراف:</div>
+  <div class="quran-box">قَالَ ادْخُلُوا فِي أُمَمٍ قَدْ خَلَتْ مِنْ قَبْلِكُمْ</div>
+  <p>ما معنى <strong>في أمم</strong>؟ <strong>مع أمم</strong> قد خلت من قبلكم. فـ <span class="emphasis">في بمعنى مع</span>.</p>
+</div>
+
+<div class="evidence-box">
+  <div class="evidence-label">📖 الدليل من السنة النبوية — في الصحيح وهو من أحاديث عمدة الأحكام:</div>
+  <div class="hadith-box">
+    أن النبي ﷺ رأى رجلاً لم يصلِّ مع الناس فقال له عليه الصلاة والسلام: <strong>ما منعك أن تصلي في القوم؟</strong>
+  </div>
+  <p>ما معنى <strong>في القوم</strong>؟ <strong>مع القوم</strong> — ما منعك أن تصلي في القوم أي مع القوم. قال: أصابتني جنابة ولا ماء. الحديث.</p>
+</div>
+
+<!-- في تأتي فعل أمر -->
+<div class="benefit-box">
+  <div class="benefit-title">💡 فائدة نحوية — في تأتي فعل أمر:</div>
+  <p>من باب الفائدة أن <strong>في</strong> تأتي فعل أمر، مصدرها <strong>الوفاء</strong>. إذا أمرت الجماعة ماذا تقول؟ <strong>أوفوا</strong>. وإذا أمرت المفرد ماذا تقول؟ <strong>فِ</strong> بكسر الفاء، لكن الياء تأتي للإشباع فتقول مثلاً: <strong>فِي زيداً</strong> — فِ زيداً، آمرك بالوفاء لزيد.</p>
+  <p><strong>إعرابها:</strong> في — فعل أمر، والفاعل مستتر تقديره أنت، والياء للإشباع، وزيداً مفعول به.</p>
+</div>
+
+<!-- Summary Table for في -->
+<div class="summary-box">
+  <div class="summary-title">✦ خلاصة معاني في — أربعة معانٍ</div>
+  <table class="table-styled">
+    <thead>
+      <tr><th>#</th><th>المعنى</th><th>المثال</th><th>الدليل</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>١</td><td>الظرفية (حقيقة أو مجازاً)</td><td>الماء في الكوز / النجاة في الصدق</td><td>—</td></tr>
+      <tr><td>٢</td><td>بمعنى على (قليل)</td><td>لأصلبنكم في جذوع النخل</td><td>قرآن</td></tr>
+      <tr><td>٣</td><td>بمعنى السببية</td><td>دخلت امرأة النار في هرة</td><td>قرآن + سنة</td></tr>
+      <tr><td>٤</td><td>بمعنى مع</td><td>ما منعك أن تصلي في القوم</td><td>قرآن + سنة</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section-divider ornate">❊ ❊ ❊</div>
+
+<!-- ==================== حرف الجر: اللام ==================== -->
+<h1>الحرف الخامس من حروف الجر: اللام</h1>
+
+<div class="matn-text">
+  والخامس اللام
+</div>
+
+<p>قال رحمه الله تعالى: <strong>والخامس اللام</strong>. واللام لها معانٍ كثيرة.</p>
+
+<h2>قاعدة في اللام — كسرها وفتحها</h2>
+
+<div class="qaidah-box">
+  <div class="qaidah-label">قاعدة</div>
+  <div class="qaidah-text">
+    لام الجر تكون <strong>مكسورة</strong> إذا دخلت على <span class="emphasis">الاسم الظاهر</span>، وتكون <strong>مفتوحة</strong> إذا دخلت على <span class="emphasis">الضمير</span>، إلا إذا دخلت على الياء فإنها <strong>تكسر</strong>.
+  </div>
+</div>
+
+<div class="cols cols-2">
+  <div class="comparison-card" style="border-color: var(--primary-green);">
+    <h4 style="color: var(--primary-green);">لام مكسورة — مع الاسم الظاهر</h4>
+    <ul style="padding-right: 20px; margin: 0;">
+      <li>الكتاب <strong>لِزيد</strong></li>
+      <li>الجل <strong>لِلفرس</strong></li>
+      <li>الحصير <strong>لِلمسجد</strong></li>
+    </ul>
+  </div>
+  <div class="comparison-card" style="border-color: var(--teal);">
+    <h4 style="color: var(--teal);">لام مفتوحة — مع الضمير</h4>
+    <ul style="padding-right: 20px; margin: 0;">
+      <li>القلم <strong>لَك</strong></li>
+      <li>السيارة <strong>لَكم</strong></li>
+      <li>الكتاب <strong>لَه</strong></li>
+      <li>الكتاب <strong>لِي</strong> (تكسر مع الياء)</li>
+    </ul>
+  </div>
+</div>
+
+<h2>أنواع اللام ثلاثة</h2>
+
+<div class="callout">
+  <div class="callout-title">⚡ أنواع اللام:</div>
+  <p>اللام تأتي في ثلاث حالات:</p>
+  <ol style="padding-right: 20px;">
+    <li><strong>لام جارة</strong> — وهذه التي ندرسها الآن وندرس معانيها</li>
+    <li><strong>لام جازمة</strong> — والأصل في الجازمة أنها مكسورة، إلا إذا سبقت بالواو أو الفاء أو ثم سكنت</li>
+    <li><strong>لام الابتداء</strong> — وهي حرف</li>
+  </ol>
+</div>
+
+<h3>لام الجازمة (لام الأمر)</h3>
+
+<p>الأصل في لام الأمر أنها تكون مكسورة، إلا إذا سبقت بالواو أو الفاء أو ثم فإنها تسكن.</p>
+
+<div class="evidence-box">
+  <div class="evidence-label">📖 أمثلة من القرآن الكريم:</div>
+  <table class="table-styled">
+    <thead>
+      <tr><th>الحالة</th><th>الآية</th><th>حركة اللام</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>الأصل (مكسورة)</td><td><strong>لِيُنْفِقْ</strong> (سورة الطلاق)</td><td>مكسورة</td></tr>
+      <tr><td>سبقت بالواو</td><td><strong>وَلْيَقْضُوا</strong> تفثهم <strong>وَلْيُوفُوا</strong> نذورهم</td><td>ساكنة</td></tr>
+      <tr><td>سبقت بثم</td><td><strong>ثُمَّ لْيَقْضُوا</strong></td><td>ساكنة</td></tr>
+      <tr><td>سبقت بالفاء</td><td><strong>فَلْيَكْتُبْ</strong> بينكم كاتب بالعدل</td><td>ساكنة</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>لام الابتداء (لام المزحلقة)</h3>
+
+<p>لام الابتداء مرت معنا في دروس الألفية. قال عنها الإمام ابن مالك:</p>
+
+<div class="poetry-box">
+  <p style="font-size: 18px; line-height: 2;">وَبَعْدَ ذَاتِ الكَسْرِ تُسْبِقُ الخَبَرْ<br>لَا مُبْتَدَأَ نَحْوُ إِنِّي لَوَزَرْ</p>
+</div>
+
+<p>والأصل أن هذه اللام تدخل على المبتدأ، كقراءة قول الله عز وجل: <strong>لَيُوسُفُ وَأَخُوهُ</strong>، لكن بعد أن تدخل <span class="emphasis">إنّ</span> ما تدخل على المبتدأ وإنما تدخل على الخبر حتى لا يجتمع توكيدان، فتسمى <span class="teal-emphasis">لام المزحلقة</span> — تزحلقت من المبتدأ إلى الخبر.</p>
+
+<div class="callout">
+  <div class="callout-title">⚡ تنبيه:</div>
+  <p>هذه اللام لا تدخل على أي من أخوات إنّ، وإنما تدخل على <strong>إنّ</strong> فقط. وبعد ذات الكسر تسبق الخبر لا المبتدأ.</p>
+</div>
+
+<!-- معاني اللام الجارة -->
+<h2>معاني اللام الجارة</h2>
+
+<h3>المعنى الأول: التمليك</h3>
+<div class="matn-text">أحدها للتمليك نحو: المال لزيد</div>
+
+<div class="callout">
+  <div class="callout-title">⚡ فرق بين الملك والتمليك:</div>
+  <div class="cols cols-2">
+    <div class="comparison-card" style="border-color: #c62828;">
+      <h4 style="color: #c62828;">الملك</h4>
+      <p><strong>المال لزيد</strong> — اللام هنا للملك (الثوب لزيد)</p>
+    </div>
+    <div class="comparison-card" style="border-color: var(--primary-green);">
+      <h4 style="color: var(--primary-green);">التمليك</h4>
+      <p><strong>أعطيت لزيد ثوباً</strong> — اللام هنا للتمليك (ملّكته إياه)</p>
+    </div>
+  </div>
+</div>
+
+<h3>المعنى الثاني: التخصيص</h3>
+<div class="matn-text">والثاني للتخصيص</div>
+
+<p>متى تكون للتخصيص؟ تكون للتخصيص إذا كان ما دخلت عليه اللام <strong>ليس عنده أهلية الملك</strong>.</p>
+
+<div class="example" style="background: var(--light-gold-bg); padding: 10px 14px; border-radius: 8px; margin: 10px 0;">
+  <p><strong>الجل للفرس</strong> — الجل هو الغطاء المزين الذي يكون فوق السرج، هذا الذي يوضع على ظهر الفرس، خاصة إذا كان في مناسبات في الأعياد يضعون غطاء مزيناً. فاللام هنا للتخصيص وليست للملك، لماذا؟ <span class="emphasis">لأن الفرس لا يملك</span>، الفرس مملوك لا يملك.</p>
+</div>
+
+<div class="evidence-box">
+  <div class="evidence-label">📖 مثال آخر:</div>
+  <p><strong>الجنة للمؤمنين</strong> — هل معنى ذلك أن المؤمنين يملكون الجنة؟ لا، وإنما <strong>تختص الجنة لهم</strong>، تختص الجنة لهم.</p>
+</div>
+
+<h3>المعنى الثالث: التعليل</h3>
+<div class="matn-text">والثالث للتعليل</div>
+
+<p>اللام للتعليل وهذه كثيرة.</p>
+
+<div class="evidence-box">
+  <div class="evidence-label">📖 الدليل من القرآن الكريم:</div>
+  <div class="quran-box">وَأَنْزَلْنَا إِلَيْكَ الذِّكْرَ لِتُبَيِّنَ لِلنَّاسِ مَا نُزِّلَ إِلَيْهِمْ</div>
+  <p>اللام للتعليل.</p>
+</div>
+
+<div class="example" style="background: var(--light-gold-bg); padding: 10px 14px; border-radius: 8px; margin: 10px 0;">
+  <p><strong>ضربت زيداً للتأديب</strong> — اللام للتعليل.</p>
+</div>
+
+<h3>المعنى الرابع: بمعنى عن</h3>
+<div class="matn-text">والرابع بمعنى عن</div>
+
+<p>اللام التي تأتي بمعنى عن، إذا استعمل مع القول. انتبه لهذه الآية فإنها تحتاج إلى بعض الانتباه.</p>
+
+<div class="evidence-box">
+  <div class="evidence-label">📖 الدليل من القرآن الكريم:</div>
+  <div class="quran-box">وَقَالَ الَّذِينَ كَفَرُوا لِلَّذِينَ آمَنُوا لَوْ كَانَ خَيْرًا مَا سَبَقُونَا إِلَيْهِ</div>
+  <p>ما معنى <strong>للذين آمنوا</strong>؟ <strong>عن الذين آمنوا</strong> — وقال الذين كفروا <strong>عن</strong> الذين آمنوا: لو كان خيراً ما سبقونا إليه.</p>
+</div>
+
+<div class="callout">
+  <div class="callout-title">⚡ لماذا اللام هنا بمعنى عن ولا تكون على ظاهرها؟</div>
+  <p>قالوا: لو كانت اللام على ظاهرها ستكون الآية هكذا: وقال الذين كفروا <strong>للذين آمنوا</strong> يخاطبونهم: لو كان خيراً ما <strong>سبقتمونا</strong> إليه — لأن الخطاب معهم سيكون خطاباً. لو كان خيراً ما سبقتمونا إليه، وقال له: لو كان كذا ما فعلت — خطاب.</p>
+  <p>لكن الآية ليست هكذا. الذين كفروا للذين آمنوا: <strong>لو كان خيراً ما سبقونا</strong> — بصيغة الغائب، ما سبقونا يعني هم إليه. إذن هنا <span class="emphasis">اللام بمعنى عن</span> أي وقال الذين كفروا <strong>عن</strong> الذين آمنوا ماذا قالوا عنهم: لو كان خيراً ما سبقونا إليه.</p>
+  <p>هذا جعل جماعة من المفسرين يقولون إن اللام هنا بمعنى عن.</p>
+</div>
+
+<h3>المعنى الخامس: زائدة</h3>
+<div class="matn-text">خامس: زائدة</div>
+
+<div class="evidence-box">
+  <div class="evidence-label">📖 الدليل من القرآن الكريم:</div>
+  <div class="quran-box">رَادِفٌ لَكُمْ</div>
+  <p>الأصل <strong>رادفكم</strong>، فاللام هنا زائدة.</p>
+</div>
+
+<div class="evidence-box">
+  <div class="evidence-label">📖 مثال آخر:</div>
+  <div class="quran-box">إِنَّ رَبَّكَ فَعَّالٌ لِمَا يُرِيدُ</div>
+  <p>الأصل: إن ربك فعال <strong>ما يريد</strong>، فاللام هنا زائدة. (في سورة هود)</p>
+</div>
+
+<h3>المعنى السادس: بمعنى بعد</h3>
+<div class="matn-text">والسادس بمعنى بعد</div>
+
+<p>تنبه لهذا المعنى.</p>
+
+<div class="evidence-box">
+  <div class="evidence-label">📖 الدليل من القرآن الكريم:</div>
+  <div class="quran-box">أَقِمِ الصَّلَاةَ لِدُلُوكِ الشَّمْسِ</div>
+  <p>ما معنى دلوك الشمس؟ <strong>زوال الشمس</strong> — أن تميل الشمس إلى جهة الغرب.</p>
+  <p>لو أنه صلى عند الميلان لا تصح صلاته، متى تصح صلاته؟ <strong>إذا صلى بعد الميلان</strong>. أقم الصلاة لدلوك الشمس أي <strong>بعد دلوك الشمس</strong>. واضح؟ يصلي متى؟ ليس عند الدلوك وإنما <strong>بعده</strong>. ولذلك قال الفقهاء: لو صادفت صلاته وقت الدلوك لا تصح، فلابد أن تقع الصلاة بعد الدلوك.</p>
+</div>
+
+<div class="evidence-box">
+  <div class="evidence-label">📖 الدليل من السنة النبوية:</div>
+  <div class="hadith-box">
+    قال النبي ﷺ: <strong>صوموا لرؤيته وأفطروا لرؤيته</strong>
+  </div>
+  <p><strong>صوموا لرؤيته</strong> — متى تصوم؟ <strong>بعد رؤيته</strong>. <strong>وأفطروا لرؤيته</strong> أي بعد رؤيته. ويمكن أن تكون اللام هنا أيضاً للتعليل: صوموا لرؤيته أي لعلة رؤيته، وأفطروا لرؤيته أي لعلة رؤيته.</p>
+</div>
+
+<h3>المعنى السابع: بمعنى غير</h3>
+<div class="matn-text">والسابع بمعنى غير</div>
+
+<div class="evidence-box">
+  <div class="evidence-label">📖 الدليل من القرآن الكريم — آية الأعراف:</div>
+  <div class="quran-box">لَا يُجَلِّيهَا لِوَقْتِهَا إِلَّا هُوَ</div>
+  <p>أي <strong>لا يجليها غير وقتها إلا الله</strong>، فاللام هنا بمعنى <strong>غير</strong> — لا يجليها غير وقتها إلا الله. هكذا قال الإمام المصنف رحمه الله.</p>
+</div>
+
+<div class="callout">
+  <div class="callout-title">⚡ خلاف المفسرين:</div>
+  <p>وكثير من المفسرين قالوا إن اللام هنا في آية الأعراف <strong>بمعنى في</strong>، فيكون معنى الآية: <strong>لا يجليها في وقتها إلا هو</strong>. ولعل هذا المعنى أظهر — لا يجلي الساعة في وقتها إلا الله. فتكون اللام بمعنى <strong>في</strong>.</p>
+</div>
+
+<h3>المعنى الثامن: بمعنى في</h3>
+
+<div class="evidence-box">
+  <div class="evidence-label">📖 مثال من القرآن الكريم:</div>
+  <p><strong>لا يجليها لوقتها</strong> أي لا يجليها <strong>في وقتها</strong> (على رأي كثير من المفسرين)</p>
+  <div class="quran-box">وَنَضَعُ الْمَوَازِينَ الْقِسْطَ لِيَوْمِ الْقِيَامَةِ</div>
+  <p>ما معنى <strong>ليوم القيامة</strong>؟ <strong>في يوم القيامة</strong>. فاللام هنا بمعنى <strong>في</strong>.</p>
+</div>
+
+<h3>المعنى التاسع: بمعنى عند</h3>
+
+<div class="evidence-box">
+  <div class="evidence-label">📖 الدليل من القرآن الكريم:</div>
+  <div class="quran-box">وَكَذَّبُوا بِالْحَقِّ لَمَّا جَاءَهُمْ</div>
+  <p>ما معنى الآية؟ وكذبوا بالحق <strong>لما جاءهم</strong> — <strong>عندما جاءهم</strong>، عندما جاءهم.</p>
+</div>
+
+<div class="example" style="background: var(--light-gold-bg); padding: 10px 14px; border-radius: 8px; margin: 10px 0;">
+  <p>ومنه تقول وتجدون هذا في المؤلفات: <strong>فرغت منه لعشر خلون من رجب</strong> — وحين تجدون في آخر الكتاب لما يؤلف كتاب يقول: فرغت منه أي فرغت من تأليف الكتاب <strong>لعشر خلون من رجب</strong>، <strong>لخمس خلون من رمضان</strong>. ما معنى <strong>لعشر</strong>؟ <strong>عند عشر</strong> خلون من رمضان — عند عشر خلون من رجب. يعني في عاشر رجب انتهيت من كتابة هذا الكتاب. <strong>خلون</strong> يعني مضينا، ذهبنا.</p>
+  <p>فاللام في قولهم فرغت منه لعشر خلون من رجب بمعنى <span class="emphasis">عند</span> أي عند عشر خلون من رجب.</p>
+</div>
+
+<h3>المعنى العاشر: بمعنى العاقبة والصيرورة</h3>
+
+<div class="evidence-box">
+  <div class="evidence-label">📖 الدليل من القرآن الكريم:</div>
+  <div class="quran-box">فَالْتَقَطَهُ آلُ فِرْعَوْنَ لِيَكُونَ لَهُمْ عَدُوًّا وَحَزَنًا</div>
+  <p>اللام هنا <strong>ليست لام التعليل</strong>، هم عندما التقطوه لم يكن الالتقاء علة ليكون لهم عدواً وحزناً. وهذه تسمى <span class="emphasis">لام العاقبة والصيرورة والمآل</span> — أي أنهم التقطوه وكان مآل الأمر أن أصبح عدواً لهم وحزناً، كان عاقبة الالتقاط أن أصبح لهم عدواً وحزناً.</p>
+  <p>وإلا فهم التقطوه لماذا؟ <strong>ليكون قرة عين</strong> — كما قالت: <strong>قرة عين لي ولكِ لا تقتلوه</strong>، هم التقطوا ليكون قرة عين لا ليكون لهم عدو وحزن. فلما قال الله عز وجل: فالتقطه آل فرعون ليكون لهم عدواً وحزناً، اللام هذه <span class="emphasis">لام الصيرورة والمآل والعاقبة</span> وهي غير لام التعليل.</p>
+</div>
+
+<h3>المعنى الحادي عشر: بمعنى على</h3>
+
+<div class="evidence-box">
+  <div class="evidence-label">📖 الدليل من القرآن الكريم:</div>
+  <div class="quran-box">إِنْ أَحْسَنْتُمْ أَحْسَنْتُمْ لِأَنْفُسِكُمْ وَإِنْ أَسَأْتُمْ فَلَهَا</div>
+  <p>ما معنى <strong>فلها</strong>؟ <strong>فعليها</strong>. فاللام هنا بمعنى <span class="emphasis">على</span> — إن أحسنتم أحسنتم لأنفسكم وإن أسأتم فلها أي فعليها.</p>
+</div>
+
+<div class="evidence-box">
+  <div class="evidence-label">📖 مثال آخر من القرآن الكريم — سورة الإسراء:</div>
+  <div class="quran-box">وَيَخِرُّونَ لِلْأَذْقَانِ يَبْكُونَ</div>
+  <p>كيف <strong>للأذقان</strong>؟ <strong>على الأذقان</strong> — ويخرون للأذقان على الأذقان يبكون.</p>
+  <p>شوف هذا، هذه المعاني جيدة لتفهم القرآن عندما تقرأ.</p>
+</div>
+
+<!-- خلاف في صلاة الجنازة في المسجد -->
+<h2>مسألة فقهية — صلاة الجنازة في المسجد</h2>
+
+<p>جاء في الحديث أن النبي ﷺ قال: <strong>من صلى على جنازة في المسجد فلا شيء له</strong>.</p>
+
+<p>هناك خلاف بين العلماء حول مكان صلاة الجنازة:</p>
+
+<div class="cols cols-2">
+  <div class="comparison-card" style="border-color: #c62828;">
+    <h4 style="color: #c62828;">رأي الحنفية والمالكية رحمهم الله</h4>
+    <p>منعوا صلاة الجنازة في المسجد وقالوا إن الجنائز يُصلّى عليها في موضع خاص يسمى <strong>مصلى الجنائز</strong>.</p>
+    <p><strong>دليلهم:</strong> حديث أم المؤمنين عائشة رضي الله تعالى عنها — لما مات سيدنا سعد بن أبي وقاص رضي الله عنه، قالت عائشة: <strong>مروا به إلى المسجد لنصلّي عليه</strong> — تعرفون بيت عائشة أم المؤمنين بجانب المسجد يعني ملاصق للمسجد وبيوت أمهات المؤمنين أيضاً ملاصقة للمسجد — فعائشة تقول رضي الله عنها: ائتوا بجنازة سعد إلى المسجد حتى نصلي عليها. فأنكر الناس عليها ذلك — كيف ندخل الجنازة إلى المسجد؟</p>
+    <p>فقالت عائشة: <strong>سبحان الله ما أسرع ما نسي الناس! وهل صلى النبي ﷺ على سهل بن بيضاء إلا في المسجد؟</strong></p>
+    <p>استدل الحنفية والمالكية على أن <strong>المعروف في ذلك العصر عدم الصلاة على جنازة في المسجد</strong> ولذلك أنكر الناس على عائشة.</p>
+  </div>
+  <div class="comparison-card" style="border-color: var(--primary-green);">
+    <h4 style="color: var(--primary-green);">رأي الشافعية والحنابلة رحمهم الله</h4>
+    <p>قالوا: لا مانع من صلاة الجنائز في المسجد.</p>
+    <p><strong>دليلهم:</strong> استدلوا بكلام عائشة على جواز أن يُصلّى على جنازة في المسجد لأنها قالت: إن النبي ﷺ صلى على سهل بن بيضاء <strong>في المسجد</strong>.</p>
+    <p>إذن هذا الفريق يستدل بالحديث وهذا الفريق يستدل بنفس الحديث أيضاً.</p>
+  </div>
+</div>
+
+<div class="callout">
+  <div class="callout-title">⚡ جواب الشافعية على حديث "من صلى على جنازة في المسجد فلا شيء له":</div>
+  <p>جاء حديث آخر عند أبي داود وهو الحديث الذي ذكرناه: <strong>من صلى على جنازة في المسجد فلا شيء له</strong> — ظاهره أن الذي يصلي على جنازة في المسجد لا ثواب له. بماذا أجاب الشافعية على هذا الحديث؟ أجابوا عليه بأوجه:</p>
+  <ol style="padding-right: 20px;">
+    <li><strong>الوجه الأول:</strong> إن هذا الحديث <strong>ضعيف</strong> وممن ضعفه الإمام أحمد رحمه الله.</li>
+    <li><strong>الوجه الثاني:</strong> إن معنى قول النبي ﷺ "من صلى على جنازة في المسجد فلا شيء له" — ألا أن <strong>اللام بمعنى على</strong> إذا صح الحديث، والمراد: من صلى على جنازة في المسجد فلا شيء <strong>عليه</strong>، واللام تأتي بمعنى على. وذكروا الشواهد التي ذكرناها قبل قليل.</li>
+  </ol>
+  <p>ولهم أجوبة أخرى لكن نتركها في محلها في كتب الفقه، إنما المقصود هنا ضرب المثال.</p>
+</div>
+
+<!-- Summary Table for اللام -->
+<div class="summary-box">
+  <div class="summary-title">✦ خلاصة معاني اللام الجارة — أحد عشر معنى</div>
+  <table class="table-styled">
+    <thead>
+      <tr><th>#</th><th>المعنى</th><th>المثال</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>١</td><td>التمليك</td><td>أعطيت لزيد ثوباً</td></tr>
+      <tr><td>٢</td><td>التخصيص</td><td>الجل للفرس / الجنة للمؤمنين</td></tr>
+      <tr><td>٣</td><td>التعليل</td><td>وأنزلنا إليك الذكر لتبين للناس</td></tr>
+      <tr><td>٤</td><td>بمعنى عن (مع القول)</td><td>وقال الذين كفروا للذين آمنوا</td></tr>
+      <tr><td>٥</td><td>زائدة</td><td>رادف لكم / فعال لما يريد</td></tr>
+      <tr><td>٦</td><td>بمعنى بعد</td><td>أقم الصلاة لدلوك الشمس</td></tr>
+      <tr><td>٧</td><td>بمعنى غير</td><td>لا يجليها لوقتها إلا هو</td></tr>
+      <tr><td>٨</td><td>بمعنى في</td><td>ونضع الموازين القسط ليوم القيامة</td></tr>
+      <tr><td>٩</td><td>بمعنى عند</td><td>وكذبوا بالحق لما جاءهم</td></tr>
+      <tr><td>١٠</td><td>العاقبة والصيرورة</td><td>فالتقطه آل فرعون ليكون لهم عدواً وحزناً</td></tr>
+      <tr><td>١١</td><td>بمعنى على</td><td>وإن أسأتم فلها / ويخرون للأذقان يبكون</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section-divider ornate">❊ ❊ ❊</div>
+
+<!-- ==================== حرف الجر: ربّ ==================== -->
+<h1>الحرف السادس من حروف الجر: ربَّ</h1>
+
+<div class="matn-text">
+  والسادس ربَّ وهي للتقليل
+</div>
+
+<p>قال رحمه الله تعالى: <strong>والسادس ربَّ وهي للتقليل</strong>. ربَّ تفيد التقليل قليلاً وتفيد التكثير كثيراً.</p>
+
+<div class="definition-card">
+  <div class="definition-term">📌 ربَّ</div>
+  <div class="definition-text">
+    <strong>ربَّ</strong> حرف جر شبيه بالزائد، تفيد التقليل (وقد تفيد التكثير). ولها صدر الكلام وتختص باسم نكرة موصوفة.
+  </div>
+</div>
+
+<h2>إعراب المجرور بربَّ</h2>
+
+<div class="matn-text">نحو: ربَّ رجلٍ كريمٍ لقيته</div>
+
+<p><strong>ربَّ</strong>: حرف جر شبيه بالزائد، مبني على الفتح.</p>
+<p><strong>رجلٍ</strong>: مبتدأ مجرور لفظاً مرفوع محلاً.</p>
+<p><strong>كريمٍ</strong>: نعت لرجل.</p>
+
+<div class="callout">
+  <div class="callout-title">⚡ تنبيه في إعراب النعت بعد ربَّ:</div>
+  <p>يصح في النعت بعد ربَّ وجهان:</p>
+  <ol style="padding-right: 20px;">
+    <li><strong>مراعاة اللفظ:</strong> فتقول: ربَّ رجلٍ كريمٍ لقيته (بالجر اتباعاً للفظ)</li>
+    <li><strong>مراعاة المحل:</strong> فتقول: ربَّ رجلٍ كريمٌ لقيته (بالرفع اتباعاً لمحل المبتدأ)</li>
+  </ol>
+  <p>لأن محل رجل مبتدأ مرفوع.</p>
+</div>
+
+<h3>حالتا المجرور بربَّ محلاً</h3>
+
+<div class="cols cols-2">
+  <div class="comparison-card" style="border-color: var(--primary-green);">
+    <h4 style="color: var(--primary-green);">في محل رفع مبتدأ</h4>
+    <p>إذا كان الفعل <strong>لازماً</strong> أو كان <strong>متعدّياً استوفى مفعوله</strong>.</p>
+    <p><strong>مثال:</strong> ربَّ عالمٍ كبيرٍ ماتَ</p>
+    <p>الفعل هنا لازم — تعرب: عالم مجرور لفظاً مرفوع محلاً على أنه مبتدأ.</p>
+  </div>
+  <div class="comparison-card" style="border-color: var(--teal);">
+    <h4 style="color: var(--teal);">في محل نصب مفعول به</h4>
+    <p>إذا كان الفعل <strong>متعدّياً لم يستوفِ مفعوله</strong>.</p>
+    <p><strong>مثال:</strong> ربَّ رجلٍ كريمٍ لقيته</p>
+    <p>تعرب: رجل مجرور لفظاً في محل نصب مفعول به مقدم محلاً.</p>
+  </div>
+</div>
+
+<h2>خصائص ربَّ — ست خصائص</h2>
+
+<div class="tree-container">
+  <ul>
+    <li><span class="tree-node root">خصائص ربَّ</span>
+      <ul>
+        <li><span class="tree-node">١. لها الصدارة في الكلام</span>
+          <ul>
+            <li><span class="tree-node sub">بخلاف بقية حروف الجر ليس لها صدارة إلا ربَّ</span></li>
+          </ul>
+        </li>
+        <li><span class="tree-node">٢. تختص بالاسم الظاهر فلا تدخل على الضمير</span>
+          <ul>
+            <li><span class="tree-node sub">وفي كلام طويل حول "ربَّهُ رجلاً" وهذا نقرأه بعد في المستقبل إن شاء الله</span></li>
+          </ul>
+        </li>
+        <li><span class="tree-node">٣. لا تدخل إلا على النكرة</span>
+          <ul>
+            <li><span class="tree-node sub">فلا تدخل على المعرفة، بينما بقية حروف الجر تدخل على النكرة والمعرفة. ولذلك جعل من علامة النكر قبولها لربَّ كما قال في الملحة:</span></li>
+          </ul>
+        </li>
+        <li><span class="tree-node">٤. قد تحذف ومع حذفها تعمل</span>
+          <ul>
+            <li><span class="tree-node sub">أنتم تعلمون أن من القواعد أن حروف الجر إذا حذفت لا تعمل (عند البصريين)، إلا ربَّ فإنها تحذف وتعمل</span></li>
+          </ul>
+        </li>
+        <li><span class="tree-node">٥. الفعل بعدها لا يكون إلا ماضياً</span></li>
+        <li><span class="tree-node">٦. النكرة بعدها لا بد أن توصف</span></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<!-- الشاهد الشعري لرب -->
+<div class="poetry-box">
+  <p style="font-size: 17px; margin-bottom: 8px;">شاهد على حذف ربَّ ومع حذفها تعمل:</p>
+  <p style="font-size: 19px; line-height: 2.2;">وَلَيْلٍ كَمَوْجِ البَحْرِ أَرْخَى سُدُولَهُ<br>عَلَيَّ بِأَنْوَاعِ الهُمُومِ لِيَبْتَلِي</p>
+  <p style="font-size: 15px; color: #666;">التقدير: وربَّ ليلٍ — فربَّ محذوفة ومع حذفها عملت (على رأي الكوفيين). أما على رأي البصريين فحرف الجر إذا حذف لا يعمل إلا ربَّ.</p>
+</div>
+
+<!-- خلاف البصريين والكوفيين -->
+<div class="callout">
+  <div class="callout-title">⚡ خلاف البصريين والكوفيين في حذف حرف الجر:</div>
+  <div class="cols cols-2">
+    <div class="comparison-card" style="border-color: #c62828;">
+      <h4 style="color: #c62828;">رأي البصريين</h4>
+      <p>حرف الجر إذا حذف <strong>لا يعمل</strong>، إلا <strong>ربَّ</strong> فإنها تحذف وتعمل.</p>
+      <p>ومنه مسألة إعراب "بابين" في شرح الكفراوي — على ضبط الجر نقول: بابين تقديري، اقرأ في بابي كذا وكذا، اقرأ في بابين — بناءً على أن حرف الجر حذف.</p>
+    </div>
+    <div class="comparison-card" style="border-color: var(--primary-green);">
+      <h4 style="color: var(--primary-green);">رأي الكوفيين</h4>
+      <p>حرف الجر إذا حذف <strong>يعمل</strong>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- شعر الملحة -->
+<div class="poetry-box">
+  <p style="font-size: 17px; margin-bottom: 8px;">من الملحة — علامة النكرة:</p>
+  <p style="font-size: 19px; line-height: 2.2;">وَكُلُّ مَا رَبَّ عَلَيْهِ تُدْخِلُ<br>فَإِنَّهُ مُنَكَّرٌ يَا رَجُلُ</p>
+</div>
+
+<!-- خلاصة خصائص رب -->
+<div class="summary-box">
+  <div class="summary-title">✦ خلاصة خصائص ربَّ — ست خصائص</div>
+  <table class="table-styled">
+    <thead>
+      <tr><th>#</th><th>الخاصية</th><th>البيان</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>١</td><td>لها الصدارة في الكلام</td><td>بخلاف بقية حروف الجر</td></tr>
+      <tr><td>٢</td><td>تختص بالاسم الظاهر</td><td>فلا تدخل على الضمير</td></tr>
+      <tr><td>٣</td><td>لا تدخل إلا على النكرة</td><td>فلا تدخل على المعرفة</td></tr>
+      <tr><td>٤</td><td>قد تحذف ومع حذفها تعمل</td><td>خلافاً لبقية حروف الجر عند البصريين</td></tr>
+      <tr><td>٥</td><td>الفعل بعدها لا يكون إلا ماضياً</td><td>—</td></tr>
+      <tr><td>٦</td><td>النكرة بعدها لا بد أن توصف</td><td>ربَّ رجلٍ كريمٍ</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section-divider ornate">❊ ❊ ❊</div>
+
+<!-- ==================== ملخص عام ==================== -->
+<h1>ملخص الدرس الرابع</h1>
+
+<div class="summary-box">
+  <div class="summary-title">✦ حروف الجر المدروسة في هذا الدرس</div>
+  <table class="table-styled">
+    <thead>
+      <tr><th>الحرف</th><th>عدد المعاني</th><th>أبرز المعاني</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>إلاء</strong></td><td>٤</td><td>انتهاء الغاية، مع، في، اللام</td></tr>
+      <tr><td><strong>في</strong></td><td>٤</td><td>الظرفية، على، السببية، مع</td></tr>
+      <tr><td><strong>اللام</strong></td><td>١١</td><td>التمليك، التخصيص، التعليل، عن، زائدة، بعد، غير، في، عند، العاقبة، على</td></tr>
+      <tr><td><strong>ربَّ</strong></td><td>التقليل (والتكثير)</td><td>٦ خصائص مميزة</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Closing -->
+<div class="section-divider ornate">❊ ❊ ❊</div>
+
+<p style="text-align: center; font-size: 18px; color: var(--primary-green); font-weight: 700;">وكفى بالمرء علماً أن يتعلم، والله أعلم</p>
+<p style="text-align: center; font-size: 16px;">وصلّ اللهم وسلّم وبارك على سيدنا محمد وعلى آله وصحبه أجمعين، والحمد لله رب العالمين</p>
+
+<div class="page-footer">
+  شرح العوامل المائة — الدرس الرابع: من (إلى) - إلى (ربَّ)<br>
+  الشارح: د. لبيب نجيب عبدالله | المؤلف: الإمام عبد القاهر الجرجاني رحمه الله تعالى | إعداد: أحمد بن إرشاد
+</div>
+
+</div><!-- end content -->
+
+<!-- ==================== JAVASCRIPT ==================== -->
+<script>
+// B&W Toggle functionality
+document.querySelector('.bw-toggle').addEventListener('click', function() {
+  document.body.classList.toggle('bw-mode');
+  if (document.body.classList.contains('bw-mode')) {
+    this.textContent = 'وضع الألوان';
+    this.style.background = '#444';
+    this.style.borderColor = '#888';
+  } else {
+    this.textContent = 'وضع الأبيض والأسود';
+    this.style.background = '';
+    this.style.borderColor = '';
+  }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1905 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح العوامل المائة — الدرس الرابع عشر: أفعال المقاربة - أفعال المدح والذم</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-green: #0d6b3e;
+  --dark-green: #0a4f2e;
+  --gold: #d4a020;
+  --light-gold: #f0e6c0;
+  --teal: #0d7377;
+  --bg: #fefefe;
+  --body-text: #1a1a1a;
+  --border: #c8d6c0;
+  --cover-gradient-1: #0a4f2e;
+  --cover-gradient-2: #0d6b3e;
+  --cover-gradient-3: #1a8a5c;
+  --light-green-bg: #e8f5e9;
+  --section-bg: #f7faf5;
+}
+
+body.bw-mode {
+  --primary-green: #333;
+  --dark-green: #222;
+  --gold: #555;
+  --light-gold: #ddd;
+  --teal: #444;
+  --bg: #fff;
+  --body-text: #000;
+  --border: #999;
+  --cover-gradient-1: #333;
+  --cover-gradient-2: #555;
+  --cover-gradient-3: #777;
+  --light-green-bg: #f0f0f0;
+  --section-bg: #f5f5f5;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--body-text);
+  background: var(--bg);
+  direction: rtl;
+}
+
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+  @bottom-center {
+    content: "— " counter(page) " —";
+    font-size: 10px;
+    color: #666;
+  }
+}
+
+/* ===== B&W TOGGLE ===== */
+.bw-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 9999;
+  background: var(--primary-green);
+  color: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: all 0.3s;
+}
+.bw-toggle:hover { background: var(--dark-green); }
+
+/* ===== COVER PAGE ===== */
+.cover-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, var(--cover-gradient-1) 0%, var(--cover-gradient-2) 50%, var(--cover-gradient-3) 100%);
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+}
+.cover-page::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a020' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.cover-border {
+  border: 3px solid var(--gold);
+  border-radius: 16px;
+  padding: 50px 60px;
+  position: relative;
+  max-width: 700px;
+}
+.cover-border::after {
+  content: '';
+  position: absolute;
+  top: 8px; left: 8px; right: 8px; bottom: 8px;
+  border: 1px solid rgba(212,160,32,0.4);
+  border-radius: 12px;
+  pointer-events: none;
+}
+.cover-book-title {
+  font-family: 'Amiri', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.cover-author {
+  font-size: 18px;
+  color: #c8e6c9;
+  margin-bottom: 30px;
+}
+.cover-lesson-num {
+  font-size: 22px;
+  color: var(--light-gold);
+  margin-bottom: 8px;
+}
+.cover-lesson-title {
+  font-family: 'Amiri', serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 30px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.cover-divider {
+  width: 120px;
+  height: 2px;
+  background: var(--gold);
+  margin: 20px auto;
+}
+.cover-names {
+  font-size: 15px;
+  color: #a5d6a7;
+  line-height: 2;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 24px;
+}
+
+.section-divider {
+  text-align: center;
+  margin: 30px 0;
+  position: relative;
+}
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 30%;
+  height: 1px;
+  background: linear-gradient(to left, var(--gold), transparent);
+}
+.section-divider::before { right: 0; }
+.section-divider::after { left: 0; background: linear-gradient(to right, var(--gold), transparent); }
+.section-divider .divider-icon {
+  color: var(--gold);
+  font-size: 22px;
+  padding: 0 12px;
+  background: var(--bg);
+}
+
+.section-divider.ornate {
+  margin: 40px 0;
+}
+.section-divider.ornate::before,
+.section-divider.ornate::after {
+  width: 35%;
+  background: linear-gradient(to left, var(--primary-green), transparent);
+}
+.section-divider.ornate::after {
+  background: linear-gradient(to right, var(--primary-green), transparent);
+}
+
+h1 {
+  font-size: 26px;
+  color: var(--primary-green);
+  border-bottom: 3px solid var(--gold);
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+h2 {
+  font-size: 22px;
+  color: var(--primary-green);
+  margin-bottom: 14px;
+  margin-top: 28px;
+}
+h3 {
+  font-size: 19px;
+  color: var(--dark-green);
+  margin-bottom: 10px;
+  margin-top: 22px;
+}
+
+p { margin-bottom: 14px; }
+
+/* ===== DUA BOX ===== */
+.dua-box {
+  background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 20px 0;
+  text-align: center;
+  font-size: 18px;
+  line-height: 2;
+  position: relative;
+}
+.dua-box::before {
+  content: '🤲';
+  font-size: 28px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* ===== MATN BOX ===== */
+.matn-box {
+  background: var(--light-gold);
+  border-right: 5px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  padding: 16px 22px;
+  margin: 20px 0;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 2;
+  color: var(--dark-green);
+}
+
+/* ===== TREE CONTAINER ===== */
+.tree-container {
+  background: var(--light-green-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 24px 0;
+  overflow-x: auto;
+}
+.tree-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--primary-green);
+  text-align: center;
+  margin-bottom: 18px;
+}
+.tree-root {
+  text-align: center;
+  margin-bottom: 8px;
+}
+.tree-node {
+  display: inline-block;
+  background: var(--primary-green);
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 17px;
+}
+.tree-branches {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.tree-branch {
+  text-align: center;
+  flex: 1;
+  min-width: 140px;
+}
+.tree-branch-node {
+  background: var(--gold);
+  color: var(--dark-green);
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+.tree-connector {
+  width: 2px;
+  height: 16px;
+  background: var(--primary-green);
+  margin: 0 auto;
+}
+.tree-leaf {
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 15px;
+  margin: 3px auto;
+  display: inline-block;
+  max-width: 100%;
+}
+.tree-sub-branch {
+  margin-top: 6px;
+}
+.tree-horizontal {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+/* ===== TABLE STYLED ===== */
+.table-styled {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 16px;
+}
+.table-styled th {
+  background: var(--primary-green);
+  color: #fff;
+  padding: 10px 14px;
+  font-weight: 700;
+  border: 1px solid var(--dark-green);
+  text-align: center;
+}
+.table-styled td {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  text-align: center;
+  vertical-align: top;
+}
+.table-styled tr:nth-child(even) { background: var(--light-green-bg); }
+.table-styled tr:nth-child(odd) { background: #fff; }
+
+/* ===== CALLOUT BOX ===== */
+.callout {
+  background: #fff8e1;
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 20px 0;
+  position: relative;
+}
+.callout::before {
+  content: '⚡';
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  font-size: 22px;
+  background: var(--bg);
+  padding: 0 6px;
+}
+.callout-title {
+  font-weight: 700;
+  color: var(--dark-green);
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+/* ===== DEFINITION CARD ===== */
+.definition-card {
+  background: #fff;
+  border: 2px solid var(--teal);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 20px 0;
+  position: relative;
+}
+.definition-term {
+  font-weight: 700;
+  color: var(--teal);
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+.definition-text {
+  font-size: 17px;
+  line-height: 1.8;
+}
+.definition-ref {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+}
+
+/* ===== QAIDAH BOX ===== */
+.qaidah-box {
+  background: linear-gradient(135deg, #fff8e1 0%, #fff3cd 100%);
+  border: 3px solid var(--gold);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 24px 0;
+  position: relative;
+}
+.qaidah-label {
+  position: absolute;
+  top: -14px;
+  right: 20px;
+  background: var(--gold);
+  color: #fff;
+  padding: 3px 18px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 14px;
+}
+.qaidah-text {
+  font-size: 17px;
+  line-height: 2;
+  font-weight: 600;
+  color: var(--dark-green);
+  margin-top: 8px;
+}
+
+/* ===== BENEFIT BOX ===== */
+.benefit-box {
+  background: linear-gradient(135deg, #f3e5f5 0%, #e8daef 100%);
+  border: 2px solid #8e44ad;
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 20px 0;
+}
+.benefit-title {
+  font-weight: 700;
+  color: #8e44ad;
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+.benefit-text {
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* ===== EVIDENCE BOX ===== */
+.evidence-box {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 18px 0;
+  position: relative;
+}
+.evidence-box::before {
+  content: '📖';
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  font-size: 22px;
+  background: var(--bg);
+  padding: 0 4px;
+}
+.evidence-label {
+  font-weight: 700;
+  color: var(--primary-green);
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+.evidence-text {
+  font-size: 18px;
+  line-height: 2;
+  font-weight: 600;
+}
+
+/* ===== SUMMARY BOX ===== */
+.summary-box {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  border: 2px solid #1565c0;
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 20px 0;
+}
+.summary-title {
+  font-weight: 700;
+  color: #1565c0;
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+.summary-text {
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* ===== ALERT BOX ===== */
+.alert-box {
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 18px 0;
+  font-size: 17px;
+}
+.alert-box.info {
+  background: #e3f2fd;
+  border: 2px solid #2196f3;
+}
+.alert-box.warning {
+  background: #fff3e0;
+  border: 2px solid #ff9800;
+}
+.alert-box.success {
+  background: #e8f5e9;
+  border: 2px solid #4caf50;
+}
+.alert-box.error {
+  background: #fce4ec;
+  border: 2px solid #e53935;
+}
+
+/* ===== I'RAB EXAMPLE BOX ===== */
+.irab-box {
+  background: #fff;
+  border: 2px solid var(--teal);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin: 18px 0;
+  position: relative;
+}
+.irab-box::before {
+  content: '✏️';
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  font-size: 20px;
+  background: var(--bg);
+  padding: 0 4px;
+}
+.irab-title {
+  font-weight: 700;
+  color: var(--teal);
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+.irab-example {
+  background: var(--light-green-bg);
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 12px;
+  color: var(--dark-green);
+}
+.irab-detail {
+  font-size: 16px;
+  line-height: 2;
+  padding-right: 12px;
+  border-right: 3px solid var(--teal);
+  margin-bottom: 8px;
+}
+.irab-detail strong {
+  color: var(--primary-green);
+}
+
+/* ===== COMPARISON CARDS ===== */
+.cols {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+.cols-3 > div { flex: 1; min-width: 200px; }
+.cols-4 > div { flex: 1; min-width: 180px; }
+.comparison-card {
+  background: #fff;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  text-align: center;
+}
+.comparison-card-header {
+  background: var(--primary-green);
+  color: #fff;
+  margin: -16px -18px 12px;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  font-weight: 700;
+  font-size: 16px;
+}
+.comparison-card-body {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* ===== SCHOLAR CARD ===== */
+.scholar-card {
+  background: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 20px 0;
+  position: relative;
+}
+.scholar-name {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--dark-green);
+}
+.scholar-badge {
+  display: inline-block;
+  background: var(--primary-green);
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+  margin-right: 8px;
+}
+.scholar-dates {
+  font-size: 14px;
+  color: #666;
+  margin-top: 4px;
+}
+.scholar-bio {
+  font-size: 16px;
+  margin-top: 8px;
+  line-height: 1.7;
+}
+
+/* ===== CHECKLIST ===== */
+.checklist {
+  background: var(--light-green-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 20px 0;
+}
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.checklist-circle {
+  min-width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--primary-green);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+}
+.checklist-text {
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* ===== POETRY BOX ===== */
+.poetry-box {
+  background: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 20px 28px;
+  margin: 20px 0;
+  text-align: center;
+}
+.poetry-box .verse {
+  font-size: 19px;
+  line-height: 2.2;
+  font-weight: 600;
+  color: var(--dark-green);
+}
+.poetry-attribution {
+  font-size: 14px;
+  color: #666;
+  margin-top: 8px;
+  font-style: italic;
+}
+
+/* ===== RULING CARD ===== */
+.ruling-card {
+  display: inline-block;
+  border-radius: 8px;
+  padding: 8px 18px;
+  margin: 4px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+}
+.ruling-card.fard { background: #c62828; }
+.ruling-card.wajib { background: #e65100; }
+.ruling-card.sunna { background: #2e7d32; }
+.ruling-card.mustahabb { background: #1565c0; }
+.ruling-card.makruh { background: #f9a825; color: #333; }
+.ruling-card.haram { background: #b71c1c; }
+.ruling-card.mubah { background: #757575; }
+
+/* ===== SPECIAL PROPERTY BOX ===== */
+.special-box {
+  background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+  border: 2px solid #c62828;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 18px 0;
+  position: relative;
+}
+.special-box::before {
+  content: '🔴';
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  font-size: 20px;
+  background: var(--bg);
+  padding: 0 4px;
+}
+.special-title {
+  font-weight: 700;
+  color: #c62828;
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+/* ===== FLOW CONTAINER ===== */
+.flow-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0;
+  direction: rtl;
+}
+.flow-step {
+  background: var(--primary-green);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  min-width: 100px;
+}
+.flow-arrow {
+  font-size: 22px;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* ===== CLOSING BOX ===== */
+.closing-box {
+  background: linear-gradient(135deg, var(--light-green-bg) 0%, #c8e6c9 100%);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 24px 0;
+  text-align: center;
+}
+.closing-dua {
+  font-size: 18px;
+  line-height: 2;
+  color: var(--dark-green);
+  font-weight: 600;
+}
+
+/* ===== FOOTER ===== */
+.page-footer {
+  text-align: center;
+  font-size: 13px;
+  color: #888;
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+ul, ol { padding-right: 24px; margin-bottom: 14px; }
+li { margin-bottom: 6px; }
+
+.highlight { color: var(--primary-green); font-weight: 700; }
+.gold-highlight { color: var(--gold); font-weight: 700; }
+.teal-highlight { color: var(--teal); font-weight: 700; }
+
+/* ===== TWO-WAY I'RAB BOX ===== */
+.two-way-box {
+  background: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 20px 0;
+}
+.two-way-title {
+  font-weight: 700;
+  color: var(--dark-green);
+  font-size: 17px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.two-way-content {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.two-way-content > div {
+  flex: 1;
+  min-width: 250px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+.two-way-label {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 8px;
+  padding: 4px 12px;
+  border-radius: 6px;
+  color: #fff;
+  display: inline-block;
+}
+.two-way-label.way1 { background: var(--primary-green); }
+.two-way-label.way2 { background: var(--teal); }
+
+/* ===== METHOD CARDS ===== */
+.method-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+.method-card {
+  background: #fff;
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 16px 18px;
+  text-align: center;
+}
+.method-card-label {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.method-card-label.praise { background: #2e7d32; }
+.method-card-label.blame { background: #c62828; }
+.method-card-verb {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 6px;
+}
+.method-card-example {
+  font-size: 16px;
+  color: #555;
+  margin-top: 6px;
+}
+
+@media print {
+  .bw-toggle { display: none; }
+  .cover-page { page-break-after: always; }
+  body { font-size: 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- B&W TOGGLE BUTTON -->
+<button class="bw-toggle" onclick="document.body.classList.toggle('bw-mode')">وضع الأبيض والأسود</button>
+
+<!-- ===== COVER PAGE ===== -->
+<div class="cover-page">
+  <div class="cover-border">
+    <div class="cover-book-title">شرح العوامل المائة</div>
+    <div class="cover-author">للإمام عبد القاهر الجرجاني رحمه الله تعالى</div>
+    <div class="cover-divider"></div>
+    <div class="cover-lesson-num">الدرس الرابع عشر</div>
+    <div class="cover-lesson-title">أفعال المقاربة — أفعال المدح والذم</div>
+    <div class="cover-divider"></div>
+    <div class="cover-names">
+      إعداد: أحمد بن إرشاد<br>
+      المتن: الإمام عبد القاهر الجرجاني رحمه الله تعالى<br>
+      الشرح: د. لبيب نجيب عبدالله
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="main-content">
+
+<!-- OPENING DUA -->
+<div class="dua-box">
+بسم الله الرحمن الرحيم<br>
+الحمد لله رب العالمين والصلاة والسلام الأتمان الأكملان على سيد المرسلين سيدنا محمد وعلى آله وصحبه الطيبين الطاهرين<br>
+أما بعد فأسأل الله سبحانه وتعالى أن يمن علينا بالعلم النافع والعمل الصالح وأن يفقهنا في الدين وأن يفتح لنا فتوح العارفين وأن يرزقنا الإخلاص في الأقوال والأعمال اللهم آمين
+</div>
+
+<!-- ============================================================ -->
+<!-- PART 1: أفعال المقاربة                                        -->
+<!-- ============================================================ -->
+
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h1>النوع الحادي عشر: أفعال المقاربة</h1>
+
+<p>لا زال الكلام متصلاً في كتاب العوامل للإمام العلام عبد القاهر الجرجاني رحمه الله تعالى رحمة واسعة. قال رحمه الله تعالى:</p>
+
+<div class="matn-box">
+  النوع الحادي عشر من ثلاثة عشر نوعاً:<br>
+  <strong>أفعال تسمّى أفعال المقاربة</strong><br>
+  وهي ترفع اسماً واحداً وتنصب الخبر
+</div>
+
+<p>أفعال المقاربة لها من العمل مثل ما لكان من العمل. وفي ذلك يقول الإمام ابن مالك رحمه الله:</p>
+
+<!-- POETRY: Ibn Malik -->
+<div class="poetry-box">
+  <div class="verse">ككان كاد وعسى لكن ندر</div>
+  <div class="verse">غير مضارع لهذين خبر</div>
+  <div class="poetry-attribution">— الإمام ابن مالك رحمه الله (من نظم الألفية)</div>
+</div>
+
+<h2>شرح بيت ابن مالك</h2>
+
+<p>هذا البيت تضمّن مسألتين:</p>
+
+<div class="definition-card">
+  <div class="definition-term">المسألة الأولى: ككان كاد وعسى</div>
+  <div class="definition-text">
+    أي أن حكم <strong>كاد</strong> و<strong>عسى</strong> مثل كان: ترفع الأول ويكون اسمها، وتنصب الثاني ويكون خبرها. تقول مثلاً: <strong>كادت السماء تمطر</strong> — كادت من أفعال المقاربة، السماء اسمها مرفوع، تمطر الجملة في محل نصب خبر كادت.
+  </div>
+</div>
+
+<div class="definition-card">
+  <div class="definition-term">المسألة الثانية: لكن ندر غير مضارع لهذين خبر</div>
+  <div class="definition-text">
+    أي أن الخبر في <strong>كاد</strong> و<strong>عسى</strong> (والخبر في أخواتهما) يكون فعلاً مضارعاً في الغالب، ونادراً يكون خبرها ليس مضارعاً. سُمع من العرب أنهم قالوا: <strong>عسيت صائماً</strong> — لكن هذا نادر، هنا الخبر هل هو فعل مضارع؟ لا، هذا نادر.
+  </div>
+</div>
+
+<p>نقرأ البيت ثلاث مرات:</p>
+<div class="poetry-box">
+  <div class="verse">ككان كاد وعسى لكن ندر</div>
+  <div class="verse">غير مضارع لهذين خبر</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- CLASSIFICATION: أقسام أفعال المقاربة                            -->
+<!-- ============================================================ -->
+
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h2>أقسام أفعال المقاربة</h2>
+
+<p>أفعال المقاربة تنقسم إلى ثلاث مجموعات:</p>
+
+<!-- CLASSIFICATION TREE: أقسام أفعال المقاربة -->
+<div class="tree-container">
+  <div class="tree-title">شجرة التصنيف: أقسام أفعال المقاربة</div>
+  <div class="tree-root">
+    <div class="tree-node">أفعال المقاربة</div>
+  </div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">ما يدلّ على قرب وقوع الخبر</div>
+      <div class="tree-sub-branch">
+        <div class="tree-horizontal">
+          <div class="tree-leaf">كاد</div>
+          <div class="tree-leaf">كرب</div>
+          <div class="tree-leaf">أوشك</div>
+        </div>
+        <div style="font-size:14px;color:#666;margin-top:6px;">الخبر لم يقع لكن صار قريب الوقوع</div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">ما يدلّ على رجاء الخبر</div>
+      <div class="tree-sub-branch">
+        <div class="tree-horizontal">
+          <div class="tree-leaf">عسى</div>
+          <div class="tree-leaf">حرى</div>
+          <div class="tree-leaf">اخلولق</div>
+        </div>
+        <div style="font-size:14px;color:#666;margin-top:6px;">يتضمن معنى الرجاء</div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">أفعال الشروع</div>
+      <div class="tree-sub-branch">
+        <div class="tree-horizontal">
+          <div class="tree-leaf">أنشأ</div>
+          <div class="tree-leaf">طفق</div>
+          <div class="tree-leaf">جعل</div>
+          <div class="tree-leaf">أخذ</div>
+          <div class="tree-leaf">علق</div>
+        </div>
+        <div style="font-size:14px;color:#666;margin-top:6px;">تدلّ على أن الشيء قد حصل وبدأ</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3>المجموعة الأولى: ما يدلّ على قرب وقوع الخبر</h3>
+
+<p>أن الخبر لم يقع لكن صار قريب الوقوع، لم يقع بعد لكن صار قريب الوقوع. وهذه الأفعال هي: <strong>كاد</strong>، و<strong>كرب</strong>، و<strong>أوشك</strong>.</p>
+
+<p>انظر في المثال: <strong>كادت السماء تمطر</strong> — أمطرت؟ لا، لكن قرب إمطارها. ونفس الكلام في <strong>كرب</strong> ونفس الكلام في <strong>أوشك</strong>: <strong>أوشك زيد أن يسافر</strong> — سافر؟ لا، قرب سفره.</p>
+
+<h3>المجموعة الثانية: ما يدلّ على رجاء الخبر</h3>
+
+<p>يتضمن معنى الرجاء، وهي: <strong>عسى</strong>، و<strong>حرى</strong>، و<strong>اخلولق</strong>. تقول مثلاً: <strong>عسى الفتح أن يأتي</strong>، <strong>عسى المطر أن ينزل</strong> — أي ترجو أن ينزل المطر، أي ترجو أن يأتي الفتح. هذه تدلّ على رجاء وقوع الخبر.</p>
+
+<h3>المجموعة الثالثة: أفعال الشروع</h3>
+
+<p>هذه تدلّ على أن الشيء قد حصل — قد بدأ. هناك يدلّ على قرب بدئه، لكن هنا يدلّ على حصوله وبدايته. مثل: <strong>أنشأ</strong>، و<strong>طفق</strong> — في القرآن الكريم: ﴿وَطَفِقَا يَخْصِفَانِ عَلَيْهِمَا مِن وَرَقِ الْجَنَّةِ﴾، و<strong>جعل</strong>، و<strong>أخذ</strong>، و<strong>علق</strong>.</p>
+
+<p>قال لك ابن مالك في الألفية:</p>
+
+<div class="poetry-box">
+  <div class="verse">كأنشأ السائق يحدو وطفق</div>
+  <div class="verse">كذا جعلت وأخذت وعلق</div>
+  <div class="poetry-attribution">— الإمام ابن مالك رحمه الله (من نظم الألفية)</div>
+</div>
+
+<div class="callout">
+  <div class="callout-title">تنبيه: تسمية "أفعال المقاربة" من باب التغليب</div>
+  <p>هذه الأفعال تسمّى أفعال مقاربة <strong>من باب التغليب</strong>، وإلا فإن أفعال الشروع ليست من أفعال المقاربة. فأفعال الشروع تدلّ على أن الشيء قد بدأ وحصل، لا على المقاربة فقط. لكن غُلِّب اسم "أفعال المقاربة" على الجميع.</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- MATN: عمل أفعال المقاربة                                       -->
+<!-- ============================================================ -->
+
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h2>عمل أفعال المقاربة</h2>
+
+<p>قال المصنف رحمه الله: <strong>وهي ترفع اسماً واحداً وتنصب الخبر</strong>.</p>
+
+<div class="callout">
+  <div class="callout-title">لماذا ترفع اسماً واحداً؟</div>
+  <p>لأن الثاني يكون فعلاً وليس اسماً. فالخبر يكون فعلاً مضارعاً في الغالب كما بيّن ابن مالك رحمه الله.</p>
+</div>
+
+<p>وخبرها الفعل المضارع <strong>في تقدير مصدر منصوب</strong> في نحو عسى — المصدر المؤول من أنّ وما دخلت عليه في محل نصب، ليس الجملة الفعلية بل المصدر المؤول من أنّ وما دخلت عليه في محل نصب.</p>
+
+<div class="matn-box">
+  وهي أربعة أفعال:<br>
+  أحدها <strong>عسى</strong> — نحو: عسى زيد أن يخرج<br>
+  والثاني <strong>كاد</strong> — نحو: كاد زيد يخرج<br>
+  والثالث <strong>كرب</strong> — نحو: كرب زيد يخرج<br>
+  والرابع <strong>أوشك</strong> — نحو: أوشك زيد أن يخرج
+</div>
+
+<p>هنا المصنف الإمام الجرجاني رحمه الله تعالى لم يذكرها كلها وإنما ذكر بعضها فقال أربعة أفعال فقط، وبقيتها إن شاء الله ندرسها في الكتاب الذي بعد هذا الكتاب إن شاء الله في المتمم الأجرومية.</p>
+
+<!-- ============================================================ -->
+<!-- اقتران خبر أفعال المقاربة بأن                                  -->
+<!-- ============================================================ -->
+
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h2>اقتران خبر أفعال المقاربة بأن</h2>
+
+<p>من أهم المسائل في أفعال المقاربة: هل يقترن خبرها بأن أم لا؟ وهذا ينقسم إلى أربعة أقسام:</p>
+
+<!-- TABLE: حالات اقتران بأن -->
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th style="width:5%">الرقم</th>
+      <th style="width:25%">الحالة</th>
+      <th style="width:25%">الأفعال</th>
+      <th style="width:45%">التفصيل</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="font-weight:700;font-size:18px;">١</td>
+      <td><strong>ما الأكثر اقتران خبرها بأن</strong></td>
+      <td>عسى، أوشك</td>
+      <td>
+        <strong>عسى:</strong> بل لم يأتِ في القرآن الكريم عسى إلا واقترن خبرها بأن. كل عسى في القرآن الكريم خبرها يقترن بأن.<br>
+        <strong>أوشك:</strong> كذلك في الحديث: «كالراعي يرعى حول الحمى يوشك أن يرتع فيه» فيقترن خبر يوشك بأن.
+      </td>
+    </tr>
+    <tr>
+      <td style="font-weight:700;font-size:18px;">٢</td>
+      <td><strong>ما الأكثر عدم اقتران خبرها بأن</strong></td>
+      <td>كاد، كرب</td>
+      <td>
+        <strong>كاد:</strong> في القرآن الكريم في كل المواضع جاءت غير مقترنة بأن. لا يوجد في القرآن الكريم موضع اقترنت أن بخبر كاد أو كرب.<br>
+        أمثلة: ﴿يَكَادُونَ يَفْتِنُونَ﴾، ﴿يَكَادُ الْبَرْقُ يَخْطَفُ أَبْصَارَهُمْ﴾، ﴿فَذَبَحُوهَا وَمَا كَادُوا يَفْعَلُونَ﴾
+      </td>
+    </tr>
+    <tr>
+      <td style="font-weight:700;font-size:18px;">٣</td>
+      <td><strong>ما يمتنع اقتران خبرها بأن</strong></td>
+      <td>أفعال الشروع<br>(أنشأ، طفق، جعل، أخذ، علق)</td>
+      <td>يمتنع أن تقترن أن بخبر أفعال الشروع</td>
+    </tr>
+    <tr>
+      <td style="font-weight:700;font-size:18px;">٤</td>
+      <td><strong>ما يجب اقتران خبرها بأن</strong></td>
+      <td>حرى، اخلولق</td>
+      <td>يجب أن يقترن خبر حرى وخبر اخلولق بأن. تقول مثلاً: <strong>حرى الطالب أن ينجح</strong> — يجب أن يقترن بأن.</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- EVIDENCE: كاد without أن -->
+<div class="evidence-box">
+  <div class="evidence-label">أدلة من القرآن: كاد بدون أن</div>
+  <div class="evidence-text">
+    ﴿يَكَادُ الْبَرْقُ يَخْطَفُ أَبْصَارَهُمْ﴾<br>
+    ﴿فَذَبَحُوهَا وَمَا كَادُوا يَفْعَلُونَ﴾
+  </div>
+  <p style="font-size:15px;margin-top:8px;">كاد في القرآن الكريم في كل المواضع جاءت غير مقترنة بأن</p>
+</div>
+
+<!-- EVIDENCE: عسى with أن -->
+<div class="evidence-box">
+  <div class="evidence-label">دليل من القرآن: عسى مع أن</div>
+  <div class="evidence-text">﴿عَسَى اللَّهُ أَن يَأْتِيَ بِالْفَتْحِ﴾</div>
+  <p style="font-size:15px;margin-top:8px;">كل عسى في القرآن الكريم خبرها يقترن بأن</p>
+</div>
+
+<!-- EVIDENCE: أوشك with أن -->
+<div class="evidence-box">
+  <div class="evidence-label">دليل من الحديث: أوشك مع أن</div>
+  <div class="evidence-text">«كالراعي يرعى حول الحمى يوشك أن يرتع فيه»</div>
+</div>
+
+<!-- BENEFIT: يوشك -->
+<div class="benefit-box">
+  <div class="benefit-title">فائدة: خصائص يوشك</div>
+  <div class="benefit-text">
+    يوشك من خصائصها أنها تستعمل بالماضي وتستعمل بالمضارع وباسم الفاعل (موشِكة).
+  </div>
+</div>
+
+<!-- SUMMARY: أربعة أقسام -->
+<div class="summary-box">
+  <div class="summary-title">خلاصة حالات اقتران خبر أفعال المقاربة بأن (٤ حالات)</div>
+  <div class="summary-text">
+    <strong>① ما الأكثر اقتران خبره بأن:</strong> عسى وأوشك<br>
+    <strong>② ما الأكثر عدم اقتران خبره بأن:</strong> كاد وكرب<br>
+    <strong>③ ما يمتنع اقتران خبره بأن:</strong> أفعال الشروع (أنشأ، طفق، جعل، أخذ، علق)<br>
+    <strong>④ ما يجب اقتران خبره بأن:</strong> حرى واخلولق
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- THREE ISSUES LEARNED                                          -->
+<!-- ============================================================ -->
+
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h2>ثلاث مسائل تعلّمناها في أفعال المقاربة</h2>
+
+<div class="checklist">
+  <div class="checklist-item">
+    <div class="checklist-circle">١</div>
+    <div class="checklist-text"><strong>المسألة الأولى:</strong> عرفنا عمل أفعال المقاربة — قلنا أفعال المقاربة من حيث العمل ككان: ترفع الاسم وتنصب الخبر.</div>
+  </div>
+  <div class="checklist-item">
+    <div class="checklist-circle">٢</div>
+    <div class="checklist-text"><strong>المسألة الثانية:</strong> عرفنا أن خبر أفعال المقاربة لا يكون إلا فعلاً مضارعاً في الغالب.</div>
+  </div>
+  <div class="checklist-item">
+    <div class="checklist-circle">٣</div>
+    <div class="checklist-text"><strong>المسألة الثالثة:</strong> عرفنا أن أفعال المقاربة تنقسم إلى أربعة أقسام من حيث اقتران خبرها بأن (ما يمتنع، ما يجب، ما الأكثر اقتران، ما الأكثر عدم اقتران).</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- I'RAB OF THE FOUR VERBS                                       -->
+<!-- ============================================================ -->
+
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h1>الإعراب التفصيلي لأفعال المقاربة</h1>
+
+<!-- ===== 1. عسى ===== -->
+<h2>أولاً: عسى — فعل الرجاء</h2>
+
+<div class="definition-card">
+  <div class="definition-term">عسى</div>
+  <div class="definition-text">
+    عسى فعل رجاء يدلّ على الرجاء، وهو فعل جامد. الأكثر اقتران خبرها بأن.
+  </div>
+</div>
+
+<p>عسى لها ثلاثة تراكيب مختلفة، ولكل تركيب إعراب خاص:</p>
+
+<!-- CLASSIFICATION TREE: تراكيب عسى -->
+<div class="tree-container">
+  <div class="tree-title">شجرة التصنيف: تراكيب عسى الثلاثة</div>
+  <div class="tree-root">
+    <div class="tree-node">عسى</div>
+  </div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">التركيب الأول<br>عسى زيد أن يخرج</div>
+      <div class="tree-sub-branch">
+        <div style="background:#fff;border:1px solid var(--border);padding:8px 14px;border-radius:6px;font-size:15px;margin:4px auto;max-width:100%;">
+          <strong>يتعيّن أن تكون عسى ناقصة</strong><br>
+          لها اسم (زيد) وخبر (أن يخرج)
+        </div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">التركيب الثاني<br>عسى أن يخرج</div>
+      <div class="tree-sub-branch">
+        <div style="background:#fff;border:1px solid var(--border);padding:8px 14px;border-radius:6px;font-size:15px;margin:4px auto;max-width:100%;">
+          <strong>يتعيّن أن تكون عسى تامة</strong><br>
+          تحتاج إلى فاعل فقط<br>
+          أن وما دخلت عليه في محل رفع فاعل
+        </div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">التركيب الثالث<br>عسى أن يخرج زيد</div>
+      <div class="tree-sub-branch">
+        <div style="background:#fff;border:1px solid var(--border);padding:8px 14px;border-radius:6px;font-size:15px;margin:4px auto;max-width:100%;">
+          <strong>يجوز الوجهان:</strong><br>
+          ① ناقصة: أن يخرج خبر مقدم، زيد اسم مؤخر<br>
+          ② تامة: أن يخرج فاعل، زيد فاعل يخرج
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- I'RAB: التركيب الأول -->
+<div class="irab-box">
+  <div class="irab-title">التركيب الأول: عسى زيد أن يخرج</div>
+  <div class="irab-example">عسى زيد أن يخرج</div>
+  <div class="irab-detail">
+    <strong>عسى:</strong> فعل من أفعال الرجاء، وهو فعل جامد
+  </div>
+  <div class="irab-detail">
+    <strong>زيد:</strong> اسم عسى مرفوع وعلامة رفعه الضمة الظاهرة
+  </div>
+  <div class="irab-detail">
+    <strong>أن:</strong> أداة نصب ومصدر واستقبال
+  </div>
+  <div class="irab-detail">
+    <strong>يخرج:</strong> فعل مضارع منصوب بأن وعلامة نصبه الفتحة، والفاعل ضمير مستتر جوازاً تقديره هو
+  </div>
+  <div class="irab-detail">
+    <strong>أنّ وما دخلت عليه:</strong> في محل نصب خبر عسى
+  </div>
+</div>
+
+<p>هنا يتعيّن أن تكون عسى ناقصة — لها اسم (زيد) وخبر (أن يخرج). لاحظ أن الخبر فعل مضارع، ولاحظ أيضاً اقتران أن بخبر عسى وهو الأكثر.</p>
+
+<!-- I'RAB: التركيب الثاني -->
+<div class="irab-box">
+  <div class="irab-title">التركيب الثاني: عسى أن يخرج</div>
+  <div class="irab-example">عسى أن يخرج</div>
+  <div class="irab-detail">
+    <strong>عسى:</strong> تامة — تحتاج إلى فاعل فقط
+  </div>
+  <div class="irab-detail">
+    <strong>أنّ وما دخلت عليه:</strong> في محل رفع فاعل عسى
+  </div>
+</div>
+
+<p>عسى هنا تامة — لا تحتاج إلى اسم وخبر. تذكّر درس كان التامة: ما معنى كان تامة؟ تحتاج إلى فاعل فقط. كذلك هنا.</p>
+
+<!-- I'RAB: التركيب الثالث -->
+<div class="two-way-box">
+  <div class="two-way-title">التركيب الثالث: عسى أن يخرج زيد — يجوز الوجهان</div>
+  <div class="irab-example" style="background:var(--light-green-bg);padding:10px 16px;border-radius:8px;font-size:18px;font-weight:600;text-align:center;margin-bottom:12px;color:var(--dark-green);">عسى أن يخرج زيد</div>
+  <div class="two-way-content">
+    <div>
+      <div class="two-way-label way1">الوجه الأول: عسى ناقصة</div>
+      <div style="font-size:16px;line-height:2;margin-top:8px;">
+        <strong>عسى:</strong> ناقصة (لها اسم وخبر)<br>
+        <strong>أن يخرج:</strong> أن حرف مصدر ونصب واستقبال، يخرج فعل مضارع منصوب بأن، والمصدر المؤول في محل نصب خبر عسى مقدم<br>
+        <strong>زيد:</strong> اسم عسى مؤخر
+      </div>
+    </div>
+    <div>
+      <div class="two-way-label way2">الوجه الثاني: عسى تامة</div>
+      <div style="font-size:16px;line-height:2;margin-top:8px;">
+        <strong>عسى:</strong> تامة (تحتاج إلى فاعل فقط)<br>
+        <strong>أن يخرج:</strong> أنّ وما دخلت عليه في محل رفع فاعل عسى<br>
+        <strong>زيد:</strong> فاعل يخرج
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- QURAN APPLICATIONS for عسى -->
+<h3>تطبيق قرآني على تراكيب عسى</h3>
+
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>الآية</th>
+      <th>من أي الحالات؟</th>
+      <th>الإعراب</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="font-size:17px;font-weight:600;">﴿عَسَى اللَّهُ أَن يَأْتِيَ بِالْفَتْحِ﴾</td>
+      <td>من الحالة الأولى</td>
+      <td>عسى ناقصة — الله اسمها، أن يأتي بالفتح خبرها</td>
+    </tr>
+    <tr>
+      <td style="font-size:17px;font-weight:600;">﴿وَعَسَى أَن تَكْرَهُوا شَيْئًا﴾</td>
+      <td>من الحالة الثالثة — عسى تامة</td>
+      <td>عسى تامة — أن تكرهوا شيئاً في محل رفع فاعل</td>
+    </tr>
+    <tr>
+      <td style="font-size:17px;font-weight:600;">﴿عَسَى أَن يَبْعَثَكَ رَبُّكَ مَقَامًا مَّحْمُودًا﴾</td>
+      <td>من الحالة الثانية</td>
+      <td>يجوز أن تكون عسى ناقصة ويجوز أن تكون عسى تامة</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>قوله تعالى ﴿عَسَى أَن يَبْعَثَكَ رَبُّكَ مَقَامًا مَّحْمُودًا﴾ من الحالة الثانية — هنا يصحّ أن تكون عسى ناقصة ويصحّ أن تكون عسى تامة.</p>
+
+<!-- ===== 2. كاد ===== -->
+<h2>ثانياً: كاد — فعل المقاربة</h2>
+
+<div class="irab-box">
+  <div class="irab-title">إعراب: كاد زيد يخرج</div>
+  <div class="irab-example">كاد زيد يخرج</div>
+  <div class="irab-detail">
+    <strong>كاد:</strong> فعل ماضٍ من أفعال المقاربة مبني على الفتح
+  </div>
+  <div class="irab-detail">
+    <strong>زيد:</strong> اسم كاد مرفوع وعلامة رفعه الضمة الظاهرة
+  </div>
+  <div class="irab-detail">
+    <strong>يخرج:</strong> فعل مضارع مرفوع وعلامة رفعه الضمة الظاهرة على آخره، والفاعل ضمير مستتر جوازاً تقديره هو ويعود على زيد
+  </div>
+</div>
+
+<p>لاحظ معي: كاد الأكثر فيها عدم اقتران أن — هنا لم تقترن أن.</p>
+
+<!-- ===== 3. كرب ===== -->
+<h2>ثالثاً: كرب — فعل المقاربة</h2>
+
+<div class="callout">
+  <div class="callout-title">تنبيه: الأشهر في كرب فتح الراء</div>
+  <p>الأشهر في <strong>كرب</strong> فتح الراء (كَرَبَ)، وليس كسرها.</p>
+</div>
+
+<div class="irab-box">
+  <div class="irab-title">إعراب: كرب زيد يخرج</div>
+  <div class="irab-example">كرب زيد يخرج</div>
+  <div class="irab-detail">
+    <strong>كرب:</strong> فعل ماضٍ من أفعال المقاربة مبني على الفتح لا محل له من الإعراب
+  </div>
+  <div class="irab-detail">
+    <strong>زيد:</strong> اسمها مرفوع وعلامة رفعه الضمة الظاهرة على آخره
+  </div>
+  <div class="irab-detail">
+    <strong>يخرج:</strong> فعل مضارع مرفوع وعلامة رفعه الضمة الظاهرة على آخره، والفاعل ضمير مستتر جوازاً تقديره هو ويعود على زيد
+  </div>
+</div>
+
+<!-- ===== 4. أوشك ===== -->
+<h2>رابعاً: أوشك — فعل المقاربة</h2>
+
+<p>الأكثر في أوشك اقتران أن. وله أيضاً تراكيب مختلفة كعسى:</p>
+
+<div class="irab-box">
+  <div class="irab-title">إعراب: أوشك زيد أن يخرج</div>
+  <div class="irab-example">أوشك زيد أن يخرج</div>
+  <div class="irab-detail">
+    <strong>أوشك:</strong> فعل ماضٍ من أفعال مقاربة مبني على الفتح لا محل له من الإعراب
+  </div>
+  <div class="irab-detail">
+    <strong>زيد:</strong> اسم أوشك مرفوع وعلامة رفعه الضمة الظاهرة على آخره
+  </div>
+  <div class="irab-detail">
+    <strong>أن:</strong> حرف نصب ومصدر واستقبال
+  </div>
+  <div class="irab-detail">
+    <strong>يخرج:</strong> فعل مضارع منصوب بأن، والفاعل ضمير مستتر جوازاً تقديره هو
+  </div>
+</div>
+
+<p>هنا أوشك ناقصة — لها اسم (زيد) وخبر (أن يخرج).</p>
+
+<h3>التركيب الثاني: أوشك أن يخرج زيد</h3>
+
+<p>نفس الحالات كعسى: أوشك أن يخرج زيد — يجوز أن تكون أوشك ناقصة ويجوز أن تكون تامة.</p>
+
+<div class="two-way-box">
+  <div class="two-way-title">أوشك أن يخرج زيد — يجوز الوجهان</div>
+  <div class="irab-example" style="background:var(--light-green-bg);padding:10px 16px;border-radius:8px;font-size:18px;font-weight:600;text-align:center;margin-bottom:12px;color:var(--dark-green);">أوشك أن يخرج زيد</div>
+  <div class="two-way-content">
+    <div>
+      <div class="two-way-label way1">الوجه الأول: أوشك ناقصة</div>
+      <div style="font-size:16px;line-height:2;margin-top:8px;">
+        أوشك ناقصة: أن يخرج خبر مقدم، زيد اسم مؤخر
+      </div>
+    </div>
+    <div>
+      <div class="two-way-label way2">الوجه الثاني: أوشك تامة</div>
+      <div style="font-size:16px;line-height:2;margin-top:8px;">
+        أوشك تامة: أن يخرج في محل رفع فاعل، زيد فاعل يخرج
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>إذا كانت ناقصة فإنها ترفع وتنصب. وإذا كانت تامة فإنها تكتفي بمرفوعها (الفاعل). واضح هذا؟</p>
+
+<p>على كل حال هو ذكر من أفعال المقاربة أربعة أفعال فقط، وبقيتها إن شاء الله ندرسها في الكتاب الذي بعد هذا الكتاب إن شاء الله في المتمم الأجرومية.</p>
+
+<!-- ============================================================ -->
+<!-- PART 2: أفعال المدح والذم                                      -->
+<!-- ============================================================ -->
+
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h1>النوع الثاني عشر: أفعال المدح والذم</h1>
+
+<p>وهذا مبحث قصير.</p>
+
+<div class="matn-box">
+  النوع الثاني عشر من ثلاثة عشر نوعاً:<br>
+  <strong>أفعال المدح والذم</strong><br>
+  وهي ترفع اسم الجنس المعرف بلام التعريف والمخصوص بالمدح والذم يُذكر بعده
+</div>
+
+<!-- TWO METHODS FOR PRAISE AND BLAME -->
+<h2>طريقتا المدح وطريقتا الذم</h2>
+
+<p>إذا أردت أن تمدح شيئاً فلديك طريقتان، وإذا أردت أن تذمّ شيئاً فلديك طريقتان:</p>
+
+<!-- METHOD CARDS -->
+<div class="method-grid">
+  <div class="method-card">
+    <div class="method-card-label praise">المدح</div>
+    <div class="method-card-verb">نِعم</div>
+    <div class="method-card-example">نعم الرجل محمد</div>
+  </div>
+  <div class="method-card">
+    <div class="method-card-label praise">المدح</div>
+    <div class="method-card-verb">حبّذا</div>
+    <div class="method-card-example">حبّذا الصدق</div>
+  </div>
+  <div class="method-card">
+    <div class="method-card-label blame">الذم</div>
+    <div class="method-card-verb">بِئس</div>
+    <div class="method-card-example">بئس الرجل أبو جهل</div>
+  </div>
+  <div class="method-card">
+    <div class="method-card-label blame">الذم</div>
+    <div class="method-card-verb">لا حبّذا</div>
+    <div class="method-card-example">لا حبّذا الكذب</div>
+  </div>
+</div>
+
+<!-- EVIDENCE: نعم -->
+<div class="evidence-box">
+  <div class="evidence-label">دليل من القرآن الكريم</div>
+  <div class="evidence-text">﴿نِعْمَا دَارُ الْمُتَّقِينَ﴾ — دار الأمان والمِنّة</div>
+</div>
+
+<div class="callout">
+  <div class="callout-title">الدليل على أن نعم وبئس أفعال جامدة</div>
+  <p>نعم فعل جامد — الدليل على أنه فعل أنه يقبل تاء التأنيث. تقول: <strong>نِعْمَت</strong>. وكذلك بئس يقبل تاء التأنيث: <strong>بِئْسَت</strong>. فكان فعلاً.</p>
+  <p>وكذلك حبّذا فعل، ولا حبّذا فعل.</p>
+</div>
+
+<!-- CLASSIFICATION TREE: أفعال المدح والذم الأربعة -->
+<div class="tree-container">
+  <div class="tree-title">شجرة التصنيف: أفعال المدح والذم</div>
+  <div class="tree-root">
+    <div class="tree-node">أفعال المدح والذم</div>
+  </div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node" style="background:#2e7d32;color:#fff;">أفعال المدح</div>
+      <div class="tree-sub-branch">
+        <div class="tree-horizontal">
+          <div class="tree-leaf" style="font-weight:700;color:#2e7d32;">نِعم</div>
+          <div class="tree-leaf" style="font-weight:700;color:#2e7d32;">حبّذا</div>
+        </div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node" style="background:#c62828;color:#fff;">أفعال الذم</div>
+      <div class="tree-sub-branch">
+        <div class="tree-horizontal">
+          <div class="tree-leaf" style="font-weight:700;color:#c62828;">بِئس</div>
+          <div class="tree-leaf" style="font-weight:700;color:#c62828;">ساء</div>
+          <div class="tree-leaf" style="font-weight:700;color:#c62828;">لا حبّذا</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- إعراب نعم                                                     -->
+<!-- ============================================================ -->
+
+<div class="section-divider">
+  <span class="divider-icon">✦</span>
+</div>
+
+<h2>إعراب نعم الرجل محمد</h2>
+
+<p>كيف نُعرب في هذا المثال <strong>نعم الرجل محمد</strong>؟ عندك طريقتان في الإعراب:</p>
+
+<!-- COMPARISON: Two ways of i'rab -->
+<div class="two-way-box">
+  <div class="two-way-title">إعراب نعم الرجل محمد — طريقتان</div>
+  <div class="irab-example" style="background:var(--light-green-bg);padding:10px 16px;border-radius:8px;font-size:18px;font-weight:600;text-align:center;margin-bottom:12px;color:var(--dark-green);">نعم الرجل محمد</div>
+  <div class="two-way-content">
+    <div>
+      <div class="two-way-label way1">الطريق الأولى</div>
+      <div style="font-size:16px;line-height:2;margin-top:8px;">
+        <strong>نعم:</strong> فعل ماضٍ مبني على الفتح<br>
+        <strong>الرجل:</strong> فاعل مرفوع<br>
+        <strong>الجملة الفعلية</strong> (نعم الرجل) <strong>في محل رفع خبر مقدم</strong><br>
+        <strong>محمد:</strong> مبتدأ مؤخر جوازاً مرفوع<br>
+        <em>لماذا قلنا جوازاً؟ لأنه يصحّ أن تقول: محمد نعم الرجل</em>
+      </div>
+    </div>
+    <div>
+      <div class="two-way-label way2">الطريق الثانية</div>
+      <div style="font-size:16px;line-height:2;margin-top:8px;">
+        <strong>نعم:</strong> فعل ماضٍ<br>
+        <strong>الرجل:</strong> فاعل مرفوع<br>
+        <strong>محمد:</strong> خبر مبتدأ محذوف تقديره <strong>هو</strong><br>
+        <em>تقدير الكلام: نعم الرجل هو محمد</em>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="callout">
+  <div class="callout-title">تنبيه: الأمر واسع في الإعراب</div>
+  <p>يصحّ هذا ويصحّ هذا — الأمر واسع في الإعراب. في الطريق الأولى: الجملة الفعلية خبر مقدم ومحمد مبتدأ مؤخر. وفي الطريق الثانية: محمد خبر لمبتدأ محذوف تقديره هو.</p>
+</div>
+
+<!-- I'RAB: نعمت الطالب -->
+<div class="irab-box">
+  <div class="irab-title">إعراب تطبيقي: نعمت الطالب</div>
+  <div class="irab-example">نعمت الطالب</div>
+  <div class="irab-detail">
+    <strong>نعمت:</strong> فعل ماضٍ مبني على الفتح، والتاء تاء التأنيث
+  </div>
+  <div class="irab-detail">
+    <strong>الطالب:</strong> فاعل نعمة مرفوع وعلامة رفعه الضمة الظاهرة على آخره
+  </div>
+  <div class="irab-detail">
+    <strong>الجملة الفعلية</strong> (نعمت الطالب) <strong>في محل رفع خبر مقدم</strong>
+  </div>
+  <div class="irab-detail">
+    <strong>المبتدأ:</strong> مبتدأ مؤخر جوازاً مرفوع
+  </div>
+</div>
+
+<!-- I'RAB: نعم الرجل سلمان -->
+<div class="irab-box">
+  <div class="irab-title">إعراب تطبيقي: نعم الرجل سلمان</div>
+  <div class="irab-example">نعم الرجل سلمان</div>
+  <div class="irab-detail">
+    <strong>نعم:</strong> فعل ماضٍ مبني على الفتح لا محل له من الإعراب
+  </div>
+  <div class="irab-detail">
+    <strong>الرجل:</strong> فاعل مرفوع
+  </div>
+  <div class="irab-detail">
+    <strong>سلمان:</strong> مبتدأ مؤخر
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- إعراب بئس                                                     -->
+<!-- ============================================================ -->
+
+<div class="section-divider">
+  <span class="divider-icon">✦</span>
+</div>
+
+<h2>إعراب بئس الرجل أبو جهل</h2>
+
+<p>هذا الذي قلناه في نعم نقول مثله تماماً في بئس. فلو قلت مثلاً <strong>بئس الرجل أبو جهل</strong>:</p>
+
+<!-- COMPARISON: Two ways of i'rab for بئس -->
+<div class="two-way-box">
+  <div class="two-way-title">إعراب بئس الرجل أبو جهل — طريقتان</div>
+  <div class="irab-example" style="background:var(--light-green-bg);padding:10px 16px;border-radius:8px;font-size:18px;font-weight:600;text-align:center;margin-bottom:12px;color:var(--dark-green);">بئس الرجل أبو جهل</div>
+  <div class="two-way-content">
+    <div>
+      <div class="two-way-label way1">الطريق الأولى</div>
+      <div style="font-size:16px;line-height:2;margin-top:8px;">
+        <strong>بئس:</strong> فعل ماضٍ مبني على الفتح لا محل له من الإعراب<br>
+        <strong>الرجل:</strong> فاعل مرفوع وعلامة رفعه الضمة الظاهرة على آخره<br>
+        <strong>الجملة الفعلية</strong> (بئس الرجل) <strong>في محل رفع خبر مقدم</strong><br>
+        <strong>أبو:</strong> مبتدأ مؤخر مرفوع وعلامة رفعه الواو لأنه من الأسماء الخمسة وهو مضاف<br>
+        <strong>جهل:</strong> مضاف إليه
+      </div>
+    </div>
+    <div>
+      <div class="two-way-label way2">الطريق الثانية</div>
+      <div style="font-size:16px;line-height:2;margin-top:8px;">
+        <strong>بئس:</strong> فعل ماضٍ مبني على الفتح لا محل له من الإعراب<br>
+        <strong>الرجل:</strong> فاعل مرفوع وعلامة رفعه الضمة الظاهرة على آخره<br>
+        <strong>أبو:</strong> خبر لمبتدأ محذوف تقديره هو، مرفوع وعلامة رفعه الواو وهو مضاف<br>
+        <strong>جهل:</strong> مضاف إليه
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- حبذا                                                          -->
+<!-- ============================================================ -->
+
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h2>حبّذا — فعل المدح</h2>
+
+<div class="matn-box">
+  والثالث <strong>حبّذا</strong> وهو مثل نِعم في المدح والحكم<br>
+  نحو: حبّذا الرجل زيد، وحبّذا المرأة هند
+</div>
+
+<p>حبّذا مثل نعم في المدح، ومن حيث الحكم — أي الحكم الإعرابي: نفس الإعراب الذي قلته في نعم ستقوله في حبّذا.</p>
+
+<!-- I'RAB: حبذا الصدق -->
+<div class="irab-box">
+  <div class="irab-title">إعراب: حبّذا الصدق</div>
+  <div class="irab-example">حبّذا الصدق</div>
+  <div class="irab-detail">
+    <strong>حبّذا:</strong> فعل وفاعل — خبر مقدم
+  </div>
+  <div class="irab-detail">
+    <strong>الصدق:</strong> مبتدأ مؤخر
+  </div>
+</div>
+
+<div class="callout">
+  <div class="callout-title">خلاف النحاة: هل حبّذا كلمة واحدة أم كلمتان؟</div>
+  <p>ظاهر كلام المصنف أن <strong>حبّذا</strong> كلمة واحدة. لكن كثير من النحاة قالوا إن <strong>حبّذا</strong> كلمتان: <strong>حبّ</strong> فعل، و<strong>ذا</strong> فاعل — اسم إشارة مبني على السكون في محل رفع فاعل.</p>
+  <p>في المثال الذي عندنا <strong>حبّذا الصدق</strong> — هذا فعل وفاعل خبر مقدم، والصدق مبتدأ مؤخر. واضح؟</p>
+  <p>لكن المصنف جرى على أن <strong>حبّذا</strong> كلمة واحدة. والأمر واسع — إن شئت جعلتها كلمة واحدة، والأفضل أن تجعلها كلمتين.</p>
+</div>
+
+<!-- COMPARISON: نعم vs حبذا and تاء التأنيث -->
+<div class="callout">
+  <div class="callout-title">فرق مهم بين نعم وحبّذا في تاء التأنيث</div>
+  <p>لو كنت تريد أن تمدح أمّ المؤمنين عائشة رضي الله عنها، ماذا ستقول؟ <strong>نعمت المرأة عائشة</strong> — تأتي بتاء التأنيث. فنعم وبئس إذا استُعملتا مع المؤنث تأتيان بتاء التأنيث، ومع المذكر تتجرد عن تاء التأنيث.</p>
+  <p>لكن <strong>حبّذا</strong> — سواء استعملتها مع المذكر أو المؤنث — في الحالتين بدون تاء التأنيث. انظر: <strong>حبّذا الرجل زيد</strong> و<strong>حبّذا المرأة هند</strong>.</p>
+</div>
+
+<!-- TABLE: Comparison نعم vs حبذا -->
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>المقارنة</th>
+      <th>نِعم</th>
+      <th>حبّذا</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>الاستعمال</td>
+      <td>للمدح</td>
+      <td>للمدح</td>
+    </tr>
+    <tr>
+      <td>الحكم الإعرابي</td>
+      <td>مثل حبّذا</td>
+      <td>مثل نعم</td>
+    </tr>
+    <tr>
+      <td>تاء التأنيث مع المؤنث</td>
+      <td>نعمت المرأة عائشة</td>
+      <td>حبّذا المرأة هند (بلا تاء)</td>
+    </tr>
+    <tr>
+      <td>تأنيث الفعل</td>
+      <td>تأتي التاء مع المؤنث وتتجرد مع المذكر</td>
+      <td>لا تأتي التاء مطلقاً</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ============================================================ -->
+<!-- ساء                                                           -->
+<!-- ============================================================ -->
+
+<div class="section-divider">
+  <span class="divider-icon">✦</span>
+</div>
+
+<h2>ساء — فعل الذم</h2>
+
+<div class="matn-box">
+  والرابع <strong>ساء</strong> وهو مثل بئس في الذم والحكم<br>
+  نحو: ساء الرجل عمرو، وساء المرأة هند
+</div>
+
+<p>ساء مثل بئس في الذم والحكم — نفس الإعراب.</p>
+
+<div class="irab-box">
+  <div class="irab-title">إعراب: ساء الرجل عمرو</div>
+  <div class="irab-example">ساء الرجل عمرو</div>
+  <div class="irab-detail">
+    <strong>ساء:</strong> فعل ماضٍ<br>
+    <strong>الرجل:</strong> فاعل<br>
+    <strong>الجملة الفعلية:</strong> خبر مقدم<br>
+    <strong>عمرو:</strong> مبتدأ مؤخر
+  </div>
+</div>
+
+<div class="irab-box">
+  <div class="irab-title">إعراب: ساء المرأة هند</div>
+  <div class="irab-example">ساء المرأة هند</div>
+  <div class="irab-detail">
+    <strong>ساء:</strong> فعل وفاعل<br>
+    <strong>المرأة:</strong> فاعل<br>
+    <strong>هند:</strong> مبتدأ مؤخر
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SUMMARY: المخصوص بالمدح والذم                                  -->
+<!-- ============================================================ -->
+
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h2>ملخص: المخصوص بالمدح والذم</h2>
+
+<div class="summary-box">
+  <div class="summary-title">إعراب المخصوص بالمدح والذم</div>
+  <div class="summary-text">
+    <strong>المخصوص بالمدح</strong> — مثل محمد في «نعم الرجل محمد» — كيف يُعرب؟<br>
+    • إما <strong>مبتدأ مؤخر</strong> (على الإعراب الأول)<br>
+    • وإما <strong>خبر لمبتدأ محذوف تقديره هو</strong> (على الإعراب الثاني)<br><br>
+    <strong>المخصوص بالذم</strong> — مثل أبو جهل في «بئس الرجل أبو جهل» — كيف يُعرب؟<br>
+    • إما <strong>مبتدأ مؤخر</strong> على الإعراب الأول<br>
+    • وإما <strong>خبر لمبتدأ محذوف تقديره هو</strong> على الإعراب الثاني
+  </div>
+</div>
+
+<!-- SUMMARY TABLE: All Four Verbs -->
+<h2>جدول مقارنة: أفعال المدح والذم الأربعة</h2>
+
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>الفعل</th>
+      <th>النوع</th>
+      <th>مثل</th>
+      <th>تاء التأنيث</th>
+      <th>مثال</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="font-size:20px;font-weight:700;color:#2e7d32;">نِعم</td>
+      <td><span class="ruling-card sunna">مدح</span></td>
+      <td>—</td>
+      <td>تأتي مع المؤنث (نعمت)</td>
+      <td>نعم الرجل محمد<br>نعمت المرأة عائشة</td>
+    </tr>
+    <tr>
+      <td style="font-size:20px;font-weight:700;color:#c62828;">بِئس</td>
+      <td><span class="ruling-card haram">ذم</span></td>
+      <td>—</td>
+      <td>تأتي مع المؤنث (بئست)</td>
+      <td>بئس الرجل أبو جهل</td>
+    </tr>
+    <tr>
+      <td style="font-size:20px;font-weight:700;color:#2e7d32;">حبّذا</td>
+      <td><span class="ruling-card sunna">مدح</span></td>
+      <td>مثل نعم في المدح والحكم</td>
+      <td>لا تأتي مطلقاً</td>
+      <td>حبّذا الرجل زيد<br>حبّذا المرأة هند</td>
+    </tr>
+    <tr>
+      <td style="font-size:20px;font-weight:700;color:#c62828;">ساء</td>
+      <td><span class="ruling-card haram">ذم</span></td>
+      <td>مثل بئس في الذم والحكم</td>
+      <td>تأتي مع المؤنث</td>
+      <td>ساء الرجل عمرو<br>ساء المرأة هند</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>كذلك <strong>لا حبّذا</strong> — مثل بئس في الذم، تقول: <strong>لا حبّذا الكذب</strong>.</p>
+
+<!-- ============================================================ -->
+<!-- TEXT OF AUTHOR (نص المصنف)                                     -->
+<!-- ============================================================ -->
+
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h1>نص المصنف رحمه الله</h1>
+
+<div class="matn-box">
+  النوع الحادي عشر من ثلاثة عشر نوعاً:<br>
+  <strong>أفعال تسمّى أفعال المقاربة</strong><br>
+  وهي ترفع اسماً واحداً وتنصب الخبر<br>
+  وخبرها الفعل المضارع في تقدير مصدر منصوب<br>
+  وهي أربعة أفعال: أحدها <strong>عسى</strong> نحو عسى زيد أن يخرج<br>
+  أي قرب زيد الخروج — معناه الطمع والرجاء — وعسى الطمع والرجاء<br>
+  والثاني <strong>كاد</strong> نحو كاد زيد يخرج<br>
+  والثالث <strong>كرب</strong> نحو كرب زيد يخرج<br>
+  والرابع <strong>أوشك</strong> نحو أوشك زيد أن يخرج<br>
+  وأوشك أن يخرج زيد
+</div>
+
+<div class="matn-box">
+  النوع الثاني عشر من ثلاثة عشر نوعاً:<br>
+  <strong>أفعال المدح والذم</strong><br>
+  وهي ترفع اسم الجنس المعرف بلام التعريف والمخصوص بالمدح والذم يُذكر بعده<br>
+  أحدها <strong>نِعم</strong> نحو نعم الرجل محمد<br>
+  والثاني <strong>بِئس</strong> نحو بئس الرجل أبو جهل<br>
+  والثالث <strong>حبّذا</strong> وهو مثل نعم في المدح والحكم نحو حبّذا الرجل زيد وحبّذا المرأة هند<br>
+  والرابع <strong>ساء</strong> وهو مثل بئس في الذم والحكم نحو ساء الرجل عمرو وساء المرأة هند
+</div>
+
+<!-- ============================================================ -->
+<!-- CLOSING                                                       -->
+<!-- ============================================================ -->
+
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h1>خاتمة الدرس</h1>
+
+<p>نكون بهذا بارك الله فيكم انتهينا من 12 نوعاً من 13. في الدرس القادم نأخذ النوع الثالث عشر من 13 نوعاً وهي <strong>أفعال الشك واليقين</strong> وتسمّى <strong>أفعال القلوب</strong>، والله أعلم.</p>
+
+<div class="closing-box">
+  <div class="closing-dua">
+    وصلّ اللهم وسلّم وبارك على سيدنا محمد وآله وصحبه أجمعين<br>
+    والحمد لله رب العالمين
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="page-footer">
+  شرح العوامل المائة — للإمام عبد القاهر الجرجاني رحمه الله تعالى<br>
+  الشرح: د. لبيب نجيب عبدالله | إعداد: أحمد بن إرشاد | الدرس الرابع عشر
+</div>
+
+</div><!-- end main-content -->
+
+<!-- JAVASCRIPT FOR B&W TOGGLE -->
+<script>
+document.querySelector('.bw-toggle').addEventListener('click', function() {
+  document.body.classList.toggle('bw-mode');
+  if (document.body.classList.contains('bw-mode')) {
+    this.textContent = 'وضع الألوان';
+  } else {
+    this.textContent = 'وضع الأبيض والأسود';
+  }
+});
+</script>
+
+</body>
+</html>

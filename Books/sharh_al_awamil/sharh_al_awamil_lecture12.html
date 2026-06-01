@@ -1,0 +1,1770 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح العوامل المائة — الدرس الثاني عشر: أسماء الأفعال</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-green: #0d6b3e;
+  --dark-green: #0a4f2e;
+  --gold: #d4a020;
+  --light-gold: #f0e6c0;
+  --teal: #0d7377;
+  --bg: #fefefe;
+  --body-text: #1a1a1a;
+  --border: #c8d6c0;
+  --cover-gradient-1: #0a4f2e;
+  --cover-gradient-2: #0d6b3e;
+  --cover-gradient-3: #1a8a5c;
+  --light-green-bg: #e8f5e9;
+  --section-bg: #f7faf5;
+}
+
+body.bw-mode {
+  --primary-green: #333;
+  --dark-green: #222;
+  --gold: #555;
+  --light-gold: #ddd;
+  --teal: #444;
+  --bg: #fff;
+  --body-text: #000;
+  --border: #999;
+  --cover-gradient-1: #333;
+  --cover-gradient-2: #555;
+  --cover-gradient-3: #777;
+  --light-green-bg: #f0f0f0;
+  --section-bg: #f5f5f5;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--body-text);
+  background: var(--bg);
+  direction: rtl;
+}
+
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+  @bottom-center {
+    content: "— " counter(page) " —";
+    font-size: 10px;
+    color: #666;
+  }
+}
+
+/* ===== B&W TOGGLE ===== */
+.bw-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 9999;
+  background: var(--primary-green);
+  color: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: all 0.3s;
+}
+.bw-toggle:hover { background: var(--dark-green); }
+
+/* ===== COVER PAGE ===== */
+.cover-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, var(--cover-gradient-1) 0%, var(--cover-gradient-2) 50%, var(--cover-gradient-3) 100%);
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+}
+.cover-page::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a020' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.cover-border {
+  border: 3px solid var(--gold);
+  border-radius: 16px;
+  padding: 50px 60px;
+  position: relative;
+  max-width: 700px;
+}
+.cover-border::after {
+  content: '';
+  position: absolute;
+  top: 8px; left: 8px; right: 8px; bottom: 8px;
+  border: 1px solid rgba(212,160,32,0.4);
+  border-radius: 12px;
+  pointer-events: none;
+}
+.cover-book-title {
+  font-family: 'Amiri', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.cover-author {
+  font-size: 18px;
+  color: #c8e6c9;
+  margin-bottom: 30px;
+}
+.cover-lesson-num {
+  font-size: 22px;
+  color: var(--light-gold);
+  margin-bottom: 8px;
+}
+.cover-lesson-title {
+  font-family: 'Amiri', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 30px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.cover-divider {
+  width: 120px;
+  height: 2px;
+  background: var(--gold);
+  margin: 20px auto;
+}
+.cover-names {
+  font-size: 15px;
+  color: #a5d6a7;
+  line-height: 2;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 24px;
+}
+
+.section-divider {
+  text-align: center;
+  margin: 30px 0;
+  position: relative;
+}
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 30%;
+  height: 1px;
+  background: linear-gradient(to left, var(--gold), transparent);
+}
+.section-divider::before { right: 0; }
+.section-divider::after { left: 0; background: linear-gradient(to right, var(--gold), transparent); }
+.section-divider .divider-icon {
+  color: var(--gold);
+  font-size: 22px;
+  padding: 0 12px;
+  background: var(--bg);
+}
+
+.section-divider.ornate {
+  margin: 40px 0;
+}
+.section-divider.ornate::before,
+.section-divider.ornate::after {
+  width: 35%;
+  background: linear-gradient(to left, var(--primary-green), transparent);
+}
+.section-divider.ornate::after {
+  background: linear-gradient(to right, var(--primary-green), transparent);
+}
+
+h1 {
+  font-size: 26px;
+  color: var(--primary-green);
+  border-bottom: 3px solid var(--gold);
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+h2 {
+  font-size: 22px;
+  color: var(--primary-green);
+  margin-bottom: 14px;
+  margin-top: 28px;
+}
+h3 {
+  font-size: 19px;
+  color: var(--dark-green);
+  margin-bottom: 10px;
+  margin-top: 22px;
+}
+
+p { margin-bottom: 14px; }
+
+/* ===== DUA BOX ===== */
+.dua-box {
+  background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 20px 0;
+  text-align: center;
+  font-size: 18px;
+  line-height: 2;
+  position: relative;
+}
+.dua-box::before {
+  content: '🤲';
+  font-size: 28px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* ===== MATN BOX ===== */
+.matn-box {
+  background: var(--light-gold);
+  border-right: 5px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  padding: 16px 22px;
+  margin: 20px 0;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 2;
+  color: var(--dark-green);
+}
+
+/* ===== TREE CONTAINER ===== */
+.tree-container {
+  background: var(--light-green-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 24px 0;
+  overflow-x: auto;
+}
+.tree-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--primary-green);
+  text-align: center;
+  margin-bottom: 18px;
+}
+.tree-root {
+  text-align: center;
+  margin-bottom: 8px;
+}
+.tree-node {
+  display: inline-block;
+  background: var(--primary-green);
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 17px;
+}
+.tree-branches {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.tree-branch {
+  text-align: center;
+  flex: 1;
+  min-width: 140px;
+}
+.tree-branch-node {
+  background: var(--gold);
+  color: var(--dark-green);
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+.tree-connector {
+  width: 2px;
+  height: 16px;
+  background: var(--primary-green);
+  margin: 0 auto;
+}
+.tree-leaf {
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 15px;
+  margin: 3px auto;
+  display: inline-block;
+  max-width: 100%;
+}
+.tree-sub-branch {
+  margin-top: 6px;
+}
+.tree-horizontal {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+/* ===== TABLE STYLED ===== */
+.table-styled {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 16px;
+}
+.table-styled th {
+  background: var(--primary-green);
+  color: #fff;
+  padding: 10px 14px;
+  font-weight: 700;
+  border: 1px solid var(--dark-green);
+  text-align: center;
+}
+.table-styled td {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  text-align: center;
+  vertical-align: top;
+}
+.table-styled tr:nth-child(even) { background: var(--light-green-bg); }
+.table-styled tr:nth-child(odd) { background: #fff; }
+
+/* ===== CALLOUT BOX ===== */
+.callout {
+  background: #fff8e1;
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 20px 0;
+  position: relative;
+}
+.callout::before {
+  content: '⚡';
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  font-size: 22px;
+  background: var(--bg);
+  padding: 0 6px;
+}
+.callout-title {
+  font-weight: 700;
+  color: var(--dark-green);
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+/* ===== DEFINITION CARD ===== */
+.definition-card {
+  background: #fff;
+  border: 2px solid var(--teal);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 20px 0;
+  position: relative;
+}
+.definition-term {
+  font-weight: 700;
+  color: var(--teal);
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+.definition-text {
+  font-size: 17px;
+  line-height: 1.8;
+}
+.definition-ref {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+}
+
+/* ===== QAIDAH BOX ===== */
+.qaidah-box {
+  background: linear-gradient(135deg, #fff8e1 0%, #fff3cd 100%);
+  border: 3px solid var(--gold);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 24px 0;
+  position: relative;
+}
+.qaidah-label {
+  position: absolute;
+  top: -14px;
+  right: 20px;
+  background: var(--gold);
+  color: #fff;
+  padding: 3px 18px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 14px;
+}
+.qaidah-text {
+  font-size: 17px;
+  line-height: 2;
+  font-weight: 600;
+  color: var(--dark-green);
+  margin-top: 8px;
+}
+
+/* ===== BENEFIT BOX ===== */
+.benefit-box {
+  background: linear-gradient(135deg, #f3e5f5 0%, #e8daef 100%);
+  border: 2px solid #8e44ad;
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 20px 0;
+}
+.benefit-title {
+  font-weight: 700;
+  color: #8e44ad;
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+.benefit-text {
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* ===== EVIDENCE BOX ===== */
+.evidence-box {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 18px 0;
+  position: relative;
+}
+.evidence-box::before {
+  content: '📖';
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  font-size: 22px;
+  background: var(--bg);
+  padding: 0 4px;
+}
+.evidence-label {
+  font-weight: 700;
+  color: var(--primary-green);
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+.evidence-text {
+  font-size: 18px;
+  line-height: 2;
+  font-weight: 600;
+}
+
+/* ===== SUMMARY BOX ===== */
+.summary-box {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  border: 2px solid #1565c0;
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 20px 0;
+}
+.summary-title {
+  font-weight: 700;
+  color: #1565c0;
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+.summary-text {
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* ===== ALERT BOX ===== */
+.alert-box {
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 18px 0;
+  font-size: 17px;
+}
+.alert-box.info {
+  background: #e3f2fd;
+  border: 2px solid #2196f3;
+}
+.alert-box.warning {
+  background: #fff3e0;
+  border: 2px solid #ff9800;
+}
+.alert-box.success {
+  background: #e8f5e9;
+  border: 2px solid #4caf50;
+}
+.alert-box.error {
+  background: #fce4ec;
+  border: 2px solid #e53935;
+}
+
+/* ===== I'RAB EXAMPLE BOX ===== */
+.irab-box {
+  background: #fff;
+  border: 2px solid var(--teal);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin: 18px 0;
+  position: relative;
+}
+.irab-box::before {
+  content: '✏️';
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  font-size: 20px;
+  background: var(--bg);
+  padding: 0 4px;
+}
+.irab-title {
+  font-weight: 700;
+  color: var(--teal);
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+.irab-example {
+  background: var(--light-green-bg);
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 12px;
+  color: var(--dark-green);
+}
+.irab-detail {
+  font-size: 16px;
+  line-height: 2;
+  padding-right: 12px;
+  border-right: 3px solid var(--teal);
+  margin-bottom: 8px;
+}
+.irab-detail strong {
+  color: var(--primary-green);
+}
+
+/* ===== COMPARISON CARDS ===== */
+.cols {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+.cols-3 > div { flex: 1; min-width: 200px; }
+.comparison-card {
+  background: #fff;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  text-align: center;
+}
+.comparison-card-header {
+  background: var(--primary-green);
+  color: #fff;
+  margin: -16px -18px 12px;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  font-weight: 700;
+  font-size: 16px;
+}
+.comparison-card-body {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* ===== SCHOLAR CARD ===== */
+.scholar-card {
+  background: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 20px 0;
+  position: relative;
+}
+.scholar-name {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--dark-green);
+}
+.scholar-badge {
+  display: inline-block;
+  background: var(--primary-green);
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+  margin-right: 8px;
+}
+.scholar-dates {
+  font-size: 14px;
+  color: #666;
+  margin-top: 4px;
+}
+.scholar-bio {
+  font-size: 16px;
+  margin-top: 8px;
+  line-height: 1.7;
+}
+
+/* ===== CHECKLIST ===== */
+.checklist {
+  background: var(--light-green-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 20px 0;
+}
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.checklist-circle {
+  min-width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--primary-green);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+}
+.checklist-text {
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* ===== POETRY BOX ===== */
+.poetry-box {
+  background: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 20px 28px;
+  margin: 20px 0;
+  text-align: center;
+}
+.poetry-box .verse {
+  font-size: 19px;
+  line-height: 2.2;
+  font-weight: 600;
+  color: var(--dark-green);
+}
+.poetry-source {
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+/* ===== NAMES GRID ===== */
+.names-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+.name-card {
+  background: #fff;
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 16px 18px;
+  position: relative;
+  overflow: hidden;
+}
+.name-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 6px;
+  height: 100%;
+  background: var(--gold);
+}
+.name-card-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 6px;
+}
+.name-card-desc {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 8px;
+}
+.name-card-example {
+  background: var(--light-green-bg);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 6px;
+}
+.name-card-type {
+  font-size: 13px;
+  padding: 2px 10px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 4px;
+  font-weight: 600;
+}
+.type-amr { background: #e8f5e9; color: #2e7d32; }
+.type-madi { background: #fff3e0; color: #e65100; }
+.type-mudari { background: #e3f2fd; color: #1565c0; }
+
+/* ===== SPECIAL PROPERTY BOX ===== */
+.special-box {
+  background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+  border: 2px solid #c62828;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 18px 0;
+  position: relative;
+}
+.special-box::before {
+  content: '🔴';
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  font-size: 20px;
+  background: var(--bg);
+  padding: 0 4px;
+}
+.special-title {
+  font-weight: 700;
+  color: #c62828;
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+/* ===== FLOW CONTAINER ===== */
+.flow-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0;
+  direction: rtl;
+}
+.flow-step {
+  background: var(--primary-green);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  min-width: 100px;
+}
+.flow-arrow {
+  font-size: 22px;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* ===== CLOSING BOX ===== */
+.closing-box {
+  background: linear-gradient(135deg, var(--light-green-bg) 0%, #c8e6c9 100%);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 24px 0;
+  text-align: center;
+}
+.closing-dua {
+  font-size: 18px;
+  line-height: 2;
+  color: var(--dark-green);
+  font-weight: 600;
+}
+
+/* ===== COMPARISON TABLE (SIMILARITY/DIFFERENCE) ===== */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 16px;
+}
+.comparison-table th {
+  padding: 12px 16px;
+  font-weight: 700;
+  border: 1px solid var(--border);
+  text-align: center;
+}
+.comparison-table td {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  text-align: center;
+  vertical-align: top;
+}
+.comparison-table thead th:first-child {
+  background: var(--dark-green);
+  color: #fff;
+}
+.comparison-table thead th:nth-child(2) {
+  background: var(--primary-green);
+  color: #fff;
+}
+.comparison-table thead th:nth-child(3) {
+  background: var(--teal);
+  color: #fff;
+}
+.comparison-table tr:nth-child(even) { background: var(--light-green-bg); }
+.comparison-table tr:nth-child(odd) { background: #fff; }
+.shield-similarity { background: #e8f5e9 !important; }
+.shield-difference { background: #fff3e0 !important; }
+
+/* ===== FOOTER ===== */
+.page-footer {
+  text-align: center;
+  font-size: 13px;
+  color: #888;
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+ul, ol { padding-right: 24px; margin-bottom: 14px; }
+li { margin-bottom: 6px; }
+
+.highlight { color: var(--primary-green); font-weight: 700; }
+.gold-highlight { color: var(--gold); font-weight: 700; }
+.teal-highlight { color: var(--teal); font-weight: 700; }
+
+@media print {
+  .bw-toggle { display: none; }
+  .cover-page { page-break-after: always; }
+  body { font-size: 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- B&W TOGGLE BUTTON -->
+<button class="bw-toggle" onclick="document.body.classList.toggle('bw-mode')">وضع الأبيض والأسود</button>
+
+<!-- ===== COVER PAGE ===== -->
+<div class="cover-page">
+  <div class="cover-border">
+    <div class="cover-book-title">شرح العوامل المائة</div>
+    <div class="cover-author">للإمام عبد القاهر الجرجاني رحمه الله تعالى</div>
+    <div class="cover-divider"></div>
+    <div class="cover-lesson-num">الدرس الثاني عشر</div>
+    <div class="cover-lesson-title">أسماء الأفعال</div>
+    <div class="cover-divider"></div>
+    <div class="cover-names">
+      إعداد: أحمد بن إرشاد<br>
+      المتن: الإمام عبد القاهر الجرجاني رحمه الله تعالى<br>
+      الشرح: د. لبيب نجيب عبدالله
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="main-content">
+
+<!-- OPENING DUA -->
+<div class="dua-box">
+بسم الله الرحمن الرحيم<br>
+الحمد لله رب العالمين والصلاة والسلام الأتمان الأكملان على سيد المرسلين سيدنا محمد وعلى آله وصحبه الطيبين الطاهرين<br>
+أما بعد فأسأل الله سبحانه وتعالى أن يمن علينا بالعلم النافع والعمل الصالح وأن يفقهنا في الدين وأن يفتح لنا فتوح العارفين وأن يرزقنا الإخلاص في الأقوال والأعمال اللهم آمين
+</div>
+
+<!-- ===== نص المصنف ===== -->
+<h1>نص المصنف رحمه الله</h1>
+
+<div class="matn-box">
+النوع التاسع من ثلاثة عشر نوعاً:<br>
+<strong>كلمات تسمى أسماء الأفعال بعضها ترفع وبعضها تنصب وهي تسع كلمات</strong>
+</div>
+
+<p>قال رحمه الله تعالى: النوع التاسع أي من العوامل من ثلاثة عشر نوعاً كلمات تسمى أسماء الأفعال.</p>
+
+<!-- ===== تعريف أسماء الأفعال ===== -->
+<h1>تعريف أسماء الأفعال</h1>
+
+<div class="definition-card">
+  <div class="definition-term">أسماء الأفعال</div>
+  <div class="definition-text">
+    <strong>ما ناب عن الفعل في العمل والمعنى ولم يتأثر بالعوامل</strong>
+  </div>
+</div>
+
+<p>ما معنى أسماء الأفعال؟ أسماء الأفعال ما ناب عن الفعل في العمل والمعنى ولم يتأثر بالعوامل. هي تؤثر هي تنوب عن الفعل في العمل هي تعمل لكن لا تتأثر بالعوامل.</p>
+
+<p>وهناك ما يتأثر ويؤثر: الفعل مثلاً يرفع الفاعل وينصب المفعول، إذن يؤثر في غيره. يتأثر أو لا يتأثر؟ يتأثر، إذا دخلت عليه أدوات الجزم مثلاً أو دخلت عليه أدوات النصب عملت فيه. إذن هناك ما يتأثر وما يؤثر، وهناك ما يؤثر ولا يتأثر — وهو أسماء الأفعال.</p>
+
+<!-- ===== مثال توضيحي ===== -->
+<h2>مثال توضيحي: عليك نفسك</h2>
+
+<div class="callout">
+  <div class="callout-title">مثال تطبيقي على التعريف</div>
+  <p>لو قلت مثلاً: <strong>عليك نفسك</strong> — بمعنى <strong>الزم نفسك</strong> فهذبها.</p>
+  <p><strong>عليك نفسك</strong> بمعنى <strong>الزم نفسك</strong>. انظر: <strong>عليك</strong> = <strong>الزم</strong> من حيث المعنى، سواء قلت الزم نفسك أو قلت عليك نفسك، المعنى واحد.</p>
+  <p>بل إن بعض العلماء يقولون: إن المعنى الذي يؤديه اسم الفعل <strong>أقوى</strong> من المعنى الذي يؤديه الفعل.</p>
+</div>
+
+<p>من حيث العمل: <strong>الزم نفسك</strong> — ما يُعرب نفسك؟ مفعول به، صح. مفعول به لأي فعل؟ مفعول به لأي فعل؟ الزم هنا. ما يُعرب نفسك؟ مفعول به لاسم الفعل <strong>عليك</strong>. إذن ناب عن الفعل في العمل وناب عن الفعل في المعنى.</p>
+
+<p>لكن اسم الفعل <strong>لا يتأثر بالعوامل</strong>، وأما الفعل فإنه يتأثر بالعوامل. وبالتالي اسم الفعل هذا لا يكون مبتدأً ولا يكون خبراً ولا يكون فاعلاً ولا يأتي مثلاً ماذا؟ دخلت عليه أداة نصب فنصبته أو أداة جزم فجزمته. لا يتأثر بالعوامل بخلاف الفعل.</p>
+
+<!-- ===== وجه الشبه والاختلاف ===== -->
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h1>وجه شبه أسماء الأفعال بالأسماء والأفعال ووجه اختلافها</h1>
+
+<p>إذا تقرر هذا فلاحظ معي أن هذا اسمه <strong>أسماء أفعال</strong>، إذن هو عنده شبه بالأسماء وشبه بالأفعال.</p>
+
+<!-- COMPARISON TABLE: الفعل vs اسم الفعل -->
+<table class="comparison-table">
+  <thead>
+    <tr>
+      <th>الوجه</th>
+      <th>الفعل</th>
+      <th>اسم الفعل</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="shield-similarity">
+      <td><strong>المعنى</strong></td>
+      <td>له معنى</td>
+      <td>له ذات المعنى</td>
+    </tr>
+    <tr class="shield-similarity">
+      <td><strong>العمل</strong></td>
+      <td>يعمل (يرفع وينصب)</td>
+      <td>يعمل (يرفع وينصب)</td>
+    </tr>
+    <tr class="shield-difference">
+      <td><strong>التأثر بالعوامل</strong></td>
+      <td>يتأثر بالعوامل</td>
+      <td><strong>لا يتأثر بالعوامل</strong></td>
+    </tr>
+    <tr class="shield-difference">
+      <td><strong>تقديم المعمول</strong></td>
+      <td>يجوز تقديم المفعول عليه<br>(نفسك الزم)</td>
+      <td><strong>لا يصح تقديم معموله عليه</strong><br>(لا يصح: زيداً عليك)</td>
+    </tr>
+    <tr class="shield-difference">
+      <td><strong>العلامة</strong></td>
+      <td>يقبل العلامة</td>
+      <td><strong>لا يقبل العلامة</strong></td>
+    </tr>
+    <tr class="shield-similarity">
+      <td><strong>قبول التنوين</strong></td>
+      <td>—</td>
+      <td>يقبل التنوين (شبه بالأسماء)<br>مثل: صهٍ</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>وجه الشبه بالأسماء: أنه يقبل التنوين، صح أم لا؟ تقول مثلاً <strong>صهٍ</strong> — يقبل التنوين، فلما قبل التنوين كان فيه شبه بالأسماء.</p>
+
+<p>وأيضاً فيه شبه بالأفعال لأنه ينوب عن الفعل في العمل وفي المعنى أيضاً.</p>
+
+<!-- ===== شعر ابن مالك ===== -->
+<div class="poetry-box">
+  <div class="verse">
+    والأمرُ إن لم يكن للنونِ محلٌّ فيه فهو اسمٌ نحوُ <span style="color:var(--gold);">وحيَّهل</span>
+  </div>
+  <div class="poetry-source">— ابن مالك رحمه الله، من ألفية ابن مالك</div>
+</div>
+
+<p>ماذا قال ابن مالك في هذا في بداية الألفية؟ والأمر إن لم يكن للنون محل فيه فهو اسم نحو وحياً. هنا عندنا خمسة أوجه: أوجه شبه نضعها بلون آخر.</p>
+
+<!-- ===== تقسيم أسماء الأفعال ===== -->
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h1>تقسيمات أسماء الأفعال</h1>
+
+<!-- ===== التقسيم الأول: باعتبار الزمن ===== -->
+<h2>التقسيم الأول: باعتبار الزمن</h2>
+
+<p>أسماء الأفعال تنقسم باعتبار الزمن إلى ثلاثة أقسام:</p>
+
+<!-- CLASSIFICATION TREE 1: تقسيم أسماء الأفعال باعتبار الزمن -->
+<div class="tree-container">
+  <div class="tree-title">شجرة التصنيف: أسماء الأفعال باعتبار الزمن</div>
+  <div class="tree-root">
+    <div class="tree-node">أسماء الأفعال</div>
+  </div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">أسماء أفعال الماضي</div>
+      <div class="tree-sub-branch">
+        <div class="tree-horizontal">
+          <div class="tree-leaf">هيهات</div>
+          <div class="tree-leaf">شتان</div>
+          <div class="tree-leaf">سرعان</div>
+        </div>
+        <div style="font-size:14px;color:#e65100;margin-top:6px;font-weight:600;">⬩ قليل</div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">أسماء أفعال المضارع</div>
+      <div class="tree-sub-branch">
+        <div class="tree-horizontal">
+          <div class="tree-leaf">أفّ</div>
+          <div class="tree-leaf">وي</div>
+        </div>
+        <div style="font-size:14px;color:#e65100;margin-top:6px;font-weight:600;">⬩ قليل</div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node" style="background:#2e7d32;color:#fff;">أسماء أفعال الأمر</div>
+      <div class="tree-sub-branch">
+        <div class="tree-horizontal">
+          <div class="tree-leaf">صه</div>
+          <div class="tree-leaf">مه</div>
+          <div class="tree-leaf">سكت</div>
+          <div class="tree-leaf">فف</div>
+          <div class="tree-leaf">ها</div>
+          <div class="tree-leaf">خذ</div>
+          <div class="tree-leaf">دون / دونك</div>
+          <div class="tree-leaf">هاكا</div>
+          <div class="tree-leaf">أكتب</div>
+          <div class="tree-leaf">عليك</div>
+        </div>
+        <div style="font-size:14px;color:#2e7d32;margin-top:6px;font-weight:600;">⬩ الأكثر</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Details about each type -->
+<h3>أسماء أفعال الماضي</h3>
+<p>مثال اسم فعل ماضي موجود في القرآن: <strong>هيهات</strong>. أسماء الفعل الماضي هذا قليل.</p>
+
+<h3>أسماء أفعال المضارع</h3>
+<p>مثال: <strong>أفّ</strong> — أيضاً <strong>وي</strong> في سورة القصص: ﴿وَيْكَأَنَّهُ لَا يُفْلِحُ الْكَافِرُونَ﴾ — وي كأنه أتعجب، أتأذى. أفّ أتأفف أوه أتوجع. وهذه أيضاً قليل، أسماء الأفعال للمضارع قليل.</p>
+
+<h3>أسماء أفعال الأمر — الأكثر</h3>
+<p>الأكثر هنا: أسماء أفعال الأمر مثل: <strong>صه، مه، سكت، فف، ها، خذ، دون أو دونك، هاكا، أكتب، عليك</strong> — هذه أسماء فعل أمر. وهي الأكثر، الأكثر من أسماء الأفعال أسماء الأفعال للأمر.</p>
+
+<div class="callout">
+  <div class="callout-title">اسم فعل أمر في الأذان</div>
+  <p>ومنها ما في الأذان: <strong>حيّ على الصلاة</strong> — أي <strong>أقبل</strong>. حيّ على الصلاة: أقبل.</p>
+</div>
+
+<!-- ===== التقسيم الثاني: من حيث الأصالة والنقل ===== -->
+<div class="section-divider">
+  <span class="divider-icon">✦</span>
+</div>
+
+<h2>التقسيم الثاني: من حيث الأصالة والنقل</h2>
+
+<p>تقسيم آخر لأسماء الأفعال: أسماء الأفعال من حيث الأصالة والنقل تنقسم إلى قسمين:</p>
+
+<!-- CLASSIFICATION TREE 2: من حيث الأصالة والنقل -->
+<div class="tree-container">
+  <div class="tree-title">شجرة التصنيف: أسماء الأفعال من حيث الأصالة والنقل</div>
+  <div class="tree-root">
+    <div class="tree-node">أسماء الأفعال</div>
+  </div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">مرتجل</div>
+      <div class="tree-sub-branch">
+        <div style="font-size:15px;line-height:1.8;margin:6px 0;">
+          لم يسبق استعماله إلا اسم فعل فقط<br>
+          يعني ليس له استعمال سابق<br>
+          أول ما وُضع استُعمل اسم فعل مباشرة
+        </div>
+        <div class="tree-horizontal">
+          <div class="tree-leaf" style="font-weight:700;">مثل: شتان</div>
+          <div class="tree-leaf" style="font-weight:700;">هيهات</div>
+          <div class="tree-leaf" style="font-weight:700;">هاء</div>
+        </div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">منقول</div>
+      <div class="tree-sub-branch">
+        <div style="font-size:15px;line-height:1.8;margin:6px 0;">
+          له استعمال سابق قبل كونه اسم فعل
+        </div>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px;">
+          <div style="text-align:center;">
+            <div class="tree-leaf" style="background:var(--gold);color:#fff;font-weight:700;">من جار ومجرور</div>
+            <div style="font-size:14px;margin-top:4px;">مثل: عليك</div>
+          </div>
+          <div style="text-align:center;">
+            <div class="tree-leaf" style="background:var(--teal);color:#fff;font-weight:700;">من ظرف</div>
+            <div style="font-size:14px;margin-top:4px;">مثل: دونك</div>
+          </div>
+          <div style="text-align:center;">
+            <div class="tree-leaf" style="background:var(--primary-green);color:#fff;font-weight:700;">من مصدر</div>
+            <div style="font-size:14px;margin-top:4px;">مثل: رويد</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Details of each -->
+<h3>المرتجل</h3>
+<p>ما معنى مرتجل؟ لم يسبق استعماله إلا اسم فعل فقط. يعني ليس له استعمال سابق، أول ما وُضع استُعمل اسم فعل مباشرة، مثل <strong>شتان</strong>.</p>
+
+<h3>المنقول</h3>
+<p>منقول: كان يُستعمل في شيء ثم أصبح يُستعمل اسم فعل. له استعمال سابق قبل كونه اسم فعل.</p>
+
+<p>وهذا إما أن يكون:</p>
+
+<div class="checklist">
+  <div class="checklist-item">
+    <div class="checklist-circle">1</div>
+    <div class="checklist-text"><strong>منقول من جار ومجرور</strong> — كان جاراً ومجروراً ثم صار اسم فعل. مثال: <strong>عليك</strong> — في الأصل جار ومجرور ثم صار اسم فعل بمعنى الزم.</div>
+  </div>
+  <div class="checklist-item">
+    <div class="checklist-circle">2</div>
+    <div class="checklist-text"><strong>منقول من ظرف</strong> — مثل <strong>دونك</strong> — دون ظرف. دونك بمعنى خذ. دونك اسم فعل منقول من ظرف.</div>
+  </div>
+  <div class="checklist-item">
+    <div class="checklist-circle">3</div>
+    <div class="checklist-text"><strong>منقول من مصدر</strong> — مثل <strong>رويد</strong>. تقول: رويد زيداً — أمهل زيداً. وفي القرآن الكريم: ﴿فَمَهِّلِ الْكَافِرِينَ أَمْهِلْهُمْ رُوَيْدًا﴾</div>
+  </div>
+</div>
+
+<!-- ===== التقسيم الثالث: لازمة ومتعدية ===== -->
+<div class="section-divider">
+  <span class="divider-icon">✦</span>
+</div>
+
+<h2>التقسيم الثالث: لازمة ومتعدية</h2>
+
+<p>أسماء الأفعال إما أن تكون لازمة أو متعدية:</p>
+
+<div class="qaidah-box">
+  <div class="qaidah-label">قاعدة مهمة</div>
+  <div class="qaidah-text">
+    <strong>إذا كان الفعل الذي اسم الفعل يؤدي معناه لازماً فإن اسم الفعل يكون لازماً</strong><br><br>
+    <strong>إذا كان الفعل متعدياً فإن اسم الفعل يكون متعدياً</strong>
+  </div>
+</div>
+
+<p>اسم الفعل له معنى الفعل، صح؟ إذا كان هذا الفعل لازماً فإن اسم الفعل يكون لازماً. إذا كان هذا الفعل متعدياً فإن اسم الفعل يكون متعدياً.</p>
+
+<p>وبالتالي:</p>
+
+<div class="callout">
+  <div class="callout-title">النتيجة</div>
+  <p><strong>بعض أسماء الأفعال ترفع فقط</strong> — وهي التي تؤدي معنى الفعل اللازم.</p>
+  <p><strong>وبعضها ترفع وتنصب</strong> — وهي التي تؤدي معنى الفعل المتعدي.</p>
+</div>
+
+<!-- مثال تطبيقي شامل -->
+<div class="benefit-box">
+  <div class="benefit-title">مثال تطبيقي شامل: كيف تصف اسم الفعل؟</div>
+  <div class="benefit-text">
+    خذ مثالاً: <strong>الزم</strong> — هذا متعدٍ أم لازم؟ متعدٍ. إذن ستقول: <strong>عليك</strong> هذا اسم فعل:<br>
+    ① <strong>اسم فعل أمر</strong> — بالنظر للتقسيم الأول<br>
+    ② <strong>منقول</strong> — من جار ومجرور — باعتبار التقسيم الثاني<br>
+    ③ <strong>متعدٍ</strong> — لأنه أدى معنى الفعل المتعدي
+  </div>
+</div>
+
+<p>وهذه النقطة — أي تقسيم أسماء الأفعال إلى لازمة ومتعدية — هي النقطة التي اهتم بها المصنف رحمه الله، اهتم بهذا تماماً.</p>
+
+<!-- ===== تفصيل نص المصنف ===== -->
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h1>تفصيل نص المصنف رحمه الله</h1>
+
+<div class="matn-box">
+كلمات تسمى أسماء الأفعال بعضها ترفع أي بعضها ترفع فقط وهي أسماء الأفعال اللازمة<br>
+وبعضها تنصب أي وبعضها تنصب مع الرفع وهي أسماء الأفعال المتعدية<br>
+وهي تسع كلمات
+</div>
+
+<p>قال رحمه الله تعالى: النوع التاسع من ثلاثة عشر نوعاً كلمات تسمى أسماء الأفعال بعضها ترفع — أي بعضها ترفع فقط وهي أسماء الأفعال اللازمة — وبعضها تنصب — أي وبعضها تنصب مع الرفع وهي أسماء الأفعال المتعدية. قالوا وهي تسع كلمات، أي أن أسماء الأفعال تسعة.</p>
+
+<!-- تنبيه: أكثر من تسع -->
+<div class="alert-box warning">
+  <strong>تنبيه:</strong> في الحقيقة هي أكثر من تسعة. بل بعض أسماء الأفعال مذكورة في القرآن الكريم لم يذكرها هنا، يعني مثل <strong>أفّ</strong> ما ذكرها هنا، ومثل <strong>وي</strong> ما ذكرها هنا. ومثل <strong>هيهات</strong> — ذكر هيهات؟ موجود هيهات. ومثل <strong>هلمّ</strong>. ومثل <strong>هيتَ لك</strong> في قصة نبي الله يوسف عليه الصلاة والسلام. هناك بعض أسماء الأفعال مذكورة في القرآن لم يذكرها هنا. إذن هو قال تسعة باعتبار ما ذكره فقط وإلا فهي أكثر من تسعة.
+</div>
+
+<!-- ===== الناصبة (المتعدية) - ست كلمات ===== -->
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h1>الناصبة من أسماء الأفعال — ست كلمات</h1>
+
+<div class="matn-box">
+والناصبة منها ستُّ كلمات
+</div>
+
+<p>أي المتعدية التي تنصب ستُّ كلمات. فهذه الناصبة أدت معنى الأفعال المتعدية.</p>
+
+<!-- Names grid for the 6 ناصبة -->
+<div class="names-grid">
+
+<div class="name-card">
+  <div class="name-card-title">① رويد</div>
+  <span class="name-card-type type-amr">اسم فعل أمر</span>
+  <div class="name-card-desc">
+    <strong>المعنى:</strong> أمهل<br>
+    <strong>النقل:</strong> منقول من مصدر<br>
+    <strong>اللزوم والتعدي:</strong> متعدٍ
+  </div>
+  <div class="name-card-example">رويد زيداً = أمهل زيداً</div>
+</div>
+
+<div class="name-card">
+  <div class="name-card-title">② بلهَا</div>
+  <span class="name-card-type type-amr">اسم فعل أمر</span>
+  <div class="name-card-desc">
+    <strong>المعنى:</strong> دَع / أَترُك<br>
+    <strong>النقل:</strong> منقول من مصدر ليس له فعل<br>
+    <strong>اللزوم والتعدي:</strong> متعدٍ
+  </div>
+  <div class="name-card-example">بلهَا الإهمال = دَع الإهمال</div>
+</div>
+
+<div class="name-card">
+  <div class="name-card-title">③ دونك</div>
+  <span class="name-card-type type-amr">اسم فعل أمر</span>
+  <div class="name-card-desc">
+    <strong>المعنى:</strong> خُذ<br>
+    <strong>النقل:</strong> منقول من ظرف<br>
+    <strong>اللزوم والتعدي:</strong> متعدٍ
+  </div>
+  <div class="name-card-example">دونك زيداً = خُذ زيداً</div>
+</div>
+
+<div class="name-card">
+  <div class="name-card-title">④ عليك</div>
+  <span class="name-card-type type-amr">اسم فعل أمر</span>
+  <div class="name-card-desc">
+    <strong>المعنى:</strong> الزم<br>
+    <strong>النقل:</strong> منقول من جار ومجرور<br>
+    <strong>اللزوم والتعدي:</strong> متعدٍ
+  </div>
+  <div class="name-card-example">عليك زيداً = الزم زيداً</div>
+</div>
+
+<div class="name-card">
+  <div class="name-card-title">⑤ هاء (هاك)</div>
+  <span class="name-card-type type-amr">اسم فعل أمر</span>
+  <div class="name-card-desc">
+    <strong>المعنى:</strong> خُذ<br>
+    <strong>النقل:</strong> مرتجل (خلافاً لمحمد برجاء)<br>
+    <strong>اللزوم والتعدي:</strong> متعدٍ
+  </div>
+  <div class="name-card-example">هاء زيداً = خُذ زيداً</div>
+</div>
+
+<div class="name-card">
+  <div class="name-card-title">⑥ حيَّهل</div>
+  <span class="name-card-type type-amr">اسم فعل أمر</span>
+  <div class="name-card-desc">
+    <strong>المعنى:</strong> أقبِل / إيتِ<br>
+    <strong>مذكورة في الألفية</strong><br>
+    <strong>اللزوم والتعدي:</strong> متعدٍ
+  </div>
+  <div class="name-card-example">حيَّهل الثريد = إيتِ بالثريد</div>
+</div>
+
+</div>
+
+<!-- ===== الإعراب التفصيلي ===== -->
+<h2>الإعراب التفصيلي للناصبة</h2>
+
+<!-- 1. رويد -->
+<h3>① رويد</h3>
+
+<div class="irab-box">
+  <div class="irab-title">إعراب: رويد زيداً</div>
+  <div class="irab-example">رويد زيداً — أي أمهل زيداً</div>
+  <div class="irab-detail">
+    <strong>رويد:</strong> اسم فعل أمر مبني على السكون، فاعله مستتر وجوباً تقديره أنت<br>
+    <strong>زيداً:</strong> مفعول به منصوب
+  </div>
+</div>
+
+<div class="callout">
+  <div class="callout-title">هل يصح أن تقول: رويد زيدٍ؟</div>
+  <p>يصح أن تقول <strong>رويد زيدٍ</strong>. ويكون حينئذٍ ليس رويد اسم فعل وإنما <strong>مصدر</strong> وهو مضاف وزيد مضاف إليه. فإذا قلت رويد زيدٍ (بالكسرة) فرويد هنا مصدر مضاف وزيد مضاف إليه، لا اسم فعل.</p>
+</div>
+
+<!-- 2. بلهَا -->
+<h3>② بلهَا</h3>
+
+<p>بلهَا — اسم لدع. بلهَا يعني دَع، أَترُك، دَع أَترُك. نحو بلهَا زيداً. أعطيك مثال أسهل: لو قلت <strong>بلهَا الإهمال</strong> — إيش المعنى؟ <strong>دَع الإهمال</strong>. بلهَا الإهمال، واضح، دَع الإهمال.</p>
+
+<div class="irab-box">
+  <div class="irab-title">إعراب: بلهَا الإهمال</div>
+  <div class="irab-example">بلهَا الإهمال — أي دَع الإهمال</div>
+  <div class="irab-detail">
+    <strong>بلهَا:</strong> اسم فعل أمر مبني على الفتح، والفاعل مستتر وجوباً تقديره أنت<br>
+    <strong>الإهمال:</strong> مفعول به منصوب
+  </div>
+</div>
+
+<div class="callout">
+  <div class="callout-title">منقول من مصدر ليس له فعل</div>
+  <p>بلهَا منقول من مصدر ليس له فعل. نحن في الحصة الأولى.</p>
+</div>
+
+<!-- 3. دونك -->
+<h3>③ دونك</h3>
+
+<div class="irab-box">
+  <div class="irab-title">إعراب: دونك زيداً</div>
+  <div class="irab-example">دونك زيداً — أي خُذ زيداً</div>
+  <div class="irab-detail">
+    <strong>دون:</strong> اسم فعل أمر مبني على الفتح<br>
+    <strong>الكاف:</strong> حرف خطاب — ليس ضميراً. الكاف حرف خطاب<br>
+    <strong>الفاعل:</strong> ضمير مستتر وجوباً تقديره أنت<br>
+    <strong>زيداً:</strong> مفعول به منصوب
+  </div>
+</div>
+
+<div class="callout">
+  <div class="callout-title">تنبيه: الكاف حرف خطاب لا ضمير</div>
+  <p>قلت لك من قبل: إن الكاف في <strong>إياك</strong> والكاف في <strong>دونك</strong> تمام ونحويهما و<strong>عليك</strong> — هذه كلها حرف خطاب. الكاف في إياك والكاف في اسم الإشارة — كلها حرف خطاب.</p>
+</div>
+
+<div class="callout">
+  <div class="callout-title">سؤال: ما إعراب "دون" وحدها؟</div>
+  <p>إذا قلت <strong>دون</strong> وحدها بدون كاف الخطاب — ما إعرابها؟ <strong>ظرف</strong> مبني على الفتح.</p>
+</div>
+
+<!-- 4. عليك -->
+<h3>④ عليك</h3>
+
+<div class="irab-box">
+  <div class="irab-title">إعراب: عليك زيداً</div>
+  <div class="irab-example">عليك زيداً — أي الزم زيداً</div>
+  <div class="irab-detail">
+    <strong>على:</strong> اسم فعل أمر مبني على الفتح<br>
+    <strong>الكاف:</strong> حرف خطاب<br>
+    <strong>الفاعل:</strong> ضمير مستتر وجوباً تقديره أنت<br>
+    <strong>زيداً:</strong> مفعول به منصوب
+  </div>
+</div>
+
+<p>من يعرب؟ <strong>عليك</strong> — اسم فعل أمر. هل هو مرتجل أو منقول؟ <strong>منقول من جار ومجرور</strong>. متعدٍ أو لازم؟ <strong>متعدٍ</strong>.</p>
+
+<p>لو قلت في العلم ماذا سأقول؟ في العلم ماذا سأقول؟ <strong>عليك العلم</strong> — الزم العلم، صح أم لا؟ عليك العلم.</p>
+
+<!-- 5. هاء / هاك -->
+<h3>⑤ هاء (هاك)</h3>
+
+<p>هاء — التي هي أصلها هاك — كاف خطاب. هو يريد أن يبين لك أن الكاف ليست أصلية فقال هاء. نحو هاء زيداً أي خُذ زيداً.</p>
+
+<div class="irab-box">
+  <div class="irab-title">إعراب: هاء زيداً</div>
+  <div class="irab-example">هاء زيداً — أي خُذ زيداً</div>
+  <div class="irab-detail">
+    <strong>هاء:</strong> اسم فعل أمر مبني على الفتح، متعدٍ<br>
+    <strong>الفاعل:</strong> ضمير مستتر وجوباً تقديره أنت<br>
+    <strong>زيداً:</strong> مفعول به منصوب
+  </div>
+</div>
+
+<div class="callout">
+  <div class="callout-title">خلاف: هل هاء مرتجل أو منقول؟</div>
+  <p>مرتجل أو منقول؟ هذا <strong>مرتجل</strong> خلافاً لمحمد برجاء.</p>
+</div>
+
+<!-- شعر: نظم الورقات -->
+<div class="poetry-box">
+  <div class="verse">
+    هاكَ أصولَ الفقهِ لفظاً لقباً<br>
+    للفنِّ من جزأينِ قد
+  </div>
+  <div class="poetry-source">— من نظم الورقات</div>
+</div>
+
+<p>أنت في نظم الورقات — قاد كلمة <strong>هاكاً</strong> من يذكر البيت بدون كلام؟ ارفع عدّه...</p>
+
+<div class="poetry-box">
+  <div class="verse">
+    فَهاكَ مِنْ قَدْ فَهاكَ مِنْ أُصولِهِ<br>
+    تَجَمَّعُ مِنْ فُنونِهِ فَوائِدُ
+  </div>
+  <div class="poetry-source">— من نظم الورقات (مرّت معنا في السلم الأخضر في المنطق)</div>
+</div>
+
+<!-- 6. حيَّهل -->
+<h3>⑥ حيَّهل</h3>
+
+<p>وهذه مذكورة في الألفية — إيش قال ابن مالك في الألفية:</p>
+
+<div class="poetry-box">
+  <div class="verse">
+    والأمرُ إن لم يكن للنونِ محلٌّ فيه فهو اسمٌ نحوُ <span style="color:var(--gold);">وحيَّهل</span>
+  </div>
+  <div class="poetry-source">— ابن مالك رحمه الله، ألفية ابن مالك</div>
+</div>
+
+<p>نحو <strong>حيَّهل الثريد</strong> — ما معنى حيَّهل الثريد؟ <strong>إيتِ بالثريد</strong>.</p>
+
+<div class="definition-card">
+  <div class="definition-term">ما هو الثريد؟</div>
+  <div class="definition-text">
+    الثريد نوع من الطعام — الخبز مع اللحم. الخبز أفضل القوت واللحم أفضل الأدم، فإذا اجتمع أفضل شيء. وذاك أمانة الله — الثريد حمامة الخبز.
+  </div>
+</div>
+
+<p>حيَّهل الثريد: إيتِ بالثريد. ولذلك قال علي رضي الله عنه:</p>
+
+<div class="evidence-box">
+  <div class="evidence-label">قول علي رضي الله عنه</div>
+  <div class="evidence-text">"إذا ذُكر الصالحون فحيَّهل بعمر"</div>
+  <p style="font-size:15px;margin-top:8px;">أي إيتِ بعمر — يعني من أئمة الصالحين. وإسناده حسن.</p>
+</div>
+
+<!-- ===== الرافعة (اللازمة) - ثلاث كلمات ===== -->
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h1>الرافعة من أسماء الأفعال — ثلاث كلمات</h1>
+
+<div class="matn-box">
+والرافعة منها — أي والتي ترفع فقط لا تنصب — بمعنى أنها بتكون لازمة أو متعدية؟ لازمة. أدت معنى فعل لازم — ثلاث كلمات
+</div>
+
+<p>والرافعة منها أي التي ترفع فقط لا تنصب، بمعنى أنها بتكون لازمة أو متعدية؟ لازمة. أدت معنى فعل لازم — ثلاث كلمات.</p>
+
+<!-- Names grid for the 3 رافعة -->
+<div class="names-grid">
+
+<div class="name-card">
+  <div class="name-card-title">① هيهات</div>
+  <span class="name-card-type type-madi">اسم فعل ماضٍ</span>
+  <div class="name-card-desc">
+    <strong>المعنى:</strong> بَعُد<br>
+    <strong>النقل:</strong> مرتجل<br>
+    <strong>اللزوم والتعدي:</strong> لازم (الفعل بَعُد لازم)
+  </div>
+  <div class="name-card-example">هيهات زيدون = بَعُد زيدون</div>
+</div>
+
+<div class="name-card">
+  <div class="name-card-title">② شتان</div>
+  <span class="name-card-type type-madi">اسم فعل ماضٍ</span>
+  <div class="name-card-desc">
+    <strong>المعنى:</strong> افترقا / اختلفا<br>
+    <strong>النقل:</strong> مرتجل<br>
+    <strong>اللزوم والتعدي:</strong> لازم
+  </div>
+  <div class="name-card-example">شتان زيد وعمر = افترقا</div>
+</div>
+
+<div class="name-card">
+  <div class="name-card-title">③ سَرعان</div>
+  <span class="name-card-type type-madi">اسم فعل ماضٍ</span>
+  <div class="name-card-desc">
+    <strong>المعنى:</strong> سارع<br>
+    <strong>النقل:</strong> منقول من المصدر<br>
+    <strong>اللزوم والتعدي:</strong> لازم<br>
+    <strong>مثلث السين</strong>
+  </div>
+  <div class="name-card-example">سَرعان زيد = سارع زيد</div>
+</div>
+
+</div>
+
+<!-- Detailed I'rab for الرافعة -->
+
+<!-- 1. هيهات -->
+<h3>① هيهات</h3>
+
+<p><strong>هيهات</strong> — اسم فعل ماضٍ، مرتجل.</p>
+
+<div class="irab-box">
+  <div class="irab-title">إعراب: هيهات زيدون</div>
+  <div class="irab-example">هيهات زيدون — أي بَعُد زيدون</div>
+  <div class="irab-detail">
+    <strong>هيهات:</strong> اسم فعل ماضٍ مبني على الفتح<br>
+    <strong>زيدون:</strong> فاعل مرفوع
+  </div>
+</div>
+
+<p>لاحظ معي: الفعل <strong>بَعُد</strong> لازم أو متعدٍ؟ لازم. بخلاف الفعل مثل خذ، دَع — هذا متعدٍ.</p>
+
+<!-- 2. شتان -->
+<h3>② شتان</h3>
+
+<p><strong>شتان</strong> — اسم فعل ماضٍ أيضاً، مرتجل.</p>
+
+<div class="irab-box">
+  <div class="irab-title">إعراب: شتان زيد وعمر</div>
+  <div class="irab-example">شتان زيد وعمر — أي افترقا / اختلفا</div>
+  <div class="irab-detail">
+    <strong>شتان:</strong> اسم فعل ماضٍ مبني على الفتح<br>
+    <strong>زيد:</strong> فاعل<br>
+    <strong>عمر:</strong> معطوف على فاعل
+  </div>
+</div>
+
+<p>بمعنى واحد، مثلاً على سبيل المثال: واحد طالب علم مُجِدّ وآخر طالب علم كسول — فتقول شتان زيد وعمر.</p>
+
+<!-- 3. سرعان -->
+<h3>③ سَرعان</h3>
+
+<p><strong>سَرعان</strong> — مثلث السين — وهذا اسم فعل ماضٍ وهو منقول من المصدر.</p>
+
+<div class="irab-box">
+  <div class="irab-title">إعراب: سَرعان زيد</div>
+  <div class="irab-example">سَرعان زيد — أي سارع زيد</div>
+  <div class="irab-detail">
+    <strong>سَرعان:</strong> اسم فعل ماضٍ مبني على الفتح<br>
+    <strong>زيد:</strong> فاعل مرفوع
+  </div>
+</div>
+
+<!-- ===== وجه الاختلاف: تقديم المعمول ===== -->
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h1>خلاف العلماء: تقديم المعمول على اسم الفعل</h1>
+
+<p>قلت لكم من أوجه الاختلاف بين الفعل واسم الفعل أنه في اسم الفعل <strong>لا يجوز أن يتقدم المعمول</strong>، بينما في الفعل يجوز. يجوز أن تقول <strong>نفسك الزم</strong>، لكن <strong>زيداً عليك</strong> لا يصح، و<strong>زيداً دونك</strong> لا يصح، و<strong>نفسك عليك</strong> لا يصح.</p>
+
+<!-- Comparison cards: جماهير النحاة vs الكسائي -->
+<div class="cols cols-3">
+  <div class="comparison-card">
+    <div class="comparison-card-header">رأي جماهير النحاة</div>
+    <div class="comparison-card-body">
+      <strong>لا يجوز</strong> تقديم المفعول على اسم الفعل<br><br>
+      <span style="font-size:15px;">لا يصح أن تقول:<br>زيداً دونك<br>نفسك عليك<br>زيداً خُذ</span>
+    </div>
+  </div>
+  <div class="comparison-card">
+    <div class="comparison-card-header" style="background:var(--gold);color:var(--dark-green);">رأي الإمام الكسائي</div>
+    <div class="comparison-card-body">
+      <strong>يجوز</strong> تقديم المفعول على اسم الفعل<br><br>
+      <span style="font-size:15px;">دليله من القرآن:<br>﴿كِتَابَ اللَّهِ عَلَيْكُمْ﴾</span>
+    </div>
+  </div>
+  <div class="comparison-card">
+    <div class="comparison-card-header" style="background:var(--teal);">المناقشة</div>
+    <div class="comparison-card-body">
+      <strong>ناقشوه في هذا وبينوا الردّ</strong><br><br>
+      <span style="font-size:15px;">لكن <strong>ظاهر الآية يؤيد مذهبه</strong></span>
+    </div>
+  </div>
+</div>
+
+<!-- Scholar card: الكسائي -->
+<div class="scholar-card">
+  <div class="scholar-name">الإمام الكسائي رحمه الله عليه</div>
+  <span class="scholar-badge">إمام</span>
+  <div class="scholar-bio">
+    كان إماماً في القراءات والنحو واللغة. خالف جماهير النحاة في مسألة تقديم المعمول على اسم الفعل، فقال: يجوز أن يتقدم المفعول على اسم الفعل.
+  </div>
+</div>
+
+<!-- دليل الكسائي -->
+<div class="evidence-box">
+  <div class="evidence-label">دليل الإمام الكسائي — سورة النساء</div>
+  <div class="evidence-text">﴿كِتَابَ اللَّهِ عَلَيْكُمْ﴾</div>
+  <p style="font-size:16px;margin-top:10px;line-height:1.8;">
+    <strong>كتابَ</strong> — مفعول به مقدم<br>
+    <strong>عليكم</strong> — بمعنى <strong>الزموا</strong> — اسم فعل أمر<br>
+    المعنى: الزموا كتاب الله
+  </p>
+</div>
+
+<p>ناقشوه في هذا وبينوا الردّ، لكن ظاهر الآية يؤيد مذهبه. ظاهر الآية يؤيد مذهبه. ذكرت هذا من باب إتمام الفائدة.</p>
+
+<div class="benefit-box">
+  <div class="benefit-title">فائدة</div>
+  <div class="benefit-text">
+    هذا الخلاف — أي تقديم المعمول على اسم الفعل — ذكر من باب إتمام الفائدة. إن أردت أن تأخذها أخذتها، لا تُريد تركها.
+  </div>
+</div>
+
+<!-- ===== Summary Table ===== -->
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<h1>ملخص أسماء الأفعال التسع</h1>
+
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>اسم الفعل</th>
+      <th>المعنى</th>
+      <th>الزمن</th>
+      <th>الأصالة والنقل</th>
+      <th>اللزوم والتعدي</th>
+      <th>العمل</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td style="font-weight:700;font-size:18px;">رويد</td>
+      <td>أمهل</td>
+      <td>أمر</td>
+      <td>منقول من مصدر</td>
+      <td>متعدٍ</td>
+      <td>ترفع وتنصب</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td style="font-weight:700;font-size:18px;">بلهَا</td>
+      <td>دَع / أَترُك</td>
+      <td>أمر</td>
+      <td>منقول من مصدر ليس له فعل</td>
+      <td>متعدٍ</td>
+      <td>ترفع وتنصب</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td style="font-weight:700;font-size:18px;">دونك</td>
+      <td>خُذ</td>
+      <td>أمر</td>
+      <td>منقول من ظرف</td>
+      <td>متعدٍ</td>
+      <td>ترفع وتنصب</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td style="font-weight:700;font-size:18px;">عليك</td>
+      <td>الزم</td>
+      <td>أمر</td>
+      <td>منقول من جار ومجرور</td>
+      <td>متعدٍ</td>
+      <td>ترفع وتنصب</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td style="font-weight:700;font-size:18px;">هاء</td>
+      <td>خُذ</td>
+      <td>أمر</td>
+      <td>مرتجل (خلافاً لمحمد برجاء)</td>
+      <td>متعدٍ</td>
+      <td>ترفع وتنصب</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td style="font-weight:700;font-size:18px;">حيَّهل</td>
+      <td>أقبِل / إيتِ</td>
+      <td>أمر</td>
+      <td>—</td>
+      <td>متعدٍ</td>
+      <td>ترفع وتنصب</td>
+    </tr>
+    <tr style="background:var(--light-gold) !important;">
+      <td>7</td>
+      <td style="font-weight:700;font-size:18px;">هيهات</td>
+      <td>بَعُد</td>
+      <td>ماضٍ</td>
+      <td>مرتجل</td>
+      <td>لازم</td>
+      <td>ترفع فقط</td>
+    </tr>
+    <tr style="background:var(--light-gold) !important;">
+      <td>8</td>
+      <td style="font-weight:700;font-size:18px;">شتان</td>
+      <td>افترقا</td>
+      <td>ماضٍ</td>
+      <td>مرتجل</td>
+      <td>لازم</td>
+      <td>ترفع فقط</td>
+    </tr>
+    <tr style="background:var(--light-gold) !important;">
+      <td>9</td>
+      <td style="font-weight:700;font-size:18px;">سَرعان</td>
+      <td>سارع</td>
+      <td>ماضٍ</td>
+      <td>منقول من المصدر</td>
+      <td>لازم</td>
+      <td>ترفع فقط</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ===== خلاصة شاملة ===== -->
+<div class="summary-box">
+  <div class="summary-title">خلاصة أسماء الأفعال</div>
+  <div class="summary-text">
+    <strong>تعريف أسماء الأفعال:</strong> ما ناب عن الفعل في العمل والمعنى ولم يتأثر بالعوامل.<br><br>
+    <strong>الناصبة (المتعدية):</strong> ٦ كلمات — رويد، بلهَا، دونك، عليك، هاء، حيَّهل<br>
+    <strong>الرافعة (اللازمة):</strong> ٣ كلمات — هيهات، شتان، سَرعان<br><br>
+    <strong>وجه الشبه بالأسماء:</strong> يقبل التنوين<br>
+    <strong>وجه الشبه بالأفعال:</strong> ينوب عن الفعل في العمل والمعنى<br>
+    <strong>وجه الاختلاف:</strong> لا يتأثر بالعوامل، لا يجوز تقديم المعمول (عند جماهير النحاة)، لا يقبل العلامة<br><br>
+    <strong>أسماء أفعال في القرآن لم يذكرها المصنف:</strong> أفّ، وي، هلمّ، هيتَ لك
+  </div>
+</div>
+
+<!-- ===== CLOSING ===== -->
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<div class="closing-box">
+  <p>ثم قال رحمه الله: هذا درس طويل نتركه للمجلس القادم.</p>
+  <div class="closing-dua" style="margin-top:16px;">
+    والله أعلم<br>
+    وصلَّ اللهم وسلم وبارك على سيدنا محمد وآله وصحبه أجمعين<br>
+    والحمد لله رب العالمين
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="page-footer">
+  شرح العوامل المائة — الدرس الثاني عشر: أسماء الأفعال<br>
+  إعداد: أحمد بن إرشاد | المتن: الإمام عبد القاهر الجرجاني رحمه الله تعالى | الشرح: د. لبيب نجيب عبدالله
+</div>
+
+</div>
+
+<!-- JAVASCRIPT FOR B&W TOGGLE -->
+<script>
+document.querySelector('.bw-toggle').addEventListener('click', function() {
+  document.body.classList.toggle('bw-mode');
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح منظومة سلم الأصول — الدرس الثاني</title>
+<style>
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+  @bottom-center {
+    content: "— " counter(page) " —";
+    font-size: 10px;
+    color: #666;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary: #0d6b3e;
+  --dark-green: #0a4f2e;
+  --gold: #d4a020;
+  --light-gold: #f0e6c0;
+  --teal: #0d7377;
+  --bg: #fefefe;
+  --body-text: #1a1a1a;
+  --border: #c8d6c0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Amiri', 'Noto Naskh Arabic', 'Traditional Arabic', serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--body-text);
+  background: var(--bg);
+  direction: rtl;
+  text-align: justify;
+  padding: 0;
+}
+
+body.bw-mode {
+  filter: grayscale(100%);
+}
+
+/* Toggle Button */
+.bw-toggle {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Amiri', serif;
+  font-size: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: background 0.3s;
+}
+.bw-toggle:hover { background: var(--dark-green); }
+
+@media print {
+  .bw-toggle { display: none; }
+}
+
+/* Cover Header - Medium for Continuation */
+.cover-header {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--dark-green) 60%, #073d22 100%);
+  color: #fff;
+  padding: 28px 30px 22px;
+  border-radius: 0 0 18px 18px;
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+  min-height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.cover-header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30Z' fill='none' stroke='%23ffffff10' stroke-width='1'/%3E%3C/svg%3E");
+  opacity: 0.3;
+}
+.cover-header .badge {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark-green);
+  padding: 4px 18px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+}
+.cover-header h1 {
+  font-size: 26px;
+  margin-bottom: 6px;
+  position: relative;
+  z-index: 1;
+  line-height: 1.4;
+}
+.cover-header .subtitle {
+  font-size: 17px;
+  opacity: 0.9;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 8px;
+}
+.cover-header .names {
+  font-size: 14px;
+  opacity: 0.8;
+  position: relative;
+  z-index: 1;
+  line-height: 1.8;
+}
+
+/* Section Headings */
+h2 {
+  font-size: 22px;
+  color: var(--primary);
+  border-bottom: 3px solid var(--gold);
+  padding-bottom: 8px;
+  margin: 35px 0 18px;
+}
+h3 {
+  font-size: 19px;
+  color: var(--dark-green);
+  margin: 25px 0 12px;
+  padding-right: 12px;
+  border-right: 4px solid var(--primary);
+}
+
+/* Matn Text (from the poem) */
+.matn-text {
+  border-right: 5px solid var(--gold);
+  background: linear-gradient(to left, #fdf8ec 0%, transparent 100%);
+  padding: 12px 18px;
+  margin: 14px 0;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--dark-green);
+  line-height: 2;
+  border-radius: 0 8px 8px 0;
+}
+
+/* Poetry Box */
+.poetry-box {
+  text-align: center;
+  padding: 18px 24px;
+  margin: 16px 0;
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  background: linear-gradient(135deg, #fdfcf5 0%, #f7f0da 100%);
+  font-size: 19px;
+  line-height: 2.2;
+  color: var(--dark-green);
+  font-weight: 600;
+  position: relative;
+}
+.poetry-box::before, .poetry-box::after {
+  content: '✦';
+  color: var(--gold);
+  font-size: 20px;
+  position: absolute;
+  top: 8px;
+}
+.poetry-box::before { right: 12px; }
+.poetry-box::after { left: 12px; }
+
+/* Quran Verse Box */
+.quran-box {
+  background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  padding: 14px 20px;
+  margin: 14px 0;
+  font-size: 19px;
+  line-height: 2;
+  color: var(--dark-green);
+  position: relative;
+  text-align: center;
+}
+.quran-box::before {
+  content: '﴿';
+  color: var(--primary);
+  font-size: 24px;
+  position: absolute;
+  top: 4px;
+  right: 8px;
+}
+.quran-box::after {
+  content: '﴾';
+  color: var(--primary);
+  font-size: 24px;
+  position: absolute;
+  bottom: 4px;
+  left: 8px;
+}
+
+/* Hadith Box */
+.hadith-box {
+  background: linear-gradient(135deg, #e0f2f1 0%, #e8f5e9 100%);
+  border: 2px solid var(--teal);
+  border-radius: 12px;
+  padding: 14px 20px;
+  margin: 14px 0;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #004d40;
+  position: relative;
+}
+.hadith-box .hadith-label {
+  display: inline-block;
+  background: var(--teal);
+  color: #fff;
+  padding: 2px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+/* Ruling Labels */
+.ruling-label {
+  display: inline-block;
+  padding: 3px 14px;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 15px;
+  margin: 2px 3px;
+  color: #fff;
+}
+.ruling-fard { background: #c62828; }
+.ruling-wajib { background: #e65100; }
+.ruling-sunnah { background: #2e7d32; }
+.ruling-mustahabb { background: #1565c0; }
+.ruling-makruh { background: #f9a825; color: #333; }
+.ruling-haram { background: #b71c1c; }
+.ruling-mubah { background: #757575; }
+
+/* Callout / Benefit Box */
+.benefit-box {
+  background: linear-gradient(135deg, #fff8e1 0%, #fffde7 100%);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 14px 20px;
+  margin: 14px 0;
+  position: relative;
+}
+.benefit-box::before {
+  content: '💡';
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  font-size: 22px;
+  background: var(--bg);
+  padding: 0 6px;
+}
+.benefit-box .benefit-title {
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+/* Definition Card */
+.definition-card {
+  background: #fff;
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  padding: 14px 20px;
+  margin: 14px 0;
+  position: relative;
+}
+.definition-card .def-label {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  padding: 2px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+/* Comparison Cards */
+.comparison-container {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 16px 0;
+}
+.comparison-card {
+  flex: 1;
+  min-width: 220px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px 16px;
+  border-top: 4px solid var(--primary);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.comparison-card.card-gold { border-top-color: var(--gold); }
+.comparison-card.card-teal { border-top-color: var(--teal); }
+.comparison-card.card-red { border-top-color: #c62828; }
+.comparison-card .card-title {
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--primary);
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+/* Classification Tree */
+.classification-tree {
+  background: linear-gradient(135deg, #f5f5f5 0%, #fafafa 100%);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  margin: 16px 0;
+  overflow-x: auto;
+}
+.classification-tree .tree-title {
+  text-align: center;
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 17px;
+  margin-bottom: 14px;
+}
+.tree-root {
+  text-align: center;
+  background: var(--primary);
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 10px;
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+.tree-branches {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  position: relative;
+}
+.tree-branches::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: var(--border);
+}
+.tree-branch {
+  background: #fff;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 14px;
+  min-width: 140px;
+  text-align: center;
+  position: relative;
+  margin-top: 14px;
+}
+.tree-branch::before {
+  content: '';
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  width: 2px;
+  height: 14px;
+  background: var(--border);
+}
+.tree-branch .branch-num {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  background: var(--gold);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.tree-branch .branch-title {
+  font-weight: 700;
+  color: var(--dark-green);
+  font-size: 15px;
+}
+.tree-branch .branch-desc {
+  font-size: 14px;
+  color: #555;
+  margin-top: 4px;
+}
+
+/* Table */
+.usul-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 16px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.usul-table thead th {
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 14px;
+  font-weight: 700;
+  text-align: center;
+  font-size: 16px;
+}
+.usul-table tbody td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+.usul-table tbody tr:nth-child(even) {
+  background: #f5faf5;
+}
+.usul-table tbody tr:hover {
+  background: #e8f5e9;
+}
+
+/* Flow Chart */
+.flow-chart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: 16px 0;
+  padding: 16px;
+  background: linear-gradient(135deg, #f5f5f5 0%, #fafafa 100%);
+  border-radius: 12px;
+  border: 2px solid var(--border);
+}
+.flow-step {
+  background: #fff;
+  border: 2px solid var(--primary);
+  border-radius: 10px;
+  padding: 10px 16px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--dark-green);
+  font-size: 15px;
+  min-width: 100px;
+}
+.flow-arrow {
+  font-size: 22px;
+  color: var(--gold);
+  margin: 0 6px;
+}
+
+/* Scholar Card */
+.scholar-card {
+  background: linear-gradient(135deg, #f3e5f5 0%, #ede7f6 100%);
+  border: 2px solid #7b1fa2;
+  border-radius: 12px;
+  padding: 14px 20px;
+  margin: 14px 0;
+  position: relative;
+}
+.scholar-card .scholar-name {
+  font-weight: 700;
+  color: #4a148c;
+  font-size: 17px;
+}
+
+/* Fiqh Principle Box */
+.fiqh-principle {
+  background: linear-gradient(135deg, #e3f2fd 0%, #e8eaf6 100%);
+  border: 2px solid #1565c0;
+  border-radius: 12px;
+  padding: 14px 20px;
+  margin: 14px 0;
+  position: relative;
+}
+.fiqh-principle::before {
+  content: '⚖️';
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  font-size: 22px;
+  background: var(--bg);
+  padding: 0 6px;
+}
+.fiqh-principle .principle-title {
+  font-weight: 700;
+  color: #0d47a1;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+/* Section Divider */
+.section-divider {
+  text-align: center;
+  margin: 30px 0;
+  position: relative;
+}
+.section-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to left, transparent, var(--gold), transparent);
+}
+.section-divider span {
+  background: var(--bg);
+  padding: 0 16px;
+  position: relative;
+  color: var(--gold);
+  font-size: 20px;
+}
+
+/* Summary Box */
+.summary-box {
+  background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+.summary-box .summary-title {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 17px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+/* Numbered Circle List */
+.numbered-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+.numbered-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 8px;
+  padding: 6px 10px;
+  background: #f9fdf9;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+.numbered-list li .num-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* Quote Block */
+.quote-block {
+  border-right: 4px solid var(--teal);
+  padding: 10px 16px;
+  margin: 12px 0;
+  background: #f0fafa;
+  font-style: italic;
+  color: #004d40;
+  border-radius: 0 8px 8px 0;
+}
+
+/* General Paragraph */
+p { margin: 8px 0; }
+
+/* Page break helper */
+.page-break { page-break-before: always; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  body { font-size: 16px; }
+  h1 { font-size: 22px; }
+  h2 { font-size: 20px; }
+  h3 { font-size: 18px; }
+  .comparison-container { flex-direction: column; }
+  .tree-branches { flex-direction: column; align-items: center; }
+  .flow-chart { flex-direction: column; }
+  .flow-arrow { transform: rotate(90deg); }
+}
+</style>
+</head>
+<body>
+
+<!-- B&W Toggle Button -->
+<button class="bw-toggle" onclick="document.body.classList.toggle('bw-mode')">🔄 وضع الأبيض والأسود</button>
+
+<!-- COVER HEADER (Medium for Continuation) -->
+<div class="cover-header">
+  <div class="badge">تابع</div>
+  <h1>شرح منظومة سلم الأصول لكل من يرقى إِلى الأصول</h1>
+  <div class="subtitle">الدرس الثاني</div>
+  <div class="names">
+    المنظومة: العلامة ابن مطير &nbsp;|&nbsp; الشارح: د. لبيب نجيب عبدالله &nbsp;|&nbsp; ناظم الأصل: أحمد بن إرشاد
+  </div>
+</div>
+
+<!-- ==================== CONTENT ==================== -->
+
+<h2>افتتاح الدرس ومراجعة الدرس السابق</h2>
+
+<p>إن تنصروا الله ينصركم ويثبت أقدامكم. كان كلامنا في درس أمسي حول الحكم وانقصام الحكم إلى حكم تكليفي وإلى حكم وضعي. قال النظم رحمه الله تعالى معرفاً الأحكام التكليفية:</p>
+
+<div class="poetry-box">
+والحكم إن عوقب تاركٌ وَجَبْ&ensp;أو فاعلٌ فهو حرامٌ مُجتَنَبْ<br>
+وَانْدُبْ إذا أُثيبَ مَنْ قَدْ فَعَلَهْ&ensp;أو تاركٌ مُمْتَثِلاً فَكُرِهْ لَهْ
+</div>
+
+<p>عرف في هذا البيت المندوب وعرف المكروه. وقد ذكرت لكم في درس أمس الفرق بين المكروه وخلاف الأولى، وأن ما ورد فيه نهي بخصوصه فهو مكروه، وما ورد فيه نهي عام فهو خلاف الأولى.</p>
+
+<!-- ==================== إطلاقات المكروه ==================== -->
+
+<div class="section-divider"><span>❋</span></div>
+
+<h2>إطلاقات المكروه الأربعة</h2>
+
+<p>وقلنا لكم في درس أمس أن المكروه يطلق على أربعة إطلاقات:</p>
+
+<div class="classification-tree">
+  <div class="tree-title">إطلاقات المكروه الأربعة</div>
+  <div style="text-align:center;">
+    <span class="tree-root">المكروه</span>
+  </div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="branch-num">١</div>
+      <div class="branch-title">ما ورد فيه نهي خاص</div>
+      <div class="branch-desc">مثال: كراهة الزيادة على الثلاث في الوضوء، وكراهة النقص عن الثلاث</div>
+    </div>
+    <div class="tree-branch">
+      <div class="branch-num">٢</div>
+      <div class="branch-title">ترك السنة المؤكدة</div>
+      <div class="branch-desc">مثال: ترك الغسل للجمعة مكروه، ترك المضمضة والاستنشاق في الوضوء مكروه</div>
+    </div>
+    <div class="tree-branch">
+      <div class="branch-num">٣</div>
+      <div class="branch-title">خلاف الأولى</div>
+      <div class="branch-desc">مثال: إطلاق المكروه على الوتر بركعة — مرادهم خلاف الأولى</div>
+    </div>
+    <div class="tree-branch">
+      <div class="branch-num">٤</div>
+      <div class="branch-title">بمعنى الحرام</div>
+      <div class="branch-desc">موجود في القرآن الكريم وكلام الأئمة المتقدمين كالشافعي وأحمد</div>
+    </div>
+  </div>
+</div>
+
+<p>ومن هنا تعلم أن المتأخرين يفرقون بين المكروه وخلاف الأولى. وهناك عدد من المسائل التي حصل فيها الخلاف: هل الحكم فيها الكراهة أو الحكم فيها خلاف الأولى؟</p>
+
+<div class="comparison-container">
+  <div class="comparison-card card-gold">
+    <div class="card-title">إزالة النجاسة بماء زمزم</div>
+    <p><strong>ابن حجر والرملي:</strong> خلاف الأولى</p>
+    <p><strong>الخطيب الشربيني:</strong> مكروه</p>
+  </div>
+  <div class="comparison-card card-teal">
+    <div class="card-title">قراءة السورة بعد الفاتحة في الركعة الثالثة والرابعة</div>
+    <p>نص الفقهاء على أنها <strong>خلاف الأولى</strong></p>
+  </div>
+</div>
+
+<!-- ==================== المباح ==================== -->
+
+<div class="section-divider"><span>❋</span></div>
+
+<h2>المباح وكيف يصير طاعة</h2>
+
+<div class="matn-text">
+أو لا ولا فهو المباح باستواء &ensp; وقد يصير طاعة إذا نوى
+</div>
+
+<p>قوله "أو لا ولا" أي أو لا يثاب فاعله ولا يعاقب تاركه فهو المباح. واضح؟ اختصار في الكلام. قال "أو لا ولا فهو المباح باستواء" أي استوى فيه الجانبان فهو المباح.</p>
+
+<p>ثم قال رحمه الله: "وقد يصير طاعة إذا نوى" أي أن المباح قد يكون طاعة إذا نوى به التقرب إلى الله سبحانه وتعالى.</p>
+
+<div class="flow-chart">
+  <div class="flow-step">المباح<br><small>استوى فيه الجانبان</small></div>
+  <div class="flow-arrow">⟵</div>
+  <div class="flow-step" style="border-color: var(--gold); background: var(--light-gold);">النية<br><small>التقرب إلى الله</small></div>
+  <div class="flow-arrow">⟶</div>
+  <div class="flow-step" style="border-color: var(--primary); background: #e8f5e9;">طاعة<br><small>يثاب عليها</small></div>
+</div>
+
+<p>فلو نوى مثلاً بنومه التقوي على قيام الليل، أو نوى بأكله التقوي على الصلاة وما شبه ذلك، فإنه يثاب على ذلك. فكذلك إذا نوى بعمله وكسبه أن يعف نفسه وأن يعف زوجته وأن يطعم أولاده ومن ينفق عليهم فإنه يثاب على ذلك. فالمباح يصير طاعة بالنية.</p>
+
+<div class="hadith-box">
+  <div class="hadith-label">حديث شريف</div>
+  قال النبي صلى الله عليه وآله وسلم: «إن لن تنفق نفقة تبتغي بها وجه الله إلا أُجرت عليها حتى ما تجعل في فيهِ من لقمة»
+</div>
+
+<p>قال الشارح رحمه الله: وقد يصير المباح طاعة إذا نوى به الطاعة كالقعود في المسجد إذا نوى به الاعتكاف. والاعتكاف أن يلبث المسلم في المسجد زمناً يزيد أو زمناً قدر طمأنينة الصلاة أو أكثر. ولذلك إذا قعد في المسجد قاصداً لاعتكاف فإنه يثاب على ذلك. لكن إذا قعد في المسجد مثلاً قاصداً الراحة يرتاح ثم يذهب فإنه لا يثاب على ذلك. ما الفرق بين هذا وذلك؟ الفرق بينهما النية.</p>
+
+<p>قال رحمه الله: "كالقعود في المسجد إذا نوى به الاعتكاف". قال: "أو يتوصل إليها كالأكل" أي نوى التوصل إلى الطاعة كالأكل، أي نوى بالأكل ليتوصل إلى الطاعة فإنه يثاب على ذلك.</p>
+
+<!-- ==================== الصحيح والباطل ==================== -->
+
+<div class="section-divider"><span>❋</span></div>
+
+<h2>الصحيح والباطل</h2>
+
+<div class="matn-text">
+وإن يكن على الشروط اجتملا &ensp; فنافذ صحّ وإلا بطلا
+</div>
+
+<p>بعد أن عرف الناظم رحمه الله تعالى الأحكام التكليفية الخمسة شرع في تعريف الصحيح والباطل. فقال: إن الصحيح هو ما اجتمع على الشروط. والمقصود بالشروط هنا ما لا بد منه أن يكون فيشمل الأركان. فالشروط هنا يشمل الأركان، أي ما لا بد منه في صحة العبادة أو ما لا بد منه في صحة المعاملة.</p>
+
+<div class="benefit-box">
+  <div class="benefit-title">فائدة: الفرق بين الشرط والركن</div>
+  وقد قرر الأصوليون أن الشروط تكون قبل الشيء، وأن الأركان تكون داخل الشيء لأنها أجزاء الماهية.
+</div>
+
+<p>قال رحمه الله: "وإن يكن على الشروط اجتملا في ذِمَّةِ صحة وإلا بطلا" أي وإن لم يتوفر شرط من الشروط أو لم يتوفر ركن من الأركان فإنه يكون باطلاً.</p>
+
+<p>ويظهر من هذا — بارك الله فيكم — يظهر من هذا أن المصنف رحمه الله عنده اسمان: صحيح وباطل، لا يوجد بينهما اسم ثالث. بينما الذي عليه بعض الأصوليين أن عندنا صحيح وعندنا فاسد وعندنا باطل، ففرقوا بين الصحيح والفاسد. أما الذي عليه جمهور الأصوليين أن الصحيح والباطل سواء — سواء نقول في أكثر أبواب الفقه لكن ليس في جميع أبواب الفقه.</p>
+
+<h3>الفرق بين الفاسد والباطل عند الحنفية</h3>
+
+<p>يُنسب للحنفية أنهم يفرقون بين الفاسد والباطل. لكن هذه النسبة على إطلاقها لا تصح. فإن العلامة ابن نجيم — وهو من كبار فقهاء الحنفية المتأخرين — في كتابه الأشباه والنظائر يقول: إن فقهاء الحنفية يفرقون بين الفاسد والباطل في أبواب المعاملات فقط دون العبادات ودون الأنكحة. هكذا يقول، وهو أعلم بمذهبه من غيره ممن ينسب إلى مذهبه ما نفاة عنهم.</p>
+
+<div class="scholar-card">
+  <div class="scholar-name">العلامة ابن نجيم</div>
+  <p>من كبار فقهاء الحنفية المتأخرين. يقول في كتابه <strong>الأشباه والنظائر</strong>: إن فقهاء الحنفية يفرقون بين الفاسد والباطل في أبواب المعاملات المالية دون أبواب العبادات ودون أبواب الأنكحة.</p>
+</div>
+
+<h3>التفريق عند الشافعية</h3>
+
+<p>ووجد تفريق لجماهير الفقهاء أيضاً بين الفاسد والباطل في أبواب أخرى. في الشافعية على سبيل المثال يفرقون بين الفاسد والباطل في الحج، وأيضاً يفرقون بين الفاسد والباطل في أبواب أخرى كباب الخلع على سبيل المثال وباب العارية وبعض الأبواب الأخرى.</p>
+
+<div class="comparison-container">
+  <div class="comparison-card card-gold">
+    <div class="card-title">الحج</div>
+    <p><strong>الفاسد:</strong> الجماع قبل التحلل الأول — حجه فاسد ويجب عليه المضي في حجه وإتمامه</p>
+    <p><strong>الباطل:</strong> الردة تبطل الحج — فإذا ارتد فقد انتهى حجه</p>
+  </div>
+  <div class="comparison-card card-teal">
+    <div class="card-title">الخلع</div>
+    <p><strong>الخلع الفاسد:</strong> إذا كان العوض مجهولاً أو بنحو خمر — يصح لكن بمهر المثل. قال صاحب الزباد: "أما الذي بالخمر أو مع جهل فإنه يجيب مهر المثل"</p>
+    <p><strong>الخلع الباطل:</strong> إذا كان بعوض غير مقصود كدم أو ميتة — يقع طلاقاً رجعياً ولا يقع الخلع</p>
+  </div>
+</div>
+
+<p>قال رحمه الله تعالى: وإن يكون الحكم حال وقوعه على الشروط المعتبرة فيه شرعاً وهي التي لا بد منها. إذن عرف الشروط هنا بالتي لا بد منها. فقال: "فدخل الأركان اجتمع فنافذ صحّ" أي فهو نافذ صحيح عقداً كان أو عبادة، أي سواء كان هذا عقد من العقود أو كان عبادة من العبادات. قال: "كالبيوع والصلوات" — هذا لف ونشر مرتب.</p>
+
+<p>فإذا صح العقد ترتبت على صحته آثاره كالملك يترتب على صحة البيع. وإذا صحت العبادة سقطت تعبداً أي وبرئت الذمة. واضح. وقال الجماعة من الفقهاء: إذا صحت العبادة سقط القضاء.</p>
+
+<p>قال رحمه الله تعالى: "وإلا بطل بألف الإطلاق ويرادفه الفاسد وهما في مقابلة الصحيح". عندنا قوله "ويرادفه الفاسد" — كما قلت لك قبل قليل أنهم فرقوا بين الفاسد والباطل في بعض الأبواب كما ذكرنا في الحج وكما ذكرنا أيضاً في الخلع.</p>
+
+<!-- ==================== العلم والجهل ==================== -->
+
+<div class="section-divider"><span>❋</span></div>
+
+<h2>العلم والجهل</h2>
+
+<div class="matn-text">
+تصوّر المعلوم فيما هو به عِلْمُ &ensp; وإلا فهو جَهْلٌ فانتبه
+</div>
+
+<p>الآن سيعرف لنا الناظم رحمه الله تعالى العلم والجهل، ويعرف بعد ذلك أقسام العلم: الضروري والنظري، ويعرف الدليل، ويعرف بعد ذلك الظن ويعرف الشك. وقبل أن نتوغل في هذه التعاريف نكتبها تنغيماً على السبورة حتى نمشي بسلسلة فيها.</p>
+
+<p>الفكر: حركة الذهن في المعقولات — كأن يتحرك في مسائل العلم، أقوال العلماء، قواعد العلم، هذه حركة الذهن في المعقولات. وأما إن يتحرك الذهن في المحسوسات — كشخص على سبيل المثال يفكر في سيارته، يفكر في بيته، يفكر في مثلاً استورد شيئاً أو اشترى شيئاً كيف يصل إليه. واضح؟ هذه حركة الذهن في ماذا؟ في المحسوسات.</p>
+
+<div class="comparison-container">
+  <div class="comparison-card">
+    <div class="card-title">التفكّر</div>
+    <p>حركة الذهن في <strong>المعقولات</strong></p>
+    <p>مثال: التفكر في مسائل العلم وأقوال العلماء وقواعد العلم</p>
+  </div>
+  <div class="comparison-card card-gold">
+    <div class="card-title">التخيّل</div>
+    <p>حركة الذهن في <strong>المحسوسات</strong></p>
+    <p>مثال: التفكير في السيارة، البيت، كيف يصل إليه شيء اشتراه</p>
+  </div>
+</div>
+
+<p>قالوا: حركة الذهن في المعقولات تسمى تفكراً. وحركة الذهن في المحسوسات تسمى تخييلاً — تخيّل. نعم. واضح؟ إذن ما هو التفكر؟ قال: النظر هو التفكر. والتفكر هو حركة الذهن في المعقولات.</p>
+
+<div class="matn-text">
+وغيره مكتسب والنظر في كل مطلوبٍ هو التفكّر
+</div>
+
+<p>عندما يتحرك الذهن في المعقولات وينظر فيها ويفكر فيها فأنت تصل إلى الدليل. واضح؟ هذا الدليل الذي تصل إليه قد يكون دليلاً قطعياً وقد يكون دليلاً ظنياً. عند الفقهاء وعند الأصوليين لا فرق بين ما هو قطعي وما هو ظني فهذا يسمى دليل وهذا يسمى دليل. لكن عند علماء المنطق يقولون: ما أوصلك إلى القطعي هذا نسميه دليل، وما أوصلك إلى الظني هذا نسميه أمارة لا نسميه دليل. فهم يفرقون بين الدليل والأمارة.</p>
+
+<div class="definition-card">
+  <div class="def-label">تعريف الدليل</div>
+  <p>هو المرشد إلى المطلوب، هو المرشد إلى المراد. فإذا يعتمد الدليل — لو أردت أن تعرفه — هو المرشد إلى المطلوب هو المرشد إلى المراد. تمام.</p>
+</div>
+
+<h3>العلم الضروري والعلم النظري</h3>
+
+<div class="matn-text">
+والعلم إن لم يفتقر في تحصيله &ensp; إلى نظر واستدلال فهو ضروري
+</div>
+
+<p>قال رحمه الله في الشرح: والعلم إن لم يفتقر في تحصيله إلى نظر واستدلال فهو ضروري، لحصوله بمجرد الإحساس به من غير نظر واستدلال. كما الصوت الذي يحصل بسمع فيعلم كونه خفياً ورفيعاً، أي كون هذا الصوت صوتاً خفياً أو كون هذا الصوت صوتاً رفيعاً. قال: وبصر ونحوهما كالشم فيعلم كونه طيباً أو كريهاً، والذوق فيعلم كونه حامضاً أو حلواً، واللمس فيعلم كونه ناعماً أو خشناً.</p>
+
+<div class="classification-tree">
+  <div class="tree-title">أقسام العلم</div>
+  <div style="text-align:center;">
+    <span class="tree-root">العلم</span>
+  </div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="min-width:250px;">
+      <div class="branch-num">١</div>
+      <div class="branch-title">العلم الضروري</div>
+      <div class="branch-desc">يحصل بمجرد الإحساس من غير نظر واستدلال<br>كالمستفاد بالحواس الخمس: السمع، البصر، الشم، الذوق، اللمس</div>
+    </div>
+    <div class="tree-branch" style="min-width:250px;">
+      <div class="branch-num">٢</div>
+      <div class="branch-title">العلم النظري (المكتسب)</div>
+      <div class="branch-desc">يفتقر في تحصيله إلى نظر واستدلال<br>كالعلم بأن العالم حادث — موقوف على النظر في العالم وما نشاهده فيه من التغير</div>
+    </div>
+  </div>
+</div>
+
+<p>وصاحب نظم الورقات يقول:</p>
+
+<div class="poetry-box">
+والعلم إمّا بالضرورة يحصلْ&ensp;أو باكتسابٍ حاصلْ<br>
+فالأول كالمستفاد بالحواس&ensp;بالشمّ أو بالذوق أو باللمس والسمع والأبصار<br>
+ثم التالي ما كان موقوفاً على الاستدلال
+</div>
+
+<p>قال رحمه الله: "وغيره ما يفتقر في تحصيله لنظر والاستدلال مكتسب، كالعلم بأن العالم حادث فإنه موقوف على النظر في العالم وما نشاهده وما شاهده فيه من التغير فينتقل من تغيره إلى حدوثه."</p>
+
+<p>والنظر في كل مطلوب هو التفكر فيه لتهتدي به إلى المطلوب قطعياً كان أو ظنياً وهو الأمارة. انظر — إذا أوصلك إلى الظني فهو الأمارة، هذا بناء على مذهب علماء المنطق الذين يفرقون بين الدليل والأمارة. فما كان قطعياً قيل له دليل وما كان ظنياً قيل له أمارة.</p>
+
+<h3>تعريف النظر عند الباقلاني</h3>
+
+<p>قال رحمه الله: "قطعياً كان أو ظنياً وهو الأمارة". وحدّه أبو بكر فقال أبو بكر الباقلاني رحمه الله تعالى: قال "تصور الفكر المؤدي إلى علم أو ظن" يعني قال إن تعريف النظر هو تصور الفكر الذي يؤدي إلى علم أو ظن.</p>
+
+<p>قال: "فتقول الفكر هو حركة الذهن في المعقولات أي حركة" — هذا تعريف الفكر: حركة الذهن في المعقولات، أي حركة كما شرحت لكم تمام، سواء في محسوس وهو المتخيل أم في خلافه. يعني إذا كانت حركة في محسوس فذلك الذي يسمى التخيل تمام، أم في خلافه.</p>
+
+<p>قال: "ليحصل الدليل فإن حصل بالفكر علم فهو الدليل تصوراً كان العلم أو تصديقاً، وإن لم يحصل به إلا ظن سُمّي أمارة". تمام. قال: "فالظني لا يتناول إلا تصديقاً". ثم قال: "والعلم يشمل التصديق والتصور".</p>
+
+<p>فهو — أي الدليل — الحاصل المرشد إلى المراد، أي المرشد إلى المطلوب لأنه علامة عليه.</p>
+
+<h3>الاستدلال</h3>
+
+<p>ولا حاجة إلى تعريف الاستدلال، وإن عرفه إمام الحرمين أي في الورقات، ونظم ذلك صاحب الورقات فقال:</p>
+
+<div class="poetry-box">
+وحدّ الاستدلال قل ما يجتلب&ensp;لنا دليلاً مرشداً لما طُلب
+</div>
+
+<p>قال: ولا حاجة لتعريف الاستدلال لماذا؟ لأن الاستدلال معناه قريب من معنى النظر تمام. وأيضاً لأن الناظم رحمه الله تعالى في الأبيات في النظم لم يذكر الاستدلال وإنما ذكر ماذا؟ النظر.</p>
+
+<div class="scholar-card">
+  <div class="scholar-name">إمام الحرمين عبد الملك بن عبد الله بن يوسف</div>
+  <p>المتوفى سنة 487هـ. أحد كبار عمالقة الفقه الإسلامي، ليس عند الشافعية فقط بل من فقه الإسلام. وكتبه من أحسن ما أُلف في الفقه والأصول. وهو الذي مهد الطريقة للشافعية، فهو الذي شرح مختصر المزني بشرحه العجيب الذي سماه <strong>نهاية المطلب في دراية المذهب</strong>، مطبوع في نحو 20 مجلداً بتحقيق الدكتور عبد العظيم الديب.</p>
+  <p>هذا الكتاب عندما وقع في يد سلطان العلماء العز بن عبد السلام المتوفى سنة 661هـ قرأه في ثلاثة أيام. نعم، قرأه في ثلاثة أيام. ثم اختصره بعد ذلك في مختصر سماه <strong>الغاية في اختصار النهاية</strong> والمختصر طبع قريباً.</p>
+  <p>طبعاً له كتب في الأصول من أشهرها كتابه <strong>التلخيص</strong> مطبوع في ثلاثة مجلدات، وكتابه <strong>البرهان</strong> الذي عُرّق عليه كبار فحول أصول الفقه شرحاً وتعليقاً وتعقباً. وكان تاج الدين السبكي رحمه الله يسمي هذا البرهان يسميه "لغز الأمة".</p>
+  <p>إمام الحرمين يقول: قرأت على شيخه كراريس في أصول الفقه. قال كراريس. وطالعت بنفسي أكثر من مئة مجلد. قال الدكتور عبد العظيم الديب: هكذا ينبغي للطالب أن يفعل. فمهما تسعى وقت أستاذه له لن يعطيه أكثر من هذا. فالأصل أنك تأخذ مفاتيح العلم ثم تقوم بإعطائه لكي تفعله أكثر من هذا، ثم بعد ذلك تنطلق بنفسك.</p>
+</div>
+
+<div class="benefit-box">
+  <div class="benefit-title">فائدة لطالب العلم</div>
+  <p>هذا الأصل في طالب العلم: تقرأ قليلاً ما يفتح لك مغلق العلم، ثم إذا فتح لك الباب تدخل بنفسك فتنظر هنا وتنظر هنا وتنظر هنا، تأخذ هذا وترد هذا. لأن البعض يريد أن أستاذه يعطيه كل شيء فهذا يبقى عالة على أستاذه حتى بعد أن يصير داعية ويكون إماماً لمسجد، إذا أشكلت عليه مشكلة بدل أن يذهب إلى المكتبة وينظر يتصل بأستاذه. لا بد أن تبدأ التعامل مع الكتب والمراجع كيف تستخرج المسائل وكيف تنظر فيها.</p>
+</div>
+
+<p>قال رحمه الله: وإن عرفه إمام الحرمين مع النظر تأكيداً، يعني كان التعريف هذا كأنه يقول زيادة خير، زيادة إيضاح، بقوله الاستدلال طلب الدليل لأن مؤداهما واحد. فإذاً حصل الدليل فهو يعتمد عليه.</p>
+
+<p>ثم قال: يطلق الدليل على ما به الإرشاد، وذلك شامل للدليل الحسي والدليل العقلي والدليل الشرعي. والمراد هنا "وما به الإرشاد" وهو الكتاب والسنة وما ينشأ عنهما من الإجماع والقياس عند من يقول به وهم أكثر العلماء الذين يقولون بحجية القياس.</p>
+
+<!-- ==================== الظن والشك والوهم ==================== -->
+
+<div class="section-divider"><span>❋</span></div>
+
+<h2>الظن والشك والوهم</h2>
+
+<div class="matn-text">
+ثم الذي يحصل في التصور بغير قزم&ensp; فمؤدّى النظر تردّد<br>
+فراجح الأمرين ظنّ وشكّ&ensp; مستوي الوجهين ظنّ وشكّ مستوي الوجهين
+</div>
+
+<p>قال رحمه الله: ثم الذي يحصل في التصور إن كان قاطماً فقد سبق، وإن كان بغير قاطم فمؤدى النظر تردد، أي أنه تردد الحكم بين أمرين إما أن يترجح أحدهما أو لا. فراجح الأمرين ظن ومقابله وهم.</p>
+
+<div class="classification-tree">
+  <div class="tree-title">أقسام ما يحصل في التصور</div>
+  <div style="text-align:center;">
+    <span class="tree-root">التصور</span>
+  </div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="min-width:180px;">
+      <div class="branch-title">قاطم = عِلْم</div>
+      <div class="branch-desc">قد سبق بيانه</div>
+    </div>
+    <div class="tree-branch" style="min-width:400px;">
+      <div class="branch-title">بغير قاطم = تردّد</div>
+      <div class="branch-desc" style="text-align:right;">
+        <strong>راجح الأمرين = ظنّ</strong> (مقابله: وهم)<br>
+        <strong>مستوي الوجهين = شكّ</strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3>الوهم وأمثلته</h3>
+
+<p>قال ابن خباز: وهو — أي يمثل للوهم — كنفور النفس من الميت مع العلم بعدم بطشه. بعض الناس عنده خوف أن يقرب من الميت أو أن يلمس الميت، هذا الخوف مبني على وهم مع أنه متأكد 100% أنه لا يتحرك. واضح لكن هكذا.</p>
+
+<p>قال رحمه الله: "تنفور النفس من الميت مع العلم بعدم بطشه، ونفورها من شرب الحلاب" — الحلاب اسم يطلق على الحليب (لبن) ويطلق على الإناء الذي يكون فيه الحليب والمراد هنا الحليب اللبن — "في قارورة الحجام". قارورة الحجام هذه التي يكون فيها الدم، تكون قارورة هكذا والحجام يمتص بواسطتها الدم. هذه القارورة غالباً تكون مظنة التنجس بسبب وجود الدم فيها. نفترض أنك نظفتها مرة ومرتين وعشر وثلاثين وأربعين ثم وضعت فيها لبن، مع ذلك حتى وإن نظفتها عدة مرات إلا أن نفسك تنفر منها. واضح؟ هذا مبني على الوهم وإلا فهي نظيفة.</p>
+
+<p>قال رحمه الله: "ونفورها من شرب الحلاب في قارورة الحجام ولو غسلت ألف مرة".</p>
+
+<p>ثم قال رحمه الله: "ولا ينبني عليه من الأحكام إلا في قليل" أي لا ينبني على الوهم من الأحكام الفقهية إلا أحكام قليلة.</p>
+
+<div class="benefit-box">
+  <div class="benefit-title">أمثلة على ما يُبنى على الوهم من الأحكام</div>
+  <ol class="numbered-list">
+    <li><span class="num-circle">١</span><div><strong>توهم الماء بعد تحقق عدمه</strong> — يبطل التيمم. عندنا نقول إبطاله للتيمم مقيد بما لو كان قبل الصلاة، أما لو كان في أثناء الصلاة فلا أثر للتوهم. ولذلك قال صاحب الزباد رحمه الله تعالى: "مبطله — أي مبطل التيمم — مبطله ما أبطل الوضوء مع توهم الماء بلا شيء منع قبل ابتداء الصلاة". توهم الماء بلا شيء منع قبل ابتداء الصلاة. فهذا الكلام يحتاج إلى تقييد: أي حصل توهم قبل ابتداء الصلاة.</div></li>
+    <li><span class="num-circle">٢</span><div><strong>بناء حكم كراهة بيع العنب</strong> لشخص يتوهم أنه سيتخذ ذلك العنب خمراً.</div></li>
+  </ol>
+</div>
+
+<h3>الشك والظن</h3>
+
+<p>قال رحمه الله: "وشك مستوي الوجهين" أي الطرفين. فالتردد في قيام زيد ونفيه على السواء شك. واضح. ومع رجحان الثبوت أو الانتفاء ظن ومقابله وهم.</p>
+
+<p>قال هنا — وانتبه لهذا الكلام — قال: "وهذه طريقة الأصوليين بخلافها عند الفقهاء". يقصد بهذا أن التفريق بين الظن والشك هي طريقة علماء أصول الفقه. أما الفقهاء فلا يفرقون بين الظن والشك. نقول: الفقهاء لا يفرقون بين الظن والشك غالباً أو كثيراً، لكن يوجد في كتب الفقه أحكام ليست بالقليلة يفرق فيها الفقهاء بين الظن والشك.</p>
+
+<div class="comparison-container">
+  <div class="comparison-card card-red">
+    <div class="card-title">حكم الظن</div>
+    <p><strong>بيع العنب:</strong> يحرم بيع العنب لمن يغلب على ظنك أنه يتخذها خمراً</p>
+    <p><strong>استعمال مال الغير:</strong> يجوز أن يستعمل مال غيره إذا غلب على ظنه رضاه</p>
+    <p><strong>التعامل مع مال مختلط:</strong> يكره أن يتعامل مع شخص يغلب على ظنه أن ماله حرام أو مختلط في حرام وحلال</p>
+  </div>
+  <div class="comparison-card card-teal">
+    <div class="card-title">حكم الشك</div>
+    <p><strong>بيع العنب:</strong> يكره إذا كنت تشك في أنه يتخذها خمراً</p>
+    <p><strong>استعمال مال الغير:</strong> لا يجوز له أن يستعمل مال غيره إذا شك في رضاه</p>
+    <p><strong>التعامل مع مال مختلط:</strong> يجوز للإنسان بلا كراهة من يشك في كون ماله حرام (ومنهم من قال خلاف الأولى ومنهم من قال بالكراهة)</p>
+  </div>
+</div>
+
+<p>وهذا ذكروه في كثير من الأحكام: في قضية السفر في الحج في البحر، وفي قضية حكم القاضي بعلمه. جمعت تقريباً ما يزيد على عشرين مسألة يفرق فيها الفقهاء بين الظن وبين الشك. واضح. فقوله هنا "وهذه طريقة الأصوليين بخلافها عند الفقهاء" نقول هذا الكلام يمكن أن يحمل على الأحوال الكثيرة لكن ليس مضطرداً، وإلا فالفقهاء يفرقون في بعض المسائل بين الشك فيعطونه حكماً والظن يعطونه حكماً آخر مغايراً.</p>
+
+<!-- ==================== أدلة الأصول ==================== -->
+
+<div class="section-divider"><span>❋</span></div>
+
+<h2>أدلة الأصول الأربعة</h2>
+
+<div class="matn-text">
+أدلة الأصول قالوا أربعة&ensp; كتابنا والسنة المرتفعة<br>
+كذلك الإجماع والقياس&ensp; كلاهما في شرعنا أساس
+</div>
+
+<p>قال: أدلة الأصول — يقصد بأدلة الأصول هنا التي قال بها معظم العلماء — أربعة: الكتاب والسنة والإجماع والقياس. أدلة الأصول التي اتفق جماهير العلماء عليها ووجدنا العلماء قالوا هي أربعة.</p>
+
+<h3>الكتاب (القرآن الكريم)</h3>
+
+<p>"كتابنا" والمقصود بالكتاب القرآن الكريم. والقرآن يسمى كتاباً ويسمى قرآناً وسمي بالاسمين في القرآن الكريم، بل جاء في بعض الآيات تسميته بالاسمين في آية واحدة:</p>
+
+<div class="quran-box">
+كِتَابٌ فُصِّلَتْ آيَاتُهُ قُرْآنًا عَرَبِيًّا لِّقَوْمٍ يَعْلَمُونَ
+</div>
+
+<p>فهو يسمى كتاب وله أسماء أخرى لكن هذان الاسمان أشهر من غيرهما.</p>
+
+<div class="definition-card">
+  <div class="def-label">تعريف القرآن</div>
+  <p>الكتاب هو ما أنزله الله عز وجل على محمد صلى الله عليه وسلم المتعبّد بتلاوته.</p>
+  <p>قال الحافظ السيوطي رحمه الله تعالى في الكوكب الساطع:</p>
+  <div class="poetry-box" style="font-size:17px;">
+  أمّا القرآن ها هنا فالمنزل&ensp;على النبيّ مُعجزاً يفصَل<br>
+  باقي تلاوة ومنه البسملة&ensp;لا في براءة ولا ما نقل أحدهما
+  </div>
+  <p>"لا في براءة" أي لا في سورة براءة. "ولا ما نقله أحدهما" يعني ما نقله الأحد دون الآخر.</p>
+</div>
+
+<p>والقرآن قيل إن النون هذه ليست أصلية، إنها زائدة. وقيل إن هذه النون نون أصلية. وهذا الخلاف يعود إلى أصل الاشتقاق: هل هو مشتق من الفعل القراءة؟ واضح؟ قراءة وقرآناً. أو مشتق من الفعل قرَنَ؟ لأن كلماته وآياته وسوره اقترن بعضها ببعض. فإذا قلنا إنه مشتق من الفعل قرَنَ حينئذ نقول إن النون هذه نون أصلية. وإذا قلنا إنه مشتق من الفعل القراءة فإننا نقول إن هذه النون زائدة، مثل غفر يغفر مغفرة وغفراناً مع أن الأصل غفر ليس فيه نون.</p>
+
+<p>وقال بعض العلماء — وهذا القول منسوب إلى الإمام الشافعي — إن القرآن عَلَم على هذا الكتاب الذي أنزل على محمد صلى الله عليه وسلم فهو ليس مشتقاً من شيء. والحافظ السيوطي رحمه الله في كتابه الإتقان في علوم القرآن اختار هذا القول: أنه ليس مشتقاً من شيء.</p>
+
+<p>قال تعالى:</p>
+<div class="quran-box">
+وَنَزَّلْنَا عَلَيْكَ الْكِتَابَ بَيَانًا لِّكُلِّ شَيْءٍ
+</div>
+<p>ففيه البيان لجميع الأحكام.</p>
+
+<h3>السنة</h3>
+
+<p>"والسنة المرتفعة" وهي قول النبي صلى الله عليه وسلم وفعله وتقريره لأنه المبين.</p>
+
+<div class="comparison-container">
+  <div class="comparison-card">
+    <div class="card-title">السنة عند الأصوليين</div>
+    <p>قول النبي صلى الله عليه وسلم وفعله وتقريره</p>
+    <p>لأن هذه هي التي يُبنى عليها الأحكام ويُحتج بها</p>
+  </div>
+  <div class="comparison-card card-gold">
+    <div class="card-title">السنة عند المحدثين</div>
+    <p>قول النبي صلى الله عليه وسلم وفعله وتقريره وصفته الخُلقية والخَلقية</p>
+    <p>أعم من تعريف الأصوليين</p>
+  </div>
+</div>
+
+<p>لأنه المبين — أي رسول الله صلى الله عليه وسلم — قال تعالى:</p>
+<div class="quran-box">
+وَأَنزَلْنَا إِلَيْكَ الذِّكْرَ لِتُبَيِّنَ لِلنَّاسِ مَا نُزِّلَ إِلَيْهِمْ
+</div>
+<p>وقال في حقه:</p>
+<div class="quran-box">
+وَمَا يَنطِقُ عَنِ الْهَوَىٰ &ensp; إِنْ هُوَ إِلَّا وَحْيٌ يُوحَىٰ
+</div>
+
+<h3>الإجماع</h3>
+
+<p>"كذلك الإجماع" وسيأتي معنا تعريف الإجماع في آخر النظم. قال صلى الله عليه وسلم:</p>
+
+<div class="hadith-box">
+  <div class="hadith-label">حديث شريف</div>
+  «لا تجتمع أمتي على ضلالة»
+</div>
+
+<p>هذا الحديث فيه حجية الإجماع. وفيه أيضاً أن الإجماع من خصائص هذه الأمة. قال: فقد شهد بالعصمة في جانبه — أي في جانب الإجماع — ولذلك قدم على القياس لأن الإجماع معصوم. ولهذا كان مقدماً على القياس.</p>
+
+<div class="benefit-box">
+  <div class="benefit-title">الفرق بين الاتفاق والإجماع</div>
+  <p><strong>الاتفاق:</strong> يكون بين طائفة ولو الجمهور.</p>
+  <p><strong>الإجماع:</strong> يكون بين الجميع كما أفاد الشبراملسي.</p>
+</div>
+
+<div class="scholar-card">
+  <div class="scholar-name">الشبراملسي</div>
+  <p>من كبار فقهاء الشافعية المتأخرين. وكان ضريراً. وكان منشغلاً أولاً بكتب العلامة ابن حجر رحمه الله. يقال إنه رأى في المنام الرملي رحمه الله يأمره أن يشتغل بكتبه. فانتهج على كتب الرملي وكتب حاشية على نهاية المحتاج شرح المنهاج للرملي. وكان ضريراً كما قلت لكم، يعني كان أععمى، لكن مع ذلك آتاه الله سبحانه وتعالى بسطة في العلم.</p>
+</div>
+
+<h3>القياس</h3>
+
+<p>"والقياس" وهو حجة لرجوعه إلى أحد الثلاثة قبله. فالقياس إما أن يكون مستنداً إلى القرآن الكريم أو مستنداً إلى السنة النبوية أو مستنداً إلى الإجماع. قال: وسيأتي بيانه. "كلاهما في شرعنا أساس" كما علمته.</p>
+
+<h3>الاستصحاب</h3>
+
+<div class="matn-text">
+وبعدها قال بالاستصحاب للأصل فيها معظم الأصحاب
+</div>
+
+<p>ثم قال: "وبعدها قال بالاستصحاب" ذكر دليل الاستصحاب لأنه من الأدلة الذي يقول بها الشافعية. فالشافعية رحمهم الله تعالى لا يقولون بحجية عمل أهل المدينة، ولا يقولون بحجية قول الصحابي، ولا يقولون بحجية شرع من قبلنا، لكنهم يقولون بحجية الاستصحاب. فلذلك خص الاستصحاب بالذكر دون غيره.</p>
+
+<p>فقال رحمه الله: "وبعدها" أي بعد الأربعة "قال بالاستصحاب" أي استصحاب العدم الأصلي، كعدم وجوب صلاة سادسة، وعدم وجوب صوم شهر غير رمضان.</p>
+
+<p>قال: "قال بالاستصحاب للأصل فيها" أي في الحادثة "معظم الأصحاب" — جمع صاحب، والمراد بالأصحاب هنا أصحاب الإمام الشافعي رحمه الله. لكن المقصود بالأصحاب هنا جميع الشافعية، ليس المقصود بالأصحاب من كانوا في مرحلة معينة من مراحل تطور الفقه الشافعي. قال "معظم الأصحاب" — جمع صاحب. وبعضهم لم يقل به وهم قلة من الشافعية، ولذلك قال "معظم الأصحاب" إشارة إلى وجود الخلاف. قال: وسيأتي — أي سيأتي الإشارة إلى ذلك إن شاء الله في موضعه في هذا النظم.</p>
+
+<!-- ==================== مباحث الكتاب: أقسام الكلام ==================== -->
+
+<div class="section-divider"><span>❋</span></div>
+
+<h2>مباحث الكتاب — أقسام الكلام</h2>
+
+<div class="matn-text">
+هي الكلامُ أمرٌ نهيٌ وخبرُ&ensp;عَرْضٌ تَمَنٍّ مَنْ أبوكَ يا عَمَرُ<br>
+وقسمٌ حقيقةٌ ومجازُ&ensp;وهو الذي عن أصله ينحازُ
+</div>
+
+<p>ذكر رحمه الله تعالى أقسام الكلام وأن الكلام ينقسم إلى تسعة أقسام. وهو في الحقيقة فصّلها، ولو أنه جعل ذلك إلى قسمين كبيرين لكان أولى ولعل الإشارة ستأتي إلى ذلك لاحقاً. لكن هو فصلها من باب الإيضاح لطالب العلم والتفصيل لطالب العلم المبتدي، هذا جيد لأنه يوضح له المسألة بشكل أكثر.</p>
+
+<p>على كل حال نقصد أن نقول إن الكلام ينقسم إلى قسمين: إما خبر وإما إنشاء.</p>
+
+<div class="classification-tree">
+  <div class="tree-title">القسمان الأساسيان للكلام</div>
+  <div style="text-align:center;">
+    <span class="tree-root">الكلام</span>
+  </div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="min-width:280px;">
+      <div class="branch-title">الخبر</div>
+      <div class="branch-desc">ما يحتمل الصدق والكذب <strong>لذاته</strong><br>مثال: الجو حار، السماء منطرّة، السيارة جديدة، سافر زيد</div>
+    </div>
+    <div class="tree-branch" style="min-width:280px;">
+      <div class="branch-title">الإنشاء</div>
+      <div class="branch-desc">ما لا يحتمل الصدق والكذب لذاته<br>مثال: أعطني قلماً، أين أبوك؟ ليت الشباب يعود يوماً</div>
+    </div>
+  </div>
+</div>
+
+<table class="usul-table">
+  <thead>
+    <tr>
+      <th style="width:40px;">#</th>
+      <th>القسم</th>
+      <th>المثال</th>
+      <th>ملاحظة</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>١</td>
+      <td><strong>الأمر</strong></td>
+      <td>«وأقيموا الصلاة» «واتقوا دعوة مظلوم»</td>
+      <td>من الإنشاء</td>
+    </tr>
+    <tr>
+      <td>٢</td>
+      <td><strong>النهي</strong></td>
+      <td>«ولا تقربوا الزنا»</td>
+      <td>من الإنشاء</td>
+    </tr>
+    <tr>
+      <td>٣</td>
+      <td><strong>الخبر</strong></td>
+      <td>«واتخذ الله إبراهيم خليلاً»</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>٤</td>
+      <td><strong>العرض</strong></td>
+      <td>«ألا تقتلون قوماً نكثوا أيمانهم»</td>
+      <td>الكلام المصدّر بأَلَا للطلب بلين ورفق</td>
+    </tr>
+    <tr>
+      <td>٥</td>
+      <td><strong>التمني</strong></td>
+      <td>«يا ليتني كنت معهم»</td>
+      <td>طلب ما لا يطمع فيه أو ما فيه عسر</td>
+    </tr>
+    <tr>
+      <td>٦</td>
+      <td><strong>الاستفهام</strong></td>
+      <td>«من أبوك يا عمر»</td>
+      <td>طلب ذكر الماهية</td>
+    </tr>
+    <tr>
+      <td>٧</td>
+      <td><strong>القسم</strong></td>
+      <td>«لعمرك إنهم لفي سكرتهم يعمهون» «فوربك لنسألنهم أجمعين»</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>٨</td>
+      <td><strong>الحقيقة</strong></td>
+      <td>«فاقطعوا أيديهما» — اليد إلى الرسغ</td>
+      <td>ما يبقى على موضوعه ولم يستعمل في غيره</td>
+    </tr>
+    <tr>
+      <td>٩</td>
+      <td><strong>المجاز</strong></td>
+      <td>«فاغسلوا وجوهكم وأيديكم» — اليد إلى المرافق</td>
+      <td>ما يستعمل في غير موضعه — وهو الذي عن أصله ينحاز</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>تفصيل العرض</h3>
+
+<p>العرض هو الكلام المصدّر بأَلَا ليدل على الطلب بلين ورفق: ألا تفعل كذا، ألا تذاكر درسك، ألا تحفظ النظم. واضح. ظاهره العرض ومعناه الوجوب. ومنه: "ألا تنزل عندنا" تحدثنا تمام.</p>
+
+<h3>تفصيل التمني</h3>
+
+<p>التمني هو طلب ما لا يطمع فيه أو ما فيه عسر، يشمل هذا وهذا. التمني طلب ما لا مطمع فيه أو ما فيه عسر. كأن تقول مثلاً "ليتني أكون مَلَكاً" أي من الملائكة — هذا طلب مستحيل لا مطمع فيه. أو تقول "ليتني أكون مَلِكاً" يمكن أو لا يمكن؟ ممكن لكنه عسر صعب جداً. ليتني أكون مَلِكاً — هذا فيه عسر. يمكن إذا تزوّج ابنة ملك ثم مات أن تكون ملكاً.</p>
+
+<h3>تفصيل الحقيقة والمجاز</h3>
+
+<p>الحقيقة: وهو ما يبقى على موضوعه ولم يستعمل في غيره. اللفظ الذي يستعمل في مستقره عليه المخاطبة، أو اللفظ الذي يستعمل في موضوعه الأول — على الاختلاف في التعريفين.</p>
+
+<p>قال رحمه الله تعالى: نحو "فاقطعوا أيديهما" فاستعمل في اليد المعروفة التي هي إلى الرسغ تمام.</p>
+
+<p>المجاز: وهو ما يستعمل في غير موضعه. قوله "فاغسلوا وجوهكم وأيديكم" أي إلى المرافق فاستعملت اليد الآن في غير المعنى الأصلي هذا مجاز. المعنى الحقيقي لليد إلى هنا واضح. فقوله تعالى "فاقطعوا أيديهما" أي من هنا — هذا استعمال حقيقي. استعمال اليد أو إطلاق اليد إلى المرافق هذا مجاز، ليس هذا هو المعنى الأصلي.</p>
+
+<p>فقوله سبحانه وتعالى "وأيديكم" — قال: فامسحوا بوجوهكم وأيديكم في مسح التيمم، تمسح إلى أين؟ إن الشافعية إلى المرافقين، صح تمسح إلى المرافقين. إذن نقول هذا استعمال لللفظ في غير موضعه هذا مجاز.</p>
+
+<p>ومنه قوله تعالى:</p>
+<div class="quran-box">
+وَالسَّمَاءَ بَنَيْنَاهَا بِأَيْدٍ
+</div>
+<p>أي بقوة. "والسماء بنيناها بأيد" أي بقوة. هذا معنى مجازي لأن ليس المقصود باليد هنا هذا، أي بمعنى قوة. واذكر عبدنا داود — هذا الأيد هذا القوة. هذه الآية أصلاً ليست من آيات الصفات.</p>
+
+<!-- ==================== الأمر ==================== -->
+
+<div class="section-divider"><span>❋</span></div>
+
+<h2>الأمر</h2>
+
+<div class="matn-text">
+والأمر للوجوب إن تجرد&ensp;عن صارفٍ نَحْوُ "جَنِّبْ سُبُلَ الرَّدَى"<br>
+تَنَبُّسْ بِلَا الرَّدِّ
+</div>
+
+<p>نقول بارك الله فيكم: الأمر معناه طلب فعل بالقول ممن هو دونه. طلب فعل بالقول ممن هو دونه — كم هذه ثلاثة شروط:</p>
+
+<ol class="numbered-list">
+  <li><span class="num-circle">١</span><div><strong>طلب فعل:</strong> أما طلب الترك فهذا ليس أمراً وإنما نهي</div></li>
+  <li><span class="num-circle">٢</span><div><strong>بالقول:</strong> فطلب الفعل بغير القول كالإشارة مثلاً هذا ليس أمراً اصطلاحاً — كان أقول لشخص هكذا معناها قف — هذا عند الأصوليين ليس أمراً. لا بد أن يكون طلب الفعل بالقول</div></li>
+  <li><span class="num-circle">٣</span><div><strong>ممن هو دونه:</strong> تفهم منه أن طلب الفعل بالقول ممن هو مساوٍ له أو أعلى منه ليس أمراً عند الأصوليين. إذا قال لكم "والأمر طلب الفعل ممن دونك" إلى هنا انتهى التعريف لم يذكر بالقول — هذا قيد ثالث الأفضل أن تلحقه. قال: والأمر هو طلب الفعل ممن هو دونه</div></li>
+</ol>
+
+<h3>ماذا يفيد مطلق الأمر؟</h3>
+
+<p>مطلق الأمر — هل يفيد الوجوب أو يفيد الاستحباب؟ قالوا: مطلقه — كما قال — للوجوب إن تجرد عن صارف يصرفه إلى غيره. نحو: "اجتنب سبل الردى" أي الهلاك، "واعبدوا الله ولا تشركوا به شيئاً" حتى يقال الله عاطف المرسلين.</p>
+
+<p>إذن الأمر في حقيقته يدل على الوجوب. وهذه المسألة مما كثر فيها الكلام عند الأصوليين:</p>
+
+<div class="comparison-container">
+  <div class="comparison-card">
+    <div class="card-title">القول الأول</div>
+    <p>إن الأمر حقيقته <strong>للوجوب</strong></p>
+  </div>
+  <div class="comparison-card card-gold">
+    <div class="card-title">القول الثاني</div>
+    <p>إن الأمر حقيقته <strong>للاستحباب</strong></p>
+  </div>
+  <div class="comparison-card card-teal">
+    <div class="card-title">القول الثالث (الأقرب)</div>
+    <p>الأمر في <strong>العبادات للوجوب</strong> وإن الأمر في <strong>الآداب للاستحباب</strong></p>
+  </div>
+</div>
+
+<p>هذا القول الثالث يمكن أن يكون أقرب من القول الأول والثاني. وإن كان أحياناً كل أمر تنظر إليه بالقرائن المُحتفة به. فالأصل إذا لم يكن هناك قرائن أن الأمر إذا كان في العبادات فهو للوجوب وإذا كان في الآداب فهو للاستحباب.</p>
+
+<h3>الصارف عن الوجوب</h3>
+
+<p>ثم إن هذا الأمر إذا كان للوجوب وجاء الصارف يصرفه فإنه يصير استحباباً. هذا الصارف متعدد أنواعه، كثيرة:</p>
+
+<div class="benefit-box">
+  <div class="benefit-title">أنواع الصوارف عن الوجوب</div>
+  <ol class="numbered-list">
+    <li><span class="num-circle">١</span><div>يأمر النبي صلى الله عليه وسلم بأمر ثم لا يفعله — هذا يعتبر صارفاً</div></li>
+    <li><span class="num-circle">٢</span><div>يأمر النبي صلى الله عليه وسلم بأمر في الآداب — هذا صارف</div></li>
+    <li><span class="num-circle">٣</span><div>يأمر النبي صلى الله عليه وسلم أمراً من باب مصلحة للعبد — هذا صارف</div></li>
+  </ol>
+</div>
+
+<p>فمثلاً قول النبي عليه الصلاة والسلام:</p>
+<div class="hadith-box">
+  <div class="hadith-label">حديث شريف</div>
+  «تسحّروا فإن في السحور بركة»
+</div>
+<p>هذا لمصلحة الصائم من أجل أن يتقوى على الصيام. فإن في السحور بركة — يصرف الأمر من الوجوب إلى الاستحباب.</p>
+
+<p>ومنه قول الله سبحانه وتعالى في سورة البقرة:</p>
+<div class="quran-box">
+وَأَشْهِدُوا إِذَا تَبَايَعْتُمْ
+</div>
+<p>لماذا نشهد؟ حتى تتوثق حقك. فهو أمر لمصلحتك أنت، إذن هذا يصرفه من الوجوب إلى الاستحباب.</p>
+
+<p>إذن الصارف هذا قد يكون صارفاً متصلاً وقد يكون هذا الصارف فُهم من قرائن وأدلة خارجية. والصوارف كثيرة لا حصر لها.</p>
+
+<h3>هل يقتضي الأمر التكرار؟</h3>
+
+<div class="matn-text">
+وَيُكْتَفَى بِمَرَّةٍ فِي الْعُمْرِ &ensp; إِلَّا إِذَا دَلَّ كَصَوْمِ الشَّهْرِ
+</div>
+
+<p>أي أن الأمر — الأمر المطلق غير المقيد — يُكتفى بفعلية مرة واحدة في العمر. الأمر المطلق يُكتفى بفعلية مرة واحدة في العمر. أما الأمر المقيد الذي عُلّق بسببه أو عُلّق بشرط فإنه كلما حصل ذلك السبب أو حصل ذلك الشرط وجب عليك أن تفعل ذلك الأمر.</p>
+
+<div class="comparison-container">
+  <div class="comparison-card">
+    <div class="card-title">الأمر المطلق</div>
+    <p>يُكتفى بمرة واحدة في العمر</p>
+    <p>مثال: الحج — "إن الله فرض عليكم الحج فحجوا" — مرة واحدة</p>
+  </div>
+  <div class="comparison-card card-gold">
+    <div class="card-title">الأمر المقيد بسبب أو شرط</div>
+    <p>كلما حصل السبب أو الشرط وجب الفعل</p>
+    <p>مثال: "فمن شهد منكم الشهر فليصمه" — كل عام</p>
+    <p>مثال: "إذا قمتم إلى الصلاة فاغسلوا وجوهكم" — كلما قمت محدثاً</p>
+    <p>مثال: "أقم الصلاة لدلوك الشمس" — كل يوم</p>
+    <p>مثال: الزكاة — علقت بحولان الحول وبلوغ النصاب</p>
+  </div>
+</div>
+
+<p>قال الشارح رحمه الله: "ويكتفى بمرة فلا يقتضي التكرار لحصول الإجزاء به على الأصح، ومقابله يقتضي التكرار" — تقليل الكلام — ومقابله أن الأمر المطلق يقتضي التكرار لكن الذي عليه جماهير علماء أصول الفقه هو الأول أن الأمر المطلق لا يقتضي التكرار.</p>
+
+<p>قال: "ويكتفى بمرة فلا يقتضي التكرار لحصول الإجزاء به على الأصح. ومقابله يقتضي التكرار في العمر وهي موسعة مدة العمر". أي أن الأمر لا يفيد الفورية، بل لا يقتضي لا الفورية ولا التراخي. الأمر المطلق لا يقتضي الفورية ولا يقتضي التراخي.</p>
+
+<div class="fiqh-principle">
+  <div class="principle-title">قاعدة فقهية: الفورية في النهي لا في الأمر</div>
+  <p>يقتضي الفورية فالله سبحانه وتعالى عندما نهى عن شرب الخمر — مباشرة نترك الخمر. وعندما نهى عن الزنا — مباشرة نترك الزنا. أما الأمر فلا يقتضي فوراً ولا يقتضي تكراراً. قال لكم صاحب نظم الورقات:</p>
+  <div class="poetry-box" style="font-size:17px;">
+  ولم يَفِدْ فوراً ولا تكرارا&ensp;إن لم يرد ما يقتضي التكرارا
+  </div>
+</div>
+
+<p>قال رحمه الله: "فلا يقتضي فوراً على الصحيح إلا إذا دل عليهما" — أي التكرار والفورية — دليل، كقوله صلى الله عليه وسلم: "خمس صلوات كتبهن الله في اليوم والليلة" فدل على وجوب التكرار. "إذا دل كصوم الشهر" أي شهر رمضان الثابت فوريته بدخول زمنه من فعله.</p>
+
+<p>وقوله صلى الله عليه وآله وسلم: "صوموا لرؤيته وأفطروا لرؤيته". وقوله عليه صلى الله عليه وسلم "صوموا لرؤيته" مرجع الضمير محذوف للاستغناء عنه بأنه مشهور فهو مفهوم لدينا — صوموا لرؤيته أي صوموا لرؤيته هلال رمضان، وأفطروا لرؤيته أي أفطروا لرؤيته هلال شوال.</p>
+
+<p>وعلماء النحو يقولون إن ضمير الغائب يجب أن يكون له مرجع يرجع عليه إلا إذا كان مشهوراً فإنه يستغنى عن ذلك المرجع، ومثلوا لذلك بقول الله سبحانه وتعالى:</p>
+<div class="quran-box">
+إِنَّا أَنزَلْنَاهُ فِي لَيْلَةِ الْقَدْرِ
+</div>
+<p>أنزلنا ماذا؟ أنزلنا القرآن لأن هذا معلوم لدينا.</p>
+
+<h3>أقسام الأمر</h3>
+
+<div class="matn-text">
+إن كان ممن دونك استدعاء &ensp; وغيره التماس أو دعاء
+</div>
+
+<p>قال: إن الأمر ينقسم إلى ثلاثة أقسام:</p>
+
+<ol class="numbered-list">
+  <li><span class="num-circle">١</span><div><strong>إن كان ممن دونك</strong> فهو الأمر حقيقة — وهو المسمّى <strong>استدعاء</strong></div></li>
+  <li><span class="num-circle">٢</span><div><strong>إذا كنت تطلب ممن هو مثلك</strong> فهذا يسمّى <strong>التماس</strong></div></li>
+  <li><span class="num-circle">٣</span><div><strong>إذا كنت تطلب ممن هو فوقك</strong> فهذا يسمّى <strong>دعاء</strong> — نحو: "اهدنا الصراط المستقيم"</div></li>
+</ol>
+
+<!-- ==================== الأمر بالشيء نهي عن ضده ==================== -->
+
+<div class="section-divider"><span>❋</span></div>
+
+<h2>الأمر بالشيء نهي عن ضده</h2>
+
+<div class="matn-text">
+والأمر نهيٌ يا فتًى عن ضده&ensp;في "لا تبع زيداً وبِعْ من عبده"
+</div>
+
+<p>يقول: إن الأمر بالشيء نهي عن ضده. الأمر بالشيء نهي عن ضده. إذا أمرت بالشيء فإن هذا الشيء إما أن يكون له ضد واحد وإما أن يكون له أكثر من ضد. فإذا أمرت بالسكوت فذلك نهي عن الكلام لأن السكوت ليس له إلا ضد واحد وهو الكلام. لكن إذا أمرت بالقيام مثلاً فإن ذلك نهي عن القعود ونهي أيضاً عن الاضطجاع وغير ذلك. واضح؟ إذن نقول: الأمر بالشيء نهي عن ضده إن كان له ضد واحد، ونهي عن جميع أضداده إذا كان له أكثر من ضد.</p>
+
+<p>والقول هو: "بيع من عبده" — بيع من بمعنى اشترِ — بيع من عبده يعني بمعنى اشترِ من عبده. فأمره أن يشتري من عبد زيد يكون هذا الأمر أن يشتري من عبد زيد نهي له أن يشتري من غير عبد زيد. تمام؟</p>
+
+<p>قال الشارح رحمه الله: "والأمر إيجاباً أو ندباً محرماً أو مكروهاً نهي يا فتاة. فإذا قال لك اسكن كان ناهياً لك عن التحرك."</p>
+
+<p><strong>والنهي عن الشيء أمر بأحد أضداده:</strong> هذه عكس القاعدة — الأمر بالشيء نهي عن ضده أو عن أضداده. النهي عن الشيء أمر بضده إذا كان له ضد واحد أو أمر بأحد أضداده. واضح. النهي عن الشيء لو قلت لك "لا تتكلم" هذا نهي عن الكلام يستلزم الأمر بالسكوت. لكن لو قلت لك "لا تقم" فهذا نهي عن القيام فهو أمر إما بالقعود أو بالشكل الآخر.</p>
+
+<h3>صيغ الأمر والنهي</h3>
+
+<p>وليس المقصود عند الأصوليين — انتبه — أن الأمر بالشيء نهي عن ضده وأن النهي عن الشيء أمر بضده ليس المقصود من حيث الصيغة واضح، فإن للأمر صيغ تختلف عن صيغ النهي. فصيغة النهي بارك الله فيكم: الفعل المضارع الذي سبق بلا الناهية — لا تفعل — هذه صيغة النهي.</p>
+
+<p>وأما الأمر فله أكثر من صيغة:</p>
+
+<table class="usul-table">
+  <thead>
+    <tr>
+      <th style="width:40px;">#</th>
+      <th>صيغة الأمر</th>
+      <th>المثال</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>١</td>
+      <td><strong>فعل الأمر</strong> (للمفرد المذكر والمؤنث والمثنى والجمع)</td>
+      <td>«يا أيها النبي اتق الله» — للمفرد المذكر<br>«يا مريم اقنتي لربك» — للمفرد المؤنث<br>«اذهبا إلى فرعون» — للمثنى<br>«يا أيها الذين آمنوا اركعوا واسجدوا» — للجمع</td>
+    </tr>
+    <tr>
+      <td>٢</td>
+      <td><strong>الفعل المضارع + لام الأمر</strong></td>
+      <td>«فمن شهد منكم الشهر فليصمه»<br>«لينفق ذو سعة من سعته»<br>«من أتى منكم الجمعة فليغتسل»</td>
+    </tr>
+    <tr>
+      <td>٣</td>
+      <td><strong>المصدر النائب عن فعل محذوف</strong></td>
+      <td>«فإذا لقيتم الذين كفروا فضرب الرقاب» أي فضربوا الرقاب ضرباً<br>«وبالوالدين إحساناً» أي أحسنوا للوالدين إحساناً</td>
+    </tr>
+    <tr>
+      <td>٤</td>
+      <td><strong>اسم فعل الأمر</strong></td>
+      <td>«يا أيها الذين آمنوا عليكم أنفسكم»</td>
+    </tr>
+    <tr>
+      <td>٥</td>
+      <td><strong>كلمة "كُتب" أو "فُرض"</strong></td>
+      <td>«يا أيها الذين آمنوا كُتب عليكم الصيام»<br>وفي الحديث: «إن فرض رسول الله صلى الله عليه وسلم صدقة الفطر»</td>
+    </tr>
+    <tr>
+      <td>٦</td>
+      <td><strong>"يأمر" ونحوها</strong></td>
+      <td>«إن الله يأمر بالعدل والإحسان وإيتاء ذي القربى»</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>هذه كلها صيغ الأمر وهي كثيرة أيضاً. لكن النهي له صيغة واحدة وهي "لا تفعل". تمام.</p>
+
+<p>قال رحمه الله تعالى: قال "والنهي عن الشيء أمر بأحد أضداده كما قال في لتبع" إلى آخره — عن ضده الوجودي أي عن كل واحد من أضداده الوجودية. في "لتبع زيداً" أي من زيد فقد أمرتك بترك البيع منه، و"بيع من عبده" وفي قولك "وبيع من عبده" فقد أمرتك بالبيع منه ونهيته بالبيع من غيره. واضح.</p>
+
+<!-- ==================== مقدمات الواجب ==================== -->
+
+<div class="section-divider"><span>❋</span></div>
+
+<h2>مقدمات الواجب ومن يدخل في خطاب الشرع</h2>
+
+<div class="matn-text">
+ويوجب الشيء الذي لا يمكن إلا به&ensp;يدخل فيه المؤمن لا ساهياً<br>
+صبياً أو مجنوناً ومكرهاً&ensp;بل عاقلاً رصيناً
+</div>
+
+<p>في هذين البيتين ذكر الناظم رحمه الله تعالى مسألتين: المسألة الأولى ذكر مسألة مقدمات الواجب — تسمى مقدمات الواجب. وفي المسألة الثانية ذكر من لا يدخل في خطاب الشرع. والمحقق هنا عنون بقوله "الأمر بالشيء أمر بمقدماته" فذكر إحدى المسألتين ولم يذكر الأخرى، ولو أنه ذكر المسألتين في العنوان كان أولى.</p>
+
+<h3>مقدمة الواجب</h3>
+
+<p>قال: "ويوجب الشيء الذي لا يمكن إلا به" أي أن الأمر بالشيء أمر بما لا يتم الشيء إلا به. واضح. وهذا الذي هو مشهور عند كثير من طلبة العلم بقولهم: "ما لا يتم الواجب إلا به فهو واجب". وهذا الكلام في الحقيقة يحتاج إلى قيدين ذكرهما الحافظ السيوطي رحمه الله تعالى في نظمه لجمع الجوامع فقال:</p>
+
+<div class="poetry-box">
+ما لا يتم الواجب المطلق من&ensp;مقدورنا إلا به حِتمٌ ذَكَر
+</div>
+
+<div class="fiqh-principle">
+  <div class="principle-title">قاعدة: ما لا يتم الواجب إلا به فهو واجب (بقيدين)</div>
+  <ol class="numbered-list">
+    <li><span class="num-circle">١</span><div><strong>القيد الأول:</strong> أن يكون هذا في الواجب المطلق لا في الواجب المقيد. مثال الأمر المقيد: كالأمر بالزكاة مقيد ببلوغ المال نصاباً فأنت لست مطالباً بأن تسعى ليبلغ مالك نصاباً حتى تجب عليك الزكاة، مع أن كون المال يبلغ نصاباً هذا بقدرتك — أنت تستطيع أن تعمل وتتكسب حتى يصير مالك نصاباً — لكن هذا أمر مقيد.</div></li>
+    <li><span class="num-circle">٢</span><div><strong>القيد الثاني:</strong> أن يكون من مقدورنا — لا بد أن يكون داخلاً تحت قدرة المكلف. فالأمر بالصلاة مقيد بزوال الشمس فأنت لست مطالباً أن تسعى في أن تزول الشمس من أجل أن تجب عليك صلاة الظهر لأن هذا ليس داخلاً تحت مقدورك.</div></li>
+  </ol>
+</div>
+
+<div class="flow-chart">
+  <div class="flow-step">الأمر بالصلاة</div>
+  <div class="flow-arrow">⟶</div>
+  <div class="flow-step" style="border-color:var(--gold);">أمر بالوضوء</div>
+  <div class="flow-arrow">⟶</div>
+  <div class="flow-step" style="border-color:var(--teal);">أمر بطلب الماء</div>
+  <div class="flow-arrow">⟶</div>
+  <div class="flow-step" style="border-color:#c62828;">أمر بشراء الماء<br><small>إذا توقف على شراء</small></div>
+</div>
+
+<p>كالأمر بالصلاة أمر بالوضوء، وكل شيء للصلاة يفرضه فالأمر بالصلاة أمر بالوضوء، والأمر بالوضوء أمر بطلب الماء، والأمر بطلب الماء إذا توقف على شراء الماء فهو أمر بشراء الماء، وإذا توقف شراء الماء مثلاً على أن تعمل وتتكسب لتحصل المال لتشتري الماء ثم تتوضأ ثم ثم ثم فهذا أيضاً واجب لأن ما لا يتم الواجب إلا به فهو واجب بحسب هذه القاعدة التي قررناها لكم إن شاء الله.</p>
+
+<p>قال رحمه الله: "ويوجب الأمر بالمقدور المطلق" — انظر أتى بالقيدين الذين ذكرتهما لك: "المقدور" أخرج غير المقدور، "المطلق" أخرج المقيد — "الشيء الذي لا يمكن إلا به" أي لا يوجد إلا به وهو المسمى بالمقدمة — هذه المسألة تسمى مقدمة الواجب تمام. قال: كالأمر بصعود السطح فإنه أمر بنصب سُلّم. والأمر بالصلوات أمر بالوضوء إذ لا تصح بدونه.</p>
+
+<!-- ==================== من لا يدخل في خطاب الشرع ==================== -->
+
+<div class="section-divider"><span>❋</span></div>
+
+<h3>من يدخل ومن لا يدخل في خطاب الشرع</h3>
+
+<p>ثم ذكر لك مسألة أخرى وهي: من الذي لا يدخل تحت خطاب الشرع. فقال لك الناظم رحمه الله: "ويوجب الشيء الذي لا يمكن إلا به" — هذه المسألة الأولى — "يدخل فيه" يدخل في ماذا؟ أي في خطاب الشرع تمام. قال: "يدخل فيه المؤمن" — المؤمن يدخل في خطاب الشرع والمراد بالمؤمن هنا المكلف أي البالغ العاقل، لأنه استثنى جماعة فهؤلاء لا يدخلون في خطاب الشرع.</p>
+
+<div class="classification-tree">
+  <div class="tree-title">أقسام الناس بالنسبة لخطاب الشرع</div>
+  <div style="text-align:center;">
+    <span class="tree-root">الناس</span>
+  </div>
+  <div class="tree-branches">
+    <div class="tree-branch" style="min-width:200px; border-color: var(--primary); background: #e8f5e9;">
+      <div class="branch-title" style="color:var(--primary);">يدخلون (مكلفون)</div>
+      <div class="branch-desc">المؤمن البالغ العاقل الذي بلغته الدعوة</div>
+    </div>
+    <div class="tree-branch" style="min-width:200px; border-color: #c62828; background: #ffebee;">
+      <div class="branch-title" style="color:#c62828;">لا يدخلون</div>
+      <div class="branch-desc">الساهي، الصبي، المجنون، المكره (على رأي الناظم)</div>
+    </div>
+    <div class="tree-branch" style="min-width:200px; border-color: var(--gold); background: #fff8e1;">
+      <div class="branch-title" style="color:#e65100;">فيه خلاف</div>
+      <div class="branch-desc">الكفار</div>
+    </div>
+  </div>
+</div>
+
+<p>قال: "لا ساهياً صبياً أو مجنوناً ومكرهاً بل عاقلاً رصيناً". هؤلاء الأربعة: الساهي والصبي والمجنون والمكره — لا يدخلون في خطاب الشرع. بل الذي يدخل في خطاب الشرع هو العاقل الرصين. الرصين بمعنى العاقل.</p>
+
+<div class="hadith-box">
+  <div class="hadith-label">حديث شريف</div>
+  «رُفع القلم عن ثلاثة: عن الصبي حتى يبلغ، وعن النائم حتى يستيقظ، وعن المجنون حتى يفيق»
+</div>
+
+<h3>خلاف في المكره</h3>
+
+<p>هذه المسألة — مكره — مما تابع فيها الناظم رحمه الله تعالى تاج السبكي في جمع الجوامع. فالسبكي رحمه الله تعالى في جمع الجوامع رأى أن المكره ليس مكلفاً. لكن شيخ الإسلام زكريا الأنصاري رحمه الله في مختصره لب الأصول خالف تاج السبكي ورأى أن المكره مكلف، وفرق بين المكره والملقى.</p>
+
+<div class="comparison-container">
+  <div class="comparison-card card-red">
+    <div class="card-title">الملقى</div>
+    <p>من لا مندوحة له ولا اختيار — ليس عنده اختيار. مثال: كشخص أُلقي من شاهق ويقع على آخر ليقتله — هذا ليس عنده اختيار هو مُلقى لا يستطيع أن يتحرك يميناً ولا يساراً. هذا يسمى مُلقى — هذا <strong>ليس مكلفاً</strong> بالاتفاق.</p>
+  </div>
+  <div class="comparison-card card-teal">
+    <div class="card-title">المكره</div>
+    <p>من لديه نوع اختيار. صورته: أن يقال لشخص "إن لم تفعل كذا قتلناك — افعل كذا وإلا قتلناك". فهذا له خيار: يفعل هذا أو يستطيع أن لا يفعل. يوجد عنده خيار وخيار آخر.</p>
+    <p><strong>تاج السبكي:</strong> ليس مكلفاً</p>
+    <p><strong>شيخ الإسلام زكريا الأنصاري:</strong> مكلف</p>
+  </div>
+</div>
+
+<p>واتفقوا جميعاً — أي من قال إنه مكلف ومن قال إنه ليس مكلف — في مسألة وهي أن المكره مكلف إذا قيل له "إن لم تقتل فلان اقتل فلان وإن لم تقتله قتلناك". هنا اتفقوا جميعاً على أنه مكلف. وهذا مما يقوّي ما رآه واختاره شيخ الإسلام زكريا الأنصاري. فإنه يقول: على قولي أنا لا إشكال لم أخرج من القاعدة لأنني أقول أصلاً هو مكلف. لكن من يقول أنه ليس مكلفاً يحتاج إلى الجواب. فأجاب من قال بذلك — أي من قال بأنه ليس مكلف — أجاب: قال إنه يأثم ليس لأنه قتل فهو مكره على هذا، وإنما لأنه آثر نفسه على نفس غيره. على كل حال الذي يضطرد أكثر هو ما اختاره شيخ الإسلام زكريا الأنصاري رحمه الله تعالى.</p>
+
+<h3>خطاب الوضع يجري على غير المكلفين</h3>
+
+<p>قال: "ويوجب الشيء الذي لا يمكن إلا به يدخل فيه المؤمن لا ساهياً صبياً أو مجنوناً" — نقول بارك الله فيكم: هؤلاء ليسوا مكلفين بمعنى لا تتعلق بهم الأحكام التكليفية، لكن الأحكام الوضعية تتعلق بهم فيلزمون بها. فإذا أتلف الصبي شيئاً مالاً فإنه يلزم بالضمان، وإذا أتلف المجنون مالاً فإنه يلزم بالضمان.</p>
+
+<div class="benefit-box">
+  <div class="benefit-title">استثناء من جريان خطاب الوضع على الصبي والمجنون</div>
+  <p>في حج الصبي وفي حج المجنون إذا فعل محظوراً من محظورات الإحرام مما فيه إتلاف — كان أزال الصبي مثلاً شعره أو أظفاره أو ما شبه ذلك، فعل شيئاً من محظورات الإحرام التي فيها إتلاف — قالوا: لا تجب الفدية عليه، مع أن الأصل في هذه الفدية أنها من خطاب الوضع وأنها تجب عليه، لكن هذا مستثنى من كون الصبي والمجنون مخاطبان بخطاب الوضع، هذا مستثنى من القاعدة. وإلا لو طردنا القاعدة فإنه يلزمهم الفدية.</p>
+</div>
+
+<p>قال الشارح رحمه الله: "يدخل فيه المؤمن أي إن كان لا ساهياً لا إن كان ساهياً أو صبياً أو كان مجنوناً ولا إذا كان مكرهاً لانتفاء التكليف عنهم بقوله صلى الله عليه وسلم رفع القلم عن ثلاثة الحديث. بل إن كان عاقلاً رصيناً أي زكياً فإنه يتعلق به الخطابان معاً" — يقصد خطاب التكليف وخطاب الوضع.</p>
+
+<!-- ==================== خطاب الكفار بفروع الشريعة ==================== -->
+
+<div class="section-divider"><span>❋</span></div>
+
+<h2>خطاب الكفار بفروع الشريعة</h2>
+
+<div class="matn-text">
+والكافرون بالفروع خوطبوا&ensp;وَشَرْطُها والأمر قد لا يوجب<br>
+كمثل تهديدٍ به والتسوية&ensp;والندب والإباحة المستوية
+</div>
+
+<p>هذه المسألة المشهورة في أصول الفقه التي تسمى مسألة: خطاب الكفار بفروع الشريعة — هل الكفار مخاطبون بفروع الشريعة أو ليسوا مخاطبين؟</p>
+
+<p>طبعاً هنا يقول: "والكافرون بالفروع خوطبوا وشرطها". ما المقصود بشرطها؟ أي ما لا تصح الفروع إلا به وهو الإسلام. هذا يسمى أصل الشريعة — الإسلام — وغيره يسمى فروع الشريعة. ولذلك إذا سأل شخص فقال: ما تعرف الفروع هنا؟ نقول الفروع هنا ما هو خلاف الأصل. طيب ما هو الأصل؟ ما لا تصح الفروع إلا به وهو الإسلام. فهمنا؟ فبقية العبادات من صلاة وصوم وزكاة وإلى آخر هذا يسمى من أوامر وكذلك من نواهي المحرمات من زنا وشرب خمر وغير ذلك — هذه تسمى فروع الشريعة.</p>
+
+<p>خطاب الكفار بالإسلام هذا لا إشكال فيه، فهم مطالبون بأصل الدين الذي هو الشهادتان الذي هو الإسلام. لكن حصل الخلاف في كون الكفار هل مخاطبون بفروع الشريعة أم لا؟</p>
+
+<div class="comparison-container">
+  <div class="comparison-card" style="border-top-color: var(--primary);">
+    <div class="card-title">القول الأول</div>
+    <p>الكفار مخاطبون بفروع الشريعة — مخاطبون بالأوامر بالمأمورات ومخاطبون بالمنهيات</p>
+    <p><span class="ruling-label ruling-sunnah">اختيار الناظم</span></p>
+  </div>
+  <div class="comparison-card card-red">
+    <div class="card-title">القول الثاني</div>
+    <p>الكفار ليسوا مخاطبين بفروع الشريعة مطلقاً — لا بالمأمورات ولا بالمنهيات</p>
+  </div>
+  <div class="comparison-card card-gold">
+    <div class="card-title">القول الثالث</div>
+    <p>الكفار مخاطبون بفروع الشريعة في <strong>المنهيات فقط</strong> دون المأمورات. لماذا؟ لأن المأمورات تفتقر إلى نية والنية لا تصح من الكفار، بينما المنهيات لا يفتقر تركها إلى نية</p>
+  </div>
+  <div class="comparison-card card-teal">
+    <div class="card-title">القول الرابع</div>
+    <p>الكفار مخاطبون بالمأمورات والمنهيات <strong>إلا بالجهاد</strong> — لأن الكفار لا يخاطبون أن يقتلوا أنفسهم</p>
+  </div>
+</div>
+
+<p>القول الصحيح من هذه الأقوال الذي ذكره الناظم رحمه الله أن الكفار مخاطبون بفروع الشريعة، وهذا ما دل عليه القرآن الكريم:</p>
+
+<div class="quran-box">
+وَوَيْلٌ لِّلْمُشْرِكِينَ &ensp; الَّذِينَ لَا يُؤْتُونَ الزَّكَاةَ
+</div>
+<p>فتوعد الله سبحانه وتعالى المشركين الذين لا يؤتون الزكاة فدل على أنهم متوعدون على عدم تأديتهم لفريضة الزكاة.</p>
+
+<div class="quran-box">
+مَا سَلَكَكُمْ فِي سَقَرَ &ensp; قَالُوا لَمْ نَكُ مِنَ الْمُصَلِّينَ &ensp; وَلَمْ نَكُ نُطْعِمُ الْمِسْكِينَ &ensp; وَكُنَّا نَخُوضُ مَعَ الْخَائِضِينَ &ensp; وَكُنَّا نُكَذِّبُ بِيَوْمِ الدِّينِ &ensp; حَتَّىٰ أَتَانَا الْيَقِينُ
+</div>
+<p>فهذه الآيات تدل على أن الكفار يخاطبون بفروع الشريعة.</p>
+
+<h3>المرتد والكافر الأصلي</h3>
+
+<p>قال الشارح رحمه الله تعالى: والكافرون بالله تعالى نوعان: أحدهما المرتد، والمرتد مخاطب بفروع الشريعة ولا تصح منه حال ردته. هذا واضح بالنسبة للمرتد الذي قطع الإسلام بقول أو فعل أو اعتقاد أو شك. فهذا مخاطب بفروع الشريعة ولذلك إذا عاد المرتد إلى الإسلام يجب عليه قضاء ما فاته في أثناء ردته. لأنه التزمه بالإسلام فلا يسقط بالمعصية.</p>
+
+<p>والثاني الكفرة الأصليون وهم بالفروع — وهي الأحكام المتعلقة بالمكلفين سميت فروعاً لترتبها على أصل هو الإسلام — خوطبوا لبلوغهم حد التكليف.</p>
+
+<h3>فائدة القول بمخاطبة الكفار بفروع الشريعة</h3>
+
+<p>ما الفائدة أننا نقول إن الكفار مخاطبون بالصلاة مع أنهم إذا صلوا لا تصح منهم الصلاة؟ ما الفائدة أن نقول أنهم مخاطبون بالصيام أو مخاطبون بالزكاة أو مخاطبون بالحج مع أنهم إذا فعلوا ذلك لا يصح منهم؟</p>
+
+<p>قال لك الشارح رحمه الله: "والفائدة عقابهم عليها إذ لا تصح منهم حال كفرهم" — يريد الشارح أن يقول أنهم في الآخرة لا يعذبون فقط بل يعذبون على الكفر ويعذبون على ترك الواجبات ويعذبون أيضاً على فعل المحرمات.</p>
+
+<div class="benefit-box">
+  <div class="benefit-title">فروع فقهية مبنية على مخاطبة الكفار بفروع الشريعة</div>
+  <ol class="numbered-list">
+    <li><span class="num-circle">١</span><div><strong>لا يجوز للمسلم أن يقدم طعاماً للكافر في شهر رمضان</strong> — بناء على أن الكافر مخاطب بالصيام، فأنت إذا قدمت له الطعام في نهار رمضان فأنت تعينه على فعل المعصية فلا يجوز لك أن تقدم له الطعام لأن هذا فيه إعانة على المعصية</div></li>
+    <li><span class="num-circle">٢</span><div><strong>المرأة المسلمة لا يجوز لها أن تكشف أمام المرأة الذمية</strong> — ذكر العلامة ابن حجر رحمه الله تعالى في تحفة المحتاج أن المرأة المسلمة لا يجوز لها أن تكشف أمام المرأة الذمية إذا علمت أو ظنت أنها ستصفها لشخص كافر، لأن هذا العمل أي وصفها لهذا الشخص الكافر محرم والكفار مخاطبون بفروع الشريعة</div></li>
+    <li><span class="num-circle">٣</span><div><strong>الكافر يؤاخذ بالكفارات</strong> — أي بكفارة اليمين وكفارة الظهار وكفارة القتل، مؤاخذ بذلك ومطالب به. وكونه مطالب بذلك هذا مبني على كونه مخاطباً بفروع الشريعة</div></li>
+  </ol>
+  <p>إذن تبين أن هناك أحكام فقهية بنيت على مسألة خطاب الكفار بفروع الشريعة وليست الثمرة والفائدة فقط ترتب العقاب على هذه المسألة في الآخرة.</p>
+</div>
+
+<h3>ما كان فيه خلاف لا يخاطبون به</h3>
+
+<p>ثم هنا تذكر فائدة بارك الله فيكم ملحقة بهذا: قال بعض فقهاء الشافعية رحمهم الله تعالى عندما نقول إن الكفار مخاطبون بفروع الشريعة أي بالأوامر والنواهي، فالمقصود أنهم مخاطبون بالأوامر المتفق عليها وبالنواهي المتفق عليها. أما ما كان فيه خلاف فليس مخاطبين فيه. يعني الواجبات التي فيها خلاف وهي في نظرنا واجبات — الكفار ليسوا مخاطبين بها لأن المرء لا يحاسب على شيء لا يعتقده. واضح وهذا أمر محل خلاف. وكذلك المنهيات أو المحرمات التي هي محل خلاف غير مخاطبين بها.</p>
+
+<p>قال: "وشرطها وهو الإسلام لافتقاره إلى النية المتوقف على ذلك" قوله "لافاقره إلى النية" — ذكرت لكم بارك الله فيكم من قبل أن شروط النية أربعة وهي: الإسلام والتمييز والعلم بالمنوي وعدم المنافي. فمن شروط النية الإسلام. ولأجل هذا قلت لكم أن بعض العلماء قال إن الكفار مخاطبون بالنواهي دون الأوامر لأن النواهي لا تفتقر إلى نية بخلاف الأوامر فإنها تفتقر إلى نية.</p>
+
+<!-- ==================== السكران ==================== -->
+
+<div class="section-divider"><span>❋</span></div>
+
+<h2>مسألة: هل السكران مكلف؟</h2>
+
+<p>هنا مسألتان أحب أن أذكرهما. المسألة الأولى: هل السكران مكلف أو غير مكلف؟ — هو لم يتكلم بها واضح — والمسألة الثانية سأذكرها بعد قليل.</p>
+
+<p>هل السكران مخاطب أو غير مخاطب؟ هل السكران مكلف أو غير مكلف؟</p>
+
+<div class="comparison-container">
+  <div class="comparison-card">
+    <div class="card-title">جماعة من الأصوليين</div>
+    <p>إن السكران <strong>غير مكلف</strong></p>
+    <p>لأنه لا يفهم الخطاب في ذلك الوقت</p>
+  </div>
+  <div class="comparison-card card-gold">
+    <div class="card-title">كثير من الفقهاء</div>
+    <p>إن السكران <strong>مكلف</strong></p>
+    <p>تصرفاته تعتبر صحيحة نافذة</p>
+  </div>
+</div>
+
+<div class="scholar-card">
+  <div class="scholar-name">البيجرمي — التحقيق</div>
+  <p>والتحقيق أنه لا خلاف بينهم:</p>
+  <ul class="numbered-list">
+    <li><span class="num-circle">١</span><div>من قصد أنه يفهم الخطاب في ذلك الوقت — بالتالي ليس مكلفاً في حال سكره — فالسكران غير مكلف</div></li>
+    <li><span class="num-circle">٢</span><div>إذا كنا نقصد بالتكليف أن تصرفاته تعتبر صحيحة نافذة وأن العبادة تجب عليه — نعم هو مكلف بهذا الاعتبار</div></li>
+  </ul>
+  <p>فالسكران تجب عليه الصلاة ويجب عليه الصوم ويجب عليه كذا ويجب عليه كذا. والسكران إذا باع أو اشترى صح بيعه وشراؤه، وإذا طلق وقع طلاقه، وإذا خلع صح الخلع منه، وإذا تزوج صح منه، وإذا ضمن وإذا أقر وإذا وإذا صح ذلك منه.</p>
+</div>
+
+<p>إذن إذا نظرت إلى كونه يؤاخذ بتصرفاته فتصرفاته نافذة — من هذه الزاوية تقول إنه مكلف لأنه يعامل معاملة المكلفين. وهذه الزاوية التي ينظر إليها الفقهاء رحمة الله تعالى عليهم. وستجد الفقهاء يقولون لأنه مكلف. وستجد الفقهاء يقولون: "يؤاخذ بذلك تغليظاً عليه".</p>
+
+<p>وإذا نظرت إلى كونه لا يفهم الخطاب في حال سكره فحينئذ ستقول إنه ليس مكلف بناء على أن المراد من التكليف أو المقصود أو شرط التكليف كونه يفهم الخطاب في ذلك الوقت.</p>
+
+<h3>المسألة الثانية: تعارض عبارة الفقهاء والأصوليين</h3>
+
+<p>النووي رحمه الله تعالى في المجموع شرح المهذب تطرق لهذا الذي قد يظهر منه التعارض: كيف يقول علماء أصول الفقه إن الكفار مخاطبون بفروع الشريعة بينما الفقهاء يقولون: "تجب الصلاة على المسلم البالغ العاقل" مثلاً "يجب الصوم على المسلم البالغ العاقل الصحيح المقيم الخالي من حيض أو نفاس" لا غير ذلك — فظاهر هذه العبارات أن هذه العبادات لا تجب على الكفار لأننا نقول "تجب على المسلم".</p>
+
+<p>فيقول رحمه الله تعالى: إن المقصود بقول الأصوليين "الكفار مخاطبون بفروع الشريعة" أي ما يترتب على ذلك من عقاب عليها في الآخرة. هذا المقصود. وأن الفقهاء رحمة الله تعالى عليهم عندما ينفون يقولون "تجب الصلاة على المسلم" فالكافر لا تجب عليه — المقصود بهذا أنهم ليسوا مطالبين بها في الدنيا إلا بعد الإسلام.</p>
+
+<div class="summary-box">
+  <div class="summary-title">الخلاصة: الفرق بين نظرة الأصوليين والفقهاء</div>
+  <div class="comparison-container">
+    <div class="comparison-card" style="border-top-color: var(--primary);">
+      <div class="card-title">الأصوليون</div>
+      <p>الكفار مخاطبون بفروع الشريعة — المقصود: <strong>المؤاخذة في الآخرة</strong></p>
+    </div>
+    <div class="comparison-card card-gold">
+      <div class="card-title">الفقهاء</div>
+      <p>"تجب الصلاة على المسلم" — المقصود: <strong>المطالبة في الدنيا</strong> لا تكون إلا بعد الإسلام</p>
+    </div>
+  </div>
+  <p style="text-align:center; margin-top:10px;">فالأمر مؤولاً للمسلمين مختلفة، كل طائفة نظرت إلى زاوية غير التي نظرت إليها الطائفة الأخرى. فالنووي رحمه الله تعالى ذكر هذا في المجموع شرح المهذب.</p>
+</div>
+
+<!-- ==================== خاتمة الدرس ==================== -->
+
+<div class="section-divider"><span>❋</span></div>
+
+<h2>خاتمة الدرس</h2>
+
+<p>لا أدري خلاص انتهى الوقت نقف هنا والله أعلم وصلى الله وسلم وبارك على نبينا محمد وآله وصحبه أجمعين والسلام عليكم ورحمة الله تعالى وبركاته. نهاية الدرس.</p>
+
+<script>
+function toggleBW() {
+  document.body.classList.toggle('bw-mode');
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح العوامل المائة — الدرس الثامن: واو المعية + إلا + حروف النداء</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-green: #0d6b3e;
+  --dark-green: #0a4f2e;
+  --gold: #d4a020;
+  --light-gold: #f0e6c0;
+  --teal: #0d7377;
+  --bg: #fefefe;
+  --body-text: #1a1a1a;
+  --border: #c8d6c0;
+  --light-green-bg: #e8f5e9;
+  --light-teal-bg: #e0f2f1;
+  --light-gold-bg: #fff8e1;
+  --light-red-bg: #fce4ec;
+  --light-blue-bg: #e3f2fd;
+  --light-purple-bg: #f3e5f5;
+  --light-gray-bg: #f5f5f5;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--body-text);
+  background: var(--bg);
+  direction: rtl;
+}
+
+/* B&W Mode */
+body.bw-mode {
+  --primary-green: #333;
+  --dark-green: #222;
+  --gold: #555;
+  --light-gold: #eee;
+  --teal: #444;
+  --bg: #fff;
+  --body-text: #000;
+  --border: #999;
+  --light-green-bg: #f0f0f0;
+  --light-teal-bg: #f0f0f0;
+  --light-gold-bg: #f5f5f5;
+  --light-red-bg: #f5f5f5;
+  --light-blue-bg: #f0f0f0;
+  --light-purple-bg: #f0f0f0;
+  --light-gray-bg: #f5f5f5;
+}
+body.bw-mode .cover-page { background: linear-gradient(135deg, #333 0%, #555 50%, #333 100%) !important; }
+body.bw-mode .cover-page * { color: #fff !important; border-color: #999 !important; }
+body.bw-mode .tree-node,
+body.bw-mode .tree-branch { border-color: #666 !important; }
+body.bw-mode .tree-node { background: #eee !important; color: #000 !important; }
+body.bw-mode .ruling-card { border-color: #666 !important; }
+body.bw-mode .ruling-card .ruling-label { background: #555 !important; color: #fff !important; }
+body.bw-mode .evidence-box { border-color: #666 !important; background: #f5f5f5 !important; }
+body.bw-mode .callout { border-color: #666 !important; background: #f0f0f0 !important; }
+body.bw-mode .definition-card { border-color: #666 !important; }
+body.bw-mode .poetry-box { border-color: #666 !important; background: #f5f5f5 !important; }
+body.bw-mode .qaidah-box { border-color: #666 !important; background: #f5f5f5 !important; }
+body.bw-mode .benefit-box { border-color: #666 !important; background: #f0f0f0 !important; }
+body.bw-mode .summary-box { border-color: #666 !important; background: #f0f0f0 !important; }
+body.bw-mode .section-divider { border-color: #999 !important; }
+body.bw-mode .section-divider::before { color: #666 !important; }
+body.bw-mode .table-styled th { background: #555 !important; color: #fff !important; }
+body.bw-mode .table-styled td { border-color: #999 !important; }
+body.bw-mode .comp-card { border-color: #666 !important; }
+body.bw-mode .comp-card .comp-label { background: #555 !important; color: #fff !important; }
+
+/* B&W Toggle Button */
+.bw-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 9999;
+  background: var(--primary-green);
+  color: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: all 0.3s;
+}
+.bw-toggle:hover { background: var(--dark-green); }
+
+/* Page Setup */
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+  @bottom-center {
+    content: "— " counter(page) " —";
+    font-size: 10px;
+    color: #666;
+  }
+}
+
+.page-content {
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 0 12mm;
+}
+
+/* Cover Page */
+.cover-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0a4f2e 0%, #0d6b3e 30%, #0d7377 60%, #0d6b3e 100%);
+  color: #fff;
+  text-align: center;
+  padding: 40px 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cover-page::before {
+  content: '';
+  position: absolute;
+  top: 15px; left: 15px; right: 15px; bottom: 15px;
+  border: 2px solid rgba(212,160,32,0.5);
+  border-radius: 12px;
+  pointer-events: none;
+}
+
+.cover-page::after {
+  content: '';
+  position: absolute;
+  top: 22px; left: 22px; right: 22px; bottom: 22px;
+  border: 1px solid rgba(212,160,32,0.3);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.cover-ornament {
+  font-size: 36px;
+  color: var(--gold);
+  margin: 10px 0;
+}
+
+.cover-book-title {
+  font-family: 'Amiri', serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--light-gold);
+  margin: 15px 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.cover-lecture-num {
+  font-family: 'Amiri', serif;
+  font-size: 28px;
+  color: var(--gold);
+  margin: 10px 0;
+  padding: 8px 30px;
+  border: 1px solid var(--gold);
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.cover-lecture-title {
+  font-family: 'Amiri', serif;
+  font-size: 24px;
+  color: #fff;
+  margin: 20px 0;
+  padding: 0 20px;
+}
+
+.cover-author-info {
+  margin-top: 30px;
+  font-size: 16px;
+  color: var(--light-gold);
+  line-height: 2;
+}
+
+.cover-author-info span {
+  display: block;
+}
+
+/* Section Headings */
+h1 {
+  font-family: 'Amiri', serif;
+  font-size: 26px;
+  color: var(--primary-green);
+  margin: 30px 0 15px;
+  padding-bottom: 8px;
+  border-bottom: 3px solid var(--gold);
+}
+
+h2 {
+  font-family: 'Amiri', serif;
+  font-size: 22px;
+  color: var(--dark-green);
+  margin: 25px 0 12px;
+  padding-right: 12px;
+  border-right: 4px solid var(--gold);
+}
+
+h3 {
+  font-family: 'Amiri', serif;
+  font-size: 19px;
+  color: var(--teal);
+  margin: 20px 0 10px;
+}
+
+p { margin: 8px 0; text-align: justify; }
+
+/* Matn Text */
+.matn-text {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--dark-green);
+  border-right: 4px solid var(--gold);
+  padding: 8px 14px;
+  margin: 12px 0;
+  background: var(--light-gold-bg);
+  border-radius: 0 6px 6px 0;
+  line-height: 1.8;
+}
+
+/* Evidence Box (Quran/Hadith) */
+.evidence-box {
+  background: var(--light-green-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  position: relative;
+}
+.evidence-box::before {
+  content: '﴿ قرآن كريم ﴾';
+  position: absolute;
+  top: -10px;
+  right: 16px;
+  background: var(--primary-green);
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 10px;
+  border-radius: 10px;
+}
+.evidence-box.hadith::before {
+  content: '﴿ حديث شريف ﴾';
+  background: var(--teal);
+}
+.evidence-box .ev-text {
+  font-family: 'Amiri', serif;
+  font-size: 19px;
+  text-align: center;
+  color: var(--dark-green);
+  line-height: 1.8;
+}
+.evidence-box.hadith .ev-text {
+  color: var(--teal);
+}
+
+/* Poetry Box */
+.poetry-box {
+  background: var(--light-gold-bg);
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 14px 0;
+  text-align: center;
+}
+.poetry-box .poetry-label {
+  font-size: 13px;
+  color: var(--gold);
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+.poetry-box .poetry-line {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  line-height: 2;
+  color: var(--dark-green);
+}
+
+/* Callout Box */
+.callout {
+  background: var(--light-blue-bg);
+  border-right: 5px solid #1565c0;
+  padding: 12px 16px;
+  margin: 12px 0;
+  border-radius: 0 8px 8px 0;
+}
+.callout.gold {
+  background: var(--light-gold-bg);
+  border-right-color: var(--gold);
+}
+.callout.teal {
+  background: var(--light-teal-bg);
+  border-right-color: var(--teal);
+}
+.callout.green {
+  background: var(--light-green-bg);
+  border-right-color: var(--primary-green);
+}
+.callout.red {
+  background: var(--light-red-bg);
+  border-right-color: #c62828;
+}
+.callout.purple {
+  background: var(--light-purple-bg);
+  border-right-color: #6a1b9a;
+}
+.callout .callout-title {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+/* Definition Card */
+.definition-card {
+  background: #fff;
+  border: 2px solid var(--teal);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  position: relative;
+}
+.definition-card .definition-term {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--teal);
+  margin-bottom: 6px;
+}
+.definition-card .definition-text {
+  font-size: 17px;
+  color: var(--body-text);
+}
+.definition-card .definition-ref {
+  font-size: 14px;
+  color: #888;
+  margin-top: 6px;
+}
+
+/* Classification Tree */
+.tree-container {
+  margin: 16px 0;
+  padding: 16px;
+  background: var(--light-green-bg);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  overflow-x: auto;
+}
+.tree-container .tree-title {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--primary-green);
+  text-align: center;
+  margin-bottom: 12px;
+}
+.tree-branch {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.tree-node {
+  background: #fff;
+  border: 2px solid var(--primary-green);
+  border-radius: 8px;
+  padding: 8px 14px;
+  text-align: center;
+  font-size: 15px;
+  min-width: 100px;
+  position: relative;
+}
+.tree-node.root {
+  background: var(--primary-green);
+  color: #fff;
+  font-weight: 700;
+  font-size: 17px;
+  border: none;
+}
+.tree-node .node-label {
+  font-size: 12px;
+  color: var(--gold);
+  font-weight: 700;
+  display: block;
+}
+.tree-sub-branch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Table */
+.table-styled {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0;
+  font-size: 16px;
+}
+.table-styled th {
+  background: var(--primary-green);
+  color: #fff;
+  padding: 10px 12px;
+  font-weight: 700;
+  text-align: center;
+  border: 1px solid var(--dark-green);
+}
+.table-styled td {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  text-align: center;
+  vertical-align: top;
+}
+.table-styled tr:nth-child(even) td {
+  background: var(--light-green-bg);
+}
+
+/* Comparison Cards */
+.cols {
+  display: flex;
+  gap: 12px;
+  margin: 14px 0;
+  flex-wrap: wrap;
+}
+.cols-3 > * { flex: 1; min-width: 180px; }
+.cols-4 > * { flex: 1; min-width: 130px; }
+.comp-card {
+  background: #fff;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
+}
+.comp-card .comp-label {
+  font-weight: 700;
+  font-size: 15px;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+.comp-card .comp-text {
+  font-size: 16px;
+}
+
+/* Ruling Cards */
+.ruling-card {
+  background: #fff;
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 12px 0;
+  position: relative;
+}
+.ruling-card .ruling-label {
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  background: var(--primary-green);
+  color: #fff;
+  font-size: 13px;
+  padding: 2px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+.ruling-card .ruling-text {
+  margin-top: 6px;
+  font-size: 16px;
+}
+
+/* Summary Box */
+.summary-box {
+  background: var(--light-gold-bg);
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+.summary-box .summary-title {
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.summary-box ul {
+  list-style: none;
+  padding: 0;
+}
+.summary-box ul li {
+  padding: 4px 0;
+  padding-right: 20px;
+  position: relative;
+}
+.summary-box ul li::before {
+  content: '◆';
+  position: absolute;
+  right: 0;
+  color: var(--gold);
+  font-size: 12px;
+}
+
+/* Benefit Box */
+.benefit-box {
+  background: var(--light-purple-bg);
+  border: 2px solid #6a1b9a;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+.benefit-box .benefit-title {
+  font-weight: 700;
+  color: #6a1b9a;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+.benefit-box .benefit-text {
+  font-size: 16px;
+}
+
+/* Qaidah Box */
+.qaidah-box {
+  background: var(--light-gold-bg);
+  border: 3px solid var(--gold);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+.qaidah-box .qaidah-label {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 6px;
+}
+.qaidah-box .qaidah-text {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--dark-green);
+  text-align: center;
+}
+
+/* Section Divider */
+.section-divider {
+  text-align: center;
+  margin: 30px 0;
+  border-top: 1px solid var(--border);
+  position: relative;
+}
+.section-divider::before {
+  content: '❁';
+  position: absolute;
+  top: -14px;
+  right: 50%;
+  transform: translateX(50%);
+  background: var(--bg);
+  padding: 0 12px;
+  color: var(--gold);
+  font-size: 22px;
+}
+
+/* Checklist */
+.checklist {
+  margin: 12px 0;
+  padding: 0;
+  list-style: none;
+}
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 6px 0;
+}
+.checklist-circle {
+  min-width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--primary-green);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Alert Box */
+.alert-box {
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 12px 0;
+  font-size: 16px;
+}
+.alert-box.success { background: #e8f5e9; border-right: 4px solid #2e7d32; }
+.alert-box.info { background: #e3f2fd; border-right: 4px solid #1565c0; }
+.alert-box.warning { background: #fff8e1; border-right: 4px solid #f9a825; }
+.alert-box.error { background: #fce4ec; border-right: 4px solid #c62828; }
+
+/* Inline highlight */
+.highlight-gold { background: var(--light-gold-bg); padding: 2px 6px; border-radius: 4px; }
+.highlight-green { background: var(--light-green-bg); padding: 2px 6px; border-radius: 4px; }
+.highlight-teal { background: var(--light-teal-bg); padding: 2px 6px; border-radius: 4px; }
+.highlight-red { background: var(--light-red-bg); padding: 2px 6px; border-radius: 4px; }
+
+/* Quote Block */
+.quote-block {
+  border-right: 4px solid var(--gold);
+  padding: 10px 16px;
+  margin: 12px 0;
+  background: var(--light-gold-bg);
+  font-style: italic;
+}
+.quote-block .quote-text {
+  font-size: 17px;
+  color: var(--dark-green);
+}
+.quote-block .quote-attribution {
+  font-size: 14px;
+  color: #888;
+  margin-top: 4px;
+  text-align: left;
+}
+
+/* Scholar Card */
+.scholar-card {
+  background: #fff;
+  border: 2px solid var(--teal);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 14px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.scholar-card .scholar-name {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--dark-green);
+}
+.scholar-card .scholar-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+}
+.scholar-card .scholar-badge.shafii { background: var(--primary-green); }
+.scholar-card .scholar-dates {
+  font-size: 14px;
+  color: #888;
+}
+.scholar-card .scholar-bio {
+  font-size: 16px;
+  margin-top: 4px;
+}
+.scholar-card .scholar-meta {
+  font-size: 13px;
+  color: #aaa;
+}
+
+/* Tabs */
+.tabs-container {
+  margin: 16px 0;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.tabs-nav {
+  display: flex;
+  background: var(--light-green-bg);
+  border-bottom: 2px solid var(--primary-green);
+  flex-wrap: wrap;
+}
+.tab-btn {
+  padding: 10px 18px;
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 15px;
+  font-weight: 700;
+  background: transparent;
+  border: none;
+  color: var(--dark-green);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.tab-btn.active {
+  background: var(--primary-green);
+  color: #fff;
+}
+.tabs-panels {
+  padding: 14px 18px;
+}
+.tab-panel {
+  display: none;
+}
+.tab-panel.active {
+  display: block;
+}
+
+@media print {
+  .bw-toggle { display: none; }
+  .cover-page { min-height: 100vh; page-break-after: always; }
+  h1, h2, h3 { page-break-after: avoid; }
+  .evidence-box, .callout, .tree-container, .table-styled, .poetry-box { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- B&W Toggle Button -->
+<button class="bw-toggle" onclick="document.body.classList.toggle('bw-mode')">وضع الأبيض والأسود</button>
+
+<!-- ========== COVER PAGE ========== -->
+<div class="cover-page">
+  <div class="cover-ornament">✦ ❁ ✦</div>
+  <div class="cover-book-title">شرح العوامل المائة</div>
+  <div class="cover-ornament">❁</div>
+  <div style="font-size:16px; color:#e0e0e0; margin:8px 0;">للإمام عبد القاهر الجُرجاني رحمه الله تعالى</div>
+  <div class="cover-lecture-num">الدرس الثامن</div>
+  <div class="cover-lecture-title">واو المعية + إلا + حروف النداء</div>
+  <div class="cover-ornament">✦ ❁ ✦</div>
+  <div class="cover-author-info">
+    <span>المتن: الإمام عبد القاهر الجرجاني رحمه الله تعالى</span>
+    <span>الشرح: د. لبيب نجيب عبدالله</span>
+    <span>إعداد: أحمد بن إرشاد</span>
+  </div>
+</div>
+
+<!-- ========== MAIN CONTENT ========== -->
+<div class="page-content">
+
+<!-- Opening Dua -->
+<h1>افتتاح الدرس</h1>
+
+<p>بسم الله الرحمن الرحيم، الحمد لله رب العالمين، والصلاة والسلام الأتمّان الأكملان على سيد المرسلين سيدنا محمد، وعلى آله وصحبه الطيبين الطاهرين، أما بعد: فأسأل الله سبحانه وتعالى أن يمنّ علينا بالعلم النافع والعمل الصالح، وأن يفقهنا في الدين، وأن يفتح لنا فتوح العارفين، وأن يرزقنا الإخلاص في الأقوال والأعمال، اللهم آمين.</p>
+
+<div class="callout gold">
+  <div class="callout-title">تنبيه: التأمين عند الصلاة على النبي ﷺ</div>
+  فأقول قبل أن أبدأ بالدرس: مرّ معنا أمس في قراءتنا لحاشية البيجوري أن الصلاة على النبي صلى الله عليه وسلم دعاء، ولذلك عندما يقول المفتتح درسه: "وأُصلّي وأُسلّم على نبينا محمد" أو يقول "صلّى اللهم وسلّم على نبينا محمد"، ينبغي للسامع — ويجب — أن يقول: آمين، حتى يشاركه في الثناء. واضح؟ وقد مرّ معنا أنه عندما يقنت الإمام في الصلاة فيُصلي على النبي صلى الله عليه وسلم في آخر القنوت، أن المستحب للمأموم أن يقول: آمين، ولو قال آمين وشاركه في الصلاة والسلام على النبي صلى الله عليه وسلم فقد جمع الخيرين. ولذلك أسمعكم أحياناً عندما أقول: "وأُصلّي وأُسلّم" أو "صلّى اللهم وسلّم على نبينا محمد" — ما تقولون؟ آمين! فإذا قلت: "وأسأل الله تعالى كذا كذا كذا" تقولون: آمين. لا، آمين في الصلاة والسلام على النبي صلى الله عليه وسلم والأفضل مع المشاركة ثم التأمين على بقية الدعاء. فإن تمّ عليها هذا أمر.
+</div>
+
+<div class="callout green">
+  <div class="callout-title">تنبيه: الصلاة على النبي ﷺ في أثناء الدرس</div>
+  الأمر الثاني أيضاً: الصلاة على النبي صلى الله عليه وسلم لا تكون فقط في آخر الدرس، في أوله وأثنائه وآخر الدرس. نحن نأتي بها في أول الدرس وآخر الدرس، لكن نحاول أيضاً أن نأتي بها في أثناء الدرس بارك الله فيكم.
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ========== مراجعة: تقسيم العوامل ========== -->
+<h1>مراجعة: تقسيم العوامل المئة</h1>
+
+<p>ندرس كتاب العوامل للعلامة عبد القاهر بن عبد الرحمن الجرجاني رحمه الله، المتوفّى في سنة أربعمائة وواحد وسبعين، وقيل: أربعمائة وأربعة وسبعين. وقد ذكر رحمه الله في أول درسه وآخر الدرس، وقال الله تعالى في كتابه: هذا مئة عامل، قسمها إلى قسمين: إلى عوامل سماعية وعوامل لفظية وعوامل معنوية، صح؟ عوامل معنوية اثنان، والعوامل اللفظية قسمها إلى قسمين: إما قياسية وإما سماعية. أحسن الله إليكم.</p>
+
+<p>نحن الآن في العوامل السماعية. ذكر من العوامل السماعية: حروف الجر، وذكر منها الحروف المشبهة بالفعل وهي إن وأخواتها، وذكر منها أيضاً ما ولا المشبهتين بإيش؟ بليس. وهذا درسناه. اليوم عندنا شيء جديد، صح؟</p>
+
+<div class="section-divider"></div>
+
+<!-- ========== النوع الرابع: الحروف التي تنصب الاسم المفرد ========== -->
+<h1>النوع الرابع من 13 نوعاً: الحروف التي تنصب الاسم المفرد</h1>
+
+<p>وهو النوع الرابع من 13 نوعاً: <span class="highlight-gold">الحروف التي تنصب الاسم المفرد</span> — هكذا عنوان من وضع العنوان. الحروف التي تنصب الاسم المفرد. إذاً الحروف هذه هي العاملة، هي التي تعمل. وسنأتي أن هذا الكلام لم يُسلّم للمصنف، واضح؟</p>
+
+<p>فقال: النوع الرابع من 13 نوعاً: حروف تنصب الاسم المفرد فقط، تنصب الاسم المفرد فقط. إن وأخواتها تنصب الأول وترفع الثاني، هذه تنصب الاسم المفرد فقط، تمام؟</p>
+
+<p>قال: وهي سبعة أحرف.</p>
+
+<div class="tree-container">
+  <div class="tree-title">شجرة تصنيف: الحروف السبعة التي تنصب الاسم المفرد فقط</div>
+  <div style="text-align:center; margin-bottom:12px;">
+    <div class="tree-node root" style="display:inline-block;">حروف تنصب الاسم المفرد فقط (7)</div>
+  </div>
+  <div class="tree-branch">
+    <div class="tree-sub-branch">
+      <div class="tree-node">1. الواو<br><span class="node-label">بمعنى: مع</span></div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">2. إلا<br><span class="node-label">للاستثناء</span></div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">3. ياء<br><span class="node-label">النداء</span></div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">4. أيا<br><span class="node-label">النداء</span></div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">5. هيا<br><span class="node-label">النداء</span></div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">6. أي<br><span class="node-label">النداء</span></div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">7. الهمزة<br><span class="node-label">النداء</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ========== الأول: واو المعية ========== -->
+<h1>الأول: واو المعية (الواو بمعنى مع)</h1>
+
+<div class="matn-text">
+  أحدها الواو بمعنى مع، نحو: استوى الماء والخشبة.
+</div>
+
+<p>هذه الواو بارك الله فيكم تسمى <span class="highlight-gold">واو المعية</span>، والاسم الذي بعدها ينصب على أنه <span class="highlight-gold">مفعول معه</span>، صح؟</p>
+
+<p>تقول مثلاً: <span class="highlight-green">استوى الماء والخشبةَ</span> — فهذه واو المعية: الماء مع الخشبة، الماء يرتفع ويرتفع هنا توجد خشبة يرتفع حتى وصل إلى هنا، قلت: استوى الماء مع الخشبة، والخشبةَ. واضح؟ فالخشبة هذا مفعول معه.</p>
+
+<h2>خلاف العلماء: ما العامل للنصب في المفعول معه؟</h2>
+
+<p>الإمام المصنف رحمه الله يقول: إن الذي نصب الاسم هنا هو الواو. هذا مذهبه. لكن جماهير النحاة يقولون: إن الذي نصب الاسم هنا ليس الواو. طِب ما الذي نصب الاسم هنا؟ قالوا: الذي نصب الاسم هنا إما الفعل أو ما يشبه الفعل.</p>
+
+<!-- Comparison Cards -->
+<div class="cols cols-3">
+  <div class="comp-card" style="border-color: var(--primary-green);">
+    <div class="comp-label" style="background: var(--primary-green);">رأي الإمام الجرجاني</div>
+    <div class="comp-text">
+      <strong>الناصب هو الواو</strong><br>
+      جعل الواو هي العامل الناصب للاسم بعدها<br>
+      ولذلك باب هنا: "حروف تنصب الاسم المفرد" — أولها الواو بمعنى مع
+    </div>
+  </div>
+  <div class="comp-card" style="border-color: var(--teal);">
+    <div class="comp-label" style="background: var(--teal);">رأي جماهير النحاة وابن مالك</div>
+    <div class="comp-text">
+      <strong>الناصب هو الفعل أو شبه الفعل</strong><br>
+      لا الواو، بل الفعل (استوى) أو شبه الفعل (اسم الفاعل) هو الذي نصب المفعول معه<br>
+      "لا بالواو في القول الأحق"
+    </div>
+  </div>
+</div>
+
+<h3>بيتا ابن مالك في الألفية</h3>
+
+<p>واليك ابن مالك في الألفية — الإمام رحمه الله تعالى جمال الدين بن مالك — قال في بيتيه في الألفية:</p>
+
+<div class="poetry-box">
+  <div class="poetry-label">❊ من ألفية ابن مالك رحمه الله ❊</div>
+  <div class="poetry-line">يَنصِبُ تالي الواوِ مَفعولاً معهُ<br>في نحوِ سَيري والطريقَ مُسرِعَهْ</div>
+  <div class="poetry-line" style="margin-top:8px;">بِما مِنَ الفعلِ وشبهِهِ سبَقْ<br>ذا النصبُ لا بالواوِ في القولِ الأحقْ</div>
+</div>
+
+<h3>شرح البيتين</h3>
+
+<p>قال رحمه الله: "ينصب تالي الواو" — هذا تالي الواو الذي تلا الواو — "ينصب مفعولاً معه"، مفعولاً معه. ما مثاله يا إمام؟ "في نحو سيري والطريقَ مسرعة" — هذا الطريقَ مفعول معه. جيد. ما الذي نصبه؟ ما سبب النصب؟ سبب النصب: الفعل أو شبه الفعل.</p>
+
+<p><strong>الفعل:</strong> عرفناه. ما مثال الفعل؟ <span class="highlight-green">استوى الماء والخشبةَ</span> — هذا هو الناصب للخشبة، هذا هو الناصب.</p>
+
+<p><strong>شبه الفعل:</strong> كاسم الفاعل واسم المفعول. تقول مثلاً: <span class="highlight-green">أنا ماضٍ والقمرَ</span> — اسم فاعل من الفعل مضيّ. ما الذي نصب القمرَ؟ ماضٍ — هذا شبه الفعل، اسم الفاعل يشبه الفعل. ما الذي نصب القمر؟ هذا نصبه ماضٍ، اسم الفاعل.</p>
+
+<p>قال ابن مالك: "بما من الفعل وشبهه سبق ذا النصب لا بالواو" — هذا النصب حصل إما بالفعل أو بما يشبه الفعل، لا بالواو.</p>
+
+<p>من الذي قال إن النصب بالواو؟ إمامنا عبد القاهر الجرجاني. لاحظ معي، واضح له؟ شوف إيش يقول: "حروف تنصب الاسم المفرد" — هي التي تنصب، حروف تنصب الاسم المفرد فقط. وهي سبعة، الواو بمعنى مع — جعل الواو هي العامل. هل العامل هي الواو هنا؟ هل الذي نصب الخشبة الواو؟ لا، الفعل. هل الذي نصب القمر الواو؟ لا، اسم الفاعل. واضح أم لا؟</p>
+
+<div class="callout red">
+  <div class="callout-title">نقل الشرّاح على الألفية</div>
+  ولذلك الشُرّاح عندما شرحوا الألفية جاءوا إلى هذا الموضع، إلى قول "لا بالواو"، قالوا: خلافاً لمن قال إن النصب بالواو كالجرجاني في عوامله. فهمتم أم لا؟ واضح عليّ يا شيخ أم لا؟ نعم.
+</div>
+
+<div class="summary-box">
+  <div class="summary-title">خلاصة: ما الذي عمل النصب في المفعول معه؟</div>
+  <p>الفعل أو ما يشبه الفعل، وبالتالي هنا لا تكون الواو من العوامل. اتضح؟ اتضح؟ آه، جميل.</p>
+</div>
+
+<h3>إعادة قراءة البيتين</h3>
+
+<p>نقرأ البيتين مرة أخرى:</p>
+
+<div class="poetry-box">
+  <div class="poetry-label">❊ الإعادة ❊</div>
+  <div class="poetry-line">يَنصِبُ تالي الواوِ مَفعولاً معهُ<br>في نحوِ سَيري والطريقَ مُسرِعَهْ</div>
+  <div class="poetry-line" style="margin-top:8px;">بِما مِنَ الفعلِ وشبهِهِ سبَقْ<br>ذا النصبُ لا بالواوِ في القولِ الأحقْ</div>
+</div>
+
+<p>ينصب تالي الواو مفعولاً معه في نحو سيري والطريق مسرعة. بما من الفعل وشبهه سبق ذا النصب لا بالواو في القول الأحق.</p>
+
+<p>إذا عرفنا أن الإمام عبد القاهر الجرجاني يقول إن الذي عمل النصب في المفعول معه هو الواو — ولذلك إيش الباب هنا؟ إيش الباب؟ حروف. الواو حرف تنصب الاسم المفرد، أولها إيش؟ الواو بمعنى مع — فهو جعل الواو ناصباً للمفعول معه. ابن مالك يقول: الذي نصب المفعول معه ليس الواو، ما هو؟ إما الفعل أو شبه الفعل. شيد ولا لا؟</p>
+
+<div class="section-divider"></div>
+
+<h2>واو المعية في القرآن الكريم</h2>
+
+<p>هل جاءت واو المعية هذه في القرآن الكريم؟ جاءت في القرآن الكريم؟ في مثل قول الله عز وجل:</p>
+
+<div class="evidence-box">
+  <div class="ev-text">فَأَجْمِعُوا أَمْرَكُمْ وَشُرَكَاءَكُمْ</div>
+</div>
+
+<p>مثال آخر:</p>
+
+<div class="evidence-box">
+  <div class="ev-text">ذَرْنِي وَمَنْ خَلَقْتُ</div>
+</div>
+
+<p>صح.</p>
+
+<div class="evidence-box">
+  <div class="ev-text">فَوَرَبِّكَ لَنَحْشُرَنَّهُمْ وَالشَّيَاطِينَ</div>
+</div>
+
+<p>لاحظوا: الواو هنا وهنا وهنا وهنا. هل هذه الواو هي واو المعية أم واو العطف؟</p>
+
+<p>يقول ابن هشام رحمه الله تعالى في <span class="highlight-gold">مغني اللبيب</span>: في الواو على احتمال الحشرين — كل موضع ذُكرت فيه واو المعية في القرآن الكريم فهي محتملة أن تكون للمعية أو للعطف. ولديك في هذه المواضع كلها يصح أن تكون الواو للعطف ويصح أن تكون الواو للمعية. ليس هناك موضع — بحسب ما يقول الإمام ابن هشام — ليس هناك موضع في القرآن الكريم تتعيّن أن تكون الواو للمعية. فهمتم؟</p>
+
+<div class="benefit-box">
+  <div class="benefit-title">فائدة على هامش الدرس</div>
+  <div class="benefit-text">
+    قال الإمام ابن هشام رحمه الله في مغني اللبيب: كل موضع ذُكرت فيه واو المعية في القرآن الكريم فهي محتملة أن تكون للمعية أو للعطف، وليس هناك موضع في القرآن الكريم تتعيّن أن تكون الواو للمعية.
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<h2>نص المصنف: واو المعية</h2>
+
+<p>نقرأ: "النوع الرابع من ثلاثة عشر نوعاً: حروف تنصب الاسم المفرد فقط، وهي سبعة أحرف، أحدها الواو بمعنى مع، نحو: استوى الماء والخشبة."</p>
+
+<div class="section-divider"></div>
+
+<h2>تعريف المفعول معه</h2>
+
+<div class="definition-card">
+  <div class="definition-term">المفعول معه</div>
+  <div class="definition-text">هو الاسم المنصوب المذكور بعد الواو الكائنة بمعنى مع المصاحبة معمول فعل.</div>
+  <div class="definition-ref">تنبيه: علماء المنطق يقولون: المنصوب هذا حكم لا يدخل في التعريف، لا يدخل في الحدّ، وعندهم من جملة المردود أن تدخل الأحكام في الحدود.</div>
+</div>
+
+<p>المفعول معه أحد المفاعيل الخمسة، صح، التي هي: المفعول المطلق، المفعول به، المفعول فيه، المفعول معه، المفعول له.</p>
+
+<h3>منظومة الشبراوي في جمع المفاعيل</h3>
+
+<p>والتي جمعها العلامة الشبراوي رحمه الله تعالى في منظومته فقال:</p>
+
+<div class="poetry-box">
+  <div class="poetry-label">❊ منظومة الشبراوي في المفاعيل الخمسة ❊</div>
+  <div class="poetry-line">مِنَ المفاعيلِ خَمسٌ: مُطلَقٌ وَبِهْ<br>وَفيهِ مَعَهُ رُبَّ *** وَالمِثلَينِ قَرّْ</div>
+  <div class="poetry-line" style="margin-top:8px;">أَو ضَرَبتُ ضَرباً أَتى *** وَسَرتُ وَالنيلَ</div>
+  <div class="poetry-line" style="margin-top:8px;">خَوفاً مِن عِقابِكَ لي</div>
+</div>
+
+<p>من المفاعيل خمس: مطلق وبه وفيه ومعه ربّ والمثلين قرّ. أو ضربت ضرباً أتى وسرت والنيل خوفاً من عقابك لي. واضح؟ فهمتم ولا لا؟ أحسنتم.</p>
+
+<div class="table-styled">
+  <thead>
+    <tr>
+      <th>المفعول</th>
+      <th>المثال</th>
+      <th>الإعراب</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>المفعول المطلق</strong></td>
+      <td>ضربتُ ضرباً</td>
+      <td>ضرباً: مفعول مطلق</td>
+    </tr>
+    <tr>
+      <td><strong>المفعول به</strong></td>
+      <td>ضربتُ زيداً</td>
+      <td>زيداً: مفعول به</td>
+    </tr>
+    <tr>
+      <td><strong>المفعول فيه</strong></td>
+      <td>سرتُ يوماً</td>
+      <td>يوماً: مفعول فيه (ظرف)</td>
+    </tr>
+    <tr>
+      <td><strong>المفعول معه</strong></td>
+      <td>سرتُ والنيلَ</td>
+      <td>والنيلَ: مفعول معه</td>
+    </tr>
+    <tr>
+      <td><strong>المفعول له</strong></td>
+      <td>خوفاً من عقابك</td>
+      <td>خوفاً: مفعول له</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="section-divider"></div>
+
+<!-- ========== الثاني: إلا ========== -->
+<h1>الثاني: إلا للاستثناء</h1>
+
+<div class="matn-text">
+  والثاني: إلا للاستثناء، نحو: جاءني القوم إلا زيداً.
+</div>
+
+<p>شوف: "جاءني القوم إلا زيداً". فيقول المصنف: إن الذي عمل النصب في زيد زيداً: إلا. إذن إلا هي عاملة النصب.</p>
+
+<p>وأنتم تعلمون بارك الله فيكم أن المستثنى بإلا له ثلاثة أحوال:</p>
+
+<div class="tree-container">
+  <div class="tree-title">شجرة تصنيف: أحوال المستثنى بإلا</div>
+  <div style="text-align:center; margin-bottom:12px;">
+    <div class="tree-node root" style="display:inline-block;">المستثنى بإلا</div>
+  </div>
+  <div class="tree-branch">
+    <div class="tree-sub-branch">
+      <div class="tree-node">1. وجوب النصب<br><span class="node-label">كلام مثبت تام</span></div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">2. جواز النصب<br><span class="node-label">كلام منفي تام</span></div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">3. إعراب حسب موقعه<br><span class="node-label">كلام منفي ناقص</span></div>
+    </div>
+  </div>
+</div>
+
+<h3>1. وجوب النصب</h3>
+
+<p>متى يجب النصب؟ إذا كان الكلام مثبتاً تاماً. تقول مثلاً: <span class="highlight-green">جاء الناس إلا زيداً</span>. فالكلام هنا مثبت — لم يُسبق بنفي — وتام — لماذا تام؟ لذكر المستثنى منه. فزيداً يجب نصبه. لاحظ معي: زيد هنا حرف وهو العامل للنصب في الاسم المفرد، هذا محل الشاهد.</p>
+
+<h3>2. جواز النصب</h3>
+
+<p>متى؟ إذا كان الكلام منفياً تاماً. تقول نفس المثال: <span class="highlight-green">ما جاء الناس إلا زيداً</span> — على درسنا — ويصح أن تقول: <span class="highlight-green">إلا زيدٌ</span>. صح. ما الذي عمل النصب؟ ما هو عامل النصب؟ ما الذي نصب زيداً هنا؟ إلا. ما الذي عمل النصب هنا بزيد؟ ما الذي نصب زيداً؟ إلا. واضح. من كان نايم فليستيقب! تمام.</p>
+
+<h3>3. إعراب حسب موقعه في الجملة</h3>
+
+<p>لو قلت: <span class="highlight-green">ما جاء إلا زيدٌ</span>، فإن كأن هذا إلا أداة حصر غير موجودة — ما أداة نافية غير موجودة — فتقول: جاء زيدٌ — فعل فاعل. واضح. وهذا درسناه تفصيلاً في شرح الكفراوي على الأجرومية، واضح، فارجعوا إليه بارك الله فيكم.</p>
+
+<div class="table-styled">
+  <thead>
+    <tr>
+      <th>الحال</th>
+      <th>الشرط</th>
+      <th>المثال</th>
+      <th>إعراب المستثنى</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>وجوب النصب</strong></td>
+      <td>كلام مثبت تام</td>
+      <td>جاء الناس إلا زيداً</td>
+      <td>زيداً: منصوب وجوباً</td>
+    </tr>
+    <tr>
+      <td><strong>جواز النصب</strong></td>
+      <td>كلام منفي تام</td>
+      <td>ما جاء الناس إلا زيداً / زيدٌ</td>
+      <td>زيداً: منصوب جوازاً<br>زيدٌ: بدل</td>
+    </tr>
+    <tr>
+      <td><strong>إعراب حسب الموقع</strong></td>
+      <td>كلام منفي ناقص</td>
+      <td>ما جاء إلا زيدٌ</td>
+      <td>زيدٌ: فاعل (إلا أداة حصر)</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout green">
+  <div class="callout-title">الشاهد من المثال</div>
+  قال: "والثاني إلا للاستثناء نحو جاءني القوم إلا زيداً" — ما الشاهد من هذا المثال؟ "إلا زيداً" — وجه الاستشهاد أن زيداً نُصب، ما عامل نصبه؟ إلا. هذا استشهاد. أحسنتم.
+</div>
+
+<h2>معنى الاستثناء</h2>
+
+<p>قال: ومعنى الاستثناء: إخراج الشيء عما دخل فيه غيره. فقد أخرجت زيداً من المجيء طبعاً بإلا أو إحدى أخواتها.</p>
+
+<p>من يقول لي تعريف الاستثناء من نظم الورقات وله هدية؟</p>
+
+<p>قال الناظم رحمه الله تعالى:</p>
+
+<div class="poetry-box">
+  <div class="poetry-label">❊ من نظم الورقات ❊</div>
+  <div class="poetry-line">وَحَدَّ الاستثناءَ ما بِهِ خَرَجْ<br>مِنَ الكلامِ لِبَعضِ ما فيهِ دَرَجْ</div>
+</div>
+
+<p>تحفظنا هذا أو لا؟ تريدون الجائزة مرة أخرى إن شاء الله؟ تمام. أحسنت. إذا عليك دين لك هدية، انتهت اليوم فإنها من أسئلة كثيرة. حسناً بارك الله فيكم.</p>
+
+<div class="section-divider"></div>
+
+<!-- ========== الثالث-السابع: حروف النداء ========== -->
+<h1>حروف النداء (ياء، أيا، هيا، أي، الهمزة)</h1>
+
+<div class="matn-text">
+  والثالث: ياء، والرابع: أيا، والخامس: هيا، والسادس: أي، والسابع: الهمزة. وهذه كلها أدوات نداء.
+</div>
+
+<p>يقول لك: انتبه معي، إن الذي عمل النصب — إن الذي عمل النصب في المنادى — حرف النداء. أذكّرك: ما عنوان الباب؟ "حروف تنصب الاسم المفرد". فأنت لو قلت مثلاً: <span class="highlight-green">يا طالباً</span> — ما الذي نصب طالباً؟ يقول المصنف: إن الياء هي التي نصبت طالباً. الياء هي العامل.</p>
+
+<p>والتحقيق عند النحاة أن الذي نصب طالباً: <span class="highlight-gold">فعل محذوف أو مقدر</span>. تمام. الياء نائبة عنه. تقدير الكلام: أدعو طالباً — أدعو. هذا الفعل حُذف، جاءت الياء: يا طالباً. واضح. إذاً الذي عمل النصب ليس الياء وإنما فعل مقدر، واضح، تقديره: أدعو، أو تقديره: أنادي.</p>
+
+<div class="cols cols-3">
+  <div class="comp-card" style="border-color: var(--primary-green);">
+    <div class="comp-label" style="background: var(--primary-green);">رأي المصنف (الجرجاني)</div>
+    <div class="comp-text">
+      <strong>الناصب هو حرف النداء</strong><br>
+      الياء هي التي نصبت المنادى
+    </div>
+  </div>
+  <div class="comp-card" style="border-color: var(--teal);">
+    <div class="comp-label" style="background: var(--teal);">التحقيق عند النحاة</div>
+    <div class="comp-text">
+      <strong>الناصب هو فعل محذوف أو مقدر</strong><br>
+      تقديره: أدعو أو أنادي<br>
+      والياء نائبة عن الفعل
+    </div>
+  </div>
+</div>
+
+<div class="callout teal">
+  <div class="callout-title">تنبيه: جملة النداء جملة فعلية</div>
+  ولذلك لو سألتك سؤال آخر: هل هذه الجملة جملة اسمية أو جملة فعلية؟ جملة فعلية. لماذا؟ لأن الياء نائبة عن فعل، فهو من أي النداء؟ أسنده من الجمل الفعلية. فهمتم عليّ أم لا؟ جميل.
+</div>
+
+<div class="section-divider"></div>
+
+<h2>أنواع المنادى (5 أقسام)</h2>
+
+<p>وأنتم تعلمون من باب المذاكرة أن المنادى ينقسم إلى كم قسم؟ خمسة. المنادى ينقسم إلى كم قسم؟ خمسة. ما شاء الله. إلى خمسة أقسام، ممتاز.</p>
+
+<div class="tree-container">
+  <div class="tree-title">شجرة تصنيف: أنواع المنادى الخمسة</div>
+  <div style="text-align:center; margin-bottom:12px;">
+    <div class="tree-node root" style="display:inline-block;">المنادى</div>
+  </div>
+  <div class="tree-branch">
+    <div class="tree-sub-branch">
+      <div class="tree-node">1. مفرد علم<br><span class="node-label">مبني على ما يرفع به في محل نصب</span></div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">2. نكرة مقصودة<br><span class="node-label">مبني على ما يرفع به في محل نصب</span></div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">3. نكرة غير مقصودة<br><span class="node-label">منصوب لفظاً</span></div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">4. مضاف<br><span class="node-label">منصوب لفظاً</span></div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">5. شبيه بالمضاف<br><span class="node-label">منصوب لفظاً</span></div>
+    </div>
+  </div>
+</div>
+
+<p>انظر ماذا سيقول لنا ثم نعود إلى هذا التقسيم.</p>
+
+<h3>أمثلة المصنف لما يُنصب لفظاً</h3>
+
+<p>قال: "ويا نحو يا رجلاً" — يا رجلاً هذا من أي الأقسام؟ نكرة غير مقصودة. صح.</p>
+
+<p>قال: "ويا عبدَ الله" — هذا المضاف. يا عبد الله — الثالث.</p>
+
+<p>قال: "ويا خيراً من زيد" — هذا شبيه بالمضاف.</p>
+
+<p>هل مثّل للمفرد العلم؟ لم يُمثّل. هل مثّل للنكرة المقصودة؟ لم يُمثّل. طيب، ننظر الذي بعده.</p>
+
+<p>قال: "أيا نحو أيا رجلاً" — للنكرة غير المقصودة. "أيا عبدَ الله" — "أيا خيراً من زيد". أيضاً لم يُمثّل للمفرد العلم والنكرة المقصودة.</p>
+
+<p>قال: "هيا نحو هيا رجلاً" — "أي رجلاً" — "والهمزة رجلاً" — وهذه الخمسة للنداء.</p>
+
+<p>طيب، لماذا لم يُمثّل لهذا وهذا؟ الجواب:</p>
+
+<div class="callout gold">
+  <div class="callout-title">لماذا لم يُمثّل المصنف للمفرد العلم والنكرة المقصودة؟</div>
+  لأن المفرد العلم والنكرة المقصودة يُبنى المنادى منهما على ما يرفع به ويكون في محل نصب. يُبنى على ما يرفع به ويكون في محل نصب. فلم يذكر إلا ما كان منصوباً لفظاً ولم يذكر ما نُصب محلاً.
+</div>
+
+<h3>تفصيل أنواع المنادى</h3>
+
+<!-- Tabs for the 5 types -->
+<div class="tabs-container">
+  <div class="tabs-nav">
+    <button class="tab-btn active" data-tab="tab-mufard">مفرد علم</button>
+    <button class="tab-btn" data-tab="tab-nakira-maqsuda">نكرة مقصودة</button>
+    <button class="tab-btn" data-tab="tab-nakira-ghayr">نكرة غير مقصودة</button>
+    <button class="tab-btn" data-tab="tab-mudaf">مضاف</button>
+    <button class="tab-btn" data-tab="tab-shabih">شبيه بالمضاف</button>
+  </div>
+  <div class="tabs-panels">
+    <div class="tab-panel active" id="tab-mufrad">
+      <h3>1. مفرد علم</h3>
+      <p>يُبنى المنادى على ما يرفع به ويكون في محل نصب.</p>
+      <p>تقول مثلاً: <span class="highlight-green">يا آدمُ</span> — كيف تعربه؟ منادى مبني على الضمّ في محل نصب. واضح.</p>
+      <p>فأنا أقصده في القرآن الكريم:</p>
+      <div class="evidence-box">
+        <div class="ev-text">إِنَّا جَعَلْنَاكَ خَلِيفَةً فِي الْأَرْضِ</div>
+      </div>
+      <p>كيف نعرب "يا داود"؟ منادى مبني على الضمّ في محل نصب. منادى مبني على الضمّ في محل نصب. فهمتم. جميل.</p>
+    </div>
+    <div class="tab-panel" id="tab-nakira-maqsuda">
+      <h3>2. نكرة مقصودة</h3>
+      <p>يُبنى المنادى على ما يرفع به ويكون في محل نصب.</p>
+      <p>لو قلت مثلاً — وقد سمعتم ما وجب عليكم حفظه، مثلاً سمعتم على سبيل المثال نظم الورقات وحفظتم جميع نظم الورقات إلا واحد لم يحفظ، سألته قال: لم حفظت؟ فقلت له: <span class="highlight-green">يا طالبُ احفظ واجبك!</span> — إيش قلت له؟ قلت هكذا وأنا غاضب يعني شديد الغضب: يا طالبُ احفظ واجبك، احفظ النظم. هذا نكرة مقصودة. غير مقصودة — المقصود أن أقصد هذا الذي لم يحفظ. لا يوجد أحد نكّره الشرعي أقصد هذا الذي لم يحفظ، فهمتم عليّ أم لا؟ أن أقصده هو بلحمه ودمه. فقلت: يا طالبُ احفظ واجبك — لا أقصد كل الطلاب. لكن لو قلت: "يا طالباً احفظ واجبك" فهذه نكرة غير مقصودة. تُفهم الفرق؟ جميل.</p>
+      <p>كيف تعربه؟ تقول: منادى مبني على الضمّ في محل النصب.</p>
+      <p>ونفس الكلام لو قلت مثلاً: <span class="highlight-green">يا معلمون خفّفوا الأسئلة</span> — مثلاً. واضح. بل لا مخالف للواقع، حرام عليك، مطابق للواقع. تمام. يا معلمون خفّفوا الأسئلة. يا معلمون. تمام. إيش تعرب معلمون وأنا أقصد معلمي معهدنا؟ تمام. منادى مبني على الواو في محل النصب، لأنه هناك نكرة مقصودة. نكرة مقصودة. جميل.</p>
+    </div>
+    <div class="tab-panel" id="tab-nakira-ghayr">
+      <h3>3. نكرة غير مقصودة</h3>
+      <p>منصوبة لفظاً.</p>
+      <p>مثال المصنف: <span class="highlight-green">يا رجلاً</span> — نكرة غير مقصودة، منصوبة لفظاً.</p>
+    </div>
+    <div class="tab-panel" id="tab-mudaf">
+      <h3>4. مضاف</h3>
+      <p>منصوب لفظاً.</p>
+      <p>مثال المصنف: <span class="highlight-green">يا عبدَ الله</span> — مضاف، منصوب لفظاً.</p>
+    </div>
+    <div class="tab-panel" id="tab-shabih">
+      <h3>5. شبيه بالمضاف</h3>
+      <p>منصوب لفظاً.</p>
+      <p>مثال المصنف: <span class="highlight-green">يا خيراً من زيد</span> — شبيه بالمضاف، منصوب لفظاً.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<h2>أمثلة قرآنية لأنواع المنادى</h2>
+
+<h3>يا جبال أوبي معه — نكرة مقصودة</h3>
+
+<p>الله عز وجل يقول في سورة ص لداود عليه الصلاة والسلام بعد أن تكلم عن داود:</p>
+
+<div class="evidence-box">
+  <div class="ev-text">يَا جِبَالُ أَوِّبِي مَعَهُ</div>
+</div>
+
+<p>ما نوع هذا المنادى من الأنواع الخمسة؟ نكرة. إذاً ليس الخطاب هنا لجميع الجبال في الدنيا. فهمتم؟ ما معنى "أوبي معه"؟ ردّدي معه في التسبيح والتلاوة. داود نبي الله كان صوته جميلاً، ولذلك لما سمع النبي صلى الله عليه وسلم صوت أبي موسى الأشعري رضي الله عنه قال:</p>
+
+<div class="evidence-box hadith">
+  <div class="ev-text">لقد أوتيت مزماراً من مزامير آل داود</div>
+</div>
+
+<p>من حسن صوته. قال الله عز وجل: يا جبال أوبي معه — ردّدي معه. واضح له. هل النداء لجميع جبال الدنيا في ذلك الوقت؟ لا، بدليل أنها نكرة مقصودة. لو كان المراد الخطاب لجميع الجبال ما الذي يقول: يا جبالاً أوبي معه. لكن قال: يا جبال. فهمتم.</p>
+
+<h3>يا نار كوني بردا وسلاما — نكرة مقصودة</h3>
+
+<p>وفي قصة سيدنا إبراهيم في سورة الأنبياء:</p>
+
+<div class="evidence-box">
+  <div class="ev-text">يَا نَارُ كُونِي بَرْدًا وَسَلَامًا</div>
+</div>
+
+<p>نكرة مقصودة أو غير مقصودة؟ تلك النار التي رُمي فيها سيدنا إبراهيم. فليس المراد أن كل نار في الدنيا تكون برداً وسلاماً، بل تلك النار. واضح.</p>
+
+<div class="section-divider"></div>
+
+<h2>تعريف المنادى</h2>
+
+<div class="definition-card">
+  <div class="definition-term">المنادى</div>
+  <div class="definition-text">هو المطلوب إقباله بحرف نائب مناب أدعو لفظاً نحو: يا زيدُ، أو تقديراً نحو: يوسف.</div>
+</div>
+
+<p>شوف: "يا زيدُ" — يا زيد، حرف النداء ملفوظ: يا. في القرآن الكريم: يا آدم، يا داود. واضح. وقد يكون حرف النداء مقدراً:</p>
+
+<p>مثال: <span class="highlight-green">يوسفُ أعرض عن هذا</span> — أي: يا يوسف. واضح. يا يوسف. جيد. أين حرف النداء؟ مقدر. واضح. يا يوسف — يوسف أعرض عن هذا أي يا يوسف.</p>
+
+<div class="section-divider"></div>
+
+<h2>لماذا نستخدم حرف النداء ولا نستخدم الفعل أدعو؟</h2>
+
+<p>يقول العلماء: وإنما لا يأتي الفعل "أدعو" — لا تقول مثلاً: "أدعو طالباً" — واضح، أو "أنادي طالباً". لماذا؟ لأنك لو استعملت الفعل لاختلطت الجملة: أن تكون خبراً أو إنشاءً. عندما تقول: "أنادي طالباً" — هل المقصود أنك تخبر بأنك تنادي طالباً أو المقصود أنك تنشئ نداءً لطالب؟ فهمت. لكن لو قلت: "يا طالباً" — تعيّن أن يكون للإنشاء لا للإخبار. اتضح؟ اتضح أو لا؟</p>
+
+<p>إذا قلت: "أنادي طالباً" — يحتمل أن يكون خبراً: أنت تخبر أنك تنادي طالباً، ويحتمل أنك تنشئ نداءً لطالب ليأتي إليه. لكن عندما تقول: "يا طالباً" — هل هناك إخبار؟ لا. إنشاء فقط. يعني: يا طالباً تعال، تقدّم، أحضر. جيد.</p>
+
+<div class="benefit-box">
+  <div class="benefit-title">فائدة: ميزة الإتيان بالياء وحروف النداء بدلاً من الفعل</div>
+  <div class="benefit-text">
+    <strong>الميزة الأولى:</strong> تعيّن أن يكون للإنشاء لا للإخبار — فلا يحتمل غير النداء.<br><br>
+    <strong>الميزة الثانية:</strong> التخفيف — "أنادي طالباً" هذا كلام طويل، "يا طالباً" أقصر.
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<h2>تقسيم حروف النداء حسب بعد المنادى</h2>
+
+<p>ثم قال: والذي سيأتي معك أنه يقسم حروف النداء إلى ثلاث مجموعات: نداء القريب، نداء المتوسط، نداء البعيد. كل واحد تناديه بنداء واضح بحرف.</p>
+
+<div class="tree-container">
+  <div class="tree-title">شجرة تصنيف: حروف النداء حسب بعد المنادى</div>
+  <div style="text-align:center; margin-bottom:12px;">
+    <div class="tree-node root" style="display:inline-block;">حروف النداء</div>
+  </div>
+  <div class="tree-branch">
+    <div class="tree-sub-branch">
+      <div class="tree-node root" style="font-size:15px;">القريب</div>
+      <div class="tree-node" style="margin-top:6px;">الهمزة<br><span class="node-label">للأقرب</span></div>
+      <div class="tree-node" style="margin-top:6px;">يا<br><span class="node-label">للقريب أيضاً</span></div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node root" style="font-size:15px;">المتوسط</div>
+      <div class="tree-node" style="margin-top:6px;">أي<br><span class="node-label">للمتوسط</span></div>
+      <div class="tree-node" style="margin-top:6px;">يا<br><span class="node-label">للمتوسط أيضاً</span></div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node root" style="font-size:15px;">البعيد</div>
+      <div class="tree-node" style="margin-top:6px;">أيا<br><span class="node-label">للبعيد</span></div>
+      <div class="tree-node" style="margin-top:6px;">هيا<br><span class="node-label">للبعيد</span></div>
+      <div class="tree-node" style="margin-top:6px;">يا<br><span class="node-label">للبعيد أيضاً</span></div>
+    </div>
+  </div>
+</div>
+
+<h3>تفصيل حروف النداء</h3>
+
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>حرف النداء</th>
+      <th>عدد الحروف</th>
+      <th>يُستعمل لـ</th>
+      <th>ملاحظات</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>يا</strong></td>
+      <td>حرفان</td>
+      <td>القريب والمتوسط والبعيد</td>
+      <td>تستعمل في الحالات الثلاث — اختصت بأمرين (انظر أدناه)</td>
+    </tr>
+    <tr>
+      <td><strong>أيا</strong></td>
+      <td>ثلاثة أحرف</td>
+      <td>البعيد</td>
+      <td>وُضعتا للمنادى البعيد</td>
+    </tr>
+    <tr>
+      <td><strong>هيا</strong></td>
+      <td>ثلاثة أحرف</td>
+      <td>البعيد</td>
+      <td>وُضعتا للمنادى البعيد — وليست هياء التي في "الله"</td>
+    </tr>
+    <tr>
+      <td><strong>أي</strong></td>
+      <td>حرفان</td>
+      <td>المتوسط</td>
+      <td>للمنادى المتوسط</td>
+    </tr>
+    <tr>
+      <td><strong>الهمزة</strong></td>
+      <td>حرف واحد</td>
+      <td>الأقرب</td>
+      <td>للأقرب — إذا كان قريباً جداً منك. وليس له قُزم أصلاً في المنطق</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>اختصاص الياء بأمرين</h3>
+
+<p>قال: "ويا اختصت بأن يُنادى بها القريب والبعيد والمتوسط دون أخواتها" — واضح أم لا؟ الياء اختصت بإيش؟ اختصت بأنه يُنادى بها القريب والبعيد والمتوسط. يعني ممكن للقريب تقول: يا زيدُ، للمتوسط: يا زيدُ، للبعيد: يا زيدُ.</p>
+
+<p>نقول: الياء اختصت بأمرين:</p>
+
+<div class="checklist">
+  <div class="checklist-item">
+    <div class="checklist-circle">1</div>
+    <div>أن الياء يُنادى بها القريب والمتوسط والبعيد — تستعمل في الحالات الثلاث.</div>
+  </div>
+  <div class="checklist-item">
+    <div class="checklist-circle">2</div>
+    <div>أنه عندما يكون حرف النداء مقدراً — مثل: يوسف أعرض عن هذا — فلا تُقدّر إلا الياء. إذا كان حرف النداء مقدراً فلا تُقدّر إلا الياء، لا تُقدّر أداة أخرى حرف آخر. الياء فقط.</div>
+  </div>
+</div>
+
+<p>إذن اختصت الياء بكم أمر؟ بأمرين. ما هما؟ أن الياء يُنادى بها القريب والمتوسط والبعيد — صح — والأمر الثاني ما هو؟ أنه عند كون حرف النداء مقدراً — يوسف أعرض عن هذا — ماذا تُقدّر من حرف؟ الياء فقط، لا تُقدّر غيرها. جيد. اختصت بأمرين. جميل.</p>
+
+<div class="section-divider"></div>
+
+<h3>تنزيل القريب منزلة البعيد (لغفلته)</h3>
+
+<p>وأحياناً قد يكون المنادى قريباً منك لكن يُنزّل منزلة البعيد لغفلته. أحياناً المنادى قد يكون قريباً منك بقصده — هو معك حاضر في الدرس بقصده — لكنه في عقله وتفكيره بعيد. تمام. فتقول على سبيل المثال: أريد واحد منكم بعيد — مثلاً — ماذا أقول؟ كلكم ما شاء الله منتبهون. ماذا أقول مثلاً؟ "أيا حديد!" — هو قريب، وأيضاً هو قريب حساً ومعنى، لكن مثال فقط. تمام. أيا — نزّلنا القريب منزلة البعيد، لماذا؟ لأنه إن كان قريباً في قصده لكنه بعيد في تفكيره وذهنه. فهمتم عليّ أم لا؟</p>
+
+<div class="callout purple">
+  <div class="callout-title">تنبيه: تنزيل القريب منزلة البعيد</div>
+  إذا كان المنادى قريباً حساً ولكنه بعيد ذهناً وتفكيراً لغفلته، جاز تنزيله منزلة البعيد واستعمال أيا أو هيا في ندائه.
+</div>
+
+<div class="section-divider"></div>
+
+<h2>ملخص مراتب حروف النداء</h2>
+
+<p>قال: "وأيا والهمزة للمنادى القريب" — تمام. ولكن الهمزة للأقرب — إذا كان قريباً جداً منك. أزيده. تمام. قريباً جداً منك. تمام. مثلاً واقف يقول: أمصطفى! بجانبه مباشرة.</p>
+
+<p>قال: "ولكن الهمزة للأقرب، وأي للمنادى المتوسط".</p>
+
+<p>إذاً كم جعل المراتب ثلاث: قريب، متوسط، إيش؟ متوسط. ماذا ينادى للمتوسط؟ أي ويا. قريب؟ همزة ويا. بعيد؟ يا، هيا، أيا. فهمتم عليّ. ما يحتاج أشجر، روضهم سهل هذا.</p>
+
+<div class="summary-box">
+  <div class="summary-title">ملخص مراتب النداء</div>
+  <table class="table-styled" style="margin:8px 0;">
+    <thead>
+      <tr>
+        <th>المرتبة</th>
+        <th>حروف النداء</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>الأقرب</strong></td>
+        <td>الهمزة + يا</td>
+      </tr>
+      <tr>
+        <td><strong>المتوسط</strong></td>
+        <td>أي + يا</td>
+      </tr>
+      <tr>
+        <td><strong>البعيد</strong></td>
+        <td>أيا + هيا + يا</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>فاليا تستعمل في الحالات الثلاث. وطبعاً بعض النحاة قالوا: نقسم إلى قريب وبعيد فقط، ما في متوسط. والأمر في هذا واسع.</p>
+</div>
+
+<div class="callout green">
+  <div class="callout-title">خلاف النحاة في عدد المراتب</div>
+  بعض النحاة قسموا إلى قريب وبعيد فقط — بدون متوسط — والأمر في هذا واسع.
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ========== Closing ========== -->
+<h1>خاتمة الدرس</h1>
+
+<p>نكتفي بهذا أو نزيد؟ نزيد. أنا أخشى عليهم، بعضهم تعب. يعني غداً إن شاء الله نزيد، غداً عندنا درس واحد فقط في العوامل نزيد. ألا عندهم درس ثقيل في الألفية؟ تمام. يكفيهم هذا، والله أعلم.</p>
+
+<p>وصل اللهم وسلم وبارك على سيدنا محمد وآله وصحبه أجمعين. حتى تعلموا أني رحيم بهم ولا أُكلّفكم ما لا تطيقون. درس قصير فقط يكفيكم هذا.</p>
+
+<p>السلام عليكم ورحمة الله وبركاته.</p>
+
+</div><!-- end page-content -->
+
+<!-- ========== JAVASCRIPT ========== -->
+<script>
+// B&W Toggle
+document.querySelector('.bw-toggle').addEventListener('click', function() {
+  document.body.classList.toggle('bw-mode');
+});
+
+// Tabs functionality
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const tabId = this.getAttribute('data-tab');
+    const container = this.closest('.tabs-container');
+    
+    // Remove active from all tabs in this container
+    container.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    container.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    
+    // Add active to clicked tab
+    this.classList.add('active');
+    document.getElementById(tabId).classList.add('active');
+  });
+});
+</script>
+
+</body>
+</html>

@@ -62,6 +62,30 @@ const bookRegistry: BookMeta[] = [
     filePattern: /al_ibana_lecture(\d+)\.html$/,
     subtitleClass: 'cover-subtitle',
   },
+  {
+    dir: 'sharh_al_awamil',
+    slug: 'sharh-al-awamil',
+    title: 'Sharh al-Awamil al-Miat',
+    titleAr: 'شرح العوامل المئة',
+    author: 'Abd al-Qahir al-Jurjani',
+    lecturer: 'د. لبيب نجيب عبدالله',
+    description: 'شرح العوامل المئة في النحو للعلامة عبد القاهر الجرجاني',
+    icon: '📘',
+    filePattern: /sharh_al_awamil_lecture(\d+)\.html$/,
+    subtitleClass: 'cover-lesson-title',
+  },
+  {
+    dir: 'شرح منظومة سلم الأصول للعلامة ابن مطير',
+    slug: 'sulam-al-usul',
+    title: 'Sulam al-Usul',
+    titleAr: 'سلم الأصول',
+    author: 'Ibn Mutayr',
+    lecturer: 'د. لبيب نجيب عبدالله',
+    description: 'شرح منظومة سلم الأصول للعلامة ابن مطير',
+    icon: '📙',
+    filePattern: /sulam_al_usul_lecture(\d+)\.html$/,
+    subtitleClass: 'cover-subtitle',
+  },
 ]
 
 function getLessonNumber(filename: string, pattern: RegExp): number | null {
@@ -72,7 +96,7 @@ function getLessonNumber(filename: string, pattern: RegExp): number | null {
 function getLessonTitle(filePath: string, number: number, subtitleClass: string): string {
   try {
     const content = fs.readFileSync(filePath, 'utf-8')
-    const regex = new RegExp(`<div class="${subtitleClass}">([^<]+)<\\/div>`)
+    const regex = new RegExp(`<div[^>]*class="[^"]*\\b${subtitleClass}\\b[^"]*"[^>]*>([^<]+)<\\/div>`)
     const subtitleMatch = content.match(regex)
     if (subtitleMatch) return subtitleMatch[1].trim()
   } catch {}

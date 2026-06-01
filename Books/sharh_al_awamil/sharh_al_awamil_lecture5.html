@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح العوامل المائة — الدرس الخامس: من (على) إلى (خلا وعدا وحاشا)</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-green: #0d6b3e;
+  --dark-green: #0a4f2e;
+  --gold: #d4a020;
+  --light-gold: #f0e6c0;
+  --teal: #0d7377;
+  --bg: #fefefe;
+  --body-text: #1a1a1a;
+  --border: #c8d6c0;
+  --light-green-bg: #e8f5e9;
+  --light-teal-bg: #e0f2f1;
+  --light-gold-bg: #fff8e1;
+  --light-red-bg: #fce4ec;
+  --light-blue-bg: #e3f2fd;
+  --light-purple-bg: #f3e5f5;
+  --light-gray-bg: #f5f5f5;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--body-text);
+  background: var(--bg);
+  direction: rtl;
+}
+
+/* B&W Mode */
+body.bw-mode {
+  --primary-green: #333;
+  --dark-green: #222;
+  --gold: #555;
+  --light-gold: #eee;
+  --teal: #444;
+  --bg: #fff;
+  --body-text: #000;
+  --border: #999;
+  --light-green-bg: #f0f0f0;
+  --light-teal-bg: #f0f0f0;
+  --light-gold-bg: #f5f5f5;
+  --light-red-bg: #f5f5f5;
+  --light-blue-bg: #f0f0f0;
+  --light-purple-bg: #f0f0f0;
+  --light-gray-bg: #f5f5f5;
+}
+body.bw-mode .cover-page { background: linear-gradient(135deg, #333 0%, #555 50%, #333 100%) !important; }
+body.bw-mode .cover-page * { color: #fff !important; border-color: #999 !important; }
+body.bw-mode .tree-node,
+body.bw-mode .tree-branch { border-color: #666 !important; }
+body.bw-mode .tree-node { background: #eee !important; color: #000 !important; }
+body.bw-mode .ruling-card { border-color: #666 !important; }
+body.bw-mode .ruling-card .ruling-label { background: #555 !important; color: #fff !important; }
+body.bw-mode .evidence-box { border-color: #666 !important; background: #f5f5f5 !important; }
+body.bw-mode .callout { border-color: #666 !important; background: #f0f0f0 !important; }
+body.bw-mode .definition-card { border-color: #666 !important; }
+body.bw-mode .poetry-box { border-color: #666 !important; background: #f5f5f5 !important; }
+body.bw-mode .qaidah-box { border-color: #666 !important; background: #f5f5f5 !important; }
+body.bw-mode .benefit-box { border-color: #666 !important; background: #f0f0f0 !important; }
+body.bw-mode .summary-box { border-color: #666 !important; background: #f0f0f0 !important; }
+body.bw-mode .section-divider { border-color: #999 !important; }
+body.bw-mode .section-divider::before { color: #666 !important; }
+body.bw-mode .table-styled th { background: #555 !important; color: #fff !important; }
+body.bw-mode .table-styled td { border-color: #999 !important; }
+
+/* B&W Toggle Button */
+.bw-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 9999;
+  background: var(--primary-green);
+  color: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: all 0.3s;
+}
+.bw-toggle:hover { background: var(--dark-green); }
+
+/* Page Setup */
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+  @bottom-center {
+    content: "— " counter(page) " —";
+    font-size: 10px;
+    color: #666;
+  }
+}
+
+.page-content {
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 0 12mm;
+}
+
+/* Cover Page */
+.cover-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0a4f2e 0%, #0d6b3e 30%, #0d7377 60%, #0d6b3e 100%);
+  color: #fff;
+  text-align: center;
+  padding: 40px 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cover-page::before {
+  content: '';
+  position: absolute;
+  top: 15px; left: 15px; right: 15px; bottom: 15px;
+  border: 2px solid rgba(212,160,32,0.5);
+  border-radius: 12px;
+  pointer-events: none;
+}
+
+.cover-page::after {
+  content: '';
+  position: absolute;
+  top: 22px; left: 22px; right: 22px; bottom: 22px;
+  border: 1px solid rgba(212,160,32,0.3);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.cover-ornament {
+  font-size: 36px;
+  color: var(--gold);
+  margin: 10px 0;
+}
+
+.cover-book-title {
+  font-family: 'Amiri', serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--light-gold);
+  margin: 15px 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.cover-lecture-num {
+  font-family: 'Amiri', serif;
+  font-size: 28px;
+  color: var(--gold);
+  margin: 10px 0;
+  padding: 8px 30px;
+  border: 1px solid var(--gold);
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.cover-lecture-title {
+  font-family: 'Amiri', serif;
+  font-size: 24px;
+  color: #fff;
+  margin: 20px 0;
+  padding: 0 20px;
+}
+
+.cover-author-info {
+  margin-top: 30px;
+  font-size: 16px;
+  color: var(--light-gold);
+  line-height: 2;
+}
+
+.cover-author-info span {
+  display: block;
+}
+
+/* Section Headings */
+h1 {
+  font-family: 'Amiri', serif;
+  font-size: 26px;
+  color: var(--primary-green);
+  margin: 30px 0 15px;
+  padding-bottom: 8px;
+  border-bottom: 3px solid var(--gold);
+}
+
+h2 {
+  font-family: 'Amiri', serif;
+  font-size: 22px;
+  color: var(--dark-green);
+  margin: 25px 0 12px;
+  padding-right: 12px;
+  border-right: 4px solid var(--gold);
+}
+
+h3 {
+  font-family: 'Amiri', serif;
+  font-size: 19px;
+  color: var(--teal);
+  margin: 20px 0 10px;
+}
+
+p { margin: 8px 0; text-align: justify; }
+
+/* Matn Text */
+.matn-text {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--dark-green);
+  border-right: 4px solid var(--gold);
+  padding: 8px 14px;
+  margin: 12px 0;
+  background: var(--light-gold-bg);
+  border-radius: 0 6px 6px 0;
+  line-height: 1.8;
+}
+
+/* Evidence Box (Quran/Hadith) */
+.evidence-box {
+  background: var(--light-green-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  position: relative;
+}
+.evidence-box::before {
+  content: '﴿ قرآن كريم ﴾';
+  position: absolute;
+  top: -10px;
+  right: 16px;
+  background: var(--primary-green);
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 10px;
+  border-radius: 10px;
+}
+.evidence-box.hadith::before {
+  content: '﴿ حديث شريف ﴾';
+  background: var(--teal);
+}
+.evidence-box .ev-text {
+  font-family: 'Amiri', serif;
+  font-size: 19px;
+  text-align: center;
+  color: var(--dark-green);
+  line-height: 1.8;
+}
+.evidence-box.hadith .ev-text {
+  color: var(--teal);
+}
+
+/* Poetry Box */
+.poetry-box {
+  background: var(--light-gold-bg);
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 14px 0;
+  text-align: center;
+}
+.poetry-box .poetry-label {
+  font-size: 13px;
+  color: var(--gold);
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+.poetry-box .poetry-line {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  line-height: 2;
+  color: var(--dark-green);
+}
+
+/* Callout Box */
+.callout {
+  background: var(--light-blue-bg);
+  border-right: 5px solid #1565c0;
+  padding: 12px 16px;
+  margin: 12px 0;
+  border-radius: 0 8px 8px 0;
+}
+.callout.gold {
+  background: var(--light-gold-bg);
+  border-right-color: var(--gold);
+}
+.callout.teal {
+  background: var(--light-teal-bg);
+  border-right-color: var(--teal);
+}
+.callout.green {
+  background: var(--light-green-bg);
+  border-right-color: var(--primary-green);
+}
+.callout.red {
+  background: var(--light-red-bg);
+  border-right-color: #c62828;
+}
+.callout.purple {
+  background: var(--light-purple-bg);
+  border-right-color: #6a1b9a;
+}
+.callout .callout-title {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+/* Definition Card */
+.definition-card {
+  background: #fff;
+  border: 2px solid var(--teal);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  position: relative;
+}
+.definition-card .definition-term {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--teal);
+  margin-bottom: 6px;
+}
+.definition-card .definition-text {
+  font-size: 17px;
+  color: var(--body-text);
+}
+.definition-card .definition-ref {
+  font-size: 14px;
+  color: #888;
+  margin-top: 6px;
+}
+
+/* Classification Tree */
+.tree-container {
+  margin: 16px 0;
+  padding: 16px;
+  background: var(--light-green-bg);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  overflow-x: auto;
+}
+.tree-container .tree-title {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--primary-green);
+  text-align: center;
+  margin-bottom: 12px;
+}
+.tree-branch {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.tree-node {
+  background: #fff;
+  border: 2px solid var(--primary-green);
+  border-radius: 8px;
+  padding: 8px 14px;
+  text-align: center;
+  font-size: 15px;
+  min-width: 100px;
+  position: relative;
+}
+.tree-node.root {
+  background: var(--primary-green);
+  color: #fff;
+  font-weight: 700;
+  font-size: 17px;
+  border: none;
+}
+.tree-node .node-label {
+  font-size: 12px;
+  color: var(--gold);
+  font-weight: 700;
+  display: block;
+}
+.tree-sub-branch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Table */
+.table-styled {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0;
+  font-size: 16px;
+}
+.table-styled th {
+  background: var(--primary-green);
+  color: #fff;
+  padding: 10px 12px;
+  font-weight: 700;
+  text-align: center;
+  border: 1px solid var(--dark-green);
+}
+.table-styled td {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  text-align: center;
+  vertical-align: top;
+}
+.table-styled tr:nth-child(even) td {
+  background: var(--light-green-bg);
+}
+
+/* Comparison Cards */
+.cols {
+  display: flex;
+  gap: 12px;
+  margin: 14px 0;
+  flex-wrap: wrap;
+}
+.cols-3 > * { flex: 1; min-width: 180px; }
+.cols-4 > * { flex: 1; min-width: 130px; }
+.comp-card {
+  background: #fff;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
+}
+.comp-card .comp-label {
+  font-weight: 700;
+  font-size: 15px;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+.comp-card .comp-text {
+  font-size: 16px;
+}
+
+/* Ruling Cards */
+.ruling-card {
+  background: #fff;
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 12px 0;
+  position: relative;
+}
+.ruling-card .ruling-label {
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  background: var(--primary-green);
+  color: #fff;
+  font-size: 13px;
+  padding: 2px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+.ruling-card .ruling-text {
+  margin-top: 6px;
+  font-size: 16px;
+}
+
+/* Summary Box */
+.summary-box {
+  background: var(--light-gold-bg);
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+.summary-box .summary-title {
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.summary-box ul {
+  list-style: none;
+  padding: 0;
+}
+.summary-box ul li {
+  padding: 4px 0;
+  padding-right: 20px;
+  position: relative;
+}
+.summary-box ul li::before {
+  content: '◆';
+  position: absolute;
+  right: 0;
+  color: var(--gold);
+  font-size: 12px;
+}
+
+/* Benefit Box */
+.benefit-box {
+  background: var(--light-purple-bg);
+  border: 2px solid #6a1b9a;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+.benefit-box .benefit-title {
+  font-weight: 700;
+  color: #6a1b9a;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+.benefit-box .benefit-text {
+  font-size: 16px;
+}
+
+/* Qaidah Box */
+.qaidah-box {
+  background: var(--light-gold-bg);
+  border: 3px solid var(--gold);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+.qaidah-box .qaidah-label {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 6px;
+}
+.qaidah-box .qaidah-text {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--dark-green);
+  text-align: center;
+}
+
+/* Section Divider */
+.section-divider {
+  text-align: center;
+  margin: 30px 0;
+  border-top: 1px solid var(--border);
+  position: relative;
+}
+.section-divider::before {
+  content: '❁';
+  position: absolute;
+  top: -14px;
+  right: 50%;
+  transform: translateX(50%);
+  background: var(--bg);
+  padding: 0 12px;
+  color: var(--gold);
+  font-size: 22px;
+}
+
+/* FAQ Accordion */
+details.faq-item {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin: 8px 0;
+  overflow: hidden;
+}
+details.faq-item summary.faq-question {
+  padding: 10px 14px;
+  font-weight: 700;
+  color: var(--primary-green);
+  cursor: pointer;
+  background: var(--light-green-bg);
+}
+details.faq-item .faq-answer {
+  padding: 10px 14px;
+  font-size: 16px;
+}
+
+/* Flow Chart */
+.flow-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin: 16px 0;
+}
+.flow-step {
+  background: #fff;
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 15px;
+  min-width: 200px;
+}
+.flow-arrow {
+  font-size: 22px;
+  color: var(--gold);
+  line-height: 1;
+}
+
+/* Checklist */
+.checklist {
+  margin: 12px 0;
+  padding: 0;
+  list-style: none;
+}
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 6px 0;
+}
+.checklist-circle {
+  min-width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--primary-green);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Alert Box */
+.alert-box {
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 12px 0;
+  font-size: 16px;
+}
+.alert-box.success { background: #e8f5e9; border-right: 4px solid #2e7d32; }
+.alert-box.info { background: #e3f2fd; border-right: 4px solid #1565c0; }
+.alert-box.warning { background: #fff8e1; border-right: 4px solid #f9a825; }
+.alert-box.error { background: #fce4ec; border-right: 4px solid #c62828; }
+
+/* Inline highlight */
+.highlight-gold { background: var(--light-gold-bg); padding: 2px 6px; border-radius: 4px; }
+.highlight-green { background: var(--light-green-bg); padding: 2px 6px; border-radius: 4px; }
+.highlight-teal { background: var(--light-teal-bg); padding: 2px 6px; border-radius: 4px; }
+
+/* Quote Block */
+.quote-block {
+  border-right: 4px solid var(--gold);
+  padding: 10px 16px;
+  margin: 12px 0;
+  background: var(--light-gold-bg);
+  font-style: italic;
+}
+.quote-block .quote-text {
+  font-size: 17px;
+  color: var(--dark-green);
+}
+.quote-block .quote-attribution {
+  font-size: 14px;
+  color: #888;
+  margin-top: 4px;
+  text-align: left;
+}
+
+@media print {
+  .bw-toggle { display: none; }
+  .cover-page { min-height: 100vh; page-break-after: always; }
+  h1, h2, h3 { page-break-after: avoid; }
+  .evidence-box, .callout, .tree-container, .table-styled, .poetry-box { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- B&W Toggle Button -->
+<button class="bw-toggle" onclick="document.body.classList.toggle('bw-mode')">وضع الأبيض والأسود</button>
+
+<!-- ========== COVER PAGE ========== -->
+<div class="cover-page">
+  <div class="cover-ornament">✦ ❁ ✦</div>
+  <div class="cover-book-title">شرح العوامل المائة</div>
+  <div class="cover-ornament">❁</div>
+  <div style="font-size:16px; color:#e0e0e0; margin:8px 0;">للإمام عبد القاهر الجُرجاني رحمه الله تعالى</div>
+  <div class="cover-lecture-num">الدرس الخامس</div>
+  <div class="cover-lecture-title">من (على) — إلى (خلا وعدا وحاشا)</div>
+  <div class="cover-ornament">✦ ❁ ✦</div>
+  <div class="cover-author-info">
+    <span>المتن: الإمام عبد القاهر الجرجاني رحمه الله تعالى</span>
+    <span>الشرح: د. لبيب نجيب عبدالله</span>
+    <span>إعداد: أحمد بن إرشاد</span>
+  </div>
+</div>
+
+<!-- ========== MAIN CONTENT ========== -->
+<div class="page-content">
+
+<!-- Opening -->
+<h1> opening: بسم الله الرحمن الرحيم</h1>
+
+<p>بسم الله الرحمن الرحيم، الحمد لله رب العالمين، والصلاة والسلام الأتمّان الأكملان على سيد المرسلين سيدنا محمد، وعلى آله وصحبه الطيبين الطاهرين، أما بعد: فأسأل الله سبحانه وتعالى أن يمنّ علينا بالعلم النافع والعمل الصالح، وأن يفقهنا في الدين، وأن يفتح لنا فتوح العارفين، وأن يرزقنا الإخلاص في الأقوال والأعمال، اللهم آمين.</p>
+
+<p>فأذكّر بارك الله فيكم أننا في كتاب العوامل المئة للإمام عبدالقاهر الجرجاني رحمه الله تعالى رحمة واسعة، وهو قسم الكتاب — كالآتي — العوامل المئة تنقسم إلى: عوامل لفظية وعددها 98، وعوامل معنوية 98، وعوامل سماعية وعوامل قياسية، العوامل السماعية عددها 91، العوامل القياسية عددها 7. ثم العوامل السماعية هذه قسّمها إلى مجموعات، إلى مجموعات 13 مجموعة. واضح؟</p>
+
+<p>نحن الآن في المجموعة الأولى وهي حروف الجر. كم عدد العوامل في المجموعة الأولى؟ 17 عاملاً. نحن درسنا في الدروس الماضية: أول هذه العوامل هو الباء صح؟ ثم الثاني: من، الثالث: إلى، الرابع: في، الخامس: اللام، السادس: رُبّ، السابع: على — ندرسه الآن. السابع صح؟ ما درسناه؟ ندرسه الآن. واليوم نحاول أننا نختم المجموعة الأولى، نختم المجموعة الأولى إن شاء الله عز وجل.</p>
+
+<div class="section-divider"></div>
+
+<!-- ========== السابع: على ========== -->
+<h1>السابع: على</h1>
+
+<div class="matn-text">
+  والسابع: على، وهي للاستعلاء، نحو: زيدٌ على السطح، وعليه دَينٌ.
+</div>
+
+<p>أقول أولاً: إن <span class="highlight-gold">على</span> تأتي حرفاً — وهي المرادة هنا — وتأتي اسماً وتأتي فعلاً. تأتي حرفاً، وتأتي اسماً، وتأتي فعلاً.</p>
+
+<p>تأتي حرفاً — الأمثلة ستأتي في هذا. لكن تأتي اسماً متى؟ في نحو: لو سُبقَ على بحرف جر. كيف تقول؟ تقول مثلاً: <span class="highlight-green">نزلتُ من على السطح</span>، نزلتُ من على السقف — السطح واضح — نزلت من على السطح. في السطح نزلت، فقلت: نزلت من على السطح. على هنا اسم. ما الدليل على أنه اسم؟ الدليل على أنه اسم أن حرف الجر دخل عليه، ومعلوم أن الكلمة إذا دخل عليها حرف جر فإنها اسم. واضح. إذن على هنا اسم.</p>
+
+<p>وعلى قد تكون فعلاً، ومن ذلك قول الله عز وجل في القرآن الكريم:</p>
+
+<div class="evidence-box">
+  <div class="ev-text">إِنَّ فِرْعَوْنَ عَلَا فِي الْأَرْضِ</div>
+</div>
+
+<p>علا في الأرض — علا يعلو. تمام. إذاً: على قد تكون حرفاً وقد تكون اسماً وقد تكون فعلاً.</p>
+
+<div class="callout green">
+  <div class="callout-title">تنبيه</div>
+  على تأتي على ثلاثة أوجه: حرفاً (وهو المراد هنا في كتاب العوامل)، واسماً (إذا سُبقت بحرف جر نحو: من على السطح)، وفعلاً (نحو: علا في الأرض).
+</div>
+
+<h2>على للاستعلاء</h2>
+
+<p>قال هنا: والسابع: على — أي على يقصد على التي حرف جر فإن الكلام في هذا — قال: وهي للاستعلاء. على للاستعلاء.</p>
+
+<p>نحو: <span class="highlight-gold">زيدٌ على السطح</span> — هذا المثال الأول. قال: <span class="highlight-gold">وعليه دَينٌ</span> — هذا المثال الثاني.</p>
+
+<p>هل تلاحظ فرقاً بين المثالين؟ ما الفرق؟ الأول: علوّ حسي، والثاني: علوّ معنوي. ولذلك من حسن صنعته رحمه الله تعالى أن مثّل بمثالين ليشير إلى أن الاستعلاء قد يكون استعلاءً حسياً وقد يكون استعلاءً معنوياً. فقال: زيد على السطح — هذا استعلاء حسي. واضح.</p>
+
+<div class="callout teal">
+  <div class="callout-title">حسن الصنعة</div>
+  من حسن صناعة المصنّف رحمه الله تعالى أن مثّل بمثالين: مثال للاستعلاء الحسي (زيد على السطح)، ومثال للاستعلاء المعنوي (عليه دين)، ليشير إلى أن الاستعلاء قد يكون حسياً وقد يكون معنوياً.
+</div>
+
+<h3>الاستعلاء الحسي</h3>
+
+<p>ومنه قول الله سبحانه وتعالى:</p>
+
+<div class="evidence-box">
+  <div class="ev-text">كُلُّ مَنْ عَلَيْهَا فَانٍ</div>
+</div>
+
+<p>ومنه قول الله عز وجل:</p>
+
+<div class="evidence-box">
+  <div class="ev-text">وَعَلَيْهَا وَعَلَى الْفُلْكِ تُحْمَلُونَ</div>
+</div>
+
+<p>فالاستعلاء في هاتين الآيتين استعلاء حسي.</p>
+
+<h3>الاستعلاء المعنوي</h3>
+
+<p>قال: وعليه دين — هذا استعلاء معنوي. ولاحظ: عليه دين — كأن الدين شيء يحمله الإنسان. وفي هذا إشارة إلى أن الدين ثقيل. ولذلك كان النبي صلى الله عليه وسلم يستعيذ بالله من الدين، وكان النبي صلى الله عليه وسلم إذا جيءَ برجل فقيل: عليه دين، يقول: <span class="highlight-gold">صلّوا على صاحبكم</span> — إشارة إلى ثقل الدين.</p>
+
+<div class="evidence-box hadith">
+  <div class="ev-text">إن الشهيد يُغفَر له كل شيء إلا الدين</div>
+</div>
+
+<p>واضح. فالدين ثقيل، ولذلك يقال: عليه دين — إشارة إلى ثقل الدين.</p>
+
+<p>ومن هذا العلو — العلو المعنوي — قول الله عز وجل:</p>
+
+<div class="evidence-box">
+  <div class="ev-text">وَاللَّهُ فَضَّلَ بَعْضَكُمْ عَلَى بَعْضٍ</div>
+</div>
+
+<p>والله فضّل بعضكم على بعض — أي جعل بعضكم أعلى من بعض. هذا علوّ ماذا؟ حسي أو معنوي؟ معنوي.</p>
+
+<p>ومنه قول موسى عليه الصلاة والسلام:</p>
+
+<div class="evidence-box">
+  <div class="ev-text">وَلَهُمْ عَلَيَّ ذَنْبٌ فَأَخَافُ أَن يَقْتُلُونِ</div>
+</div>
+
+<p>ولهم عليّ — عليّ: معنوي، استعلاء معنوي. ولهم عليّ ذنب فأخاف أن يقتلون.</p>
+
+<div class="section-divider"></div>
+
+<h2>معاني على الأخرى</h2>
+
+<p>إذاً: ذكر المصنف رحمه الله تعالى معنىً واحداً لعلى، وعلى في الحقيقة لها معاني أخرى، نشير إليها ونضرب لكل معنى مثالاً، واكتب المعنى واكتب المثال بجانب المعنى. جيد. وإذا لم تكتب أُعيد لك مرة أخرى لا بأس.</p>
+
+<!-- Classification Tree for معاني على -->
+<div class="tree-container">
+  <div class="tree-title">شجرة تصنيف: معاني حرف الجر (على)</div>
+  <div style="text-align:center; margin-bottom:12px;">
+    <div class="tree-node root" style="display:inline-block;">على</div>
+  </div>
+  <div class="tree-branch">
+    <div class="tree-sub-branch">
+      <div class="tree-node">الاستعلاء<br><span class="node-label">المعنى الأصلي</span></div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">المصاحبة<br><span class="node-label">بمعنى: مع</span></div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">المجاوزة<br><span class="node-label">بمعنى: عن</span></div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">التعليل<br><span class="node-label">بمعنى: اللام</span></div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">الظرفية<br><span class="node-label">بمعنى: في</span></div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">الباء<br><span class="node-label">بمعنى: الباء</span></div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">من<br><span class="node-label">بمعنى: من</span></div>
+    </div>
+  </div>
+</div>
+
+<h3>1. المصاحبة (بمعنى: مع)</h3>
+<p>ما معنى المصاحبة؟ أنها بمعنى: معاً. المصاحبة يعني بمعنى معاً. قال الله سبحانه وتعالى:</p>
+<div class="evidence-box">
+  <div class="ev-text">وَيُطْعِمُونَ الطَّعَامَ عَلَى حُبِّهِ مِسْكِينًا وَيَتِيمًا وَأَسِيرًا</div>
+</div>
+<p>ويطعمون الطعام على حبه — ما معنى: على حبه؟ مع حبه. أي هم يحتاجون إلى الطعام ويحبون الطعام، ومع كونهم يحبونه إلا أنهم يقدّمون غيرهم على أنفسهم، ويطعمون الطعام على حبه أي مع حبه مسكيناً ويتيماً وأسيراً. إذاً: هنا على بمعنى إيش؟ بمعنى: مع.</p>
+
+<h3>2. المجاوزة (بمعنى: عن)</h3>
+<p>من معاني على أيضاً: المجاوزة. المجاوزة أي بمعنى إيش؟ المجاوزة عن. تقول: <span class="highlight-green">رضيتُ عليه</span> — رضيت عليه يعني عنه. رضيت عليه يعني عنه. تمام.</p>
+
+<h3>3. التعليل (بمعنى: اللام)</h3>
+<p>على بمعنى التعليل. ومنه قول الله عز وجل:</p>
+<div class="evidence-box">
+  <div class="ev-text">لِتُكَبِّرُوا اللَّهَ عَلَى مَا هَدَاكُمْ</div>
+</div>
+<p>ما معنى الآية؟ لتكبروا الله لهدايتكم. فإن على بمعنى اللام التعليلية، وما مصدرية — ما هذه مصدرية — أي لتكبروا الله لهدايتكم.</p>
+
+<h3>4. الظرفية (بمعنى: في)</h3>
+<p>على تأتي بمعنى في — الظرفية. أو تقول: من معانيها الظرفية. ومنه قول الله سبحانه وتعالى في قصة موسى نبي الله موسى عليه الصلاة والسلام:</p>
+<div class="evidence-box">
+  <div class="ev-text">وَدَخَلَ الْمَدِينَةَ عَلَى حِينِ غَفْلَةٍ مِّنْ أَهْلِهَا</div>
+</div>
+<p>ودخل المدينة على حين غفلة من أهلها — ودخل المدينة في حين غفلة — في حين غفلة من أهلها. ودخل المدينة على حين غفلة من أهلها.</p>
+
+<h3>5. الباء</h3>
+<p>ومن معاني على: الباء. تأتي بمعنى الباء. تمام. ومنه قول الله عز وجل:</p>
+<div class="evidence-box">
+  <div class="ev-text">حَقِيقٌ عَلَى أَن لَّا أَقُولَ عَلَى اللَّهِ إِلَّا الْحَقَّ</div>
+</div>
+<p>حقيق على أن لا أقول على الله إلا الحق. إيش يكون المعنى؟ بدل على: ضع باء. إيش بتقول؟ حقيقٌ بأن لا أقول على الله إلا الحق. حقيقٌ بأن لا أقول على الله إلا الحق.</p>
+
+<h3>6. من</h3>
+<p>وآخر شيء: على بمعنى من. على بمعنى من. في سورة المطفّفين، يقول الله سبحانه وتعالى:</p>
+<div class="evidence-box">
+  <div class="ev-text">وَيْلٌ لِّلْمُطَفِّفِينَ ۝ الَّذِينَ إِذَا اكْتَالُوا عَلَى النَّاسِ يَسْتَوْفُونَ</div>
+</div>
+<p>كيف يعني اكتالوا على الناس؟ اكتالوا: أخذوا أو أعطوا؟ أخذوا. إيش يكون المعنى؟ أخذوا من الناس يستوفون. واضح. فعلى هنا بمعنى إيش؟ بمعنى: من. إذاً: إذا اكتالوا — إذا أخذوا من الناس — يأخذون الحقّ وافياً. وإذا أعطوا الناس يخسرون ينقصون الحق. ويل للمطفّفين!</p>
+
+<div class="callout gold">
+  <div class="callout-title">من هم المطفّفون؟</div>
+  من هم المطفّفون؟ الذين إذا اكتالوا على الناس يستوفون، وإذا كالوهم أو وزنوهم يخسرون ينقصون. واضح. هؤلاء المطفّفون. فهو يأخذ حقّه وافياً كاملاً، ويعطي الناس حقوقهم ناقصة. واضح؟ هذا هو المطفّف الذي توعّده الله عز وجل.
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ========== الثامن: عن ========== -->
+<h1>الثامن: عن</h1>
+
+<div class="matn-text">
+  والثامن: عن، وللمجاوزة، نحو: رميتُ السهمَ عن القوسِ.
+</div>
+
+<p>عن — معناها الأصلي: المجاوزة والبُعد. تجاوز القوس وبَعُد عنه. رميت السهم عن القوس — السهم تجاوز القوس وبعد عنه. قال: تجاوز السهم عن القوس.</p>
+
+<p>وأيضاً إذا قلت — انتبه معي — <span class="highlight-green">بلغني عن زيدٍ حديثٌ</span>، بلغني عن زيد حديث — أي أن الحديث تجاوز حتى وصل إليّ. واضح. فمعناه: تجاوز إليّ — عنه حديث.</p>
+
+<p>ومنه قولك: <span class="highlight-green">رويتُ الأحاديثَ عن فلانٍ</span> — رويت الأحاديث عن فلان، أي تجاوز الأحاديث من فلان إليّ.</p>
+
+<p>ومنه قولك: <span class="highlight-green">أخذتُ الفقهَ عن فلانٍ</span> — أي أن الفقه تجاوز فلان إليّ.</p>
+
+<p>فعن هن بمعنى المجاوزة.</p>
+
+<h3>رضي الله عنه</h3>
+
+<p>ومنه قولك: <span class="highlight-gold">رضي الله عنه</span>. واضح. رضي الله عنه — ما معنى المجاوزة هنا؟ ما معنى البعد؟ أي بعد أن يؤاخذه الله عز وجل — بسبب رضاه — بعده المؤاخذة. ما معنى المؤاخذة؟ العقوبة. أي كأنك تقول: يا رب لا تؤاخذ فلاناً لأنك رضيت عنهم، فبعدت عنه المؤاخذة. واضح. بعدت المؤاخذة عن الشخص الذي تدعو له.</p>
+
+<p>فأنت لما تقول مثلاً: عن أبي هريرة رضي الله عنه — هذه جملة خبرية في اللفظ دعائية إنشائية. واضح. كأنك تقول: يا رب بعد هذا الرجل الصالح الصحابي الجليل عن المؤاخذة لرضاك عنه. فهمتم وجل المعنى إن شاء الله.</p>
+
+<div class="benefit-box">
+  <div class="benefit-title">فائدة</div>
+  <div class="benefit-text">إذن هذا المعنى لعن — معنى البعد والمجاوزة — وعن لها معاني أخرى أيضاً.</div>
+</div>
+
+<h2>معاني عن الأخرى</h2>
+
+<!-- Table for معاني عن -->
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>المعنى</th>
+      <th>بمعنى</th>
+      <th>المثال</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>المجاوزة والبُعد</strong></td>
+      <td>— (المعنى الأصلي)</td>
+      <td>رميت السهم عن القوس</td>
+    </tr>
+    <tr>
+      <td><strong>بعد</strong></td>
+      <td>بعد</td>
+      <td>لتركبنّ طبقاً عن طبق</td>
+    </tr>
+    <tr>
+      <td><strong>من</strong></td>
+      <td>من</td>
+      <td>وهو الذي يقبل التوبة عن عباده</td>
+    </tr>
+    <tr>
+      <td><strong>التعليل</strong></td>
+      <td>اللام / لأجل</td>
+      <td>وما كان استغفار إبراهيم لأبيه إلا عن موعدة</td>
+    </tr>
+    <tr>
+      <td><strong>على</strong></td>
+      <td>على</td>
+      <td>ومن يبخل فإنما يبخل عن نفسه</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>1. بعد</h3>
+<p>من معاني عن أنها تأتي بمعنى <span class="highlight-gold">بعد</span>. تأتي بمعنى إيش؟ بعد. في سورة الانشقاق يقول الله عز وجل:</p>
+<div class="evidence-box">
+  <div class="ev-text">لَتَرْكَبُنَّ طَبَقًا عَن طَّبَقٍ</div>
+</div>
+<p>ما معنى عن؟ بعد. ما معنى الآية؟ لتركبنّ طبقاً عن طبق — ما معنى الآية؟ لتركبنّ حالةً بعد حالة. يكون صغيراً ثم شاباً ثم رجلاً ثم شيخاً ثم يموت ثم يُبعث — حالة متغايرة بعد حالة. لتركبنّ طبقاً عن طبق، أي لتركبنّ حالةً بعد حالة. كما قال في الجلالين عندما جاء لتفسير هذه الآية: لتركبنّ طبقاً عن طبق — لتركبنّ حالةً بعد حالة. ففسّر عن بـ بعد. جيد ولا لا؟ تمام. واضح.</p>
+
+<h3>2. من</h3>
+<p>تأتي أيضاً عن بمعنى <span class="highlight-gold">من</span>. يعفو عن المسلمين، وهو الذي يقبل التوبة عن عباده — ما معنى عن؟ من عباده. هو الذي يقبل التوبة عن عباده — يعني من عباده.</p>
+
+<h3>3. التعليل</h3>
+<p>وتأتي أيضاً للتعليل. ولاحظ معي — شوف التعليل هذا كثير. اللام تأتي للتعليل، والباء السببية — السببية والتعليل شيء واحد. مرّ معنا قبل قليل أن على تأتي للتعليل، والآن إيش؟ عن للتعليل. قال الله عز وجل في سورة التوبة:</p>
+<div class="evidence-box">
+  <div class="ev-text">وَمَا كَانَ اسْتِغْفَارُ إِبْرَاهِيمَ لِأَبِيهِ إِلَّا عَن مَّوْعِدَةٍ وَعَدَهَا إِيَّاهُ</div>
+</div>
+<p>يعني سيدنا إبراهيم عليه الصلاة والسلام عندما استغفر لأبيه، لماذا استغفر لأبيه؟ استغفر لأبيه لأنه وعده بالاستغفار. قال: لأستغفرن لك. واضح. لأ؟ فعن هنا بمعنى التعليل. وما كان استغفار إبراهيم لأبيه إلا عن موعدة وعدها إياه — أي لأجل موعدة وعدها إياه.</p>
+
+<p>مثال آخر، قال الله عز وجل:</p>
+<div class="evidence-box">
+  <div class="ev-text">وَمَا نَحْنُ بِتَارِكِي آلِهَتِنَا عَن قَوْلِكَ</div>
+</div>
+<p>إيش معنى الآية؟ وما نحن بتاركي آلهتنا لأجل قولك — لأجل قولك.</p>
+
+<h3>4. على</h3>
+<p>آخر شيء أن عن تأتي بمعنى <span class="highlight-gold">على</span>. عن تأتي بمعنى على. في سورة محمد في آخر آية في سورة محمد:</p>
+<div class="evidence-box">
+  <div class="ev-text">وَمَن يَبْخَلْ فَإِنَّمَا يَبْخَلُ عَن نَّفْسِهِ</div>
+</div>
+<p>ما معنى عن نفسه؟ على نفسه. واضح.</p>
+
+<div class="callout green">
+  <div class="callout-title">خلاصة معاني عن</div>
+  إذن كم صورة لها معاني؟ خمسة نعم — أربعة أضفناها وواحد ذكره المصنف وهو المعنى الأصلي.
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ========== التاسع: الكاف ========== -->
+<h1>التاسع: الكاف</h1>
+
+<div class="matn-text">
+  والتاسع: الكاف، ولها معنيان: أحدهما التشبيه، نحو: زيدٌ كالأسدِ، وكونه تعالى ليس كمثله شيء. والثاني: التعليل، نحو: واذكروه كما هداكم.
+</div>
+
+<p>قال رحمه الله: والتاسع: الكاف، ولها معنيان.</p>
+
+<h2>1. التشبيه</h2>
+
+<p>أحدهما: التشبيه. تشبيه الكاف — تأتي للتشبيه. وهذا المعنى الأصلي للكاف، المعنى الأشهر للكاف أنها تأتي للتشبيه. نحو: <span class="highlight-gold">زيدٌ كالأسدِ</span> — تشبيهاً مجازياً لشجاعته، لا حقيقياً.</p>
+
+<div class="definition-card">
+  <div class="definition-term">تعريف التشبيه</div>
+  <div class="definition-text">علماء البلاغة عندما يعرفون التشبيه يقولون: إلحاق أمرٍ بأمرٍ في الوصف بأداة خاصة. ما هو التشبيه؟ إلحاق أمرٍ بأمرٍ في الوصف بأداة خاصة — في الوصف بأداة خاصة.</div>
+</div>
+
+<p>جيد. ما مثال التشبيه؟ تقول على سبيل المثال: <span class="highlight-green">زينبُ كالقمرِ</span> — زينب كالقمر. هذا تشبيه: إلحاق أمر — الأمر الأول زينب — بأمر — القمر — في وصف. ما هو الوصف؟ الحسن. تمام. بأداة خاصة. واضح.</p>
+
+<p>ولذلك التشبيه هذا له أربعة أركان. ما هي؟ هي كالتالي:</p>
+
+<div class="tree-container">
+  <div class="tree-title">أركان التشبيه</div>
+  <div class="tree-branch">
+    <div class="tree-sub-branch">
+      <div class="tree-node root">أركان التشبيه</div>
+    </div>
+  </div>
+  <div class="tree-branch" style="margin-top:10px;">
+    <div class="tree-sub-branch">
+      <div class="tree-node">1. المشبّه</div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">2. المشبّه به</div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">3. أداة التشبيه</div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">4. وجه الشبه</div>
+    </div>
+  </div>
+  <div class="tree-branch" style="margin-top:10px;">
+    <div class="tree-sub-branch">
+      <div class="tree-node">5. المشبّه (المتكلم)</div>
+      <span class="node-label" style="text-align:center; display:block; font-size:12px; color:#888;">منهم من زاد</span>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">6. الغرض / القصد</div>
+      <span class="node-label" style="text-align:center; display:block; font-size:12px; color:#888;">منهم من زاد</span>
+    </div>
+  </div>
+</div>
+
+<p>ومنهم من زاد أمرين فقال: والخامس المشبّه — المشبّه يعني القائل — والسادس الغرض أو القصد من التشبيه.</p>
+
+<h3>تطبيق أركان التشبيه على المثال: زينب كالقمر</h3>
+
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>الركن</th>
+      <th>في المثال</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>المشبّه</td>
+      <td>زينب</td>
+    </tr>
+    <tr>
+      <td>المشبّه به</td>
+      <td>القمر</td>
+    </tr>
+    <tr>
+      <td>أداة التشبيه</td>
+      <td>الكاف</td>
+    </tr>
+    <tr>
+      <td>وجه الشبه</td>
+      <td>الحسن</td>
+    </tr>
+    <tr>
+      <td>المشبّه (القائل)</td>
+      <td>القائل — لبيب مثلاً</td>
+    </tr>
+    <tr>
+      <td>القصد من التشبيه</td>
+      <td>المدح (وقد يكون الذمّ)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>تطبيق أركان التشبيه على المثال: زيد كالأسد</h3>
+
+<p>لو قلنا لشخص هنا، يخرج لنا الستة الأوجه من هذا المثال: زيد كالأسد. من يخرج لنا الأوجه الستة هذه أو الأركان الستة؟</p>
+
+<ul class="checklist">
+  <li class="checklist-item">
+    <span class="checklist-circle">1</span>
+    <span>المشبّه: زيد</span>
+  </li>
+  <li class="checklist-item">
+    <span class="checklist-circle">2</span>
+    <span>المشبّه به: الأسد</span>
+  </li>
+  <li class="checklist-item">
+    <span class="checklist-circle">3</span>
+    <span>أداة التشبيه: الكاف</span>
+  </li>
+  <li class="checklist-item">
+    <span class="checklist-circle">4</span>
+    <span>وجه الشبه: الشجاعة</span>
+  </li>
+  <li class="checklist-item">
+    <span class="checklist-circle">5</span>
+    <span>المشبّه (المتكلم): أنت</span>
+  </li>
+  <li class="checklist-item">
+    <span class="checklist-circle">6</span>
+    <span>القصد: المدح</span>
+  </li>
+</ul>
+
+<h3>ليس كمثله شيء</h3>
+
+<p>قال: كونه تعالى ليس كمثله شيء — أي ليس مثله شيء، لأن الله عز وجل لا مثل له. وشرحنا هذا المثال استطراداً في دروس أصول الفقه فلا حاجة إلى إعادته هنا.</p>
+
+<h2>2. التعليل</h2>
+
+<p>من معاني الكاف أيضاً: التعليل. انظر — التعليل حاضر هنا أيضاً. تمام. من معاني الكاف: التعليل. التعليل. قال الله عز وجل:</p>
+
+<div class="evidence-box">
+  <div class="ev-text">وَاذْكُرُوهُ كَمَا هَدَاكُمْ</div>
+</div>
+<p>ما معنى كما؟ لأجل أنه هداكم — التعليل. اذكروه لأنه هداكم.</p>
+
+<p>قال الله عز وجل:</p>
+<div class="evidence-box">
+  <div class="ev-text">وَقُل رَّبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا</div>
+</div>
+<p>ما معنى كما؟ لأنهما ربّياني صغيراً — التعليل.</p>
+
+<div class="poetry-box">
+  <div class="poetry-label">نظم ابن مالك في الألفية</div>
+  <div class="poetry-line">وشبّه بِكافٍ وبها التعليلُ قَدْ<br>يُعنى وزائدٌ لتوكيدٍ وَرَدْ</div>
+</div>
+
+<p>يعني الزائد جاء لتوكيد. شبّه بكاف وبها التعليل قد يُعنى وزائد لتوكيد ورد. اتفقنا؟ إن شاء الله.</p>
+
+<div class="section-divider"></div>
+
+<!-- ========== العاشر والحادي عشر: مذ ومنذ ========== -->
+<h1>العاشر: مذ — والحادي عشر: منذ</h1>
+
+<div class="matn-text">
+  والعاشر: مذ، والحادي عشر: منذ، وهما لابتداء الغاية في الزمان الماضي، نحو: ما رأيته مذ ومنذ يوم الجمعة.
+</div>
+
+<p>مذ ومنذ — لهما ثلاث حالات: إما أن تكون حرف جر، وإما أن تكون مبتدأ، وإما أن تكون ظرفاً. ذكر ذلك الإمام ابن هشام رحمه الله تعالى في مغني اللبيب. فكم لها حالات؟ ثلاث حالات: إما أن تكون حرف جر، وإما أن تكون مبتدأ — مذ ومنذ مبتدأ (لما أقول مبتدأ يعني اسم)، وإما أن تكون ظرف.</p>
+
+<!-- Classification Tree for مذ ومنذ -->
+<div class="tree-container">
+  <div class="tree-title">شجرة تصنيف: حالات مذ ومنذ</div>
+  <div style="text-align:center; margin-bottom:12px;">
+    <div class="tree-node root" style="display:inline-block;">مذ / منذ</div>
+  </div>
+  <div class="tree-branch">
+    <div class="tree-sub-branch">
+      <div class="tree-node">حرف جر<br><span class="node-label">إذا جاء بعدها اسم مجرور</span></div>
+      <div style="margin-top:8px;">
+        <div style="font-size:13px; padding:4px 8px; background:var(--light-gold-bg); border-radius:6px; margin:2px 0;">بمعنى: من (إن كان المجرور ماضياً)</div>
+        <div style="font-size:13px; padding:4px 8px; background:var(--light-gold-bg); border-radius:6px; margin:2px 0;">بمعنى: في (إن كان المجرور حاضراً)</div>
+      </div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">مبتدأ (اسم)<br><span class="node-label">إذا جاء بعدها اسم مرفوع</span></div>
+      <div style="margin-top:8px;">
+        <div style="font-size:13px; padding:4px 8px; background:var(--light-gold-bg); border-radius:6px; margin:2px 0;">بمعنى: مدة / أمد</div>
+      </div>
+    </div>
+    <div class="tree-sub-branch">
+      <div class="tree-node">ظرف زمان<br><span class="node-label">إذا جاء بعدها جملة</span></div>
+    </div>
+  </div>
+</div>
+
+<h2>الحالة الأولى: حرف جر</h2>
+
+<p>متى تكون حرف جر؟ إذا جاء بعدها اسم مجرور تكون حرف جر.</p>
+
+<p>نريد الأمثلة. مثال أول: هنا جاء بعد اسم مجرور. تقول مثلاً: <span class="highlight-green">ما رأيتك مذ يومِ أمس</span> أو <span class="highlight-green">يومِ الجمعة</span>. تمام. مثال آخر تقول: <span class="highlight-green">ما رأيتك مذ يومِنا</span>. طبعاً تقول مذ أو منذ لا فرق — فقط مثال.</p>
+
+<p>لاحظ معي: هنا جاء اسم مفرد، هنا جاء اسم مفرد مجرور. إذن هنا مذ أو منذ هنا حرف جري. ما بعده اسم مجرور. ما: نافية. رأيتك: فعل وفاعل ومفعول. مذ: حرف جر. يومِ: اسم مجرور. أمسِ: صفة يوم. تمام. ما رأيتك مذ يومِنا — نفس الكلام. فهمنا.</p>
+
+<div class="callout teal">
+  <div class="callout-title">تنبيه دقيق</div>
+  إذا كان المجرور ماضياً فإن مذ أو منذ — سواء مذ أو منذ — بمعنى <strong>من</strong>. أي: ما رأيتك من يوم أمس، لأن المجرور ماضٍ. لكن لو كان المجرور حاضراً فإن مذ أو منذ بمعنى <strong>في</strong>. ما رأيتك مذ يومِنا — أي ما رأيتك في يومنا. ما رأيتك مذ شهرِنا — أي ما رأيتك في شهرنا.
+</div>
+
+<h2>الحالة الثانية: مبتدأ</h2>
+
+<p>مبتدأ — إذا جاء بعد اسم مرفوع. تقول: <span class="highlight-green">ما رأيتك مذ يومانِ</span>. يومان هنا — مذ مبتدأ. ما المعنى؟ المعنى كالآتي: مذ هنا بمعنى مدة. مدة عدم رؤياي لك يومان. لاحظ: هذا مبتدأ، هذا خبر. فهمت علي أم لا؟ جيد.</p>
+
+<h2>الحالة الثالثة: ظرف</h2>
+
+<p>إذا جاء بعدها جملة. مثال تقول: <span class="highlight-green">ما زلتُ أطلبُ العلمَ مذ أنا صغيرٌ</span>. ما زلت أطلب العلم — أطلب العلم — مذ أنا صغير. جاء جملة — جاء جملة. واضح. كيف ستعرف؟ طبعاً ما زال معروف، ما زال من أخوات كان. أتى اسمها: أطلب العلم — جملة في محل نصب خبر — جملة في محل نصب خبر زال. تمام. مذ هذه ظرف — مذ هذه ظرف ظرف زمان. أنا: مبتدأ. صغير: خبر. والجملة في محل جر مضاف إليه — مضاف إليه مضاف إليه إلى مذ. فهمتم؟ واضحة.</p>
+
+<div class="section-divider"></div>
+
+<h2>كلام الكفراوي في الحاشية</h2>
+
+<p>نقرأ كلام الكفراوي للمذاكرة. قال هنا:</p>
+
+<div class="quote-block">
+  <div class="quote-text">والعاشر مذ والحادي عشر منذ، وهما لابتداء الغاية في الزمان الماضي، نحو: ما رأيته مذ ومنذ يوم الجمعة، أي ابتداء عدم رؤيتي مذ ومنذ يوم الجمعة. مذ ومنذ يوم الجمعة — شاهد.</div>
+  <div class="quote-attribution">— شرح الكفراوي على العوامل المائة</div>
+</div>
+
+<p>أين حاشية الكفراوي؟ أين شرح الكفراوي؟ افتح الموضع. وجدت الموضع في حاشية في حروف الجر. وجدت. اقرأ:</p>
+
+<p>قال رحمه الله تعالى: مذ ومنذ — قول رحمه الله تعالى: مذ ومنذ — ما كانتا حرفي جر في هذين اللفظين، وهما حرفا جر بمعنى <strong>من</strong> إن كان المجرور ماضياً، نحو: ما رأيته مذ أو منذ يوم الجمعة. فما نافية، ورأى فعل ماض، والتاء فاعل، والهاء مفعول به مبني على الضم في محل نصب، ومذ ومنذ حرف جر، ويومِ مجرور به.</p>
+
+<p>أو بمعنى <strong>في</strong> إن كان حاضراً، نحو: ما رأيته مذ أو منذ يومِنا.</p>
+
+<p>وقد يستعملان اسمين إذا وقع بعدهما الاسم مرفوعاً أو الفعل — حتى إذا وقع الفعل هنا فهو اسم لأنه ظرف والظرف إيش؟ اسم. واضح. نحو: ما رأيته مذ أو منذ يومانِ — فمذ ومنذ اسم مبتدأ بمعنى أمد وما بعده خبر — أو بالعكس — بمعنى بين، أي أمد عدم لقائه يومان — مدة عدم رؤيتي له يومان — أو بيني وبين لقائه يومان. والجملة استئنافية.</p>
+
+<p>ونحو: جئتُ مذ دعاءٌ — هنا فعل — فمذ اسم في محل نصب على الظرفية. فهمتم؟ هو ذكر الثلاث حالات لكنه دمج الثانية والثالثة. فهمتم.</p>
+
+<div class="callout green">
+  <div class="callout-title">مذاكرة</div>
+  هذا بارك الله فيكم درسناه، فقط هذا من باب المذاكرة. شكراً.
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ========== الثاني عشر: حتى ========== -->
+<h1>الثاني عشر: حتى</h1>
+
+<div class="matn-text">
+  والثاني عشر: حتى، ولها معنيان: أحدهما لانتهاء الغاية، نحو: أكلتُ السمكةَ حتى رأسُها. والثاني: بمعنى مع، وهو كثير، نحو: جاء الحجّاجُ حتى المشاةُ.
+</div>
+
+<p>قال: والثاني عشر: حتى، ولها معنيان. حتى وما أدراك ما حتى!</p>
+
+<h2>1. انتهاء الغاية</h2>
+
+<p>أحدهما: لانتهاء الغاية. نحو: <span class="highlight-gold">أكلتُ السمكةَ حتى رأسَها</span> — أي انتهاء أكلي إلى رأسها.</p>
+
+<h2>2. بمعنى: مع</h2>
+
+<p>والثاني: بمعنى مع، وهو كثير. نحو: <span class="highlight-gold">جاء الحجّاجُ حتى المشاةُ</span> — أي مع المشاة.</p>
+
+<div class="section-divider"></div>
+
+<h2>الأوجه الثلاثة لـ (حتى) في المثال: أكلت السمكة حتى رأسها</h2>
+
+<p>انتبه معي — كيف تعرف؟ <span class="highlight-gold">أكلتُ السمكةَ حتى رأسِها</span> — حتى هنا حرف جر. حتى هنا حرف جر. أكلت السمكة حتى رأسِها — تعرف حرف جر، وهذا اسم مجرور. جيد.</p>
+
+<p><span class="highlight-gold">أكلتُ السمكةَ حتى رأسَها</span> — حتى هنا حرف عطف. حرف عطف. جيد. وهذا رأسَها معطوف على السمكة.</p>
+
+<p><span class="highlight-gold">أكلتُ السمكةَ حتى رأسُها</span> — جيد. أكلت السمكة حتى — حتى هنا حرف ابتداء — ابتدائية. والتقدير: أكلت السمكة حتى رأسُها مأكولٌ. أكلت: فعل وفاعل. السمكة: مفعول به. حتى: حرف ابتداء. رأسُها: مبتدأ. خبره محذوف: مأكول. واضح.</p>
+
+<p>ولله جيد. ثم بعد ذلك هذه الجملة تقول: جملة ابتدائية مستأنفة لا محلّ لها من الإعراب — لأن الجملة الابتدائية لا محلّ لها من الإعراب — جملة ابتدائية مستأنفة لا محلّ لها من الإعراب.</p>
+
+<!-- Table for الأوجه الثلاثة -->
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>الوجه</th>
+      <th>حتى</th>
+      <th>إعراب ما بعد حتى</th>
+      <th>المثال</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>الأول</strong></td>
+      <td>حرف جر</td>
+      <td>اسم مجرور</td>
+      <td>أكلتُ السمكةَ حتى رأسِها</td>
+    </tr>
+    <tr>
+      <td><strong>الثاني</strong></td>
+      <td>حرف عطف</td>
+      <td>معطوف على السمكة (منصوب)</td>
+      <td>أكلتُ السمكةَ حتى رأسَها</td>
+    </tr>
+    <tr>
+      <td><strong>الثالث</strong></td>
+      <td>حرف ابتداء</td>
+      <td>مبتدأ (خبره محذوف: مأكول)</td>
+      <td>أكلتُ السمكةَ حتى رأسُها</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout gold">
+  <div class="callout-title">تنبيه مهم</div>
+  إذن حتى قد تكون حرف جر، وقد تكون حرف عطف، وقد تكون حرف ابتداء. والعادة — كما تعلم — أن حتى في كتب النحو تُذكر في ثلاثة مواضع: تُذكر في حروف الجر صح؟ وتُذكر حتى في النواصب صح؟ وتُذكر في حروف العطف صح؟ ولذلك لو نظرت في الأجرومية تقدر ذكرها في المواضع الثلاثة: في حروف الجر، في حروف أو في أدوات النصب — حروف النصب نعم — وفي حروف العطف.
+</div>
+
+<h3>حتى الناصبة</h3>
+
+<p>وهذه التي هي من أدوات النصب — أصلاً هي لا تنصب بنفسها ولكنها تنصب بـ <span class="highlight-gold">أن</span> مضمرة، وهي في الحقيقة أنها في الحقيقة جارة، لكنها قد تجرّ الاسم الظاهر، وقد تجرّ المصدر المؤوّل من أن.</p>
+
+<p>قد تجرّ الاسم الظاهر — واضح — أكلت السمكة حتى رأسها. وقد تجرّ المصدر المؤوّل من أن:</p>
+
+<div class="evidence-box">
+  <div class="ev-text">قَالُوا لَن نَّبْرَحَ عَلَيْهِ عَاكِفِينَ حَتَّىٰ يَرْجِعَ</div>
+</div>
+
+<p>حتى هناك أن صح أم لا؟ حتى يرجعَ — يرجعَ منصوب بماذا؟ منصوب بـ حتى — بإيش؟ منصوب بأن مضمرة. تقدّر الكلام: لن نبرح عليه عاكفين حتى رجوع موسى عليه الصلاة والسلام. إذن حتى قد تجرّ الاسم الظاهر وقد تجرّ المصدر المؤوّل من الفعل وأن المضمرة. فهمتم؟ وأن المضمرة. جيد إن شاء الله.</p>
+
+<h3>الفرق بين حتى وإلى</h3>
+
+<p>وقد ذكرت لكم في الدرس الماضي الفرق بين حتى وإلى، وقلت: الأصحّ أن ما بعد حتى يدخل فيما قبلها، وما بعد إلى لا يدخل فيما قبلها — طبعاً إلا بقرينة.</p>
+
+<p>والدليل: الله عز وجل في سورة القدر قال في آخر آية:</p>
+
+<div class="evidence-box">
+  <div class="ev-text">سَلَامٌ هِيَ حَتَّىٰ مَطْلَعِ الْفَجْرِ</div>
+</div>
+
+<p>قال: بقرينة — فإن نظرنا للمفهوم. وممن ذكر ذلك العلامة الطاهر بن عاشور رحمه الله.</p>
+
+<div class="section-divider"></div>
+
+<!-- ========== حروف القسم ========== -->
+<h1>الثالث عشر: واو القسم — الرابع عشر: تاء القسم — وباؤه</h1>
+
+<div class="matn-text">
+  والثالث عشر: واو القسم، نحو: واللهِ لأفعلنّ كذا. والرابع عشر: تاء القسم، نحو: تاللهِ لأفعلنّ كذا. وباؤه، نحو: باللهِ لأفعلنّ كذا.
+</div>
+
+<p>هذه الثلاثة تسمى حروف إيش؟ حروف القسم: الواو والتاء والباء.</p>
+
+<!-- Comparison Cards for حروف القسم -->
+<div class="cols cols-3">
+  <div class="comp-card" style="border-color: var(--primary-green);">
+    <div class="comp-label" style="background: var(--primary-green);">واو القسم</div>
+    <div class="comp-text">
+      <strong>تدخل على الظاهر فقط</strong><br>
+      ولا تدخل على المضمر<br><br>
+      <span style="color:#c62828;">❌</span> لا يأتي معها فعل<br>
+      فلا تقول: أقسم والله<br><br>
+      مثال: <span class="highlight-green">واللهِ لأفعلنّ</span>
+    </div>
+  </div>
+  <div class="comp-card" style="border-color: var(--teal);">
+    <div class="comp-label" style="background: var(--teal);">تاء القسم</div>
+    <div class="comp-text">
+      <strong>تدخل على بعض الظاهر فقط</strong><br>
+      على أسماء مخصوصة<br>
+      مثل: اسم الجلالة، ورب الكعبة<br>
+      وقيل أيضاً: الرحمن<br><br>
+      مثال: <span class="highlight-green">تاللهِ لأفعلنّ</span><br>
+      <span class="highlight-green">تاللهِ لا أكيدنّ أصنامكم</span><br>
+      <span class="highlight-green">تاللهِ تفتأ تذكر يوسف</span>
+    </div>
+  </div>
+  <div class="comp-card" style="border-color: var(--gold);">
+    <div class="comp-label" style="background: var(--gold); color:#333;">باء القسم</div>
+    <div class="comp-text">
+      <strong>تدخل على الظاهر والمضمر</strong><br><br>
+      على الظاهر: <span class="highlight-green">باللهِ أقسم</span><br>
+      على المضمر: <span class="highlight-green">بكَ اللهُ أقسم</span><br><br>
+      يمكن أن يأتي معها الفعل:<br>
+      <span class="highlight-green">أقسمُ باللهِ</span>
+    </div>
+  </div>
+</div>
+
+<p>ما الفرق بينها؟ الفرق بينها كالآتي: أن الباء تدخل على الظاهر والمضمر. الباء تدخل على الظاهر — بالله أقسم — وتدخل على المضمر — بك الله أقسم. والواو تدخل على الظاهر فقط ولا تدخل على المضمر. جيد؟</p>
+
+<p>وأما التاء فتدخل على بعض الظاهر — على أسماء مخصوصة — على بعض الظاهر مثل اسم الجلالة ورب الكعبة — سُمع أو قيل أيضاً الرحمن كالرحمن — وفي أشياء أخرى يعني منهم من حكم عليها بالشذوذ. لكن تالله — تقول على اسم الجلالة — هذا حتى في القرآن ذُكر في مواضع:</p>
+
+<div class="evidence-box">
+  <div class="ev-text">تَاللهِ لَا أُكِيدُنَّ أَصْنَامَكُمْ</div>
+</div>
+
+<div class="evidence-box">
+  <div class="ev-text">تَاللهِ تَفْتَأُ تَذْكُرُ يُوسُفَ</div>
+</div>
+
+<p>واضح؟ هذا الفرق بين هذه الحروف الثلاثة.</p>
+
+<p>والواو يمكن أن يأتي معها الفعل — تقول أقسم بالله — لكن الواو لا يأتي معها الفعل. فلا تقول: أقسم والله. الواو لا يأتي معها الفعل. لكن الواو لا يأتي معها الفعل. نعم.</p>
+
+<div class="section-divider"></div>
+
+<!-- ========== حاشا وخلا وعدا ========== -->
+<h1>الخامس عشر: حاشا — السادس عشر: خلا — السابع عشر: عدا</h1>
+
+<div class="matn-text">
+  والخامس عشر: حاشا، والسادس عشر: خلا، والسابع عشر: عدا، وهي للاستثناء، نحو: ما جاءني القومُ حاشا زيدٍ وخلا زيدٍ وعدا زيدٍ.
+</div>
+
+<p>قلت لكم: الاستثناء مأخوذ من ماذا؟ من الثني. ما معنى الثني؟ ردّ الشيء بعضه على بعض — هذا يسمّى ثنياً. هكذا ثني. تمام؟ فأنت عندما تقول: جاء القوم إلا زيداً — كأنك رددت بعض القوم. فهمت؟</p>
+
+<div class="definition-card">
+  <div class="definition-term">تعريف الاستثناء</div>
+  <div class="definition-text">إخراج الشيء عمّا دخل فيه غيره — إخراج الشيء عمّا دخل فيه غيره.</div>
+  <div class="definition-ref">وعرّفه بعضهم فقال: إخراج ما لولا هو لدخل في الكلام بإلا أو إحدى أخواتها.</div>
+</div>
+
+<div class="poetry-box">
+  <div class="poetry-label">نظم العمريطي في نظم الورقات</div>
+  <div class="poetry-line">وحدُ الاستثناء ما به خرج<br>من الكلام بعض ما فيه اندرج</div>
+</div>
+
+<p>إشقان — وحد الاستثناء ما به خرج من الكلام بعض ما فيه اندرج. واضح؟ حدّ الاستثناء ما به خرج من الكلام بعض ما فيه اندرج.</p>
+
+<p>هنا يظهر الحافظ من غير الحافظ — ليس الحفظ أنك تسرد من أول الباب — الحفظ أنك تأتي بالشاهد وقت الحاجة — هذه فائدة الحفظ أصلاً.</p>
+
+<div class="section-divider"></div>
+
+<h2>أحكام حاشا وخلا وعدا</h2>
+
+<p>نحو: <span class="highlight-gold">ما جاءني القومُ حاشا زيدٍ وخلا زيدٍ وعدا زيدٍ</span>.</p>
+
+<p>القاعدة في حاشا وعدا وخلا — أدوات الاستثناء — ولا تحتاج إلى كتابة في السبورة لأنكم درّستم هذا في الأجرومية مرتين: في الشرح المختصر وفي شرح الكفراوي.</p>
+
+<!-- Ruling Cards for حاشا/خلا/عدا -->
+<div class="cols cols-3">
+  <div class="ruling-card" style="border-color: var(--primary-green);">
+    <div class="ruling-label" style="background: var(--primary-green);">حاشا</div>
+    <div class="ruling-text">
+      <strong>أصلاً لا تُسبَق بما</strong><br>
+      حاشا أصلاً لا تُسبق بما، وبالتالي لا تكون إلا حرف جر.<br><br>
+      ولذلك حكم بعض النحاة أنّه إذا سُبقت حاشا بما فإن هذا شذوذ.<br><br>
+      يعني الأصل أن حاشا لا تُسبق بما، وبالتالي تكون حرف جر وبعدها اسم مجرور.<br><br>
+      مثال: <span class="highlight-green">ما جاءني القومُ حاشا زيدٍ</span>
+    </div>
+  </div>
+  <div class="ruling-card" style="border-color: var(--teal);">
+    <div class="ruling-label" style="background: var(--teal);">عدا / خلا — سُبقت بما</div>
+    <div class="ruling-text">
+      <strong>إذا سُبقت بما المصدرية</strong><br>
+      فإن عدا وخلا <strong>فعل</strong> وما بعدهما <strong>مفعول به</strong>.<br><br>
+      تقول: <span class="highlight-green">جاء القومُ ما عدا زيداً</span><br>
+      ما: مصدرية<br>
+      عدا: فعل<br>
+      زيداً: مفعول به<br><br>
+      <span class="highlight-green">جاء القومُ ما خلا زيداً</span><br>
+      ما: مصدرية<br>
+      خلا: فعل — والفاعل مستتر وجوباً<br>
+      زيداً: مفعول به
+    </div>
+  </div>
+  <div class="ruling-card" style="border-color: var(--gold);">
+    <div class="ruling-label" style="background: var(--gold); color:#333;">عدا / خلا — لم تُسبَق بما</div>
+    <div class="ruling-text">
+      <strong>إذا لم تُسبق بما — يجوز الوجهان:</strong><br><br>
+      <strong>الوجه الأول:</strong> أن تجعل عدا وخلا فعلاً وما بعدهما منصوب على أنه مفعول به.<br>
+      <span class="highlight-green">جاء القومُ عدا زيداً</span><br>
+      <span class="highlight-green">جاء القومُ خلا زيداً</span><br><br>
+      <strong>الوجه الثاني:</strong> أن تجعل خلا وعدا حرفاً وما بعدهما اسم مجرور.<br>
+      <span class="highlight-green">جاء القومُ عدا زيدٍ</span><br>
+      <span class="highlight-green">جاء القومُ خلا زيدٍ</span><br><br>
+      كل ذلك صحيح.
+    </div>
+  </div>
+</div>
+
+<div class="summary-box">
+  <div class="summary-title">خلاصة أحكام حاشا وخلا وعدا</div>
+  <ul>
+    <li><strong>حاشا:</strong> لا تُسبق بما أصلاً، فلا تكون إلا حرف جر، وما بعدها اسم مجرور. (وإذا سُبقت بما فذلك شذوذ عند بعض النحاة)</li>
+    <li><strong>عدا وخلا — إذا سُبقت بما:</strong> تكون فعلاً، وما بعدهما مفعول به، والفاعل مستتر وجوباً</li>
+    <li><strong>عدا وخلا — إذا لم تُسبق بما:</strong> يجوز الوجهان: أن تكون فعلاً (وينصب ما بعدها) أو حرف جر (ويجرّ ما بعدها)</li>
+  </ul>
+</div>
+
+<p>فقال هنا نحو: ما جاءني القوم حاشا زيدٍ وخلا زيدٍ وعدا زيدٍ.</p>
+
+<p>نكون بهذا انتهينا من النوع الأول من الأنواع — كم؟ الثلاثة عشر. واضح. من العوامل السماعية والقياسية — السماعية — التي هي عوامل لفظية. واضح؟</p>
+
+<div class="section-divider"></div>
+
+<!-- Closing -->
+<h1>خاتمة الدرس</h1>
+
+<p>نكتفي بهذا والله أعلم. وصلى الله على سيدنا محمد وآله وصحبه أجمعين، وسلّم تسليماً كثيراً، والحمد لله رب العالمين.</p>
+
+<div class="section-divider ornate"></div>
+
+<!-- Summary of all operators covered -->
+<div class="summary-box">
+  <div class="summary-title">ملخص المجموعة الأولى: حروف الجر السبعة عشر</div>
+  <table class="table-styled">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>حرف الجر</th>
+        <th>المعنى الأصلي</th>
+        <th>معاني أخرى</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>الباء</td><td>الإلصاق</td><td>السببية، القسم، التبعيض، الاستعانة، التعدية، المقابلة</td></tr>
+      <tr><td>2</td><td>من</td><td>ابتداء الغاية</td><td>التبعيض، البيان، التعليل، الفصل</td></tr>
+      <tr><td>3</td><td>إلى</td><td>انتهاء الغاية</td><td>—</td></tr>
+      <tr><td>4</td><td>في</td><td>الظرفية</td><td>—</td></tr>
+      <tr><td>5</td><td>اللام</td><td>الملك / الاختصاص</td><td>—</td></tr>
+      <tr><td>6</td><td>رُبّ</td><td>التقليل</td><td>—</td></tr>
+      <tr><td>7</td><td><strong>على</strong></td><td>الاستعلاء</td><td>المصاحبة، المجاوزة، التعليل، الظرفية، الباء، من</td></tr>
+      <tr><td>8</td><td><strong>عن</strong></td><td>المجاوزة والبعد</td><td>بعد، من، التعليل، على</td></tr>
+      <tr><td>9</td><td><strong>الكاف</strong></td><td>التشبيه</td><td>التعليل</td></tr>
+      <tr><td>10</td><td><strong>مذ</strong></td><td>ابتداء الغاية الزمانية</td><td>ثلاث حالات: حرف جر، مبتدأ، ظرف</td></tr>
+      <tr><td>11</td><td><strong>منذ</strong></td><td>ابتداء الغاية الزمانية</td><td>ثلاث حالات: حرف جر، مبتدأ، ظرف</td></tr>
+      <tr><td>12</td><td><strong>حتى</strong></td><td>انتهاء الغاية</td><td>مع</td></tr>
+      <tr><td>13</td><td><strong>واو القسم</strong></td><td>القسم</td><td>تدخل على الظاهر فقط</td></tr>
+      <tr><td>14</td><td><strong>تاء القسم</strong></td><td>القسم</td><td>تدخل على بعض الظاهر</td></tr>
+      <tr><td>—</td><td><strong>باء القسم</strong></td><td>القسم</td><td>تدخل على الظاهر والمضمر</td></tr>
+      <tr><td>15</td><td><strong>حاشا</strong></td><td>الاستثناء</td><td>حرف جر فقط</td></tr>
+      <tr><td>16</td><td><strong>خلا</strong></td><td>الاستثناء</td><td>فعل أو حرف جر</td></tr>
+      <tr><td>17</td><td><strong>عدا</strong></td><td>الاستثناء</td><td>فعل أو حرف جر</td></tr>
+    </tbody>
+  </table>
+</div>
+
+</div><!-- end page-content -->
+
+<script>
+// B&W Toggle
+document.querySelector('.bw-toggle').addEventListener('click', function() {
+  document.body.classList.toggle('bw-mode');
+  if(document.body.classList.contains('bw-mode')) {
+    this.textContent = 'وضع الألوان';
+    this.style.background = '#555';
+  } else {
+    this.textContent = 'وضع الأبيض والأسود';
+    this.style.background = '';
+  }
+});
+</script>
+
+</body>
+</html>

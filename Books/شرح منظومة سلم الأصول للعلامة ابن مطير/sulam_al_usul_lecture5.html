@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح منظومة سلم الأصول — الدرس الخامس</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+  @bottom-center {
+    content: "— " counter(page) " —";
+    font-size: 10px;
+    color: #666;
+  }
+}
+
+:root {
+  --primary-green: #0d6b3e;
+  --dark-green: #0a4f2e;
+  --gold: #d4a020;
+  --light-gold: #f0e6c0;
+  --teal: #0d7377;
+  --bg: #fefefe;
+  --body-text: #1a1a1a;
+  --border: #c8d6c0;
+  --light-green: #e8f5e9;
+  --quran-bg: #f0f7f0;
+  --hadith-bg: #f0f7f7;
+  --matn-border: #d4a020;
+  --ruling-fard: #c0392b;
+  --ruling-wajib: #e67e22;
+  --ruling-sunna: #27ae60;
+  --ruling-mustahab: #2980b9;
+  --ruling-makruh: #f39c12;
+  --ruling-haram: #8e1a1a;
+  --ruling-mubah: #7f8c8d;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Naskh Arabic', 'Amiri', 'Traditional Arabic', serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--body-text);
+  background: var(--bg);
+  direction: rtl;
+  text-align: justify;
+  padding: 0;
+  margin: 0;
+}
+
+/* B&W TOGGLE */
+body.bw-mode { filter: grayscale(100%); }
+.bw-toggle {
+  position: fixed; bottom: 20px; left: 20px; z-index: 9999;
+  background: var(--primary-green); color: white;
+  border: 2px solid var(--dark-green); border-radius: 8px;
+  padding: 8px 14px; font-family: 'Noto Naskh Arabic', serif;
+  font-size: 13px; cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: all 0.3s;
+}
+.bw-toggle:hover { background: var(--dark-green); }
+@media print { .bw-toggle { display: none !important; } }
+
+/* COVER BANNER (تابع - medium ~30% height) */
+.cover-banner {
+  min-height: 30vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  background: linear-gradient(135deg, #0a4f2e 0%, #0d6b3e 30%, #0d7377 60%, #0a4f2e 100%);
+  color: white; text-align: center;
+  position: relative; overflow: hidden;
+  padding: 30px 20px;
+}
+.cover-banner::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(212,160,32,0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(212,160,32,0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+.banner-border {
+  position: absolute; top: 10px; left: 10px; right: 10px; bottom: 10px;
+  border: 2px solid rgba(212,160,32,0.5); border-radius: 10px; pointer-events: none;
+}
+.banner-content { position: relative; z-index: 2; }
+.banner-badge {
+  display: inline-block; background: var(--gold); color: var(--dark-green);
+  font-weight: 700; font-size: 18px; padding: 6px 24px;
+  border-radius: 20px; margin-bottom: 12px;
+}
+.banner-title {
+  font-family: 'Amiri', serif; font-size: 28px; font-weight: 700;
+  color: var(--light-gold); margin: 10px 0; line-height: 1.5;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.banner-lesson {
+  font-size: 22px; color: var(--gold); font-weight: 700; margin: 10px 0;
+  padding: 6px 20px; border: 2px solid rgba(212,160,32,0.5);
+  border-radius: 8px; display: inline-block; background: rgba(212,160,32,0.1);
+}
+.banner-final {
+  font-size: 16px; color: #ffcc80; margin: 8px 0;
+  border: 1px dashed rgba(255,204,128,0.6); padding: 4px 16px;
+  border-radius: 6px; display: inline-block;
+}
+.banner-meta { margin-top: 12px; font-size: 15px; line-height: 2; color: rgba(255,255,255,0.85); }
+.banner-meta strong { color: var(--light-gold); }
+.banner-ornament { font-size: 24px; color: var(--gold); margin: 8px 0; letter-spacing: 6px; }
+
+/* MAIN CONTENT */
+.content-wrapper { max-width: 210mm; margin: 0 auto; padding: 20px 15px; }
+
+/* SECTION HEADINGS */
+h1 { font-size: 26px; color: var(--primary-green); text-align: center; margin: 30px 0 20px;
+  padding-bottom: 10px; border-bottom: 3px solid var(--gold); font-weight: 700; }
+h2 { font-size: 22px; color: var(--dark-green); margin: 25px 0 15px;
+  padding-right: 15px; border-right: 5px solid var(--primary-green); font-weight: 700; }
+h3 { font-size: 19px; color: var(--teal); margin: 20px 0 12px;
+  padding-right: 12px; border-right: 4px solid var(--gold); font-weight: 600; }
+
+/* MATN TEXT */
+.matn-text {
+  font-weight: 700; font-size: 19px;
+  border-right: 4px solid var(--matn-border);
+  background: var(--light-gold); padding: 12px 18px; margin: 15px 0;
+  border-radius: 0 6px 6px 0; line-height: 2; color: var(--dark-green);
+}
+
+/* QURAN VERSES */
+.quran-box {
+  background: var(--quran-bg); border: 2px solid var(--primary-green);
+  border-radius: 10px; padding: 15px 20px; margin: 15px 0;
+  text-align: center; font-size: 20px; font-weight: 600;
+  color: var(--dark-green); position: relative; line-height: 2;
+}
+.quran-box::before { content: '﴿'; font-size: 24px; color: var(--primary-green);
+  position: absolute; top: -2px; right: 8px; }
+.quran-box::after { content: '﴾'; font-size: 24px; color: var(--primary-green);
+  position: absolute; bottom: -2px; left: 8px; }
+
+/* HADITH */
+.hadith-box {
+  background: var(--hadith-bg); border: 2px solid var(--teal);
+  border-radius: 10px; padding: 12px 18px; margin: 15px 0;
+  font-size: 18px; color: var(--teal); position: relative;
+}
+.hadith-box::before { content: 'حدثنا'; position: absolute; top: -10px; right: 15px;
+  background: var(--hadith-bg); padding: 0 8px; font-size: 13px;
+  color: var(--teal); font-weight: 600; }
+
+/* POETRY BOX */
+.poetry-box {
+  text-align: center; font-size: 20px; line-height: 2.2;
+  padding: 20px 25px; margin: 20px 0;
+  border: 2px solid var(--gold); border-radius: 12px;
+  background: linear-gradient(135deg, #fefef8, #f8f4e8);
+  color: var(--dark-green); font-weight: 600;
+}
+
+/* CALLOUT / ALERT BOXES */
+.callout-box { background: #fff8e1; border: 2px solid var(--gold);
+  border-radius: 10px; padding: 15px 18px; margin: 15px 0; position: relative; }
+.callout-box .callout-title { font-weight: 700; color: var(--dark-green);
+  margin-bottom: 8px; font-size: 17px; }
+
+.benefit-box { background: #e8f5e9; border: 2px solid var(--primary-green);
+  border-radius: 10px; padding: 15px 18px; margin: 15px 0; position: relative; }
+.benefit-box .benefit-title { font-weight: 700; color: var(--primary-green);
+  margin-bottom: 8px; font-size: 17px; }
+
+.principle-box { background: #f3e5f5; border: 2px solid #7b1fa2;
+  border-radius: 10px; padding: 15px 18px; margin: 15px 0; }
+.principle-box .principle-title { font-weight: 700; color: #7b1fa2;
+  margin-bottom: 8px; font-size: 17px; }
+
+/* DEFINITION CARDS */
+.definition-card { background: white; border: 2px solid var(--primary-green);
+  border-radius: 12px; padding: 18px; margin: 18px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+.definition-card .def-term { font-size: 20px; font-weight: 700;
+  color: var(--primary-green); margin-bottom: 10px;
+  padding-bottom: 8px; border-bottom: 2px dashed var(--gold); }
+.definition-card .def-body { font-size: 17px; line-height: 1.7; }
+
+/* SCHOLAR CARD */
+.scholar-card { background: linear-gradient(135deg, #f8f4e8, #fefef8);
+  border: 2px solid var(--gold); border-radius: 12px; padding: 18px;
+  margin: 18px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+.scholar-card .scholar-name { font-size: 20px; font-weight: 700;
+  color: var(--dark-green); margin-bottom: 8px; }
+.scholar-card .scholar-info { font-size: 16px; line-height: 1.8; color: #333; }
+.scholar-card .scholar-info span { font-weight: 600; color: var(--primary-green); }
+
+/* COMPARISON CARDS */
+.comparison-container { display: flex; gap: 15px; margin: 18px 0; flex-wrap: wrap; }
+.comparison-card { flex: 1; min-width: 250px; background: white;
+  border-radius: 12px; padding: 16px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+.comparison-card.card-a { border-top: 4px solid var(--primary-green); }
+.comparison-card.card-b { border-top: 4px solid var(--teal); }
+.comparison-card.card-c { border-top: 4px solid var(--gold); }
+.comparison-card .comp-title { font-weight: 700; font-size: 17px;
+  margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px dashed var(--border); }
+.comparison-card.card-a .comp-title { color: var(--primary-green); }
+.comparison-card.card-b .comp-title { color: var(--teal); }
+.comparison-card.card-c .comp-title { color: var(--gold); }
+
+/* RULING CARDS */
+.ruling-label { display: inline-block; padding: 3px 12px; border-radius: 6px;
+  color: white; font-weight: 700; font-size: 15px; margin: 2px 3px; }
+.ruling-fard { background: var(--ruling-fard); }
+.ruling-wajib { background: var(--ruling-wajib); }
+.ruling-sunna { background: var(--ruling-sunna); }
+.ruling-mustahab { background: var(--ruling-mustahab); }
+.ruling-makruh { background: var(--ruling-makruh); color: #333; }
+.ruling-haram { background: var(--ruling-haram); }
+.ruling-mubah { background: var(--ruling-mubah); }
+
+/* CLASSIFICATION TREE */
+.tree-container { background: white; border: 2px solid var(--primary-green);
+  border-radius: 12px; padding: 20px; margin: 20px 0; overflow-x: auto; }
+.tree-title { text-align: center; font-weight: 700; color: var(--primary-green);
+  font-size: 19px; margin-bottom: 15px; }
+.tree-root { text-align: center; background: var(--primary-green); color: white;
+  padding: 10px 20px; border-radius: 8px; font-weight: 700; font-size: 17px;
+  display: inline-block; margin: 0 auto; }
+.tree-branches { display: flex; justify-content: center; gap: 30px;
+  margin-top: 20px; flex-wrap: wrap; }
+.tree-branch { text-align: center; min-width: 160px; }
+.tree-connector { width: 2px; height: 20px; background: var(--primary-green); margin: 0 auto; }
+.tree-node { padding: 8px 14px; border-radius: 8px; font-weight: 600;
+  font-size: 16px; margin-bottom: 8px; }
+.tree-leaf { background: var(--light-green); border: 1px solid var(--primary-green);
+  padding: 6px 10px; border-radius: 6px; font-size: 15px; margin: 4px 0; }
+
+/* FLOW CHART */
+.flow-container { background: white; border: 2px solid var(--teal);
+  border-radius: 12px; padding: 20px; margin: 20px 0; }
+.flow-title { text-align: center; font-weight: 700; color: var(--teal);
+  font-size: 19px; margin-bottom: 15px; }
+.flow-row { display: flex; align-items: center; justify-content: center;
+  gap: 10px; margin: 8px 0; flex-wrap: wrap; }
+.flow-box { padding: 10px 16px; border-radius: 8px; font-weight: 600;
+  text-align: center; min-width: 100px; font-size: 16px; }
+.flow-arrow { font-size: 22px; color: var(--primary-green); font-weight: 700; }
+
+/* TABLES */
+.data-table { width: 100%; border-collapse: collapse; margin: 18px 0;
+  font-size: 16px; background: white; border-radius: 10px;
+  overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+.data-table th { background: var(--primary-green); color: white;
+  padding: 12px 15px; text-align: right; font-weight: 700; font-size: 16px; }
+.data-table td { padding: 10px 15px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.data-table tr:nth-child(even) td { background: #f8faf8; }
+.data-table tr:hover td { background: var(--light-gold); }
+
+/* SECTION DIVIDERS */
+.section-divider { text-align: center; margin: 30px 0; color: var(--gold);
+  font-size: 24px; letter-spacing: 6px; }
+
+/* SUMMARY BOX */
+.summary-box { background: linear-gradient(135deg, #e8f5e9, #f0f7f0);
+  border: 2px solid var(--primary-green); border-radius: 12px;
+  padding: 18px; margin: 20px 0; }
+.summary-box .summary-title { font-weight: 700; color: var(--primary-green);
+  font-size: 18px; margin-bottom: 10px; text-align: center; }
+
+/* EVIDENCE BOX */
+.evidence-box { background: #fff3e0; border: 2px solid var(--gold);
+  border-radius: 10px; padding: 15px 18px; margin: 15px 0; }
+.evidence-box .evidence-title { font-weight: 700; color: var(--gold);
+  margin-bottom: 8px; font-size: 16px; }
+
+/* NUMBERED LIST */
+.numbered-list { list-style: none; counter-reset: item-counter;
+  padding: 0; margin: 12px 0; }
+.numbered-list li { counter-increment: item-counter; position: relative;
+  padding: 8px 45px 8px 10px; margin: 6px 0;
+  background: #f8faf8; border-radius: 8px; border: 1px solid var(--border); }
+.numbered-list li::before { content: counter(item-counter);
+  position: absolute; right: 8px; top: 50%; transform: translateY(-50%);
+  width: 28px; height: 28px; background: var(--primary-green); color: white;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700; }
+
+p { margin: 8px 0; text-indent: 0; }
+
+.highlight-green { background: #c8e6c9; padding: 1px 6px; border-radius: 4px; font-weight: 600; }
+.highlight-gold { background: var(--light-gold); padding: 1px 6px; border-radius: 4px; font-weight: 600; }
+.highlight-teal { background: #b2dfdb; padding: 1px 6px; border-radius: 4px; font-weight: 600; }
+
+.quote-block { border-right: 4px solid var(--gold); padding: 10px 18px;
+  margin: 12px 0; background: #fafaf0; font-style: italic; color: #444; }
+
+.key-term { font-weight: 700; color: var(--primary-green); }
+
+.page-break { page-break-before: always; }
+
+/* CLOSING DUA */
+.closing-dua {
+  background: linear-gradient(135deg, #0a4f2e, #0d6b3e, #0d7377);
+  color: white; border-radius: 16px; padding: 30px;
+  margin: 30px 0; text-align: center; position: relative; overflow: hidden;
+}
+.closing-dua::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(212,160,32,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+.closing-dua .dua-title { font-size: 24px; font-weight: 700; color: var(--gold); margin-bottom: 15px; }
+.closing-dua p { color: rgba(255,255,255,0.9); font-size: 18px; line-height: 2; margin: 8px 0; }
+
+@media (max-width: 768px) {
+  .comparison-container { flex-direction: column; }
+  .tree-branches { flex-direction: column; align-items: center; }
+  body { font-size: 16px; }
+  h1 { font-size: 22px; }
+  h2 { font-size: 19px; }
+  h3 { font-size: 17px; }
+}
+</style>
+</head>
+<body>
+
+<!-- B&W TOGGLE BUTTON -->
+<button class="bw-toggle" onclick="document.body.classList.toggle('bw-mode')">🔄 وضع الأبيض والأسود</button>
+
+<!-- ==================== COVER BANNER (تابع) ==================== -->
+<div class="cover-banner">
+  <div class="banner-border"></div>
+  <div class="banner-content">
+    <div class="banner-ornament">✦ ❖ ✦</div>
+    <div class="banner-badge">تابع</div>
+    <div class="banner-title">شرح منظومة سلم الأصول<br>لكل من يرقى إلى الأصول</div>
+    <div class="banner-lesson">الدرس الخامس</div>
+    <div class="banner-final">المجلس السادس والأخير</div>
+    <div class="banner-meta">
+      <strong>الناظم:</strong> العلامة إبراهيم بن أبي القاسم بن مطير الحكمي<br>
+      <strong>الشارح:</strong> د. لبيب نجيب عبدالله<br>
+      <strong>الشرح المقروء:</strong> شرح العلامة سعيد الزبيدي المتوفى سنة 1417 هـ<br>
+      <strong>نوع الدرس:</strong> تابع
+    </div>
+    <div class="banner-ornament">✦ ❖ ✦</div>
+  </div>
+</div>
+
+<!-- ==================== MAIN CONTENT ==================== -->
+<div class="content-wrapper">
+
+<!-- ===== SECTION: OPENING ===== -->
+<h1>افتتاح المجلس السادس والأخير</h1>
+
+<p>إن تنصروا الله ينصركم ويثبت أقدامكم، لا إله إلا الله وحده لا شريك له، وأشهد أن سيدنا محمد صلى الله عليه وآله وسلم عبده ورسوله، أما بعد.</p>
+
+<p>فهذا بإذن الله تعالى هو المجلس السادس والأخير في شرح هذه المنظومة المباركة منظومة سلم الوصول لكل من يرقى إلى الوصول للعلامة الناظم إبراهيم بن أبي القاسم بن مطير الحكمي رحمه الله تعالى رحمة واسعة، مع قراءة شرح العلامة سعيد الزبيدي المتوفى في سنة 1417 هـ.</p>
+
+<div class="section-divider">❃ ✾ ❃</div>
+
+<!-- ===== SECTION: شروط القياس ===== -->
+<h1>شروط القياس: الفرع والعلة والحكم</h1>
+
+<p>فيقول الناظم رحمه الله تعالى ونفعنا بعلمه في الدنيا والآخرة اللهم آمين:</p>
+
+<div class="matn-text">
+  لا بد في الفرع من المناسبة<br>
+  للأصل والعلة فهي الجالبة<br>
+  <br>
+  ونفعنا بعلمه في الدنيا والآخرة<br>
+  للحكم أن تطرد في المعلول<br>
+  <br>
+  والحكم أن يتبع للدليل
+</div>
+
+<p>ذكر رحمه الله تعالى في هذه الأبيات شرط الفرع وشرط العلة وشرط الحكم. فقال إن شرط الفرع حصول المناسبة للدليل، فقال إن شرط الفرع حصول المناسبة للدليل.</p>
+
+<h2>شرط الفرع: المناسبة</h2>
+
+<p>الملح من الأصناف الربوية التي نص عليها في حديث النبي صلى الله عليه وسلم فهو من الأصناف الستة. السكر ليس من الأصناف الستة. السؤال: هل السكر يجري فيه الربا أو لا يجري فيه الربا؟ نقول إذا قلنا يجري فيه الربا ما المناسبة التي نجدها ممكنة في إلحاق السكر بالملح؟</p>
+
+<p>قد يقول قائل: يمكن أن نقول إن المناسبة اللون، فلون الملح أبيض ولون السكر أبيض. هل هذا تصلح مناسبة؟ نقول لا تصلح مناسبة، فإنه لم يعهد من الشارع الحكيم أنه رتب الأحكام الشرعية على الألوان، فجعل أحكاما للون كذا وأحكاما للون كذا وأحكاما للون كذا، واضح هذا لم يعهد من الشارع، وبالتالي لا يصلح أن يكون اللون هو الأمر المناسب الذي يربط الفرع بالأصل. إذن لابد أن نبحث عن أمر أكثر مناسبة، واضح. إذن هذا معنى المناسبة فيقول لك الفرع لابد فيه من مناسبة للأصل. المناسبة الأقرب أن نقول إن الطعم موجود في السكر وهو كذلك موجود في الملح، فهذا طعام وهذا طعام، إذن وصف الطعم أكثر مناسبة من اللون، واضح. فهو يقول لك أنه لابد من حصول المناسبة.</p>
+
+<!-- DEFINITION CARD: المناسبة -->
+<div class="definition-card">
+  <div class="def-term">المناسبة (شرط الفرع)</div>
+  <div class="def-body">
+    <p>لا بد في الفرع من مناسبة للأصل، أي من المناسبة للأصل المثبت به في الحكم الجامع بينهما. والمناسبة الأقرب في إلحاق السكر بالملح هي <span class="highlight-green">الطعم</span> لا اللون، لأن الشارع لم يعهد منه ترتيب الأحكام على الألوان.</p>
+  </div>
+</div>
+
+<h2>شرط العلة: الإطراد</h2>
+
+<p>الأمر الثاني يقول لك: ولا بد في الفرع من المناسبة بالنسبة للأصل، والعلة فهي جالبة للحكم أن تطرد في المعلول. يقول لك لابد أن تكون العلة مضطردة فلا تتخلف العلة في صورة من الصور. هذا معناه الإطراد. الإطراد معناه أنّ العلة كلما وجدت وجد الحكم. فإذا وجد في صورة من الصور العلة موجودة ولم يوجد الحكم في صورة من الصور الحكم غير موجود، فإن هذه العلة غير صالحة.</p>
+
+<p>إذ العلة جالبة للحكم. فكيف تكون العلة موجودة والحكم غير موجود؟ هذا يسمى انتقاضًا.</p>
+
+<p>إذن شرط العلة الاضطراد. الاضطراد أنه كلما وجدت العلة وجد الحكم. هذا يسمى طرادًا.</p>
+
+<div class="callout-box">
+  <div class="callout-title">📝 مثال توضيحي: الإطراد</div>
+  <p>على سبيل المثال، لو قلت لكم مثالا بسيطا يقرب الأمر إلى الأذهان: فلان من الناس حضر معنا الدورة. لماذا حضر الدورة؟ العلة: لأنه يحب العلم. فلكونه يحب العلم حضر الدورة. هذه هي العلة.</p>
+  <p>إذا نقول فلان حضر الدورة لأنه يحب العلم. واضح؟ قال شخص: أنا لا أراه كذلك. أنا لا أراه محبا للعلم. لماذا؟ لأنني ذهبت إلى بعض الدورات ولم أجده. واضح؟ إذا العلة هذه هل مضطردة أو غير مضطردة؟ غير مضطردة. لو كان يحب العلم فعلا لما تخلف عن دورة من الدورات مثلا.</p>
+  <p>نعم قد يستطيع أن يقول قائل: بلى العلة مضطردة، وإنما لم يذهب إلى تلك الدورة مثلا لأن مانعا قام به، كمرض أو سفر. واضح؟ إذا هذا معناه اضطراد العلة: أنه كلما وجدت العلة وجد الحكم، وكلما انتفت العلة انتفى الحكم.</p>
+</div>
+
+<p>فإذا وجد الحكم في صورة بدون علة، فنقول هذه العلة غير مضطردة. وكون العلة غير مضطردة هذا يهز العلة، تكون هذه العلة محل عدم ثقة عند المجتهد. واضح؟</p>
+
+<!-- FLOW CHART: الإطراد -->
+<div class="flow-container">
+  <div class="flow-title">مخطط الإطراد والانتقاض</div>
+  <div class="flow-row">
+    <div class="flow-box" style="background:#e8f5e9;border:2px solid var(--primary-green);">وجودت العلة</div>
+    <div class="flow-arrow">←</div>
+    <div class="flow-box" style="background:#e8f5e9;border:2px solid var(--primary-green);">وجود الحكم</div>
+    <div class="flow-arrow">⇔</div>
+    <div class="flow-box" style="background:#ffebee;border:2px solid #c0392b;">انتفاء العلة</div>
+    <div class="flow-arrow">←</div>
+    <div class="flow-box" style="background:#ffebee;border:2px solid #c0392b;">انتفاء الحكم</div>
+  </div>
+  <div class="flow-row" style="margin-top:12px;">
+    <div class="flow-box" style="background:#fff3e0;border:2px solid var(--gold);">إذا وُجدت العلة ولم يوجد الحكم = انتقاض</div>
+  </div>
+</div>
+
+<p>ولذلك يقول لك إن من الشروط أن لا تنتقض العلة لفظا ولا معناه. ما معنى أن لا تنتقض لفظا ولا معناه؟ أن لا تنتقض لفظا إذا كانت العلة شيئا واحدا. أن لا تنتقض معناه إذا كانت العلة مركبة. كما سيأتي في الأمثلة لاحقا إن شاء الله. واضح؟</p>
+
+<h2>شرط الحكم: اتباع الدليل</h2>
+
+<p>ثم يقول لك وشرط الحكم أنه يتبع الدليل، أي أن يكون هذا الحكم منصوصا عليه في الدليل.</p>
+
+<p>يقول الشارح رحمه الله تعالى رحمة واسعة: واعلم أنه لا بد في الفرع أي لا فراق ولا محالة في الفرع المشبه من المناسبة، أي من المناسبة للأصل المثبت به في الحكم الجامع بينهما. واضح؟ يعني لا بد أن تكون هناك نوع مناسبة بين الفرع والأصل.</p>
+
+<p>ولا بد في العلة فهي الجالبة للحكم وعبر بعضهم بأن العلة معرفة للحكم. ولا بد في العلة فهي الجالبة للحكم بمناسبتها له أن تطرد في المعلول. فلا تنتقض لفظا ولا معنى. ما معنى لا تنتقض؟ يعني لا توجد صورة من الصور فيها الحكم بدون علة. واضح؟</p>
+
+<div class="section-divider">❃ ✾ ❃</div>
+
+<!-- ===== SECTION: الانتقاض ===== -->
+<h1>الانتقاض: اللفظي والمعنوي</h1>
+
+<p>قال: فما تنتقضت لفظا؟ بأن وجدت الأوصاف المعبر بها عنها في صورة بدون الحكم. واضح؟ فإن انتقض — فما تنتقضت لفظا بأن وجدت الأوصاف المعبر بها عنها في صورة بدون الحكم — أو معنى، يعني أو انتقضت معنى بأن وجد المعنى المعلل به في صورة بدون الحكم فسد القياس.</p>
+
+<h2>مثال الانتقاض اللفظي: القتل بالمثقل</h2>
+
+<p>ما مثال ذلك؟ قال: كأن يقال في الضرب بمثقل — هذا مثال المنتقض لفظا الأول — هذا على طريقة اللف والنشر المرتب.</p>
+
+<p>كأن يقال في الضرب بالمثقل إنه قتل عمد عدوان، فيجب فيه القصاص كالقتل بالمحدد.</p>
+
+<p>القتل قد يكون بمثقل وقد يكون بمحدد. بمحدد كسيف، قتل بسيف، هذا بمحدد يقتل بحده. بمثقل كأن ضربه بحديدة على سبيل المثال، أخذ حديدة مثل هذه فضربه في رأسه فمات، هذا قتل بمثقل.</p>
+
+<p>لا إشكال في القصاص إذا كان القتل بمحدد، هذا محل اتفاق. حصل الخلاف إذا كان القتل بمثقل. واضح؟</p>
+
+<p>فيقول لك: كأن يقال في الضرب بمثقل إنه قتل عمد عدوان فيجب فيه القصاص كالقتل بالمحدد. واضح؟ يعني قيس القتل بالمثقل على القتل بالمحدد في وجوب القصاص.</p>
+
+<!-- COMPARISON TABLE: أركان القياس -->
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>الركن</th>
+      <th>في مثال القتل بالمثقل</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>الفرع</strong></td><td>القتل بالمثقل</td></tr>
+    <tr><td><strong>الأصل</strong></td><td>القتل بالمحدد</td></tr>
+    <tr><td><strong>الحكم</strong></td><td>وجوب القصاص</td></tr>
+    <tr><td><strong>العلة</strong></td><td>قتل عمد عدوان</td></tr>
+  </tbody>
+</table>
+
+<p>ما العلة التي بينهما؟ قتل عمد عدوان. واضح؟ عندنا فرع وعندنا أصل وعندنا علة وعندنا حكم. الفرع ما هو؟ القتل بمثقل. الأصل ما هو؟ القتل بمحدد. الحكم المراد إلحاقه بالفرع وجوب القصاص. العلة ما هي؟ قتل عمد عدوان. واضح.</p>
+
+<p>نقول ما دام أنه في كل صورة يوجد فيها قتل عمد عدوان يوجد فيها قصاص إذا كان قتل بمحدد، كذلك ينبغي أن يكون الأمر إذا كان قتل بمثقل.</p>
+
+<h3>الخصم ينقض العلة</h3>
+
+<p>الخصم ينقض ذلك الذي يخالفك فينقض ذلك بقتل الوالد ولده. يقول: أنت تقول أنه في كل قتل عمد عدوان إذا كان بمحدد يجب القصاص، في بعض الصور لا يوجد قتل عمد عدوان وما في قصاص، مثل ماذا؟ قال: قتل الوالد لولده. إذن يقول لك هذه العلة منتقضة في صورة لا توجد.</p>
+
+<p>القتل بمحدد كالقتل بالسيف. القتل بمثقل كالقتل بالخشب أو بالحديد كأن يأخذ خشبة أو يأخذ حديدا فيضرب شخصا فيقتله، هذا بمثقل. الحكم وجوب القصاص.</p>
+
+<p>عندنا فقيهان يتناظران. واحد منهما يقول إن القتل بمثقل هذا لا يجب القصاص. والاثنان يتفقان على أن القتل بمحدد يجب القصاص، إذن هذا محل اتفاق الفقيهين، وهذا محل الخلاف بينهما.</p>
+
+<div class="callout-box">
+  <div class="callout-title">⚡ مناظرة الفقيهين: زيد وعمر</div>
+  <p><strong>قال زيد لعمر:</strong> القتل بمحدد يجب القصاص، لماذا يجب القصاص؟ العلة لأنه قتل عمد عدوان. هذا التعليل وهذه العلة. يقول له: وهذه العلة أيضا موجودة أين؟ بالمثقل. فنقول أيضا إن القتل بمثقل يوجب القصاص كذلك لوجود العلة، ما هي العلة؟ قتل عمد عدوان.</p>
+  <p><strong>قال له الطرف الثاني عمر:</strong> لا أسلم لك أن هذه العلة — القتل العمد العدوان — مضطردة. لا أسلم لك أنها كلما وجدت وجد القصاص. أنا لا أسلم لك هذا. لماذا؟ لأنه في بعض الصور يوجد قتل عمد عدوان ولا يوجد قصاص. انظر: وجد المعنى الذي هو العلة ولم يوجد ماذا؟ الحكم القصاص. قال مثل ماذا؟ قال مثل قتل عمد عدوان الوالد لولده. قتل الوالد لولده هذا قتل عمد عدوان، موجود العلة فيه، لكن ما في قصاص. إذا هل العلة هنا مضطردة أو غير مضطردة؟ غير مضطردة. إذا يقول له: لا قياس.</p>
+  <p>إذا تخلف الحكم في هذه الصورة في قتل الوالد لولده فمن الممكن أيضا أن يتخلف الحكم في القتل بمثقل، فيوجد قتل بمثقل ولا يوجد قصاص.</p>
+</div>
+
+<div class="benefit-box">
+  <div class="benefit-title">✦ فائدة: دفع الانتقاض بالمانع</div>
+  <p>من حق زيد أن يقول: إنما لم يجب القصاص في هذه الصورة لوجود المانع وهو النص: «لا يقاد والد بولده». واضح؟ إذا أردنا أن نكمل المثال، من حق زيد أن يقول أنا لا يعني وجود الانتقاض هنا ليس لأن العلة غير مضطردة بل لوجود مانع — دليل خاص — لا يقاد والد بولده.</p>
+</div>
+
+<h2>مثال الانتقاض المعنوي: الزكاة في المواشي</h2>
+
+<p>قال والثاني — ما هو الثاني؟ — المنتقض معناه. قال: كأن يقال تجب الزكاة في المواشي لدفع حاجة الفقير. أين الحكم؟ وجوب الزكاة. ما العلة؟ دفع حاجة الفقير. هل هذه العلة مضطردة؟ لو كانت هذه العلة مضطردة لقلنا مثلا تجب الزكاة على سبيل المثال في البيوت والسيارات دفعا لحاجة الفقير أيضا. واضح؟ هل هذه العلة مضطردة أو غير مضطردة؟ غير مضطردة. إذا ليست هذه العلة هي التي توجب الزكاة.</p>
+
+<p>ولذلك انظر ماذا قال: ينتقض ذلك بوجوده في الجواهر ولا زكاة فيها، أي حاجة الفقير موجودة أيضا في الجواهر يمكن أن تدفع إذا أوجبنا الزكاة في الجواهر، ومع أن الجواهر لا زكاة فيها شرعا، لأن الزكاة كما تعلمون تجب في أموال مخصوصة. إذا هنا وجدت العلة وهي دفع حاجة الفقير ولم يوجد الحكم.</p>
+
+<!-- COMPARISON: الانتقاض اللفظي والمعنوي -->
+<div class="comparison-container">
+  <div class="comparison-card card-a">
+    <div class="comp-title">الانتقاض اللفظي</div>
+    <p>إذا كانت العلة <span class="highlight-green">مركبة</span> (مثل: قتل عمد عدوان)</p>
+    <p>ينتقض بوجود الأوصاف المركبة في صورة بدون الحكم</p>
+    <p><strong>المثال:</strong> القتل بالمثقل — العلة «قتل عمد عدوان» مركبة</p>
+  </div>
+  <div class="comparison-card card-b">
+    <div class="comp-title">الانتقاض المعنوي</div>
+    <p>إذا كانت العلة <span class="highlight-teal">شيئا واحدا</span> (مثل: دفع حاجة الفقير)</p>
+    <p>ينتقض بوجود المعنى المعلل به في صورة بدون الحكم</p>
+    <p><strong>المثال:</strong> الزكاة في المواشي — العلة «دفع حاجة الفقير» شيء واحد</p>
+  </div>
+</div>
+
+<p>لاحظ معي الفرق بين العلة في المثال الثاني والعلة في المثال الأول: أن العلة في المثال الثاني شيء واحد، العلة في المثال الأول مركبة (قتل عمد عدوان). فحيثما كانت مركبة فذلك انتقاض لفظي، وحيثما كانت شيئا واحدا فذلك انتقاض معنوي أو انتقاض معنى. واضح؟ وهذا اصطلاح خاص بهذا الباب.</p>
+
+<p>ثم قال رحمه الله: ولا بد في الحكم أن يتبع للدليل. أي العلة أي يشترط أن يطرد، فمتى وجدت العلة وجد الحكم ومتى انتفت العلة انتفى الحكم.</p>
+
+<div class="section-divider">❃ ✾ ❃</div>
+
+<!-- ===== SECTION: الاستصحاب ===== -->
+<h1>الاستصحاب وأنواعه</h1>
+
+<p>قال رحمه الله تعالى: وهو ثبوت أمر في الزمن الثاني لثبوته في الزمن الأول، ثبوت أمر في الزمن الثاني لثبوته في الزمن الأول، لانتفاء ما يصلح أن يتغير به الحكم بعد البحث التام.</p>
+
+<p>ما إناء طهور غبت عنه أياما ثم عدت إليه — يستصحب فيه حكم أنه طهور. كان طهورا فيستصحب فيه نفس الحكم. واضح؟ فثبت الأمر في الزمن الثاني — ما هو الأمر؟ الحكم بطهارة الماء — لثبوته في الزمن الأول.</p>
+
+<!-- DEFINITION CARD: الاستصحاب -->
+<div class="definition-card">
+  <div class="def-term">الاستصحاب (النوع الأول — المعتاد)</div>
+  <div class="def-body">
+    <p><span class="highlight-green">ثبوت أمر في الزمن الثاني لثبوته في الزمن الأول</span>، لانتفاء ما يصلح أن يتغير به الحكم بعد البحث التام.</p>
+    <p><strong>المثال:</strong> إناء طهور غبت عنه أياما ثم عدت إليه — يستصحب حكم الطهارة.</p>
+  </div>
+</div>
+
+<h2>الاستصحاب المقلوب</h2>
+
+<p>هذا الاستصحاب نوع آخر من أنواع الاستصحاب يسمى الاستصحاب المقلوب: ثبوت الأمر في الزمن الأول لثبوته في الزمن الثاني — عكس هذا. هذا ثبوته في الزمن الثاني لثبوته في الزمن الأول. والأول واضح. عكسه: ثبوت الأمر في الزمن الأول لثبوته في الزمن الثاني.</p>
+
+<!-- COMPARISON: نوعا الاستصحاب -->
+<div class="comparison-container">
+  <div class="comparison-card card-a">
+    <div class="comp-title">الاستصحاب المعتاد (الأشهر)</div>
+    <p>ثبوت حكم في <span class="highlight-green">الزمن الثاني</span> لثبوته في الزمن الأول</p>
+    <p><strong>المثال:</strong> إناء طهور غبت عنه ثم عدت إليه — يستصحب حكم الطهارة</p>
+  </div>
+  <div class="comparison-card card-b">
+    <div class="comp-title">الاستصحاب المقلوب</div>
+    <p>ثبوت أمر في <span class="highlight-teal">الزمن الأول</span> لثبوته في الزمن الثاني</p>
+    <p><strong>المثال الأول:</strong> إذا نوى الصوم في النفل من أثناء النهار صح له ذلك وتنعطف النية على ما مر من الوقت — فثبت للوقت السابق حكم الصيام (الزمن الأول) لثبوته في الزمن الثاني</p>
+    <p><strong>المثال الثاني:</strong> إذا تذكر التسمية في الوضوء في أثناء الوضوء فقال بسم الله الرحمن الرحيم، فإن التسمية تنعطف على الوضوء من أوله</p>
+  </div>
+</div>
+
+<p>مثال ذلك مر معنا اليوم في الصباح أنه إذا نوى الصوم في النفل من أثناء النهار صح له ذلك وينعطف وتنعطف النية على ما مر من الوقت. واضح؟ يعني لو أنه في الساعة العاشرة نوى صيام النافلة. ينعطف الصيام على ما مر من الوقت، من الفجر إلى العاشرة. فيثبت للوقت السابق حكم الصيام هذا الزمن الأول. لماذا يثبت له حكم الصيام؟ لثبوته في الزمن الثاني. يعني هو أصبح في الصباح لم يأكل شيئا، إلى الساعة العاشرة نوى الصوم. ساعة العاشرة هذا الزمن الثاني. من العاشرة للمغرب الزمن الثاني. أحكام الصيام تنعطف على الزمن الأول أيضا. فثبت أمر في الزمن الأول لثبوته في الزمن الثاني. فهمنا؟</p>
+
+<p>مثال آخر: إذا تذكر التسمية في الوضوء في أثناء الوضوء، نفترض أنه تذكر التسمية في أثناء الوضوء فقال بسم الله الرحمن الرحيم، فإن التسمية تنعطف على الوضوء من أوله. واضح بارك الله فيكم؟ هذا مثال الاستصحاب المقلوب.</p>
+
+<p>إذا استصحاب معناه أن يثبت حكم في الزمن الثاني لثبوته في الزمن الأول — هذا الاستصحاب المعتاد — والنوع الثاني من أنواع الاستصحاب أن يثبت أمر في الزمن الأول لثبوته في الزمن الثاني كما مثلت له بمثالين. والأول أشهر، أي ثبوت حكم في الزمن الثاني لثبوته في الزمن الأول.</p>
+
+<h2>الاستصحاب كحجة</h2>
+
+<p>قال الناظم رحمه الله تعالى رحمة واسعة:</p>
+
+<div class="matn-text">
+  قالوا والاستصحاب في الأصول<br>
+  كحجة عند انتفى الدليل
+</div>
+
+<p>قالوا أي العلماء ما اتفق من الأصول الأربعة متفق عليها أنها حجج، والأصول الأربعة يقصد الكتاب والسنة والإجماع والقياس. وقالوا أيضا الاستصحاب في الأصول واحد منها، أي واحد من هذه الحجج من هذه الأصول.</p>
+
+<p>كالعدم الأصلي — كاستصحاب عدم وجوب صلاة سادسة، كاستصحاب عدم وجوب صوم شهر آخر غير رمضان، كاستصحاب عدم وجوب الزكاة في غير الأموال المخصوصة. واضح؟</p>
+
+<p>قال كالعدم الأصلي مثلا بأن لم يشرع أصلا، كنفي وجوب صلاة سادسة وصوم شهر لم يشرع، لفقد دليل يدل عليهما فاستصحب الأصل الذي هو براءة الذمة عن التكليف.</p>
+
+<p>قال وهو العدم كحجة، أي فالاستصحاب كحجة من انتفاء الدليل أي الدال على العكم بخلافه. والكاف زائدة، تقدير الكلام: الاستصحاب حجة. تمام.</p>
+
+<div class="section-divider">❃ ✾ ❃</div>
+
+<!-- ===== SECTION: الحظر والإباحة ===== -->
+<h1>مسألة الحظر والإباحة</h1>
+
+<p>ثم قال رحمه الله تعالى في هذه المسألة التي تسمى مسألة الحظر والإباحة: هل الأصل في الأشياء الحظر أو الأصل في الأشياء الإباحة؟ على ثلاثة أقوال عند الأصوليين.</p>
+
+<!-- THREE-WAY COMPARISON: أقوال الحظر والإباحة -->
+<div class="comparison-container">
+  <div class="comparison-card card-a">
+    <div class="comp-title">القول الأول: الأصل الحظر</div>
+    <p>الأصل في الأشياء <span class="highlight-gold">المنع</span> حتى يقوم دليل الإباحة.</p>
+    <p><strong>العلّة:</strong> لأن الإنسان إذا تصرف في هذا الكون فإنه لا يتصرف في ملكه بل يتصرف في ملك غيره — في ملك الله عز وجل — والأصل أن الإنسان ممنوع أن يتصرف في ملك الغير.</p>
+  </div>
+  <div class="comparison-card card-b">
+    <div class="comp-title">القول الثاني: الأصل الحل</div>
+    <p>الأصل في الأشياء <span class="highlight-green">الحل</span> حتى يقوم دليل التحريم.</p>
+    <p><strong>الدليل:</strong> قول الله سبحانه وتعالى: ﴿هو الذي خلق لكم ما في الأرض جميعا﴾ — «لكم» أي لأجلكم ما في الأرض جميعا، فكل ما في هذه الأرض من شجر وحجر وقبال وأنهار وبحار وهواء خلقه الله لأجلنا.</p>
+  </div>
+  <div class="comparison-card card-c">
+    <div class="comp-title">القول الثالث: التفصيل (المختار)</div>
+    <p>الأشياء <span class="highlight-green">النافعة</span> الأصل فيها الإباحة، والأشياء <span class="highlight-gold">الضارة</span> الأصل فيها المنع.</p>
+    <p><strong>دليل الإباحة:</strong> ﴿هو الذي خلق لكم ما في الأرض جميعا﴾</p>
+    <p><strong>دليل التحريم:</strong> «لا ضرر ولا ضرار في الإسلام»</p>
+  </div>
+</div>
+
+<div class="quran-box">
+  هو الذي خلق لكم ما في الأرض جميعا
+</div>
+
+<p>وهؤلاء ساقوا أدلة منها قول الله سبحانه وتعالى: ﴿هو الذي خلق لكم ما في الأرض جميعا﴾. أين الشاهد من الآية؟ «لكم» ألا خلق لكم لأجلكم لأجلكم ما في الأرض جميعا، فكل ما في هذه الأرض من شجر وحجر وقبال وأنهار وبحار وهواء خلقه الله سبحانه وتعالى لأجلنا، إذن الأصل أنه يباح لنا الانتفاع بذلك كله إلا إذا قام دليل المنع والحظر.</p>
+
+<p>بعض العلماء لهم تفصيل أن الأشياء النافعة الأصل فيها الإباحة وأن الأشياء الضارة الأصل فيها المنع. وهذا الذي أشهر إليه الناظم رحمه الله تعالى فقال:</p>
+
+<div class="matn-text">
+  والأصل للتحليل في المنافع<br>
+  عكس المضار بعد بعث الشارع
+</div>
+
+<p>أي بعد البعثة. قال والأصل للتحليل في المنافع لقوله تعالى: ﴿هو الذي خلق لكم ما في الأرض جميعا﴾. عكس المضار مؤلمات القلوب فالأصل فيها التحريم لقوله صلى الله عليه وسلم: «لا ضرر ولا ضرار في الإسلام».</p>
+
+<div class="hadith-box">
+  لا ضرر ولا ضرار في الإسلام
+</div>
+
+<p>قال فيستصحب الحال حتى يدل الدليل على حكم خاص. صحاحه الإمام والآمدين. صحاحه الإمام — من الإمام؟ الجويني؟ أحسنتم. الإمام هنا فخر الدين الرازي، لأن هذا من كتب الأصول. واضح؟ وليك أنظر ماذا قال لك في الهامش: المحصول — المحصول لفخر الدين الرازي. تمام.</p>
+
+<div class="callout-box">
+  <div class="callout-title">⚡ تنبيه: مصطلح «الإمام» في كتب الأصول والفقه</div>
+  <p>قد قلت لكم أن كلمة الإمام إذا ذكرت في كتب الأصول فخر الدين الرازي، وإذا ذكرت في كتب الفقه الجويني.</p>
+</div>
+
+<p>قال صحاحه الإمام والآمدين. قال بعد بعث الشارع. أما قبله — أي قبل بعثة محمد — فخلاف أيضا والمختار الوقف. يعني قبل بعثة النبي هل الأصل الحظر أو الأصل الحل أو الوقف؟ قال المختار الوقف، أي لا يحكم عليها بإباحة ولا تحريم فلا يتعلق بأحد لانتفاء الرسول الموصل له.</p>
+
+<p>طبعا هذه المسألة التي هي حكم الأشياء قبل البعثة لها علاقة وطيدة بمسألة التحسين والتقبيح العقلي. واضح؟ فعند من يقول — وهم المعتزلة — إن العقل له حق التحسين وحق التقبيح سيقول إن الأصل في الأشياء الحظر لأن العقل هو الرسول. واضح؟ لكن هنا يقول المختار الوقف في المسألة خاصة أنه لا ينبني عليها حكم. واضح؟</p>
+
+<p>قال فالمختار الوقف أي لا يحكم عليها بإباحة ولا تحريم فلا يتعلق بأحد لانتفاء الرسول الموصل له، أي لانتفاء الرسول الذي يوصل الحكم قبل بعثة محمد صلى الله عليه وسلم.</p>
+
+<div class="section-divider">❃ ✾ ❃</div>
+
+<!-- ===== SECTION: باب التعارض والترجيح ===== -->
+<h1>باب التعارض والترجيح</h1>
+
+<p>قال رحمه الله تعالى. هذا الباب يسمى باب التعارض، يسمى باب الاستدلال، يسمى التعادل والترجيح — له عدة أسماء — وهو من أهم أبواب أصول الفقه كذلك. لأن الأدلة التي تقدم دراستها — أدلة القرآن وأصل القرآن وأصل السنة والإجماع والقياس والاستصحاب ومعرفة القواعد — فالأدلة التي تقدم دراستها قد يظهر بينها التعارض. قد يظهر بينها التعارض بالنسبة لنا. فإذا ظهر التعارض بالنسبة لنا فما هو موقفنا؟ هذه قد تتعادل وقد يرجح بعضها على بعض، فتحتاج إلى معرفة القواعد التي يكون لك منها موقف صائب إذا تعادلت الأدلة وإذا رجح بعضها على بعض، ماذا تقدم؟ ماذا تؤخر؟ كيف ترجح وكيف لا ترجح؟ متى تتوقف؟</p>
+
+<div class="matn-text">
+  وإن ترى الأمرين قد تعارضا<br>
+  وأمكن الجمع فلا تناقضا<br>
+  <br>
+  أو لا فقف وإن علمت الآخرة<br>
+  فناسخ فكن به مذاكرا<br>
+  <br>
+  وإن يخص واحد والثاني يعم<br>
+  فخصصه بلا تواني<br>
+  <br>
+  وحيث في كلاهما كلاهما
+</div>
+
+<p>يقول الشارح رحمه الله وقد ذكر في هذه الأبيات التعارض بين النصوص فقط. فقال إن التعارض بين النصوص هنالك مسالك، هذه المسالك يمكن أن تلخصها بثلاثة مسالك:</p>
+
+<!-- FLOW CHART: مسالك التعارض -->
+<div class="flow-container">
+  <div class="flow-title">مسالك التعارض بين النصوص (ثلاث خطوات)</div>
+  <div class="flow-row">
+    <div class="flow-box" style="background:#e8f5e9;border:2px solid var(--primary-green);font-size:17px;">
+      <strong>الخطوة الأولى</strong><br>الجمع بين النصين
+    </div>
+    <div class="flow-arrow">←</div>
+    <div class="flow-box" style="background:#fff3e0;border:2px solid var(--gold);font-size:17px;">
+      <strong>الخطوة الثانية</strong><br>النسخ إن عُرف التاريخ
+    </div>
+    <div class="flow-arrow">←</div>
+    <div class="flow-box" style="background:#e3f2fd;border:2px solid #1565c0;font-size:17px;">
+      <strong>الخطوة الثالثة</strong><br>الترجيح
+    </div>
+    <div class="flow-arrow">←</div>
+    <div class="flow-box" style="background:#ffebee;border:2px solid #c0392b;font-size:17px;">
+      <strong>إن تعذرت جميعاً</strong><br>التوقف
+    </div>
+  </div>
+</div>
+
+<p>المسلك الأول: أن تجمع بين النصين المتعارضين، وطرق الجمع بين النصوص كثيرة، وهذا هو المسلك المتعين ابتداءً — الجمع بين النصوص. واضح؟ فإن لم يمكن الجمع بين النصوص وعلم المتقدم والمتأخر فإن المتأخر ينسخ المتقدم. فإن لم يعلم التاريخ فحينئذ لابد من أن ترجح أحد النصين على الآخر.</p>
+
+<p>إذا كم عندك؟ خطوات ثلاث. ما هي الخطوة الأولى؟ الجمع. الخطوة الثانية: النسخ إن عرف التاريخ. الخطوة الثالثة: أن ترجح. إن لم تكن الخطوة الأولى متاحة والثانية متاحة والثالثة متاحة — إن لم تكن واحدة منهن متاحة — فحينئذ تتوقف. وستجدون عشرات المسائل التي نص فيها أئمة من المتقدمين — ليس من المتقدمين يعني المتقدمين قبل ألف سنة حتى إلى عصر قريب بل ربما إلى عصرنا — تجد يقول لك أنا أتوقف في هذه المسائل.</p>
+
+<h2>الأول: الجمع بين النصوص</h2>
+
+<p>قال الشارح رحمه الله تعالى: وإن ترى الأمرين عامين وخاصين قد تعارضا، أي تمانعا، وأمكن الجمع بينهما ولو من وجه فلا تناقضا — قضاء بألف الإطلاق بينهما — إذ الأصل في كل منهما الإعمال، فالعمل بهما ولو من وجه أولى من إسقاط أحدهما بالكلية.</p>
+
+<p>يعني يقول لك قدم الجمع بين النصوص على الترجيح، لأن الترجيح معناه أن هذا النص لا يعمل. تمام.</p>
+
+<div class="callout-box">
+  <div class="callout-title">📝 مثال الجمع: حديثا الشهادة</div>
+  <p>حديث مسلم: «ألا أخبركم بخير الشهود الذي يأتي بشهادته قبل أن يُسألها» — النبي صلى الله عليه وسلم يصف الشخص الذي يشهد قبل أن يطلب منه أن يشهد بأنه خير الشهود. هذا مدح واضح.</p>
+  <p>وحديث البخاري: «خيركم قرني ثم الذي يليه ثم الذي يليه ثم يأتي قوم يشهدون قبل أن يُستشهدوا» — هذا ذم واضح.</p>
+  <p>فكيف نجمع بين الحديثين؟</p>
+  <p><strong>جمع العلماء ومنهم النووي رحمه الله تعالى:</strong> بأن الحديث الأول محمول على شخص شاهد الشيء ولم يعلم به صاحب الحق فشهد قبل أن يطلب منه الشهادة — شاهد الشيء صاحب الحق لا يعرف أنه شاهد فبادر ذهب إلى القاضي وقال أنا شاهدته حصل كيت وكيد فهذا خير الشهود.</p>
+  <p>وحمل الحديث الثاني على أناس عندهم سفه عقل يسارعون في الشهادة مع توفر شهداء غيرهم، فهؤلاء لتهاونهم بأمر الشهادة يعطونها قبل أن تطلب منهم.</p>
+  <p>إذن هذا حمل على حال وهذا حمل على حال آخر.</p>
+</div>
+
+<h2>الثاني: التوقف عند تعذر الجمع</h2>
+
+<p>قال رحمه الله تعالى: أو لا يمكن الجمع بينهما فقف أنت، فلا تحكم بشيء منهما حتى يظهر مرجح.</p>
+
+<p>كقوله تعالى: ﴿وأن تجمعوا بين الأختين﴾ وقوله: ﴿أو ما ملكت أيمانكم﴾ فالأول يحرم ذلك والثاني يبيحه، فرجح الثاني أي التحريم احتياطاً.</p>
+
+<p>وفي الحقيقة إن الوقف يكون متأخرا على النسخ. فأولا — وهذه عادة الفقهاء في عملهم — إذا علم أن هذا متقدم وهذا متأخر فينسخون المتقدم بالمتأخر، وإذا لم يعلم بعد ذلك يقفون. واضح؟</p>
+
+<h2>الثالث: النسخ</h2>
+
+<p>قال رحمه الله: وإن علمت الآخرة من الدليل فناسخ للمتقدم كآيتي العدة ونحوهما مما سبق في درس النسخ. فكن به مذاكرا.</p>
+
+<p>هذا حث على المذاكرة وهو هنا المراجعة في الفن، فقد قيل: مذاكرة حاذق في الفن ساعة خير من مطالعة مُدّه، وهذا مجرب.</p>
+
+<h2>تخصيص العام بالخاص</h2>
+
+<p>قال رحمه الله تعالى: وإن يخص واحد من الدليلين والثاني منهما يعم — يعني دليل خاص ودليل عام — فهذا واضح أنك تخصص عموم الدليل بالدليل الخاص.</p>
+
+<p>وضرب له مثالا بقول النبي صلى الله عليه وسلم:</p>
+
+<div class="hadith-box">
+  فيما سقت السماء العشر
+</div>
+
+<p>هذا الحديث يوجب الزكاة فيما سقته السماء وإن كان أقل من النصاب. يعني حتى لو كان وسق واحد تجب الزكاة، لأنه قال «فيما» — هذه اسم موصول الذي يفيد العموم: لو كان وسق تجب الزكاة، أقل من وسق تجب الزكاة، أكثر من وسق تجب الزكاة — هذا عام.</p>
+
+<p>هذا العموم خص بقول النبي صلى الله عليه وسلم:</p>
+
+<div class="hadith-box">
+  ليس فيما دون خمسة أوسق صدقة
+</div>
+
+<p>واضح؟ إذن هذا العام يحمل على هذا الخاص. قال فخصصه أي العام به بلا تواني أي بلا تراخي وتكاسل. فخصص الأول من الحديثين بالآخر كما تقدم.</p>
+
+<h2>العموم والخصوص من وجه</h2>
+
+<p>ثم قال: وحيث في كليهما — أي الدليلين — كلاهما — أي العموم والخصوص — يعني إذا كان كل من الدليلين عاما من وجه وخاصا من وجه، فخصصهما أي خصص عموم كليهما بما خص به.</p>
+
+<p>هذه المسألة لها عدة صور، من أسهلها في الفقه:</p>
+
+<div class="callout-box">
+  <div class="callout-title">📝 مثال: حديثا الماء — العموم والخصوص من وجه</div>
+  
+  <p>قال النبي صلى الله عليه وسلم: «إن الماء طهور لا ينجسه شيء إلا ما غلب على لونه أو ريحه أو طعمه». طبعا الجزء الصحيح من الحديث إسنادا إلى هنا. هذه الزيادة «إلا ما غلب» ضعيفة. قام الإجماع على معناها. واضح؟ ولذلك اعترض بعضهم على هذا المثال بهذا، لكن المقصود هنا التمثيل فقط.</p>
+  
+  <p>هذا الحديث له جهة عموم وله جهة خصوص:</p>
+  <ul style="margin-right:20px;margin-top:8px;">
+    <li><span class="highlight-green">عمومه</span> مستفاد من كلمة «الماء» — فيعم الماء القليل والماء الكثير</li>
+    <li><span class="highlight-gold">خصوصه</span> من جهة التغير — «إلا ما غلب على لونه أو ريحه أو طعمه» — خاص بالمتغير فقط</li>
+  </ul>
+  
+  <p style="margin-top:10px;">الحديث الثاني: قال النبي صلى الله عليه وسلم: «إذا بلغ الماء قلتين لم يحمل الخبث» — هذا يتحدث عن الماء الكثير. هذا الحديث له أيضا جهتان:</p>
+  <ul style="margin-right:20px;margin-top:8px;">
+    <li><span class="highlight-gold">خصوصه</span> أنه في الماء الكثير (القلتين)</li>
+    <li><span class="highlight-green">عمومه</span> بالنسبة للتغير — عام سواء تغير أو ما تغير</li>
+  </ul>
+</div>
+
+<!-- TABLE: مقارنة حديثي الماء -->
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>الحديث</th>
+      <th>جهة العموم</th>
+      <th>جهة الخصوص</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>حديث: «إن الماء طهور لا ينجسه شيء إلا ما غلب على لونه أو ريحه أو طعمه»</strong></td>
+      <td>كلمة «الماء» تعم القليل والكثير</td>
+      <td>خاص بالمتغير (الاستثناء)</td>
+    </tr>
+    <tr>
+      <td><strong>حديث: «إذا بلغ الماء قلتين لم يحمل الخبث»</strong></td>
+      <td>عام في المتغير وغيره</td>
+      <td>خاص بالكثير (القلتين)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>إذا ماذا سنصنع؟ سنخصص هذا العموم بهذا، وسنخصص هذا العموم بهذا. إذا هذا يخص بهذا وهذا يخص بهذا. فهمنا؟</p>
+
+<p>حينئذ ماذا سنقول؟ سنقول: إن الماء الكثير لا ينجس إلا بالتغير. الماء القليل ينجس بملاقات النجاسة وإن لم يتغير. إن الماء الكثير لا ينجس إلا بالتغير. إن الماء القليل ينجس بملاقات النجاسة وإن لم يتغير. واضح؟ خصصنا عموم كل واحد بخصوص الثاني.</p>
+
+<p>قال كحديث أبي داود: «إذا بلغ الماء قلتين فإنه لا ينجس»، وحديث ابن ماجه: «الماء لا ينجسه شيء إلا ما غلب على ريحه أو طعمه أو لونه» — هنا قال واو، لكن المعروف في الرواية أو أو أو. تمام؟</p>
+
+<p>قال فالأول — حديث الأول الذي هو حديث القلتين — خاص بالقلتين عام في المتغير وغيره. والحديث الثاني خاص بالمتغير، عام في القلتين وغيرهما.</p>
+
+<p>قال فخصص عموم الأول بخصوص الثاني — خصص عموم القلتين بخصوص الثاني — تمام؟ إلى الآن ما فيه إشكال.</p>
+
+<p>الآن الإشكال: قال حتى يحكم بأن ما دون القلتين ينجس بملاقات النجاسة — أي إن لم يتغير — هذا الكلام مستقيم أو غير مستقيم؟ غير مستقيم. هذا الكلام غير مستقيم.</p>
+
+<div class="benefit-box">
+  <div class="benefit-title">✦ فائدة مهمة: سقط في الشروح</div>
+  <p>هذا تخصيص عموم الثاني بالأول — ليس تخصيص عموم الأول بالثاني! عندما تفتحوا شرح الناظم العلامة إبراهيم بن أبي مطير تجدوا الخطأ موجود، عندما تفتحوا شرح الحفيد تجدوا الخطأ موجود، عندما تفتحوا شرح العلامة سعيد الزبيدي تجدوا نفس الخطأ موجود. العبارة فيها سقط بمقدار سطرين، في الشروح الثلاثة نقل بعضهم عن بعض وتكرر السقط فيها الثلاثة.</p>
+  <p>العبارة بنصها في شرح الورقات لجلال الدين المحلي كالتالي: «فالأول خاص بالقلتين عام في المتغير وغيره، والثاني خاص بالمتغير عام في القلتين وغيرهما، فخصص عموم الأول بخصوص الثاني حتى يحكم بأن ما دون القلتين ينجس بالتغير، وخص عموم الثاني بخصوص الأول حتى يحكم بأن ما دون القلتين ينجس بملاقات النجاسة وإن لم يتغير» — هذا من شرح المحلي على الورقات.</p>
+  <p>وهذا مما يتتابع أحيانا: عندما يحصل سقط عند عالم يأتي من بعده ينقل منه مع السقط ثم يأتي من بعده ينقل مع السقط. فهذا يجعلك أنك في المشكل لا تقف عند كتاب بل تعود إلى الأصل.</p>
+</div>
+
+<p>وقد مر معنا مثال يشابه هذا في مسألة «أنت طالق ثم طالق» أي وهو قال بثلاث مرات ثم طالق، ثم بعد ذلك عندما شرح المعنى لم يستقم. والعبارة في التمهيد الإسنوي رحمه الله مرتين: فقال «أنت طالق ثم طالق إن دخلت الدار».</p>
+
+<div class="section-divider">❃ ✾ ❃</div>
+
+<!-- ===== SECTION: الترجيح ===== -->
+<h1>مرجحات الترجيح بين الأدلة</h1>
+
+<p>قال رحمه الله تعالى: وقدم الظاهر في الدليل، أي الدلالة، أي وقدم الدليل الموجب للعلم كالمتواتر على الدليل المحتاج فيه إلى التأويل والظن.</p>
+
+<div class="matn-text">
+  وقدم الظاهر في الدليل<br>
+  وموجب العلم على التأويل والظن<br>
+  <br>
+  والسنة والكتاب على القياس فافهم الخطاب<br>
+  <br>
+  أما القياس فالجلي قدم على الخفي فاشكر المعلم
+</div>
+
+<p>قال الناظم رحمه الله في الأبيات: وقدم الظاهر في الدليل وموجب العلم على التأويل والظن والسنة. أي وقدم السنة — ليس عطفاً تمام، ليس عطفاً على والظن، وإنما عطف على وقدم الظاهر — قال والسنة والكتاب على القياس فافهم الخطاب. أما القياس فالجلي قدم على الخفي فاشكر المعلم.</p>
+
+<!-- CLASSIFICATION TREE: مرجحات الترجيح -->
+<div class="tree-container">
+  <div class="tree-title">شجرة مرجحات الترجيح بين الأدلة</div>
+  <div style="text-align:center;">
+    <div class="tree-root">مرجحات الترجيح</div>
+  </div>
+  <div style="text-align:center;"><div class="tree-connector"></div></div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="tree-node" style="background:var(--primary-green);color:white;">ترجيح الدلالات</div>
+      <div class="tree-leaf">الظاهر مقدم على المؤول</div>
+      <div class="tree-leaf">موجب العلم (المتواتر) مقدم على موجب الظن (الآحاد)</div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-node" style="background:var(--teal);color:white;">ترجيح الأدلة</div>
+      <div class="tree-leaf">الكتاب والسنة مقدمان على القياس</div>
+      <div class="tree-leaf">قول النبي ﷺ مقدم على فعله</div>
+      <div class="tree-leaf">فعله ﷺ مقدم على تقريره</div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-node" style="background:var(--gold);color:white;">ترجيح القياس</div>
+      <div class="tree-leaf">الجلي مقدم على الخفي</div>
+      <div class="tree-leaf">قياس العلة مقدم على قياس الدلالة</div>
+      <div class="tree-leaf">قياس الدلالة مقدم على قياس الشبه</div>
+    </div>
+  </div>
+</div>
+
+<p>قال رحمه الله تعالى: وقدم الظاهر في الدليل أي الدلالة، أي وقدم الموجب العلم كالمتواتر لأنه يجب العلم، على الدليل المحتاج فيه إلى التأويل والظن، أي على الذي موجبه الظن كالآحاد. وفي الكلام لف ونشر مرتب، أي قدم الظاهر على المؤول وموجب العلم على موجب الظن لقوة الأولين على الآخرين.</p>
+
+<p>فيقول لك إن الظاهر أقوى من المؤول لأن الظاهر هو المعنى الأرجح، وإن موجب العلم كالمتواتر مقدم لأنه أقوى من موجب الظن كالآحاد.</p>
+
+<h2>تقديم الكتاب والسنة على القياس</h2>
+
+<p>قال رحمه الله تعالى: وقدم السنة والكتاب — بألف الإطلاق — والواو لا تقتضي ترتيبا. يعني لا ينتقد أحد يقول لماذا قدم السنة على الكتاب. المقام ليس مقام ترتيب كما في قوله تعالى: ﴿وأسجدي واركعي مع الراكعين﴾ مع أن الركوع مقدم على السجوع. وفي القرآن الكريم: ﴿رب هارون وموسى﴾ لا يعني أن هارون أفضل من موسى عليهما الصلاة والسلام.</p>
+
+<p>قال على القياس: قدم الكتاب والسنة على القياس إذ لا رأي مع قول الله تعالى وقول رسوله صلى الله عليه وآله وسلم. فافهم الخطاب — تهذيب وتأديب.</p>
+
+<h2>تقديم القول على الفعل</h2>
+
+<p>ويقدم قوله صلى الله عليه وسلم على فعله، وهذه من القواعد التي استعملها الشوكاني رحمه الله في نيل الأوطار كثيرة، حتى ادعى التخصيص في أشياء يعني يكاد يكون تفرد بها، يقول أن قول النبي صلى الله عليه وسلم لا يعارض فعله فهذا فعل خاص. واضح.</p>
+
+<p>قال ويقدم قوله صلى الله عليه وسلم على فعله لاحتمال الاختصاص. ويقدم فعله أيضا على تقريره.</p>
+
+<h2>القياس الجلي والخفي</h2>
+
+<p>أما القياس فالجلي منه قدم بألف الإطلاق على الخفي، كما إذا تعارض قياس شبه وقياس علة فيقدم الثاني لقوته. فاشكر المعلم — وهو ها هنا المصنف والشيخ.</p>
+
+<div class="definition-card">
+  <div class="def-term">القياس الجلي والقياس الخفي</div>
+  <div class="def-body">
+    <p><span class="highlight-green">القياس الجلي:</span> القياس الذي علته منصوصة — نص الشارع على علته — لأن المجتهد لا يحتاج أن يبحث عن العلة، العلة موجودة أمامه، لن يضع احتمالات حتى يفاضل بينها ما هي العلة.</p>
+    <p><span class="highlight-gold">القياس الخفي:</span> إذا كانت العلة غير منصوصة بل تستنبط بالاجتهاد — فهذا القياس يسمى خفيا لأن العلة تحتاج إلى استنباط في الطريق.</p>
+    <p>إذا حصل التعارض نقدم القياس الجلي على القياس الخفي لأن هذه علة منصوصة وهذه علة مستنبطة يتطرق لها الاحتمال.</p>
+  </div>
+</div>
+
+<p>كذلك يقول لك: كما تقدم القياس الجلي على القياس الخفي كذلك قدم الأقوى من القياس على الأضعف. فإذا تعارض قياس العلة وقياس الدلالة، قياس العلة مقدم لأن العلة توجب الحكم. وإذا تعارض قياس الدلالة وقياس الشبه فقياس الدلالة مقدم.</p>
+
+<!-- TABLE: ترتيب أنواع القياس -->
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>الترتيب</th>
+      <th>نوع القياس</th>
+      <th>السبب</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>1</strong></td><td>قياس العلة</td><td>العلة توجب الحكم — أقوى أنواع القياس</td></tr>
+    <tr><td><strong>2</strong></td><td>قياس الدلالة</td><td>أقوى من قياس الشبه</td></tr>
+    <tr><td><strong>3</strong></td><td>قياس الشبه</td><td>أضعف أنواع القياس</td></tr>
+  </tbody>
+</table>
+
+<div class="callout-box">
+  <div class="callout-title">⚡ تنبيه: معنى «فاشكر المعلم»</div>
+  <p>قال وهو ها هنا المصنف والشيخ والناظم رحمه الله تعالى ذكر هذا. وقال يعني لا يطلق المعلم على الله عز وجل، فليس المراد بقول «فاشكر المعلم» أي فاشكر الله، مع أن الله يعني يوصف بالفعل: ﴿الرحمن علّم القرآن﴾ لكن لا يطلق عليه اسم المعلم.</p>
+</div>
+
+<h2>أنواع المرجحات</h2>
+
+<p>طبعا المرجحات كثيرة: هناك مرجحات ترجع إلى الإسناد، وهناك مرجحات ترجع إلى الراوي، وهنالك مرجحات ترجع إلى القواعد.</p>
+
+<p>ما كانت دلالته قطعية يقدم، ما دام أن هذا الذي يوجب الظن الذي هو أحد قد ثبت، واضح، حتى وإن لم يثبت طريق التواتر.</p>
+
+<p>من المرجحات التي ترجع إلى الإسناد أنهم على سبيل المثال يرجحون الحديث الذي رواته فقه على الحديث الذي رواته لم يشتغلوا بالفقه. واضح؟ ويرجحون الحديث العالي على الحديث النازل.</p>
+
+<p>ومن المرجحات التي ترجع إلى القواعد أن ما كان ناقلا عن الأصل مقدم على ما لم ينقل عن الأصل.</p>
+
+<p>وقد يرجحون بالراوي فصاحب القصة حديثه مقدم على ما رواه غير صاحب القصة. ولذلك قول ميمونة رضي الله عنها: «تزوجني رسول الله صلى الله عليه وسلم وهو حلال» مقدم على قول ابن عباس: «تزوج رسول الله صلى الله عليه وسلم ميمونة وهو محرم». واضح؟</p>
+
+<div class="callout-box">
+  <div class="callout-title">📚 مرجع: الحافظ العراقي</div>
+  <p>وهذا باب واسع وممن استطرد فيه الحافظ العراقي رحمه الله تعالى في كتابه «تقييد الإيضاح على مقدمة ابن الصلاح» وذكر المرجحات لكن ذكرها ذكرا فقط دون أن يضع مثالا لكل مجال في واحد منها.</p>
+</div>
+
+<div class="section-divider">❃ ✾ ❃</div>
+
+<!-- ===== SECTION: شروط المجتهد ===== -->
+<h1>شروط المجتهد</h1>
+
+<p>قال رحمه الله تعالى: حارم المستدل وهو الفقيه المجتهد. قال والشرط في مجتهد — بسم الله — ليتحقق له الاجتهاد أن صاحب، أي مصاحبته للعلوم، أن يصاحب العلوم. ما معنى أن يصاحب العلوم؟ يعني أن يلازم العلماء ويجعله يلازم العلوم. واضح؟ فالمصاحبة هنا بمعنى الملازمة.</p>
+
+<div class="matn-text">
+  والشرط في مجتهد أن صاحب<br>
+  أصلاً وفرعاً وخلافاً غالباً<br>
+  <br>
+  ومذهباً وما هو المعتبر<br>
+  للحكم من آياتنا والخبر
+</div>
+
+<p>قال الناظم رحمه الله تعالى في الأبيات: والشرط في مجتهد أن صاحب أصلاً وفرعاً وخلافاً غالباً ومذهباً وما هو المعتبر للحكم من آياتنا والخبر.</p>
+
+<p>والشرط في مجتهد أن صاحب أي تلبس بعلوم وهي:</p>
+
+<h3>1. أصول الفقه (أصلاً)</h3>
+<p>أصول الفقه ليقوى على معرفة الأدلة وكيفية الاستنباط.</p>
+
+<h3>2. الفقه الفرعي (فرعاً)</h3>
+<p>فرعاً أي يشرط فيه معرفة تفاريع الفقه الذي يسمى الفقه الفرعي أو الفقه الفروعي. وإنما يجب أن يكون الفقه الفرعي مجموعاً. وإنما يحصل الاجتهاد في زماننا بممارسة الفقه فهو طريق تحصيل الدراية في هذا الزمان، ولم يكن الطريق في زمن الصحابة كذلك، فالصحابة رضي الله عنهم عندهم من لغة العرب وعندهم من شهود التنزيل ما يمكنهم على فهمهم ومن أجل تنزيل النصوص أكثر منا.</p>
+
+<h3>3. الخلاف الغالب</h3>
+<p>ويشترط أيضاً أن صاحب أي عرف خلافاً غالباً وخلافاً مذهباً. يقصد بالخلاف الغالب الخلاف بين المذاهب الفقهية، وخلاف المذهب أي الخلاف داخل المذهب الذي ينتمي إليه.</p>
+
+<h3>4. آيات الأحكام</h3>
+<p>ويشترط أن يعرف ما هو المعتبر أي المهم للحكم أي فيه من آياتنا أي آيات كتابنا، أي ما يتعلق بالأحكام من آيات القرآن الكريم. وهناك تفاسير خصصت في دراسة آيات الأحكام من كل المذاهب:</p>
+
+<!-- TABLE: كتب آيات الأحكام -->
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>المذهب</th>
+      <th>الكتاب</th>
+      <th>المؤلف</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>الحنفي</strong></td><td>أحكام القرآن (تفسير آيات الأحكام)</td><td>الجصاص</td></tr>
+    <tr><td><strong>المالكي</strong></td><td>أحكام القرآن</td><td>ابن العربي المالكي</td></tr>
+    <tr><td><strong>المالكي</strong></td><td>الجامع لأحكام القرآن</td><td>القرطبي (واسع)</td></tr>
+    <tr><td><strong>الشافعي</strong></td><td>أحكام القرآن</td><td>الكيا الهراسي (مصنف الشافعي نفسه مفقود)</td></tr>
+    <tr><td><strong>الحنبلي</strong></td><td>اللباب</td><td>ابن عاد الحنبلي</td></tr>
+    <tr><td><strong>شافعي (موصى به)</strong></td><td>تيسير البيان لأحكام القرآن (4 مجلدات)</td><td>العلامة نور الدين الموزعي</td></tr>
+  </tbody>
+</table>
+
+<div class="callout-box">
+  <div class="callout-title">📚 كتاب موصى به: تيسير البيان لأحكام القرآن</div>
+  <p>من الكتب الجميلة في أحكام القرآن والتي تكسب الطالب ملكة في التعامل مع أصول الفقه وتطبيق القواعد الأصولية ودلالات الألفاظ في الآيات — كتاب اسمه «تيسير البيان لأحكام القرآن» للعلامة نور الدين الموزعي. متاح للتحميل، مطبوع في أربعة مجلدات. الموزعي هذا من كبار فقهاء الشافعية في اليمن وهو من علماء زبيد، أظنه توفي في سنة 750-780 قبل الثمانمائة. وهو من كبار الفقهاء في ذلك العصر. وحتى عندما تقرأ عباراته تجده يعني ماذا؟ كأنه يعتد بنفسه يقول وأنا أختار هذا وهذا قول كذا ويناقشه أحيانا يناقشه حتى أقوى الكبار الشافعية مثل أبي إسحاق الشيرازي ومثل الماوردي يناقشهم ويرد عليهم مع أنه هو شافعي المذهب. لكنه استعمل كثيرا أصول الفقه في استنباط الأحكام من الآيات ولم يقتصر في كتابه على المذهب الشافعي بل ذكر فيه المذهب الحنفي وذكر فيه المذهب المالكي أيضا وذكر فيه آراء الحنابلة أيضا.</p>
+</div>
+
+<p>قيل هي مئة آية تتعلق بالأحكام وقيل خمسمئة وهذا المشهور أنها خمسمئة آية.</p>
+
+<h3>5. أحاديث الأحكام (والخبر)</h3>
+<p>والخبر المروي عن رسول الله صلى الله عليه وسلم — أن يشترط في المجتهد أن يعرف من الأخبار أي من أحاديث النبي صلى الله عليه وسلم ما يتعلق بالأحكام. وقد جمع في هذا من جمع من أهل العلم كتبا صغيرة وكتبا أحاديثها قليلة وكتبا أحاديثها متوسطة وكتبا أحاديثها كثيرة.</p>
+
+<p>من عمدة الأحكام تبدأ للحافظ عبد الغني المقدسي، ترتقي قليلا بلوغ المرام أو المحرر لابن عبد الهادي. بالنسبة لطالب العلم الذي يدرس المذهب الشافعي إذا استطاع أن يحفظ البلغ فهذا في غاية يعني في غاية التحرير بلوغ المرام، وفيه أدلة الشافعية. وهناك شروح لبعض فقهاء زبيد أيضا وهو تحت الطبع يخلق إن شاء الله قريبا. وقد حقق فيه رسائل جامعية في السودان. فعندنا عمدة الأحكام، عندنا أعلى منه بلوغ المرام، عندنا المحرر لابن عبد الهادي أيضا، عندنا منتقى الأخبار الذي شرحه الشوكاني رحمه الله تعالى في نيل الأوطار.</p>
+
+<h3>6. لغة العرب</h3>
+<p>يشترط أن يعرف لغة العرب مفرداتها ومركباتها. أي أن يعرف من ذلك قدرا يوفي بالاجتهاد. أما أن يحيط بلغة العرب لمفردات العرب هذا لا يستطيع ذلك أحد، قد قال الإمام الشافعي: لا يحيط باللسان العربي إلا نبي.</p>
+
+<h3>7. النحو والإعراب</h3>
+<p>ونحو إعرابي فهو عمدة في الاجتهاد، ولا يكفي الأقل منه ولا يشترط بلوغ الغاية، يعني لا يكفي أنك تدرس النحو قليلا فقط، ولا يكفي أنك تصل إلى غاية العلم، بل يشترط رتبة التوسط تقريبا بحيث يميز صحيح العبارة من فاسدها وراجحها من مرجوحها.</p>
+
+<h3>8. علم الحديث (عدة وعبارة)</h3>
+<p>وحالة الرواة قوة وضعفا أيضا عدة وعبارة، منها من فاسدها من مرجوحها. أي عدة لك أيها المجتهد لتميز المقبول منهم والمردود، مقبول الرواية ومردود الرواية. ويكفي في زماننا الرجوع إلى قول الأئمة في ذلك كالبخاري ومسلم وغيرهما من أئمة أهل الحديث.</p>
+
+<div class="section-divider">❃ ✾ ❃</div>
+
+<!-- ===== SECTION: الاجتهاد والتقليد ===== -->
+<h1>الاجتهاد والتقليد</h1>
+
+<div class="matn-text">
+  والاجتهاد بذلك الطاقة<br>
+  فيه تحصيل ما طلبته لتكتفي<br>
+  <br>
+  وكل من على اجتهاد صبر<br>
+  إن لم يقصر فعليه أجر<br>
+  <br>
+  لأنه المصيب<br>
+  <br>
+  والتقليد قبول قول ما له شهود<br>
+  ولم نقوزه لذي اجتهاد<br>
+  <br>
+  وربنا الأعلم بالسداد
+</div>
+
+<p>قال رحمه الله تعالى: الاجتهاد لغة بذل الوسع في بلوغ المقصد. أما اصطلاحا فما ذكره اصطلاحا: بذل الوسع في الوصول إلى حكم شرعي.</p>
+
+<p>بذلك أيها الفقيه الطاقة، في تحصيل ما طلبته من ظن الحكم الشرعي بحيث تحس النفس بالعجز عن الزيادة. يعني تبذل طاقتك وجهدك في الوصول للحكم بحيث أن نفسك تشعر أنها لا تستطيع المزيد على بذل طاقة أكثر، هذا المقصود. قال لتكتفي بذلك عن النزول إلى درجة التقليد فتخرج عن اسم الفقيه المجتهد لأن المقلد لا يسمى فقيها اصطلاحا.</p>
+
+<h2>جواز الاجتهاد في زمن النبي ﷺ</h2>
+
+<p>ولو في زمنه صلى الله عليه وسلم — فيجوز الاجتهاد مطلقا عند الإمام والغزالي والآمدين. والإمام يعني فخر الدين كما تقرر. يقول لك إن الاجتهاد هذا جائز حتى في عهد النبي صلى الله عليه وسلم. وهذا تستفيد منه أنه يجوز الاجتهاد حتى مع القدرة على النص، واضح، يجوز الاجتهاد حتى مع القدرة على اليقين.</p>
+
+<p>في زمن النبي صلى الله عليه وسلم أن تستطيع على اليقين تسأل مباشرة أتيك الجواب، مع ذلك يجوز الاجتهاد. وهذا بُني عليه فروع فقهية:</p>
+
+<div class="callout-box">
+  <div class="callout-title">📝 فروع مبنية على جواز الاجتهاد مع القدرة على اليقين</div>
+  <p><strong>الفرع الأول:</strong> إذا كان الإنسان عنده ماء أحدهما يصلح للوضوء والآخر لا يصلح للوضوء فله أن يجتهد بينهما حتى وإن كان في شاطئ النهر. له أن يجتهد بينهما حتى وإن كان في شاطئ النهر مع قدرته على اليقين لكن يجوز الاجتهاد.</p>
+  <p><strong>الفرع الثاني:</strong> إذا شاء الإنسان لا يدري هل دخل الوقت أو لم يدخل وقت الصلاة فغلب على ظنه أن الوقت دخل بالأمارات فله أن يصلي مع إمكانية أنه يؤخر الصلاة ليتيقن دخول الوقت.</p>
+  <p>إذن هذه الفروع بنيت على هذه المسألة الأصولية أنه يجوز للإنسان الاجتهاد أن يجتهد مع قدرته على تحصيل اليقين.</p>
+</div>
+
+<h2>أجر المجتهد</h2>
+
+<p>وكل من على اجتهاد صبر إن لم يقصر أي على الاجتهاد فعليه أجر وإن أخطأ. يعني أن الإنسان إذا اجتهد المجتهد إذا اجتهد في حكم فإنه يؤجر ما دام أنه لم يقصر حتى وإن أخطأ. يؤجر ما دام أنه لم يقصر حتى وإن أخطأ، لقوله صلى الله عليه وسلم:</p>
+
+<div class="hadith-box">
+  إذا اجتهد الحاكم فحكم فأصاب فله أجران، وإذا حكم فأخطأ فله أجر
+</div>
+
+<p>وكونه يؤجر وإن أخطأ لا يعني أنه مصيب. واضح؟ قال لا أنه المصيب إذ الحق واحد لا يتعدد. هذا هو المصيب — هذا هو الصحيح الذي قال به الجمهور — أن الذي يصيب واحد لا نقول كل مجتهد مصيب، وإنما نقول: لكل مجتهد نصيب. نعم. لا نقول كل مجتهد مصيب ولكن نقول لكل مجتهد نصيب، إما أجران وإما أجر.</p>
+
+<div class="principle-box">
+  <div class="principle-title">📜 قاعدة أصولية: المصيب واحد</div>
+  <p>الصحيح الذي قال به الجمهور: أن الذي يصيب واحد لا يتعدد. فلا نقول كل مجتهد مصيب ولكن نقول لكل مجتهد نصيب — إما أجران (إذا أصاب) وإما أجر (إذا أخطأ ولم يقصر).</p>
+</div>
+
+<h2>المقلد إذا عرف الدليل</h2>
+
+<p>أما إذا عرف المقلد دليل المجتهد حق معرفته — استنباطا أصولا الأصول التي بنى عليها الاستنباط — فهو مجتهد فيما عرف دليله. أما كونه مثلا يعرف أن الإمام الشافعي استدل بالآية كذا وكذا على الحكم كذا وكذا بمجرد هذه المعرفة يصير مجتهدا؟ لا لا يمكن. واضح.</p>
+
+<p>قال رحمه الله تعالى: أما إذا عرف المقلد دليل المجتهد حق معرفته فهو مجتهد فيما عرف دليله بناء على أن الاجتهاد يتجزأ. نعم، الاجتهاد يتجزأ وهو الصحيح.</p>
+
+<div class="definition-card">
+  <div class="def-term">الاجتهاد يتجزأ (الصحيح)</div>
+  <div class="def-body">
+    <p>فقد يكون الشخص مجتهدا في علم دون علم، في فن دون فن، بل اليوم في الفن الواحد قد يكون مجتهدا في باب دون باب. واضح؟</p>
+    <p>يعني من الفقهاء المعاصرين اليوم على سبيل المثال من هو متخصص في مسائل الشركات فقط في هذا الباب، منهم من هو متخصص في عقود الاستثمار في هذا الباب، منهم من هو متخصص في عقود الضمانات في هذا الباب، متخصص في قضايا جزئية.</p>
+  </div>
+</div>
+
+<p>مع ذلك لا نقول أنه مجتهد في الحقيقة ليس مجتهدا. واضح؟ لأنه هو عالٍ على من قبله. لكن إذا كان الاجتهاد يتجزأ اليوم نقول التخصصات أيضا تتجزأ: هناك تخصص عام، هناك تخصص خاص، هناك تخصص دقيق أقل من هذا.</p>
+
+<div class="callout-box">
+  <div class="callout-title">⚡ تنبيه مهم: التخصص في زماننا</div>
+  <p>يعني كون الإنسان على سبيل المثال يقول أنا متخصص في الفقه اليوم لا يصح أن يقول أنا متخصص في الفقه. في أي الفقه أنت متخصص؟ حاليا نعم أنت متخصص في فقه العبادة؟ في فقه المعاملات المالية؟ في فقه الأسرة؟ في فقه الأحكام — يعني ما يسمى اليوم الأحكام السياسة الشرعية — متخصص في أي فقه؟ واضح؟</p>
+  <p>وحتى لو قل أنا مثلا على سبيل المثال متخصص في العبادة — طيب بعض الأبواب في العبادات تحتاج باب واحد يحتاج إلى تخصص ربما يعني تبذل فيه عمر طويل حتى تفهمه. الإمام أحمد تسع سنوات حتى يفهم باب الحل. واضح؟</p>
+  <p>تقول أنا متخصص في المعاملات المالية — متخصص في أي جزئية في المعاملات المالية أنت متخصص؟ واضح. أنا متخصص في فقه الأسرة — حتى فقه الأسرة هذا لابد أن تلم أولا بالأحكام الشرعية من جهة ثم تلم أيضا بما يوجد في القوانين الموجودة في دولتك على الأقل حتى تستطيع أنك إذا سألك الناس — إذا احتاج الناس — أنك لا تصدر فتوى تخالف القانون مثلا فيحصل صدام بين الناس وبين المجتمع. ولابد أن تنظر هذا القانون الذي في بلدك ما مدى موافقته للشريعة الإسلامية وما مدى مخالفته.</p>
+  <p>إذا اليوم لا يكفي أن يقول أنا متخصص حتى في اللغة، أنا متخصص في الفقه، أنا متخصص في كذا — ما يكفي هذا لابد من تخصص خاص بل وتخصص في جزئيات معينة. وهذا ليس في العلوم الشرعية فقط هذا حتى في العلوم الطبيعية.</p>
+</div>
+
+<div class="benefit-box">
+  <div class="benefit-title">✦ فائدة: التخصص في الطب كالتخصص في الفقه</div>
+  <p>خذ على سبيل مثال الطب: لو واحد منا مريض هل يذهب إلى طبيب عام أو إلى طبيب متخصص؟ يوجد أطباء فقط متخصص بالأسنان، بعض الأطباء في بعض الدول المتقدمة يقول أنا لست متخصص في الأسنان كلها أنا متخصص في الأضراس فقط. بعضهم يقول أنا متخصص في قضية التركيب فقط، لكن علاج الأسنان لا علاقة. صحيح هذا موجود. أنا أركب فقط، أو بعضهم يقول أنا أنحت أنحت السن بدرجة معينة. بعضهم متخصص في وضع القشافة على الأسنان — هذه تخصصة دقيقة في علم طبيعي. العلوم الشرعية أيضا تحتاج إلى مثل هذا.</p>
+  <p>ونترك هذه الغوغائية والفوضى والعشوائية التي يحب الواحد منا أن يتكلم في كل شيء: ما تحسن أن تتكلم فيه تكلم فيه، ما لا تحسن أن تتكلم فيه يسعك أن تسكت.</p>
+</div>
+
+<h2>المجتهد لا يقوز له التقليد</h2>
+
+<p>قال رحمه الله تعالى: ولم نقوزه نحن أي التقليد لذي أي لصاحب اجتهاد أي لقادر على الاجتهاد لتمكنه منه. المجتهد لا يقوز له أن يقلد. واضح؟ المجتهد لا يقوز له أن يقلد فكيف ينزل عن رتبة الاجتهاد إلى رتبة التقليد؟ قال لتمكنه منه أي من الاجتهاد. فإن اجتهد وظن الحكم وجب عليه العمل بما علمه وحرم عليه التقليد مجتهد اتفاقا، لأن المجتهد لا يقوز له أن يقلد.</p>
+
+<p>قال وربنا أعلم بالسداد أي الصواب.</p>
+
+<div class="section-divider">❃ ✾ ❃</div>
+
+<!-- ===== SECTION: خاتمة المنظومة ===== -->
+<h1>خاتمة المنظومة — أبيات العمر</h1>
+
+<p>قال خاتمة: تمت. وهذا آخر المرام. ما معنى المرام؟ المقصود. بلوغ المرام يعني بلوغ المقصود.</p>
+
+<div class="poetry-box">
+  لكم أبو محمد الأندلسي<br>
+  <br>
+  ابن عشر من السنين غلامه<br>
+  رفعت عن نظيره الأقلام<br>
+  <br>
+  هو ابن عشرين للصبا والتصابي<br>
+  ليس يثنيه عن هواه ملامه<br>
+  <br>
+  والثلاثون قوة وشباب<br>
+  وشدة ولوعة وغرام<br>
+  <br>
+  فإذا زاد بعد ذلك عشرا<br>
+  أربعين فكمال وشدة وتمام<br>
+  <br>
+  وابن خمسين مر عنه صباه<br>
+  فهو يراه كأنه أحلامه<br>
+  <br>
+  وابن ستين صيرته الليالي<br>
+  هدفا للمنون وهي سهامه<br>
+  <br>
+  وابن سبعين عاش ما قد كفاه<br>
+  واعترته وساوس وسقامه<br>
+  <br>
+  فإذا زاد بعد ذلك عشرا<br>
+  بلغ الغاية التي لا ترام<br>
+  <br>
+  وابن تسعين لا تسني عنهم<br>
+  فابن تسعين ما عليه كلامه<br>
+  <br>
+  فإذا زاد بعد ذلك عشرا<br>
+  فهو حي كميت وسلام
+</div>
+
+<p>قال لكم أبو محمد الأندلسي. ابن عشر من السنين غلامه — رفعت عن نظيره الأقلام — ليس مكلفاً. وابن عشرين للصبا والتصابي ليس يثنيه عن هواه ملام — يعني إذا يريد شيء يفعل حتى وإن نصحه أبوه نصحته أمه لا بد أن يفعل ما يريده.</p>
+
+<p>والثلاثون قوة وشباب وشدة ولوعة وغرام — يعني يحب يريد الزواج خلاص هذا يبدأ. فإذا زاد بعد ذلك عشرا أربعين فكمال وشدة وتمام — بلغ أشده.</p>
+
+<p>وابن خمسين مر عنه صباه فهو يراه كأنه أحلامه — خلاص نسي الصبا كأنه كان في الخيال.</p>
+
+<p>وابن ستين صيرته الليالي هدفا للمنون وهي سهامه — ما معنى المنون؟ الموت. كل الليل ينام وهو يتوقع أنه يموت فيها.</p>
+
+<p>وابن سبعين عاش ما قد كفاه واعترته وساوس وسقامه — أمراض فيه مرض فيه علة.</p>
+
+<p>فإذا زاد بعد ذلك عشرا بلغ الغاية التي لا ترام — هذا الشاهد: المرام لا ترام يعني لا تقصد لا تراد.</p>
+
+<p>وابن تسعين لا تسني عنهم — فابن تسعين ما عليه كلامه — خلاص فعلاً.</p>
+
+<p>فإذا زاد بعد ذلك عشرا فهو حي كميت وسلام.</p>
+
+<div class="matn-text">
+  تمت وهذا آخر المرام<br>
+  والحمد لله على التمام<br>
+  <br>
+  مصلياً على الهدى خير البشر<br>
+  وآله الغرّ صواحب الدرر
+</div>
+
+<p>قال الشارح: وصحبه نجوم هذه الأمة وتابعين في صحيح الحجة ما خلف الليل النهار سرمد وطلع البدر المنير أمد.</p>
+
+<p>تمت وبالخير عمت. نهار الثلاثاء الموافق ثامن القاعدة أولى 1361 هجرية. وصلى الله وسلم والحمد لله رب العالمين.</p>
+
+<div class="section-divider">❃ ✾ ❃</div>
+
+<!-- ===== CLOSING DUA ===== -->
+<h1>الدعاء الختامي</h1>
+
+<div class="closing-dua">
+  <div class="dua-title">ختم الله تعالى بالخير والبركة</div>
+  <p>جزاكم الله خيرا وبارك الله فيكم</p>
+  <p>ونسأل الله سبحانه وتعالى أن يجعل هذه المجالس نافعة للمتكلم والسامع</p>
+  <p>وأن ينفع بها غيرنا</p>
+  <p>اللهم آمين</p>
+  <p>جزاكم الله خيرا جميعا</p>
+  <p>وقضب الله الأجر لنا ولكم جميعا</p>
+  <p style="margin-top:15px;font-size:20px;font-weight:700;color:var(--gold);">سبحانك اللهم وبحمدك</p>
+  <p style="font-size:20px;font-weight:700;color:var(--gold);">أشهد أن لا إله إلا أنت</p>
+  <p style="font-size:20px;font-weight:700;color:var(--gold);">أستغفرك وأتوب إليك</p>
+  <p style="margin-top:15px;font-size:16px;color:rgba(255,255,255,0.6);">نهاية الدرس الخامس — المجلس السادس والأخير</p>
+</div>
+
+</div><!-- end content-wrapper -->
+
+<script>
+// B&W Toggle
+document.querySelector('.bw-toggle').addEventListener('click', function() {
+  document.body.classList.toggle('bw-mode');
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح العوامل المائة — الدرس الثالث: معاني الباء و(من)</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-green: #0d6b3e;
+  --dark-green: #0a4f2e;
+  --gold: #d4a020;
+  --light-gold: #f0e6c0;
+  --teal: #0d7377;
+  --bg: #fefefe;
+  --body-text: #1a1a1a;
+  --border: #c8d6c0;
+  --light-green: #e8f5e9;
+  --medium-green: #a5d6a7;
+  --quran-bg: #f1f8e9;
+  --hadith-bg: #e0f2f1;
+  --poetry-bg: #fdf8e8;
+  --ruling-red: #c62828;
+  --ruling-orange: #e65100;
+  --ruling-green: #2e7d32;
+  --ruling-blue: #1565c0;
+  --ruling-yellow: #f9a825;
+  --ruling-darkred: #880e4f;
+  --ruling-gray: #616161;
+  --purple: #6a1b9a;
+  --light-purple: #f3e5f5;
+}
+
+body.bw-mode {
+  --primary-green: #333;
+  --dark-green: #222;
+  --gold: #555;
+  --light-gold: #e0e0e0;
+  --teal: #444;
+  --bg: #fff;
+  --body-text: #000;
+  --border: #999;
+  --light-green: #eee;
+  --medium-green: #ccc;
+  --quran-bg: #f5f5f5;
+  --hadith-bg: #f0f0f0;
+  --poetry-bg: #f5f5f0;
+  --ruling-red: #333;
+  --ruling-orange: #444;
+  --ruling-green: #333;
+  --ruling-blue: #333;
+  --ruling-yellow: #555;
+  --ruling-darkred: #222;
+  --ruling-gray: #444;
+  --purple: #333;
+  --light-purple: #eee;
+}
+
+body.bw-mode .cover-page { background: linear-gradient(135deg, #333 0%, #555 50%, #333 100%) !important; }
+body.bw-mode .cover-page .cover-gold { color: #ccc !important; }
+body.bw-mode .cover-page .cover-white { color: #fff !important; }
+body.bw-mode .evidence-box { border-color: #666 !important; background: #f5f5f5 !important; }
+body.bw-mode .evidence-box.evidence-quran { border-color: #666 !important; background: #f0f0f0 !important; }
+body.bw-mode .evidence-box.evidence-hadith { border-color: #666 !important; background: #f0f0f0 !important; }
+body.bw-mode .callout { border-color: #888 !important; background: #f5f5f5 !important; }
+body.bw-mode .poetry-box { border-color: #888 !important; background: #f0f0f0 !important; }
+body.bw-mode .tree-container .tree-node { border-color: #666 !important; background: #eee !important; }
+body.bw-mode .tree-container .tree-node.root-node { background: #555 !important; color: #fff !important; }
+body.bw-mode .definition-card { border-color: #888 !important; background: #f5f5f5 !important; }
+body.bw-mode .ruling-card { border-color: #888 !important; background: #f5f5f5 !important; }
+body.bw-mode .summary-box { border-color: #888 !important; background: #f0f0f0 !important; }
+body.bw-mode .qaidah-box { border-color: #888 !important; background: #f5f5f5 !important; }
+body.bw-mode .benefit-box { border-color: #888 !important; background: #f0f0f0 !important; }
+body.bw-mode .table-styled th { background: #555 !important; color: #fff !important; }
+body.bw-mode .table-styled td { border-color: #999 !important; }
+body.bw-mode .section-divider { border-color: #999 !important; }
+body.bw-mode .section-divider::after { color: #999 !important; }
+body.bw-mode .comparison-card { border-color: #888 !important; }
+body.bw-mode .comparison-card .card-header { background: #666 !important; color: #fff !important; }
+body.bw-mode .alert-box { border-color: #888 !important; }
+body.bw-mode .checklist .checklist-item { border-color: #999 !important; }
+body.bw-mode .matn-text { border-color: #666 !important; background: #f0f0f0 !important; }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--body-text);
+  background: var(--bg);
+  direction: rtl;
+}
+
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+  @bottom-center {
+    content: "— " counter(page) " —";
+    font-size: 10px;
+    color: #666;
+  }
+}
+
+/* COVER PAGE */
+.cover-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a4f2e 0%, #0d6b3e 30%, #1a8a4a 50%, #0d6b3e 70%, #0a4f2e 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 30px;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+}
+
+.cover-page::before {
+  content: '';
+  position: absolute;
+  top: 15px; left: 15px; right: 15px; bottom: 15px;
+  border: 3px solid rgba(212, 160, 32, 0.6);
+  border-radius: 12px;
+  pointer-events: none;
+}
+
+.cover-page::after {
+  content: '';
+  position: absolute;
+  top: 22px; left: 22px; right: 22px; bottom: 22px;
+  border: 1px solid rgba(212, 160, 32, 0.3);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.cover-ornament {
+  font-size: 36px;
+  color: var(--gold);
+  margin: 10px 0;
+  letter-spacing: 8px;
+}
+
+.cover-book-title {
+  font-family: 'Amiri', serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #fff;
+  margin: 15px 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.cover-author {
+  font-size: 20px;
+  color: var(--light-gold);
+  margin: 8px 0;
+}
+
+.cover-lecture-number {
+  font-size: 28px;
+  color: var(--gold);
+  margin: 20px 0 5px;
+  font-weight: 700;
+}
+
+.cover-lecture-title {
+  font-family: 'Amiri', serif;
+  font-size: 32px;
+  color: #fff;
+  margin: 10px 0 30px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  border-top: 2px solid rgba(212,160,32,0.5);
+  border-bottom: 2px solid rgba(212,160,32,0.5);
+  padding: 10px 30px;
+}
+
+.cover-names {
+  margin-top: 25px;
+  font-size: 16px;
+  color: rgba(255,255,255,0.85);
+  line-height: 2;
+}
+
+.cover-names span {
+  display: block;
+}
+
+.cover-names .label {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* BW TOGGLE */
+.bw-toggle {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+  background: var(--primary-green);
+  color: #fff;
+  border: 2px solid var(--gold);
+  padding: 8px 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 14px;
+  transition: all 0.3s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.bw-toggle:hover {
+  background: var(--dark-green);
+  transform: scale(1.05);
+}
+
+body.bw-mode .bw-toggle {
+  background: #333;
+  border-color: #666;
+}
+
+/* MAIN CONTENT */
+.main-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 25px;
+}
+
+h1 {
+  font-size: 26px;
+  color: var(--primary-green);
+  border-bottom: 3px solid var(--gold);
+  padding-bottom: 8px;
+  margin: 30px 0 20px;
+}
+
+h2 {
+  font-size: 22px;
+  color: var(--dark-green);
+  margin: 25px 0 15px;
+  border-right: 4px solid var(--gold);
+  padding-right: 12px;
+}
+
+h3 {
+  font-size: 19px;
+  color: var(--teal);
+  margin: 20px 0 10px;
+}
+
+p {
+  margin: 8px 0;
+  text-align: justify;
+}
+
+/* MATN TEXT */
+.matn-text {
+  background: var(--light-gold);
+  border-right: 5px solid var(--gold);
+  padding: 12px 18px;
+  margin: 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.8;
+  border-radius: 0 8px 8px 0;
+}
+
+/* EVIDENCE BOXES */
+.evidence-box {
+  padding: 12px 16px;
+  margin: 12px 0;
+  border-radius: 8px;
+  border-right: 5px solid;
+  font-size: 17px;
+}
+
+.evidence-quran {
+  background: var(--quran-bg);
+  border-color: var(--primary-green);
+}
+
+.evidence-hadith {
+  background: var(--hadith-bg);
+  border-color: var(--teal);
+}
+
+.evidence-label {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+.evidence-quran .evidence-label {
+  background: var(--primary-green);
+}
+
+.evidence-hadith .evidence-label {
+  background: var(--teal);
+}
+
+/* POETRY BOX */
+.poetry-box {
+  background: var(--poetry-bg);
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 18px 25px;
+  margin: 15px 0;
+  text-align: center;
+}
+
+.poetry-box .poetry-line {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 2.2;
+  color: var(--dark-green);
+}
+
+.poetry-box .poetry-hemistich {
+  display: inline;
+}
+
+.poetry-box .poetry-separator {
+  display: inline;
+  margin: 0 15px;
+  color: var(--gold);
+}
+
+/* CALLOUT */
+.callout {
+  background: var(--light-green);
+  border: 2px solid var(--primary-green);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  position: relative;
+}
+
+.callout-title {
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 6px;
+  font-size: 16px;
+}
+
+/* SUMMARY BOX */
+.summary-box {
+  background: linear-gradient(135deg, var(--light-gold), #fff);
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 15px 0;
+}
+
+.summary-box .summary-title {
+  font-weight: 700;
+  color: var(--dark-green);
+  margin-bottom: 8px;
+  font-size: 17px;
+}
+
+/* QAIDAH BOX */
+.qaidah-box {
+  background: #fffde7;
+  border: 3px solid var(--gold);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 15px 0;
+}
+
+.qaidah-box .qaidah-label {
+  display: inline-block;
+  background: var(--gold);
+  color: #fff;
+  padding: 2px 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.qaidah-box .qaidah-text {
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--dark-green);
+}
+
+/* BENEFIT BOX */
+.benefit-box {
+  background: var(--light-purple);
+  border: 2px solid var(--purple);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 15px 0;
+}
+
+.benefit-box .benefit-title {
+  font-weight: 700;
+  color: var(--purple);
+  margin-bottom: 6px;
+}
+
+/* DEFINITION CARD */
+.definition-card {
+  background: #fff;
+  border: 2px solid var(--teal);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 12px 0;
+}
+
+.definition-card .definition-term {
+  font-weight: 700;
+  color: var(--teal);
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.definition-card .definition-text {
+  font-size: 16px;
+}
+
+/* RULING CARD */
+.ruling-card {
+  background: #fff;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.ruling-label {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.ruling-label.fard { background: var(--ruling-red); }
+.ruling-label.wajib { background: var(--ruling-orange); }
+.ruling-label.sunna { background: var(--ruling-green); }
+.ruling-label.mustahabb { background: var(--ruling-blue); }
+.ruling-label.makruh { background: var(--ruling-yellow); color: #000; }
+.ruling-label.haram { background: var(--ruling-darkred); }
+.ruling-label.mubah { background: var(--ruling-gray); }
+
+/* COMPARISON CARDS */
+.cols {
+  display: flex;
+  gap: 12px;
+  margin: 12px 0;
+  flex-wrap: wrap;
+}
+
+.cols-3 > * { flex: 1; min-width: 250px; }
+.cols-2 > * { flex: 1; min-width: 300px; }
+
+.comparison-card {
+  background: #fff;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.comparison-card .card-header {
+  background: var(--primary-green);
+  color: #fff;
+  padding: 8px 14px;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+}
+
+.comparison-card .card-body {
+  padding: 12px 14px;
+  font-size: 16px;
+}
+
+/* TABLE */
+.table-styled {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+  font-size: 16px;
+}
+
+.table-styled th {
+  background: var(--primary-green);
+  color: #fff;
+  padding: 10px 12px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.table-styled td {
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  text-align: center;
+}
+
+.table-styled tr:nth-child(even) {
+  background: var(--light-green);
+}
+
+/* TREE */
+.tree-container {
+  margin: 15px 0;
+  text-align: center;
+}
+
+.tree-container .tree-node {
+  display: inline-block;
+  background: var(--light-green);
+  border: 2px solid var(--primary-green);
+  border-radius: 8px;
+  padding: 6px 14px;
+  margin: 4px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dark-green);
+}
+
+.tree-container .tree-node.root-node {
+  background: var(--primary-green);
+  color: #fff;
+  font-size: 18px;
+  padding: 8px 20px;
+  display: block;
+  width: fit-content;
+  margin: 0 auto 10px;
+}
+
+.tree-branch {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin: 6px 0;
+}
+
+.tree-sub-branch {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  margin: 4px 0;
+}
+
+.tree-connector {
+  text-align: center;
+  color: var(--primary-green);
+  font-size: 20px;
+  margin: 4px 0;
+}
+
+/* SECTION DIVIDER */
+.section-divider {
+  border: none;
+  border-top: 2px solid var(--gold);
+  margin: 30px 0;
+  position: relative;
+  text-align: center;
+}
+
+.section-divider::after {
+  content: '✦';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg);
+  padding: 0 10px;
+  color: var(--gold);
+  font-size: 18px;
+}
+
+.section-divider.ornate::after {
+  content: '✦ ❖ ✦';
+}
+
+.section-divider.bismillah::after {
+  content: '﷽';
+  font-size: 22px;
+  color: var(--primary-green);
+}
+
+/* ALERT BOXES */
+.alert-box {
+  padding: 12px 16px;
+  border-radius: 8px;
+  border-right: 5px solid;
+  margin: 12px 0;
+}
+
+.alert-box.success {
+  background: #e8f5e9;
+  border-color: #2e7d32;
+}
+
+.alert-box.info {
+  background: #e3f2fd;
+  border-color: #1565c0;
+}
+
+.alert-box.warning {
+  background: #fff3e0;
+  border-color: #e65100;
+}
+
+.alert-box.error {
+  background: #fce4ec;
+  border-color: #c62828;
+}
+
+/* CHECKLIST */
+.checklist {
+  margin: 12px 0;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.checklist-circle {
+  min-width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--primary-green);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* QUOTE BLOCK */
+.quote-block {
+  background: #fafafa;
+  border-right: 4px solid var(--gold);
+  padding: 12px 18px;
+  margin: 12px 0;
+  font-style: italic;
+}
+
+.quote-attribution {
+  text-align: left;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--primary-green);
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+/* FLOW CHART */
+.flow-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 15px 0;
+}
+
+.flow-step {
+  background: var(--light-green);
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-weight: 600;
+  font-size: 15px;
+  text-align: center;
+}
+
+.flow-arrow {
+  font-size: 22px;
+  color: var(--gold);
+}
+
+/* TABS */
+.tabs-container {
+  margin: 15px 0;
+}
+
+.tabs-nav {
+  display: flex;
+  gap: 4px;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 0;
+}
+
+.tab-btn {
+  padding: 8px 18px;
+  background: var(--light-green);
+  border: 2px solid var(--border);
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dark-green);
+}
+
+.tab-btn.active {
+  background: var(--primary-green);
+  color: #fff;
+  border-color: var(--primary-green);
+}
+
+.tab-panel {
+  display: none;
+  border: 2px solid var(--border);
+  border-top: none;
+  padding: 14px;
+  border-radius: 0 0 8px 8px;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+/* FAQ */
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin: 8px 0;
+  overflow: hidden;
+}
+
+.faq-question {
+  padding: 10px 14px;
+  background: var(--light-green);
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--dark-green);
+  list-style: none;
+}
+
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-question::before {
+  content: '◀ ';
+}
+
+.faq-item[open] .faq-question::before {
+  content: '▼ ';
+}
+
+.faq-answer {
+  padding: 12px 14px;
+  font-size: 16px;
+}
+
+/* SCHOLAR CARD */
+.scholar-card {
+  background: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 14px;
+  margin: 12px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.scholar-name {
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--dark-green);
+}
+
+.scholar-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  color: #fff;
+}
+
+.scholar-badge.shafii { background: var(--primary-green); }
+
+.scholar-dates {
+  font-size: 14px;
+  color: #666;
+}
+
+.scholar-bio {
+  font-size: 15px;
+}
+
+ul, ol {
+  padding-right: 25px;
+  margin: 8px 0;
+}
+
+li {
+  margin: 4px 0;
+}
+
+.highlight {
+  background: var(--light-gold);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+.green-bold {
+  color: var(--primary-green);
+  font-weight: 700;
+}
+
+.teal-bold {
+  color: var(--teal);
+  font-weight: 700;
+}
+
+.gold-bold {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.page-break {
+  page-break-before: always;
+}
+
+@media print {
+  .bw-toggle { display: none; }
+  .main-content { max-width: 100%; padding: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- B&W TOGGLE BUTTON -->
+<button class="bw-toggle" onclick="document.body.classList.toggle('bw-mode')">وضع الأبيض والأسود</button>
+
+<!-- ═══════════════ COVER PAGE ═══════════════ -->
+<div class="cover-page">
+  <div class="cover-ornament">✦ ❖ ✦</div>
+  <div class="cover-book-title cover-white">شرح العوامل المائة</div>
+  <div class="cover-author">للإمام عبد القاهر الجرجاني رحمه الله تعالى</div>
+  <div class="cover-ornament">❁ ❁ ❁</div>
+  <div class="cover-lecture-number cover-gold">الدرس الثالث</div>
+  <div class="cover-lecture-title cover-white">معاني الباء وَ(من)</div>
+  <div class="cover-ornament">✦ ✦ ✦</div>
+  <div class="cover-names">
+    <span><span class="label">إعداد:</span> أحمد بن إرشاد</span>
+    <span><span class="label">المتن:</span> الإمام عبد القاهر الجرجاني رحمه الله تعالى</span>
+    <span><span class="label">الشارح:</span> د. لبيب نجيب عبدالله</span>
+  </div>
+</div>
+
+<!-- ═══════════════ MAIN CONTENT ═══════════════ -->
+<div class="main-content">
+
+<!-- OPENING DUA -->
+<div class="evidence-box evidence-quran" style="text-align:center; font-size:18px;">
+  بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+</div>
+
+<p style="text-align:center; font-size:16px;">يرزقنا الإخلاص في الأقوال والأعمال، اللهم أمين، اللهم علّمنا ما ينفعنا وارزقنا علمًا ينفعنا يا رب العالمين.</p>
+
+<hr class="section-divider ornate">
+
+<!-- ═══════════════ PART 1: معاني الباء (مراجعة) ═══════════════ -->
+<h1>القسم الأول: معاني الباء — مراجعة</h1>
+
+<p>نحن في الدرس الماضي تكلمنا عن معاني الباء، والباء أكثر حروف الجر معانيًا، لها معانٍ كثيرة. ولذلك بعضهم عدّ معاني الباء وأرادوا أن يتعلموها ونظموها في بيتين. كنت ذكرت لكم هذين البيتين في درس التفسير في سورة البقرة، جيد، ولذلك نعيد ذلك مرة أخرى لمن لم يكن حاضرًا معنا، نقرأ البيتين ونضرب مثالًا لكل معنى من هذه المعاني، وحرصت أن تكون الأمثلة في معظمها من القرآن الكريم حتى يسهل حفظها.</p>
+
+<!-- POETRY BOX -->
+<div class="poetry-box">
+  <div class="poetry-line">
+    <span class="poetry-hemistich">تَعَدَّى لُصُوقاً وَاسْتَعِنْ بِتَسَبُّبِ</span>
+    <span class="poetry-separator">✦</span>
+    <span class="poetry-hemistich">وَبَدَّلْ صِحَاباً قَابِلُوكَ بِالاسْتِعْلاءِ</span>
+  </div>
+  <div class="poetry-line">
+    <span class="poetry-hemistich">وَزِدْ بَعْضَهُمْ إِنْ جَاوَزَ الظَّرْفَ غَايَةً</span>
+    <span class="poetry-separator">✦</span>
+    <span class="poetry-hemistich">يَمِيناً تَحُزْ بِالبَاءِ مَعَانِيهَا كُلَّا</span>
+  </div>
+</div>
+
+<p>قال: <span class="green-bold">«إذا فهمتها إنك تحز»</span> يعني تحصل على معاني الباء كلها، تحز بالباء معانيها كلها.</p>
+
+<!-- CLASSIFICATION TREE: معاني الباء -->
+<div class="tree-container">
+  <div class="tree-node root-node">معاني الباء (14 في النظم + التفدية = 15)</div>
+  <div class="tree-connector">▼</div>
+  <div class="tree-branch">
+    <div class="tree-node">1. التعدي</div>
+    <div class="tree-node">2. الإلصاق (ألزمها)</div>
+    <div class="tree-node">3. الاستعانة</div>
+    <div class="tree-node">4. السببية</div>
+    <div class="tree-node">5. البدلية</div>
+    <div class="tree-node">6. المصاحبة</div>
+    <div class="tree-node">7. المقابلة</div>
+  </div>
+  <div class="tree-branch">
+    <div class="tree-node">8. الاستعلاء</div>
+    <div class="tree-node">9. الزائدة</div>
+    <div class="tree-node">10. التبعيض</div>
+    <div class="tree-node">11. بمعنى عن</div>
+    <div class="tree-node">12. الظرفية</div>
+    <div class="tree-node">13. الغاية (بمعنى إلى)</div>
+    <div class="tree-node">14. القسم (يمينًا)</div>
+  </div>
+  <div class="tree-branch">
+    <div class="tree-node" style="border-color: var(--gold); background: var(--light-gold);">15. التفدية (زائد على النظم)</div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ═══ 1. باء التعدي ═══ -->
+<h2>1. باء التعدّي</h2>
+
+<p>قلنا في الغالب أن باء التعدّي تأتي مع الفعل اللازم فتصيّر الفعل اللازم متعديًا إلى مفعول من حيث المعنى، يعني من حيث المعنى يكون كأنه مفعول.</p>
+
+<p>فالأصل أن تقول: <span class="highlight">حجّ الصبي</span>، لكن تقول: <span class="highlight">حججتُ بالصبي</span>.</p>
+
+<p>الأصل أن تقول: <span class="highlight">ذهب نورهم</span>، لكن جاءت الآية الكريمة:</p>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن</span>
+  <p style="font-size:19px; text-align:center;">{ ذَهَبَ اللَّهُ بِنُورِهِمْ }</p>
+  <p>أي: انظر إذا تريد أن تبين المعنى تقول <span class="highlight">أذهبَ اللهُ نورهم</span>، أذهبَ هذه الهمزة تسمى همزة التعدّي. <span class="highlight">أذهبَ اللهُ نورهم</span> — <span class="highlight">ذهبَ اللهُ بنورهم</span> — الباء للتعدّي.</p>
+</div>
+
+<!-- ═══ 2. باء الإلصاق ═══ -->
+<h2>2. باء الإلصاق (اللّزوق)</h2>
+
+<p>الإلصاق من معاني الباء، وهو <span class="green-bold">أقوى المعاني</span> وألزمها للباء. وقد يكون الإلصاق إلصاقًا <span class="teal-bold">حسيًّا</span> تقول: <span class="highlight">زيدٌ به سِحَر</span>، <span class="highlight">زيدٌ به مرض</span>. وقد يكون الإلصاق إلصاقًا <span class="teal-bold">مجازيًّا</span> أي بقربه.</p>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن</span>
+  <p style="font-size:19px; text-align:center;">{ وَلْيَطَّوَّفُوا بِالْبَيْتِ الْعَتِيقِ }</p>
+  <p>أي: بقرب البيت.</p>
+</div>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن</span>
+  <p style="font-size:19px; text-align:center;">{ وَإِذَا مَرُّوا بِهِمْ يَتَغَامَزُونَ }</p>
+  <p>أي: إذا مرّ الكفار بالمؤمنين يتغامزون، والمُراد: إذا مروا <span class="highlight">بقربهم</span> أي بقرب موضع فيه المؤمنون، هذا المقصود.</p>
+</div>
+
+<!-- ═══ 3. باء الاستعانة ═══ -->
+<h2>3. باء الاستعانة</h2>
+
+<div class="definition-card">
+  <div class="definition-term">ضابط باء الاستعانة</div>
+  <div class="definition-text">هي التي تدخل على آلة الفعل</div>
+</div>
+
+<p>تقول: <span class="highlight">قطعتُ بالسكّين</span>، واضح. <span class="highlight">كتبتُ بالقلم</span>.</p>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن</span>
+  <p style="font-size:19px; text-align:center;">{ وَمَا مِنْ دَابَّةٍ فِي الْأَرْضِ وَلَا طَائِرٍ يَطِيرُ بِجَنَاحَيْهِ }</p>
+  <p>لأن الجناح آلة الطيران، لأن الجناح آلة الطيران.</p>
+</div>
+
+<p>وطبعًا ذكرنا أمس الكلام في المقصود: هل الباء في <span class="highlight">بسم الله الرحمن الرحيم</span> للاستعانة أو للمصاحبة؟</p>
+
+<!-- ═══ 4. باء السببية ═══ -->
+<h2>4. باء السببية</h2>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن</span>
+  <p style="font-size:19px; text-align:center;">{ ظَهَرَ الْفَسَادُ فِي الْبَرِّ وَالْبَحْرِ بِمَا كَسَبَتْ أَيْدِي النَّاسِ }</p>
+  <p>أي: <span class="highlight">بسببِ</span> ما كسبت أيدي الناس.</p>
+</div>
+
+<!-- ═══ 5. باء البدلية ═══ -->
+<h2>5. باء البدلية</h2>
+
+<p>أنا لم أجد لها مثلًا من القرآن الكريم يمكن أن أقولها، لكن أن تقول مثلًا: <span class="highlight">ليت لي بك حمارًا</span>، ليت لي بك حمارًا — يعني: لو كان الخيار لي أختار بينك وبين حمار لأخترت الحمار، والحمار أفضل منك. فهمت أم لا؟ جيد.</p>
+
+<div class="callout">
+  <div class="callout-title">تنبيه: الفرق بين باء البدلية وباء المقابلة</div>
+  <p>باء العِوَض (المقابلة): أنت تدفع شيئًا مقابلة شيء. هنا في البدلية لا يوجد دفع ولا عِوَض، وإنما اختيار. لو كنت سأختار بينك وبين الحمار لأخترت الحمار. <span class="highlight">ليت لي بك حمارًا</span> — هذا المقصود.</p>
+</div>
+
+<!-- ═══ 6. باء المصاحبة ═══ -->
+<h2>6. باء المصاحبة</h2>
+
+<p>هي التي بمعنى <span class="green-bold">«مَعَ»</span>.</p>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن</span>
+  <p style="font-size:19px; text-align:center;">{ وَإِذَا جَاءُوكَ قَالُوا آمَنَّا وَقَدْ دَخَلُوا بِالْكُفْرِ وَهُمْ قَدْ خَرَجُوا بِهِ }</p>
+  <p>أي: خرجوا <span class="highlight">معهم</span>.</p>
+</div>
+
+<!-- ═══ 7. باء المقابلة ═══ -->
+<h2>7. باء المقابلة</h2>
+
+<p>باء المقابلة التي تدخل على الأثمان والأعواض، قد يكون حسيًّا وقد يكون معنويًّا.</p>
+
+<p>تقول: <span class="highlight">اشتريتُ الكتابَ بالثوب</span> — فالباء هذه باء المقابلة باء العِوَض، وهذا الثمن الآن ثمن حسي.</p>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن</span>
+  <p style="font-size:19px; text-align:center;">{ اشتَرَوُا الضَّلَالَةَ بِالْهُدَى }</p>
+  <p>أي: دفعوا الهدى مقابل أن يأخذوا الضلالة — وهذا ثمن معنوي.</p>
+</div>
+
+<!-- ═══ 8. باء الاستعلاء ═══ -->
+<h2>8. باء الاستعلاء</h2>
+
+<p>هي التي تكون بمعنى <span class="green-bold">«على»</span>. وهذا الاستعلاء لم يذكره المصنف.</p>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن</span>
+  <p style="font-size:19px; text-align:center;">{ وَإِذَا مَرُّوا بِهِمْ يَتَغَامَزُونَ }</p>
+  <p>ممكن يصلح هذا المثال أيضًا للاستعلاء، ويصلح أيضًا للاستعلاء للإلصاق. واضح يصلح لاستعلاء فيكون المعنى: <span class="highlight">وإذا مرّوا عَلَيْهم يتغامزون</span>.</p>
+</div>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن — سورة آل عمران</span>
+  <p style="font-size:19px; text-align:center;">{ وَمِنْ أَهْلِ الْكِتَابِ مَنْ إِنْ تَأْمَنْهُ بِقِنْطَارٍ }</p>
+  <p>ما معنى تأمنه بقنطار؟ تأمنه <span class="highlight">على قنطار</span> يؤدّيه إليه.</p>
+  <p style="font-size:19px; text-align:center;">{ وَمِنْهُمْ مَنْ إِنْ تَأْمَنْهُ بِدِينَارٍ }</p>
+  <p>ما معنى بدينار؟ <span class="highlight">على دينار</span>. هذا أوضح، ممكن تجعله مثالًا آخر للاستعلاء.</p>
+</div>
+
+<!-- ═══ 9. باء الزائدة ═══ -->
+<h2>9. باء الزائدة</h2>
+
+<p>وذكرنا أن الزيادة قد تكون سماعية وقد تكون قياسية.</p>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن</span>
+  <p style="font-size:18px; text-align:center;">{ أَلَيْسَ اللَّهُ بِكَافٍ عَبْدَهُ }</p>
+  <p style="font-size:18px; text-align:center;">{ أَلَيْسَ اللَّهُ بِعَزِيزٍ ذِي انْتِقَامٍ }</p>
+  <p style="font-size:18px; text-align:center;">{ وَمَا رَبُّكَ بِظَلَّامٍ لِلْعَبِيدِ }</p>
+  <p style="font-size:18px; text-align:center;">{ وَمَا اللَّهُ بِغَافِلٍ عَمَّا تَعْمَلُونَ }</p>
+</div>
+
+<!-- ═══ 10. باء التبعيض ═══ -->
+<h2>10. باء التبعيض</h2>
+
+<p>قال جماعة من الفقهاء حتى من بعض الشافعية: إن الباء في قول الله عزّ وجلّ:</p>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن</span>
+  <p style="font-size:19px; text-align:center;">{ وَامْسَحُوا بِرُؤُوسِكُمْ }</p>
+  <p>للتبعيض، لأنه لا يجب مسح جميع الرأس. واضح. وقال آخرون: إن الباء للإلصاق، ومحلّ نقاش هذا كتب التفسير والفقه، لكن هذا يصلح مثالًا على رأي جماعة من العلماء.</p>
+</div>
+
+<!-- ═══ 11. باء بمعنى عن ═══ -->
+<h2>11. الباء التي بمعنى «عن» (المجاوزة)</h2>
+
+<p>قوله: <span class="green-bold">«إن جاوز»</span> — تسمّى الباء التي بمعنى <span class="green-bold">«عن»</span>، لأن «عن» حرف الجرّ يفيد المجاوزة. تقول: <span class="highlight">رميتُ السهمَ عن القوس</span> — رميت السهم عن القوس واضح.</p>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن</span>
+  <p style="font-size:19px; text-align:center;">{ سَأَلَ سَائِلٌ بِعَذَابٍ وَاقِعٍ }</p>
+  <p>ما معنى سأل سائل بعذاب؟ <span class="highlight">عن عذاب واقع</span>، فالباء هنا بمعنى «عن».</p>
+</div>
+
+<!-- ═══ 12. باء الظرفية ═══ -->
+<h2>12. باء الظرفية</h2>
+
+<p>ومن معاني الباء الظرفية، والظرفية قد تكون ظرفية زمانية وقد تكون مكانية.</p>
+
+<table class="table-styled">
+  <tr>
+    <th>النوع</th>
+    <th>المثال</th>
+    <th>التقدير</th>
+  </tr>
+  <tr>
+    <td>زمانية/مكانية</td>
+    <td>اعتكفتُ بالمسجد</td>
+    <td>ظرفية زمانية أو مكانية</td>
+  </tr>
+  <tr>
+    <td>زمانية</td>
+    <td>{ وبالأسحار هم يستغفرون }</td>
+    <td>في الأسحار / في الليل</td>
+  </tr>
+</table>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن</span>
+  <p style="font-size:19px; text-align:center;">{ وَإِنَّكُمْ لَتَمُرُّونَ عَلَيْهِمْ مُصْبِحِينَ * وَبِاللَّيْلِ }</p>
+</div>
+
+<!-- ═══ 13. باء الغاية ═══ -->
+<h2>13. باء الغاية (بمعنى «إلى»)</h2>
+
+<p>المراد بقولنا: الباء من معانيها الغاية، أي الباء التي تأتي بمعنى <span class="green-bold">«إلى»</span>، لأن «إلى» تفيد الغاية.</p>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن — سورة يوسف</span>
+  <p style="font-size:19px; text-align:center;">{ وَقَدْ أَحْسَنَ بِي }</p>
+  <p>ما معنى أحسن بي؟ <span class="highlight">أحسن إليّ</span>، { وقد أحسن بي إذ أخرجني من السجن وجاء بكم من البدو }.</p>
+</div>
+
+<!-- ═══ 14. باء القسم ═══ -->
+<h2>14. باء القسم (يمينًا)</h2>
+
+<p>الباء التي بمعنى القسم، باء القسم. تقول: <span class="highlight">أقسمُ بالله</span>.</p>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن</span>
+  <p style="font-size:18px; text-align:center;">{ لَا أُقْسِمُ بِيَوْمِ الْقِيَامَةِ }</p>
+  <p style="font-size:18px; text-align:center;">{ فَلَا أُقْسِمُ بِمَوَاقِعِ النُّجُومِ }</p>
+  <p style="font-size:18px; text-align:center;">{ فَلَا أُقْسِمُ بِمَا تُبْصِرُونَ وَمَا لَا تُبْصِرُونَ }</p>
+</div>
+
+<!-- ═══ 15. باء التفدية ═══ -->
+<h2>15. باء التفدية (زائدة على النظم)</h2>
+
+<p>هناك معنى زائد لم يُذكر في البيتين وهو <span class="green-bold">التفدية</span>: <span class="highlight">فداك أبي وأمي</span>، <span class="highlight">فداك بأبي وأمي</span>. هذا معنى زائد، فتكون المعاني التي تعدّها خمسة عشر.</p>
+
+<hr class="section-divider ornate">
+
+<!-- ═══════════════ تطبيق فقهي: تخلل الخمر ═══════════════ -->
+<h1>تطبيق فقهي: تخلّل الخمر</h1>
+
+<p>لو سألتكم سؤالًا في الفقه: الفقهاء يقولون: <span class="highlight">إن تخلّلت الخمر بطرح عين فيها لم تطهر</span>. أين حرف الباء؟ <span class="highlight">بطرح</span>. ما معنى الباء هنا؟</p>
+
+<div class="callout">
+  <div class="callout-title">تحليل المعاني المحتملة</div>
+  <p>الذي يعرف يرفع إيده:</p>
+  <ul>
+    <li><span class="teal-bold">سببية؟</span> — محتمل سببية.</li>
+    <li><span class="teal-bold">استعانة؟</span> — الطرح ليس آلة.</li>
+    <li><span class="teal-bold">مصاحبة؟</span> — مصاحبة!</li>
+  </ul>
+</div>
+
+<div class="alert-box warning">
+  <p><span class="green-bold">لو قلت إنها السببية</span> — انتبه معي، شوف كيف المعنى يتغير: لو قلت إن الباء سببية هنا، سيكون المعنى: إن تخلّلت الخمر <span class="highlight">بسببِ</span> طرح عين فيها لم تطهر. فإذا طرحت عينًا ولم تكن العين سببًا في التخلّل فإنها تطهر. يعني عندك إنها خمر ووضعت عينًا — قلمًا ووضعت قلمًا — والقلم هذا ليس السبب للتخلّل، فإنها تطهر إذا تخلّلت. <span class="green-bold">هل هذا المعنى صحيح؟</span> إذن لا يصلح أن تكون سببية.</p>
+</div>
+
+<div class="benefit-box">
+  <div class="benefit-title">✦ الفائدة: الباء هنا للمصاحبة</div>
+  <p>المقصود: إن تخلّلت الخمر <span class="highlight">بمصاحبةِ عين</span> — سواء العين سبّبت التخلّل أو لم تسبّب التخلّل فإنها لا تطهر. فالباء هنا مصاحبة. تجد في بعض المتون والشروح يقولون: «إن تخلّلت الخمر <span class="highlight">بمصاحبة عين</span>» هكذا بالتصريح، حتى لا يتوهم متوهم أن الباء هنا سببية. فيقولون: إيه؟ بمصاحبة عين. جيد. والحمد لله. وهذا مرّ معكم في <span class="teal-bold">نيل الرجاء</span>، لكن ربما نكتة الفائدة لم تمرّ. لكن المسألة مرّت معكم.</p>
+</div>
+
+<hr class="section-divider ornate">
+
+<!-- ═══════════════ PART 2: مقارنة حروف الجر ═══════════════ -->
+<h1>القسم الثاني: الحرف الأصلي والزائد والشبيه بالزائد</h1>
+
+<p>الآن أريد أن أفرّق لكم بين <span class="green-bold">الحرف الأصلي</span> و<span class="green-bold">الحرف الزائد</span> و<span class="green-bold">الحرف الشبيه بالزائد</span>. هذا مهم.</p>
+
+<!-- COMPARISON TABLE -->
+<table class="table-styled">
+  <tr>
+    <th>الوصف</th>
+    <th>الحرف الأصلي</th>
+    <th>الحرف الزائد</th>
+    <th>الحرف الشبيه بالزائد (رُبّ)</th>
+  </tr>
+  <tr>
+    <td><span class="green-bold">المعنى الخاص</span></td>
+    <td style="color: var(--primary-green); font-weight:700;">✓ له معنى خاص<br>(الباء: الإلصاق، من: الابتداء، عن: المجاوزة، إلى: الغاية)</td>
+    <td style="color: var(--ruling-red); font-weight:700;">✗ ليس له معنى خاص<br>(فقط التوكيد)</td>
+    <td style="color: var(--teal); font-weight:700;">✓ له معنى خاص<br>(التقليل والتكثير)</td>
+  </tr>
+  <tr>
+    <td><span class="green-bold">المتعلّق</span></td>
+    <td style="color: var(--primary-green); font-weight:700;">✓ لا بد أن يتعلّق<br>إما بفعل أو ما يشبه الفعل</td>
+    <td style="color: var(--ruling-red); font-weight:700;">✗ ليس له متعلّق</td>
+    <td style="color: var(--ruling-red); font-weight:700;">✗ ليس له متعلّق</td>
+  </tr>
+  <tr>
+    <td><span class="green-bold">الجرّ</span></td>
+    <td style="color: var(--primary-green); font-weight:700;">لفظًا ومحلًّا</td>
+    <td style="color: var(--ruling-red); font-weight:700;">لفظًا فقط (لا محلا)</td>
+    <td style="color: var(--ruling-red); font-weight:700;">لفظًا فقط (لا محلا)</td>
+  </tr>
+  <tr>
+    <td><span class="green-bold">الشبه بالأصلي</span></td>
+    <td>—</td>
+    <td>—</td>
+    <td>يشبه الأصلي في <span class="teal-bold">أمر واحد</span> (المعنى الخاص)</td>
+  </tr>
+  <tr>
+    <td><span class="green-bold">الشبه بالزائد</span></td>
+    <td>—</td>
+    <td>—</td>
+    <td>يشبه الزائد في <span class="teal-bold">أمرين</span> (عدم المتعلّق + الجرّ لفظًا فقط)</td>
+  </tr>
+</table>
+
+<!-- ═══ الحرف الأصلي ═══ -->
+<h2>الحرف الأصلي</h2>
+
+<p>الحرف الأصلي له معنى خاص. فأنت عندما تقول: الباء المعنى الخاص لها الإلصاق، من المعنى الخاص لها الابتداء، عن المعنى الخاص لها المجاوزة، إلى المعنى الخاص لها الانتهاء والغاية. هذا حرف جرّ أصلي له معنى خاص.</p>
+
+<p>الحرف الأصلي لا بدّ أن يتعلّق إما بفعل أو ما يشبه الفعل.</p>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن — الفاتحة</span>
+  <p style="font-size:19px; text-align:center;">{ اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ * صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ }</p>
+  <p>أين حرف الجرّ؟ <span class="highlight">عليهم</span> — جرّ مجرور يتعلّق بماذا؟ <span class="green-bold">أنعمت</span> — لا بد أن يتعلّق إما بفعل (أنعمت) أو بما يشبه الفعل.</p>
+  <p style="font-size:19px; text-align:center;">{ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ }</p>
+  <p><span class="highlight">عليهم</span> يتعلّق بـ<span class="green-bold">المغضوب</span> — المغضوب هذا فعل أو يشبه الفعل؟ اسم مفعول يشبه الفعل.</p>
+</div>
+
+<p>إذن حرف الجرّ الأصلي لا بدّ أن يتعلّق إما بالفعل أو بما يشبه الفعل.</p>
+
+<!-- ═══ الحرف الزائد ═══ -->
+<h2>الحرف الزائد</h2>
+
+<p>لكن حرف الجرّ الزائد لا يتعلّق بشيء، حرف الجرّ الزائد ليس له ما يتعلّق به، ليس له متعلّق — هذا الفرق الثاني.</p>
+
+<p>فرق ثالث: أن حرف الجرّ الأصلي يجرّ في اللفظ وفي المحل. تقول: <span class="highlight">سافرتُ من مكة إلى المدينة</span> — مكة مجرور لفظًا ومحلًّا، إلى المدينة مجرور لفظًا ومحلًّا.</p>
+
+<p>لكن حرف الجرّ الزائد هذا يجرّ لفظًا فقط. أما في المحل ففي باب المبتدأ والخبر مثلًا: <span class="highlight">بحسبك درهم</span> — تذكرون؟ قلنا الباء هذه حرف جرّ زائد، <span class="highlight">بحسبك</span> اسم مجرور بالباء لفظًا لكنه في محل رفع مبتدأ. شوف المحل لا يجرّ. بحسبك درهم — لماذا؟ لأنه حرف جرّ زائد يجرّ لفظًا فقط لا محلًّا.</p>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن</span>
+  <p style="font-size:19px; text-align:center;">{ وَكَفَى بِاللَّهِ شَهِيداً }</p>
+  <p>كفى فعل، بالله شهيدًا — بالله: الباء حرف جرّ زائد، اسم الجلالة مجرور في اللفظ لكنه في المحل <span class="highlight">مرفوع</span>. إذن حرف الجرّ الزائد هذا يجرّ لفظًا فقط لا محلًّا.</p>
+</div>
+
+<div class="callout">
+  <div class="callout-title">تنبيه مهم في المصطلح</div>
+  <p>لما نقول: «هذا حرف جرّ زائد» ليس المقصود ليس له معنى البتّة — انتبه لما أقول: حرف جرّ زائد ليس المراد أنه ليس له معنى، إنما المراد: له معنى <span class="green-bold">التوكيد فقط</span> وليس له معنى خاص. له معنى التوكيد فقط وليس له معنى خاص. احفظ هذا المصطلح: ما معنى حرف جرّ زائد؟ معناه: ليس له معنى خاص بل معناه التوكيد فقط.</p>
+</div>
+
+<!-- ═══ الحرف الشبيه بالزائد ═══ -->
+<h2>الحرف الشبيه بالزائد (رُبّ)</h2>
+
+<p>في عندنا حرف جرّ شبيه بالزائد مثل <span class="green-bold">رُبّ</span> — رُبّ لها خصائصها ذكرناها لكم قريبًا لا بدّ أن تراجعوها.</p>
+
+<p>رُبّ تشبه حرف الجرّ الأصلي في بعض الأمور وتشبه الحرف الزائد في بعض الأمور:</p>
+
+<ul>
+  <li><span class="teal-bold">من حيث المعنى الخاص:</span> رُبّ لها معنى خاص، فإن رُبّ تفيد <span class="highlight">التقليل</span> قليلًا و<span class="highlight">التكثير</span> كثيرًا. واضح لنا؟ إذا لها معنى خاص — بهذا تشبه ماذا؟ <span class="green-bold">الأصلي</span> لأن الأصلي له معنى خاص.</li>
+  <li><span class="teal-bold">هل لها متعلّق؟</span> لا، ليس لها متعلّق — بهذا تشبه <span class="green-bold">الزائد</span>.</li>
+  <li><span class="teal-bold">هل تجرّ لفظًا ومحلًّا أو تجرّ لفظًا فقط؟</span> تجرّ لفظًا فقط — بهذا تشبه <span class="green-bold">الزائد</span>.</li>
+</ul>
+
+<div class="summary-box">
+  <div class="summary-title">الخلاصة</div>
+  <p>رُبّ تشبه الزائد في <span class="green-bold">أمرين</span> (عدم المتعلّق + الجرّ لفظًا فقط) وتشبه الأصلية في <span class="green-bold">أمر واحد</span> (المعنى الخاص).</p>
+</div>
+
+<hr class="section-divider ornate">
+
+<!-- ═══════════════ PART 3: معاني من ═══════════════ -->
+<h1>القسم الثالث: معاني مِن</h1>
+
+<p>نكون بهذا انتهينا من الحرف الأول من حروف الجرّ. الآن نقلب السبورة لنتكلم عن الحرف الثاني. سنقلبها لوحدها إن شاء الله سهلة ليست صعبة. الآن نتكلم عن الحرف الثاني من الحروف التي ذكرها المصنف العلامة عبد القاهر الجرجاني رحمه الله تعالى — الحرف الثاني هو <span class="green-bold">مِن</span>.</p>
+
+<p>ذكر بعض المعاني لمِن — أظنّ ذكر ستّة أو سبعة. كم ذكر؟ خمسة فقط. خمسة في السبورة ذكرت لكم <span class="green-bold">تسعة</span>، وأنا أهتمّ بذكر المعاني هذه لكم لأن هذه من سيقرأ القرآن والحديث يتوقّف على فهمها — فهم آيات القرآن وفهم كلام النبي صلى الله عليه وسلم. ولذلك هذه الحروف تسمّى حروف <span class="green-bold">معاني</span>. لماذا سُمّيت معاني؟ لأن لها معنى، بناء أحيانًا يختلفون في معنى الحرف فيختلف الحكم.</p>
+
+<div class="qaidah-box">
+  <div class="qaidah-label">قاعدة مهمة</div>
+  <div class="qaidah-text">تسمّى حروف المعاني لأن لها معنى، واختلافهم في معنى الحرف يختلف الحكم الفقهي.</div>
+  <div class="qaidah-text" style="margin-top:8px;">مثال: { وامسحوا برؤوسكم } — الذي يقول إن الباء للإلصاق يوجب مسح جميع الرأس، والذي يقول إن الباء للتبعيض يقول يجب مسح بعض الرأس. بناءً على اختلافهم في معنى الباء اختلف الحكم الفقهي.</div>
+</div>
+
+<!-- CLASSIFICATION TREE: معاني من -->
+<div class="tree-container">
+  <div class="tree-node root-node">معاني مِن (9 معانٍ)</div>
+  <div class="tree-connector">▼</div>
+  <div class="tree-branch">
+    <div class="tree-node">1. الابتداء</div>
+    <div class="tree-node">2. بيان الجنس</div>
+    <div class="tree-node">3. التبعيض</div>
+  </div>
+  <div class="tree-branch">
+    <div class="tree-node">4. الظرفية (بمعنى في)</div>
+    <div class="tree-node">5. الزيادة (للتوكيد)</div>
+    <div class="tree-node">6. التعليل</div>
+  </div>
+  <div class="tree-branch">
+    <div class="tree-node">7. بمعنى عن</div>
+    <div class="tree-node">8. بمعنى على</div>
+    <div class="tree-node">9. بمعنى البدل</div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ═══ 1. من الابتداء ═══ -->
+<h2>1. مِن لابتداء الغاية</h2>
+
+<p>الابتداء قد يكون ابتداءً زمانيًّا وقد يكون ابتداءً مكانيًّا وقد يكون ابتداءً لا زمانيًّا ولا مكانيًّا.</p>
+
+<table class="table-styled">
+  <tr>
+    <th>نوع الابتداء</th>
+    <th>المثال</th>
+    <th>التقدير</th>
+  </tr>
+  <tr>
+    <td><span class="green-bold">مكاني</span></td>
+    <td>{ سُبْحَانَ الَّذِي أَسْرَى بِعَبْدِهِ لَيْلًا مِنَ الْمَسْجِدِ الْحَرَامِ }</td>
+    <td>ابتداء الإسراء من المسجد</td>
+  </tr>
+  <tr>
+    <td><span class="green-bold">زماني</span></td>
+    <td>صمتُ من الاثنين إلى الخميس</td>
+    <td>ابتداء الصيام من الاثنين إلى الخميس</td>
+  </tr>
+  <tr>
+    <td><span class="green-bold">لا زماني ولا مكاني</span></td>
+    <td>ابتداء القراءة من سورة البقرة</td>
+    <td>ابتداء فعل (القراءة)</td>
+  </tr>
+</table>
+
+<!-- Hadith of Istisqa' -->
+<div class="evidence-box evidence-hadith">
+  <span class="evidence-label">حديث</span>
+  <p>كان النبي صلى الله عليه وسلم يخطب الجمعة فدخل رجل المسجد والنبي عليه الصلاة والسلام يخطب الجمعة، قال: يا رسول الله جاء العيال وهلكت الأموال فادعوا الله أن يغيثنا. قال أنس: فلم يكن في السماء قِزَعة — ما في سحاب — قال: فرفع النبي صلى الله عليه وسلم يديه ودعا الله: اللهم غثنا، اللهم غثنا، اللهم غثنا. قال: فإذ بسحابة غطّت المدينة. قال: فمطرنا <span class="highlight">من الجمعة إلى الجمعة</span>.</p>
+  <p>مطرنا من الجمعة إلى الجمعة — من هنا ابتأ أيّ؟ <span class="green-bold">زماني</span>.</p>
+</div>
+
+<div class="callout">
+  <div class="callout-title">تنبيه: الابتداء الزماني في «مِن»</div>
+  <p>موجود في عِلَل الأحكام: «فمطرنا من الجمعة إلى الجمعة» — ابتداء زماني. لأن بعض الناس بعض العلماء أنكر الابتداء الزماني في «مِن»، قال: «مِن» للابتداء المكاني فقط. لكن رُدّ عليه بأحاديث وبكلام العرب أن الابتداء الزماني موجود في معاني «مِن» أيضًا.</p>
+</div>
+
+<!-- ═══ 2. من لبيان الجنس ═══ -->
+<h2>2. مِن لبيان الجنس</h2>
+
+<p>بيان الجنس هي التي تكون بمعنى «الذي هو» أو «التي هي» أو «هو» أو «هي».</p>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن — سورة الحج</span>
+  <p style="font-size:19px; text-align:center;">{ فَاجْتَنِبُوا الرِّجْسَ مِنَ الْأَوْثَانِ }</p>
+  <p>«مِن» هذه ما معناها؟ «مِن» هذه لبيان الجنس. كيف تعرف أنها لبيان الجنس؟ خذها وضع بدلها <span class="highlight">«الذي هو»</span>: فاجتنبوا الرجس <span class="highlight">الذي هو</span> الأوثان. واضح؟ إذا صلح أن يحلّ محلّها «الذي هو» فإنها لبيان الجنس.</p>
+  <p>والرجس هنا مذكّر أو مؤنّث؟ مذكّر. فاستخدمت <span class="highlight">الذي هو</span>. ولو كان مؤنّثًا سأستخدم <span class="highlight">التي هي</span>.</p>
+  <p>الرجس هنا معرفة أو نكرة؟ <span class="green-bold">معرفة</span>. فلما كان في التقدير «الذي هو».</p>
+</div>
+
+<div class="qaidah-box">
+  <div class="qaidah-label">قاعدة: كيف تعرف مِن لبيان الجنس</div>
+  <div class="qaidah-text">إن بيّنت <span class="green-bold">معرفة</span> → تقدّر: <span class="highlight">الذي هو / التي هي</span> (الاسم الموصول مع الضمير)</div>
+  <div class="qaidah-text">إن بيّنت <span class="green-bold">نكرة</span> → تقدّر: <span class="highlight">الضمير فقط</span> (هو / هي)</div>
+</div>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن</span>
+  <p style="font-size:19px; text-align:center;">{ يُحَلَّوْنَ فِيهَا مِنْ أَسَاوِرَ مِنْ ذَهَبٍ }</p>
+  <p>«مِن» الأولى للتبعيض (من بعض الأساور) — ما لنا علاقة فيها. لكن «مِن» ذهب — «مِن» هذه إيش معناها هنا؟ <span class="green-bold">لبيان الجنس</span>. ما جنس هذه الأساور؟ ما جنسها؟ حديد؟ ذهب؟ ما جنسها؟ قال: من ذهب — لبيان الجنس. أساور نكرة أو معرفة؟ <span class="green-bold">نكرة</span>. كيف تقدر؟ <span class="highlight">يحلّون فيها من أساور هي ذهب</span>.</p>
+</div>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن</span>
+  <p style="font-size:19px; text-align:center;">{ ثِيَاباً خُضْراً مِنْ سُنْدُسٍ }</p>
+  <p>قدّر: <span class="highlight">خضرًا هو سندس</span> — لأن ثيابًا نكرة، فتقدّر الضمير فقط.</p>
+</div>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن — سورة البقرة</span>
+  <p style="font-size:19px; text-align:center;">{ كُلَّمَا رُزِقُوا مِنْهَا مِنْ ثَمَرَةٍ رِزْقاً }</p>
+  <p>«مِن» الأولى للتبعيض (سنأتي إليها بعد قليل)، لكن «مِن» الثانية <span class="green-bold">بيان الجنس</span>: كلما رزقوا منها من ثمرة — <span class="highlight">هي ثمرة</span>.</p>
+</div>
+
+<!-- ═══ 3. من للتبعيض ═══ -->
+<h2>3. مِن للتبعيض</h2>
+
+<p>هنا مثال للتبعيض، وهنا مثال للتبعيض، ومثال ثالث للتبعيض.</p>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن</span>
+  <p style="font-size:19px; text-align:center;">{ وَمِمَّا رَزَقْنَاهُمْ يُنْفِقُونَ }</p>
+  <p>إيش معنى مما رزقناهم ينفقون؟ <span class="highlight">من بعضِ</span> ما رزقناهم ينفقون. فأنت لا تنفق من كلّ ما رزقك الله تنفقه لا، تنفق بعضًا، والذيك الواجب عليك في الإنفاق مثلًا في الزكاة: ربع العشر، نصف العشر، العشر، الخمس في الركاز. إذن من بعضه وليس كله — إذن «مِن» هنا للتبعيض.</p>
+</div>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن</span>
+  <p style="font-size:19px; text-align:center;">{ كُلَّمَا رُزِقُوا مِنْهَا مِنْ ثَمَرَةٍ رِزْقاً }</p>
+  <p>«مِن» الأولى للتبعيض — من بعض ثمار الجنة.</p>
+</div>
+
+<!-- ═══ 4. من للظرفية ═══ -->
+<h2>4. مِن للظرفية (بمعنى «في»)</h2>
+
+<p>تأتي للظرفية — ما مثالها؟</p>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن — سورة الجمعة</span>
+  <p style="font-size:19px; text-align:center;">{ يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا نُودِيَ لِلصَّلَاةِ مِنْ يَوْمِ الْجُمُعَةِ }</p>
+  <p>ما المعنى؟ <span class="highlight">في يوم الجمعة</span>. فهي التي تأتي بمعنى «في». نودي للصلاة من يوم الجمعة — ما المعنى من يوم الجمعة؟ في يوم الجمعة. لذلك قلت لك هذه الحروف تساعدك كثيرًا على فهم معاني الآيات.</p>
+</div>
+
+<!-- ═══ 5. من الزائدة ═══ -->
+<h2>5. مِن الزائدة</h2>
+
+<p>قد تأتي «مِن» زائدة. وزيادة «مِن» — زيادة «مِن» إمّا بعد <span class="green-bold">نفي</span> أو <span class="green-bold">استفهام</span> أو <span class="green-bold">نهي</span>.</p>
+
+<div class="definition-card">
+  <div class="definition-term">شروط مِن الزائدة</div>
+  <div class="definition-text">
+    <div class="checklist">
+      <div class="checklist-item">
+        <div class="checklist-circle">1</div>
+        <div class="checklist-text">أن تسبق بنفي أو نهي أو استفهام</div>
+      </div>
+      <div class="checklist-item">
+        <div class="checklist-circle">2</div>
+        <div class="checklist-text">أن يكون اسمها المجرور بها <span class="green-bold">نكرة</span></div>
+      </div>
+    </div>
+    <p style="margin-top:8px;">حينئذ تقول: «مِن» هذه إيش؟ <span class="green-bold">زائدة</span>. ما معنى زائدة؟ تفيد <span class="green-bold">التوكيد فقط</span> وليس لها معنى خاص.</p>
+  </div>
+</div>
+
+<!-- أمثلة من الزائدة -->
+<h3>أمثلة مِن الزائدة بعد النفي</h3>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن — سورة القصص</span>
+  <p style="font-size:19px; text-align:center;">{ فَمَا كَانَ لَهُ مِنْ فِئَةٍ يَنصُرُونَهُ مِنْ دُونِ اللَّهِ }</p>
+  <p>جاءت بعد نفي، والمجرور بها نكرة — تحقّق الشرطان. أي: ما كان له فئة ينصرونه من دون الله.</p>
+</div>
+
+<div class="callout">
+  <div class="callout-title">فائدة بلاغية: لماذا زيادة «مِن»؟</div>
+  <p>لاحظ معي: لو كانت الآية هكذا: «فما كان له فئة» — كلامي يستقيم ولا يستقيم؟ يستقيم. طيب من حيث البلاغة انتبه معي بارك الله فيه حتى تفهم المعاني من حيث البلاغة:</p>
+  <p>لو قال: <span class="highlight">فما كان له فئة ينصرونه من دون الله</span> — والآية: <span class="highlight">فما كان له من فئة ينصرونه من دون الله</span> — أيهما أبلغ؟ <span class="green-bold">الثاني أبلغ</span>. ليش؟</p>
+  <p>لأنه إذا لم تأتِ «مِن» فإن هذا يكون ظاهرًا في العموم وليس نصًّا في العموم — العموم أغلب لكن ليس قطعيًّا. لكن لو قال: <span class="highlight">فما كان له من فئة</span> — هذا <span class="green-bold">نصّ في العموم</span>. ولذلك الإتيان بـ«مِن» يؤكّد — يؤكّد ماذا؟ يؤكّد النفي، يؤكّد عموم النفي. هذا معنى التوكيد — هذا معنى كون «مِن» الزائدة تفيد التوكيد.</p>
+</div>
+
+<h3>أمثلة مِن الزائدة بعد الاستفهام</h3>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن</span>
+  <p style="font-size:19px; text-align:center;">{ هَلْ تُحِسُّوا مِنْهُمْ مِنْ أَحَدٍ }</p>
+  <p>أو تسمع لهم — هل تحسّوا منهم من أحد؟ لو أزلت «مِن» إيش يكون؟ هل تحسّوا منهم أحدًا؟ لكن «مِن» هنا جاءت للمبالغة في النفي — لا أحد على سبيل القطع.</p>
+</div>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن — سورة الملك</span>
+  <p style="font-size:19px; text-align:center;">{ فَرَجَعَ الْبَصَرَ هَلْ تَرَى مِنْ فُطُورٍ }</p>
+  <p>«مِن» زائدة وقعت بعد إيش؟ هل ترى — بعد استفهام. فطور معرفة أو نكرة؟ <span class="green-bold">نكرة</span>.</p>
+</div>
+
+<h3>أمثلة مِن الزائدة بعد النهي</h3>
+
+<p>النهي كقولك: <span class="highlight">لا تقُلْ من شيء</span> — يعني لا تتكلّم بأيّ شيء، لا أريد أن أسمع كلامك. لا تقول من شيء — تقدّر الكلام إيش؟ <span class="highlight">لا تقول شيئًا</span>. لكن إذا أردت المبالغة تأكيد: <span class="highlight">لا تقول من شيء</span>.</p>
+
+<!-- ═══ 6. من للتعليل ═══ -->
+<h2>6. مِن للتعليل (السببية)</h2>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن</span>
+  <p style="font-size:19px; text-align:center;">{ وَلَا تَقْتُلُوا أَوْلَادَكُمْ مِنْ إِمْلَاقٍ }</p>
+  <p>ما معنى إملاق؟ فقر. إيش معنى الآية؟ لا تقتلوا أولادكم <span class="highlight">بسببِ</span> الإملاق — بسبب الفقر. فـ«مِن» هنا تعليلية بما معنى السبب.</p>
+</div>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن — سورة نوح</span>
+  <p style="font-size:19px; text-align:center;">{ مِمَّا خَطِيئَاتِهِمْ أُغْرِقُوا }</p>
+  <p>إيش معنى الآية؟ <span class="highlight">بسبب خطيئاتهم أُغرقوا</span> فأُدخلوا نارًا. فـ«مِن» هنا ما معناها؟ <span class="green-bold">تعليل / سببية</span>.</p>
+</div>
+
+<!-- ═══ 7. من بمعنى عن ═══ -->
+<h2>7. مِن بمعنى «عن»</h2>
+
+<p>في سورة عبس:</p>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن — سورة عبس</span>
+  <p style="font-size:19px; text-align:center;">{ يَوْمَ يَفِرُّ الْمَرْءُ مِنْ أَخِيهِ }</p>
+  <p>إيش يعني يفرّ من أخيه؟ <span class="highlight">عن أخيه</span>. تقول: فررت عنه أو فررت منه. فررت عنه — فـ«مِن» هنا بمعنى إيش؟ <span class="green-bold">بمعنى عن</span>.</p>
+</div>
+
+<!-- ═══ 8. من بمعنى على ═══ -->
+<h2>8. مِن بمعنى «على»</h2>
+
+<p>في الحديث — حديث عائشة في الأضحية:</p>
+
+<div class="evidence-box evidence-hadith">
+  <span class="evidence-label">حديث عائشة — الأضحية</span>
+  <p>إن الدم يقع من الله تعالى قبل أن يقع من الأرض. يعني أن الله عزّ وجلّ يتقبّل الأضحية — يقع من الله تعالى أي موقع القبول. تمام؟ قبل أن يقع من الأرض — من الأرض. ما معنى من الأرض؟ <span class="highlight">على الأرض</span>.</p>
+  <p>بدليل: رواية الترمذي — ها — رواية ابن ماجه: «قبل أن يقع <span class="highlight">على الأرض</span>». فهمتم؟ رواية ابن ماجه: «قبل أن يقع على الأرض». فالرواية تفسّر أن معنى «مِن» هنا <span class="green-bold">على</span>.</p>
+</div>
+
+<!-- ═══ 9. من بمعنى البدل ═══ -->
+<h2>9. مِن بمعنى البدل</h2>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن</span>
+  <p style="font-size:19px; text-align:center;">{ أَرَضِيتُمْ بِالْحَيَاةِ الدُّنْيَا مِنَ الْآخِرَةِ }</p>
+  <p>أي: أرضيتم بالحياة الدنيا <span class="highlight">بدل الآخرة</span>. أرضيتم بالحياة الدنيا من الآخرة — أي بدل الآخرة.</p>
+</div>
+
+<hr class="section-divider ornate">
+
+<!-- ═══════════════ مناقشة تفصيلية: يغفر لكم من ذنوبكم ═══════════════ -->
+<h1>مناقشة تفصيلية: { يُغْفَرْ لَكُمْ مِنْ ذُنُوبِكُمْ }</h1>
+
+<p>في سورة نوح يقول الله سبحانه وتعالى في الآية الثانية والثالثة: { أن اعبدوا الله واتقوه وأطيعون * يُغْفَرْ لَكُمْ مِنْ ذُنُوبِكُمْ }. ما معنى «مِن» هنا؟ مع العلم أنهم معروف أن الإنسان إذا أسلم غفر الله له كلّ ما كان قبل الإسلام، فالإسلام يهدم ما قبله. فما معنى «مِن» هنا؟</p>
+
+<p>انظروا في المعاني، تأمّلوا كأنك مفسّر، قل لي ما معنى «مِن» هنا — حاول:</p>
+
+<!-- COMPARISON CARDS: Three views -->
+<div class="cols cols-3">
+  <div class="comparison-card">
+    <div class="card-header">الرأي الأول: بيان الجنس</div>
+    <div class="card-body">
+      <p>يغفر لكم الذي هو ذنوبكم / التي هي ذنوبكم.</p>
+      <p>محاولة جيدة، لكن يشكل عليه عدم انطباق القاعدة (القاعدة أغلبية يعني ما في مشكلة).</p>
+    </div>
+  </div>
+  <div class="comparison-card">
+    <div class="card-header">الرأي الثاني: التبعيض (أقوى)</div>
+    <div class="card-body">
+      <p>يغفر لكم <span class="highlight">بعض</span> ذنوبكم وليس كلّها.</p>
+      <p><span class="green-bold">وِجهتان:</span></p>
+      <p>1. غفران كلّ الذنوب لمن أسلم هذا خاصّ بشريعة نبينا صلى الله عليه وسلم إكرامًا لأمّة سيدنا محمد صلى الله عليه وسلم. أما في الشرائع السابقة لم يكن هذا موجودًا، وإنما يغفر بعض ذنوبهم. والكلام الآن في قصّة نوح ليس في أمّة محمد صلى الله عليه وسلم.</p>
+      <p>2. والذي يغفر إذا أسلم الكافر هو ما يتعلّق بحقوق الله عزّ وجلّ. أما حقوق العباد — لو أن الكافر قتل في أيام الكفر ثم أسلم يسقط عنه القصاص. لو أنه أخذ أموال الناس ثم أسلم يسقط عنه ردّ أموال الناس؟ آه والذي يقوله أموال الناس — لذلك قالوا إن قوله عزّ وجلّ { يغفر لكم من ذنوبكم } أي بعض ذنوبكم التي تتعلّق بحقّ الله دون ما يتعلّق بحقوق العباد.</p>
+    </div>
+  </div>
+  <div class="comparison-card">
+    <div class="card-header">الرأي الثالث: زائدة</div>
+    <div class="card-body">
+      <p>ذكرها جلال الدين المحلّي في تفسير الجلالين.</p>
+      <p>لكن يشكل عليه عدم انطباق الشروط (أن يكون المجرور نكرة بعد نفي أو نهي أو استفهام).</p>
+    </div>
+  </div>
+</div>
+
+<div class="summary-box">
+  <div class="summary-title">خلاصة الأقوال في { يغفر لكم من ذنوبكم }</div>
+  <p>جلال الدين المحلّي في تفسير الجلالين الذي أحبه كثيرًا — لما جاء إلى هذه الآية ذكر معنين: ذكر المعنى الثاني والثالث (أنها زائدة وأنها للتبعيض). وغيره من المفسّرين زاد معنى ثالثًا أنها لبيان الجنس. لكن قلت لكم يشكل على هذا انطباق القاعدة — جيد — وممكن نقول القاعدة أغلبية يعني ما في مشكلة.</p>
+  <p><span class="green-bold">ولعلّ المعنى الثالث هو أقوى المعاني</span> أن «مِن» للتبعيض.</p>
+</div>
+
+<hr class="section-divider">
+
+<!-- ═══════════════ يكفر عنكم من سيئاتكم ═══════════════ -->
+<h2>تطبيق آخر: { وَيُكَفِّرَ عَنْكُمْ مِنْ سَيِّئَاتِكُمْ }</h2>
+
+<p>في سورة البقرة يقول الله سبحانه وتعالى: { إن تبدوا الصدقات فنعمّا هي وإن تخفوها وتؤتوها الفقراء فهو خير لكم } — إيش بعدها؟ { <span class="green-bold">ويكفّر عنكم من سيئاتكم</span> }. ما معنى «مِن» هنا؟</p>
+
+<p>ممكن <span class="green-bold">بيان الجنس</span> كما قلنا في هذا، وممكن <span class="green-bold">للتبعيض</span> — فليس كلّ السيئات تُكفّر إذا أخفيت الصدقة، وإنما تُكفّر بعض السيئات، لأن الذي يكفّر بفعل الحسنة هو <span class="highlight">الصغائر</span>. أما الكبائر حتى لو فعلت الحسنة لا تُكفّر.</p>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن</span>
+  <p style="font-size:19px; text-align:center;">{ إِنْ تَجْتَنِبُوا كَبَائِرَ مَا تُنْهَوْنَ عَنْهُ نُكَفِّرْ عَنْكُمْ سَيِّئَاتِكُمْ }</p>
+  <p>أي الصغائر. الصلوات الخمس والجمعة إلى الجمعة ورمضان إلى رمضان مُكفّرات لما بينهنّ إذا اجتنبت الكبائر.</p>
+</div>
+
+<hr class="section-divider ornate">
+
+<!-- ═══════════════ واجب منزلي: سورة الفتح ═══════════════ -->
+<h2>واجب منزلي: { مِنْهُمْ } في سورة الفتح</h2>
+
+<div class="evidence-box evidence-quran">
+  <span class="evidence-label">قرآن — سورة الفتح</span>
+  <p style="font-size:19px; text-align:center;">{ وَعَدَ اللَّهُ الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ مِنْهُمْ مَغْفِرَةً وَأَجْراً عَظِيماً }</p>
+  <p>«مِنْهم» — ما معنى «مِن» هنا؟ هل للتبعيض؟ هل معنى آخر؟ الله أعلم.</p>
+</div>
+
+<div class="alert-box info">
+  <p><span class="green-bold">تكليف:</span> نوكّف اثنين — هاري وحلمي — تنظروا لنا كلام المفسّرين في هذه الآية. ما معنى «مِن» هنا؟ «مِنْهم» — هل للتبعيض؟ هل معنى آخر؟ الله أعلم. انظروا لنا كلام المفسّرين بارك الله فيكم.</p>
+  <p>طبعًا لما قلت هاري وحلمي يعني وجوبًا عليهما، وغيرهما إذا أراد أن يشارك فليتفضّل. الأخوة الذين في اليوتيوب لا أريد واحد يسألني بعد سنة أو سنتين تمام — يقول السؤال الذي سألته للطلاب أين جوابه؟ ابحث بارك الله فيكم.</p>
+</div>
+
+<hr class="section-divider ornate">
+
+<!-- ═══════════════ نص المصنف ═══════════════ -->
+<h1>نص المصنف — معاني مِن</h1>
+
+<p>قال الإمام عبد القاهر الجرجاني رحمه الله تعالى:</p>
+
+<div class="matn-text">
+  <p><span class="green-bold">والثاني «مِن»</span> ولها معانٍ أيضًا:</p>
+</div>
+
+<h3>المعنى الأول: لابتداء الغاية</h3>
+<div class="matn-text">
+  <p>أحدها <span class="green-bold">لابتداء الغاية</span> نحو: سِرتُ من البصرة إلى الكوفة — يعني ابتداء سيري من البصرة إلى الكوفة.</p>
+  <p>ويعرف هذا المعنى الذي هو الابتداء — ويعرف بصحّة وضع «ابتداء» مكانه: ابتداء سيري. صحّ؟ إذن «مِن» هنا للابتداء.</p>
+</div>
+
+<h3>المعنى الثاني: لتبيين الجنس</h3>
+<div class="matn-text">
+  <p>والثاني <span class="green-bold">لتبيين الجنس</span> كقوله تعالى: { فاجتنبوا الرجس من الأوثان } — أي: شوف تقدير، شوف التقدير: <span class="highlight">الذي هو الأوثان</span> — اسم موصوله ضمير.</p>
+  <p>أو: خاتم من فضة — تقدير الكلام إيش؟ <span class="highlight">خاتم هو فضة</span>.</p>
+  <p>قال: ويعرف بصحّة وضع «الذي» مكانه. قلت لكم التدقيق أن تقول: بصحّة وضع «الذي» مع الضمير إذا كان معرفة، أو الضمير فقط إن بيّنت نكرة.</p>
+</div>
+
+<h3>المعنى الثالث: للتبعيض</h3>
+<div class="matn-text">
+  <p>والثالث <span class="green-bold">للتبعيض</span> نحو: شربتُ من الماء — أي بعض الماء. وأخذتُ من الدراهم — أي بعض الدراهم.</p>
+  <p>ويعرف بصحّة وضع «البعض» مكانه.</p>
+</div>
+
+<h3>المعنى الرابع: بمعنى «في»</h3>
+<div class="matn-text">
+  <p>والرابع <span class="green-bold">بمعنى «في»</span> كقوله تعالى: { إذا نودي للصلاة من يوم الجمعة } — أي في يوم الجمعة.</p>
+</div>
+
+<h3>المعنى الخامس: زائدة</h3>
+<div class="matn-text">
+  <p>والخامس <span class="green-bold">زائد</span> نحو: ما جاءني من أحد — لاحظ جاءت بعد نفي والمجرور بها نكرة تحقّق الشرطان. أي: ما جاءني أحد.</p>
+  <p>ويعرف معنى كونها زائدة بأنها لو أُسقطت لم يُخلّ بالمعنى الأصلي — المعنى الأصلي لا يتغيّر، لكن بوجودها يزداد التوكيد.</p>
+</div>
+
+<div class="matn-text">
+  <p>ثم قال: <span class="green-bold">«والثالث «إلى»»</span> — نتركه في الدرس القادم إن شاء الله.</p>
+</div>
+
+<hr class="section-divider bismillah">
+
+<!-- CLOSING -->
+<p style="text-align:center; font-size:18px; margin:20px 0;">والله أعلم</p>
+<p style="text-align:center; font-size:17px;">صلّى اللهم وسلّم وبارك على سيدنا محمد وآله وصحبه أجمعين، والحمد لله ربّ العالمين.</p>
+
+</div><!-- end main-content -->
+
+<!-- JAVASCRIPT -->
+<script>
+// B&W Toggle
+document.querySelector('.bw-toggle').addEventListener('click', function() {
+  document.body.classList.toggle('bw-mode');
+  if (document.body.classList.contains('bw-mode')) {
+    this.textContent = 'وضع الألوان';
+  } else {
+    this.textContent = 'وضع الأبيض والأسود';
+  }
+});
+
+// Tabs functionality
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const tabId = this.getAttribute('data-tab');
+    const container = this.closest('.tabs-container');
+    container.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    container.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    this.classList.add('active');
+    container.querySelector('#' + tabId).classList.add('active');
+  });
+});
+</script>
+
+</body>
+</html>

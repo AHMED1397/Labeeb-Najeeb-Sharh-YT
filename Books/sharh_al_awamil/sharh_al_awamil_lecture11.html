@@ -1,0 +1,2091 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح العوامل المائة — الدرس الحادي عشر: أسماء تنصب أسماءُ نكرات</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-green: #0d6b3e;
+  --dark-green: #0a4f2e;
+  --gold: #d4a020;
+  --light-gold: #f0e6c0;
+  --teal: #0d7377;
+  --bg: #fefefe;
+  --body-text: #1a1a1a;
+  --border: #c8d6c0;
+  --cover-gradient-1: #0a4f2e;
+  --cover-gradient-2: #0d6b3e;
+  --cover-gradient-3: #1a8a5c;
+  --light-green-bg: #e8f5e9;
+  --section-bg: #f7faf5;
+}
+
+body.bw-mode {
+  --primary-green: #333;
+  --dark-green: #222;
+  --gold: #555;
+  --light-gold: #ddd;
+  --teal: #444;
+  --bg: #fff;
+  --body-text: #000;
+  --border: #999;
+  --cover-gradient-1: #333;
+  --cover-gradient-2: #555;
+  --cover-gradient-3: #777;
+  --light-green-bg: #f0f0f0;
+  --section-bg: #f5f5f5;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--body-text);
+  background: var(--bg);
+  direction: rtl;
+}
+
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+  @bottom-center {
+    content: "— " counter(page) " —";
+    font-size: 10px;
+    color: #666;
+  }
+}
+
+/* ===== B&W TOGGLE ===== */
+.bw-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 9999;
+  background: var(--primary-green);
+  color: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: all 0.3s;
+}
+.bw-toggle:hover { background: var(--dark-green); }
+
+/* ===== COVER PAGE ===== */
+.cover-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, var(--cover-gradient-1) 0%, var(--cover-gradient-2) 50%, var(--cover-gradient-3) 100%);
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+}
+.cover-page::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a020' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.cover-border {
+  border: 3px solid var(--gold);
+  border-radius: 16px;
+  padding: 50px 60px;
+  position: relative;
+  max-width: 700px;
+}
+.cover-border::after {
+  content: '';
+  position: absolute;
+  top: 8px; left: 8px; right: 8px; bottom: 8px;
+  border: 1px solid rgba(212,160,32,0.4);
+  border-radius: 12px;
+  pointer-events: none;
+}
+.cover-book-title {
+  font-family: 'Amiri', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.cover-author {
+  font-size: 18px;
+  color: #c8e6c9;
+  margin-bottom: 30px;
+}
+.cover-lesson-num {
+  font-size: 22px;
+  color: var(--light-gold);
+  margin-bottom: 8px;
+}
+.cover-lesson-title {
+  font-family: 'Amiri', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 30px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.cover-divider {
+  width: 120px;
+  height: 2px;
+  background: var(--gold);
+  margin: 20px auto;
+}
+.cover-names {
+  font-size: 15px;
+  color: #a5d6a7;
+  line-height: 2;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 24px;
+}
+
+.section-divider {
+  text-align: center;
+  margin: 30px 0;
+  position: relative;
+}
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 30%;
+  height: 1px;
+  background: linear-gradient(to left, var(--gold), transparent);
+}
+.section-divider::before { right: 0; }
+.section-divider::after { left: 0; background: linear-gradient(to right, var(--gold), transparent); }
+.section-divider .divider-icon {
+  color: var(--gold);
+  font-size: 22px;
+  padding: 0 12px;
+  background: var(--bg);
+}
+
+.section-divider.ornate {
+  margin: 40px 0;
+}
+.section-divider.ornate::before,
+.section-divider.ornate::after {
+  width: 35%;
+  background: linear-gradient(to left, var(--primary-green), transparent);
+}
+.section-divider.ornate::after {
+  background: linear-gradient(to right, var(--primary-green), transparent);
+}
+
+h1 {
+  font-size: 26px;
+  color: var(--primary-green);
+  border-bottom: 3px solid var(--gold);
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+h2 {
+  font-size: 22px;
+  color: var(--primary-green);
+  margin-bottom: 14px;
+  margin-top: 28px;
+}
+h3 {
+  font-size: 19px;
+  color: var(--dark-green);
+  margin-bottom: 10px;
+  margin-top: 22px;
+}
+
+p { margin-bottom: 14px; }
+
+/* ===== DUA BOX ===== */
+.dua-box {
+  background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 20px 0;
+  text-align: center;
+  font-size: 18px;
+  line-height: 2;
+  position: relative;
+}
+.dua-box::before {
+  content: '🤲';
+  font-size: 28px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* ===== QURAN RECITATION BOX ===== */
+.quran-recitation {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 20px 0;
+  position: relative;
+}
+.quran-recitation::before {
+  content: '📖';
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  font-size: 22px;
+  background: var(--bg);
+  padding: 0 4px;
+}
+.quran-recitation-label {
+  font-weight: 700;
+  color: var(--primary-green);
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+.quran-recitation-text {
+  font-size: 18px;
+  line-height: 2;
+  font-weight: 600;
+  color: var(--dark-green);
+}
+
+/* ===== MATN BOX ===== */
+.matn-box {
+  background: var(--light-gold);
+  border-right: 5px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  padding: 16px 22px;
+  margin: 20px 0;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 2;
+  color: var(--dark-green);
+}
+
+/* ===== TREE CONTAINER ===== */
+.tree-container {
+  background: var(--light-green-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 24px 0;
+  overflow-x: auto;
+}
+.tree-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--primary-green);
+  text-align: center;
+  margin-bottom: 18px;
+}
+.tree-root {
+  text-align: center;
+  margin-bottom: 8px;
+}
+.tree-node {
+  display: inline-block;
+  background: var(--primary-green);
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 17px;
+}
+.tree-branches {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.tree-branch {
+  text-align: center;
+  flex: 1;
+  min-width: 120px;
+}
+.tree-branch-node {
+  background: var(--gold);
+  color: var(--dark-green);
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+.tree-connector {
+  width: 2px;
+  height: 16px;
+  background: var(--primary-green);
+  margin: 0 auto;
+}
+.tree-leaf {
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 15px;
+  margin: 3px auto;
+  display: inline-block;
+  max-width: 100%;
+}
+.tree-sub-branch {
+  margin-top: 6px;
+}
+.tree-horizontal {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+/* ===== TABLE STYLED ===== */
+.table-styled {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 16px;
+}
+.table-styled th {
+  background: var(--primary-green);
+  color: #fff;
+  padding: 10px 14px;
+  font-weight: 700;
+  border: 1px solid var(--dark-green);
+  text-align: center;
+}
+.table-styled td {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  text-align: center;
+  vertical-align: top;
+}
+.table-styled tr:nth-child(even) { background: var(--light-green-bg); }
+.table-styled tr:nth-child(odd) { background: #fff; }
+
+/* ===== CALLOUT BOX ===== */
+.callout {
+  background: #fff8e1;
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 20px 0;
+  position: relative;
+}
+.callout::before {
+  content: '⚡';
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  font-size: 22px;
+  background: var(--bg);
+  padding: 0 6px;
+}
+.callout-title {
+  font-weight: 700;
+  color: var(--dark-green);
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+/* ===== DEFINITION CARD ===== */
+.definition-card {
+  background: #fff;
+  border: 2px solid var(--teal);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 20px 0;
+  position: relative;
+}
+.definition-term {
+  font-weight: 700;
+  color: var(--teal);
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+.definition-text {
+  font-size: 17px;
+  line-height: 1.8;
+}
+.definition-ref {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+}
+
+/* ===== QAIDAH BOX ===== */
+.qaidah-box {
+  background: linear-gradient(135deg, #fff8e1 0%, #fff3cd 100%);
+  border: 3px solid var(--gold);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 24px 0;
+  position: relative;
+}
+.qaidah-label {
+  position: absolute;
+  top: -14px;
+  right: 20px;
+  background: var(--gold);
+  color: #fff;
+  padding: 3px 18px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 14px;
+}
+.qaidah-text {
+  font-size: 17px;
+  line-height: 2;
+  font-weight: 600;
+  color: var(--dark-green);
+  margin-top: 8px;
+}
+
+/* ===== BENEFIT BOX ===== */
+.benefit-box {
+  background: linear-gradient(135deg, #f3e5f5 0%, #e8daef 100%);
+  border: 2px solid #8e44ad;
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 20px 0;
+}
+.benefit-title {
+  font-weight: 700;
+  color: #8e44ad;
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+.benefit-text {
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* ===== EVIDENCE BOX ===== */
+.evidence-box {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  border: 2px solid var(--primary-green);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 18px 0;
+  position: relative;
+}
+.evidence-box::before {
+  content: '📖';
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  font-size: 22px;
+  background: var(--bg);
+  padding: 0 4px;
+}
+.evidence-label {
+  font-weight: 700;
+  color: var(--primary-green);
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+.evidence-text {
+  font-size: 18px;
+  line-height: 2;
+  font-weight: 600;
+}
+
+/* ===== SUMMARY BOX ===== */
+.summary-box {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  border: 2px solid #1565c0;
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 20px 0;
+}
+.summary-title {
+  font-weight: 700;
+  color: #1565c0;
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+.summary-text {
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* ===== ALERT BOX ===== */
+.alert-box {
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 18px 0;
+  font-size: 17px;
+}
+.alert-box.info {
+  background: #e3f2fd;
+  border: 2px solid #2196f3;
+}
+.alert-box.warning {
+  background: #fff3e0;
+  border: 2px solid #ff9800;
+}
+.alert-box.success {
+  background: #e8f5e9;
+  border: 2px solid #4caf50;
+}
+.alert-box.error {
+  background: #fce4ec;
+  border: 2px solid #e53935;
+}
+
+/* ===== I'RAB EXAMPLE BOX ===== */
+.irab-box {
+  background: #fff;
+  border: 2px solid var(--teal);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin: 18px 0;
+  position: relative;
+}
+.irab-box::before {
+  content: '✏️';
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  font-size: 20px;
+  background: var(--bg);
+  padding: 0 4px;
+}
+.irab-title {
+  font-weight: 700;
+  color: var(--teal);
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+.irab-example {
+  background: var(--light-green-bg);
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 12px;
+  color: var(--dark-green);
+}
+.irab-detail {
+  font-size: 16px;
+  line-height: 2;
+  padding-right: 12px;
+  border-right: 3px solid var(--teal);
+  margin-bottom: 8px;
+}
+.irab-detail strong {
+  color: var(--primary-green);
+}
+
+/* ===== COMPARISON CARDS ===== */
+.cols {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+.cols-3 > div { flex: 1; min-width: 200px; }
+.comparison-card {
+  background: #fff;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  text-align: center;
+}
+.comparison-card-header {
+  background: var(--primary-green);
+  color: #fff;
+  margin: -16px -18px 12px;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  font-weight: 700;
+  font-size: 16px;
+}
+.comparison-card-body {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* ===== SCHOLAR CARD ===== */
+.scholar-card {
+  background: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 20px 0;
+  position: relative;
+}
+.scholar-name {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--dark-green);
+}
+.scholar-badge {
+  display: inline-block;
+  background: var(--primary-green);
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+  margin-right: 8px;
+}
+.scholar-dates {
+  font-size: 14px;
+  color: #666;
+  margin-top: 4px;
+}
+.scholar-bio {
+  font-size: 16px;
+  margin-top: 8px;
+  line-height: 1.7;
+}
+
+/* ===== CHECKLIST ===== */
+.checklist {
+  background: var(--light-green-bg);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 20px 0;
+}
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.checklist-circle {
+  min-width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--primary-green);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+}
+.checklist-text {
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* ===== POETRY BOX ===== */
+.poetry-box {
+  background: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 20px 28px;
+  margin: 20px 0;
+  text-align: center;
+}
+.poetry-box .poetry-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--dark-green);
+  margin-bottom: 12px;
+}
+.poetry-box .verse {
+  font-size: 19px;
+  line-height: 2.2;
+  font-weight: 600;
+  color: var(--dark-green);
+}
+
+/* ===== RULE CARD (for number rules) ===== */
+.rule-card {
+  background: #fff;
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 20px 0;
+  position: relative;
+  overflow: hidden;
+}
+.rule-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 6px;
+  height: 100%;
+  background: var(--gold);
+}
+.rule-card-number {
+  display: inline-block;
+  background: var(--primary-green);
+  color: #fff;
+  padding: 4px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.rule-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 8px;
+}
+.rule-card-body {
+  font-size: 17px;
+  line-height: 1.8;
+}
+.rule-card-detail {
+  background: var(--light-green-bg);
+  padding: 8px 14px;
+  border-radius: 6px;
+  margin-top: 8px;
+  font-size: 16px;
+}
+
+/* ===== FOUR NAMES GRID ===== */
+.names-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+.name-card {
+  background: #fff;
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 16px 18px;
+  position: relative;
+  overflow: hidden;
+}
+.name-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 6px;
+  height: 100%;
+  background: var(--gold);
+}
+.name-card-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 6px;
+}
+.name-card-desc {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 8px;
+}
+.name-card-example {
+  background: var(--light-green-bg);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+/* ===== SPECIAL PROPERTY BOX ===== */
+.special-box {
+  background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+  border: 2px solid #c62828;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 18px 0;
+  position: relative;
+}
+.special-box::before {
+  content: '🔴';
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  font-size: 20px;
+  background: var(--bg);
+  padding: 0 4px;
+}
+.special-title {
+  font-weight: 700;
+  color: #c62828;
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+/* ===== FLOW CONTAINER ===== */
+.flow-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0;
+  direction: rtl;
+}
+.flow-step {
+  background: var(--primary-green);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  min-width: 100px;
+}
+.flow-arrow {
+  font-size: 22px;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* ===== CLOSING BOX ===== */
+.closing-box {
+  background: linear-gradient(135deg, var(--light-green-bg) 0%, #c8e6c9 100%);
+  border: 2px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 24px 0;
+  text-align: center;
+}
+.closing-dua {
+  font-size: 18px;
+  line-height: 2;
+  color: var(--dark-green);
+  font-weight: 600;
+}
+
+/* ===== FOOTER ===== */
+.page-footer {
+  text-align: center;
+  font-size: 13px;
+  color: #888;
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+ul, ol { padding-right: 24px; margin-bottom: 14px; }
+li { margin-bottom: 6px; }
+
+.highlight { color: var(--primary-green); font-weight: 700; }
+.gold-highlight { color: var(--gold); font-weight: 700; }
+.teal-highlight { color: var(--teal); font-weight: 700; }
+
+/* ===== NUMBER RULES TABLE WITH COLOR CODING ===== */
+.number-rule-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 4px;
+  align-items: center;
+}
+.number-badge {
+  display: inline-block;
+  min-width: 40px;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  color: #fff;
+}
+.bg-agree { background: #2e7d32; }
+.bg-oppose { background: #c62828; }
+.bg-mixed { background: #e65100; }
+.bg-constant { background: #1565c0; }
+
+@media print {
+  .bw-toggle { display: none; }
+  .cover-page { page-break-after: always; }
+  body { font-size: 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- B&W TOGGLE BUTTON -->
+<button class="bw-toggle" onclick="document.body.classList.toggle('bw-mode')">وضع الأبيض والأسود</button>
+
+<!-- ===== COVER PAGE ===== -->
+<div class="cover-page">
+  <div class="cover-border">
+    <div class="cover-book-title">شرح العوامل المائة</div>
+    <div class="cover-author">للإمام عبد القاهر الجرجاني رحمه الله تعالى</div>
+    <div class="cover-divider"></div>
+    <div class="cover-lesson-num">الدرس الحادي عشر</div>
+    <div class="cover-lesson-title">أسماء تنصب أسماءُ نكرات</div>
+    <div class="cover-divider"></div>
+    <div class="cover-names">
+      إعداد: أحمد بن إرشاد<br>
+      المتن: الإمام عبد القاهر الجرجاني رحمه الله تعالى<br>
+      الشرح: د. لبيب نجيب عبدالله
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="main-content">
+
+<!-- OPENING DUA -->
+<div class="dua-box">
+بسم الله الرحمن الرحيم<br>
+الحمد لله رب العالمين والصلاة والسلام الأتمان الأكملان على سيد المرسلين سيدنا محمد وعلى آله وصحبه الطيبين الطاهرين<br>
+أما بعد فأسأل الله سبحانه وتعالى أن يمن علينا بالعلم النافع والعمل الصالح وأن يفقهنا في الدين وأن يفتح لنا فتوح العارفين وأن يرزقنا الإخلاص في الأقوال والأعمال<br>
+اللهم آمين اللهم وفقنا لكل خير واختم لنا بالحسن يا أكرم الأكرمين
+</div>
+
+<!-- QURAN RECITATION BY STUDENT -->
+<div class="quran-recitation">
+  <div class="quran-recitation-label">تلاوة القرآن الكريم — الطالب لقمان</div>
+  <div class="quran-recitation-text">
+    أعوذ بالله من الشيطان الرجيم بسم الله الرحمن الرحيم<br>
+    ﴿إِنَّ الَّذِينَ يَتْلُونَ كِتَابَ اللَّهِ وَأَقَامُوا الصَّلَاةَ وَأَنفَقُوا مِمَّا رَزَقْنَاهُمْ سِرًّا وَعَلَانِيَةً يَرْجُونَ تِجَارَةً لَّن تَبُورَ﴾<br>
+    ﴿لِيُوَفِّيَهُمْ أُجُورَهُمْ وَيَزِيدَهُم مِّن فَضْلِهِ إِنَّهُ غَفُورٌ شَكُورٌ﴾<br>
+    ﴿وَالَّذِي أَوْحَيْنَا إِلَيْكَ مِنَ الْكِتَابِ هُوَ الْحَقُّ مُصَدِّقًا لِّمَا بَيْنَ يَدَيْهِ إِنَّ اللَّهَ بِعِبَادِهِ لَخَبِيرٌ بَصِيرٌ﴾<br>
+    ﴿ثُمَّ أَوْرَثْنَا الْكِتَابَ الَّذِينَ اصْطَفَيْنَا مِنْ عِبَادِنَا فَمِنْهُمْ ظَالِمٌ لِّنَفْسِهِ وَمِنْهُم مُّقْتَصِدٌ وَمِنْهُمْ سَابِقٌ بِالْخَيْرَاتِ بِإِذْنِ اللَّهِ ذَلِكَ هُوَ الْفَضْلُ الْكَبِيرُ﴾<br>
+    ﴿جَنَّاتُ عَدْنٍ يَدْخُلُونَهَا يُحَلَّوْنَ فِيهَا مِنْ أَسَاوِرَ مِن ذَهَبٍ وَلُؤْلُؤًا وَلِبَاسُهُمْ فِيهَا حَرِيرٌ﴾<br>
+    ﴿وَقَالُوا الْحَمْدُ لِلَّهِ الَّذِي أَذْهَبَ عَنَّا الْحَزَنَ إِنَّ رَبَّنَا لَغَفُورٌ شَكُورٌ﴾<br>
+    ﴿الَّذِي أَحَلَّنَا دَارَ الْمُقَامَةِ مِن فَضْلِهِ لَا يَمَسُّنَا فِيهَا نَصَبٌ وَلَا يَمَسُّنَا فِيهَا لُغُوبٌ﴾<br>
+    ﴿وَالَّذِينَ كَفَرُوا لَهُمْ نَارُ جَهَنَّمَ لَا يُقْضَى عَلَيْهِمْ فَيَمُوتُوا وَلَا يُخَفَّفُ عَنْهُم مِّنْ عَذَابِهَا كَذَلِكَ نَجْزِي كُلَّ كَفُورٍ﴾<br>
+    ﴿وَهُمْ يَصْطَرِخُونَ فِيهَا رَبَّنَا أَخْرِجْنَا نَعْمَلْ صَالِحًا غَيْرَ الَّذِي كُنَّا نَعْمَلُ﴾<br>
+    ﴿أَوَلَمْ نُعَمِّرْكُم مَّا يَتَذَكَّرُ فِيهِ مَن تَذَكَّرَ وَجَاءَكُمُ النَّذِيرُ فَذُوقُوا فَمَا لِلظَّالِمِينَ مِن نَّصِيرٍ﴾<br>
+    ﴿إِنَّ اللَّهَ عَالِمُ غَيْبِ السَّمَاوَاتِ وَالْأَرْضِ إِنَّهُ عَلِيمٌ بِذَاتِ الصُّدُورِ﴾
+  </div>
+</div>
+
+<p>اللهم انفعنا بالقرآن</p>
+
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<!-- REVIEW: تقسيم العوامل المائة -->
+<h1>مراجعة: تقسيم العوامل المائة</h1>
+
+<p>نستمر في كتابنا الذي كنا شرعنا فيه قبل الإجازة وهو كتاب العوامل المئة للعلامة الإمام عبد القاهر الجرجاني رحمه الله تعالى ورحمة واسعة المتوفى في سنة أربعمائة وواحد وسبعين وقيل أربعمائة وأربعة وسبعين. ما زال يتكلم عن العوامل وأذكركم أنه عد العوامل مئة وقسم العوامل إلى قسمين: إلى عوامل لفظية وعوامل معنوية.</p>
+
+<!-- CLASSIFICATION TREE: العوامل المائة -->
+<div class="tree-container">
+  <div class="tree-title">شجرة التصنيف: العوامل المائة</div>
+  <div class="tree-root">
+    <div class="tree-node">العوامل المائة</div>
+  </div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">عوامل معنوية (٢)</div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">عوامل لفظية (٩٨)</div>
+      <div class="tree-sub-branch">
+        <div class="tree-horizontal">
+          <div style="text-align:center;">
+            <div class="tree-leaf">قياسية (٧)</div>
+          </div>
+          <div style="text-align:center;">
+            <div class="tree-leaf">سماعية (٩١)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:12px;font-size:15px;color:#555;">
+    المجموع: ٢ معنوية + ٧ قياسية + ٩١ سماعية = <strong>١٠٠ عامل</strong>
+  </div>
+</div>
+
+<p>المعنوية اثنان واللفظية ثمانية وتسعون. واللفظية هذه قسمان: إما قياسية وإما سماعية. القياسية سبعة، والسماعية واحد وتسعون. إذن واحد وتسعون سماعي وسبعة قياسي، وهذه كل عوامل لفظية كم المجموع؟ ثمانية وتسعون، وعددان أو اثنان معنويان، كم المجموع؟ مئة.</p>
+
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<!-- النوع الثامن -->
+<h1>النوع الثامن: أسماء تنصب على التمييز أسماءً نكرات</h1>
+
+<div class="matn-box">
+  النوع الثامن من ثلاثة عشر نوعاً:<br>
+  <strong>أسماء تنصب على التمييز أسماءً نكرات</strong><br>
+  وهي أربعة أسماء
+</div>
+
+<p>قال هنا رحمه الله: <strong>النوع الثامن من ثلاثة عشر نوعاً: أسماء تنصب على التمييز أسماءً نكرات وهي أربعة أسماء</strong>.</p>
+
+<p><strong>أسماء تنصب</strong> — يعني فيها عامل وفيها معمول، فيها أسماء عاملة في غيرها. ماذا عملت في غيرها؟ عملت في غيرها النصب. إذن أسماء نصبت أسماء أخرى. فقال: <strong>أسماء تنصب على التمييز أسماءً</strong> — هذه مفعول به — <strong>نكرات</strong>.</p>
+
+<div class="callout">
+  <div class="callout-title">تنبيه مهم: محورا الدرس</div>
+  <p>هذا الدرس من الدروس المهمة، يكثر فيه القطع. أحياناً تجد المتكلم في كلامه إذا ذكر العدد يحصل له ارتباك إما ارتباك في التذكير والتأنيث وإما ارتباك في نوع التمييز.</p>
+  <p>كلامنا في هذا الدرس له <strong>محوران رئيسان</strong>:</p>
+  <p><strong>المحور الأول:</strong> التذكير والتأنيث</p>
+  <p><strong>المحور الثاني:</strong> نوع التمييز</p>
+  <p>فانتبه لهذا الأمر غاية الانتباه!</p>
+</div>
+
+<!-- ===== THE SEVEN RULES OF NUMBERS ===== -->
+<h1>قواعد العدد: التذكير والتأنيث ونوع التمييز</h1>
+
+<p>نخص لكم الدرس في هذا الجدول الذي ترونه أمامكم على السبورة. بعد أن أشرح الجدول سأعود إلى قراءة الكتاب فانتبهوا بارك الله فيكم.</p>
+
+<!-- CLASSIFICATION TREE: THE SEVEN NUMBER RULES -->
+<div class="tree-container">
+  <div class="tree-title">شجرة التصنيف: قواعد العدد السبع</div>
+  <div class="tree-root">
+    <div class="tree-node">قواعد العدد</div>
+  </div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">① واحد واثنان</div>
+      <div class="tree-sub-branch">
+        <div style="font-size:14px;margin-top:4px;">يوافق المعدود | لا تمييز (نعت)</div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">② ٣-١٠</div>
+      <div class="tree-sub-branch">
+        <div style="font-size:14px;margin-top:4px;">يخالف المعدود | جمع مجرور</div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">③ ١١-١٢</div>
+      <div class="tree-sub-branch">
+        <div style="font-size:14px;margin-top:4px;">يوافق المعدود | مفرد منصوب</div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">④ ١٣-١٩</div>
+      <div class="tree-sub-branch">
+        <div style="font-size:14px;margin-top:4px;">الأول يخالف والثاني يوافق | مفرد منصوب</div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">⑤ ألفاظ العقود</div>
+      <div class="tree-sub-branch">
+        <div style="font-size:14px;margin-top:4px;">تلزم حالة واحدة | مفرد منصوب</div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">⑥ ٢١-٩٩</div>
+      <div class="tree-sub-branch">
+        <div style="font-size:14px;margin-top:4px;">الأول يخالف والثاني يوافق | مفرد منصوب</div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">⑦ مئة وألف</div>
+      <div class="tree-sub-branch">
+        <div style="font-size:14px;margin-top:4px;">تلزم حالة واحدة | مفرد مجرور</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RULE 1: واحد واثنان -->
+<div class="rule-card">
+  <div class="rule-card-number">القاعدة الأولى</div>
+  <div class="rule-card-title">العدد واحد واثنان — يوافق المعدود</div>
+  <div class="rule-card-body">
+    <p>العدد واحد واثنان يوافق العدد المعدود تذكيراً وتأنيثاً. فإذا كان المعدود مذكراً كان العدد مذكراً، وإذا كان المعدود مؤنثاً كان العدد مؤنثاً.</p>
+    <p>والواحد والاثنان يوافقان المعدود في كل الأحوال سواء كان مفرداً أو كان مركباً أو كان معطوفاً كما سيأتي، في كل الأحوال.</p>
+  </div>
+  <div class="rule-card-detail">
+    <strong>أما من حيث التمييز:</strong> فالواحد والاثنان لا تمييز لهما. فعندما تقول "أكرمت طالباً واحداً" — واحداً هذا ليس تمييزاً بل يُعرب نعتاً صفة. ولو قلت "أكرمت طالبة واحدة" فإن واحدة يُعرب نعتاً صفة.
+  </div>
+</div>
+
+<div class="irab-box">
+  <div class="irab-title">أمثلة تطبيقية: واحد واثنان</div>
+  <div class="irab-example">أكرمت طالباً واحداً</div>
+  <div class="irab-detail">
+    <strong>طالباً:</strong> مفعول به منصوب | مذكر<br>
+    <strong>واحداً:</strong> نعت صفة منصوب | مذكر — <em>يوافق المعدود</em>
+  </div>
+</div>
+
+<div class="irab-box">
+  <div class="irab-title">أمثلة: المؤنث</div>
+  <div class="irab-example">أكرمت طالبةً واحدةً</div>
+  <div class="irab-detail">
+    <strong>طالبةً:</strong> مفعول به منصوب | مؤنث<br>
+    <strong>واحدةً:</strong> نعت صفة منصوب | مؤنث — <em>يوافق المعدود</em>
+  </div>
+</div>
+
+<div class="irab-box">
+  <div class="irab-title">أمثلة: المثنى</div>
+  <div class="irab-example">أكرمت طالبين اثنين</div>
+  <div class="irab-detail">
+    <strong>طالبين:</strong> مفعول به منصوب بالياء | مذكر<br>
+    <strong>اثنين:</strong> نعت صفة منصوب بالياء | مذكر
+  </div>
+  <div class="irab-example" style="margin-top:10px;">أكرمت طالبتين اثنتين</div>
+  <div class="irab-detail">
+    <strong>طالبتين:</strong> مفعول به منصوب بالياء | مؤنث<br>
+    <strong>اثنتين:</strong> نعت صفة منصوب بالياء | مؤنث — <em>توافق المعدود</em>
+  </div>
+</div>
+
+<div class="irab-box">
+  <div class="irab-title">أمثلة: فعل وفاعل</div>
+  <div class="irab-example">نجح طالبٌ واحدٌ</div>
+  <div class="irab-detail">
+    <strong>نجح:</strong> فعل ماضٍ<br>
+    <strong>طالبٌ:</strong> فاعل مرفوع | مذكر<br>
+    <strong>واحدٌ:</strong> نعت مرفوع | مذكر
+  </div>
+  <div class="irab-example" style="margin-top:10px;">نجحت طالبةٌ واحدةٌ</div>
+  <div class="irab-detail">
+    <strong>نجحت:</strong> فعل ماضٍ وتاء التأنيث<br>
+    <strong>طالبةٌ:</strong> فاعل مرفوع | مؤنث<br>
+    <strong>واحدةٌ:</strong> نعت مرفوع | مؤنث<br>
+    <em>لاحظ: طالب مذكر واحد مذكر، طالبة مؤنث واحدة مؤنث — جرى على القاعدة</em>
+  </div>
+</div>
+
+<!-- RULE 2: 3-10 -->
+<div class="rule-card">
+  <div class="rule-card-number">القاعدة الثانية</div>
+  <div class="rule-card-title">الأعداد من ثلاثة إلى عشرة — يخالف المعدود</div>
+  <div class="rule-card-body">
+    <p>العدد فيها يخالف المعدود في التذكير والتأنيث.</p>
+  </div>
+  <div class="rule-card-detail">
+    <strong>نوع التمييز:</strong> جمع مجرور
+  </div>
+</div>
+
+<p>تقول مثلاً: <strong>اشتريت خمسةَ سيارات</strong>. سيارات جمع ماذا؟ انظر إلى المفرد: سيارة. مذكر أو مؤنث؟ مؤنث. إذاً العدد سيكون مذكراً: <strong>خمسة</strong> سيارات.</p>
+
+<p>وتقول مثلاً: <strong>اشتريت خمسَةَ أقلام</strong>. أقلام جمع ماذا؟ قلم. مذكر أو مؤنث؟ مذكر. إذاً العدد سيكون ماذا؟ مؤنث: <strong>خمس</strong> أقلام.</p>
+
+<div class="callout">
+  <div class="callout-title">قاعدة مهمة: ارجع إلى المفرد</div>
+  <p>قلت لكم: ارجع بالجمع إلى المفرد حتى تعرف هل الكلمة مذكرة أو مؤنثة.</p>
+</div>
+
+<p>تقول مثلاً: <strong>حافظت خمسةَ متون</strong> — هذا مذكر لأن مفرده متن، فجاء العدد مؤنثاً. و<strong>سبعَ منظومات</strong> — منظومة مفرد، منظومات مؤنث، صح؟ فجاء العدد مذكراً.</p>
+
+<p>إذاً العدد هنا يخالف المعدود. لاحظ معي التمييز هنا ما نوعه؟ <strong>جمع مجرور</strong>. وهنا ما نوعه؟ <strong>جمع مجرور</strong>.</p>
+
+<div class="evidence-box">
+  <div class="evidence-label">دليل من القرآن الكريم</div>
+  <div class="evidence-text">﴿فَسَخَّرَهَا عَلَيْهِمْ سَبْعَ لَيَالٍ وَثَمَانِيَةَ أَيَّامٍ﴾</div>
+  <p style="font-size:15px;margin-top:8px;">
+    لاحظ معي: ليالٍ جمع ماذا؟ ليلة — هذا مؤنث — هنا العدد <strong>سبع</strong> مذكر يخالف المعدود.<br>
+    وثمانية أيام — أيام جمع ماذا؟ يوم — مذكر — فالعدد <strong>ثمانية</strong> مؤنث.
+  </p>
+</div>
+
+<!-- RULE 3: 11-12 -->
+<div class="rule-card">
+  <div class="rule-card-number">القاعدة الثالثة</div>
+  <div class="rule-card-title">العدد ١١ و١٢ — يوافق المعدود</div>
+  <div class="rule-card-body">
+    <p>يوافق العدد المعدود في الجزأين: إذا كان المعدود مذكراً فالعدد مذكر، وإذا كان المعدود مؤنثاً فالعدد مؤنث.</p>
+  </div>
+  <div class="rule-card-detail">
+    <strong>نوع التمييز:</strong> مفرد منصوب
+  </div>
+</div>
+
+<div class="evidence-box">
+  <div class="evidence-label">دليل من القرآن الكريم — أحد عشر كوكباً</div>
+  <div class="evidence-text">﴿يَا أَبَتِ إِنِّي رَأَيْتُ أَحَدَ عَشَرَ كَوْكَبًا﴾</div>
+  <p style="font-size:15px;margin-top:8px;">
+    كوكب مذكر أو مؤنث؟ مذكر. انظر: <strong>أحد عشر</strong> — لم يقل إحدى عشرة كوكباً. قال أحد عشر كوكباً.
+  </p>
+</div>
+
+<div class="evidence-box">
+  <div class="evidence-label">دليل من القرآن الكريم — اثنتا عشرة عيناً</div>
+  <div class="evidence-text">﴿فَانفَجَرَتْ مِنْهُ اثْنَتَا عَشْرَةَ عَيْنًا﴾</div>
+  <p style="font-size:15px;margin-top:8px;">
+    العين مذكر أو مؤنث؟ مؤنث. تقول: هذه عين، العين تجري — لا تقول العين يجري، تجري. تمام هذه مؤنثة. إذن انظر: <strong>اثنتا</strong> — تأنيث، لم يقل اثنا. <strong>عشرة</strong> — ولم يقل عشر. إذن لما كان المعدود مؤنثاً كان العدد مؤنثاً في الجزأين: الجزء الأول والجزء الثاني.
+  </p>
+</div>
+
+<div class="evidence-box">
+  <div class="evidence-label">دليل من القرآن الكريم — اثنا عشر شهراً</div>
+  <div class="evidence-text">﴿إِنَّ عِدَّةَ الشُّهُورِ عِندَ اللَّهِ اثْنَا عَشَرَ شَهْرًا﴾</div>
+  <p style="font-size:15px;margin-top:8px;">
+    شهر معدود مذكر أو مؤنث؟ مذكر. اثنا — لم يقل اثنتا. عشرة — مفتوحة. شهراً.
+  </p>
+</div>
+
+<!-- RULE: الشين تسكن مع المؤنث -->
+<div class="qaidah-box">
+  <div class="qaidah-label">قاعدة مهمة</div>
+  <div class="qaidah-text">
+    <strong>حركة الشين في العدد المركب (١١-١٢):</strong><br><br>
+    • إذا كان المعدود <strong>مذكراً</strong> → الشين <strong>مفتوحة</strong><br>
+    &nbsp;&nbsp;مثال: أحدَ عَشَرَ كوكباً (الشين مفتوحة)<br>
+    &nbsp;&nbsp;مثال: اثنا عَشَرَ شهراً (الشين مفتوحة)<br><br>
+    • إذا كان المعدود <strong>مؤنثاً</strong> → الشين <strong>ساكنة</strong><br>
+    &nbsp;&nbsp;مثال: اثنتا عَشْرَةَ عيناً (الشين ساكنة)<br><br>
+    تذكروا قاعدة نون النسوة: عندما سكن المضارع — متى بني المضارع على السكون؟ إذا دخلت عليه نون النسوة. هنا كذلك: الشين تسكن إذا كان المعدود مؤنثاً.
+  </div>
+</div>
+
+<!-- RULE 4: 13-19 -->
+<div class="rule-card">
+  <div class="rule-card-number">القاعدة الرابعة</div>
+  <div class="rule-card-title">الأعداد من ثلاثة عشر إلى تسعة عشر</div>
+  <div class="rule-card-body">
+    <p>وهذه يخطئ فيها كثيرون.</p>
+    <p><strong>الأول يخالف المعدود والثاني يوافق.</strong></p>
+    <p>إذا كان المعدود مذكراً فإن الأول مؤنث والثاني مذكر.</p>
+    <p>وإذا كان المعدود مؤنثاً فإن الأول مذكر والثاني مؤنث.</p>
+  </div>
+  <div class="rule-card-detail">
+    <strong>نوع التمييز:</strong> مفرد منصوب
+  </div>
+</div>
+
+<!-- COMPARISON CARDS: 13-19 -->
+<div class="cols cols-3">
+  <div class="comparison-card">
+    <div class="comparison-card-header">المعدود مذكر</div>
+    <div class="comparison-card-body">
+      <strong>مثال:</strong> للصلاة ثلاثة عشر ركناً<br><br>
+      ركناً = معدود مذكر<br>
+      <strong>ثلاثة</strong> = مؤنث ← <span style="color:#c62828;font-weight:700;">يخالف</span><br>
+      <strong>عشر</strong> = مذكر ← <span style="color:#2e7d32;font-weight:700;">يوافق</span>
+    </div>
+  </div>
+  <div class="comparison-card">
+    <div class="comparison-card-header">المعدود مؤنث</div>
+    <div class="comparison-card-body">
+      <strong>مثال:</strong> حفظتُ سبعةَ عشرةَ منظومةً<br><br>
+      منظومة = معدود مؤنث<br>
+      <strong>سبعة</strong> = مذكر ← <span style="color:#c62828;font-weight:700;">يخالف</span><br>
+      <strong>عشرة</strong> = مؤنث ← <span style="color:#2e7d32;font-weight:700;">يوافق</span>
+    </div>
+  </div>
+  <div class="comparison-card">
+    <div class="comparison-card-header">تنبيه</div>
+    <div class="comparison-card-body">
+      <strong>لا تقول:</strong> حفظت سبعة عشر منظومة ❌<br>
+      <strong>بل تقول:</strong> حفظت سبعةَ عشرةَ منظومة ✅<br><br>
+      لأن المعدود مؤنث فالأول يخالف (مذكر: سبعة) والثاني يوافق (مؤنث: عشرة)
+    </div>
+  </div>
+</div>
+
+<div class="callout">
+  <div class="callout-title">تنبيه على أخطاء شائعة</div>
+  <p>إذا كان المعدود مؤنثاً يكون الشين ساكنة في الجزء الثاني:</p>
+  <p><strong>سبعةَ عشرةَ</strong> منظومة (المعدود مؤنث ← عشرة بسكون الشين)</p>
+  <p><strong>ثلاثةَ عَشَرَ</strong> ركناً (المعدود مذكر ← عشر بفتح الشين)</p>
+  <p>كما ذكرنا في قاعدة الشين أعلاه.</p>
+</div>
+
+<!-- RULE 5: ألفاظ العقود -->
+<div class="rule-card">
+  <div class="rule-card-number">القاعدة الخامسة</div>
+  <div class="rule-card-title">ألفاظ العقود (عشرون، ثلاثون، أربعون، خمسون، ستون، سبعون، ثمانون، تسعون)</div>
+  <div class="rule-card-body">
+    <p><strong>من حيث الإعراب:</strong> هي ملحقات بجمع المذكر السالم. إذن تُعربها كيف؟ في حالة الرفع ترفع بالواو، وفي حالة النصب والجر علامة النصب والجر إعراب الملحقات بجمع المذكر السالم (الياء).</p>
+    <p><strong>أما من حيث التذكير والتأنيث:</strong> فإنها لا تتغير، لها حالة واحدة سواء كان المعدود مذكراً أو كان مؤنثاً. تلزم حالة واحدة.</p>
+  </div>
+  <div class="rule-card-detail">
+    <strong>نوع التمييز:</strong> مفرد منصوب<br>
+    <strong>ما الذي نصب التمييز؟</strong> العدد نفسه هو الذي نصبه — هذا هو جوهر الدرس: <em>أسماء تنصب على التمييز أسماءً نكرات</em>
+  </div>
+</div>
+
+<div class="irab-box">
+  <div class="irab-title">أمثلة تطبيقية: ألفاظ العقود</div>
+  <div class="irab-example">أكرمت خمسين طالباً</div>
+  <div class="irab-detail">
+    <strong>خمسين:</strong> مفعول به منصوب بالياء لأنه ملحق بجمع المذكر السالم<br>
+    <strong>طالباً:</strong> تمييز مفرد منصوب | المعدود مذكر
+  </div>
+  <div class="irab-example" style="margin-top:10px;">أكرمت خمسين طالبةً</div>
+  <div class="irab-detail">
+    <strong>خمسين:</strong> مفعول به منصوب بالياء | <em>ما تغير فيها ولا شيء</em><br>
+    <strong>طالبةً:</strong> تمييز مفرد منصوب | المعدود مؤنث<br>
+    <em>لاحظ: خمسين في الحالتين واحدة — تلزم حالة واحدة</em>
+  </div>
+</div>
+
+<div class="irab-box">
+  <div class="irab-title">مثال إعرابي: عاش أربعين سنة</div>
+  <div class="irab-example">عاش أربعين سنةً</div>
+  <div class="irab-detail">
+    <strong>عاش:</strong> فعل وفاعل<br>
+    <strong>أربعين:</strong> مفعول به منصوب علامة نصبه الياء لأنه ملحق بجمع المذكر السالم<br>
+    <strong>سنةً:</strong> تمييز مفرد منصوب
+  </div>
+</div>
+
+<div class="irab-box">
+  <div class="irab-title">مثال إعرابي: لدي سبعون ولداً</div>
+  <div class="irab-example">لدي سبعون ولداً</div>
+  <div class="irab-detail">
+    <strong>لدي:</strong> شبه جملة خبر مقدم<br>
+    <strong>سبعون:</strong> مبتدأ مؤخر مرفوع بالواو<br>
+    <strong>ولداً:</strong> تمييز مفرد منصوب<br>
+  </div>
+  <p style="font-size:15px;margin-top:8px;color:#555;">ولد يشمل الذكر والأنثى: ﴿يُوصِيكُمُ اللَّهُ فِي أَوْلَادِكُمْ لِلذَّكَرِ مِثْلُ حَظِّ الْأُنثَيَيْنِ﴾</p>
+</div>
+
+<!-- RULE 6: 21-99 -->
+<div class="rule-card">
+  <div class="rule-card-number">القاعدة السادسة</div>
+  <div class="rule-card-title">الأعداد من واحد وعشرين إلى تسعة وتسعين</div>
+  <div class="rule-card-body">
+    <p><strong>الأول يخالف المعدود، أما الثاني فيوافق.</strong> يشبه القاعدة الرابعة (١٣-١٩).</p>
+  </div>
+  <div class="rule-card-detail">
+    <strong>نوع التمييز:</strong> مفرد منصوب
+  </div>
+</div>
+
+<div class="evidence-box">
+  <div class="evidence-label">دليل من القرآن الكريم</div>
+  <div class="evidence-text">﴿إِنَّ هَذَا أَخِي لَهُ تِسْعٌ وَتِسْعُونَ نَعْجَةً﴾</div>
+  <p style="font-size:15px;margin-top:8px;">
+    أين المعدود؟ نعجة. ما نوعه؟ مفرد منصوب. مذكر أو مؤنث؟ مؤنث.<br>
+    <strong>تسع</strong> — هذا مذكر يخالف الأول المعدود.<br>
+    أما <strong>تسعون</strong> — قلت لك من قبل: ألفاظ العقود تلزم حالة واحدة، ما لك علاقة فيه.<br>
+    لكن هذا المعدود هنا مؤنث، فهذا <strong>تسع</strong> سيكون مذكر — يخالف.
+  </p>
+</div>
+
+<div class="irab-box">
+  <div class="irab-title">أمثلة تطبيقية: ٢١-٩٩</div>
+  <div class="irab-example">عاش الإمام النووي خمسةً وأربعين عاماً</div>
+  <div class="irab-detail">
+    <strong>عاماً:</strong> معدود مذكر مفرد منصوب<br>
+    <strong>خمسة:</strong> مؤنث — يخالف المعدود<br>
+    <strong>وأربعين:</strong> لفظ العقود — تلزم حالة واحدة
+  </div>
+  <div class="irab-example" style="margin-top:10px;">عاش الإمام النووي خمساً وأربعين سنةً</div>
+  <div class="irab-detail">
+    <strong>سنةً:</strong> معدود مؤنث مفرد منصوب<br>
+    <strong>خمساً:</strong> مذكر — يخالف المعدود<br>
+    <strong>وأربعين:</strong> لفظ العقود — تلزم حالة واحدة<br>
+    <em>فهمت الفرق؟ واضح.</em>
+  </div>
+</div>
+
+<!-- RULE 7: مئة وألف -->
+<div class="rule-card">
+  <div class="rule-card-number">القاعدة السابعة</div>
+  <div class="rule-card-title">المئة والألف ومضعفاتهما</div>
+  <div class="rule-card-body">
+    <p>المئة والألف تلزم حالة واحدة مع المذكر ومع المؤنث، لا تتغير.</p>
+  </div>
+  <div class="rule-card-detail">
+    <strong>نوع التمييز:</strong> مفرد مجرور
+  </div>
+</div>
+
+<div class="evidence-box">
+  <div class="evidence-label">دليل من القرآن الكريم — مئة عام</div>
+  <div class="evidence-text">﴿فَأَمَاتَهُ اللَّهُ مِائَةَ عَامٍ﴾</div>
+  <p style="font-size:15px;margin-top:8px;">
+    عام مذكر أو مؤنث؟ مذكر. لاحظ معي: قال <strong>مئة</strong>.
+  </p>
+</div>
+
+<div class="evidence-box">
+  <div class="evidence-label">دليل من القرآن الكريم — مئة جلدة</div>
+  <div class="evidence-text">﴿فَاجْلِدُوا كُلَّ وَاحِدٍ مِّنْهُمَا مِائَةَ جَلْدَةٍ﴾</div>
+  <p style="font-size:15px;margin-top:8px;">
+    هنا مذكر وهنا مؤنث. في الحالتين قال <strong>مئة</strong> — ما تغير شيء. إذن يلازم حالة واحدة.<br>
+    لاحظ معي التمييز ما نوعه؟ مفرد مجرور: <strong>عامٍ</strong> و<strong>جلدةٍ</strong>.
+  </p>
+</div>
+
+<div class="irab-box">
+  <div class="irab-title">أمثلة تطبيقية: مئة ألف</div>
+  <div class="irab-example">جيش المسلمين مئة ألف مقاتلٍ</div>
+  <div class="irab-detail">
+    <strong>مئة ألف مقاتلٍ:</strong> لاحظ ما نوعه؟ مفرد مجرور.<br>
+    <em>مئة ألف مقاتلين ❌ — بل مقاتلٍ مفرد مجرور ✅</em>
+  </div>
+  <div class="irab-example" style="margin-top:10px;">قرأت مئة ألف صفحةٍ</div>
+  <div class="irab-detail">
+    <strong>مئة ألف صفحةٍ:</strong> ما يتغير العدد. تقول: قرأت مئة ألف صفحةٍ.<br>
+    <em>صفحةٍ = مفرد مجرور</em>
+  </div>
+</div>
+
+<!-- WRITING مئة -->
+<div class="callout">
+  <div class="callout-title">تنبيه: كتابة مئة</div>
+  <p>كتابة <strong>مئة</strong> بهذه الصورة (بدون ألف) هو الأصح في الكتابة العادية — ميم ثم همزة على نبرة ثم تاء مربوطة.</p>
+  <p>أما إذا تكتب بخط المصحف فتكتب كما رُسمت في المصحف <strong>مائة</strong> (مع الألف)، مراعاةً لرسم المصحف.</p>
+  <p>والأمر واسع، لكن الأصح في الكتابة العادية أن تكتبها متصلة بدون ألف.</p>
+</div>
+
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<!-- ===== COMPREHENSIVE TABLE ===== -->
+<h1>جدول شامل: قواعد العدد</h1>
+
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>القاعدة</th>
+      <th>العدد</th>
+      <th>التذكير والتأنيث</th>
+      <th>نوع التمييز</th>
+      <th>مثال</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="number-badge bg-agree">١</span></td>
+      <td>واحد واثنان</td>
+      <td><strong style="color:#2e7d32;">يوافق</strong> المعدود في كل الأحوال</td>
+      <td>لا تمييز (نعت صفة)</td>
+      <td>طالبٌ واحدٌ / طالبةٌ واحدةٌ</td>
+    </tr>
+    <tr>
+      <td><span class="number-badge bg-oppose">٢</span></td>
+      <td>٣-١٠</td>
+      <td><strong style="color:#c62828;">يخالف</strong> المعدود</td>
+      <td>جمع مجرور</td>
+      <td>خمسةُ رجالٍ / ثلاثُ نسوةٍ</td>
+    </tr>
+    <tr>
+      <td><span class="number-badge bg-agree">٣</span></td>
+      <td>١١-١٢</td>
+      <td><strong style="color:#2e7d32;">يوافق</strong> المعدود في الجزأين</td>
+      <td>مفرد منصوب</td>
+      <td>أحدَ عشرَ كوكباً / اثنتا عشرةَ عيناً</td>
+    </tr>
+    <tr>
+      <td><span class="number-badge bg-mixed">٤</span></td>
+      <td>١٣-١٩</td>
+      <td>الأول <strong style="color:#c62828;">يخالف</strong> والثاني <strong style="color:#2e7d32;">يوافق</strong></td>
+      <td>مفرد منصوب</td>
+      <td>ثلاثةَ عشرَ ركناً / سبعةُ عشرةَ منظومةً</td>
+    </tr>
+    <tr>
+      <td><span class="number-badge bg-constant">٥</span></td>
+      <td>ألفاظ العقود (٢٠-٩٠)</td>
+      <td>تلزم حالة واحدة</td>
+      <td>مفرد منصوب</td>
+      <td>خمسين طالباً / خمسين طالبةً</td>
+    </tr>
+    <tr>
+      <td><span class="number-badge bg-mixed">٦</span></td>
+      <td>٢١-٩٩</td>
+      <td>الأول <strong style="color:#c62828;">يخالف</strong> والثاني <strong style="color:#2e7d32;">يوافق</strong> (والعقود تلزم)</td>
+      <td>مفرد منصوب</td>
+      <td>تسعٌ وتسعون نعجةً / خمسةٌ وأربعون عاماً</td>
+    </tr>
+    <tr>
+      <td><span class="number-badge bg-constant">٧</span></td>
+      <td>مئة وألف</td>
+      <td>تلزم حالة واحدة</td>
+      <td>مفرد مجرور</td>
+      <td>مئة عامٍ / مئة جلدةٍ / مئة ألف مقاتلٍ</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<!-- ===== نص المصنف ===== -->
+<h1>نص المصنف رحمه الله</h1>
+
+<p>الآن نقرأ الكتاب. قال هنا:</p>
+
+<div class="matn-box">
+  النوع الثامن من ثلاثة عشر نوعاً:<br>
+  <strong>أسماء تنصب على التمييز أسماءً نكرات وهي أربعة أسماء</strong><br>
+  أولها عشرة
+</div>
+
+<p><strong>أولها عشرة</strong> — إذا ركبت مع أحد أو اثنين إلى تسعة. يعني: أحد عشر، ثلاثة عشر، أربعة عشر... إلخ. أربعة أسماء: أولها أحد عشر، اثنا عشر، ثلاثة عشر، أربعة عشر...</p>
+
+<div class="matn-box">
+  نحو أحد عشر درهماً
+</div>
+
+<p>لاحظ معي: أحد عشر درهماً — أحد عشر أولاً يوافق المعدود أو يخالف؟ ثانياً: نوع التمييز مفرد منصوب. درهماً مذكر أو مؤنث؟ مذكر. قال أحد عشر ولم يقل إحدى عشرة. تمام؟</p>
+
+<div class="matn-box">
+  واثنا عشر درهماً إلى تسعة عشر ديناراً
+</div>
+
+<div class="matn-box">
+  وفي المفرد المذكر واحد تقول أكرمت طالباً واحداً وفي المثنى المذكر اثنان تقول أكرمت طالبين اثنين وفي المفردة المؤنث واحدة تقول أكرمت طالبةً واحدةً وفي المثنى اثنتان تقول أكرمت طالبتين اثنتين فهو جار على القياس المشهور
+</div>
+
+<div class="definition-card">
+  <div class="definition-term">القياس المشهور</div>
+  <div class="definition-text">
+    القياس المشهور هو أن العدد <strong>يوافق</strong> المعدود في التذكير والتأنيث. فهذا هو القياس المشهور في واحد واثنين.
+  </div>
+</div>
+
+<div class="matn-box">
+  وما فوقهما — يعني ما فوق الواحد والاثنين — غير جار على القياس المشهور، ليس بجارٍ على القياس، بل يخالف العدد المعدود نحو ثلاثة بإثبات التاء للمذكر إلى العشرة وثلاث بحذف التاء للمؤنث إلى العشرة
+</div>
+
+<div class="evidence-box">
+  <div class="evidence-label">دليل من القرآن الكريم</div>
+  <div class="evidence-text">﴿سَبْعَ لَيَالٍ وَثَمَانِيَةَ أَيَّامٍ﴾</div>
+  <p style="font-size:15px;margin-top:8px;">كما ذكرنا: تثبت التاء للمذكر وتحذف للمؤنث من ٣-١٠</p>
+</div>
+
+<div class="callout">
+  <div class="callout-title">تذكير: ارجع إلى المفرد</div>
+  <p>قلت لك: ارجع بالجمع إلى المفرد حتى تعرف هل الكلمة مذكرة أو مؤنثة.</p>
+</div>
+
+<!-- تركيب المذكر والمؤنث: 11-12 -->
+<div class="matn-box">
+  وتركيب المذكر أحد عشر رجلاً واثنا عشر رجلاً جارٍ على القياس المشهور ولاحظ الشين مفتوحة في المثالين
+</div>
+
+<div class="matn-box">
+  وتركيب المؤنث إحدى عشرة امرأةً ساكنة واثنتا عشرة امرأةً بإثبات التاء جارٍ على القياس المشهور
+</div>
+
+<p>كما قلت لك: يوافق العدد المعدود.</p>
+
+<!-- 13-19 -->
+<div class="matn-box">
+  وثلاثة عشر رجلاً وأربعة عشر رجلاً إلى عشرين بإثبات التاء للمذكر على غير القياس المشهور
+</div>
+
+<div class="matn-box">
+  وثلاث عشرة امرأةً وأربع عشرة امرأةً إلى عشرين امرأةً بحذف التاء للمؤنث على غير القياس المشهور
+</div>
+
+<p>انتهى. هذا كله يتكلم على التذكير والتأنيث. هل تكلم على نوع التمييز؟ هل تكلم على نوع التمييز؟ هل يكون مفرداً منصوباً مفرداً مجروراً جمعاً مجروراً؟ تكلم؟ لا. الآن سيتكلم.</p>
+
+<!-- تمييز 3-10 -->
+<div class="matn-box">
+  ومميز الثلاثة إلى العشرة مخفوض مجموع
+</div>
+
+<p>ما معنى هذا الكلام؟ شوف من فين بدأ؟ من الثلاثة إلى العشرة. شوف ما لم يبدأ بالواحد والاثنين. ليش؟ لأن تمييز الواحد والاثنين ليس تمييزاً بل هو نعت صفة. فالصغائر — إن صح التعبير — أبدأها بالثلاثة.</p>
+
+<div class="matn-box">
+  نحو ثلاثة رجال وثلاث نسوة
+</div>
+
+<p>انظر: ثلاث نسوة — هنا ثلاث نسوة لأن المعدود مؤنث فالعدد مذكر.</p>
+
+<div class="callout">
+  <div class="callout-title">فائدة فقهية: الكفن</div>
+  <p>يُكفَّن الرجل في ثلاثة أثواب وتُكفَّن المرأة في خمسة أثواب. أثواب جمع ثوب مذكر.</p>
+</div>
+
+<!-- تمييز 11-99 -->
+<div class="matn-box">
+  ومميز أحد عشر إلى تسعة وتسعين منصوب مفرد منصوب مفرد نحو أحد عشر رجلاً
+</div>
+
+<div class="evidence-box">
+  <div class="evidence-label">دليل من القرآن الكريم</div>
+  <div class="evidence-text">﴿إِنِّي رَأَيْتُ أَحَدَ عَشَرَ كَوْكَبًا﴾</div>
+</div>
+
+<div class="matn-box">
+  واثنا عشر رجلاً وثلاثة عشر رجلاً ولاحظ معي الشين مفتوحة لأن المعدود مذكر
+</div>
+
+<div class="matn-box">
+  إلى تسعة وتسعين رجلاً ومؤنثه إحدى عشرة امرأةً واثنتا عشرة امرأةً وثلاث عشرة امرأةً إلى تسع وتسعين امرأةً
+</div>
+
+<!-- تمييز مئة وألف -->
+<div class="matn-box">
+  ومميز مئة وألف وتثنيتهما مئتين ألفين وجمعه مخفوض مفرد
+</div>
+
+<p>كما قلت هنا: جيش المسلمين مئة ألف مقاتل.</p>
+
+<div class="matn-box">
+  نحو مئة رجل ومئتا رجل وثلاث مئة رجل وألف رجل وألفا رجل وآلاف رجل
+</div>
+
+<p>انتهينا منها واضح لنا خلاص.</p>
+
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<!-- ===== النوع الثاني من الأسماء الأربعة: كم ===== -->
+<h1>النوع الثاني من الأسماء الأربعة: كم</h1>
+
+<div class="definition-card">
+  <div class="definition-term">كم</div>
+  <div class="definition-text">
+    <strong>كم</strong> نوعان: إما استفهامية وإما خبرية.
+  </div>
+</div>
+
+<!-- CLASSIFICATION TREE: كم -->
+<div class="tree-container">
+  <div class="tree-title">شجرة التصنيف: أنواع كم</div>
+  <div class="tree-root">
+    <div class="tree-node">كم</div>
+  </div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">كم الاستفهامية</div>
+      <div class="tree-sub-branch">
+        <div style="font-size:14px;margin-top:4px;line-height:1.8;">
+          • تحتاج إلى جواب<br>
+          • ما بعدها <strong>منصوب</strong><br>
+          • يكون <strong>مفرداً</strong> فقط<br>
+          • مثال: كم درهماً أنفقت؟
+        </div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">كم الخبرية</div>
+      <div class="tree-sub-branch">
+        <div style="font-size:14px;margin-top:4px;line-height:1.8;">
+          • لا تحتاج إلى جواب (خبر)<br>
+          • ما بعدها <strong>مجرور</strong><br>
+          • يكون <strong>مفرداً أو جمعاً</strong><br>
+          • تفيد التكثير<br>
+          • مثال: كم مالٍ أنفقت!
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2>كم الاستفهامية</h2>
+
+<p>ومعنى كم استفهامية أي أنها تحتاج إلى جواب. فأنا أسألك: "كم درهماً أنفقت؟" — أحتاج إلى جواب. وحسب استصدارك الجواب تتوقف عليه.</p>
+
+<p>الذي بعد كم الاستفهامية يكون <strong>منصوباً</strong>. كم درهماً أنفقت؟ منصوب.</p>
+
+<p>ولا يكون إلا <strong>مفرداً</strong> منصوباً.</p>
+
+<h2>كم الخبرية</h2>
+
+<p>أما كم الخبرية فلا تحتاج إلى جواب، لا تحتاج إلى جواب. فأنت تُخبر ولذلك كم الخبرية هذه قول يحتمل الصدق والكذب. أنت تريد أن تُخبر مثلاً شخصاً يريد أن يمدح نفسه فيقول: "كم كتبٍ قرأت!" — هذا يحتاج إلى جواب؟ لا. تقول كم كتبٍ قرأت — كم مالٍ أنفقت!</p>
+
+<p>شوف في فرق بين قولي: <strong>كم مالاً أنفقت؟</strong> انظر كم مالاً — منصوب، هذه <strong>استفهامية</strong>. و<strong>كم مالٍ أنفقت!</strong> — هذا <strong>مجرور</strong>، هذه <strong>خبرية</strong>.</p>
+
+<p>في الأولى تحتاج إلى جواب، في الثانية لا تحتاج إلى جواب. الثانية من اسمها خبرية — خبر يحتمل الصدق والكذب. الأولى إن شاء استفهام لا يحتمل الصدق والكذب.</p>
+
+<!-- COMPARISON TABLE: كم الاستفهامية vs الخبرية -->
+<table class="table-styled">
+  <thead>
+    <tr>
+      <th>وجه الفرق</th>
+      <th>كم الاستفهامية</th>
+      <th>كم الخبرية</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>تحتاج جواباً؟</strong></td>
+      <td>نعم، تحتاج إلى جواب</td>
+      <td>لا، تُخبر ولا تحتاج جواباً (خبر يحتمل الصدق والكذب)</td>
+    </tr>
+    <tr>
+      <td><strong>إعراب ما بعدها</strong></td>
+      <td><strong>منصوب</strong><br>مثال: كم درهماً أنفقت؟</td>
+      <td><strong>مجرور</strong> (بإضافة كم إليه)<br>مثال: كم مالٍ أنفقت!</td>
+    </tr>
+    <tr>
+      <td><strong>نوع ما بعدها</strong></td>
+      <td>مفرد فقط</td>
+      <td>مفرد أو جمع</td>
+    </tr>
+    <tr>
+      <td><strong>المعنى</strong></td>
+      <td>الاستفهام عن العدد</td>
+      <td>التكثير — وهي نقيض رُبَّ</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>كم الخبرية نقيض رُبَّ</h2>
+
+<p>قال المصنف: <strong>وهي نقيضة رُبَّ</strong>.</p>
+
+<div class="definition-card">
+  <div class="definition-term">معنى نقيض رُبَّ</div>
+  <div class="definition-text">
+    رُبَّ تفيد في الأصل التقليل (قليلاً)، والبعض يقول التكثير (كثير)، لكن الأصل أنها تفيد التقليل.<br><br>
+    كم تفيد التكثير.<br><br>
+    فالأصل في <strong>رُبَّ</strong> أنها تفيد <strong>التقليل</strong>، والأصل في <strong>كم</strong> أنها تفيد <strong>التكثير</strong>. والذي كانت رُبَّ — فاهمتم ما معنى نقيض رُبَّ؟<br><br>
+    وبعض العلماء يقول حتى كم تأتي للتقليل، لكن نشرح معناه كلامي فقط. الأصل في رُبَّ أنها تفيد التقليل، والأصل في كم أنها تفيد التكثير.
+  </div>
+</div>
+
+<p>تقول: <strong>كم رجلٍ لقيته!</strong> — انظر كم رجلٍ، انظر إلى ما بعد كم جاء مجروراً، هذه ليست استفهامية هذه خبرية. وتقول: <strong>كم رجالٍ لقيته!</strong> — هنا أيضاً جمع مجرور.</p>
+
+<!-- POETRY: ملحة الإعراب -->
+<h2>نظم ملحة الإعراب للحريري</h2>
+
+<div class="scholar-card">
+  <div class="scholar-name">القاسم الحريري</div>
+  <span class="scholar-badge">نحوي</span>
+  <div class="scholar-bio">
+    صاحب ملحة الإعراب — نظمه سهل سلس، أسلس من ألفية ابن مالك، لكن لم يستوعب الألفية أكثر، ويُعاب عليها أقل استيعاباً.
+  </div>
+</div>
+
+<!-- Poetry Box 1: كم الخبرية -->
+<div class="poetry-box">
+  <div class="poetry-title">نظم كم الخبرية — ملحة الإعراب</div>
+  <div class="verse">
+    واجْرُرْ بِكَمْ مَا كُنْتَ عَنْهُ مُخْبِرَا<br>
+    مُعَظِّمَاً لِقَدْرِهِ مُكَثِّرَا
+  </div>
+  <div class="verse" style="margin-top:14px;">
+    تَقُولُ كَمْ مَالٍ أَفَادَتْهُ يَدِي<br>
+    وَكَمْ إِمَاءٍ مَلَكْتُ وَأَعْبُدِي
+  </div>
+  <p style="font-size:15px;margin-top:12px;color:#555;">
+    <strong>الشرح:</strong> واجرر بكم — أي اجعل ما بعد كم الخبرية مجروراً — ما كنت عنه مخبراً معظماً لقدره مكثراً.<br>
+    تقول كم مالٍ أفادته يدي — كم من مال أعطيته! أنت لا تريد الجواب، تريد أن تُخبر أنك أعطيته مالاً كثيراً.<br>
+    وكم إماءٍ ملكت — وأعبُدي — وعنده عبيد كثير، هذا غني.
+  </p>
+</div>
+
+<!-- Poetry Box 2: كم الاستفهامية -->
+<div class="poetry-box">
+  <div class="poetry-title">نظم كم الاستفهامية — ملحة الإعراب</div>
+  <div class="verse">
+    وَكَمْ إِذَا جِئْتَ بِهَا مُسْتَفْهِمَا<br>
+    فَانْصِبْ وَقُلْ كَمْ كَوْكَبَاً تَحْوِي السَّمَاءْ
+  </div>
+  <p style="font-size:15px;margin-top:12px;color:#555;">
+    <strong>الشرح:</strong> وكم إذا جئت بها مستفهماً فانصب — أي اجعل ما بعد كم الاستفهامية منصوباً — وقل كم كوكباً تحوي السماء. كم عدد الكواكب في السماء؟ أنت تريد الجواب، لا تريد الإخبار.<br>
+    <strong>ولا يكون إلا مفرداً</strong> منصوباً.
+  </p>
+</div>
+
+<div class="alert-box warning">
+  <strong>تنبيه على أخطاء شائعة:</strong> هذا مما يخطئ فيه كثير من الناس، لا يفرقون بين كم الاستفهامية وكم الخبرية.
+</div>
+
+<!-- نص المصنف في كم -->
+<h2>نص المصنف رحمه الله في كم</h2>
+
+<div class="matn-box">
+  والثاني كم للاستفهام نحو كم درهماً مالك
+</div>
+
+<p>هذه استفهامية — كم درهماً.</p>
+
+<div class="matn-box">
+  وكم الخبرية تضاف إلى المميز — مضاف يعني مجرور — وقد يكون مفرداً وقد يكون جمعاً
+</div>
+
+<p>مفرداً كان أو جمعاً.</p>
+
+<div class="matn-box">
+  وهي نقيضة رُبَّ
+</div>
+
+<p>كما شرحنا أعلاه.</p>
+
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<!-- ===== النوع الثالث: كأين ===== -->
+<h1>النوع الثالث من الأسماء الأربعة: كأين</h1>
+
+<div class="matn-box">
+  والثالث كأين
+</div>
+
+<p>كأين هذه أيضاً تنصب اسماً بعدها نحو: <strong>كأين رجلاً عندك</strong>.</p>
+
+<div class="irab-box">
+  <div class="irab-title">إعراب: كأين رجلاً عندك</div>
+  <div class="irab-example">كأين رجلاً عندك</div>
+  <div class="irab-detail">
+    <strong>كأين:</strong> مبتدأ<br>
+    <strong>رجلاً:</strong> تمييز<br>
+    <strong>عندي:</strong> شبه جملة خبر
+  </div>
+</div>
+
+<p>هكذا قال المصنف. لكن الذي استُعمل في القرآن الكريم وهو الأفصح أن ما بعد كأين يكون <strong>مجروراً بحرف جر</strong>.</p>
+
+<div class="callout">
+  <div class="callout-title">الأفصح في كأين</div>
+  <p>ما ذكره المصنف صحيح (أن ما بعد كأين منصوب تمييز)، لكن <strong>الأفصح</strong> أن ما بعد كأين يُجر بحرف جر.</p>
+</div>
+
+<div class="evidence-box">
+  <div class="evidence-label">دليل من القرآن الكريم — كأين من قرية</div>
+  <div class="evidence-text">﴿وَكَأَيِّن مِّن قَرْيَةٍ أَهْلَكْنَاهَا﴾</div>
+</div>
+
+<div class="evidence-box">
+  <div class="evidence-label">دليل من القرآن الكريم — كأين من نبي</div>
+  <div class="evidence-text">﴿وَكَأَيِّن مِّن نَّبِيٍّ قَاتَلَ مَعَهُ رِبِّيُّونَ كَثِيرٌ﴾</div>
+</div>
+
+<div class="evidence-box">
+  <div class="evidence-label">دليل من القرآن الكريم — كأين من دابة</div>
+  <div class="evidence-text">﴿وَكَأَيِّن مِّن دَابَّةٍ لَّا تَحْمِلُ رِزْقَهَا﴾</div>
+</div>
+
+<p>فاللغة الأفصح في كأين أن ما بعدها يجر بحرف جر. ما ذكره صحيح لكن الأفصح أن ما بعد كأين يجر بحرف جر. فهمتم بارك الله فيكم.</p>
+
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<!-- ===== النوع الرابع: كذا ===== -->
+<h1>النوع الرابع من الأسماء الأربعة: كذا</h1>
+
+<div class="matn-box">
+  والرابع كذا
+</div>
+
+<p><strong>كذا</strong> تأتي كناية عن التكثير واضح. تقول مثلاً: "أنفقت من المال كذا وكذا" — أنفقت من المال كذا وكذا إشارة إلى ماذا؟ إلى كثرة ما أنفقت.</p>
+
+<div class="irab-box">
+  <div class="irab-title">إعراب: عندي كذا درهماً</div>
+  <div class="irab-example">عندي كذا درهماً</div>
+  <div class="irab-detail">
+    <strong>عندي:</strong> شبه جملة خبر مقدم<br>
+    <strong>كذا:</strong> مبتدأ مؤخر<br>
+    <strong>درهماً:</strong> تمييز
+  </div>
+</div>
+
+<p>فهنا كذا كناية عن العدد تمام. كناية عن العدد.</p>
+
+<h2>استعمالات كذا الثلاثة</h2>
+
+<p>وطبعاً كذا تأتي على ثلاثة استعمالات:</p>
+
+<!-- CLASSIFICATION TREE: استعمالات كذا -->
+<div class="tree-container">
+  <div class="tree-title">شجرة التصنيف: استعمالات كذا</div>
+  <div class="tree-root">
+    <div class="tree-node">كذا</div>
+  </div>
+  <div class="tree-branches">
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">كناية عن العدد</div>
+      <div class="tree-sub-branch">
+        <div style="font-size:14px;margin-top:4px;">
+          تقول: أنفقت كذا وكذا درهماً<br>
+          أي: أنفقت دراهماً كثيرة
+        </div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">للتشبيه</div>
+      <div class="tree-sub-branch">
+        <div style="font-size:14px;margin-top:4px;">
+          تقول: زيد كذا<br>
+          تقدير الكلام: زيد يشبه هذا — كَهذا<br>
+          زيد كذا = زيد مثل هذا
+        </div>
+      </div>
+    </div>
+    <div class="tree-branch">
+      <div class="tree-connector"></div>
+      <div class="tree-branch-node">كناية عن قول أو فعل</div>
+      <div class="tree-sub-branch">
+        <div style="font-size:14px;margin-top:4px;">
+          تقول: قال كذا وكذا<br>
+          أي: قال كلاماً<br>
+          فعل كذا وكذا<br>
+          أي: فعل فعلاً<br>
+          لا تريد أن تذكر الفعل لكن تقول: قال كذا وكذا، فعل كذا وكذا
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="summary-box">
+  <div class="summary-title">خلاصة استعمالات كذا</div>
+  <div class="summary-text">
+    <p>① <strong>كناية عن عدد:</strong> أنفقت كذا وكذا درهماً — أي أنفقت دراهماً كثيرة</p>
+    <p>② <strong>للتشبيه:</strong> زيد كذا — أي زيد كَهذا (يشبه هذا)</p>
+    <p>③ <strong>كناية عن قول أو فعل:</strong> قال كذا وكذا — أي قال كلاماً. فعل كذا وكذا — أي فعل فعلاً. لا تريد أن تذكر الفعل.</p>
+  </div>
+</div>
+
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<!-- ===== SUMMARY: الأسماء الأربعة ===== -->
+<h1>ملخص: الأسماء الأربعة التي تنصب أسماءً نكرات</h1>
+
+<div class="names-grid">
+
+<div class="name-card">
+  <div class="name-card-title">① العدد (عشرة)</div>
+  <div class="name-card-desc">أسماء العدد من ١١-٩٩ وما يتعلق بها</div>
+  <div class="name-card-example">
+    تمييز ٣-١٠: جمع مجرور<br>
+    تمييز ١١-٩٩: مفرد منصوب<br>
+    تمييز مئة وألف: مفرد مجرور
+  </div>
+</div>
+
+<div class="name-card">
+  <div class="name-card-title">② كم</div>
+  <div class="name-card-desc">استفهامية أو خبرية</div>
+  <div class="name-card-example">
+    استفهامية: ما بعدها مفرد منصوب<br>
+    خبرية: ما بعدها مفرد أو جمع مجرور
+  </div>
+</div>
+
+<div class="name-card">
+  <div class="name-card-title">③ كأين</div>
+  <div class="name-card-desc">تنصب اسماً بعدها</div>
+  <div class="name-card-example">
+    عند المصنف: تمييز منصوب<br>
+    الأفصح: يجر بحرف جر<br>
+    ﴿وكأين من قرية أهلكناها﴾
+  </div>
+</div>
+
+<div class="name-card">
+  <div class="name-card-title">④ كذا</div>
+  <div class="name-card-desc">كناية عن العدد أو التشبيه أو القول/الفعل</div>
+  <div class="name-card-example">
+    كناية عن عدد: أنفقت كذا درهماً<br>
+    تشبيه: زيد كذا<br>
+    كناية عن قول/فعل: قال كذا وكذا
+  </div>
+</div>
+
+</div>
+
+<div class="section-divider ornate">
+  <span class="divider-icon">❁</span>
+</div>
+
+<!-- ===== CLOSING ===== -->
+<h1>خاتمة: النوع التاسع</h1>
+
+<p>ثم قال رحمه الله: <strong>أسماء الأفعال</strong> — أو النوع التاسع من ثلاثة عشر نوعاً — كلمات تسمى أسماء الأفعال. هذه سندرسها إن شاء الله في الدرس القادم.</p>
+
+<div class="summary-box">
+  <div class="summary-title">ملخص الدرس الحادي عشر</div>
+  <div class="summary-text">
+    <p><strong>النوع الثامن:</strong> أسماء تنصب على التمييز أسماءً نكرات، وهي أربعة أسماء:</p>
+    <p><strong>① العدد (عشرة):</strong> تذكير وتأنيث العدد يختلف حسب المعدود (يوافق/يخالف)، ونوع التمييز يختلف حسب العدد (جمع مجرور/مفرد منصوب/مفرد مجرور)</p>
+    <p><strong>② كم الاستفهامية:</strong> تحتاج جواباً، ما بعدها مفرد منصوب</p>
+    <p><strong>③ كم الخبرية:</strong> لا تحتاج جواباً، ما بعدها مفرد أو جمع مجرور، تفيد التكثير، نقيض رُبَّ</p>
+    <p><strong>④ كأين:</strong> عند المصنف تنصب تمييزاً، والأفصح أن يجر ما بعدها بحرف جر</p>
+    <p><strong>⑤ كذا:</strong> كناية عن عدد أو تشبيه أو قول/فعل</p>
+  </div>
+</div>
+
+<div class="checklist">
+  <div style="font-weight:700;color:var(--primary-green);font-size:18px;margin-bottom:12px;">قائمة المراجعة: قواعد العدد</div>
+  <div class="checklist-item">
+    <div class="checklist-circle">١</div>
+    <div class="checklist-text">واحد واثنان: يوافقان المعدود — لا تمييز (نعت صفة)</div>
+  </div>
+  <div class="checklist-item">
+    <div class="checklist-circle">٢</div>
+    <div class="checklist-text">٣-١٠: يخالف المعدود — تمييزه جمع مجرور</div>
+  </div>
+  <div class="checklist-item">
+    <div class="checklist-circle">٣</div>
+    <div class="checklist-text">١١-١٢: يوافق المعدود في الجزأين — تمييزه مفرد منصوب</div>
+  </div>
+  <div class="checklist-item">
+    <div class="checklist-circle">٤</div>
+    <div class="checklist-text">١٣-١٩: الأول يخالف والثاني يوافق — تمييزه مفرد منصوب</div>
+  </div>
+  <div class="checklist-item">
+    <div class="checklist-circle">٥</div>
+    <div class="checklist-text">ألفاظ العقود (٢٠-٩٠): تلزم حالة واحدة — تمييزه مفرد منصوب</div>
+  </div>
+  <div class="checklist-item">
+    <div class="checklist-circle">٦</div>
+    <div class="checklist-text">٢١-٩٩: الأول يخالف والثاني يوافق — تمييزه مفرد منصوب</div>
+  </div>
+  <div class="checklist-item">
+    <div class="checklist-circle">٧</div>
+    <div class="checklist-text">مئة وألف: تلزم حالة واحدة — تمييزه مفرد مجرور</div>
+  </div>
+  <div class="checklist-item">
+    <div class="checklist-circle">٨</div>
+    <div class="checklist-text">الشين تسكن مع المؤنث وتفتح مع المذكر في العدد المركب</div>
+  </div>
+  <div class="checklist-item">
+    <div class="checklist-circle">٩</div>
+    <div class="checklist-text">ارجع بالجمع إلى المفرد لمعرفة التذكير والتأنيث</div>
+  </div>
+</div>
+
+<!-- CLOSING DUA -->
+<div class="closing-box">
+  <div class="closing-dua">
+    والله أعلم<br>
+    صلَّ اللهم وسلم وبارك على سيدنا محمد وآله وصحبه أجمعين<br>
+    والحمد لله رب العالمين
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="page-footer">
+  شرح العوامل المائة — للإمام عبد القاهر الجرجاني رحمه الله تعالى | الشرح: د. لبيب نجيب عبدالله | إعداد: أحمد بن إرشاد | الدرس الحادي عشر
+</div>
+
+</div><!-- end main-content -->
+
+<!-- JAVASCRIPT FOR B&W TOGGLE -->
+<script>
+document.querySelector('.bw-toggle').addEventListener('click', function() {
+  document.body.classList.toggle('bw-mode');
+  if (document.body.classList.contains('bw-mode')) {
+    this.textContent = 'الوضع الملون';
+  } else {
+    this.textContent = 'وضع الأبيض والأسود';
+  }
+});
+</script>
+
+</body>
+</html>
