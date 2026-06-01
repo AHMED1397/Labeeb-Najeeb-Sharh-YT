@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 export function HtmlContent({
   html,
@@ -9,20 +9,19 @@ export function HtmlContent({
   html: string;
   scripts: string[];
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     for (const code of scripts) {
       try {
-        const fn = new Function(code);
-        fn();
+        const el = document.createElement("script");
+        el.textContent = code;
+        document.body.appendChild(el);
+        el.remove();
       } catch {}
     }
   }, [scripts]);
 
   return (
     <article
-      ref={ref}
       className="lesson-content"
       dangerouslySetInnerHTML={{ __html: html }}
     />
