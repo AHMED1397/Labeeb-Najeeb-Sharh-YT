@@ -16,7 +16,8 @@
 6. Commit and push to deploy on Vercel
 
 📝 Important Notes
-- HTML files should have: <div class="subtitle">Lesson Title</div> (or whichever subtitleClass you set) for the title to be auto-extracted
-- The <style> in <head> is preserved and merged with the body content — keep all your CSS there
-- Fonts are served via Google Fonts (Amiri + Noto Naskh Arabic), so use font-family: 'Amiri' and 'Noto Naskh Arabic' (not local TTF paths)
+- HTML files are served as-is via an iframe — all your <style>, <script>, @font-face, and HTML work exactly as a standalone page
+- The @font-face blocks referencing local TTF files are automatically removed (Google Fonts handles them)
+- Use font-family: 'Amiri' and 'Noto Naskh Arabic' (not 'Amiri-Bold' or 'NotoNaskhArabic') for best Google Fonts compatibility
 - YouTube links array index = lesson number - 1 (zero-based)
+- No code changes to HTML files are needed
