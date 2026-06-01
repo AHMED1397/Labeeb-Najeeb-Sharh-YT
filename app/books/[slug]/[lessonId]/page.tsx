@@ -25,11 +25,20 @@ export default async function LessonPage({
 
   let htmlContent = "";
   try {
-    htmlContent = fs.readFileSync(lesson.filePath, "utf-8");
-    htmlContent = htmlContent
-      .replace(/<!DOCTYPE html>[\s\S]*?<body[^>]*>/i, "")
-      .replace(/<\/body>[\s\S]*?<\/html>/i, "")
-      .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, "");
+    const fullHtml = fs.readFileSync(lesson.filePath, "utf-8");
+    // Extract <style> from <head> (preserves all the beautiful CSS)
+    const styleMatch = fullHtml.match(/<style[^>]*>[\s\S]*?<\/style>/i);
+    const styleTag = styleMatch ? styleMatch[0] : "";
+    // Extract body inner content
+    const bodyMatch = fullHtml.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+    const bodyContent = bodyMatch ? bodyMatch[1] : "";
+    // Combine and clean
+    htmlContent = styleTag + bodyContent;
+    // Remove @font-face blocks (fonts come from Google Fonts in layout)
+    htmlContent = htmlContent.replace(/@font-face\s*\{[^}]*\}/gi, "");
+    // Fix font names to match Google Fonts
+    htmlContent = htmlContent.replace(/['"]NotoNaskhArabic['"]/gi, "'Noto Naskh Arabic'");
+    htmlContent = htmlContent.replace(/['"]Amiri-Bold['"]/gi, "'Amiri'");
   } catch {
     notFound();
   }
