@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getBookBySlug } from "@/lib/data";
 import fs from "fs";
+import { HtmlContent } from "./HtmlContent";
 
 export default async function LessonPage({
   params,
@@ -24,6 +25,7 @@ export default async function LessonPage({
       : null;
 
   let htmlContent = "";
+  let scripts: string[] = [];
   try {
     const fullHtml = fs.readFileSync(lesson.filePath, "utf-8");
     // Extract <style> from <head> (preserves all the beautiful CSS)
@@ -31,7 +33,13 @@ export default async function LessonPage({
     const styleTag = styleMatch ? styleMatch[0] : "";
     // Extract body inner content
     const bodyMatch = fullHtml.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-    const bodyContent = bodyMatch ? bodyMatch[1] : "";
+    let bodyContent = bodyMatch ? bodyMatch[1] : "";
+    // Extract scripts from body (React dangerouslySetInnerHTML ignores them)
+    scripts = [];
+    bodyContent = bodyContent.replace(
+      /<script[^>]*>([\s\S]*?)<\/script>/gi,
+      (_, code) => { scripts.push(code.trim()); return ""; }
+    );
     // Combine and clean
     htmlContent = styleTag + bodyContent;
     // Remove @font-face blocks (fonts come from Google Fonts in layout)
@@ -91,10 +99,7 @@ export default async function LessonPage({
 
       {/* Content */}
       <main className="flex-1 max-w-5xl w-full mx-auto px-4 py-6">
-        <article
-          className="lesson-content"
-          dangerouslySetInnerHTML={{ __html: htmlContent }}
-        />
+        <HtmlContent html={htmlContent} scripts={scripts} />
 
         {/* Navigation */}
         <div className="mt-8 pt-6 border-t-2 border-[#c8a951] flex items-center justify-between">

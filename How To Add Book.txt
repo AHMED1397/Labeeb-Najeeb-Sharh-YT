@@ -1,5 +1,22 @@
-📚 To add another book in the future
-1. Create a new folder inside Books/, e.g. Books/My_Book/
-2. Place HTML lecture files with a consistent naming pattern, e.g. my_book_lecture01.html
-3. Add a new entry to the bookRegistry array in lib/data.ts:22-39 with its folder name, slug, titles, file regex pattern, and subtitle class name
-4. Rebuild and redeploy
+📚 How to Add a New Book
+
+1. Create a folder inside Books/, e.g. Books/My_Book/
+2. Place HTML lecture files with a consistent naming pattern, e.g. my_book_lecture1.html
+3. Register the book in lib/data.ts — add an entry to bookRegistry[] with:
+   - dir: folder name (e.g. "My_Book")
+   - slug: URL slug (e.g. "my-book")
+   - title / titleAr: book name
+   - author / lecturer: author and lecturer names
+   - description: short description
+   - icon: emoji icon
+   - filePattern: regex to match lecture files (e.g. /my_book_lecture(\d+)\.html$/)
+   - subtitleClass: the class used for the lesson subtitle in the HTML (usually "subtitle" or "cover-subtitle")
+4. Add YouTube links in lib/youtube.ts under the matching slug key
+5. Rebuild: npm run build
+6. Commit and push to deploy on Vercel
+
+📝 Important Notes
+- HTML files should have: <div class="subtitle">Lesson Title</div> (or whichever subtitleClass you set) for the title to be auto-extracted
+- The <style> in <head> is preserved and merged with the body content — keep all your CSS there
+- Fonts are served via Google Fonts (Amiri + Noto Naskh Arabic), so use font-family: 'Amiri' and 'Noto Naskh Arabic' (not local TTF paths)
+- YouTube links array index = lesson number - 1 (zero-based)
